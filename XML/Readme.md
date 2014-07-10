@@ -7,7 +7,7 @@
 
 * Свойства товаров _(properties.xml)_
 
-* Товаров _(products.xml)_
+* Товары _(products.xml)_
 
 * Цены _(prices.xml)_
 
