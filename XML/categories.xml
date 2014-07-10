@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<categories>
+	<category id="5a7257325cf60dbe044e57941bb9e0ed">
+		<name>Аксессуары</name>
+	</category>
+	<category id="2372dfdfd51d4a39ed8a9517f16e0cdd" parent="5a7257325cf60dbe044e57941bb9e0ed">
+		<name>Визитница</name>
+		<description>
+			Описание категории с визитницами
+		</description>
+	</category>
+	<category id="f1c7fec5b6a68df1b486d2a60eb658bc" parent="5a7257325cf60dbe044e57941bb9e0ed">
+		<name>Зажим для денег</name>
+		<description>
+			Описание категории с зажимами для денег
+		</description>
+	</category>
+</categories>

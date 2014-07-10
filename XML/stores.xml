@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<citys>
+	<city id="e6eb3a7361bf01ed68df48c399e93e3e">
+		Москва
+	</city>
+	<city id="ae25cebf7b46526ecceb0529c9c172d3">
+		Арзамас
+	</city>
+</citys>
+<stores>
+	<store id="2c7d99007a90585adb66735227ba529d">
+		<city id="e6eb3a7361bf01ed68df48c399e93e3e" />
+		<place>ТРЦ «Афимолл»</place>
+		<stage>2 этаж</stage>
+		<address>Пресненская набережная, д. 2</address>
+		<phone>+7(499)272-12-60</phone>
+	</store>
+	<store id="f2d2562d4dcbfb6ee03cffa12f6e62de">
+		<city id="e6eb3a7361bf01ed68df48c399e93e3e" />
+		<place>ТЦ «Метро»</place>
+		<stage>1 этаж</stage>
+		<address>пр. Ленина, 119</address>
+	</store>
+</stores>

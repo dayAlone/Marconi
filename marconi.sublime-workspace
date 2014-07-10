@@ -1,0 +1,983 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"of",
+				"offset"
+			],
+			[
+				"pat",
+				"padding-top"
+			],
+			[
+				"ma",
+				"margin-bottom"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"cal",
+				"cal-day"
+			],
+			[
+				"las",
+				"last-of-type"
+			],
+			[
+				"pa",
+				"padding-bottom"
+			],
+			[
+				"pt",
+				"padding-top"
+			],
+			[
+				"em",
+				"embedded-opentype"
+			],
+			[
+				"se",
+				"section"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"con",
+				"contain"
+			],
+			[
+				"test",
+				"test_result"
+			],
+			[
+				"rem",
+				"removeCookie"
+			],
+			[
+				"qu",
+				"questions"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"re",
+				"result"
+			],
+			[
+				"remo",
+				"removeClass"
+			],
+			[
+				"end",
+				"endforeach"
+			],
+			[
+				"repe",
+				"no-repeat"
+			],
+			[
+				"res",
+				"reasons"
+			],
+			[
+				"te-",
+				"text-align"
+			],
+			[
+				"anim",
+				"animate"
+			],
+			[
+				"stro",
+				"stroke-width"
+			],
+			[
+				"pad-",
+				"padding-bottom"
+			],
+			[
+				"li-",
+				"line-height"
+			],
+			[
+				"tra",
+				"transparent"
+			],
+			[
+				"sc",
+				"scrollspy"
+			],
+			[
+				"ac",
+				"active"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"ba-",
+				"background-repeat"
+			],
+			[
+				"te",
+				"text-indent"
+			],
+			[
+				"an",
+				"anchor	 frontend.css"
+			],
+			[
+				"whi",
+				"white-space"
+			],
+			[
+				"ml",
+				"margin-left"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"bl",
+				"block"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"Im",
+				"important"
+			],
+			[
+				"u",
+				"uppercase"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"first",
+				"first-of-type"
+			],
+			[
+				"ab",
+				"absolute"
+			],
+			[
+				"hi",
+				"history"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"br",
+				"brands"
+			],
+			[
+				"i",
+				"item"
+			],
+			[
+				"if",
+				"iframe"
+			],
+			[
+				"un",
+				"undefined"
+			],
+			[
+				"ma-",
+				"margin-bottom"
+			],
+			[
+				"fo-s",
+				"font-size"
+			],
+			[
+				"fi",
+				"first-of-type"
+			],
+			[
+				"max-",
+				"max-height"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"bo-r",
+				"border-radius"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"mih",
+				"min-height"
+			],
+			[
+				"bor-",
+				"border-right"
+			],
+			[
+				"bo-t",
+				"border-right"
+			],
+			[
+				"to",
+				"toggleClass"
+			],
+			[
+				"cl",
+				"clear"
+			],
+			[
+				"trans",
+				"translateY"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"tr",
+				"transform"
+			],
+			[
+				"min-",
+				"min-width:   (property)"
+			],
+			[
+				"wid",
+				"width:   (property)"
+			],
+			[
+				"onm",
+				"onmouseover	Attr"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"I",
+				"ITEMS"
+			],
+			[
+				"DETAIL",
+				"arDETAIL_PICTURE  (variable)"
+			],
+			[
+				"po",
+				"portfolio"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"bo-c",
+				"border-color:   (property)"
+			],
+			[
+				"text",
+				"textarea  (element)"
+			],
+			[
+				"incl",
+				"inline-block"
+			],
+			[
+				"full-w",
+				"full-width"
+			],
+			[
+				"des",
+				"description"
+			],
+			[
+				"opca",
+				"opacity"
+			],
+			[
+				"opc",
+				"opacity"
+			],
+			[
+				"orang",
+				"orange2"
+			],
+			[
+				"hit",
+				"highlight2"
+			],
+			[
+				"impo",
+				"important"
+			],
+			[
+				"opac",
+				"opacify	opacify()"
+			],
+			[
+				"so",
+				"solid"
+			],
+			[
+				"ma-b",
+				"margin-bottom:   (property)"
+			],
+			[
+				"over",
+				"overflow"
+			],
+			[
+				"op",
+				"opacity	opacity()"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"vi",
+				"violet"
+			],
+			[
+				"sh",
+				"short"
+			],
+			[
+				"full",
+				"full-width"
+			],
+			[
+				"ba-s",
+				"background-size:   (property)"
+			],
+			[
+				"arFie",
+				"arFields  (variable)"
+			],
+			[
+				"pro",
+				"product"
+			],
+			[
+				"str_rep",
+				"str_replace"
+			],
+			[
+				"pr",
+				"price"
+			],
+			[
+				"PRO",
+				"PROPS"
+			],
+			[
+				"In",
+				"IncludeModule"
+			],
+			[
+				"off",
+				"offet"
+			],
+			[
+				"SE",
+				"SECTION_ID"
+			],
+			[
+				"DE",
+				"DETAIL_PICTURE"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"DES",
+				"DESCRIPTION"
+			],
+			[
+				"fo",
+				"foreach	foreach …"
+			],
+			[
+				"arr",
+				"array	$… = array (…)"
+			],
+			[
+				"glo",
+				"global"
+			],
+			[
+				"vla",
+				"value	Attr"
+			],
+			[
+				"par",
+				"parsley"
+			],
+			[
+				"PRE",
+				"PREVIEW_TRUNCATE_LEN"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"rel",
+				"relative"
+			],
+			[
+				"fl",
+				"float"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"hid",
+				"hidden"
+			],
+			[
+				"ce",
+				"center"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"image",
+				"images"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"fir",
+				"first"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"bou",
+				"bounceIn"
+			],
+			[
+				"anima",
+				"animated"
+			],
+			[
+				"too",
+				"toolbar"
+			],
+			[
+				"ad",
+				"addClass"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"er",
+				"error_message"
+			],
+			[
+				"error",
+				"error_message"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/Stylus/Stylus.sublime-build",
+	"command_palette":
+	{
+		"height": 400.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 610.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/bitrix/index.php",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/bitrix/career/index.php",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/sources/html/includes/toolbar.jade",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/sources/html/event.jade",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/sources/html/index.jade",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/bitrix/about/index.php",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/bitrix/local/templates/mars_graduates/header.php",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/public_html/index.html",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/bitrix/local/templates/mars_graduates/components/bitrix/news.list/career_index/result_modifier.php",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/bitrix/local/templates/mars_graduates/components/bitrix/news.list/career_index/template.php",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/Gruntfile.coffee",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/sources/css/style.styl",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/sources/js/script.coffee",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/public_html/fonts.html",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/bitrix/include/calendar.php",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/bitrix/local/templates/mars_graduates/components/bitrix/menu/toolbar/template.php",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/bitrix/.top.menu.php",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/bitrix/local/templates/mars_graduates/components/bitrix/menu/nav/template.php",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/bitrix/local/templates/mars_graduates/components/bitrix/menu/social/template.php",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/bitrix/local/templates/mars_graduates/footer.php",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/bitrix/bitrix/.settings.php",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/bitrix/local/php_interface/init.php",
+		"/Users/slider/Documents/Projects/Lilly/public_html/bitrix/.settings.php",
+		"/Users/slider/Documents/Projects/Lilly/public_html/layout/js/main.coffee",
+		"/Users/slider/Documents/DNS",
+		"/Users/slider/Documents/Projects/Lilly/public_html/test/symptoms/questions.json",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/sources/html/academy.jade",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/sources/html/fonts.jade",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/sources/html/about.jade",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/bower.json",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/sources/html/career.jade",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/sources/html/month.jade",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/sources/html/includes/nav.jade",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/sources/html/includes/header.jade",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/bower_components/slick/slick/slick.css",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/sources/html/includes/footer.jade",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/sources/images/svg/mail.svg",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/sources/images/svg/arrow-3.svg",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/sources/images/svg/flag.svg",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/public_html/layout/images/svg/flag.svg",
+		"/Users/slider/Documents/Projects/MarsGraduates/HTML/package.json",
+		"/Users/slider/Documents/Projects/Radia/public_html/bitrix/templates/radia/components/bitrix/news.detail/services/template.php",
+		"/Users/slider/Documents/Projects/Radia/public_html/bitrix/templates/radia/components/bitrix/news.list/clients_index/template.php",
+		"/Users/slider/Documents/Projects/Radia/public_html/about/index.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/bitrix/.settings.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/bitrix/modules/import/settings.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/bitrix/php_interface/init.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/.access.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/index.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/bitrix/php_interface/dbconn.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/bitrix/templates/supermerkado/components/bitrix/catalog.section/.default/result_modifier.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/bitrix/modules/import/classes/general/CImportHandlers.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/bitrix/templates/supermerkado/components/bitrix/catalog.element/.default/collection.php",
+		"/var/folders/2t/kkwn6wlx0_nbqs96b12nfr0r0000gn/T/sublime-sftp-browse-1400241494/supermerkado/home/bitrix/www/bitrix/modules/import/classes/general/CImportHandlers.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/bitrix/templates/supermerkado/components/bitrix/catalog.section/.default/template.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/bitrix/templates/supermerkado/components/bitrix/news.list/comments/template.php",
+		"/Users/slider/Library/Application Support/Sublime Text 3/Packages/User/sftp_servers/supermerkado",
+		"/Users/slider/Library/Application Support/Sublime Text 3/Packages/User/SFTP.sublime-settings",
+		"/Users/slider/Documents/Projects/Merkado/public_html/bitrix/templates/supermerkado/footer.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/include/review.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/bitrix/templates/supermerkado/components/bitrix/sale.order.ajax/.default/confirm.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/bitrix/templates/supermerkado/components/bitrix/sale.basket.basket.small/.default/template.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/bitrix/templates/supermerkado/components/bitrix/menu/social/template.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/bitrix/templates/supermerkado/components/bitrix/catalog.element/.default/product.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/layout/js/main.js",
+		"/Users/slider/Documents/Projects/Merkado/public_html/bitrix/templates/supermerkado/components/bitrix/catalog.element/.default/result_modifier.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/layout/js/nav.coffee",
+		"/Users/slider/Documents/Projects/Merkado/public_html/urlrewrite.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/collection/index.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/bitrix/templates/supermerkado/header.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/include/menu.left.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/categories/index.php",
+		"/Users/slider/Documents/Projects/Merkado/public_html/search/index.php",
+		"/Users/slider/Documents/Projects/Lilly/doctors/video/index.php",
+		"/Users/slider/Documents/Projects/Lilly/layout/js/plugins.js",
+		"/Users/slider/Documents/Projects/Lilly/doctors/.top.menu.php",
+		"/Users/slider/Documents/Projects/Lilly/doctors/index.php",
+		"/Users/slider/Documents/Projects/Lilly/bitrix/templates/ochenprosto/header.php",
+		"/Users/slider/Documents/Projects/Lilly/bitrix/templates/ochenprosto/components/bitrix/news.detail/.default/template.php",
+		"/Users/slider/Documents/Projects/Lilly/index.php",
+		"/Users/slider/Documents/Projects/Lilly/bitrix/php_interface/dbconn.php",
+		"/Users/slider/Documents/Projects/Lilly/bitrix/templates/ochenprosto/footer.php",
+		"/Users/slider/Documents/Projects/Lilly/layout/js/vimeo.js",
+		"/Users/slider/Documents/Projects/Lilly/faq/index.php",
+		"/Users/slider/Documents/Projects/Lilly/bitrix/templates/ochenprosto/components/bitrix/news.list/promo.woman/template.php",
+		"/Users/slider/Documents/Projects/Lilly/bitrix/templates/ochenprosto/components/bitrix/news.list/promo/template.php",
+		"/Users/slider/Documents/Projects/Lilly/bitrix/templates/ochenprosto/components/bitrix/news.list/more/template.php",
+		"/Users/slider/Documents/Projects/Lilly/.top.menu.php",
+		"/Users/slider/Documents/Projects/Lilly/bitrix/.settings.php",
+		"/Users/slider/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/slider/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/slider/Documents/Projects/Radia/public_html/radia.sublime-project",
+		"/Users/slider/Documents/Projects/radia.sublime-project",
+		"/Users/slider/Documents/Projects/Radia/public_html/bitrix/.settings.php",
+		"/Users/slider/Documents/Projects/Radia/public_html/bitrix/php_interface/dbconn.php",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/radia/components/bitrix/system.pagenavigation/.default/template.php",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/radia/components/bitrix/news.list/portfolio/template.php",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/radia/components/bitrix/news.list/portfolio_list/template.php",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/radia/header.php",
+		"/Users/slider/Documents/Radia/public_html/portfolio/index.php",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/radia/components/bitrix/news.detail/portfolio/template.php",
+		"/Users/slider/Documents/Radia/public_html/marketplace/slider/index.php",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/clean/header.php",
+		"/Users/slider/Documents/Radia/public_html/index.php",
+		"/Users/slider/Documents/Radia/public_html/.htaccess",
+		"/Users/slider/Documents/Radia/public_html/layout/css/style.sass",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/radia/components/bitrix/system.pagenavigation/template.php",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/radia/components/bitrix/news.list/portfolio_index/template.php",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/radia/components/bitrix/catalog.section.list/portfolio/template.php",
+		"/Users/slider/Documents/Radia/services.html",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/radia/components/bitrix/news.detail/services/template.php",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/radia/components/bitrix/news.list/catalog.section.list/portfolio/template.php",
+		"/Users/slider/Documents/Radia/public_html/services/detail.php",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/radia/components/bitrix/news.list/services_list/template.php",
+		"/Users/slider/Documents/Radia/public_html/services/index.php",
+		"/Users/slider/Documents/Radia/contacts.html",
+		"/Users/slider/Documents/Radia/public_html/about/index.php",
+		"/Users/slider/Documents/Radia/public_html/contacts/index.php",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/radia/components/bitrix/news.list/clients_about/template.php",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/radia/components/bitrix/menu/.default/template.php",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/radia/components/bitrix/news.list/services/template.php",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/radia/components/bitrix/news.list/clients_index/template.php",
+		"/Users/slider/Documents/Radia/public_html/layout/js/main.coffee",
+		"/Users/slider/Documents/Radia/public_html/bitrix/templates/radia/components/radia/.default/template.php",
+		"/Users/slider/Documents/Radia/layout/js/main.coffee",
+		"/Users/slider/Documents/Radia/public_html/.top.menu.php",
+		"/Users/slider/Documents/Radia/config.rb",
+		"/Users/slider/Documents/Radia/layout/css/style.sass"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/slider/Documents/Projects/Lilly",
+			"/Users/slider/Documents/Projects/Merkado/public_html",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"#cal",
+			"#main",
+			"#cal-day",
+			"#tool",
+			".event",
+			".events",
+			"acade",
+			"#toolbar",
+			".color",
+			"#main",
+			"<a",
+			"<A",
+			"desc",
+			".close",
+			"woma",
+			"Answer",
+			"[ ответ с большой буквы ]",
+			"[ ответ ]",
+			"[ ответ с большой буквы ]",
+			"]},",
+			"(возможны несколько вариантов ответов)",
+			"que",
+			"\"question\"",
+			"\"section\" : ",
+			"}},		\n{",
+			"7",
+			"6",
+			"5",
+			"4",
+			"3",
+			"2",
+			"1",
+			"0",
+			",\n			\n{\n	\"section\" :",
+			"]}\n		{",
+			",\n			\n		{",
+			"\"answers\" : {",
+			"	\",",
+			"(возможны несколько вариантов ответов)",
+			"\",\n			\"answers\" : {\n(возможны несколько вариантов ответов)			",
+			"\n(возможны несколько вариантов ответов)			",
+			"			\",",
+			"reInit",
+			"h4",
+			"select",
+			".sele",
+			"#too",
+			"scrollspy",
+			".aca",
+			"h2.count",
+			"history-page",
+			"yea",
+			"if",
+			"#too",
+			"social",
+			"ps-scrollbar-y-rail",
+			".name",
+			".flag",
+			".fla",
+			"&.main",
+			"show()",
+			"section",
+			".event",
+			"&.event",
+			"event",
+			"sections",
+			"h3",
+			"Mars Ac",
+			"font-weight 500",
+			".sec",
+			".reg",
+			".ref",
+			"main",
+			"toolba",
+			"tool",
+			"transtal",
+			"a.top",
+			"../../",
+			"container",
+			"	p",
+			"рассылка",
+			"14px",
+			".block",
+			"360000",
+			"settings.php",
+			"$color[0",
+			"$size[0]['ID']",
+			"exParamImport",
+			"exGetParamByName",
+			"$elements[",
+			"->setFilter(",
+			"->setFilter",
+			"setFilter",
+			"exGetParamByName",
+			"HL\\HighloadBlockTable::getById(",
+			"$hlblock_requests=HL\\HighloadBlockTable::getById(",
+			"$hlblock_requests=HL\\HighloadBlockTable::getById($iblock)->fetch();",
+			"exGetParamByName",
+			"$name",
+			"exGetParamByName",
+			"OnBeforeUserRegister",
+			"OnBeforeUserAdd",
+			"OnBeforeUserAddHandler",
+			"OnBeforeUserRegister",
+			"$x[\"CODE\"]",
+			"$item['OFFERS'][0]",
+			"popup",
+			"$item['OFFERS'][0]",
+			"$item['OFFERS'][0]['CATALOG_QUANTITY']",
+			"pre",
+			"Актуальность информации",
+			".on",
+			"COLORS",
+			"+background-image(rainbow(top left, (red, orange, yellow, green, blue, indigo, violet)))",
+			"colors",
+			".colors",
+			"color",
+			"$default",
+			"a.buy",
+			"presale",
+			"configUpdate",
+			"productsP",
+			"productsPo",
+			"sidebar",
+			"mars",
+			"sideba",
+			"validatePhone",
+			"-1"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"tanswer",
+			"#Answer#",
+			"#answer#",
+			"],\n				\"results\" : \"\"\n				},",
+			"<small>(возможны несколько вариантов ответов)</small>",
+			"\"name\"",
+			"\"name\" : ",
+			"]}},		\n{",
+			"\"7\"",
+			"\"6\"",
+			"\"5\"",
+			"\"4\"",
+			"\"3\"",
+			"\"2\"",
+			"\"1\"",
+			"\"0\"",
+			"}},		\n{\n	\"section\" :",
+			"]},\n		{",
+			"]}\n		{",
+			"\"answers\" : [",
+			"\",",
+			" (возможны несколько вариантов ответов)",
+			"(возможны несколько вариантов ответов)\",\n			\"answers\" : {",
+			"",
+			"\",",
+			"../../../",
+			"+background-image(rainbow(top left, (red, orange, yellow, green)))",
+			"item_w(",
+			"item_more(",
+			"item_promo(",
+			"GetDirProperty",
+			"content=\"width=1050, initial-scale=1\"",
+			"<div class=\"title\"><a href=\"#\">\n              <span class=\"span frame\">",
+			"<span class=\"name\">олдтаймер-галерея ильи сорокина</span><span class=\"line\"></span>\n              <span class=\"type\">разработка сайта</span>  ",
+			"<br>",
+			"title",
+			"bgcolor",
+			"highlight",
+			"/products/<?=$item['CODE']?>",
+			"/products/<?=$item['CODE']?>/",
+			"/products/<?=$item['CODE']?>",
+			"categories"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.CSS Extended Completions":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 98.0
+	},
+	"project": "marconi.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 234.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

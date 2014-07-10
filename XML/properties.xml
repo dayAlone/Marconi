@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<properties>
+	<property id="colors">
+		<name>Цвета</name>
+		<items>
+			<item id="ceafc9afc787ad155dd9957c6bcdc6a8">
+				<name>Крастный</name>
+				<value>#fb0d1b</value>
+			</item>
+			<item id="5842427a928987696cb1718982ead3d4">
+				<name>Синий</name>
+				<value>#0b24fb</value>
+			</item>
+		</items>
+	</property>
+	<property id="sizes">
+		<name>Размеры</name>
+		<items>
+			<item id="19ca14e7ea6328a42e0eb13d585e4c22">
+				<name>xs</name>
+			</item>
+			<item id="c2912fe9a6ae9d1f03d142399fab8f4c">
+				<name>xxl</name>
+			</item>
+		</items>
+	</property>
+	<property id="brand">
+		<name>Производитель</name>
+		<items>
+			<item id="bdafe5cdff00be8d1ebe5bce0ee0f1c0">
+				<name>Specchio</name>
+			</item>
+		</items>
+	</property>
+</properties>
