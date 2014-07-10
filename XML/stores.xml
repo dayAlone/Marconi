@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<citys>
+<cities>
 	<city id="e6eb3a7361bf01ed68df48c399e93e3e">
 		Москва
 	</city>
 	<city id="ae25cebf7b46526ecceb0529c9c172d3">
 		Арзамас
 	</city>
-</citys>
+</cities>
 <stores>
 	<store id="2c7d99007a90585adb66735227ba529d">
 		<city id="e6eb3a7361bf01ed68df48c399e93e3e" />
