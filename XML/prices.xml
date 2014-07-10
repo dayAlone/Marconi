@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <prices>
-	<price offer="530117fm-vipera-marrone">
+	<offer id="530117fm-vipera-marrone">
 		<retail>1010.30</retail>
 		<wholesale>1010.30</wholesale>
-	</price>
-	<price offer="530117fm-vipera-marrone">
+	</offer>
+	<offer id="530117fm-vipera-marrone">
 		<retail>1010.30</retail>
 		<wholesale>1010.30</wholesale>
-	</price>
+	</offer>
 </prices>
