@@ -8,12 +8,16 @@
 		</properties>
 		<offers>
 			<offer id="530117fm-vipera-sole">
-				<property id="color" value="ceafc9afc787ad155dd9957c6bcdc6a8" />
-				<property id="size" value="19ca14e7ea6328a42e0eb13d585e4c22" />
+				<properties>
+					<property id="color" value="ceafc9afc787ad155dd9957c6bcdc6a8" />
+					<property id="size" value="19ca14e7ea6328a42e0eb13d585e4c22" />
+				</properties>
 			</offer>
 			<offer id="530117fm-vipera-marrone">
-				<property id="color" value="ceafc9afc787ad155dd9957c6bcdc6a8" />
-				<property id="size" value="c2912fe9a6ae9d1f03d142399fab8f4c" />
+				<properties>
+					<property id="color" value="ceafc9afc787ad155dd9957c6bcdc6a8" />
+					<property id="size" value="c2912fe9a6ae9d1f03d142399fab8f4c" />
+				</properties>
 			</offer>
 		</offers>
 	</product>
