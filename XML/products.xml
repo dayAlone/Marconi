@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<products>
+<products date="25.08.2014 15:40">
 	<product id="52148c8e5087feaed86c016b60822352" category="5a7257325cf60dbe044e57941bb9e0ed">
 		<artnumber>83370sl</artnumber>
 		<name>Женский клатч Сervo</name>
 		<properties>
 			<property id="brand" value="bdafe5cdff00be8d1ebe5bce0ee0f1c0" />
+			<property id="color" value="ceafc9afc787ad155dd9957c6bcdc6a8" />
+			<property id="size" value="19ca14e7ea6328a42e0eb13d585e4c22" />
 		</properties>
-		<offers>
-			<offer id="530117fm-vipera-sole">
-				<properties>
-					<property id="color" value="ceafc9afc787ad155dd9957c6bcdc6a8" />
-					<property id="size" value="19ca14e7ea6328a42e0eb13d585e4c22" />
-				</properties>
-			</offer>
-			<offer id="530117fm-vipera-marrone">
-				<properties>
-					<property id="color" value="ceafc9afc787ad155dd9957c6bcdc6a8" />
-					<property id="size" value="c2912fe9a6ae9d1f03d142399fab8f4c" />
-				</properties>
-			</offer>
-		</offers>
 	</product>
 </products>
