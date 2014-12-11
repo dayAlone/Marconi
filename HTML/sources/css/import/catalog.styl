@@ -1,0 +1,405 @@
+.catalog
+	.nav__item:nth-child(6)
+		background white
+		color black
+	&__nav
+		margin-bottom 40px
+		position relative
+		z-index 20
+	&__toolbar
+		margin-top: 8px
+		border-bottom 1px solid #d5dbdf
+		padding-bottom 8px
+		text-transform: uppercase
+		font-size 12px
+		color #171929
+		.dropdown
+			position relative
+			z-index 10
+			&__frame
+				padding-top 20px
+				width 113%
+				left -5px
+				top -5px
+				position absolute
+				padding 20px 5px 0px 5px
+				background white
+				box-shadow 0 0 10px rgba(116, 132, 149, 0.8)
+			&__item
+				float: left
+				clear both
+				font-size 9px
+				line-height 15px
+				color black
+				letter-spacing 1px
+				font-weight: bold
+			&__trigger
+				color black
+				position relative
+				z-index 5
+				svg
+					margin-left 3px
+					vertical-align: baseline
+					position relative
+					top -1px
+	&__seo
+		width 100%
+		margin-top 30px
+		margin-bottom 30px
+		p
+			font-size 12px
+			color #6e6e6e
+			line-height 16px
+	&__title
+		text-transform: uppercase
+		font-weight: bold
+		font-size 28px
+		margin-top 25px
+		margin-bottom 15px
+		padding-bottom 0
+		line-height 28px
+	&__footer
+		padding 19px 0 14px
+		border-bottom 1px solid #d5dbdf
+		border-top 1px solid #d5dbdf
+		font-size 12px
+		margin-top 30px
+		.footer-nav
+			&__item
+				font-weight: bold
+				font-size 13px
+				text-transform: uppercase
+				color black
+				margin-right 30px
+				&:hover
+					color red
+	&__intro
+		width 100%
+		height 310px
+		position relative
+		margin-bottom 20px
+		overflow hidden
+		background red
+		display block
+		cursor pointer
+		&--big
+			height 640px
+		&-picture
+			position absolute
+			top 0
+			left 0
+			width 100%
+			height 100%
+			background-size cover
+			t all, 1s
+			transform scale(1)
+			opacity 1
+			&:hover
+				transform scale(1.05)
+				opacity .8
+		&-text
+			text-transform: uppercase
+			color white
+			position absolute
+			z-index 20
+			font-size 34px
+			font-weight: 300
+			left 15px
+			top 8px
+			white-space no-wrap
+			&--bottom
+				top auto
+				bottom 5px
+			&--right
+				left auto
+				right 15px
+			&--black
+				color black
+			&--center
+				left 50%
+				top 50%
+				transform translate(-50%, -50%)
+	&__divider
+		width 100%
+		border-bottom 2px solid black
+		margin 20px 0 20px
+		&--title
+			position relative
+			&:after
+				content attr(data-title)
+				position absolute
+				background white
+				text-transform: uppercase
+				font-weight: bold
+				padding-right 14px
+				top -7px
+	.product
+		width 100%
+		position relative
+		text-align center
+		padding-bottom 10px
+		margin-bottom 20px
+		text-transform: uppercase
+		font-weight: bold
+		font-size 14px
+		z-index 20
+		background white
+		&--hover
+			.product__picture
+				transform scale(1.03)
+			.product__icon, .product__button, .product__frame
+				opacity 1
+				pointer-events initial
+				transition-duration .5s
+			.product__frame
+				box-shadow 0 0 10px rgba(116, 132, 149, 0.8)
+				background white
+				transition-duration .2s
+		&--index, &--hover
+			z-index 50
+		&__frame
+			position absolute
+			background white
+			z-index 0
+			width 100%
+			height 100%
+			padding 10px 10px 50px 10px
+			box-sizing initial
+			top -10px
+			left -10px
+		&__content
+			position relative
+			z-index 7
+		&__icon, &__button, &__frame
+			position absolute
+			z-index 5
+			opacity 0
+			pointer-events none
+			t all, .07s
+		&__frame
+			opacity 1
+			background transparent
+			z-index 0
+		&__button
+			bottom -36px
+			border 1px solid black
+			text-transform: uppercase
+			font-weight: bold
+			font-size 10px
+			width 43%
+			text-align: center
+			padding 7px 10px 2px 10px
+			color black
+			&:hover
+				border-color red
+				background red
+				color white
+			&--more
+				left 4px
+			&--simmilar
+				right 4px
+		&__icon
+			top 0px
+			z-index 15
+			svg path
+				fill black
+			&:hover
+				svg path
+					fill red
+			&--zoom
+				left 0px
+			&--cart
+				right 0px
+		&__name
+			font-size 12px
+			opacity: .6
+			margin-bottom 10px
+			font-weight: normal
+		&__price
+			font-size 12px
+		&__picture
+			min-height 220px
+			width 100%
+			background-size contain
+			background-position center center
+			background-repeat no-repeat
+			margin-bottom 10px
+			transform scale(.9) translateZ(0)
+			t transform, .2s
+			&-frame
+				min-height 220px
+				width 100%
+				position relative
+				display block
+				overflow hidden
+				b('loader.gif', center center no-repeat, transparent, 80px auto)
+	&--full-width
+		@media (min-width: scr_lg)
+			.col-lg-3
+				width 20%
+	&--one-line
+		@media (min-width: scr_md)
+			.col-lg-3:nth-child(n+5)
+				display none
+		@media (min-width: scr_lg)
+			.col-lg-3:nth-child(n+5)
+				display block
+.filter
+	width 100%
+	border 1px solid #dddddd
+	padding 10px 10px 4px 10px
+	margin-bottom 15px
+	overflow hidden
+	min-height 34px
+	&--loaded
+		t all, .2s
+	&--open
+		.filter__content
+			display block
+		.filter__title
+			svg
+				transform rotate(60deg)
+				transform-origin center center
+	&__title
+		width 100%
+		background white
+		text-transform: uppercase
+		font-weight: bold
+		font-size 11px
+		position relative
+		z-index 3
+		cursor pointer
+		t color
+		svg
+			position absolute
+			right 0px
+			width 8px
+			top 3px
+			t transform
+		&:hover
+			color red
+			svg path
+				fill red
+		&--big
+			font-size 13px
+			padding-bottom 1px
+			margin-bottom -3px
+	&__content
+		border-top 1px solid #dfdfdf
+		margin-top 6px
+		padding-top 15px
+		display none
+	&__colors
+		margin-right -3px
+		margin-left -3px
+		line-height 4px
+		margin-bottom 8px
+	&__param
+		width 100%
+	.icheckbox, input[type="checkbox"], .icheckbox_color
+		appearance none
+		width 10px
+		height 10px
+		border 1px solid #dadada
+		display inline-block
+		margin-right 5px
+		position relative
+		top -1px
+		t(all)
+		box-shadow inset 0 0 0 1px white
+		&.hover
+			border-color black
+		&.checked
+			background black
+	
+	.icheckbox_color, input[name="color"]
+		width 20px
+		margin 3px
+		height 20px
+		box-shadow inset 0 0 0 3px
+		border 0
+		cursor pointer
+		top 0
+		&.checked
+			background white
+			box-shadow  inset 0 0 0 20px
+		
+	input[type="checkbox"]
+		top -3px
+	input[name="color"]
+		top 0
+		color attr(data-color, color)
+	label
+		font-weight: normal
+		font-size 13px
+		display inline-block
+		width 86%
+		vertical-align: top
+.range
+	width 80%
+	height 20px
+	border 1px solid #979899
+	font-size 11px
+	line-height 23px
+	padding 0 3px
+	text-align: center
+	margin-bottom 15px
+.irs
+	width 100%
+	position relative
+	height 15px
+	margin-top 3px
+	display inline-block
+	.irs
+		margin-top 0
+	*:focus
+		outline none
+	&-line
+		width 100%
+		background #dde0e4
+		height 8px
+		display inline-block
+		position absolute
+		top 0
+	&-grid, &-min, &-max, &-from, &-to, &-single
+		display none
+	&-bar
+		position absolute
+		height 8px
+		background #8797a2
+		top 0px
+	&-slider
+		position absolute
+		background #000000
+		width 5px
+		height 16px
+		top -4px
+	&-hidden-input
+		display none
+
+.pages
+	width 100%
+	margin-top -3px
+	&__item
+		display inline-block
+		min-width 15px
+		height 16px
+		text-align: center
+		line-height 21px
+		color black
+		text-transform uppercase
+		& + .pages__item
+			margin-left 2px
+		&:last-of-type
+			margin-left 8px
+			border-line(alpha(black, .3))
+			&:hover
+				border-line(alpha(red, .3))
+		&:hover
+			color red
+		&--active
+			background black
+			color white
+			&:hover
+				color white
+		

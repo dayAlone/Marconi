@@ -1,0 +1,309 @@
+<properties>
+	<property id="brands">
+		<name>Торговые марки</name>
+		<items>
+			<item id="c7b6c706-7fb9-11e4-b70a-0025901865a2">
+				<name>FM</name>
+			</item>
+			<item id="c0e881de-7fb9-11e4-b70a-0025901865a2">
+				<name>GT</name>
+			</item>
+		</items>
+	</property>
+	<property id="sections">
+		<name>Раздел сайта</name>
+		<items>
+			<item id="b16ae3bd-7f9b-11e4-b70a-0025901865a2">
+				<name>Багажка</name>
+			</item>
+			<item id="a869f8be-7f9b-11e4-b70a-0025901865a2">
+				<name>Для него</name>
+			</item>
+			<item id="a869f8bd-7f9b-11e4-b70a-0025901865a2">
+				<name>Для нее</name>
+			</item>
+		</items>
+	</property>
+	<property id="categories">
+		<name>Категории товаров</name>
+		<items>
+			<item id="dc9aaebd-7f9b-11e4-b70a-0025901865a2">
+				<name>Аксессуары</name>
+			</item>
+			<item id="cf598d32-7f9b-11e4-b70a-0025901865a2">
+				<name>Сумка женская</name>
+			</item>
+			<item id="e33697fc-7f9b-11e4-b70a-0025901865a2">
+				<name>Сумка мужская</name>
+			</item>
+		</items>
+	</property>
+	<property id="types">
+		<name>Типы товаров</name>
+		<items>
+			<item id="0de7b9de-7f9c-11e4-b70a-0025901865a2">
+				<name>Дорожная</name>
+			</item>
+			<item id="03decdfd-7f9c-11e4-b70a-0025901865a2">
+				<name>Клатчи</name>
+			</item>
+			<item id="2fd88afc-7fbe-11e4-b70a-0025901865a2">
+				<name>Ремень</name>
+			</item>
+		</items>
+	</property>
+	<property id="colors">
+		<name>Цвета</name>
+		<items>
+			<item id="d24c17f0-b177-11e2-950a-0025901865a3">
+				<name>бежевый</name>
+				<value></value>
+			</item>
+			<item id="d24c17f1-b177-11e2-950a-0025901865a3">
+				<name>белый</name>
+				<value></value>
+			</item>
+			<item id="d24c17f2-b177-11e2-950a-0025901865a3">
+				<name>бирюзовый</name>
+				<value></value>
+			</item>
+			<item id="d24c17f3-b177-11e2-950a-0025901865a3">
+				<name>бордовый</name>
+				<value></value>
+			</item>
+			<item id="3a86e644-9ec0-11e3-89e9-0025901865a3">
+				<name>голубой</name>
+				<value></value>
+			</item>
+			<item id="d24c17f5-b177-11e2-950a-0025901865a3">
+				<name>желтый</name>
+				<value></value>
+			</item>
+			<item id="d24c17f6-b177-11e2-950a-0025901865a3">
+				<name>зеленый</name>
+				<value></value>
+			</item>
+			<item id="0b7b8e7c-4260-11e4-86ee-0025908101de">
+				<name>золотистый</name>
+				<value></value>
+			</item>
+			<item id="eea47a0e-9ec7-11e3-89e9-0025901865a3">
+				<name>кирпичный</name>
+				<value></value>
+			</item>
+			<item id="7c1ed1ba-4004-11e4-86ee-0025908101de">
+				<name>коралловый</name>
+				<value></value>
+			</item>
+			<item id="d24c17fa-b177-11e2-950a-0025901865a3">
+				<name>коричневый</name>
+				<value></value>
+			</item>
+			<item id="d24c17fb-b177-11e2-950a-0025901865a3">
+				<name>красный</name>
+				<value></value>
+			</item>
+			<item id="d24c1800-b177-11e2-950a-0025901865a3">
+				<name>многоцветный</name>
+				<value></value>
+			</item>
+			<item id="d24c1802-b177-11e2-950a-0025901865a3">
+				<name>оранжевый</name>
+				<value></value>
+			</item>
+			<item id="d24c1804-b177-11e2-950a-0025901865a3">
+				<name>розовый</name>
+				<value></value>
+			</item>
+			<item id="bf00fe7e-4002-11e4-86ee-0025908101de">
+				<name>светло-коричневый</name>
+				<value></value>
+			</item>
+			<item id="d24c1809-b177-11e2-950a-0025901865a3">
+				<name>серый</name>
+				<value></value>
+			</item>
+			<item id="d24c180a-b177-11e2-950a-0025901865a3">
+				<name>синий</name>
+				<value></value>
+			</item>
+			<item id="d24c180f-b177-11e2-950a-0025901865a3">
+				<name>фиолетовый</name>
+				<value></value>
+			</item>
+			<item id="d24c1811-b177-11e2-950a-0025901865a3">
+				<name>черный</name>
+				<value></value>
+			</item>
+		</items>
+	</property>
+	<property id="materials">
+		<name>Материалы</name>
+		<items>
+			<item id="091b5d13-b174-11e2-950a-0025901865a3">
+				<name>Неопределенный материал</name>
+			</item>
+			<item id="480d192f-2f7d-11e4-86c0-0025908101de">
+				<name>100% акрил</name>
+			</item>
+			<item id="594c8995-01dc-11e4-ac6f-0025908101de">
+				<name>100% вискоза</name>
+			</item>
+			<item id="13331c7d-4d38-11e4-b748-0025908101de">
+				<name>100% кашемир</name>
+			</item>
+			<item id="091b5d1c-b174-11e2-950a-0025901865a3">
+				<name>100% полиэстер</name>
+			</item>
+			<item id="45f8f843-2f81-11e4-86c0-0025908101de">
+				<name>100% хлопок</name>
+			</item>
+			<item id="091b5d1e-b174-11e2-950a-0025901865a3">
+				<name>100% шелк</name>
+			</item>
+			<item id="091b5d1f-b174-11e2-950a-0025901865a3">
+				<name>100% шерсть</name>
+			</item>
+			<item id="f6768a6f-2f7e-11e4-86c0-0025908101de">
+				<name>20% акрил</name>
+			</item>
+			<item id="2089ff03-2f7f-11e4-86c0-0025908101de">
+				<name>40% полиэстер</name>
+			</item>
+			<item id="4f0ceaeb-2f7f-11e4-86c0-0025908101de">
+				<name>45% вискоза</name>
+			</item>
+			<item id="d8e072a3-2f84-11e4-86c0-0025908101de">
+				<name>5% спандекс</name>
+			</item>
+			<item id="3f03517f-2f7d-11e4-86c0-0025908101de">
+				<name>50% акрил</name>
+			</item>
+			<item id="3225c4fb-2f7a-11e4-86c0-0025908101de">
+				<name>50% вискоза</name>
+			</item>
+			<item id="513469ab-2f7a-11e4-86c0-0025908101de">
+				<name>50% полиэстер</name>
+			</item>
+			<item id="360c94ef-2f7d-11e4-86c0-0025908101de">
+				<name>50% шерсть</name>
+			</item>
+			<item id="5c5b50e7-2f7f-11e4-86c0-0025908101de">
+				<name>55% полиэстер</name>
+			</item>
+			<item id="2cdc1197-2f7f-11e4-86c0-0025908101de">
+				<name>60% акрил</name>
+			</item>
+			<item id="bd0bd07f-2f84-11e4-86c0-0025908101de">
+				<name>75% полиэстер</name>
+			</item>
+			<item id="eb38992b-2f7e-11e4-86c0-0025908101de">
+				<name>80% полиэстер</name>
+			</item>
+			<item id="091b5d14-b174-11e2-950a-0025901865a3">
+				<name>натуральная замша</name>
+			</item>
+			<item id="091b5d16-b174-11e2-950a-0025901865a3">
+				<name>натуральная кожа</name>
+			</item>
+			<item id="091b5d17-b174-11e2-950a-0025901865a3">
+				<name>натуральный мех</name>
+			</item>
+			<item id="c5bf4c3d-196b-11e4-8e4c-0025908101de">
+				<name>нейлон</name>
+			</item>
+			<item id="091b5d1b-b174-11e2-950a-0025901865a3">
+				<name>поликарбонат</name>
+			</item>
+			<item id="091b5d1d-b174-11e2-950a-0025901865a3">
+				<name>текстиль</name>
+			</item>
+			<item id="59d68cd1-4d44-11e4-b748-0025908101de">
+				<name>флис</name>
+			</item>
+		</items>
+	</property>
+	<property id="sizes">
+		<name>Размеры</name>
+		<items>
+			<item id="71b4eb84-954c-11e3-bf27-0025901865a3">
+				<name>10</name>
+			</item>
+			<item id="7e3e511a-954c-11e3-bf27-0025901865a3">
+				<name>10,5</name>
+			</item>
+			<item id="7e3e511b-954c-11e3-bf27-0025901865a3">
+				<name>11</name>
+			</item>
+			<item id="846aacce-954c-11e3-bf27-0025901865a3">
+				<name>11"</name>
+			</item>
+			<item id="846aaccf-954c-11e3-bf27-0025901865a3">
+				<name>16"</name>
+			</item>
+			<item id="8b2c4774-954c-11e3-bf27-0025901865a3">
+				<name>20"</name>
+			</item>
+			<item id="96d0503c-954c-11e3-bf27-0025901865a3">
+				<name>24x30</name>
+			</item>
+			<item id="96d0503d-954c-11e3-bf27-0025901865a3">
+				<name>24"</name>
+			</item>
+			<item id="9e7042a3-954c-11e3-bf27-0025901865a3">
+				<name>28"</name>
+			</item>
+			<item id="9e7042a4-954c-11e3-bf27-0025901865a3">
+				<name>30x38</name>
+			</item>
+			<item id="a988a9a8-954c-11e3-bf27-0025901865a3">
+				<name>50x170</name>
+			</item>
+			<item id="a988a9a9-954c-11e3-bf27-0025901865a3">
+				<name>6</name>
+			</item>
+			<item id="c1cab1fe-954c-11e3-bf27-0025901865a3">
+				<name>6,5</name>
+			</item>
+			<item id="c1cab1ff-954c-11e3-bf27-0025901865a3">
+				<name>60x50</name>
+			</item>
+			<item id="c870ad9f-954c-11e3-bf27-0025901865a3">
+				<name>7</name>
+			</item>
+			<item id="c870ada0-954c-11e3-bf27-0025901865a3">
+				<name>7,5</name>
+			</item>
+			<item id="dc2ac634-954c-11e3-bf27-0025901865a3">
+				<name>70x180</name>
+			</item>
+			<item id="dc2ac635-954c-11e3-bf27-0025901865a3">
+				<name>8</name>
+			</item>
+			<item id="dc2ac636-954c-11e3-bf27-0025901865a3">
+				<name>8,5</name>
+			</item>
+			<item id="e2e73098-954c-11e3-bf27-0025901865a3">
+				<name>87x87</name>
+			</item>
+			<item id="e2e73099-954c-11e3-bf27-0025901865a3">
+				<name>9</name>
+			</item>
+			<item id="e2e7309a-954c-11e3-bf27-0025901865a3">
+				<name>9,5</name>
+			</item>
+			<item id="e2e7309b-954c-11e3-bf27-0025901865a3">
+				<name>L</name>
+			</item>
+			<item id="e99ae833-954c-11e3-bf27-0025901865a3">
+				<name>M</name>
+			</item>
+			<item id="e99ae834-954c-11e3-bf27-0025901865a3">
+				<name>S</name>
+			</item>
+			<item id="e99ae835-954c-11e3-bf27-0025901865a3">
+				<name>XL</name>
+			</item>
+		</items>
+	</property>
+</properties>

@@ -1,0 +1,174 @@
+.product
+	&__title
+		text-transform: uppercase
+		font-weight: bold
+		margin-top 0
+		font-size 28px
+	&__big-button
+		min-width 45%
+		margin-right 5%
+		display inline-block
+		background black
+		text-transform: uppercase
+		font-weight bold
+		height 33px
+		line-height 38px
+		text-align: center
+		color white
+		font-size 12px
+		t all
+		padding 0 15px
+		margin-bottom 20px
+		&--border
+			color black
+			background white
+			box-shadow inset 0 0 0 1px black
+			font-size 10px
+			@media (min-width: scr_lg)
+				margin-right 15px
+		&:hover
+			background red
+			color white
+			box-shadow 0 0 0 1px red
+	&__description
+		padding-left 22px
+		margin-left -22px
+		border-left 2px solid black
+	.picture
+		width 100%
+		margin-bottom 30px
+		border-right 2px solid black
+		padding-right 25px
+		&__big, &__small
+			width 100%
+			height 389px
+			border 1px solid #e8e8e8
+			background-size contain
+			background-repeat no-repeat
+			background-position center center
+		&__zoom
+			position absolute
+			top 13px
+			left 20px
+			cursor pointer
+			svg path
+				fill black
+			&:hover
+				svg path
+					fill red
+		&__small
+			height 86px
+			display block
+			box-shadow 0 0 0 3px rgba(255,255,255,.4)
+			margin-bottom 15px
+			t all
+			transform translateZ(0)
+			&:last-of-type
+				margin-bottom 0
+			&--active
+				border-color black
+	.colors
+		width 100%
+		margin-top 10px
+		margin-bottom 25px
+		&__item
+			display inline-block
+			width 46px
+			height 46px
+			margin-right 10px
+			background-size 200px auto
+			border 1px solid white
+			background-position center center
+			box-shadow inset 0 0 0 2px alpha(white,1)
+			t all
+			&--active
+				box-shadow inset 0 0 0 2px alpha(white,.9)
+				border-color black
+	.props
+		float left
+		width 95%
+		margin-bottom 25px
+		@media (min-width: scr_lg)
+			width 100%
+		&__item
+			full-width()
+			font-size 10px
+			text-transform: uppercase
+			border-line alpha(black, .1) 6px
+			margin-bottom 7px
+			color #606268
+			&--price
+				margin-top 30px
+				.props__value
+					font-size 25px
+					font-weight: bold
+					color black
+					margin-top -14px
+		&__name, &__value
+			background white
+		&__name
+			float: left
+			padding-right 5px
+		&__value
+			float right
+			padding-left 5px
+	.social-likes
+		display inline-block
+		margin-left -3px
+		&__button
+			width 100%
+			padding 0
+		&__icon
+			margin 0
+			font-size 1em
+			position relative
+			left 0
+			&_vkontakte
+				top 4px
+		&__widget
+			height 22px
+			width 22px
+			line-height 22px
+			padding 0
+			position relative
+			text-align: center
+			margin 0 2px
+			top 6px
+	.tabs
+		width 100%
+		margin-top 20px
+		&__title
+			width 100%
+			border-line(#e2e5e8, 23px)
+			min-height 25px
+			margin-bottom 20px
+		&__content
+			display none
+			color #272727
+			font-size 13px
+			&--active
+				display block
+		&__trigger
+			line-height 28px
+			height 24px
+			display inline-block
+			padding 0 20px
+			text-transform: uppercase
+			color #8797a2
+			font-weight: bold
+			font-size 11px
+			background transparent
+			border 1px solid white
+			border-bottom 0
+			&--active
+				border-color #e2e5e8
+				height 25px
+				background white
+				color black
+			&:hover
+				color black
+			&.tabs__trigger--active:first-of-type
+				border-left-color white
+	.nav__item:nth-child(6)
+		background white
+		color black

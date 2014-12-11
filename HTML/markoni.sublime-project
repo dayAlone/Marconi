@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"path": "public_html/local/templates/.default/components"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "sources"
+		}
+	]
+}

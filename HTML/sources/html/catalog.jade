@@ -1,0 +1,422 @@
+include includes/header
+<body class="catalog">
+.wrap
+	include includes/toolbar
+	.background
+	header.header
+		.container
+			.row
+				.col-xs-3.col-lg-2
+					.contacts
+						include ../../public_html/layout/images/svg/phone.svg
+						a.contacts__number(href="tel:88005553330") 8 800 555 333 0
+						.contacts__text Горячая линия
+
+				.col-xs-1.col-lg-2
+					span.logo__line.logo__line--left
+				.col-xs-4.center
+					a(href="#").logo
+						include ../../public_html/layout/images/svg/logo.svg
+				.col-xs-1.col-lg-2
+					span.logo__line.logo__line--right
+				.col-xs-3.col-lg-2
+					.header__links
+						a.cart(href="#")
+							include ../../public_html/layout/images/svg/cart.svg
+							| Товаров в корзине: 2
+						br
+						a.simmilar(href="#")
+							include ../../public_html/layout/images/svg/simmilar.svg
+							| К сравнению: 5
+	.catalog__nav
+		.container
+			.row
+				.col-xs-2
+					.brand-select
+						.dropdown
+							a.dropdown__trigger(href="#")
+								span.dropdown__text Все бренды
+								include ../../public_html/layout/images/svg/arrow.svg
+							span.dropdown__frame
+								a.dropdown__item(href="#", style="display:none") Все бренды
+								a.dropdown__item(href="#") Francesco Marconi
+								a.dropdown__item(href="#") Gilda Tonelli
+								a.dropdown__item(href="#") Uomo Tonelli
+								a.dropdown__item(href="#") Thelebre
+							select.dropdown__select
+								option(value="Francesco Marconi") Francesco Marconi
+								option(value="Gilda Tonelli") Gilda Tonelli
+								option(value="Uomo Tonelli") Uomo Tonelli
+								option(value="Thelebre") Thelebre
+				.col-xs-8
+					nav.sub-nav
+						a.sub-nav__item.sub-nav__item--active(href="#") для нее
+						a.sub-nav__item(href="#") для него
+						a.sub-nav__item(href="#") багаж
+						a.sub-nav__item(href="#") коллекции
+						a.sub-nav__item(href="#") style look
+						a.sub-nav__item(href="#") распродажа
+				.col-xs-2
+					.search
+						input.search__input(type="text", placeholder="Введите название товара")
+						button.search__button
+							include ../../public_html/layout/images/svg/search.svg
+	.page
+		.container
+			.row
+				.col-xs-3.col-lg-2
+					aside
+						.filter.filter--open
+							.filter__title.filter__title--big Cумки 
+								span.visible-lg-inline женские
+								include ../../public_html/layout/images/svg/arrow.svg
+							.filter__content
+								.filter__param
+									input(type="checkbox" name="bag__type")#bag__type--classic
+									label(for="bag__type--classic") Классические
+								.filter__param
+									input(type="checkbox" name="bag__type")#bag__type--clatch
+									label(for="bag__type--clatch") Клатчи
+								.filter__param
+									input(type="checkbox" name="bag__type")#bag__type--bagpack
+									label(for="bag__type--bagpack") Рюкзаки
+								.filter__param
+									input(type="checkbox" name="bag__type")#bag__type--port
+									label(for="bag__type--port" ) Портфели
+								.filter__param
+									input(type="checkbox" name="bag__type")#bag__type--fitness
+									label(for="bag__type--fitness") Для фитнеса
+						.filter
+							.filter__title.filter__title--big аксессуары
+								include ../../public_html/layout/images/svg/arrow.svg
+							.filter__content
+								.filter__param
+									input(type="checkbox" name="bag__type")#more__type--1
+									label(for="more__type--1") Визитница
+								.filter__param
+									input(type="checkbox" name="bag__type")#more__type--2
+									label(for="more__type--2") Зажимы для денег
+								.filter__param
+									input(type="checkbox" name="bag__type")#more__type--3
+									label(for="more__type--3") Зонты
+								.filter__param
+									input(type="checkbox" name="bag__type")#more__type--4
+									label(for="more__type--4") Ключници
+								.filter__param
+									input(type="checkbox" name="bag__type")#more__type--5
+									label(for="more__type--5") Косметички
+								.filter__param
+									input(type="checkbox" name="bag__type")#more__type--6
+									label(for="more__type--6") Кошельки
+								.filter__param
+									input(type="checkbox" name="bag__type")#more__type--7
+									label(for="more__type--7") Обложки для документов
+								.filter__param
+									input(type="checkbox" name="bag__type")#more__type--8
+									label(for="more__type--8") Перчатки
+								.filter__param
+									input(type="checkbox" name="bag__type")#more__type--9
+									label(for="more__type--9") Планшеты
+								.filter__param
+									input(type="checkbox" name="bag__type")#more__type--10
+									label(for="more__type--10") Чемоданы
+								.filter__param
+									input(type="checkbox" name="bag__type")#more__type--11
+									label(for="more__type--11") Чехолы для телефона
+								.filter__param
+									input(type="checkbox" name="bag__type")#more__type--12
+									label(for="more__type--12") Шарфы
+						.filter.filter--open
+							.filter__title Цвет
+								include ../../public_html/layout/images/svg/arrow.svg
+							.filter__content.filter__content--margin
+								.filter__colors
+									input(type="checkbox" name="color" style="color:#000000").color
+									input(type="checkbox" name="color" style="color:#6a3811").color
+									input(type="checkbox" name="color" style="color:#004c85").color
+									input(type="checkbox" name="color" style="color:#46d8fe").color
+									input(type="checkbox" name="color" style="color:#d3bba2" checked).color
+									input(type="checkbox" name="color" style="color:#8a99d1").color
+									input(type="checkbox" name="color" style="color:#ff1135").color
+									input(type="checkbox" name="color" style="color:#3e4954").color
+
+									input(type="checkbox" name="color" style="color:#8d0527").color
+									input(type="checkbox" name="color" style="color:#9b9b9b").color
+									input(type="checkbox" name="color" style="color:#00be49").color
+									input(type="checkbox" name="color" style="color:#aa1e97").color
+									input(type="checkbox" name="color" style="color:#ff6833").color
+									input(type="checkbox" name="color" style="color:#00c5bb" checked).color
+									input(type="checkbox" name="color" style="color:#584841").color
+									input(type="checkbox" name="color" style="color:#ffcb26").color
+						.filter
+							.filter__title материал
+								include ../../public_html/layout/images/svg/arrow.svg
+							.filter__content
+								.filter__param
+									input(type="checkbox" name="material__type")#material__type--1
+									label(for="material__type--1") Натуральная кожа
+									input(type="checkbox" name="material__type")#material__type--2
+									label(for="material__type--2") Искуственная кожа
+									input(type="checkbox" name="material__type")#material__type--3
+									label(for="material__type--3") Лакированная кожа
+									input(type="checkbox" name="material__type")#material__type--4
+									label(for="material__type--4") Замша
+									input(type="checkbox" name="material__type")#material__type--5
+									label(for="material__type--5") Нубук
+									input(type="checkbox" name="material__type")#material__type--6
+									label(for="material__type--6") Рептилия
+									input(type="checkbox" name="material__type")#material__type--7
+									label(for="material__type--7") Текстиль
+						.filter.filter--open
+							.filter__title Цена
+								include ../../public_html/layout/images/svg/arrow.svg
+							.filter__content
+								.row
+									.col-xs-6
+										input(type="text" name="range_from").range
+									.col-xs-6.right
+										input(type="text" name="range_to").range
+								input(type="text" name="range" data-min="550" data-max="12600")
+				.col-xs-9.col-lg-10
+					article
+						.catalog__toolbar
+							.row
+								.col-xs-4
+									| сортировать по: 
+									span.dropdown
+										a.dropdown__trigger(href="#")
+											span.dropdown__text Не выбрано
+											include ../../public_html/layout/images/svg/arrow.svg
+										span.dropdown__frame
+											a.dropdown__item(href="#", style="display:none") Не выбрано
+											a.dropdown__item(href="#") Цене
+											a.dropdown__item(href="#") Наличию
+										select.dropdown__select
+											option(value="Francesco Marconi") Цене
+											option(value="Gilda Tonelli") Наличию
+								.col-xs-8.right
+									.pages
+										a.pages__item.pages__item--active(href="#") 1
+										a.pages__item(href="#") 2
+										a.pages__item(href="#") 3
+										a.pages__item(href="#") 4
+										a.pages__item(href="#") 5
+										a.pages__item(href="#") показать все
+						h1.catalog__title Cумки женские
+						.row
+							.col-xs-4.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/19285.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-4.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/21907.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-4.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/22528.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-4.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/21689.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-4.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/22519.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-4.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/22495.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-4.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/22491.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-4.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/22517.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-4.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/21661.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-4.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/20406.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-4.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/21503.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-4.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/21509.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+
+						.catalog__footer
+							.row
+								.col-xs-4
+									nav.footer-nav
+										a.footer-nav__item(href="#") доставка
+										a.footer-nav__item(href="#") оплата
+										a.footer-nav__item(href="#") возврат
+										a.footer-nav__item(href="#") гарантия
+								.col-xs-8.right
+									.pages
+										a.pages__item.pages__item--active(href="#") 1
+										a.pages__item(href="#") 2
+										a.pages__item(href="#") 3
+										a.pages__item(href="#") 4
+										a.pages__item(href="#") 5
+										a.pages__item(href="#") показать все
+						.catalog__seo
+							.row
+								.col-xs-6
+									p Земля традиций и инноваций, фермеров и ремесленников, земля, где искусство встречается с технологиями, где хорошая кухня сочетается с гостеприимством местных жителей. Именно в Абруццо трое молодых братьев — Франческо, Назарено и Абрамо Тонелли, в небольшой мастерской объединив свои навыки и знания, основывают небольшую семейную фабрику в честь своих родителей.
+								.col-xs-6
+									p Братья Тонелли, благодаря своему труду и целеустремленности, начинают производство сумок и аксессуаров из кожи и стремительно завоевывают популярность у модниц и модников не только Европы, но и Америки, Азии, России. Со временем маленькая фабрика братьев Тонелли становится заметна и узнаваема на мировом рынке.
+include includes/footer

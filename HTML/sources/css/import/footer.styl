@@ -1,0 +1,91 @@
+.footer
+	full-width()
+	position relative
+	z-index 20
+	color #4e4e51
+	overflow hidden
+	background black
+	border-top 1px solid #212121
+	min-height 60px
+	padding 19px 0 13px
+	font-weight bold
+	text-transform uppercase
+	font-size 10px
+	.copyright
+		position relative
+		top 4px
+		@media (min-width: scr_sm)
+			top 0
+	.contacts
+		span
+			white-space no-wrap
+	a
+		color #4e4e51
+		text-decoration: underline
+		&:hover
+			color red
+	.map
+		@media (min-width: scr_md)
+			text-align center
+	.social
+		padding-left 0
+		text-align right
+		@media (min-width: scr_sm)
+			padding-left 20px
+			text-align left
+		&__item
+			middle()
+			opacity 1
+			text-align: center
+			width 14px
+			height 14px
+			margin 0 4px
+			position relative
+			@media (min-width: scr_sm)
+				width 23px
+				height 23px
+				top 0
+				margin 0 2px
+				line-height 23px
+			svg
+				middle()
+				max-height 100%
+				max-width 100%
+				path
+					fill #4e4e51
+			&:hover
+				svg path
+					fill red
+
+	.radia
+		float right
+		t(all)
+		display none
+		position relative
+		top -2px
+		.index &
+			@media (min-width: scr_sm)
+				display block
+		svg
+			max-height 27px
+			max-width 27px
+			margin-right: 10px
+			float left
+			path
+				fill #4e4e51
+		&__content
+			font-weight normal
+			float left
+			color #4e4e51
+			text-decoration: none
+			position relative
+			top 2px
+		&:hover
+			.radia__content
+				color white
+			svg path
+				fill red
+	.contacts, .map, .address
+		display none
+		@media (min-width: scr_sm)
+			display block

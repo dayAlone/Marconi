@@ -1,0 +1,309 @@
+include includes/header
+<body class="product">
+.wrap
+	include includes/toolbar
+	.background
+	header.header
+		.container
+			.row
+				.col-xs-3.col-lg-2
+					.contacts
+						include ../../public_html/layout/images/svg/phone.svg
+						a.contacts__number(href="tel:88005553330") 8 800 555 333 0
+						.contacts__text Горячая линия
+
+				.col-xs-1.col-lg-2
+					span.logo__line.logo__line--left
+				.col-xs-4.center
+					a(href="#").logo
+						include ../../public_html/layout/images/svg/logo.svg
+				.col-xs-1.col-lg-2
+					span.logo__line.logo__line--right
+				.col-xs-3.col-lg-2
+					.header__links
+						a.cart(href="#")
+							include ../../public_html/layout/images/svg/cart.svg
+							| Товаров в корзине: 2
+						br
+						a.simmilar(href="#")
+							include ../../public_html/layout/images/svg/simmilar.svg
+							| К сравнению: 5
+	.catalog__nav
+		.container
+			.row
+				.col-xs-2
+					.brand-select
+						.dropdown
+							a.dropdown__trigger(href="#")
+								span.dropdown__text Все бренды
+								include ../../public_html/layout/images/svg/arrow.svg
+							span.dropdown__frame
+								a.dropdown__item(href="#", style="display:none") Все бренды
+								a.dropdown__item(href="#") Francesco Marconi
+								a.dropdown__item(href="#") Gilda Tonelli
+								a.dropdown__item(href="#") Uomo Tonelli
+								a.dropdown__item(href="#") Thelebre
+							select.dropdown__select
+								option(value="Francesco Marconi") Francesco Marconi
+								option(value="Gilda Tonelli") Gilda Tonelli
+								option(value="Uomo Tonelli") Uomo Tonelli
+								option(value="Thelebre") Thelebre
+				.col-xs-8
+					nav.sub-nav
+						a.sub-nav__item.sub-nav__item--active(href="#") для нее
+						a.sub-nav__item(href="#") для него
+						a.sub-nav__item(href="#") багаж
+						a.sub-nav__item(href="#") коллекции
+						a.sub-nav__item(href="#") style look
+						a.sub-nav__item(href="#") распродажа
+				.col-xs-2
+					.search
+						input.search__input(type="text", placeholder="Введите название товара")
+						button.search__button
+							include ../../public_html/layout/images/svg/search.svg
+	.page
+		.container
+			.row
+				.col-xs-6
+					.picture
+						.row
+							.col-xs-9.col-lg-10
+								.picture__big(style="background-image:url(http://www.italbags.ru/pics/items/big/21136.jpg)")
+								a.picture__zoom
+									include ../../public_html/layout/images/svg/zoom.svg
+							.col-xs-3.col-lg-2
+								a.picture__small.picture__small--active(style="background-image:url(http://www.italbags.ru/pics/items/small/21136.jpg)" href="http://www.italbags.ru/pics/items/big/21136.jpg")
+								a.picture__small(style="background-image:url(http://www.italbags.ru/pics/items/small/19285.jpg)" href="http://www.italbags.ru/pics/items/big/19285.jpg")
+								a.picture__small(style="background-image:url(http://www.italbags.ru/pics/items/small/21907.jpg)" href="http://www.italbags.ru/pics/items/big/21907.jpg")
+				.col-xs-6
+					.product__description
+						.row
+							.col-lg-6
+								h1.product__title сумка женская francesco marconi pelle pitone
+								.colors
+									a.colors__item.colors__item--active(style="background-image:url(http://www.italbags.ru/pics/items/big/21136.jpg)" href="#")
+									a.colors__item(style="background-image:url(http://www.italbags.ru/pics/items/big/19285.jpg)" href="#")
+									a.colors__item(style="background-image:url(http://www.italbags.ru/pics/items/big/21907.jpg)" href="#")
+							.col-lg-6
+								.props
+									.props__item
+										.props__name артикул
+										.props__value 83138sl
+									.props__item
+										.props__name бренд
+										.props__value francesco marconi
+									.props__item
+										.props__name цвет
+										.props__value голубой / коричневый
+									.props__item
+										.props__name материал
+										.props__value искусственная кожа
+									.props__item
+										.props__name размер
+										.props__value 25 × 35 × 45
+									.props__item.props__item--price
+										.props__name цена
+										.props__value 3400 ₷
+						.row
+							.col-lg-6
+								a.product__big-button(href="#") В корзину
+								a.product__big-button(href="#") сравнить
+							.col-lg-6
+								a.product__big-button.product__big-button--border(href="#") наличие в магазинах
+								.social-likes.social-likes_notext
+									.facebook
+									.twitter
+									.vkontakte
+									.odnoklassniki
+						.tabs
+							.tabs__title
+								a.tabs__trigger.tabs__trigger--active(href="#description") описание
+								a.tabs__trigger(href="#payment") оплата
+								a.tabs__trigger(href="#delivery") доставка
+								a.tabs__trigger(href="#refund") возврат
+								a.tabs__trigger(href="#feedback") обратная связь
+							#description.tabs__content.tabs__content--active
+								p Земля традиций и инноваций, фермеров и ремесленников, земля, где искусство встречается с технологиями, где хорошая кухня сочетается с гостеприимством местных жителей. Именно в Абруццо трое молодых братьев — Франческо, Назарено и Абрамо Тонелли, в небольшой мастерской объединив свои навыки и знания, основывают небольшую семейную фабрику в честь своих родителей.
+							#payment.tabs__content
+								p Земля традиций и инноваций, фермеров и ремесленников, земля, где искусство встречается с технологиями, где хорошая кухня сочетается с гостеприимством местных жителей. Именно в Абруццо трое молодых братьев — Франческо, Назарено и Абрамо Тонелли, в небольшой мастерской объединив свои навыки и знания, основывают небольшую семейную фабрику в честь своих родителей.
+							#delivery.tabs__content
+								p Земля традиций и инноваций, фермеров и ремесленников,
+							#refund.tabs__content
+								p Земля традиций и инноваций, фермеров и ремесленников, земля, где искусство встречается
+							#feedback.tabs__content
+								p Земля традиций и инноваций, фермеров и ремесленников, земля, где искусство встречается с технологиями, где 
+
+			.catalog__divider.catalog__divider--title(data-title="Вы уже смотрели")
+			.catalog.catalog--full-width.catalog--one-line
+				.row
+					.col-xs-3.col-lg-3
+						.product
+							.product__content
+								a.product__picture-frame(href="#")
+										.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/19285.jpg)")
+								.product__brand francesco marconi
+								.product__name pelle/pitone arancione
+								.product__price 3400 ₷
+							.product__hidden
+								.product__frame
+								a.product__icon.product__icon--zoom(href="#")
+									include ../../public_html/layout/images/svg/zoom.svg
+								a.product__icon.product__icon--cart(href="#")
+									include ../../public_html/layout/images/svg/cart.svg
+								a.product__button.product__button--more(href="") Подробнее
+								a.product__button.product__button--simmilar(href="") Сравнить
+					.col-xs-3.col-lg-3
+						.product
+							.product__content
+								a.product__picture-frame(href="#")
+										.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/21907.jpg)")
+								.product__brand francesco marconi
+								.product__name pelle/pitone arancione
+								.product__price 3400 ₷
+							.product__hidden
+								.product__frame
+								a.product__icon.product__icon--zoom(href="#")
+									include ../../public_html/layout/images/svg/zoom.svg
+								a.product__icon.product__icon--cart(href="#")
+									include ../../public_html/layout/images/svg/cart.svg
+								a.product__button.product__button--more(href="") Подробнее
+								a.product__button.product__button--simmilar(href="") Сравнить
+					.col-xs-3.col-lg-3
+						.product
+							.product__content
+								a.product__picture-frame(href="#")
+										.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/22528.jpg)")
+								.product__brand francesco marconi
+								.product__name pelle/pitone arancione
+								.product__price 3400 ₷
+							.product__hidden
+								.product__frame
+								a.product__icon.product__icon--zoom(href="#")
+									include ../../public_html/layout/images/svg/zoom.svg
+								a.product__icon.product__icon--cart(href="#")
+									include ../../public_html/layout/images/svg/cart.svg
+								a.product__button.product__button--more(href="") Подробнее
+								a.product__button.product__button--simmilar(href="") Сравнить
+					.col-xs-3.col-lg-3
+						.product
+							.product__content
+								a.product__picture-frame(href="#")
+										.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/21689.jpg)")
+								.product__brand francesco marconi
+								.product__name pelle/pitone arancione
+								.product__price 3400 ₷
+							.product__hidden
+								.product__frame
+								a.product__icon.product__icon--zoom(href="#")
+									include ../../public_html/layout/images/svg/zoom.svg
+								a.product__icon.product__icon--cart(href="#")
+									include ../../public_html/layout/images/svg/cart.svg
+								a.product__button.product__button--more(href="") Подробнее
+								a.product__button.product__button--simmilar(href="") Сравнить
+					.col-xs-3.col-lg-3
+						.product
+							.product__content
+								a.product__picture-frame(href="#")
+										.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/22519.jpg)")
+								.product__brand francesco marconi
+								.product__name pelle/pitone arancione
+								.product__price 3400 ₷
+							.product__hidden
+								.product__frame
+								a.product__icon.product__icon--zoom(href="#")
+									include ../../public_html/layout/images/svg/zoom.svg
+								a.product__icon.product__icon--cart(href="#")
+									include ../../public_html/layout/images/svg/cart.svg
+								a.product__button.product__button--more(href="") Подробнее
+								a.product__button.product__button--simmilar(href="") Сравнить
+			.catalog__divider.catalog__divider--title(data-title="francesco marconi рекомендует")
+			.catalog.catalog--full-width.catalog--one-line
+				.row
+					.col-xs-3.col-lg-3
+						.product
+							.product__content
+								a.product__picture-frame(href="#")
+										.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/19285.jpg)")
+								.product__brand francesco marconi
+								.product__name pelle/pitone arancione
+								.product__price 3400 ₷
+							.product__hidden
+								.product__frame
+								a.product__icon.product__icon--zoom(href="#")
+									include ../../public_html/layout/images/svg/zoom.svg
+								a.product__icon.product__icon--cart(href="#")
+									include ../../public_html/layout/images/svg/cart.svg
+								a.product__button.product__button--more(href="") Подробнее
+								a.product__button.product__button--simmilar(href="") Сравнить
+					.col-xs-3.col-lg-3
+						.product
+							.product__content
+								a.product__picture-frame(href="#")
+										.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/21907.jpg)")
+								.product__brand francesco marconi
+								.product__name pelle/pitone arancione
+								.product__price 3400 ₷
+							.product__hidden
+								.product__frame
+								a.product__icon.product__icon--zoom(href="#")
+									include ../../public_html/layout/images/svg/zoom.svg
+								a.product__icon.product__icon--cart(href="#")
+									include ../../public_html/layout/images/svg/cart.svg
+								a.product__button.product__button--more(href="") Подробнее
+								a.product__button.product__button--simmilar(href="") Сравнить
+					.col-xs-3.col-lg-3
+						.product
+							.product__content
+								a.product__picture-frame(href="#")
+										.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/22528.jpg)")
+								.product__brand francesco marconi
+								.product__name pelle/pitone arancione
+								.product__price 3400 ₷
+							.product__hidden
+								.product__frame
+								a.product__icon.product__icon--zoom(href="#")
+									include ../../public_html/layout/images/svg/zoom.svg
+								a.product__icon.product__icon--cart(href="#")
+									include ../../public_html/layout/images/svg/cart.svg
+								a.product__button.product__button--more(href="") Подробнее
+								a.product__button.product__button--simmilar(href="") Сравнить
+					.col-xs-3.col-lg-3
+						.product
+							.product__content
+								a.product__picture-frame(href="#")
+										.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/21689.jpg)")
+								.product__brand francesco marconi
+								.product__name pelle/pitone arancione
+								.product__price 3400 ₷
+							.product__hidden
+								.product__frame
+								a.product__icon.product__icon--zoom(href="#")
+									include ../../public_html/layout/images/svg/zoom.svg
+								a.product__icon.product__icon--cart(href="#")
+									include ../../public_html/layout/images/svg/cart.svg
+								a.product__button.product__button--more(href="") Подробнее
+								a.product__button.product__button--simmilar(href="") Сравнить
+					.col-xs-3.col-lg-3
+						.product
+							.product__content
+								a.product__picture-frame(href="#")
+										.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/22519.jpg)")
+								.product__brand francesco marconi
+								.product__name pelle/pitone arancione
+								.product__price 3400 ₷
+							.product__hidden
+								.product__frame
+								a.product__icon.product__icon--zoom(href="#")
+									include ../../public_html/layout/images/svg/zoom.svg
+								a.product__icon.product__icon--cart(href="#")
+									include ../../public_html/layout/images/svg/cart.svg
+								a.product__button.product__button--more(href="") Подробнее
+								a.product__button.product__button--simmilar(href="") Сравнить
+			.catalog__divider
+			.catalog__seo
+				.row
+					.col-xs-6
+						p Земля традиций и инноваций, фермеров и ремесленников, земля, где искусство встречается с технологиями, где хорошая кухня сочетается с гостеприимством местных жителей. Именно в Абруццо трое молодых братьев — Франческо, Назарено и Абрамо Тонелли, в небольшой мастерской объединив свои навыки и знания, основывают небольшую семейную фабрику в честь своих родителей.
+					.col-xs-6
+						p Братья Тонелли, благодаря своему труду и целеустремленности, начинают производство сумок и аксессуаров из кожи и стремительно завоевывают популярность у модниц и модников не только Европы, но и Америки, Азии, России. Со временем маленькая фабрика братьев Тонелли становится заметна и узнаваема на мировом рынке.
+include includes/footer

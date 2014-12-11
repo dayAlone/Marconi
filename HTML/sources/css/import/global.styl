@@ -1,0 +1,60 @@
+html, body
+	height 100%
+body
+	font-family 'Proxima', 'Helvetica Neue', 'Arial', sans-serif
+	min-height 100%
+	color black
+	-webkit-font-smoothing: subpixel-antialiased
+	&.index
+		overflow hidden
+
+.container
+	min-width 980px
+
+svg
+	t fill
+	path, g
+		t fill
+
+.scroll-fix
+	position fixed
+	width 100%
+	height 100%
+	top 0
+	left 0
+	z-index 300000
+	pointer-events none
+	&--on
+		pointer-events initial
+
+.wrap 
+	full-width()
+	min-height 100%
+	padding-bottom 60px
+	margin-bottom -60px
+	&:after
+		content ""
+		display block
+	background-repeat no-repeat
+	background-position center center
+	.index &
+		.background
+			position absolute
+			top 0
+			left 0
+			width 100%
+			height 100%
+			b('bg-index.jpg', top center no-repeat, white, cover)
+			animation-duration: 40s
+			animation-name: zoom
+			-webkit-animation-fill-mode: forwards
+
+@keyframes zoom
+	from
+		transform scale(1)
+	to
+		transform scale(1.1)
+
+.dropdown
+	&__frame, &__select
+		display none

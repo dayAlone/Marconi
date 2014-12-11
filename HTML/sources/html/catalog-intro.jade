@@ -1,0 +1,52 @@
+include includes/header
+<body class="catalog">
+.wrap
+	include includes/toolbar
+	.background
+	header.header
+		.container
+			.row
+				.col-xs-3.col-lg-2
+					.contacts
+						include ../../public_html/layout/images/svg/phone.svg
+						a.contacts__number(href="tel:88005553330") 8 800 555 333 0
+						.contacts__text Горячая линия
+
+				.col-xs-1.col-lg-2
+					span.logo__line.logo__line--left
+				.col-xs-4.center
+					a(href="#").logo
+						include ../../public_html/layout/images/svg/logo.svg
+				.col-xs-1.col-lg-2
+					span.logo__line.logo__line--right
+				.col-xs-3.col-lg-2
+					.header__links
+						a.cart(href="#")
+							include ../../public_html/layout/images/svg/cart.svg
+							| Товаров в корзине: 2
+						br
+						a.simmilar(href="#")
+							include ../../public_html/layout/images/svg/simmilar.svg
+							| К сравнению: 5
+	.page
+		.container
+			.row
+				.col-xs-4
+					a.catalog__intro
+						.catalog__intro-picture(style="background-image:url(/layout/images/i-1.jpg)")
+						.catalog__intro-text Для нее
+					a.catalog__intro
+						.catalog__intro-picture(style="background-image:url(/layout/images/i-3.jpg)")
+						.catalog__intro-text.catalog__intro-text--bottom Багаж
+				.col-xs-4
+					a.catalog__intro.catalog__intro--big
+						.catalog__intro-picture(style="background-image:url(/layout/images/i-2.jpg)")
+						.catalog__intro-text.catalog__intro-text--center Все товары
+				.col-xs-4
+					a.catalog__intro
+						.catalog__intro-picture(style="background-image:url(/layout/images/i-4.jpg)")
+						.catalog__intro-text.catalog__intro-text--right Для него
+					a.catalog__intro
+						.catalog__intro-picture(style="background-image:url(/layout/images/i-5.jpg)")
+						.catalog__intro-text.catalog__intro-text--bottom.catalog__intro-text--black.catalog__intro-text--right Style look
+include includes/footer

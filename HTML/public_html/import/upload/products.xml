@@ -1,0 +1,2740 @@
+<products date="09.12.2014 19:58:25">
+	<product id="01de7a2c-dfe9-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000026404">
+		<artnumber>025am</artnumber>
+		<name>025am volanato nero</name>
+		<namePrint>Ремень мужской 025am воланато неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="01de7ac2-dfe9-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000026409">
+		<artnumber>032am</artnumber>
+		<name>032am gump fumo</name>
+		<namePrint>Ремень мужской 032am гамп фумо</namePrint>
+		<description></description>
+		<properties>
+			<property id="SizeForWeb" value="128"/>
+			<property id="section" value="a869f8bd-7f9b-11e4-b70a-0025901865a2"/>
+			<property id="category" value="dc9aaebd-7f9b-11e4-b70a-0025901865a2"/>
+			<property id="type" value="2fd88afc-7fbe-11e4-b70a-0025901865a2"/>
+			<property id="brand" value="c7b6c706-7fb9-11e4-b70a-0025901865a2"/>
+			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="20a6436a-dfe9-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000026420">
+		<artnumber>100am</artnumber>
+		<name>100am volanato marino</name>
+		<namePrint>Ремень мужской 100am воланато марино</namePrint>
+		<description></description>
+		<properties>
+			<property id="SizeForWeb" value=""/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="46c3bf5b-dfe9-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000026449">
+		<artnumber>116am</artnumber>
+		<name>116am volanato nero</name>
+		<namePrint>Ремень мужской 116am воланато неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="75600a9f-dfe9-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000026458">
+		<artnumber>170am</artnumber>
+		<name>170am cocco tm</name>
+		<namePrint>Ремень мужской 170am кокко тм</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="75600aa6-dfe9-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000026456">
+		<artnumber>172am</artnumber>
+		<name>172am cocco tm</name>
+		<namePrint>Ремень мужской 172am кокко тм</namePrint>
+		<description></description>
+		<properties>
+			<property id="SizeForWeb" value=""/>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="75600ad9-dfe9-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000026453">
+		<artnumber>178am</artnumber>
+		<name>178am volanato grigio</name>
+		<namePrint>Ремень мужской 178am воланато гриджио</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="fc6cc380-dfea-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000027551">
+		<artnumber>654am</artnumber>
+		<name>654am tejus nero</name>
+		<namePrint>Ремень мужской 654am тэюс неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="fc6cc381-dfea-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000027552">
+		<artnumber>654am</artnumber>
+		<name>654am tejus tm</name>
+		<namePrint>Ремень мужской 654am тэюс тм</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="031cbe65-dfeb-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000027530">
+		<artnumber>672am</artnumber>
+		<name>672am krest caffe</name>
+		<namePrint>Ремень мужской 672am крест каффэ</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="031cbe66-dfeb-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000027529">
+		<artnumber>672am</artnumber>
+		<name>672am krest nero</name>
+		<namePrint>Ремень мужской 672am крест неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="031cbe84-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000025827">
+		<artnumber>6795am</artnumber>
+		<name>6795am nabuk taupe</name>
+		<namePrint>Ремень женский 6795am нубук таупе</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="09d78f51-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000025766">
+		<artnumber>6927am</artnumber>
+		<name>6927am volanato nero L</name>
+		<namePrint>Ремень женский 6927am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="09d78f54-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000025769">
+		<artnumber>6927am</artnumber>
+		<name>6927am volanato sabbia L</name>
+		<namePrint>Ремень женский 6927am воланато саббиа L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="09d78f55-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000025768">
+		<artnumber>6927am</artnumber>
+		<name>6927am volanato sabbia M</name>
+		<namePrint>Ремень женский 6927am воланато саббиа M</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="09d78f56-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000025767">
+		<artnumber>6927am</artnumber>
+		<name>6927am volanato sabbia S</name>
+		<namePrint>Ремень женский 6927am воланато саббиа S</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="09d78f5f-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000026439">
+		<artnumber>6947am</artnumber>
+		<name>6947am elastico nero L</name>
+		<namePrint>Ремень женский 6947am эластико неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="09d78f60-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000026438">
+		<artnumber>6947am</artnumber>
+		<name>6947am elastico nero M</name>
+		<namePrint>Ремень женский 6947am эластико неро M</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="09d78f61-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000026437">
+		<artnumber>6947am</artnumber>
+		<name>6947am elastico nero S</name>
+		<namePrint>Ремень женский 6947am эластико неро S</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="09d78f73-dfeb-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000027528">
+		<artnumber>698am</artnumber>
+		<name>698am krest caffe</name>
+		<namePrint>Ремень мужской 698am крест каффэ</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="09d78f74-dfeb-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000027527">
+		<artnumber>698am</artnumber>
+		<name>698am krest nero</name>
+		<namePrint>Ремень мужской 698am крест неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="1e1f822b-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000025825">
+		<artnumber>7169am</artnumber>
+		<name>7169am chioggia ghiaccio</name>
+		<namePrint>Ремень женский 7169am кьоджа гьяччо</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="25216f12-dfeb-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000027536">
+		<artnumber>725am</artnumber>
+		<name>725am volanato tm</name>
+		<namePrint>Ремень мужской 725am воланато тм</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="25216f3f-dfeb-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000027532">
+		<artnumber>728am</artnumber>
+		<name>728am timber tm</name>
+		<namePrint>Ремень мужской 728am тимбер тм</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="2c3cb099-dfeb-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000027563">
+		<artnumber>736am</artnumber>
+		<name>736am pitone multicolore</name>
+		<namePrint>Ремень мужской 736am питоне мултиколор</namePrint>
+		<description></description>
+		<properties>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="2c3cb09c-dfeb-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000027525">
+		<artnumber>745am</artnumber>
+		<name>745am moguai caffe</name>
+		<namePrint>Ремень мужской 745am могуаи каффэ</namePrint>
+		<description></description>
+		<properties>
+			<property id="SizeForWeb" value=""/>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="2c3cb09d-dfeb-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000027524">
+		<artnumber>745am</artnumber>
+		<name>745am moguai nero</name>
+		<namePrint>Ремень мужской 745am могуаи неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="SizeForWeb" value=""/>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="2c3cb0dc-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000026441">
+		<artnumber>7542am</artnumber>
+		<name>7542am merinos nero</name>
+		<namePrint>Ремень женский 7542am меринос неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="2c3cb0dd-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000026442">
+		<artnumber>7542am</artnumber>
+		<name>7542am merinos terra</name>
+		<namePrint>Ремень женский 7542am меринос терра</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="3a70ea37-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000025788">
+		<artnumber>7763am</artnumber>
+		<name>7763am saffiano bianco S</name>
+		<namePrint>Ремень женский 7763am софиано бианко S</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="3a70ea59-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000025871">
+		<artnumber>7771am</artnumber>
+		<name>7771am anaconda grigio</name>
+		<namePrint>Ремень женский 7771am анаконда гриджио</namePrint>
+		<description></description>
+		<properties>
+			<property id="SizeForWeb" value=""/>
+			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="735ecf2a-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000026384">
+		<artnumber>8051am</artnumber>
+		<name>8051am mousse nero</name>
+		<namePrint>Ремень женский 8051am мусс неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="SizeForWeb" value=""/>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="89b7a7ab-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000026340">
+		<artnumber>8124am</artnumber>
+		<name>8124am volanato taupe</name>
+		<namePrint>Ремень женский 8124am воланато таупе</namePrint>
+		<description></description>
+		<properties>
+			<property id="SizeForWeb" value=""/>
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="89b7a7cc-dfeb-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000027523">
+		<artnumber>812am</artnumber>
+		<name>812am moguai caffe</name>
+		<namePrint>Ремень мужской 812am могуаи каффэ</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a7a8bc7c-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000027498">
+		<artnumber>8604am</artnumber>
+		<name>8604am texas bianco</name>
+		<namePrint>Ремень женский 8604am техас бианко</namePrint>
+		<description></description>
+		<properties>
+			<property id="SizeForWeb" value=""/>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a7a8bc7e-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000027499">
+		<artnumber>8604am</artnumber>
+		<name>8604am texas sabbia</name>
+		<namePrint>Ремень женский 8604am техас саббиа</namePrint>
+		<description></description>
+		<properties>
+			<property id="SizeForWeb" value=""/>
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a7a8bcde-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000027507">
+		<artnumber>8662am</artnumber>
+		<name>8662am volanato nero M</name>
+		<namePrint>Ремень женский 8662am воланато неро M</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a7a8bcdf-dfeb-11e1-8b99-002713963884" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000027506">
+		<artnumber>8662am</artnumber>
+		<name>8662am volanato nero S</name>
+		<namePrint>Ремень женский 8662am воланато неро S</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="cde6925a-dfeb-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000026396">
+		<artnumber>966am</artnumber>
+		<name>966am volanato nero</name>
+		<namePrint>Ремень мужской 966am воланато неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="SizeForWeb" value=""/>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="cde6925b-dfeb-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000026397">
+		<artnumber>966am</artnumber>
+		<name>966am volanato tm</name>
+		<namePrint>Ремень мужской 966am воланато тм</namePrint>
+		<description></description>
+		<properties>
+			<property id="SizeForWeb" value=""/>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="d650ee2f-dfeb-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000026399">
+		<artnumber>985am</artnumber>
+		<name>985am volanato tm</name>
+		<namePrint>Ремень мужской 985am воланато тм</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="d650ee54-dfeb-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000026401">
+		<artnumber>988am</artnumber>
+		<name>988am volanato tm</name>
+		<namePrint>Ремень мужской 988am воланато тм</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb18e-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031561">
+		<artnumber>232am</artnumber>
+		<name>232am moguai nero L</name>
+		<namePrint>Ремень мужской 232am могуаи неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb190-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031562">
+		<artnumber>232am</artnumber>
+		<name>232am moguai nero XL</name>
+		<namePrint>Ремень мужской 232am могуаи неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb192-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031563">
+		<artnumber>232am</artnumber>
+		<name>232am moguai caffe L</name>
+		<namePrint>Ремень мужской 232am могуаи каффэ L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb194-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031564">
+		<artnumber>232am</artnumber>
+		<name>232am moguai caffe XL</name>
+		<namePrint>Ремень мужской 232am могуаи каффэ XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb196-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031565">
+		<artnumber>182am</artnumber>
+		<name>182am krest nero L</name>
+		<namePrint>Ремень мужской 182am крест неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb198-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031566">
+		<artnumber>182am</artnumber>
+		<name>182am krest nero XL</name>
+		<namePrint>Ремень мужской 182am крест неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb19a-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031567">
+		<artnumber>181am</artnumber>
+		<name>181am krest nero L</name>
+		<namePrint>Ремень мужской 181am крест неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb19c-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031568">
+		<artnumber>181am</artnumber>
+		<name>181am krest nero XL</name>
+		<namePrint>Ремень мужской 181am крест неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb19e-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031569">
+		<artnumber>181am</artnumber>
+		<name>181am krest blu L</name>
+		<namePrint>Ремень мужской 181am крест блу L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1a0-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031570">
+		<artnumber>181am</artnumber>
+		<name>181am krest blu XL</name>
+		<namePrint>Ремень мужской 181am крест блу XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1a2-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031571">
+		<artnumber>181am</artnumber>
+		<name>181am krest caffe L</name>
+		<namePrint>Ремень мужской 181am крест каффэ L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1a4-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031572">
+		<artnumber>181am</artnumber>
+		<name>181am krest caffe XL</name>
+		<namePrint>Ремень мужской 181am крест каффэ XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1a6-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031573">
+		<artnumber>204am</artnumber>
+		<name>204am volanato nero L</name>
+		<namePrint>Ремень мужской 204am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1a8-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031574">
+		<artnumber>204am</artnumber>
+		<name>204am volanato nero XL</name>
+		<namePrint>Ремень мужской 204am воланато неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1aa-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031575">
+		<artnumber>204am</artnumber>
+		<name>204am volanato bianco L</name>
+		<namePrint>Ремень мужской 204am воланато бианко L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1ac-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031576">
+		<artnumber>204am</artnumber>
+		<name>204am volanato bianco XL</name>
+		<namePrint>Ремень мужской 204am воланато бианко XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1ae-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031577">
+		<artnumber>204am</artnumber>
+		<name>204am volanato jeans L</name>
+		<namePrint>Ремень мужской 204am воланато джинс L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1b0-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031578">
+		<artnumber>204am</artnumber>
+		<name>204am volanato jeans XL</name>
+		<namePrint>Ремень мужской 204am воланато джинс XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1b2-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031579">
+		<artnumber>202am</artnumber>
+		<name>202am volanato nero L</name>
+		<namePrint>Ремень мужской 202am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1b4-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031580">
+		<artnumber>202am</artnumber>
+		<name>202am volanato nero XL</name>
+		<namePrint>Ремень мужской 202am воланато неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1b6-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031581">
+		<artnumber>202am</artnumber>
+		<name>202am volanato jeans L</name>
+		<namePrint>Ремень мужской 202am воланато джинс L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1b8-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031582">
+		<artnumber>202am</artnumber>
+		<name>202am volanato jeans XL</name>
+		<namePrint>Ремень мужской 202am воланато джинс XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1ba-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031583">
+		<artnumber>202am</artnumber>
+		<name>202am volanato verde L</name>
+		<namePrint>Ремень мужской 202am воланато вердэ L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1bc-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031584">
+		<artnumber>202am</artnumber>
+		<name>202am volanato verde XL</name>
+		<namePrint>Ремень мужской 202am воланато вердэ XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1be-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031585">
+		<artnumber>147am</artnumber>
+		<name>147am saffiano nero L</name>
+		<namePrint>Ремень мужской 147am софиано неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1c0-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031586">
+		<artnumber>147am</artnumber>
+		<name>147am saffiano nero XL</name>
+		<namePrint>Ремень мужской 147am софиано неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1c2-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031587">
+		<artnumber>147am</artnumber>
+		<name>147am saffiano bianco L</name>
+		<namePrint>Ремень мужской 147am софиано бианко L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1c4-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031588">
+		<artnumber>147am</artnumber>
+		<name>147am saffiano bianco XL</name>
+		<namePrint>Ремень мужской 147am софиано бианко XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1c6-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031589">
+		<artnumber>349am</artnumber>
+		<name>349am volanato nero L</name>
+		<namePrint>Ремень мужской 349am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1ca-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031591">
+		<artnumber>349am</artnumber>
+		<name>349am volanato t.moro L</name>
+		<namePrint>Ремень мужской 349am воланато тиморо L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1cc-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031592">
+		<artnumber>349am</artnumber>
+		<name>349am volanato t.moro XL</name>
+		<namePrint>Ремень мужской 349am воланато тиморо XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1ce-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031593">
+		<artnumber>222am</artnumber>
+		<name>222am cocco nero L</name>
+		<namePrint>Ремень мужской 222am кокко неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1d0-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031594">
+		<artnumber>222am</artnumber>
+		<name>222am cocco nero XL</name>
+		<namePrint>Ремень мужской 222am кокко неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1d2-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031595">
+		<artnumber>222am</artnumber>
+		<name>222am cocco taupe L</name>
+		<namePrint>Ремень мужской 222am кокко таупе L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1d4-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031596">
+		<artnumber>222am</artnumber>
+		<name>222am cocco taupe XL</name>
+		<namePrint>Ремень мужской 222am кокко таупе XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1d6-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031597">
+		<artnumber>227am</artnumber>
+		<name>227am cocco nero L</name>
+		<namePrint>Ремень мужской 227am кокко неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1d8-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031598">
+		<artnumber>227am</artnumber>
+		<name>227am cocco nero XL</name>
+		<namePrint>Ремень мужской 227am кокко неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1da-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031599">
+		<artnumber>227am</artnumber>
+		<name>227am cocco jeans L</name>
+		<namePrint>Ремень мужской 227am кокко джинс L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1dc-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031600">
+		<artnumber>227am</artnumber>
+		<name>227am cocco jeans XL</name>
+		<namePrint>Ремень мужской 227am кокко джинс XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1de-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031601">
+		<artnumber>227am</artnumber>
+		<name>227am cocco t.moro L</name>
+		<namePrint>Ремень мужской 227am кокко тиморо L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a32bb1e0-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031602">
+		<artnumber>227am</artnumber>
+		<name>227am cocco t.moro XL</name>
+		<namePrint>Ремень мужской 227am кокко тиморо XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a9360574-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031603">
+		<artnumber>149am</artnumber>
+		<name>149am polaris nero L</name>
+		<namePrint>Ремень мужской 149am поларис неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a9360576-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031604">
+		<artnumber>149am</artnumber>
+		<name>149am polaris nero XL</name>
+		<namePrint>Ремень мужской 149am поларис неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a9360578-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031605">
+		<artnumber>174am</artnumber>
+		<name>174am polaris nero L</name>
+		<namePrint>Ремень мужской 174am поларис неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a936057a-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031606">
+		<artnumber>174am</artnumber>
+		<name>174am polaris nero XL</name>
+		<namePrint>Ремень мужской 174am поларис неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a936057c-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031607">
+		<artnumber>162am</artnumber>
+		<name>162am soave nero L</name>
+		<namePrint>Ремень мужской 162am соаве неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a9360580-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031609">
+		<artnumber>154am</artnumber>
+		<name>154am polaris nero L</name>
+		<namePrint>Ремень мужской 154am поларис неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a9360582-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031610">
+		<artnumber>154am</artnumber>
+		<name>154am polaris nero XL</name>
+		<namePrint>Ремень мужской 154am поларис неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a9360584-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031611">
+		<artnumber>154am</artnumber>
+		<name>154am polaris blu L</name>
+		<namePrint>Ремень мужской 154am поларис блу L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a9360586-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031612">
+		<artnumber>154am</artnumber>
+		<name>154am polaris blu XL</name>
+		<namePrint>Ремень мужской 154am поларис блу XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a9360588-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031613">
+		<artnumber>350am</artnumber>
+		<name>350am soave nero L</name>
+		<namePrint>Ремень мужской 350am соаве неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a936058c-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031615">
+		<artnumber>350am</artnumber>
+		<name>350am soave bianco L</name>
+		<namePrint>Ремень мужской 350am соаве бианко L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a936058e-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031616">
+		<artnumber>350am</artnumber>
+		<name>350am soave bianco XL</name>
+		<namePrint>Ремень мужской 350am соаве бианко XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a9360590-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031617">
+		<artnumber>142am</artnumber>
+		<name>142am soave nero L</name>
+		<namePrint>Ремень мужской 142am соаве неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a9360592-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031618">
+		<artnumber>142am</artnumber>
+		<name>142am soave nero XL</name>
+		<namePrint>Ремень мужской 142am соаве неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a9360594-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031619">
+		<artnumber>142am</artnumber>
+		<name>142am soave bianco L</name>
+		<namePrint>Ремень мужской 142am соаве бианко L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a9360596-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031620">
+		<artnumber>142am</artnumber>
+		<name>142am soave bianco XL</name>
+		<namePrint>Ремень мужской 142am соаве бианко XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a9360598-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031621">
+		<artnumber>142am</artnumber>
+		<name>142am soave petrolio L</name>
+		<namePrint>Ремень мужской 142am соаве петролио L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a936059a-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031622">
+		<artnumber>142am</artnumber>
+		<name>142am soave petrolio XL</name>
+		<namePrint>Ремень мужской 142am соаве петролио XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a936059c-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031623">
+		<artnumber>142am</artnumber>
+		<name>142am soave rubino L</name>
+		<namePrint>Ремень мужской 142am соаве рубино L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a93605a0-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031625">
+		<artnumber>117am</artnumber>
+		<name>117am krest nero L</name>
+		<namePrint>Ремень мужской 117am крест неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a93605a2-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031626">
+		<artnumber>117am</artnumber>
+		<name>117am krest nero XL</name>
+		<namePrint>Ремень мужской 117am крест неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a93605a4-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031627">
+		<artnumber>117am</artnumber>
+		<name>117am krest blu L</name>
+		<namePrint>Ремень мужской 117am крест блу L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a93605a6-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031628">
+		<artnumber>117am</artnumber>
+		<name>117am krest blu XL</name>
+		<namePrint>Ремень мужской 117am крест блу XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a93605a8-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031629">
+		<artnumber>117am</artnumber>
+		<name>117am krest t.moro L</name>
+		<namePrint>Ремень мужской 117am крест тиморо L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a93605aa-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031630">
+		<artnumber>117am</artnumber>
+		<name>117am krest t.moro XL</name>
+		<namePrint>Ремень мужской 117am крест тиморо XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a93605ae-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031632">
+		<artnumber>445am</artnumber>
+		<name>445am rettile marina XL</name>
+		<namePrint>Ремень мужской 445am ретиле марина XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a93605bc-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031639">
+		<artnumber>101am</artnumber>
+		<name>101am volanato nero L</name>
+		<namePrint>Ремень мужской 101am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a93605be-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031640">
+		<artnumber>101am</artnumber>
+		<name>101am volanato nero XL</name>
+		<namePrint>Ремень мужской 101am воланато неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a93605c0-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031641">
+		<artnumber>101am</artnumber>
+		<name>101am volanato marino L</name>
+		<namePrint>Ремень мужской 101am воланато марино L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a93605c2-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031642">
+		<artnumber>101am</artnumber>
+		<name>101am volanato marino XL</name>
+		<namePrint>Ремень мужской 101am воланато марино XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="a93605c4-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031643">
+		<artnumber>101am</artnumber>
+		<name>101am volanato bianco L</name>
+		<namePrint>Ремень мужской 101am воланато бианко L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493333-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031644">
+		<artnumber>101am</artnumber>
+		<name>101am volanato bianco XL</name>
+		<namePrint>Ремень мужской 101am воланато бианко XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493335-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031645">
+		<artnumber>101am</artnumber>
+		<name>101am volanato cognac L</name>
+		<namePrint>Ремень мужской 101am воланато коньяк L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493337-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031646">
+		<artnumber>101am</artnumber>
+		<name>101am volanato cognac XL</name>
+		<namePrint>Ремень мужской 101am воланато коньяк XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493339-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031647">
+		<artnumber>106am</artnumber>
+		<name>106am volanato bianco L</name>
+		<namePrint>Ремень мужской 106am воланато бианко L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af49333b-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031648">
+		<artnumber>106am</artnumber>
+		<name>106am volanato bianco XL</name>
+		<namePrint>Ремень мужской 106am воланато бианко XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af49333d-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031649">
+		<artnumber>106am</artnumber>
+		<name>106am volanato nero L</name>
+		<namePrint>Ремень мужской 106am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af49333f-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031650">
+		<artnumber>106am</artnumber>
+		<name>106am volanato nero XL</name>
+		<namePrint>Ремень мужской 106am воланато неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493341-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031651">
+		<artnumber>106am</artnumber>
+		<name>106am volanato grigio L</name>
+		<namePrint>Ремень мужской 106am воланато гриджио L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493343-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031652">
+		<artnumber>106am</artnumber>
+		<name>106am volanato grigio XL</name>
+		<namePrint>Ремень мужской 106am воланато гриджио XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493349-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031655">
+		<artnumber>105am</artnumber>
+		<name>105am volanato nero L</name>
+		<namePrint>Ремень мужской 105am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af49334b-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031656">
+		<artnumber>105am</artnumber>
+		<name>105am volanato nero XL</name>
+		<namePrint>Ремень мужской 105am воланато неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af49334d-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031657">
+		<artnumber>105am</artnumber>
+		<name>105am volanato jeans L</name>
+		<namePrint>Ремень мужской 105am воланато джинс L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af49334f-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031658">
+		<artnumber>105am</artnumber>
+		<name>105am volanato jeans XL</name>
+		<namePrint>Ремень мужской 105am воланато джинс XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493351-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031659">
+		<artnumber>105am</artnumber>
+		<name>105am volanato bianco L</name>
+		<namePrint>Ремень мужской 105am воланато бианко L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493353-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031660">
+		<artnumber>105am</artnumber>
+		<name>105am volanato bianco XL</name>
+		<namePrint>Ремень мужской 105am воланато бианко XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493355-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031661">
+		<artnumber>105am</artnumber>
+		<name>105am volanato militare L</name>
+		<namePrint>Ремень мужской 105am воланато милитаре L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493359-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031663">
+		<artnumber>108am</artnumber>
+		<name>108am volanato nero L</name>
+		<namePrint>Ремень мужской 108am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af49335b-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031664">
+		<artnumber>108am</artnumber>
+		<name>108am volanato nero XL</name>
+		<namePrint>Ремень мужской 108am воланато неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af49335d-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031665">
+		<artnumber>108am</artnumber>
+		<name>108am volanato marino L</name>
+		<namePrint>Ремень мужской 108am воланато марино L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af49335f-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031666">
+		<artnumber>108am</artnumber>
+		<name>108am volanato marino XL</name>
+		<namePrint>Ремень мужской 108am воланато марино XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493369-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031671">
+		<artnumber>104am</artnumber>
+		<name>104am volanato bianco L</name>
+		<namePrint>Ремень мужской 104am воланато бианко L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af49336b-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031672">
+		<artnumber>104am</artnumber>
+		<name>104am volanato bianco XL</name>
+		<namePrint>Ремень мужской 104am воланато бианко XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af49336d-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031673">
+		<artnumber>111am</artnumber>
+		<name>111am volanato nero L</name>
+		<namePrint>Ремень мужской 111am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af49336f-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031674">
+		<artnumber>111am</artnumber>
+		<name>111am volanato nero XL</name>
+		<namePrint>Ремень мужской 111am воланато неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493371-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031675">
+		<artnumber>111am</artnumber>
+		<name>111am volanato marino L</name>
+		<namePrint>Ремень мужской 111am воланато марино L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493373-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031676">
+		<artnumber>111am</artnumber>
+		<name>111am volanato marino XL</name>
+		<namePrint>Ремень мужской 111am воланато марино XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493375-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031677">
+		<artnumber>111am</artnumber>
+		<name>111am volanato cognac L</name>
+		<namePrint>Ремень мужской 111am воланато коньяк L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493377-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031678">
+		<artnumber>111am</artnumber>
+		<name>111am volanato cognac XL</name>
+		<namePrint>Ремень мужской 111am воланато коньяк XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="af493379-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031679">
+		<artnumber>111am</artnumber>
+		<name>111am volanato bianco L</name>
+		<namePrint>Ремень мужской 111am воланато бианко L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f39-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031680">
+		<artnumber>111am</artnumber>
+		<name>111am volanato bianco XL</name>
+		<namePrint>Ремень мужской 111am воланато бианко XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f43-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031685">
+		<artnumber>351am</artnumber>
+		<name>351am volanato arancione L</name>
+		<namePrint>Ремень мужской 351am воланато аранчионе L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f45-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031686">
+		<artnumber>351am</artnumber>
+		<name>351am volanato arancione XL</name>
+		<namePrint>Ремень мужской 351am воланато аранчионе XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f4b-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031689">
+		<artnumber>351am</artnumber>
+		<name>351am volanato verde L</name>
+		<namePrint>Ремень мужской 351am воланато вердэ L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f4d-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031690">
+		<artnumber>351am</artnumber>
+		<name>351am volanato verde XL</name>
+		<namePrint>Ремень мужской 351am воланато вердэ XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f4f-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031691">
+		<artnumber>351am</artnumber>
+		<name>351am volanato bianco L</name>
+		<namePrint>Ремень мужской 351am воланато бианко L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f51-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031692">
+		<artnumber>351am</artnumber>
+		<name>351am volanato bianco XL</name>
+		<namePrint>Ремень мужской 351am воланато бианко XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f53-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031693">
+		<artnumber>130am</artnumber>
+		<name>130am volanato nero L</name>
+		<namePrint>Ремень мужской 130am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f57-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031695">
+		<artnumber>130am</artnumber>
+		<name>130am volanato t.moro L</name>
+		<namePrint>Ремень мужской 130am воланато тиморо L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f59-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031696">
+		<artnumber>130am</artnumber>
+		<name>130am volanato t.moro XL</name>
+		<namePrint>Ремень мужской 130am воланато тиморо XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f5b-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031697">
+		<artnumber>130am</artnumber>
+		<name>130am volanato marino L</name>
+		<namePrint>Ремень мужской 130am воланато марино L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f5d-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031698">
+		<artnumber>130am</artnumber>
+		<name>130am volanato marino XL</name>
+		<namePrint>Ремень мужской 130am воланато марино XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f5f-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031699">
+		<artnumber>136am</artnumber>
+		<name>136am volanato nero L</name>
+		<namePrint>Ремень мужской 136am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f61-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031700">
+		<artnumber>136am</artnumber>
+		<name>136am volanato nero M</name>
+		<namePrint>Ремень мужской 136am воланато неро M</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f63-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031701">
+		<artnumber>136am</artnumber>
+		<name>136am volanato nero XL</name>
+		<namePrint>Ремень мужской 136am воланато неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f65-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031702">
+		<artnumber>136am</artnumber>
+		<name>136am volanato bianco L</name>
+		<namePrint>Ремень мужской 136am воланато бианко L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f67-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031703">
+		<artnumber>136am</artnumber>
+		<name>136am volanato bianco M</name>
+		<namePrint>Ремень мужской 136am воланато бианко M</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f69-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031704">
+		<artnumber>136am</artnumber>
+		<name>136am volanato bianco XL</name>
+		<namePrint>Ремень мужской 136am воланато бианко XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f6b-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031705">
+		<artnumber>102am</artnumber>
+		<name>102am volanato nero L</name>
+		<namePrint>Ремень мужской 102am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f6d-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031706">
+		<artnumber>102am</artnumber>
+		<name>102am volanato nero XL</name>
+		<namePrint>Ремень мужской 102am воланато неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f6f-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031707">
+		<artnumber>102am</artnumber>
+		<name>102am volanato marino L</name>
+		<namePrint>Ремень мужской 102am воланато марино L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f71-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031708">
+		<artnumber>102am</artnumber>
+		<name>102am volanato marino XL</name>
+		<namePrint>Ремень мужской 102am воланато марино XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f73-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031709">
+		<artnumber>102am</artnumber>
+		<name>102am volanato cognac L</name>
+		<namePrint>Ремень мужской 102am воланато коньяк L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f75-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031710">
+		<artnumber>102am</artnumber>
+		<name>102am volanato cognac XL</name>
+		<namePrint>Ремень мужской 102am воланато коньяк XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f77-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031711">
+		<artnumber>102am</artnumber>
+		<name>102am volanato bianco L</name>
+		<namePrint>Ремень мужской 102am воланато бианко L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f79-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031712">
+		<artnumber>102am</artnumber>
+		<name>102am volanato bianco XL</name>
+		<namePrint>Ремень мужской 102am воланато бианко XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f7b-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031713">
+		<artnumber>103am</artnumber>
+		<name>103am volanato nero L</name>
+		<namePrint>Ремень мужской 103am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f7d-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031714">
+		<artnumber>103am</artnumber>
+		<name>103am volanato nero XL</name>
+		<namePrint>Ремень мужской 103am воланато неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="b5561f7f-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031715">
+		<artnumber>103am</artnumber>
+		<name>103am volanato jeans L</name>
+		<namePrint>Ремень мужской 103am воланато джинс L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4d7-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031716">
+		<artnumber>103am</artnumber>
+		<name>103am volanato jeans XL</name>
+		<namePrint>Ремень мужской 103am воланато джинс XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4d9-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031717">
+		<artnumber>135am</artnumber>
+		<name>135am volanato nero L</name>
+		<namePrint>Ремень мужской 135am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4db-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031718">
+		<artnumber>135am</artnumber>
+		<name>135am volanato nero XL</name>
+		<namePrint>Ремень мужской 135am воланато неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4dd-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031719">
+		<artnumber>135am</artnumber>
+		<name>135am volanato bianco L</name>
+		<namePrint>Ремень мужской 135am воланато бианко L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4df-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031720">
+		<artnumber>135am</artnumber>
+		<name>135am volanato bianco XL</name>
+		<namePrint>Ремень мужской 135am воланато бианко XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4e1-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031721">
+		<artnumber>135am</artnumber>
+		<name>135am volanato marino L</name>
+		<namePrint>Ремень мужской 135am воланато марино L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4e3-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031722">
+		<artnumber>135am</artnumber>
+		<name>135am volanato marino XL</name>
+		<namePrint>Ремень мужской 135am воланато марино XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4e5-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031723">
+		<artnumber>132am</artnumber>
+		<name>132am nabuk nero L</name>
+		<namePrint>Ремень мужской 132am нубук неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4e7-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031724">
+		<artnumber>132am</artnumber>
+		<name>132am nabuk nero XL</name>
+		<namePrint>Ремень мужской 132am нубук неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4e9-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031725">
+		<artnumber>132am</artnumber>
+		<name>132am nabuk taupe L</name>
+		<namePrint>Ремень мужской 132am нубук таупе L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4eb-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031726">
+		<artnumber>132am</artnumber>
+		<name>132am nabuk taupe XL</name>
+		<namePrint>Ремень мужской 132am нубук таупе XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4ed-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031727">
+		<artnumber>120am</artnumber>
+		<name>120am volanato nero L</name>
+		<namePrint>Ремень мужской 120am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4ef-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031728">
+		<artnumber>120am</artnumber>
+		<name>120am volanato nero XL</name>
+		<namePrint>Ремень мужской 120am воланато неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4f1-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031729">
+		<artnumber>120am</artnumber>
+		<name>120am volanato t.moro L</name>
+		<namePrint>Ремень мужской 120am воланато тиморо L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4f3-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031730">
+		<artnumber>120am</artnumber>
+		<name>120am volanato t.moro XL</name>
+		<namePrint>Ремень мужской 120am воланато тиморо XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4f5-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031731">
+		<artnumber>115am</artnumber>
+		<name>115am gump jeans L</name>
+		<namePrint>Ремень мужской 115am гамп джинс L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4f9-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031733">
+		<artnumber>115am</artnumber>
+		<name>115am gump smog L</name>
+		<namePrint>Ремень мужской 115am гамп смог L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4fb-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031734">
+		<artnumber>115am</artnumber>
+		<name>115am gump smog XL</name>
+		<namePrint>Ремень мужской 115am гамп смог XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4fd-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031735">
+		<artnumber>303am</artnumber>
+		<name>303am pelle nero L</name>
+		<namePrint>Ремень мужской 303am пелле неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="bb66b4ff-4dec-11e3-8e50-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000031736">
+		<artnumber>303am</artnumber>
+		<name>303am pelle nero XL</name>
+		<namePrint>Ремень мужской 303am пелле неро XL</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c3f23a28-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032652">
+		<artnumber>189am</artnumber>
+		<name>189am soave nero L</name>
+		<namePrint>Ремень мужской 189am соаве неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c3f23a2c-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032654">
+		<artnumber>190am</artnumber>
+		<name>190am lux nero L</name>
+		<namePrint>Ремень мужской 190am люкс неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c3f23a30-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032656">
+		<artnumber>825am</artnumber>
+		<name>825am polaris nero/t.moro L</name>
+		<namePrint>Ремень мужской 825am поларис неро/тиморо L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c3f23a34-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032658">
+		<artnumber>824am</artnumber>
+		<name>824am texas nero/t.moro L</name>
+		<namePrint>Ремень мужской 824am техас неро/тиморо L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39b5-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032660">
+		<artnumber>848am</artnumber>
+		<name>848am volanato nero L</name>
+		<namePrint>Ремень мужской 848am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39b9-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032662">
+		<artnumber>848am</artnumber>
+		<name>848am volanato t.moro L</name>
+		<namePrint>Ремень мужской 848am воланато тиморо L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39bd-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032664">
+		<artnumber>843am</artnumber>
+		<name>843am volanato nero L</name>
+		<namePrint>Ремень мужской 843am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39c1-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032666">
+		<artnumber>843am</artnumber>
+		<name>843am volanato grigio L</name>
+		<namePrint>Ремень мужской 843am воланато гриджио L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39c5-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032668">
+		<artnumber>846am</artnumber>
+		<name>846am volanato t.moro L</name>
+		<namePrint>Ремень мужской 846am воланато тиморо L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39c9-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032670">
+		<artnumber>846am</artnumber>
+		<name>846am volanato nero L</name>
+		<namePrint>Ремень мужской 846am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39cd-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032672">
+		<artnumber>901am</artnumber>
+		<name>901am volanato nero L</name>
+		<namePrint>Ремень мужской 901am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39d1-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032674">
+		<artnumber>918am</artnumber>
+		<name>918am volanato nero L</name>
+		<namePrint>Ремень мужской 918am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39d5-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032676">
+		<artnumber>918am</artnumber>
+		<name>918am volanato marino L</name>
+		<namePrint>Ремень мужской 918am воланато марино L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39d9-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032678">
+		<artnumber>199am</artnumber>
+		<name>199am volanato nero L</name>
+		<namePrint>Ремень мужской 199am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39dd-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032680">
+		<artnumber>199am</artnumber>
+		<name>199am volanato t.moro L</name>
+		<namePrint>Ремень мужской 199am воланато тиморо L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39e1-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032682">
+		<artnumber>943am</artnumber>
+		<name>943am volanato nero L</name>
+		<namePrint>Ремень мужской 943am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39e5-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032684">
+		<artnumber>943am</artnumber>
+		<name>943am volanato grigio L</name>
+		<namePrint>Ремень мужской 943am воланато гриджио L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39e9-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032686">
+		<artnumber>929am</artnumber>
+		<name>929am volanato nero L</name>
+		<namePrint>Ремень мужской 929am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39ed-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032688">
+		<artnumber>133am</artnumber>
+		<name>133am cocco t.moro L</name>
+		<namePrint>Ремень мужской 133am кокко тиморо L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39f1-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032690">
+		<artnumber>860am</artnumber>
+		<name>860am moguai nero L</name>
+		<namePrint>Ремень мужской 860am могуаи неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39f5-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032692">
+		<artnumber>860am</artnumber>
+		<name>860am moguai caffe L</name>
+		<namePrint>Ремень мужской 860am могуаи каффэ L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39f9-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032694">
+		<artnumber>861am</artnumber>
+		<name>861am moguai nero L</name>
+		<namePrint>Ремень мужской 861am могуаи неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef39fd-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032696">
+		<artnumber>191am</artnumber>
+		<name>191am cocco nero L</name>
+		<namePrint>Ремень мужской 191am кокко неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef3a01-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032698">
+		<artnumber>191am</artnumber>
+		<name>191am cocco t.moro L</name>
+		<namePrint>Ремень мужской 191am кокко тиморо L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef3a05-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032700">
+		<artnumber>191am</artnumber>
+		<name>191am cocco jeans L</name>
+		<namePrint>Ремень мужской 191am кокко джинс L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef3a09-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032702">
+		<artnumber>855am</artnumber>
+		<name>855am cocco nero L</name>
+		<namePrint>Ремень мужской 855am кокко неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef3a0d-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032704">
+		<artnumber>855am</artnumber>
+		<name>855am cocco t.moro L</name>
+		<namePrint>Ремень мужской 855am кокко тиморо L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef3a11-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032706">
+		<artnumber>855am</artnumber>
+		<name>855am cocco jeans L</name>
+		<namePrint>Ремень мужской 855am кокко джинс L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef3a15-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032708">
+		<artnumber>194am</artnumber>
+		<name>194am tejus nero L</name>
+		<namePrint>Ремень мужской 194am тэюс неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef3a19-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032710">
+		<artnumber>194am</artnumber>
+		<name>194am tejus t.moro L</name>
+		<namePrint>Ремень мужской 194am тэюс тиморо L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef3a1d-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032712">
+		<artnumber>940am</artnumber>
+		<name>940am tejus nero L</name>
+		<namePrint>Ремень мужской 940am тэюс неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef3a21-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032714">
+		<artnumber>196am</artnumber>
+		<name>196am volanato nero L</name>
+		<namePrint>Ремень мужской 196am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef3a25-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032716">
+		<artnumber>196am</artnumber>
+		<name>196am volanato t.moro L</name>
+		<namePrint>Ремень мужской 196am воланато тиморо L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="c9ef3a29-bf04-11e3-9774-0025908101de" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000032718">
+		<artnumber>196am</artnumber>
+		<name>196am volanato marino L</name>
+		<namePrint>Ремень мужской 196am воланато марино L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="304ba96b-1ce0-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028604">
+		<artnumber>9053am</artnumber>
+		<name>9053am volanato nero S</name>
+		<namePrint>Ремень женский 9053am воланато неро S</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="304ba96d-1ce0-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028607">
+		<artnumber>9053am</artnumber>
+		<name>9053am volanato nero L</name>
+		<namePrint>Ремень женский 9053am воланато неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="304ba96e-1ce0-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028608">
+		<artnumber>9053am</artnumber>
+		<name>9053am volanato arancione S</name>
+		<namePrint>Ремень женский 9053am воланато аранчионе S</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="304ba970-1ce0-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028610">
+		<artnumber>9053am</artnumber>
+		<name>9053am volanato arancione L</name>
+		<namePrint>Ремень женский 9053am воланато аранчионе L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="304ba973-1ce0-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028613">
+		<artnumber>9053am</artnumber>
+		<name>9053am volanato verde L</name>
+		<namePrint>Ремень женский 9053am воланато вердэ L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="304ba976-1ce0-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028616">
+		<artnumber>9053am</artnumber>
+		<name>9053am volanato jeans L</name>
+		<namePrint>Ремень женский 9053am воланато джинс L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="304ba977-1ce0-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028617">
+		<artnumber>9103am</artnumber>
+		<name>9103am volanato nero S</name>
+		<namePrint>Ремень женский 9103am воланато неро S</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="304ba97a-1ce0-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028620">
+		<artnumber>9103am</artnumber>
+		<name>9103am volanato bianco S</name>
+		<namePrint>Ремень женский 9103am воланато бианко S</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="304ba97b-1ce0-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028621">
+		<artnumber>9103am</artnumber>
+		<name>9103am volanato bianco M</name>
+		<namePrint>Ремень женский 9103am воланато бианко M</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="304ba97c-1ce0-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028622">
+		<artnumber>9103am</artnumber>
+		<name>9103am volanato bianco L</name>
+		<namePrint>Ремень женский 9103am воланато бианко L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="304ba97e-1ce0-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028624">
+		<artnumber>9103am</artnumber>
+		<name>9103am volanato cognac M</name>
+		<namePrint>Ремень женский 9103am воланато коньяк M</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="304ba97f-1ce0-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028625">
+		<artnumber>9103am</artnumber>
+		<name>9103am volanato cognac L</name>
+		<namePrint>Ремень женский 9103am воланато коньяк L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="085c03df-1d21-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028687">
+		<artnumber>9395am</artnumber>
+		<name>9395am soave nero L</name>
+		<namePrint>Ремень женский 9395am соаве неро L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="085c03e0-1d21-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028688">
+		<artnumber>9395am</artnumber>
+		<name>9395am soave cognac S</name>
+		<namePrint>Ремень женский 9395am соаве коньяк S</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="085c03e1-1d21-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028689">
+		<artnumber>9395am</artnumber>
+		<name>9395am soave cognac M</name>
+		<namePrint>Ремень женский 9395am соаве коньяк M</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="085c03e2-1d21-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028690">
+		<artnumber>9395am</artnumber>
+		<name>9395am soave cognac L</name>
+		<namePrint>Ремень женский 9395am соаве коньяк L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="923b6d8b-1dc3-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028709">
+		<artnumber>9395am</artnumber>
+		<name>9395am soave petrolio S</name>
+		<namePrint>Ремень женский 9395am соаве петролио S</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="923b6d8c-1dc3-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028710">
+		<artnumber>9395am</artnumber>
+		<name>9395am soave petrolio M</name>
+		<namePrint>Ремень женский 9395am соаве петролио M</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="923b6d8d-1dc3-11e2-9797-0025901865a3" category="35d8e12a-dfea-11e1-8b99-002713963884" code="00000028711">
+		<artnumber>9395am</artnumber>
+		<name>9395am soave petrolio L</name>
+		<namePrint>Ремень женский 9395am соаве петролио L</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="923b6d91-1dc3-11e2-9797-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000028714">
+		<artnumber>512am</artnumber>
+		<name>512am escape bruciato</name>
+		<namePrint>Ремень мужской 512am эскапе бручатто</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="923b6d96-1dc3-11e2-9797-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000028719">
+		<artnumber>370am</artnumber>
+		<name>370am cocco tm</name>
+		<namePrint>Ремень мужской 370am кокко тм</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="923b6d98-1dc3-11e2-9797-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000028721">
+		<artnumber>370am</artnumber>
+		<name>370am cocco jeans</name>
+		<namePrint>Ремень мужской 370am кокко джинс</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="923b6d9c-1dc3-11e2-9797-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000028725">
+		<artnumber>353am</artnumber>
+		<name>353am perforato bianco</name>
+		<namePrint>Ремень мужской 353am перфорато бианко</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="923b6da4-1dc3-11e2-9797-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000028733">
+		<artnumber>445am</artnumber>
+		<name>445am krest nero</name>
+		<namePrint>Ремень мужской 445am крест неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="923b6da5-1dc3-11e2-9797-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000028734">
+		<artnumber>445am</artnumber>
+		<name>445am krest taupe</name>
+		<namePrint>Ремень мужской 445am крест таупе</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="923b6da6-1dc3-11e2-9797-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000028735">
+		<artnumber>445am</artnumber>
+		<name>445am krest rubino</name>
+		<namePrint>Ремень мужской 445am крест рубино</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="923b6dad-1dc3-11e2-9797-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000028742">
+		<artnumber>777am</artnumber>
+		<name>777am volanato tm</name>
+		<namePrint>Ремень мужской 777am воланато тм</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="923b6daf-1dc3-11e2-9797-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000028744">
+		<artnumber>778am</artnumber>
+		<name>778am escape bruciato</name>
+		<namePrint>Ремень мужской 778am эскапе бручатто</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="923b6db2-1dc3-11e2-9797-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000028747">
+		<artnumber>384am</artnumber>
+		<name>384am volanato tm</name>
+		<namePrint>Ремень мужской 384am воланато тм</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="923b6dc0-1dc3-11e2-9797-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000028759">
+		<artnumber>492am</artnumber>
+		<name>492am volanato tm</name>
+		<namePrint>Ремень мужской 492am воланато тм</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="923b6dc2-1dc3-11e2-9797-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000028761">
+		<artnumber>492am</artnumber>
+		<name>492am volanato verde</name>
+		<namePrint>Ремень мужской 492am воланато вердэ</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="923b6dc3-1dc3-11e2-9797-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000028762">
+		<artnumber>492am</artnumber>
+		<name>492am volanato jeans</name>
+		<namePrint>Ремень мужской 492am воланато джинс</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="3ece3a9c-e933-11e2-a2e7-0025901865a2" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000030951">
+		<artnumber>116am</artnumber>
+		<name>116am volanato t.moro</name>
+		<namePrint>Ремень мужской 116am воланато тиморо</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="3ece3a9d-e933-11e2-a2e7-0025901865a2" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000030952">
+		<artnumber>178am</artnumber>
+		<name>178am volanato t.moro</name>
+		<namePrint>Ремень мужской 178am воланато тиморо</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="3ece3a9f-e933-11e2-a2e7-0025901865a2" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000030954">
+		<artnumber>384am</artnumber>
+		<name>384am volanato nero</name>
+		<namePrint>Ремень мужской 384am воланато неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="3ece3aa0-e933-11e2-a2e7-0025901865a2" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000030955">
+		<artnumber>721am</artnumber>
+		<name>721am volanato t.moro</name>
+		<namePrint>Ремень мужской 721am воланато тиморо</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="1b0f89f8-6950-11e2-a3c4-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000029510">
+		<artnumber>725am</artnumber>
+		<name>725am volanato bianco</name>
+		<namePrint>Ремень мужской 725am воланато бианко</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="1b0f89fa-6950-11e2-a3c4-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000029512">
+		<artnumber>823am</artnumber>
+		<name>823am volanato bianco</name>
+		<namePrint>Ремень мужской 823am воланато бианко</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="f7cc8bca-a72d-11e2-afa5-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000029660">
+		<artnumber>330am</artnumber>
+		<name>330am volanato bianco</name>
+		<namePrint>Ремень мужской 330am воланато бианко</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="f7cc8bce-a72d-11e2-afa5-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000029664">
+		<artnumber>328am</artnumber>
+		<name>328am volanato arancione</name>
+		<namePrint>Ремень мужской 328am воланато аранчионе</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="f7cc8bcf-a72d-11e2-afa5-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000029665">
+		<artnumber>328am</artnumber>
+		<name>328am volanato verde</name>
+		<namePrint>Ремень мужской 328am воланато вердэ</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="f7cc8bde-a72d-11e2-afa5-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000029680">
+		<artnumber>226am</artnumber>
+		<name>226am volanato bianco</name>
+		<namePrint>Ремень мужской 226am воланато бианко</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="f7cc8be6-a72d-11e2-afa5-0025901865a3" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000029688">
+		<artnumber>242am</artnumber>
+		<name>242am kansas nero</name>
+		<namePrint>Ремень мужской 242am канзас неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+</products>
