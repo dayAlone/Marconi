@@ -1,14 +1,4 @@
 <products date="09.12.2014 19:58:25">
-	<product id="01de7a2c-dfe9-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000026404">
-		<artnumber>025am</artnumber>
-		<name>025am volanato nero</name>
-		<namePrint>Ремень мужской 025am воланато неро</namePrint>
-		<description></description>
-		<properties>
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
-		</properties>
-	</product>
 	<product id="01de7ac2-dfe9-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000026409">
 		<artnumber>032am</artnumber>
 		<name>032am gump fumo</name>
@@ -22,6 +12,16 @@
 			<property id="brand" value="c7b6c706-7fb9-11e4-b70a-0025901865a2"/>
 			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3"/>
 			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3"/>
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
+		</properties>
+	</product>
+	<product id="01de7a2c-dfe9-11e1-8b99-002713963884" category="01de7a2a-dfe9-11e1-8b99-002713963884" code="00000026404">
+		<artnumber>025am</artnumber>
+		<name>025am volanato nero</name>
+		<namePrint>Ремень мужской 025am воланато неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3"/>
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3"/>
 		</properties>
 	</product>
