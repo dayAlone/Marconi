@@ -21,6 +21,6 @@
     $APPLICATION->ShowHead();
   ?>
 </head>
-<body class="<?=$APPLICATION->AddBufferContent("body_class");?>">
+<body class="<?=$APPLICATION->AddBufferContent("body_class");?>" style="max-width:1100px;margin:0 auto;">
 <div class="wrap">
   <div id="panel"><?$APPLICATION->ShowPanel();?></div>
