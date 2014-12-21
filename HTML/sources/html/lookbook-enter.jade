@@ -1,0 +1,69 @@
+include includes/header
+<body class="lookbook">
+.wrap
+	include includes/toolbar
+	.background
+	header.header
+		.container
+			.row
+				.col-xs-3.col-lg-2
+					.contacts
+						include ../../public_html/layout/images/svg/phone.svg
+						a.contacts__number(href="tel:88005553330") 8 800 555 333 0
+						.contacts__text Горячая линия
+
+				.col-xs-1.col-lg-2
+					span.logo__line.logo__line--left
+				.col-xs-4.center
+					a(href="#").logo
+						include ../../public_html/layout/images/svg/logo.svg
+				.col-xs-1.col-lg-2
+					span.logo__line.logo__line--right
+				.col-xs-3.col-lg-2
+					.header__links
+						a.cart(href="#")
+							include ../../public_html/layout/images/svg/cart.svg
+							| Товаров в корзине: 2
+						br
+						a.simmilar(href="#")
+							include ../../public_html/layout/images/svg/simmilar.svg
+							| К сравнению: 5
+	.page
+		.container
+			.row.enter
+				.col-md-6
+					a.lookbook__promo(style="background-image: url(/layout/images/l-1.jpg)")
+						.lookbook__promo-title
+							span Название альбома
+				.col-md-6
+					a.lookbook__promo(style="background-image: url(/layout/images/l-2.jpg)")
+						.lookbook__promo-title
+							span Название альбома
+				.col-md-3
+					a.lookbook__promo.lookbook__promo--height(style="background-image: url(/layout/images/l-3.jpg)")
+						.lookbook__promo-title
+							span Название альбома
+				.col-md-3
+					a.lookbook__promo(style="background-image: url(/layout/images/l-4.jpg)")
+						.lookbook__promo-title
+							span Название альбома
+					a.lookbook__promo(style="background-image: url(/layout/images/l-5.jpg)")
+						.lookbook__promo-title
+							span Название альбома
+				.col-md-6
+					a.lookbook__promo.lookbook__promo--height(style="background-image: url(/layout/images/l-6.jpg)")
+						.lookbook__promo-title
+							span Название альбома
+				.col-md-6
+					a.lookbook__promo(style="background-image: url(/layout/images/l-9.jpg)")
+						.lookbook__promo-title
+							span Название альбома
+				.col-md-3
+					a.lookbook__promo(style="background-image: url(/layout/images/l-7.jpg)")
+						.lookbook__promo-title
+							span Название альбома
+				.col-md-3
+					a.lookbook__promo(style="background-image: url(/layout/images/l-8.jpg)")
+						.lookbook__promo-title
+							span Название альбома
+include includes/footer

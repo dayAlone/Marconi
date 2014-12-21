@@ -1,0 +1,68 @@
+include includes/header
+<body class="news">
+.wrap
+	include includes/toolbar
+	.background
+	header.header
+		.container
+			.row
+				.col-xs-3.col-lg-2
+					.contacts
+						include ../../public_html/layout/images/svg/phone.svg
+						a.contacts__number(href="tel:88005553330") 8 800 555 333 0
+						.contacts__text Горячая линия
+
+				.col-xs-1.col-lg-2
+					span.logo__line.logo__line--left
+				.col-xs-4.center
+					a(href="#").logo
+						include ../../public_html/layout/images/svg/logo.svg
+				.col-xs-1.col-lg-2
+					span.logo__line.logo__line--right
+				.col-xs-3.col-lg-2
+					.header__links
+						a.cart(href="#")
+							include ../../public_html/layout/images/svg/cart.svg
+							| Товаров в корзине: 2
+						br
+						a.simmilar(href="#")
+							include ../../public_html/layout/images/svg/simmilar.svg
+							| К сравнению: 5
+	.page
+		.container
+			.row
+				.col-md-2
+					.dropdown
+						a.dropdown__trigger(href="#")
+							span.dropdown__text 2014
+							include ../../public_html/layout/images/svg/arrow.svg
+						span.dropdown__frame
+							a.dropdown__item(href="#", style="display:none") 2014
+							a.dropdown__item(href="#") 2013
+							a.dropdown__item(href="#") 2012
+						select.dropdown__select
+							option(value="Francesco Marconi") 2014
+							option(value="Gilda Tonelli") 2013
+							option(value="Uomo Tonelli") 2012
+				.col-md-8
+					.news-item
+						.news-item__date 15 сентября 2014
+						a.news-item__title(href="#") Уже в Архангельске
+						.news-item__sub-title Покоряем ближний север.
+						.news-item__content
+							p С радостью сообщаем, что состоялось открытие ещё одного фирменного магазина francesco marconi. На сей раз, это приятное событие состоялось в столице Республики Дагестан - городе Махачкала. Городе, омываемом волнами Каспийского моря, близ предгорий Большого Кавказа.
+							p Сам магазин, расположился на проспекте Акушинского, д.15 в 
+								a ТЦ "Миркато" 
+								| на цокольном этаже. Жители и гости города, посетив его увидят отменное обслуживание нашего персонала, опытные продавцы-консультанты помогут подобрать изделие исходя из Ваших желаний, стиля и возможностей, а быть может Вы и вовсе решите сменить свой образ - Вам снова будут рады здесь. Магазин захватывает сразу несколько сегментов аудитории. Есть коллекции, как для прогрессивной молодёжи, так и для солидных людей предпочитающих классику.
+							img(src="/layout/images/img.jpg")
+					.news-item
+						.news-item__date 15 сентября 2014
+						a.news-item__title(href="#") Уже в Архангельске
+						.news-item__sub-title Покоряем ближний север.
+						.news-item__content
+							p С радостью сообщаем, что состоялось открытие ещё одного фирменного магазина francesco marconi. На сей раз, это приятное событие состоялось в столице Республики Дагестан - городе Махачкала. Городе, омываемом волнами Каспийского моря, близ предгорий Большого Кавказа.
+							p Сам магазин, расположился на проспекте Акушинского, д.15 в 
+								a ТЦ "Миркато" 
+								| на цокольном этаже. Жители и гости города, посетив его увидят отменное обслуживание нашего персонала, опытные продавцы-консультанты помогут подобрать изделие исходя из Ваших желаний, стиля и возможностей, а быть может Вы и вовсе решите сменить свой образ - Вам снова будут рады здесь. Магазин захватывает сразу несколько сегментов аудитории. Есть коллекции, как для прогрессивной молодёжи, так и для солидных людей предпочитающих классику.
+							img(src="/layout/images/img.jpg")
+include includes/footer

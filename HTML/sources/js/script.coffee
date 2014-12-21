@@ -21,6 +21,12 @@ end = 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransit
 delay = (ms, func) -> setTimeout func, ms
 
 size = ->
+	if $('.lookbook').length > 0
+		$('.lookbook').elem('slider-preview').css
+			'top': $('.lookbook').elem('slider').offset().top
+			'opacity': 1
+			'width': ($(window).width()-$('.page .container').width())/2+2
+
 	$('.filter')
 		.removeAttr('style')
 		.mod('loaded', false)
@@ -105,25 +111,128 @@ $(document).ready ->
 		scrollTimer = delay 300, ()->
 			$('.scroll-fix').mod 'on', false
 	
-	# Product
 
+	# Basket
+	$('.basket input[type="radio"]').iCheck()
+	# News
+	$('.news-item').each ->
+		h = $(this).outerHeight()
+		$(this)
+			.data 'height', h
+		$(this).css
+				maxHeight: ->
+					return h
+				minHeight: ->
+					return h
+	$('.news-item').elem('title').click (e)->
+		trigger = $(this)
+		block   = $(this).block()
+		content = block.elem('content')
+		trigger.mod 'disabled', true
+		if block.hasMod 'open'
+			height = block.data 'height'
+			block.css
+				minHeight: block.data('height')
+				maxHeight: block.data('height')
+			content.velocity
+				properties: "transition.slideUpOut"
+				options:
+					duration: 1000
+					complete: ->
+						block.mod 'open', false
+						trigger.mod 'disabled', false
+		else
+			content.show()
+			block.css
+				minHeight: block.height() + content.height() + 16
+				maxHeight: block.outerHeight() + content.outerHeight() + 5
+			content.velocity
+				properties: "transition.slideDownIn"
+				options:
+					duration: 1000
+					complete: ->
+						block.mod 'open', true
+						trigger.mod 'disabled', false
+		e.preventDefault()
+	
+	# Lookbook
+	$('.lookbook').elem('slider-preview').click (e)->
+		slider = $('.lookbook').elem('slider').data('fotorama')
+		slider.show $(this).data('direction')
+		e.preventDefault()
+
+
+	getElem = (fotorama, direction) ->
+		if direction is "next"
+			if fotorama.activeIndex is 0
+				el = $(fotorama.data[fotorama.data.length - 1].html)
+				i = fotorama.data[fotorama.data.length - 1].i
+			else
+				el = $(fotorama.data[fotorama.activeIndex - 1].html)
+				i = fotorama.data[fotorama.activeIndex - 1].i
+		if direction is "prev"
+			if fotorama.activeIndex is fotorama.data.length - 1
+				el = $(fotorama.data[0].html)
+				i = fotorama.data[0].i
+			else
+				el = $(fotorama.data[fotorama.activeIndex + 1].html)
+				i = fotorama.data[fotorama.activeIndex + 1].i
+		return el
+	  
+
+	$('.lookbook').elem('slider')
+		.on('fotorama:show', (e, fotorama, extra) ->
+			$('.lookbook').elem('slider-preview').each ->
+				if $(this).hasMod 'next'
+					el = getElem fotorama, 'next'
+				if $(this).hasMod 'prev'
+					el = getElem fotorama, 'prev'
+
+				$(this).css
+					'background-image' : el.find('.lookbook__picture').css 'background-image'
+
+		)
+		.on('fotorama:showend', (e, fotorama, extra)->
+			delay 300, ->
+				fotorama.resize
+					height : $(fotorama.activeFrame.html).height()
+		)
+		.fotorama()
+
+	# About
+	$('.about').elem('slider-arrow').click (e)->
+		slider = $('.about').elem('slider').data('fotorama')
+		slider.show $(this).data('direction')
+		e.preventDefault()
+
+	$('.about').elem('slider-title').each ->
+		title = $(this)
+		w = (title.width() - title.find('span').width() - 40) / 2
+		el = $(this).find('.about__slider-title-before, .about__slider-title-after')
+		el.css
+			'width' : w
+		el.show()
+	# Product
+	$("a[rel^='prettyPhoto']").prettyPhoto
+		social_tools: ''
+		overlay_gallery: false
+		deeplinking: false
+	$('.picture').elem('zoom').click (e)->
+		$.prettyPhoto.open $(this).data 'pictures'
+		console.log $(this).data 'pictures'
+		e.preventDefault()
 	$('.tabs').elem('trigger').click (e)->
 		$('.tabs').elem('content').mod 'active', false
 		$('.tabs').elem('trigger').mod 'active', false
 		$(this).mod 'active', true
 		$($(this).attr('href')).mod 'active', true
 		e.preventDefault()
-
-	$('.picture').elem('small').click (e)->
-		
+	$('.picture').elem('small').click (e)->	
 		$('.picture').elem('small').mod 'active', false
 		$(this).mod 'active', true
-		
 		$('.picture').elem('big').css
 			backgroundImage : "url(#{$(this).attr('href')})"
-		
 		e.preventDefault()
-
 	$('.product').hoverIntent
 			sensitivity: 20
 			over : ()->
@@ -136,7 +245,6 @@ $(document).ready ->
 					item.mod 'index', false
 
 	# Filter
-
 	$('.filter').elem('title').click (e)->
 		block   = $(this).block()
 		content = block.elem('content')
@@ -169,7 +277,6 @@ $(document).ready ->
 		e.preventDefault()
 
 	# Range
-
 	$("input[name=range_from],input[name=range_to]").on 'input', (e)->
 		if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
 			return false
@@ -184,7 +291,6 @@ $(document).ready ->
 		slider.update
 			from : parseInt $("input[name=range_from]").val()
 			to   : parseInt $("input[name=range_to]").val()
-
 	$("input[name=range]").ionRangeSlider
 		type: "double"
 		onStart: (x)->
@@ -193,7 +299,6 @@ $(document).ready ->
 		onChange: (x)->
 			$("input[name=range_from]").val(x.from)
 			$("input[name=range_to]").val(x.to)
-
 
 	# Dropdown
 

@@ -1,0 +1,298 @@
+include includes/header
+<body class="lookbook">
+.wrap
+	include includes/toolbar
+	.background
+	header.header
+		.container
+			.row
+				.col-xs-3.col-lg-2
+					.contacts
+						include ../../public_html/layout/images/svg/phone.svg
+						a.contacts__number(href="tel:88005553330") 8 800 555 333 0
+						.contacts__text Горячая линия
+
+				.col-xs-1.col-lg-2
+					span.logo__line.logo__line--left
+				.col-xs-4.center
+					a(href="#").logo
+						include ../../public_html/layout/images/svg/logo.svg
+				.col-xs-1.col-lg-2
+					span.logo__line.logo__line--right
+				.col-xs-3.col-lg-2
+					.header__links
+						a.cart(href="#")
+							include ../../public_html/layout/images/svg/cart.svg
+							| Товаров в корзине: 2
+						br
+						a.simmilar(href="#")
+							include ../../public_html/layout/images/svg/simmilar.svg
+							| К сравнению: 5
+	.page
+		.container
+			h1.lookbook__title 
+				span название альбома
+			.lookbook__slider-preview.lookbook__slider-preview--prev(style="background-image: url(/layout/images/s-3.jpg)", data-direction=">")
+				include ../../public_html/layout/images/svg/slider-arrow-left.svg
+			.lookbook__slider-preview.lookbook__slider-preview--next(style="background-image: url(/layout/images/s-2.jpg)", data-direction="<")
+				include ../../public_html/layout/images/svg/slider-arrow-right.svg
+			.lookbook__slider(data-loop="true", data-width="120%", data-nav="false", data-arrows="false", data-click="false", data-transition="crossfade")
+				.lookbook__slider-item
+					.lookbook__picture(style="background-image: url(/layout/images/s-1.jpg)")
+					.lookbook__divider
+						span на этом фото
+					.catalog.catalog--full-width.catalog--without-images
+						.row
+							.col-xs-3.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/19285.jpg)")
+										.product__brand gilda tonelli
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-3.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/21907.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-3.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/22528.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-3.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/21689.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-3.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/22519.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+				.lookbook__slider-item
+					.lookbook__picture(style="background-image: url(/layout/images/s-2.jpg)")
+					.lookbook__divider
+						span на этом фото
+					.catalog.catalog--full-width.catalog--without-images
+						.row
+							.col-xs-3.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/19285.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-3.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/21907.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-3.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/22528.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-3.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/21689.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-3.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/22519.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+				.lookbook__slider-item
+					.lookbook__picture(style="background-image: url(/layout/images/s-3.jpg)")
+					.lookbook__divider
+						span на этом фото
+					.catalog.catalog--full-width.catalog--without-images
+						.row
+							.col-xs-3.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/19285.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-3.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/21907.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-3.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/22528.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-3.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/21689.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+							.col-xs-3.col-lg-3
+								.product
+									.product__content
+										a.product__picture-frame(href="#")
+												.product__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/22519.jpg)")
+										.product__brand francesco marconi
+										.product__name pelle/pitone arancione
+										.product__price 3400 ₷
+									.product__hidden
+										.product__frame
+										a.product__icon.product__icon--zoom(href="#")
+											include ../../public_html/layout/images/svg/zoom.svg
+										a.product__icon.product__icon--cart(href="#")
+											include ../../public_html/layout/images/svg/cart.svg
+										a.product__button.product__button--more(href="") Подробнее
+										a.product__button.product__button--simmilar(href="") Сравнить
+include includes/footer

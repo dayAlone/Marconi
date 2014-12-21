@@ -1,0 +1,139 @@
+include includes/header
+<body class="basket">
+.wrap
+	include includes/toolbar
+	.background
+	header.header
+		.container
+			.row
+				.col-xs-3.col-lg-2
+					.contacts
+						include ../../public_html/layout/images/svg/phone.svg
+						a.contacts__number(href="tel:88005553330") 8 800 555 333 0
+						.contacts__text Горячая линия
+
+				.col-xs-1.col-lg-2
+					span.logo__line.logo__line--left
+				.col-xs-4.center
+					a(href="#").logo
+						include ../../public_html/layout/images/svg/logo.svg
+				.col-xs-1.col-lg-2
+					span.logo__line.logo__line--right
+				.col-xs-3.col-lg-2
+					.header__links
+						a.cart(href="#")
+							include ../../public_html/layout/images/svg/cart.svg
+							| Товаров в корзине: 2
+						br
+						a.simmilar(href="#")
+							include ../../public_html/layout/images/svg/simmilar.svg
+							| К сравнению: 5
+	.catalog__nav
+		.container
+			.row
+				.col-xs-2
+					.brand-select
+						.dropdown
+							a.dropdown__trigger(href="#")
+								span.dropdown__text Все бренды
+								include ../../public_html/layout/images/svg/arrow.svg
+							span.dropdown__frame
+								a.dropdown__item(href="#", style="display:none") Все бренды
+								a.dropdown__item(href="#") Francesco Marconi
+								a.dropdown__item(href="#") Gilda Tonelli
+								a.dropdown__item(href="#") Uomo Tonelli
+								a.dropdown__item(href="#") Thelebre
+							select.dropdown__select
+								option(value="Francesco Marconi") Francesco Marconi
+								option(value="Gilda Tonelli") Gilda Tonelli
+								option(value="Uomo Tonelli") Uomo Tonelli
+								option(value="Thelebre") Thelebre
+				.col-xs-8
+					nav.sub-nav
+						a.sub-nav__item(href="#") для нее
+						a.sub-nav__item(href="#") для него
+						a.sub-nav__item(href="#") багаж
+						a.sub-nav__item(href="#") коллекции
+						a.sub-nav__item(href="#") style look
+						a.sub-nav__item(href="#") распродажа
+				.col-xs-2
+					.search
+						input.search__input(type="text", placeholder="Введите название товара")
+						button.search__button
+							include ../../public_html/layout/images/svg/search.svg
+	.page
+		.container
+			.basket__frame(data-text="КОРЗИНА покупателя")
+				.basket__title
+					.row
+						.col-xs-4 Наименование
+						.col-xs-2 Артикул
+						.col-xs-1 Цена
+						.col-xs-1 скидка
+						.col-xs-1 Кол-во
+						.col-xs-3 Сумма СО СКИДКОЙ
+				.basket__item
+					.row
+						.col-xs-4.left
+							.basket__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/22495.jpg)")
+							.basket__name
+								| Сумка женская <br>
+								span.basket__brand francesco marconi <br>
+								| pelle arancione
+						.col-xs-2 fm 1234567890
+						.col-xs-1 
+							strong 3 400 ₷
+						.col-xs-1 
+							strong 10%
+						.col-xs-1 
+							input.basket__count(value="1")
+						.col-xs-3 
+							strong 3 400 ₷
+				.basket__item
+					.row
+						.col-xs-4.left
+							.basket__picture(style="background-image: url(http://www.italbags.ru/pics/items/big/20406.jpg)")
+							.basket__name
+								| Сумка женская <br>
+								span.basket__brand francesco marconi <br>
+								| pelle arancione
+						.col-xs-2 fm 1234567890
+						.col-xs-1 
+							strong 3 400 ₷
+						.col-xs-1 
+							strong 10%
+						.col-xs-1 
+							input.basket__count(value="1")
+						.col-xs-3 
+							strong 3 400 ₷
+				.basket__footer
+					.row
+						.col-xs-1.col-xs-offset-7.center
+							strong.basket__sale-total(data-text="скидка:") 13 400 ₷
+						.col-xs-1
+						.col-xs-3.center
+							strong.basket__total(data-text="итого:") 3 400 ₷
+			.row
+				.col-xs-4
+					.basket__block
+						.basket__block-title доставка
+						input(type="radio", name="delivery", checked, id="delivery-1")
+						label(for="delivery-1") курьерская (300 ₷)
+						input(type="radio", name="delivery", id="delivery-2")
+						label(for="delivery-2") Самовывоз
+				.col-xs-4
+					.basket__block
+						.basket__block-title контактная информация
+						input(type="text", placeholder="ваше имя *")
+						input(type="text", placeholder="телефон *")
+						input(type="email", placeholder="ваше имя *")
+						textarea(placeholder="комментарий к заказу")
+				.col-xs-4
+					.basket__block
+						.basket__block-title способы оплаты	
+						input(type="radio", name="money", checked, id="money-1")
+						label(for="money-1") наличными
+						br
+						input(type="radio", name="money", id="money-2")
+						label(for="money-2") банковской картой
+include includes/footer

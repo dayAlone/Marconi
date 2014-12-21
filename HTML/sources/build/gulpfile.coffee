@@ -23,8 +23,8 @@ imageop      = require 'gulp-image-optimization'
 
 plugins  = [ 'jquery', 'bootstrap', 'browser', 'fotorama', 'cookie', 'bem', 'chosen', 'iCheck', 'velocity', 'parsley', 'prettyPhoto', 'hoverIntent', 'rangeSlider', 'likes' ]
 
-layout   = './public_html/layout'
-sources  = './sources/'
+layout   = 'public_html/layout'
+sources  = 'sources/'
 
 path     =
 	html: "#{sources}/html/"
@@ -188,7 +188,7 @@ gulp.task 'default', ->
 		sequence 'css_bootstrap', 'css_plugins', 'copy', 'css_front', 'reload'
 	
 	gulp.watch ["./sources/build/gulpfile.coffee"], ->
-		sequence 'js_plugins', 'js_front', 'reload', 'css_bootstrap', 'css_plugins', 'copy', 'css_front', 'reload'
+		sequence 'js_plugins', 'js_front', 'css_bootstrap', 'css_plugins', 'copy', 'css_front', 'reload'
 
 	gulp.watch ["./bower_components/**/*.js"], ->
 		sequence 'js_plugins', 'js_front', 'reload'

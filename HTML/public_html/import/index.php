@@ -99,6 +99,7 @@
 			$this->categories = Import::getHighloadElements($this->iblocks['categories'], true);
 			$this->types      = Import::getHighloadElements($this->iblocks['types'], true);
 			$this->brands     = Import::getHighloadElements($this->iblocks['brands'], true);
+			$this->properties = Array("PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_MATERIAL", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "IBLOCK_SECTION_ID", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL" );
 		}
 		private function addParentCatagory(&$parent, $array)
 		{
@@ -111,26 +112,26 @@
 		}
 		private function getOffer(&$fields)
 		{
-			$offer = array(
-					'NAME'            => $fields['PROPERTY_VALUES']['NOTE']." ".$fields['PROPERTY_VALUES']['NAME'],
-					'CODE'            => Cutil::translit($fields['PROPERTY_VALUES']['NOTE']." ".$fields['PROPERTY_VALUES']['NAME'], "ru"),
-					'XML_ID'          => $fields['XML_ID'],
-					'PREVIEW_PICTURE' => $fields['PROPERTY_VALUES']['PICTURES']['n0'],
-					'PROPERTY_VALUES' => array(
-							'CODE'      => $fields['PROPERTY_VALUES']['CODE'],
-							'NOTE'      => $fields['PROPERTY_VALUES']['NOTE_FULL'],
-							'COLOR'     => $fields['PROPERTY_VALUES']['COLOR'],
-							'SIZE'      => $fields['PROPERTY_VALUES']['OFFER_SIZE'],
-							'ARTNUMBER' => $fields['PROPERTY_VALUES']['ARTNUMBER'],
-							'PICTURES'  => $fields['PROPERTY_VALUES']['PICTURES']
-					)
-			);
-			$fields['NAME']   = preg_replace($this->remove, '', $fields['NAME']);
-			$fields['CODE']   = preg_replace($this->remove, '', $fields['CODE']);
-			$fields['XML_ID'] = $fields['PROPERTY_VALUES']['ARTNUMBER'];
-			foreach (array('NAME', 'CODE', 'COLOR', 'PICTURES', 'OFFER_SIZE', 'NOTE_FULL') as $item)
-				unset($fields['PROPERTY_VALUES'][$item]);
-			return $offer;
+			if(isset($fields['PROPERTY_VALUES']['OFFER_SIZE'])):
+				$offer = array(
+						'NAME'            => $fields['NAME'],
+						'CODE'            => $fields['CODE'],
+						'XML_ID'          => $fields['XML_ID'],
+						'PROPERTY_VALUES' => array(
+								'SIZE'      => $fields['PROPERTY_VALUES']['OFFER_SIZE'],
+								'ARTNUMBER' => $fields['PROPERTY_VALUES']['ARTNUMBER']
+							)
+				);
+				$fields['NAME']   = preg_replace($this->remove, '', $fields['NAME']);
+				$fields['CODE']   = preg_replace($this->remove, '', $fields['CODE']);
+				$fields['XML_ID'] = $fields['CODE'];
+				
+				unset($fields['PROPERTY_VALUES']['CODE']);
+				
+				return $offer;
+			else:
+				return false;
+			endif;
 		}
 		private function getExist($fields)
 		{
@@ -141,9 +142,11 @@
 			);
 			foreach ($fields['PROPERTY_VALUES'] as $key => $prop):
 				switch ($key):
-					case 'NOTE';
+					case 'NOTE_SHORT';
+					case 'NOTE_FULL';
 					case 'CODE':
 					case 'MATERIAL':
+					case 'COLOR':
 					case 'ARTNUMBER':
 						$array[$key] = $prop;
 						break;
@@ -157,6 +160,7 @@
 			$artnumber = $item->getElementsByTagName('artnumber')->item(0)->nodeValue;
 			$tmp       = $item->getElementsByTagName('namePrint')->item(0)->nodeValue;
 			$note      = substr($tmp, 0, strpos($tmp, $artnumber)-1);
+			$slug      = str_replace(' ','_', preg_replace($this->remove, '', $item->getElementsByTagName('name')->item(0)->nodeValue));
 
 			$fields = array(
 				'XML_ID'      => $xml_id,
@@ -164,10 +168,9 @@
 			);
 
 			$props = array(
-				'NAME'       => $item->getElementsByTagName('name')->item(0)->nodeValue,
 				'CODE'       => intval($item->getAttribute('code')),
 				'ARTNUMBER'  => $artnumber,
-				'NOTE'       => $note,
+				'NOTE_SHORT' => $note,
 				'NOTE_FULL'  => preg_replace($this->remove, '', $tmp),
 				'COLOR'      => array(),
 				'PICTURES'   => array(),
@@ -221,12 +224,11 @@
 			$name = $note;
 			if($this->brands[$props['BRAND']]['NAME'])
 				$name .= ' '.$this->brands[$props['BRAND']]['NAME'];
-			$name .= " ".$artnumber;
+			$name .= ' '.str_replace($artnumber.' ','', $item->getElementsByTagName('name')->item(0)->nodeValue);
 
 			$fields["NAME"] = $name;
-			$fields["CODE"] = Cutil::translit($name, "ru");
+			$fields["CODE"] = Cutil::translit($note." ".$item->getElementsByTagName('name')->item(0)->nodeValue, "ru");
 
-			$slug   = str_replace(' ','_', preg_replace($this->remove, '', $item->getElementsByTagName('name')->item(0)->nodeValue));
 			$images = array_merge(glob($_SERVER['DOCUMENT_ROOT']."/import/photos/".$slug.".jpg"), glob($_SERVER['DOCUMENT_ROOT']."/import/photos/".$slug."_[0-9].jpg"));
 			
 			foreach ($images as $key=>$image):
@@ -241,32 +243,50 @@
 		}
 		public function Action($file, $offset)
 		{
-			$offers   = array();
-			$products = array();
-			$data     = Import::getElements($file, array('products', 'product'), $offset);
+			$ids     = array();
+			$data    = Import::getElements($file, array('products', 'product'), $offset);
 			
 			foreach ($data['items'] as $item):
-				$offers[]   = $item->getAttribute('id');
-				$products[] = $item->getElementsByTagName('artnumber')->item(0)->nodeValue;
+				$ids[] = $item->getAttribute('id');
+				$ids[] = Cutil::translit(substr($item->getElementsByTagName('namePrint')->item(0)->nodeValue, 0, strpos($item->getElementsByTagName('namePrint')->item(0)->nodeValue, $item->getElementsByTagName('artnumber')->item(0)->nodeValue)-1)." ".preg_replace($this->remove, '', $item->getElementsByTagName('name')->item(0)->nodeValue), "ru");
 			endforeach;
 
-			$offers   = Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $offers), array('PROPERTY_SIZE', "PROPERTY_ARTNUMBER", "PROPERTY_COLOR"));
-			$products = Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $products), Array("PROPERTY_SIZE", "PROPERTY_MATERIAL", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "IBLOCK_SECTION_ID", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL" ));
+			$offers   = Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('PROPERTY_SIZE', "PROPERTY_CML2_LINK", "PROPERTY_CML2_LINK.XML_ID"));
+			
+			foreach ($offers as $offer):
+				if(in_array($offer['XML_ID'], $xml_ids))
+					unset($xml_ids[array_search($offer['XML_ID'], $xml_ids)]);
+				$ids[] = $offer['CML2_LINK_XML_ID'];
+			endforeach;
+
+			$products = Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), $this->properties);
 
 			foreach ($data['items'] as $item):
 
 				$fields = $this->getData($item);
 				$offer  = $this->getOffer($fields);
-
 				$props  = &$fields["PROPERTY_VALUES"];
+				$exist  = $products[$fields['XML_ID']];
 
-				if(isset($products[$fields['XML_ID']])||isset($offers[$offer['XML_ID']])):
-					
-					$exist = $products[$fields['XML_ID']];
+				if(!$exist)
+					$exist = $products[$offers[$fields['XML_ID']]['CML2_LINK_XML_ID']];
+				if(!$exist)
+					$exist = $products[$fields['CODE']];
 
+				if(isset($exist)):
 					$update = false;
 					$diff   = array_diff($props, $exist);
+					$colors = array_diff($props['COLOR'], $exist['COLOR']);
 					
+					unset($diff['PICTURES']);
+					unset($diff['OFFER_SIZE']);
+
+					if($colors || (count($props['COLOR'])!=count($exist['COLOR']))):
+						$diff['COLOR'] = $props['COLOR'];
+					else:
+						unset($diff['COLOR']);
+					endif;
+
 					if($fields['IBLOCK_SECTION_ID'] != $exist['IBLOCK_SECTION_ID']):
 						$raw = new CIBlockElement;
 						$raw->Update($exist['ID'], array('IBLOCK_SECTION_ID'=>$fields['IBLOCK_SECTION_ID']));
@@ -277,21 +297,22 @@
 						CIBlockElement::SetPropertyValuesEx($exist['ID'], $this->iblocks['products'], $diff);
 						$update = true;
 					endif;
-					
-					if(!isset($offers[$offer['XML_ID']])):
-						$offer['PROPERTY_VALUES']['CML2_LINK'] = $exist['ID'];
-						$id = Import::addIBlockElement($this->iblocks['offers'], $offer);
-						if(intval($id)>0):
-							$this->counter['offers']++;
+
+					if(isset($props['OFFER_SIZE'])):
+						if(!isset($offers[$fields['XML_ID']])):
+							$offer['PROPERTY_VALUES']['CML2_LINK'] = $exist['ID'];
+							$id = Import::addIBlockElement($this->iblocks['offers'], $offer);
+							if(intval($id)>0):
+								$this->counter['offers']++;
+							else:
+								$this->counter['error']++;
+							endif;	
 						else:
-							$this->counter['error']++;
-						endif;	
-					else:
-						$exist_offer = $offers[$offer['XML_ID']];
-						if($offers[$fields['XML_ID']]['SIZE'] != $props['OFFER_SIZE']):
-							$update = true;
-							CIBlockElement::SetPropertyValuesEx($offers[$fields['XML_ID']]['ID'], $this->iblocks['offers'], array('SIZE'=>$props['OFFER_SIZE']));
-						endif;
+							if($offers[$fields['XML_ID']]['SIZE'] != $props['OFFER_SIZE']):
+								$update = true;
+								CIBlockElement::SetPropertyValuesEx($offers[$fields['XML_ID']]['ID'], $this->iblocks['offers'], array('SIZE'=>$props['OFFER_SIZE']));
+							endif;
+						endif;		
 					endif;
 
 					if($update):

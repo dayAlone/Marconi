@@ -7,10 +7,10 @@
 		position relative
 		z-index 20
 	&__toolbar
-		margin-top: 8px
+		margin-top 8px
 		border-bottom 1px solid #d5dbdf
 		padding-bottom 8px
-		text-transform: uppercase
+		text-transform uppercase
 		font-size 12px
 		color #171929
 		.dropdown
@@ -26,20 +26,20 @@
 				background white
 				box-shadow 0 0 10px rgba(116, 132, 149, 0.8)
 			&__item
-				float: left
+				float left
 				clear both
 				font-size 9px
 				line-height 15px
 				color black
 				letter-spacing 1px
-				font-weight: bold
+				font-weight bold
 			&__trigger
 				color black
 				position relative
 				z-index 5
 				svg
 					margin-left 3px
-					vertical-align: baseline
+					vertical-align baseline
 					position relative
 					top -1px
 	&__seo
@@ -51,8 +51,8 @@
 			color #6e6e6e
 			line-height 16px
 	&__title
-		text-transform: uppercase
-		font-weight: bold
+		text-transform uppercase
+		font-weight bold
 		font-size 28px
 		margin-top 25px
 		margin-bottom 15px
@@ -66,9 +66,9 @@
 		margin-top 30px
 		.footer-nav
 			&__item
-				font-weight: bold
+				font-weight bold
 				font-size 13px
-				text-transform: uppercase
+				text-transform uppercase
 				color black
 				margin-right 30px
 				&:hover
@@ -98,12 +98,12 @@
 				transform scale(1.05)
 				opacity .8
 		&-text
-			text-transform: uppercase
+			text-transform uppercase
 			color white
 			position absolute
 			z-index 20
 			font-size 34px
-			font-weight: 300
+			font-weight 300
 			left 15px
 			top 8px
 			white-space no-wrap
@@ -129,8 +129,8 @@
 				content attr(data-title)
 				position absolute
 				background white
-				text-transform: uppercase
-				font-weight: bold
+				text-transform uppercase
+				font-weight bold
 				padding-right 14px
 				top -7px
 	.product
@@ -139,8 +139,8 @@
 		text-align center
 		padding-bottom 10px
 		margin-bottom 20px
-		text-transform: uppercase
-		font-weight: bold
+		text-transform uppercase
+		font-weight bold
 		font-size 14px
 		z-index 20
 		background white
@@ -183,11 +183,11 @@
 		&__button
 			bottom -36px
 			border 1px solid black
-			text-transform: uppercase
-			font-weight: bold
+			text-transform uppercase
+			font-weight bold
 			font-size 10px
 			width 43%
-			text-align: center
+			text-align center
 			padding 7px 10px 2px 10px
 			color black
 			&:hover
@@ -212,9 +212,9 @@
 				right 0px
 		&__name
 			font-size 12px
-			opacity: .6
+			opacity .6
 			margin-bottom 10px
-			font-weight: normal
+			font-weight normal
 		&__price
 			font-size 12px
 		&__picture
@@ -233,15 +233,35 @@
 				display block
 				overflow hidden
 				b('loader.gif', center center no-repeat, transparent, 80px auto)
+	&--without-images
+		.product
+			&__picture-frame
+				position absolute
+				transform translateY(-100%)
+				opacity 0
+				pointer-events none
+				t(opacity)
+				transition-duration .1s
+			&__frame
+				padding-top 240px
+				margin-top -230px
+			&__icon
+				top -230px
+			&--hover
+				.product__picture-frame
+					pointer-events initial
+					transition-duration .3s
+					transition-delay .1s
+					opacity 1
 	&--full-width
-		@media (min-width: scr_lg)
+		@media (min-width scr_lg)
 			.col-lg-3
 				width 20%
 	&--one-line
-		@media (min-width: scr_md)
+		@media (min-width scr_md)
 			.col-lg-3:nth-child(n+5)
 				display none
-		@media (min-width: scr_lg)
+		@media (min-width scr_lg)
 			.col-lg-3:nth-child(n+5)
 				display block
 .filter
@@ -263,8 +283,8 @@
 	&__title
 		width 100%
 		background white
-		text-transform: uppercase
-		font-weight: bold
+		text-transform uppercase
+		font-weight bold
 		font-size 11px
 		position relative
 		z-index 3
@@ -330,11 +350,11 @@
 		top 0
 		color attr(data-color, color)
 	label
-		font-weight: normal
+		font-weight normal
 		font-size 13px
 		display inline-block
 		width 86%
-		vertical-align: top
+		vertical-align top
 .range
 	width 80%
 	height 20px
@@ -342,7 +362,7 @@
 	font-size 11px
 	line-height 23px
 	padding 0 3px
-	text-align: center
+	text-align center
 	margin-bottom 15px
 .irs
 	width 100%
@@ -384,7 +404,7 @@
 		display inline-block
 		min-width 15px
 		height 16px
-		text-align: center
+		text-align center
 		line-height 21px
 		color black
 		text-transform uppercase

@@ -1,0 +1,53 @@
+include includes/header
+<body class="about">
+.wrap
+	include includes/toolbar
+	.background
+	header.header
+		.container
+			.row
+				.col-xs-3.col-lg-2
+					.contacts
+						include ../../public_html/layout/images/svg/phone.svg
+						a.contacts__number(href="tel:88005553330") 8 800 555 333 0
+						.contacts__text Горячая линия
+
+				.col-xs-1.col-lg-2
+					span.logo__line.logo__line--left
+				.col-xs-4.center
+					a(href="#").logo
+						include ../../public_html/layout/images/svg/logo.svg
+				.col-xs-1.col-lg-2
+					span.logo__line.logo__line--right
+				.col-xs-3.col-lg-2
+					.header__links
+						a.cart(href="#")
+							include ../../public_html/layout/images/svg/cart.svg
+							| Товаров в корзине: 2
+						br
+						a.simmilar(href="#")
+							include ../../public_html/layout/images/svg/simmilar.svg
+							| К сравнению: 5
+	.about__slider.fotorama(data-width="100%", data-height="100%", data-nav="false", data-arrows="false", data-transition="crossfade", data-click="false")
+		.about__slider-item(style="background-image: url(/layout/images/bg-about.jpg)")
+			.about__slider-item-content
+				h2.about__slider-title 
+					span история качества
+					.about__slider-title-after
+					.about__slider-title-before
+				h3.center регион абруццо, на адриатическом побережье италии славится великолепным мягким климатом, теплым морем и удивительным горным ландшафтом
+				p.center Земля традиций и инноваций, фермеров и ремесленников, земля, где искусство встречается с технологиями, где хорошая кухня сочетается с гостеприимством местных жителей. Именно в Абруццо трое молодых братьев — Франческо, Назарено и Абрамо Тонелли, в небольшой мастерской объединив свои навыки и знания, основывают небольшую семейную фабрику в честь своих родителей.
+				p.center Братья Тонелли, благодаря своему труду и целеустремленности, начинают производство сумок и аксессуаров из кожи и стремительно завоевывают популярность у модниц и модников не только Европы, но и Америки, Азии, России. Со временем маленькая фабрика братьев Тонелли становится заметна и узнаваема на мировом рынке. С 2002 года компания трансформируется в холдинг Xanthia. И открывает производство обуви, расширяя рынки сбыта.
+				.about__slider-arrow.about__slider-arrow--next(data-direction=">")
+					include ../../public_html/layout/images/svg/slider-arrow-right.svg
+		.about__slider-item(style="background-image: url(/layout/images/bg-about-1.jpg)")
+			.about__slider-item-content
+				h2.about__slider-title 
+					span до и после
+					.about__slider-title-after
+					.about__slider-title-before
+				p.center  С тех пор, как братья посетили Москву, которая произвела на них огромное впечатление, предприниматели решили уделить больше внимания российским покупателям. Они были удивлены красотой культуры, искусства, архитектуры, и, в особенности, русских женщин, с их стремлением к элегантности, красоте и практичности.
+				p.center Поэтому, они решают выпустить линию сумок и аксессуаров под маркой «Francesco Marconi», ориентированную на специфику российского покупателя, в партнёрстве с российским дистрибутором.
+				.about__slider-arrow.about__slider-arrow--prev(data-direction="<")
+					include ../../public_html/layout/images/svg/slider-arrow-left.svg
+include includes/footer
