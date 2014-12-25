@@ -21,7 +21,7 @@ end = 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransit
 delay = (ms, func) -> setTimeout func, ms
 
 size = ->
-	if $('.lookbook').length > 0
+	if $('.lookbook').elem('slider').length > 0
 		$('.lookbook').elem('slider-preview').css
 			'top': $('.lookbook').elem('slider').offset().top
 			'opacity': 1
@@ -156,6 +156,13 @@ $(document).ready ->
 		e.preventDefault()
 	
 	# Lookbook
+
+	$('.row.enter').isotope
+		itemSelector : "[class*='col-']"
+		masonry:
+			columnWidth: $('.row.enter').width()/4
+  
+    
 	$('.lookbook').elem('slider-preview').click (e)->
 		slider = $('.lookbook').elem('slider').data('fotorama')
 		slider.show $(this).data('direction')

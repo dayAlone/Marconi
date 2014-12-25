@@ -1,4 +1,9 @@
 <?
+	ini_set('xdebug.var_display_max_depth', 5);
+	ini_set('xdebug.var_display_max_children', 256);
+	ini_set('xdebug.var_display_max_data', 1024);
+
+
 	$_SERVER["DOCUMENT_ROOT"] = realpath(dirname(__FILE__)."/..");
 	require_once ($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include.php");
 	define("NO_KEEP_STATISTIC", true);
@@ -37,7 +42,7 @@
 					case 'materials':
 					case 'types':
 					case 'sizes':
-						$data  = Import::getHighloadElements($this->iblocks[$code]);
+						$data  = Import::getHighloadElements($this->iblocks[$code], false, true);
 						$items = $item->getElementsByTagName('item');
 						foreach ($items as $el):
 							$id = $el->getAttribute('id');
@@ -78,28 +83,29 @@
 
 		private $counter = array('add'=>0, 'update'=>0, 'offers'=>0, 'error'=>0);
 
-		private $remove = array('XS', 'S', 'M', 'L', 'XL');
+		private $remove;
 
 		public function __construct()
 		{
 			CModule::IncludeModule("iblock");
 			CModule::IncludeModule("highloadblock");
 			
-			$remove = array();
-			foreach ($this->remove as $i)
-				$remove[] = "/(\s(".$i.")|_".strtolower($i).")$/";
-			$this->remove = $remove;
-
 			$this->iblocks    = Import::getIBlocks();
 			$dbHblock = HL\HighloadBlockTable::getList();
             while ($ib = $dbHblock->Fetch())
             	$this->iblocks[$ib['TABLE_NAME']] = (int)$ib['ID'];
 
+            $remove = array();
+			$this->remove = Import::getHighloadElements($this->iblocks['sizes'], true);
+			foreach ($this->remove as $i)
+				$remove[] = "/(\s(".$i['NAME'].")|_".strtolower($i['NAME']).")$/";
+			$this->remove = $remove;
+
 			$this->sections   = Import::getIBlockSections($this->iblocks['catalog'],3);
 			$this->categories = Import::getHighloadElements($this->iblocks['categories'], true);
 			$this->types      = Import::getHighloadElements($this->iblocks['types'], true);
 			$this->brands     = Import::getHighloadElements($this->iblocks['brands'], true);
-			$this->properties = Array("PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_MATERIAL", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "IBLOCK_SECTION_ID", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL" );
+			$this->properties = Array("PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_MATERIAL", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "PROPERTY_SECTION_4", "IBLOCK_SECTION", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL" );
 		}
 		private function addParentCatagory(&$parent, $array)
 		{
@@ -136,23 +142,72 @@
 		private function getExist($fields)
 		{
 			$array = array(
-				'ID'     => $fields['ID'],
-				'NAME'   => $fields['NAME'],
-				'XML_ID' => $fields['XML_ID']
+				'ID'             => $fields['ID'],
+				'NAME'           => $fields['NAME'],
+				'XML_ID'         => $fields['XML_ID'],
+				'IBLOCK_SECTION' => $fields['IBLOCK_SECTION'],
 			);
 			foreach ($fields['PROPERTY_VALUES'] as $key => $prop):
 				switch ($key):
 					case 'NOTE_SHORT';
 					case 'NOTE_FULL';
 					case 'CODE':
+					case 'BRAND':
+					case (preg_match('/SECTION_(.*)/', $key) ? true : false):
 					case 'MATERIAL':
 					case 'COLOR':
+					case 'SIZE':
 					case 'ARTNUMBER':
 						$array[$key] = $prop;
 						break;
 				endswitch;
 			endforeach;
 			return $array;
+		}
+		private function getSections($propSections, &$fields, &$props)
+		{
+			$sections = array();
+
+			if($propSections['section']):
+				$value  = $propSections['section'];
+				$parent = $this->sections[$value];
+				$sections['first'] = array();
+				if(isset($parent))
+					$sections['first'][] = $value;
+			endif;
+			if($propSections['category']):
+				$value  = $propSections['category'];
+				unset($parent);
+				if(!isset($sections['first'])):
+					$keys = array_keys($this->sections);
+					$sections['first'] = array($keys[0], $keys[1]);
+				endif;
+				$sections['id']     = array();
+				$sections['second'] = array();
+				foreach ($sections['first'] as $s):
+					$parent = &$this->sections[$s];
+					if(!isset($parent['CHILD'][$value]))
+						$this->addParentCatagory($parent, $this->categories[$value]);
+				endforeach;
+				$sections['id']     = $this->categories[$value]['ID'];
+				$sections['second'] = $value;
+			endif;
+			if($propSections['type']):
+				$value  = $propSections['type'];
+				
+				$fields['IBLOCK_SECTION_ID'] = array();
+				foreach ($sections['first'] as $k => $s):
+					unset($parent);
+					$parent = &$this->sections[$s]['CHILD'][$sections['second']];
+					
+					if(!isset($parent['CHILD'][$value]))
+						$this->addParentCatagory($parent, $this->types[$value]);
+					if(isset($parent['CHILD'][$value]))
+						$fields['IBLOCK_SECTION'][] = $parent['CHILD'][$value];
+				endforeach;
+				if(intval($sections['id'])>0)
+					$props['SECTION_'.$sections['id']] = $value;
+			endif;
 		}
 		private function getData($item)
 		{
@@ -173,20 +228,22 @@
 				'NOTE_SHORT' => $note,
 				'NOTE_FULL'  => preg_replace($this->remove, '', $tmp),
 				'COLOR'      => array(),
+				'MATERIAL'   => array(),
 				'PICTURES'   => array(),
 			);
 			
 			$raw = $item->getElementsByTagName('property');
 
-			$sections = array();
+			$propSections = array();
 
 			foreach ($raw as $prop):
 				$id    = $prop->getAttribute('id');
 				$value = $prop->getAttribute('value');
 				
 				switch ($id):
+					case 'material':
 					case 'color':
-						$props['COLOR'][] = $value;
+						$props[strtoupper($id)][] = $value;
 					break;
 					case 'SizeForWeb':
 						if(strlen($value) > 0)
@@ -195,32 +252,18 @@
 					case 'size':
 						$props['OFFER_SIZE'] = $value;
 					break;
-					case 'material':
 					case 'brand':
 						$props[strtoupper($id)] = $value;
 						break;
 					case 'section':
-						$parent = $this->sections[$value];
-						if(isset($parent))
-							$sections['first'] = $value;
-						break;
 					case 'category':
-							$parent = &$this->sections[$sections['first']];
-							if(!isset($parent['CHILD'][$value]))
-								$this->addParentCatagory($parent, $this->categories[$value]);
-							$sections['id'] = $this->categories[$value]['ID'];
-							$sections['second'] = $value;
-						break;
 					case 'type':
-						$parent = &$this->sections[$sections['first']]['CHILD'][$sections['second']];
-						if(!isset($parent['CHILD'][$value]))
-							$this->addParentCatagory($parent, $this->types[$value]);
-						$props['SECTION_'.$sections['id']] = $value;
-						$fields['IBLOCK_SECTION_ID'] = $parent['CHILD'][$value];
-						break;
+						$propSections[$id] = $value;
 				endswitch;
 			endforeach;
 
+			$this->getSections($propSections, $fields, $props);
+			
 			$name = $note;
 			if($this->brands[$props['BRAND']]['NAME'])
 				$name .= ' '.$this->brands[$props['BRAND']]['NAME'];
@@ -276,30 +319,35 @@
 				if(isset($exist)):
 					$update = false;
 					$diff   = array_diff($props, $exist);
-					$colors = array_diff($props['COLOR'], $exist['COLOR']);
 					
 					unset($diff['PICTURES']);
 					unset($diff['OFFER_SIZE']);
 
-					if($colors || (count($props['COLOR'])!=count($exist['COLOR']))):
-						$diff['COLOR'] = $props['COLOR'];
-					else:
-						unset($diff['COLOR']);
-					endif;
-
-					if($fields['IBLOCK_SECTION_ID'] != $exist['IBLOCK_SECTION_ID']):
-						$raw = new CIBlockElement;
-						$raw->Update($exist['ID'], array('IBLOCK_SECTION_ID'=>$fields['IBLOCK_SECTION_ID']));
-						$update = true;
-					endif;
-
+					foreach (array('COLOR', 'MATERIAL') as $el):
+						if(array_diff($props[$el], $exist[$el]) || (count($props[$el])!=count($exist[$el]))):
+							$diff[$el] = $props[$el];
+						else:
+							unset($diff[$el]);
+						endif;
+					endforeach;
+					
 					if(count($diff)>0):
+						
+						fwrite(STDERR, "Что-то обновлено: ".$fields['XML_ID']." ".$exist['ID']." ".var_export($diff, true)." \n\r");
+						die();
 						CIBlockElement::SetPropertyValuesEx($exist['ID'], $this->iblocks['products'], $diff);
 						$update = true;
 					endif;
 
+					if(array_diff($fields['IBLOCK_SECTION'], $exist['IBLOCK_SECTION']) || (count($fields['IBLOCK_SECTION'])!=count($exist['IBLOCK_SECTION']))):
+						fwrite(STDERR, "Разделы обновлены: ".var_export(array_diff($fields['IBLOCK_SECTION'], $exist['IBLOCK_SECTION']),true)." \n\r");
+						$raw = new CIBlockElement;
+						$raw->Update($exist['ID'], array('IBLOCK_SECTION'=>$fields['IBLOCK_SECTION']));
+						$update = true;
+					endif;
+
 					if(isset($props['OFFER_SIZE'])):
-						if(!isset($offers[$fields['XML_ID']])):
+						if(!isset($offers[$offer['XML_ID']])):
 							$offer['PROPERTY_VALUES']['CML2_LINK'] = $exist['ID'];
 							$id = Import::addIBlockElement($this->iblocks['offers'], $offer);
 							if(intval($id)>0):
@@ -308,9 +356,10 @@
 								$this->counter['error']++;
 							endif;	
 						else:
-							if($offers[$fields['XML_ID']]['SIZE'] != $props['OFFER_SIZE']):
+							if($offers[$offer['XML_ID']]['SIZE'] != $offer['PROPERTY_VALUES']['SIZE']):
+								fwrite(STDERR, "Размеры обновлены \n\r");
 								$update = true;
-								CIBlockElement::SetPropertyValuesEx($offers[$fields['XML_ID']]['ID'], $this->iblocks['offers'], array('SIZE'=>$props['OFFER_SIZE']));
+								CIBlockElement::SetPropertyValuesEx($offers[$fields['XML_ID']]['ID'], $this->iblocks['offers'], array('SIZE'=>$offer['PROPERTY_VALUES']['SIZE']));
 							endif;
 						endif;		
 					endif;
@@ -320,9 +369,7 @@
 					endif;
 
 				else:
-					
 					$id = Import::addIBlockElement($this->iblocks['products'], $fields);
-					
 					if(intval($id)>0): 
 						$this->counter['add']++;
 						$fields['ID'] = $id;
@@ -342,6 +389,8 @@
 
 				endif;
 
+
+
 			endforeach;
 
 			fwrite(STDERR, "\033[37mOffers: ".$this->counter['offers']." \033[35m Update: ".$this->counter['update']." \033[32m Add: ".$this->counter['add']." \033[31m Error: ".$this->counter['error']." \033[37m\r\n");
@@ -354,6 +403,79 @@
 		}
 	}
 
+	class Counts
+	{
+		private $iblock, $stores, $products, $counts;
+		private $counter = 0;
+
+		public function __construct()
+		{
+			CModule::IncludeModule("iblock");
+			CModule::IncludeModule("catalog");
+	
+			$this->iblocks = Import::getIBlocks();
+
+			$raw = CCatalogStore::GetList(array('ID'=>'ASC'), array('ACTIVE' => 'Y'));
+        	while ($item = $raw->Fetch())
+        		$this->stores[$item['XML_ID']] = $item['ID'];
+
+		}
+
+		public function Action($file, $offset)
+		{
+			$data = Import::getElements($file, array('counts', 'product'), $offset);
+			$ids  = array();
+			foreach ($data['items'] as $item)
+				$ids[] = $item->getAttribute('id');
+
+			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID')));
+
+			$ids  = array();
+			foreach ($this->products as $item)
+				$ids[$item['XML_ID']] = $item['ID'];
+
+			$raw = CCatalogStoreProduct::GetList(array('ID'=>'ASC'), array('ACTIVE' => 'Y', 'PRODUCT_ID'=>array_values($ids)));
+        	while ($count = $raw->Fetch()):
+        		if(!isset($this->counts[$count['PRODUCT_ID']]))
+        			$this->counts[$count['PRODUCT_ID']] = array();
+        		$this->counts[$count['PRODUCT_ID']][$count['STORE_ID']] = $count['AMOUNT'];
+        	endwhile;
+
+        	foreach ($data['items'] as $item):
+        		$id = $this->products[$item->getAttribute('id')]['ID'];
+        		$raw = $item->getElementsByTagName('count');
+        		foreach ($raw as $count):
+					if(!$this->stores[$count->getAttribute('store')]):
+						$this->stores[$count->getAttribute('store')] = CCatalogStore::Add(array('TITLE'=>$count->getAttribute('description'), 'XML_ID'=>$count->getAttribute('store')));
+					endif;
+					$store  = $this->stores[$count->getAttribute('store')];
+					$amount = $count->getAttribute('value');
+					if($this->counts[$id][$store] != $amount):
+						if(!isset($this->counts[$id]))
+							$this->counts[$id] = array();
+						
+						$this->counts[$id][$store] = $amount;
+						$arFields = Array(
+							"PRODUCT_ID" => $id,
+							"STORE_ID"   => $store,
+							"AMOUNT"     => $amount,
+					    );
+					    $ID = CCatalogStoreProduct::UpdateFromForm($arFields);
+					    if($ID > 0)
+					    	$this->counter++;
+					endif;
+        		endforeach;
+        	endforeach;
+        	fwrite(STDERR, "\033[35m Update: ".$this->counter." \033[37m\r\n");
+
+			if($data['offset'] != 'end')
+				return $data['offset'];
+			else
+				return 0;
+			die();
+		}
+	}
+
 	class Import
 	{
 		public static $time;
@@ -362,14 +484,13 @@
 
 		private $checkfile = false;
 
-		const step = 100;
+		const step = 300;
 
-		private $steps = array('properties', 'products');//, 'prices', 'counts', 'write-off');
+		private $steps = array('properties', 'products', 'counts');//, 'prices', , 'write-off');
 		
 		public function __construct($offset=0)
 		{
 			$offset = intval($offset);
-			
 			if($offset < 1)
 				$offset = 1;
 
@@ -393,7 +514,7 @@
 					break;
 				endif;
 			endforeach;
-			
+
 			if( isset($action) ):
 				$class  = $action['step'];
 				$helper = new $class;
@@ -464,38 +585,36 @@
 
 		public function getIBlockSections($id, $depth = 1)
 		{
-			
-			$data    = array();
-			$parents = array();
-			$array   = Array('IBLOCK_ID'=>$id, 'ACTIVE'=>'Y', '=<DEPTH_LEVEL'=>$depth, 'CHECK_PERMISSIONS' => 'N');
-			$raw     = CIBlockSection::GetList(Array('DEPTH_LEVEL'=>'ASC'), $array, true);
+			$sections = array();
+			$data     = array();
+			$array    = Array('IBLOCK_ID'=>$id, 'ACTIVE'=>'Y', '=<DEPTH_LEVEL'=>$depth, 'CHECK_PERMISSIONS' => 'N');
+			$raw      = CIBlockSection::GetList(Array("LEFT_MARGIN"=>"ASC"), $array, true, array('ID', 'NAME', 'XML_ID', 'DEPTH_LEVEL', 'IBLOCK_SECTION_ID'));
 
 			while($section = $raw->GetNext()):
-				switch ($section['DEPTH_LEVEL']):
-					case '1':
-							$data[$section['XML_ID']] = $section['ID'];
-							$parents[$section['ID']]  = $section['XML_ID'];
-						break;
-					default:
-							$parent = $section['IBLOCK_SECTION_ID'];
-							$parents[$section['ID']] = array('PARENT'=>$parent, 'ID'=>$section['XML_ID']);
-							if( is_array($parents[$parent]) ):
-								$code = $parents[$parent]['ID'];
-								$parent = &$data[$parents[$parents[$parent]['PARENT']]]['CHILD'][$parents[$parent]['ID']];
-								if(!is_array($parent))
-									$parent = array('ID'=>$parent, 'CHILD'=>array($section['XML_ID']=>$section['ID']));
-								else
-									$parent['CHILD'][$section['XML_ID']] = $section['ID'];
-							else:
-								$code = $parents[$parent];
-								if(!is_array($data[$code]))
-									$data[$parents[$parent]] = array('ID'=>$data[$parents[$parent]], 'CHILD'=>array($section['XML_ID']=>$section['ID']));
-								else
-									$data[$parents[$parent]]['CHILD'][$section['XML_ID']] = $section['ID'];
-							endif;
-						break;
-				endswitch;
+				$sections[$section['ID']] = $section;
 			endwhile;
+			foreach ($sections as $s):
+				switch ($s['DEPTH_LEVEL']):
+					case '1':
+						$data[$s['XML_ID']] = $s['ID'];
+					break;
+					case '2':
+						$parent = $sections[$s['IBLOCK_SECTION_ID']]['XML_ID'];
+						if( !is_array($data[$parent]) )
+							$data[$parent] = array('ID' => $data[$parent], 'CHILD' => array());
+						$data[$parent]['CHILD'][$s['XML_ID']] = $s['ID'];
+					break;
+					case '3':
+						$second = $sections[$s['IBLOCK_SECTION_ID']];
+						$first = $sections[$second['IBLOCK_SECTION_ID']]['XML_ID'];
+						
+						if( !is_array($data[$first]['CHILD'][$second['XML_ID']]) )
+							$data[$first]['CHILD'][$second['XML_ID']] = array('ID' => $data[$first]['CHILD'][$second['XML_ID']], 'CHILD' => array());
+						$data[$first]['CHILD'][$second['XML_ID']]['CHILD'][$s['XML_ID']] = $s['ID'];
+
+					break;
+				endswitch;
+			endforeach;
 			
 			return $data;
 		}
@@ -503,13 +622,13 @@
 		public function getIBlockElements($id, $filter, $fields = false)
 		{
 			$data = array();
-			$arSelect = array_merge(Array("ID", "NAME", "XML_ID"), $fields);
+			$arSelect = array_merge(Array("ID", "NAME", "XML_ID", "IBLOCK_SECTION_ID"), $fields);
 			
 			$arFilter = array_merge(Array("IBLOCK_ID"=>$id, "ACTIVE"=>"Y", 'CHECK_PERMISSIONS' => 'N'), $filter);
 			$res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
 			
 			while($el = $res->Fetch()):
-				$array = array();
+				$array = array('IBLOCK_SECTION'=>array());
 				foreach ($el as $key => $item)
 					if(
 							(!preg_match("/^PROPERTY_(.*)_ID/", $key) || strstr($key,'CML2_LINK_XML'))
@@ -517,7 +636,11 @@
 							&& $item
 						)
 						$array[str_replace(array('PROPERTY_', '_VALUE'), array('',''), $key)] = $item;
-				
+				$raw = CIBlockElement::GetElementGroups($el['ID']);
+
+				while($s = $raw->Fetch())
+					$array['IBLOCK_SECTION'][] = $s['ID'];
+
 				$data[$el['XML_ID']] = $array;
 			endwhile;
 
@@ -551,12 +674,15 @@
 				return;
 		}
 
-		public function getHighloadElements($id, $remove=false)
+		public function getHighloadElements($id, $remove=false, $clear=false)
 		{
 			$obCache   = new CPHPCache();
 			$cacheLife = 86400; 
 			$cacheID   = 'getHighloadElements_'.$id; 
 			$cachePath = '/'.$cacheID;
+
+			if($clear)
+				BXClearCache(true, $cachePath);
 
 			if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):
 
@@ -603,8 +729,8 @@
 			$cachePath = '/'.$cacheID;
 
 			if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):
-					BXClearCache(true, $cachePath);
-				endif;
+				BXClearCache(true, $cachePath);
+			endif;
 
 
 			$hlblock = HL\HighloadBlockTable::getById($id)->fetch();

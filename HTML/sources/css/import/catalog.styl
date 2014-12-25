@@ -407,18 +407,24 @@
 		text-align center
 		line-height 21px
 		color black
+		font-size 12px
+		text-decoration: none
 		text-transform uppercase
+		background transparent
 		& + .pages__item
 			margin-left 2px
 		&:last-of-type
 			margin-left 8px
 			border-line(alpha(black, .3))
+			.news &
+				background transparent
 			&:hover
 				border-line(alpha(red, .3))
+				background transparent
 		&:hover
 			color red
 		&--active
-			background black
+			background black !important
 			color white
 			&:hover
 				color white

@@ -1,0 +1,141 @@
+<?
+function svg($value='')
+{
+	$path = $_SERVER["DOCUMENT_ROOT"]."/layout/images/svg/".$value.".svg";
+	return file_get_contents($path);
+}
+function body_class()
+{
+	global $APPLICATION;
+	if($APPLICATION->GetPageProperty('body_class')) {
+		return $APPLICATION->GetPageProperty('body_class');
+	}
+}
+function page_class()
+{
+	global $APPLICATION;
+	if($APPLICATION->GetPageProperty('page_class')) {
+		return $APPLICATION->GetPageProperty('page_class');
+	}
+}
+function page_title()
+{
+	global $APPLICATION;
+	if($APPLICATION->GetPageProperty('page_title')) {
+		return $APPLICATION->GetPageProperty('page_title');
+	}
+	else
+		return $APPLICATION->GetTitle();
+}
+function content_class()
+{
+	global $APPLICATION;
+	if(!$APPLICATION->GetPageProperty('hide_right')) {
+		return "col-xs-6 col-lg-8";
+	}
+	else
+		return "col-xs-9 col-lg-10";
+}
+
+
+function IBlockElementsMenu($IBLOCK_ID)
+{
+	$obCache       = new CPHPCache();
+	$cacheLifetime = 86400; 
+	$cacheID       = 'IBlockElementsMenu_'.$IBLOCK_ID; 
+	$cachePath     = '/'.$cacheID;
+
+	if( $obCache->InitCache($cacheLifetime, $cacheID, $cachePath) )
+	{
+	   $vars = $obCache->GetVars();
+	   return $vars['NAV'];
+	}
+	elseif( $obCache->StartDataCache()  )
+	{
+		CModule::IncludeModule("iblock");
+		
+		$arNav    = array();
+		$arSort   = array("NAME" => "DESC");
+		$arFilter = array("IBLOCK_ID" => $IBLOCK_ID, 'ACTIVE'=>'Y');
+		$rs       = CIBlockElement::GetList($arSort, $arFilter, false, false);
+		//$rs->SetUrlTemplates("/catalog/#SECTION_CODE#/#ELEMENT_CODE#.php");
+
+		while ($item = $rs->GetNext()):
+			$arNav[] = Array(
+				$item['NAME'], 
+				$item['DETAIL_PAGE_URL'], 
+				Array(), 
+				Array(), 
+				"" 
+			);
+		endwhile;
+
+		$obCache->EndDataCache(array('NAV' => $arNav));
+
+		return $arNav;
+	}
+}
+function r_date($date = '') {
+
+	$date = strtotime($date);
+
+	$treplace = array (
+		"Январь"   => "января",
+		"Февраль"  => "февраля",
+		"Март"     => "марта",
+		"Апрель"   => "апреля",
+		"Май"      => "мая",
+		"Июнь"     => "июня",
+		"Июль"     => "июля",
+		"Август"   => "августа",
+		"Сентябрь" => "сентября",
+		"Октябрь"  => "октября",
+		"Ноябрь"   => "ноября",
+		"Декабрь"  => "декабря",
+		"January"   => "января",
+		"February"  => "февраля",
+		"March"     => "марта",
+		"April"   => "апреля",
+		"May"      => "мая",
+		"June"     => "июня",
+		"July"     => "июля",
+		"August"   => "августа",
+		"September" => "сентября",
+		"October"  => "октября",
+		"November"   => "ноября",
+		"December"  => "декабря",
+		"*"        => "",
+		"th"       => "",
+		"st"       => "",
+		"nd"       => "",
+		"rd"       => ""
+	);
+   	return strtr(date('d F Y', $date), $treplace);
+}
+class CatalogStore
+{
+   function GetIBlockPropertyDescription()
+   {
+		return array(
+			"PROPERTY_TYPE"        =>"S",
+			"USER_TYPE"            =>"CatalogStore",
+			"DESCRIPTION"          =>"Склад",
+			"GetPropertyFieldHtml" =>array("CatalogStore", "GetPropertyFieldHtml"), 
+		);
+   }
+   function GetPropertyFieldHtml($arUserField, $arHtmlControl)
+   {
+   		static $str;
+        $str = '<select name="'.$arHtmlControl["NAME"].'">';
+        $str .= "<option value=''>Выберите склад</option>";
+        $raw = CCatalogStore::GetList(array('ID'=>'ASC'), array('ACTIVE' => 'Y'));
+        while ($item = $raw->Fetch())
+            $str .= "<option value='".$item['ID']."' ".($item['ID']==$arUserField['VALUE']?"selected":"").">".$item['TITLE']."</option>";
+        
+        $str .= "</select>";
+        return $str;
+   }
+}
+AddEventHandler("iblock", "OnIBlockPropertyBuildList", array("CatalogStore", "GetIBlockPropertyDescription"));
+
+?>

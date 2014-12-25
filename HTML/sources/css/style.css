@@ -1038,7 +1038,7 @@ div.pp_default .pp_loaderIcon {
 }
 .index .header .logo__line {
   width: 120%;
-  margin: 12px 0;
+  margin: 16px 0;
 }
 .index .header .logo__line--right {
   float: right;
@@ -1052,7 +1052,7 @@ div.pp_default .pp_loaderIcon {
 .header .contacts {
   position: relative;
   padding-left: 33px;
-  margin-top: 2px;
+  margin-top: 4px;
   line-height: 13px;
 }
 .header .contacts__number {
@@ -1834,12 +1834,16 @@ svg g {
   right: 10px;
 }
 .lookbook .page > .container > .row.enter {
-  padding: 0 10px;
+  padding: 0;
+  margin: 0;
   margin-bottom: 40px;
 }
 .lookbook .page > .container > .row.enter [class*='col-'] {
   padding-right: 0;
   padding-left: 0;
+}
+.lookbook .page > .container > .row.enter .col-md-6 {
+  width: 50%;
 }
 .lookbook .nav__item:nth-child(4) {
   background: #fff;
@@ -2712,7 +2716,10 @@ svg g {
   text-align: center;
   line-height: 21px;
   color: #000;
+  font-size: 12px;
+  text-decoration: none;
   text-transform: uppercase;
+  background: transparent;
 }
 .pages__item + .pages__item {
   margin-left: 2px;
@@ -2733,6 +2740,9 @@ svg g {
 .pages__item:last-of-type:hover {
   text-decoration: none;
 }
+.news .pages__item:last-of-type {
+  background: transparent;
+}
 .pages__item:last-of-type:hover {
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.3) 50%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.3) 50%);
@@ -2744,6 +2754,7 @@ svg g {
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
   background-position: 0 calc(100% - 2px);
+  background: transparent;
 }
 .pages__item:last-of-type:hover:hover {
   text-decoration: none;
@@ -2752,7 +2763,7 @@ svg g {
   color: #d10a32;
 }
 .pages__item--active {
-  background: #000;
+  background: #000 !important;
   color: #fff;
 }
 .pages__item--active:hover {
@@ -3219,7 +3230,9 @@ svg g {
   transition-duration: 0.3s;
 }
 .basket__block .iradio:hover,
-.basket__block input[type="radio"]:hover {
+.basket__block input[type="radio"]:hover,
+.basket__block .iradio.hover,
+.basket__block input[type="radio"].hover {
   border-color: #d10a32;
 }
 .basket__block .iradio:checked,

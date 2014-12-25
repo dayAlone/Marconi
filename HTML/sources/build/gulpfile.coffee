@@ -21,7 +21,7 @@ replace      = require 'gulp-replace'
 watch        = require 'gulp-watch'
 imageop      = require 'gulp-image-optimization'
 
-plugins  = [ 'jquery', 'bootstrap', 'browser', 'fotorama', 'cookie', 'bem', 'chosen', 'iCheck', 'velocity', 'parsley', 'prettyPhoto', 'hoverIntent', 'rangeSlider', 'likes' ]
+plugins  = [ 'jquery', 'bootstrap', 'browser', 'fotorama', 'isotope', 'cookie', 'bem', 'chosen', 'iCheck', 'velocity', 'parsley', 'prettyPhoto', 'hoverIntent', 'rangeSlider', 'likes' ]
 
 layout   = 'public_html/layout'
 sources  = 'sources/'
@@ -63,7 +63,8 @@ gulp.task 'html', ->
 	gulp.src("#{path.html}*.jade")
 	.pipe plumber
 		errorHandler: notify.onError("Error: <%= error.message %>")
-	.pipe jade()
+	.pipe jade
+		pretty: "\t"
 	.pipe gulp.dest './public_html/'
 
 

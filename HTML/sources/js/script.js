@@ -27,7 +27,7 @@
   };
 
   size = function() {
-    if ($('.lookbook').length > 0) {
+    if ($('.lookbook').elem('slider').length > 0) {
       $('.lookbook').elem('slider-preview').css({
         'top': $('.lookbook').elem('slider').offset().top,
         'opacity': 1,
@@ -196,6 +196,12 @@
         });
       }
       return e.preventDefault();
+    });
+    $('.row.enter').isotope({
+      itemSelector: "[class*='col-']",
+      masonry: {
+        columnWidth: $('.row.enter').width() / 4
+      }
     });
     $('.lookbook').elem('slider-preview').click(function(e) {
       var slider;
