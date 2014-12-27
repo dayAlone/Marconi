@@ -124,7 +124,7 @@
   };
 
   $(document).ready(function() {
-    var closeDropdown, filterRequest, filterTimer, getElem, getFilter, initFiltres, initProducts, openDropdown, scrollTimer, timer, x;
+    var closeDropdown, filterRequest, filterTimer, galleryOptions, getElem, getFilter, initFiltres, initProducts, openDropdown, scrollTimer, timer, x;
     delay(300, function() {
       return size();
     });
@@ -270,11 +270,11 @@
       });
       return el.show();
     });
-    $("a[rel^='prettyPhoto']").prettyPhoto({
-      social_tools: '',
-      overlay_gallery: false,
-      deeplinking: false
-    });
+    galleryOptions = {
+      history: false,
+      focus: false,
+      shareEl: false
+    };
     $('.tabs').elem('trigger').click(function(e) {
       $('.tabs').elem('content').mod('active', false);
       $('.tabs').elem('trigger').mod('active', false);
@@ -296,8 +296,12 @@
     });
     initProducts = function() {
       $('.product').elem('icon').click(function(e) {
+        var gallery, items, pswpElement;
         if ($(this).hasMod('zoom')) {
-          $.prettyPhoto.open($(this).data('pictures'));
+          pswpElement = document.querySelectorAll('.pswp')[0];
+          items = $(this).data('pictures');
+          gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, galleryOptions);
+          gallery.init();
         }
         return e.preventDefault();
       });

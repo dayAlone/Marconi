@@ -74,6 +74,11 @@
    "parsley":{
       "js":"/parsleyjs/dist/parsley.js"
    },
+   "photoswipe":{
+      "js": ["/photoswipe/dist/photoswipe.js", "/photoswipe/dist/photoswipe-ui-default.js"],
+      "css": [ "/photoswipe/dist/photoswipe.css", "/photoswipe/dist/default-skin/default-skin.css" ],
+      "files": ["/photoswipe/dist/default-skin/default-skin.svg", "/photoswipe/dist/default-skin/default-skin.png", "/photoswipe/dist/default-skin/preloader.gif"]
+   },
    "prettyPhoto":{
       "js":"/prettyPhoto/js/jquery.prettyPhoto.js",
       "css":"/prettyPhoto/css/prettyPhoto.css",

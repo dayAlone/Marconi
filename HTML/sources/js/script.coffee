@@ -222,13 +222,11 @@ $(document).ready ->
 			'width' : w
 		el.show()
 	# Product
-	$("a[rel^='prettyPhoto']").prettyPhoto
-		social_tools: ''
-		overlay_gallery: false
-		deeplinking: false
-	
-	
-	
+	galleryOptions =     
+		history : false
+		focus   : false
+		shareEl : false
+    
 	$('.tabs').elem('trigger').click (e)->
 		$('.tabs').elem('content').mod 'active', false
 		$('.tabs').elem('trigger').mod 'active', false
@@ -248,7 +246,13 @@ $(document).ready ->
 	initProducts = ->
 		$('.product').elem('icon').click (e)->
 			if $(this).hasMod 'zoom'
-				$.prettyPhoto.open $(this).data 'pictures'
+				pswpElement = document.querySelectorAll('.pswp')[0];
+				items = $(this).data('pictures')
+
+				gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, galleryOptions);
+
+				gallery.init();
+			
 			e.preventDefault()
 		$('.product').elem('picture').lazyLoadXT()
 		$('.product').hoverIntent
@@ -261,8 +265,6 @@ $(document).ready ->
 					item.mod 'hover', false
 					$(this).find('.product__frame').one end, ->
 						item.mod 'index', false
-
-	
 
 	initFiltres = ->
 		# Checkbox

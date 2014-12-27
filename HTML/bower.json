@@ -36,7 +36,8 @@
     "bgcheck": "git@github.com:kennethcachia/background-check.git",
     "iCheck": "~1.0.2",
     "ion.rangeSlider": "~2.0.2",
-    "lazyloadxt": "~1.0.5"
+    "lazyloadxt": "~1.0.5",
+    "photoswipe": "~4.0.2"
   },
   "moduleType": [
     "amd",

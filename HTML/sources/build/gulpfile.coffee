@@ -21,7 +21,7 @@ replace      = require 'gulp-replace'
 watch        = require 'gulp-watch'
 imageop      = require 'gulp-image-optimization'
 
-plugins  = [ 'jquery', 'jquery.cookie', 'lazyload', 'bootstrap', 'browser', 'fotorama', 'isotope', 'cookie', 'bem', 'chosen', 'iCheck', 'velocity', 'parsley', 'prettyPhoto', 'hoverIntent', 'rangeSlider', 'likes', 'history' ]
+plugins  = [ 'jquery', 'jquery.cookie', 'lazyload', 'bootstrap', 'browser', 'fotorama', 'isotope', 'cookie', 'bem', 'chosen', 'iCheck', 'velocity', 'parsley', 'photoswipe', 'hoverIntent', 'rangeSlider', 'likes', 'history' ]
 
 layout   = 'public_html/layout'
 sources  = 'sources/'
@@ -102,6 +102,8 @@ gulp.task 'css_bootstrap', ->
 gulp.task 'css_plugins', ->
 	gulp.src loadPlugins plugins, 'css'
 	.pipe concat 'plugins.css'
+	.pipe(replace("background: url(", 'background: url(/layout/images/plugins/'))
+	.pipe(replace("background-image: url(", 'background-image: url(/layout/images/plugins/'))
 	.pipe gulp.dest path.css.sources
 
 gulp.task 'css_stylus', ->
