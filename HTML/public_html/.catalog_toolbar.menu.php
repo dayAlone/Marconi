@@ -1,0 +1,47 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"для нее", 
+		"/catalog/women/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"для него", 
+		"/catalog/men/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"багаж", 
+		"/catalog/baggage/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	/*
+	Array(
+		"коллекции", 
+		"/catalog/collections/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Новости", 
+		"/news/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Интернет-магазин", 
+		"/catalog/", 
+		Array(), 
+		Array(), 
+		"" 
+	)*/
+);
+?>

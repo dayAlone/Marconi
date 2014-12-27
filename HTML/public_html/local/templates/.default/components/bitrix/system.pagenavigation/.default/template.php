@@ -1,6 +1,7 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);
 if($arResult["NavPageCount"]>1):
+$strNavQueryString = ($arResult["NavQueryString"] != "" ? str_replace('&amp;short=Y', '', $arResult["NavQueryString"])."&amp;" : "");
 ?>
 <div class="pages">
 	<?
@@ -10,5 +11,12 @@ if($arResult["NavPageCount"]>1):
 	<?
 	$i++;
 	endwhile;?>
+	<?if ($arResult["bShowAll"]):?>
+		<?if ($arResult["NavShowAll"]):?>
+			<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>SHOWALL_<?=$arResult["NavNum"]?>=0" rel="nofollow"><?=GetMessage("nav_paged")?></a>
+		<?else:?>
+			<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>SHOWALL_<?=$arResult["NavNum"]?>=1" rel="nofollow" class="pages__item <?=($i==$arResult["NavPageNomer"]?'pages__item--active':"")?>">Показать все</a>
+		<?endif?>
+	<?endif?>
 </div>
 <?endif;?>

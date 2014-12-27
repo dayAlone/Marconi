@@ -38,7 +38,7 @@
       "files": "./bower_components/fotorama/*.png"
    },
    "history":{
-      "js":"/history.js/scripts/bundled/html4+html5/jquery.history.js"
+      "js":"/history.js/scripts/bundled-uncompressed/html5/jquery.history.js"
    },
    "hoverIntent":{
       "js":"/hoverIntent/jquery.hoverIntent.js"
@@ -57,6 +57,9 @@
    },
    "isotope":{
       "js":"/isotope/dist/isotope.pkgd.js"
+   },
+   "lazyload":{
+      "js":[ "/lazyloadxt/dist/jquery.lazyloadxt.js", "/lazyloadxt/dist/jquery.lazyloadxt.bg.js" ]
    },
    "likes":{
       "js" : "/social-likes/src/social-likes.js",

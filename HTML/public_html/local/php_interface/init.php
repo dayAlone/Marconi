@@ -1,4 +1,10 @@
 <?
+ini_set('xdebug.var_display_max_depth', 5);
+ini_set('xdebug.var_display_max_children', 256);
+ini_set('xdebug.var_display_max_data', 1024);
+use Bitrix\Highloadblock as HL;
+use Bitrix\Main\Entity;
+
 function svg($value='')
 {
 	$path = $_SERVER["DOCUMENT_ROOT"]."/layout/images/svg/".$value.".svg";
@@ -138,4 +144,92 @@ class CatalogStore
 }
 AddEventHandler("iblock", "OnIBlockPropertyBuildList", array("CatalogStore", "GetIBlockPropertyDescription"));
 
+
+function getHighloadBlocks()
+{
+	$obCache   = new CPHPCache();
+	$cacheLife = 86400; 
+	$cacheID   = 'getHighloadBlocks'; 
+	$cachePath = '/'.$cacheID;
+
+	if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):
+
+		$vars = $obCache->GetVars();
+		$data = $vars['data'];
+	
+	elseif( $obCache->StartDataCache() ):
+
+		$data    = array();
+		$dbHblock = HL\HighloadBlockTable::getList();
+	    while ($ib = $dbHblock->Fetch())
+	    	$data[$ib['TABLE_NAME']] = (int)$ib['ID'];
+		
+		$obCache->EndDataCache(array('data' => $data));
+	endif;
+	return $data;
+}
+
+function getFilterProperties()
+{
+	$obCache   = new CPHPCache();
+	$cacheLife = 86400; 
+	$cacheID   = 'getFilterProperties'; 
+	$cachePath = '/'.$cacheID;
+	
+	if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):
+
+		$vars = $obCache->GetVars();
+		$data = $vars['data'];
+	
+	elseif( $obCache->StartDataCache() ):
+
+		CModule::IncludeModule("iblock");
+		$data = array();
+		$res = CIBlockProperty::GetList(Array("sort"=>"asc"), Array("ACTIVE"=>"Y", "IBLOCK_ID"=>1));
+		
+		while($s = $res->Fetch())
+    		if( preg_match("/SECTION_(.*)/", $s['CODE']) )
+    			$data[] = $s['ID'];
+		$obCache->EndDataCache(array('data' => $data));
+	
+	endif;
+	return $data;
+}
+
+
+function getHighloadElements($name, $key, $value)
+{
+	$iblocks   = getHighloadBlocks();
+	$id        = $iblocks[$name];
+	$obCache   = new CPHPCache();
+	$cacheLife = 86400; 
+	$cacheID   = 'getHighloadElements_'.$id;
+	$cachePath = '/'.$cacheID;
+
+	if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):
+
+		$vars = $obCache->GetVars();
+		$data = $vars['data'];
+
+	elseif( $obCache->StartDataCache() ):
+
+		$hlblock = HL\HighloadBlockTable::getById($id)->fetch();
+		$entity  = HL\HighloadBlockTable::compileEntity($hlblock);
+		$class   = $entity->getDataClass();
+
+		$rsData = $class::getList(array(
+			"select" => array("*"),
+			"order"  => array("ID" => "ASC")
+		));
+
+		$data = array();
+
+		while($arData = $rsData->Fetch())
+			$data[$arData[$key]] = $arData[$value];
+		
+		$obCache->EndDataCache(array('data' => $data));
+		
+	endif;
+	return $data;
+}
 ?>

@@ -5,7 +5,39 @@
 	&__nav
 		margin-bottom 40px
 		position relative
-		z-index 20
+		z-index 200
+	&__counter
+		position absolute
+		left 100%
+		z-index 300
+		white-space no-wrap
+		background white
+		border 1px solid red
+		font-size 13px
+		height 31px
+		line-height 34px
+		padding 0 15px
+		display none
+		&:before, &:after
+			content ""
+			position absolute
+			right: 100%;
+			top: 50%;
+			transform translateY(-50%)
+			border: solid transparent;
+			height: 0;
+			width: 0;
+			pointer-events: none;
+		&:after
+			border-right-color red
+			border-width 6px
+		&:before
+			border-right-color white
+			border-width 5px
+			z-index 3
+		a
+			color red
+			border-line alpha(red, .2, 12px)
 	&__toolbar
 		margin-top 8px
 		border-bottom 1px solid #d5dbdf
@@ -42,10 +74,11 @@
 					vertical-align baseline
 					position relative
 					top -1px
+	article
+		margin-bottom 50px
 	&__seo
 		width 100%
 		margin-top 30px
-		margin-bottom 30px
 		p
 			font-size 12px
 			color #6e6e6e
@@ -190,6 +223,7 @@
 			text-align center
 			padding 7px 10px 2px 10px
 			color black
+			text-align: center
 			&:hover
 				border-color red
 				background red
@@ -198,6 +232,10 @@
 				left 4px
 			&--simmilar
 				right 4px
+			&--center
+				width 60%
+				left 50%
+				transform translateX(-50%)
 		&__icon
 			top 0px
 			z-index 15
@@ -226,6 +264,8 @@
 			margin-bottom 10px
 			transform scale(.9) translateZ(0)
 			t transform, .2s
+			&--no
+				background-size 150px auto
 			&-frame
 				min-height 220px
 				width 100%
@@ -270,9 +310,27 @@
 	padding 10px 10px 4px 10px
 	margin-bottom 15px
 	overflow hidden
+	position relative
 	min-height 34px
 	&--loaded
 		t all, .2s
+	&:after
+		position absolute
+		z-index 20
+		content ""
+		top 0
+		left 0
+		background alpha(white, .8) url(/layout/images/loader.gif) center center no-repeat
+		background-size 75px auto
+		width 100%
+		height 33px
+		pointer-events none
+		opacity 0
+		t all, .4s
+	&--loading
+		&:after
+			pointer-events initial
+			opacity 1
 	&--open
 		.filter__content
 			display block
@@ -329,10 +387,13 @@
 		box-shadow inset 0 0 0 1px white
 		&.hover
 			border-color black
-		&.checked
+		&.checked, &:checked
 			background black
+		&.disabled, &.disabled + label, &:disabled, &:disabled + label
+			opacity .3
+			pointer-events none
 	
-	.icheckbox_color, input[name="color"]
+	.icheckbox_color, input.color
 		width 20px
 		margin 3px
 		height 20px
@@ -340,7 +401,10 @@
 		border 0
 		cursor pointer
 		top 0
-		&.checked
+		&.disabled, &:disabled
+			opacity .3
+			pointer-events none
+		&.checked, &:checked
 			background white
 			box-shadow  inset 0 0 0 20px
 		
@@ -355,6 +419,8 @@
 		display inline-block
 		width 86%
 		vertical-align top
+		&:first-letter
+			text-transform uppercase
 .range
 	width 80%
 	height 20px

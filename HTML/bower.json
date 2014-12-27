@@ -35,7 +35,8 @@
     "perfect-scrollbar": "~0.5.6",
     "bgcheck": "git@github.com:kennethcachia/background-check.git",
     "iCheck": "~1.0.2",
-    "ion.rangeSlider": "~2.0.2"
+    "ion.rangeSlider": "~2.0.2",
+    "lazyloadxt": "~1.0.5"
   },
   "moduleType": [
     "amd",

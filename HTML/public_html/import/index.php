@@ -1,9 +1,4 @@
 <?
-	ini_set('xdebug.var_display_max_depth', 5);
-	ini_set('xdebug.var_display_max_children', 256);
-	ini_set('xdebug.var_display_max_data', 1024);
-
-
 	$_SERVER["DOCUMENT_ROOT"] = realpath(dirname(__FILE__)."/..");
 	require_once ($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include.php");
 	define("NO_KEEP_STATISTIC", true);
@@ -105,7 +100,7 @@
 			$this->categories = Import::getHighloadElements($this->iblocks['categories'], true);
 			$this->types      = Import::getHighloadElements($this->iblocks['types'], true);
 			$this->brands     = Import::getHighloadElements($this->iblocks['brands'], true);
-			$this->properties = Array("PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_MATERIAL", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "PROPERTY_SECTION_4", "IBLOCK_SECTION", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL" );
+			$this->properties = Array("SORT", "PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_MATERIAL", "PROPERTY_PICTURES", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "PROPERTY_SECTION_4", "IBLOCK_SECTION", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL" );
 		}
 		private function addParentCatagory(&$parent, $array)
 		{
@@ -280,6 +275,12 @@
 				$props['PICTURES']['n'.$key] = array("VALUE"=>CFile::MakeFileArray($image));
 			endforeach;
 
+			if(!isset($fields['PREVIEW_PICTURE'])):
+				$fields['SORT'] = 600;
+			else:
+				$fields['SORT'] = 500;
+			endif;
+
 			$fields["PROPERTY_VALUES"] = $props;
 
 			return $fields;
@@ -320,7 +321,9 @@
 					$update = false;
 					$diff   = array_diff($props, $exist);
 					
-					unset($diff['PICTURES']);
+					if(isset($exist['PICTURES']))
+						unset($diff['PICTURES']);
+					
 					unset($diff['OFFER_SIZE']);
 
 					foreach (array('COLOR', 'MATERIAL') as $el):
@@ -332,11 +335,15 @@
 					endforeach;
 					
 					if(count($diff)>0):
-						
 						fwrite(STDERR, "Что-то обновлено: ".$fields['XML_ID']." ".$exist['ID']." ".var_export($diff, true)." \n\r");
-						die();
 						CIBlockElement::SetPropertyValuesEx($exist['ID'], $this->iblocks['products'], $diff);
 						$update = true;
+					endif;
+
+					if($fields['SORT'] != $exist['SORT']):
+						$raw = new CIBlockElement;
+						$raw->Update($exist['ID'], array('SORT' => $fields['SORT']));
+						$update = true;	
 					endif;
 
 					if(array_diff($fields['IBLOCK_SECTION'], $exist['IBLOCK_SECTION']) || (count($fields['IBLOCK_SECTION'])!=count($exist['IBLOCK_SECTION']))):
@@ -476,6 +483,84 @@
 		}
 	}
 
+	class Prices
+	{
+		private $iblock, $products, $prices, $types;
+		private $counter = array('add'=>0, 'update'=>0);
+
+		public function __construct()
+		{
+			CModule::IncludeModule("iblock");
+			CModule::IncludeModule("catalog");
+	
+			$this->iblocks = Import::getIBlocks();
+
+			$raw = CCatalogGroup::GetList(array("SORT" => "ASC"), array());
+			while ($type = $raw->Fetch())
+				$this->types[$type['ID']] = $type['NAME'];
+		}
+
+		public function Action($file, $offset)
+		{
+			$data = Import::getElements($file, array('prices', 'product'), $offset);
+			$ids  = array();
+			foreach ($data['items'] as $item)
+				$ids[] = $item->getAttribute('id');
+
+			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID')));
+
+			$ids  = array();
+			foreach ($this->products as $item)
+				$ids[$item['XML_ID']] = $item['ID'];
+
+			$raw = CPrice::GetList(array(), array("PRODUCT_ID" => array_values($ids)));
+        	while ($price = $raw->Fetch()):
+        		if(!isset($this->prices[$price['PRODUCT_ID']]))
+        			$this->prices[$price['PRODUCT_ID']] = array();
+        		$this->prices[$price['PRODUCT_ID']][$this->types[$price['CATALOG_GROUP_ID']]] = array('id'=> $price['ID'],'price'=>$price['PRICE']);
+        	endwhile;
+        	foreach ($data['items'] as $item):
+        		$id     = $this->products[$item->getAttribute('id')]['ID'];
+        		$prices = array('RETAIL'=>$item->getElementsByTagName('retail')->item(0)->nodeValue, 'WHOLESALE'=>$item->getElementsByTagName('wholesale')->item(0)->nodeValue);
+        		CCatalogProduct::Update($id, array('QUANTITY'=>1));
+        		if(!isset($this->prices[$id])):
+        			CCatalogProduct::Add(array('ID'=>$id, 'QUANTITY'=>1));
+					foreach ($prices as $key => $price):
+        				$arFields = Array(
+							"PRODUCT_ID"       => $id,
+							"CATALOG_GROUP_ID" => array_search($key, $this->types),
+							"PRICE"            => $price,
+							"CURRENCY"         => "RUB"
+						);
+        				CPrice::Add($arFields);
+        				$this->counter['add']++;
+        			endforeach;
+        		else:
+        			foreach ($prices as $key => $price):
+        				if($this->prices[$id][$key]['price'] != $price):
+        					$arFields = Array(
+								"PRODUCT_ID"       => $id,
+								"CATALOG_GROUP_ID" => array_search($key, $this->types),
+								"PRICE"            => $price,
+								"CURRENCY"         => "RUB"
+							);
+        					CPrice::Update($this->prices[$id][$key]['id'], $arFields);
+        					$this->counter['update']++;
+        				endif;
+        			endforeach;
+        		endif;
+        	endforeach;
+        	
+        	fwrite(STDERR, "\033[35m Update: ".$this->counter['update']." \033[32m Add: ".$this->counter['add']." \033[37m\r\n");
+
+			if($data['offset'] != 'end')
+				return $data['offset'];
+			else
+				return 0;
+			die();
+		}
+	}
+
 	class Import
 	{
 		public static $time;
@@ -486,7 +571,7 @@
 
 		const step = 300;
 
-		private $steps = array('properties', 'products', 'counts');//, 'prices', , 'write-off');
+		private $steps = array('properties', 'products', 'counts', 'prices');//, , , 'write-off');
 		
 		public function __construct($offset=0)
 		{

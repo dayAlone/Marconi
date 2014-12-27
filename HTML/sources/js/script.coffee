@@ -31,6 +31,8 @@ size = ->
 		.removeAttr('style')
 		.mod('loaded', false)
 		.css(
+			minHeight: ->
+				$(this).outerHeight()
 			maxHeight: ->
 				$(this).outerHeight()
 		)
@@ -224,10 +226,9 @@ $(document).ready ->
 		social_tools: ''
 		overlay_gallery: false
 		deeplinking: false
-	$('.picture').elem('zoom').click (e)->
-		$.prettyPhoto.open $(this).data 'pictures'
-		console.log $(this).data 'pictures'
-		e.preventDefault()
+	
+	
+	
 	$('.tabs').elem('trigger').click (e)->
 		$('.tabs').elem('content').mod 'active', false
 		$('.tabs').elem('trigger').mod 'active', false
@@ -240,72 +241,172 @@ $(document).ready ->
 		$('.picture').elem('big').css
 			backgroundImage : "url(#{$(this).attr('href')})"
 		e.preventDefault()
-	$('.product').hoverIntent
-			sensitivity: 20
-			over : ()->
-				$(this).mod 'hover', true
-				$(this).mod 'index', true
-			out : ()->
-				item = $(this)
-				item.mod 'hover', false
-				$(this).find('.product__frame').one end, ->
-					item.mod 'index', false
-
-	# Filter
-	$('.filter').elem('title').click (e)->
-		block   = $(this).block()
-		content = block.elem('content')
-		if block.hasMod 'open'
-			height = block.outerHeight() - content.height()
-			block.css
-				maxHeight: height
-			content.velocity
-				properties: "transition.slideUpOut"
-				options:
-					duration: 300
-					complete: ->
-						block.mod 'open', false
-						block.css
-							minHeight: 33
-
-		else
-			content.show()
-			height = 
-			block.css
-				minHeight: block.height() + content.height() + 16
-				maxHeight: block.outerHeight() + content.outerHeight() + 5
-			content.velocity
-				properties: "transition.slideDownIn"
-				options:
-					duration: 300
-					complete: ->
-						block.mod 'open', true
-
-		e.preventDefault()
-
-	# Range
-	$("input[name=range_from],input[name=range_to]").on 'input', (e)->
-		if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
-			return false
-		slider = $("input[name=range]").data("ionRangeSlider")
+	$('.picture').elem('zoom').click (e)->
+			$.prettyPhoto.open $(this).data 'pictures'
+			e.preventDefault()
 		
-		if parseInt($("input[name=range_from]").val()) < slider.result.min
-			$("input[name=range_from]").val slider.result.min
+	initProducts = ->
+		$('.product').elem('icon').click (e)->
+			if $(this).hasMod 'zoom'
+				$.prettyPhoto.open $(this).data 'pictures'
+			e.preventDefault()
+		$('.product').elem('picture').lazyLoadXT()
+		$('.product').hoverIntent
+				sensitivity: 20
+				over : ()->
+					$(this).mod 'hover', true
+					$(this).mod 'index', true
+				out : ()->
+					item = $(this)
+					item.mod 'hover', false
+					$(this).find('.product__frame').one end, ->
+						item.mod 'index', false
 
-		if parseInt($("input[name=range_to]").val()) > slider.result.max
-			$("input[name=range_to]").val slider.result.max
+	
 
-		slider.update
-			from : parseInt $("input[name=range_from]").val()
-			to   : parseInt $("input[name=range_to]").val()
-	$("input[name=range]").ionRangeSlider
-		type: "double"
-		onStart: (x)->
-			$("input[name=range_from]").val(x.from)
-			$("input[name=range_to]").val(x.to)
-		onChange: (x)->
-			$("input[name=range_from]").val(x.from)
-			$("input[name=range_to]").val(x.to)
+	initFiltres = ->
+		# Checkbox
+		$('.filter input.color').off('ifCreated').on 'ifCreated', ()->
+			$(this).parents('.icheckbox_color').css 'color', $(this).css('color')
+		
+		$('.filter input[type="radio"], .filter input[type="checkbox"]').off('ifChanged').on 'ifChanged', ->
+			getFilter($(this))
+		
+		$('.filter input[type="radio"], .filter input[type="checkbox"]:not(.color)').iCheck()
+		$('.filter input.color').iCheck(checkboxClass: 'icheckbox_color')
+
+		# Filter
+		$('.filter').elem('title').click (e)->
+			block   = $(this).block()
+			content = block.elem('content')
+			if block.hasMod 'open'
+				height = block.outerHeight() - content.height()
+				block.css
+					maxHeight: height
+				content.velocity
+					properties: "transition.slideUpOut"
+					options:
+						duration: 300
+						complete: ->
+							block.mod 'open', false
+							$.cookie(block.data('code'), 'N')
+							block.css
+								minHeight: 33
+
+			else
+				content.show()
+				height = 
+				block.css
+					minHeight: block.height() + content.height() + 16
+					maxHeight: block.outerHeight() + content.outerHeight() + 5
+				content.velocity
+					properties: "transition.slideDownIn"
+					options:
+						duration: 300
+						complete: ->
+							$.cookie(block.data('code'), 'Y')
+							block.mod 'open', true
+
+			e.preventDefault()	
+		# Range
+		$("input.range__from, input.range__to").on 'input', (e)->
+			if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
+				return false
+			slider = $("input[name=range]").data("ionRangeSlider")
+			
+			if parseInt($("input.range__from").val()) < slider.result.min
+				$("input.range__from").val slider.result.min
+
+			if parseInt($("input.range__to").val()) > slider.result.max
+				$("input.range__to").val slider.result.max
+
+			slider.update
+				from : parseInt $("input.range__from").val()
+				to   : parseInt $("input.range__to").val()
+		$(".filter__content input[name=range]").ionRangeSlider
+			type: "double"
+			onFinish: ->
+				getFilter($("input.range__to"))
+			onStart: (x)->
+				$("input.range__from").val(x.from)
+				$("input.range__to").val(x.to)
+			onChange: (x)->
+				$("input.range__from").val(x.from)
+				$("input.range__to").val(x.to)
+	
+	initProducts()
+	initFiltres()
+	
+
+	filterTimer   = false
+	filterRequest = false
+	getFilter = (el)->
+		if !$('.catalog').hasMod 'ajax'
+			if $('.catalog').elem('counter').is ':visible'
+				$('.catalog').elem('counter').velocity
+					properties: "transition.slideUpOut"
+					options:
+						duration: 300
+		
+		filterRequest.abort() if filterRequest
+		$('.filter').mod 'loading', false
+		el.parents('.filter').mod 'loading', true
+		inputs = el.parents('form').find('input')
+		filterTimer = delay 300, ->
+			if $('.catalog').hasMod 'ajax'
+				data = el.parents('form').serialize() + "&short=Y&set_filter=Y"
+				filterRequest = $.ajax
+					type     : "GET" 
+					url      : ajaxURL 
+					data     : data
+					success  : (data)->
+						History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(el.parents('form').serialize()) + "&set_filter=Y");
+						el.parents('.filter').mod 'loading', false
+						if $(data).filter('article').find('.pages').length > 0
+							$('.pages').html $(data).filter('article').find('.pages').html()
+						else
+							$('.pages').html('')
+						
+						$('.catalog__frame').html $(data).filter('article').find('.catalog__frame').html()
+						initProducts()
+
+						$('.page__side').html $(data).filter('article').find('.page__side').html()
+						initFiltres()
+
+						size()
+
+						$(window).scrollTop $(window).scrollTop()+1
+			else
+				values = []
+				values[0] = {name: 'ajax', value: 'y'}
+				smartFilter.gatherInputsValues(values, inputs);
+				filterRequest = $.ajax
+					type     : "POST" 
+					url      : ajaxURL
+					data     : values
+					success  : (data)->
+						if data
+							data = $.parseJSON(data)
+						$('.catalog').elem('counter-value').text data.ELEMENT_COUNT
+						$('.catalog').elem('counter').find('a').attr 'href', data.FILTER_URL.replace(/&amp;/g, '&')
+						el.parents('.filter').mod 'loading', false
+						$('.catalog').elem('counter')
+							.css(
+								'top' : el.parents('.filter').position().top
+							)
+							.velocity
+								properties: "transition.slideDownIn"
+								options:
+									duration: 300
+	
+
+	$('.brand-select .dropdown .dropdown__item').click (e)->
+		if $(this).data('id').length > 0
+			$.cookie('BRAND', $(this).data('id'))
+		else
+			$.removeCookie('BRAND')
+
+		window.location.reload()
 
 	# Dropdown
 
@@ -361,8 +462,4 @@ $(document).ready ->
 				if $(window).width() > 970
 					closeDropdown $(this)
 
-	$('.filter input[type="radio"], .filter input[type="checkbox"]:not(.color)').iCheck()
-	$('.filter input[name="color"]').on 'ifCreated', ()->
-		$(this).parents('.icheckbox_color').css 'color', $(this).css('color')
-	$('.filter input[name="color"]').iCheck(checkboxClass: 'icheckbox_color')
 	
