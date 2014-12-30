@@ -26,7 +26,7 @@ $APPLICATION->SetTitle('Lookbook');
 						"NEWS_COUNT"     => "9999999",
 						"PARENT_SECTION" => $_GLOBALS['currentCatalogSection'],
 						"SORT_BY1"       => "SORT",
-						"SORT_ORDER1"    => "ASC",
+						"SORT_ORDER1"    => "DESC",
 						"DETAIL_URL"     => "/lookbook/",
 						"CACHE_TYPE"     => "A",
 						'PROPERTY_CODE'  => array('PRODUCTS'),
