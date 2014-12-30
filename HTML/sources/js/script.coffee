@@ -6,7 +6,7 @@ spinOptions =
 	corners   : 0
 	rotate    : 0
 	direction : 1
-	color     : '#0c4ed0'
+	color     : '#cf1237'
 	speed     : 1
 	trail     : 68
 	shadow    : false
@@ -157,6 +157,89 @@ $(document).ready ->
 						trigger.mod 'disabled', false
 		e.preventDefault()
 	
+	# Stores
+
+	if $('.stores').length > 0
+		
+		$('.stores').elem('content').spin spinOptions
+
+		$.getScript 'http://maps.googleapis.com/maps/api/js?sensor=true&callback=mapInit', ->
+			window.mapInit = ->
+				center     = new google.maps.LatLng(63.436317234268486, 67.10492205969675);
+				mapOptions = {zoom:3,draggable:true,zoomControl:true,scrollwheel:false,disableDoubleClickZoom:false,disableDefaultUI:true,center:center,styles:[{featureType:"water",elementType:"geometry",stylers:[{color:"#000000"},{lightness:90}]},{featureType:"landscape",elementType:"geometry",stylers:[{color:"#ffffff"},{lightness:100}]},{featureType:"road.highway",elementType:"geometry.fill",stylers:[{color:"#000000"},{lightness:90}]},{featureType:"road.highway",elementType:"geometry.stroke",stylers:[{color:"#000000"},{lightness:90},{weight:.2}]},{featureType:"road.arterial",elementType:"geometry",stylers:[{color:"#000000"},{lightness:90}]},{featureType:"road.local",elementType:"geometry",stylers:[{color:"#000000"},{lightness:90}]},{featureType:"poi",elementType:"geometry",stylers:[{color:"000000"},{lightness:50}]},{elementType:"labels.text.stroke",stylers:[{visibility:"off"},{color:"#000000"},{lightness:16}]},{elementType:"labels.text.fill",stylers:[{saturation:36},{color:"#000000"},{lightness:40}]},{elementType:"labels.icon",stylers:[{visibility:"on"}]},{featureType:"transit",elementType:"geometry",stylers:[{color:"#ffffff"},{lightness:19}]},{featureType:"administrative",elementType:"geometry.fill",stylers:[{color:"#ffffff"},{lightness:0}]},{featureType:"administrative",elementType:"geometry.stroke",stylers:[{color:"#000000"},{lightness:90},{weight:1.2}]}]}
+				mapElement = document.getElementById('map');
+				map        = new google.maps.Map(mapElement, mapOptions);
+				geocoder   = new google.maps.Geocoder();
+				items      = $.parseJSON window.items
+				clusterStyle = [
+					url       : '/layout/images/store-4.png',
+					height    : 67,
+					width     : 76,
+					anchor    : [24, 0],
+					textColor : '#ffffff',
+					textSize  : 11
+					backgroundPosition : "center center"
+					backgroundSize : "contain; background-repeat: no-repeat"
+				]
+				markers    = [] 
+				openModal  = (i)->
+					if i.code.length > 0
+						map.setCenter new google.maps.LatLng parseFloat(i.coords[0])-.00245, parseFloat(i.coords[1])
+						map.setZoom 16
+						
+						console.log "/stores/#{i.code}/?short=y"
+
+						$.get "/stores/#{i.code}/?short=y", (data)->
+							$('.stores').elem('content').html(data)
+							History.pushState(null, document.title, "/stores/#{i.code}/");
+							$('html, body').animate({'scrollTop' : $('#map').offset().top + $('#map').height() },300)
+							$('.stores').elem('modal').velocity
+								properties: "transition.slideUpIn"
+								options:
+									duration: 300
+						
+						$('.stores').elem('close').one 'click', (e)->
+							map.setCenter new google.maps.LatLng parseFloat(i.coords[0]), parseFloat(i.coords[1])
+							$('.stores').elem('modal').velocity
+								properties: "transition.slideDownOut"
+								options:
+									duration: 300
+									complete: ->
+										$('.stores').elem('content').html("")
+										$('.stores').elem('content').spin spinOptions
+							e.preventDefault()
+
+				goToCity = (name, code)->
+					geocoder.geocode {'address': name}, (results, status)->
+						if (status == google.maps.GeocoderStatus.OK)
+							if (results)
+								History.pushState(null, document.title, "/stores/#{code}/");
+								map.setCenter results[0].geometry.location
+								map.setZoom 10
+
+				$.each items, (k, i)->
+					
+					marker = new google.maps.Marker
+						position  : new google.maps.LatLng i.coords[0], i.coords[1]
+						icon      : new google.maps.MarkerImage "/layout/images/store-#{i.type}.png", null, null, null, new google.maps.Size(40,34)
+						animation : google.maps.Animation.DROP
+					
+					markers.push marker
+					
+					google.maps.event.addListener marker, 'click', ->
+						openModal i
+						
+				markerCluster = new MarkerClusterer map, markers, { styles : clusterStyle, gridSize: 1 }
+				
+				if window.currentStore
+					currentStore = $.parseJSON window.currentStore
+					openModal currentStore
+				else if window.currentCity
+					currentCity = $.parseJSON window.currentCity
+					goToCity currentCity.name, currentCity.code
+				$('.dropdown').elem('item').click (e)->
+					goToCity $(this).text(), $(this).data('code')
+					e.preventDefault()
 	# Lookbook
 
 	$('.row.enter').isotope
@@ -203,8 +286,9 @@ $(document).ready ->
 		)
 		.on('fotorama:showend', (e, fotorama, extra)->
 			delay 300, ->
+				size()
 				fotorama.resize
-					height : $(fotorama.activeFrame.html).height()
+					height : $(fotorama.activeFrame.html).outerHeight()
 		)
 		.fotorama()
 
@@ -252,9 +336,20 @@ $(document).ready ->
 				gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, galleryOptions);
 
 				gallery.init();
-			
+			if $(this).hasMod 'trigger'
+				$(this).block('sizes').mod 'open', true
 			e.preventDefault()
+		$('.product').elem('size').click (e)->
+			$('.product').elem('size').mod 'active', false
+			$(this).mod 'active', true
+			e.preventDefault()
+
+		$('.product').elem('button').click (e)->
+			if $(this).hasMod 'cancel'
+				$(this).block('sizes').mod 'open', false
+				e.preventDefault()
 		$('.product').elem('picture').lazyLoadXT()
+		
 		$('.product').hoverIntent
 				sensitivity: 20
 				over : ()->
@@ -263,6 +358,7 @@ $(document).ready ->
 				out : ()->
 					item = $(this)
 					item.mod 'hover', false
+					$(this).block('sizes').mod 'open', false
 					$(this).find('.product__frame').one end, ->
 						item.mod 'index', false
 
@@ -362,7 +458,7 @@ $(document).ready ->
 					url      : ajaxURL 
 					data     : data
 					success  : (data)->
-						History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(el.parents('form').serialize()) + "&set_filter=Y");
+						History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(el.parents('form').serialize()).replace("&short=Y", "") + "&set_filter=Y");
 						el.parents('.filter').mod 'loading', false
 						if $(data).filter('article').find('.pages').length > 0
 							$('.pages').html $(data).filter('article').find('.pages').html()

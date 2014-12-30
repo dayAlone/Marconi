@@ -51,7 +51,6 @@
 				$arPath   = $rsPath->GetNext();
 				$Current  = $arPath['ID'];
 			endif;
-
 			if(strlen($_REQUEST['ELEMENT_CODE'])==0&&isset($params['NOEMPTY']))
 				$Current = $Sections[0];
 

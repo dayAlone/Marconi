@@ -29,6 +29,9 @@
    "chosen":{
       "js":"/chosen/chosen.jquery.js"
    },
+   "cluster":{
+      "js":"/js-marker-clusterer/src/markerclusterer.js"
+   },
    "cookie":{
       "js":"/jquery.cookie/jquery.cookie.js"
    },

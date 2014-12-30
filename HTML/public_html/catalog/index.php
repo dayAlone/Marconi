@@ -1,7 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Каталог");
-$APPLICATION->SetPageProperty('body_class', "catalog catalog--ajax");
+$APPLICATION->SetPageProperty('body_class', "catalog ".(!isset($_REQUEST['v'])?"catalog--ajax":""));
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:catalog", 
 	".default", 
@@ -155,7 +155,7 @@ $APPLICATION->SetPageProperty('body_class', "catalog catalog--ajax");
 			1 => "",
 		),
 		"LIST_OFFERS_PROPERTY_CODE" => array(
-			0 => "",
+			0 => "SIZE",
 			1 => "",
 		),
 		"LIST_OFFERS_LIMIT" => "5",

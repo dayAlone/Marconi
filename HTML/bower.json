@@ -37,7 +37,8 @@
     "iCheck": "~1.0.2",
     "ion.rangeSlider": "~2.0.2",
     "lazyloadxt": "~1.0.5",
-    "photoswipe": "~4.0.2"
+    "photoswipe": "~4.0.2",
+    "js-marker-clusterer": "~1.0.0"
   },
   "moduleType": [
     "amd",

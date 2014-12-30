@@ -18,6 +18,7 @@
 		line-height 34px
 		padding 0 15px
 		display none
+		margin-top 2px
 		&:before, &:after
 			content ""
 			position absolute
@@ -203,12 +204,47 @@
 		&__content
 			position relative
 			z-index 7
-		&__icon, &__button, &__frame
+		&__icon, &__button, &__frame, &__sizes
 			position absolute
 			z-index 5
 			opacity 0
 			pointer-events none
 			t all, .07s
+		&__sizes
+			width 100%
+			left 0
+			top 230px
+			background white
+			z-index 300
+			min-height 120px
+			&--open
+				pointer-events initial
+				opacity 1
+			.product__brand
+				margin-bottom 10px
+			.product__button
+				bottom 10px
+				opacity 1
+		&__size
+			display inline-block
+			border 1px solid #a0a0a0
+			color #a0a0a0
+			height 21px
+			line-height 24px
+			min-width 30px
+			font-size 12px
+			position relative
+			z-index 350
+			t all
+			&:hover
+				border-color black
+				color black
+			&--active
+				background black
+				border-color black
+				color white
+				&:hover
+					color white
 		&__frame
 			opacity 1
 			background transparent
@@ -228,9 +264,9 @@
 				border-color red
 				background red
 				color white
-			&--more
+			&--more, &--cancel
 				left 4px
-			&--simmilar
+			&--simmilar, &--buy
 				right 4px
 			&--center
 				width 60%
@@ -282,6 +318,9 @@
 				pointer-events none
 				t(opacity)
 				transition-duration .1s
+			&--empty
+				.product__picture-frame
+					display none !important
 			&__frame
 				padding-top 240px
 				margin-top -230px
@@ -494,4 +533,5 @@
 			color white
 			&:hover
 				color white
-		
+.pswp__caption__center
+	text-align: center

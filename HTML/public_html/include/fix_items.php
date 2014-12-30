@@ -46,6 +46,11 @@ foreach ($arResult["COMBO"] as $id => $combination)
 	foreach ($combination as $PID => $value)
 		$index[$PID][$value][] = &$arResult["COMBO"][$id];
 
+$totalCheck = false;
+foreach ($allCHECKED as $key => $value)
+	if(in_array($key, getFilterProperties()))
+		$totalCheck = true;
+
 foreach ($arResult["ITEMS"] as $PID => &$arItem)
 {
 	if ($arItem["PROPERTY_TYPE"] != "N" && !isset($arItem["PRICE"]))
@@ -53,6 +58,7 @@ foreach ($arResult["ITEMS"] as $PID => &$arItem)
 		//All except current one
 		$checked = $allCHECKED;
 		unset($checked[$PID]);
+
 		foreach ($arItem["VALUES"] as $key => &$arValue)
 		{
 			$found = false;
@@ -65,16 +71,25 @@ foreach ($arResult["ITEMS"] as $PID => &$arItem)
 					$isOk = true;
 					foreach ($checked as $cPID => $values)
 					{
-						if (!isset($values[$combination[$cPID]]))
+						if(!in_array($cPID, getFilterProperties()))
 						{
-							$isOk = false;
-							break;
+							if (!isset($values[$combination[$cPID]]))
+							{
+								$isOk = false;
+								break;
+							}
 						}
 					}
-					foreach ($checked as $cPID => $values)
-						if (isset($values[$combination[$cPID]]) && in_array($cPID, getFilterProperties()))
-							$isOk = true;
-						
+
+					if($isOk && $totalCheck)
+					{
+						$enter = false;
+						foreach ($checked as $cPID => $values)
+							if (isset($values[$combination[$cPID]]) && in_array($cPID, getFilterProperties()))
+								$enter = true;
+						if(!$enter)
+							$isOk = false;
+					}
 					if ($isOk)
 					{
 						$found = true;

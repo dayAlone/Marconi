@@ -129,10 +129,10 @@ class CatalogStore
 			"GetPropertyFieldHtml" =>array("CatalogStore", "GetPropertyFieldHtml"), 
 		);
    }
-   function GetPropertyFieldHtml($arUserField, $arHtmlControl)
+   function GetPropertyFieldHtml($arProperty, $arUserField, $arHtmlControl)
    {
    		static $str;
-        $str = '<select name="'.$arHtmlControl["NAME"].'">';
+        $str = '<select name="'.$arHtmlControl["VALUE"].'">';
         $str .= "<option value=''>Выберите склад</option>";
         $raw = CCatalogStore::GetList(array('ID'=>'ASC'), array('ACTIVE' => 'Y'));
         while ($item = $raw->Fetch())
@@ -203,7 +203,7 @@ function getHighloadElements($name, $key, $value)
 	$id        = $iblocks[$name];
 	$obCache   = new CPHPCache();
 	$cacheLife = 86400; 
-	$cacheID   = 'getHighloadElements_'.$id;
+	$cacheID   = 'getHighloadElements_site_'.$id;
 	$cachePath = '/'.$cacheID;
 
 	if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):

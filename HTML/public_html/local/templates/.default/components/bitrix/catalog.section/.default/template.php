@@ -1,5 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);
+if(!isset($arParams['HIDE_TOOLBAR'])):
 ?>
 <div class="catalog__toolbar">
   <div class="row">
@@ -16,10 +17,11 @@ $this->setFrameMode(true);
 <h1 class="catalog__title"><?=$arResult['NAME']?></h1>
 <div class="row catalog__frame">
 <?
+endif;
 if (!empty($arResult['ITEMS']))
 {
 	foreach ($arResult['ITEMS'] as $item):
-		?>
+    ?>
 			<div class="col-xs-4 col-lg-3">
         <div class="product">
           <div class="product__content">
@@ -28,16 +30,30 @@ if (!empty($arResult['ITEMS']))
             </a>
             <div class="product__brand"><?=$arResult['BRANDS'][$item['PROPERTIES']['BRAND']['VALUE']]?></div>
             <div class="product__name"><?=$item['NAME']?></div>
-            <div class="product__price"><?=number_format($item['PRICES']['RETAIL']['VALUE'], 0, '.', ' ')?> ₷</div>
+            <div class="product__price"><?=number_format($item['MIN_PRICE']['VALUE'], 0, '.', ' ')?> ₷</div>
           </div>
           <div class="product__hidden">
             <div class="product__frame"></div>
             <?if(count($item['PROPERTIES']['PICTURES']['VALUE'])>0&&isset($item['PREVIEW_PICTURE']['SRC'])):?>
               <a href="#" class="product__icon product__icon--zoom" data-pictures='<?=json_encode($item['PROPERTIES']['PICTURES']['VALUE'])?>'><?=svg('zoom')?></a>
             <?endif;?>
-            <a href="#" class="product__icon product__icon--cart"><?=svg('cart')?></a>
+            <a href="#" class="product__icon product__icon--cart <?=(count($item['OFFERS'])>0?"product__icon--trigger":"")?>"><?=svg('cart')?></a>
             <a href="<?=$item['DETAIL_PAGE_URL']?>" class="product__button product__button--center product__button--more">Подробнее</a>
-            <?/*<a href="" class="product__button product__button--simmilar">Сравнить</a>*/?>
+            <?/*<a href="" class="product__button product__button--simmilar">Сравнить</a>*/
+            if(count($item['OFFERS'])>0):
+              ?>
+              <div class="product__sizes">
+                <div class="product__brand">Выберите размер</div>
+                  <? foreach($item['OFFERS'] as $k=>$size):?>
+                    <a href="#" class="product__size <?=($k==0?"product__size--active":"")?>" data-id="<?=$size['ID']?>"> <?=$arResult['SIZES'][$size['DISPLAY_PROPERTIES']['SIZE']['VALUE']]?> </a>
+                  <? endforeach; ?>
+                <a href="#" class="product__button product__button--cancel">Отмена</a>
+                <a href="#" class="product__button product__button--buy">В корзину</a>
+              </div>
+              <?
+          endif;
+            ?>
+
           </div>
         </div>
       </div>
@@ -48,7 +64,7 @@ else
 {
   ?>
     <div class="col-xs-4 col-xs-offset-4">
-      <div class="xxl-margin-top xxl-margin-bottom xxl-padding-bottom product">
+      <div class="xxl-margin-top xxl-margin-bottom xxl-padding-bottom product product--empty">
           <div class="product__content">
             <div class="product__picture-frame">
               <div data-bg="/layout/images/no-image.jpg" class="product__picture product__picture--no"></div>
@@ -60,6 +76,7 @@ else
     </div>
   <?
 }
+if(!isset($arParams['HIDE_TOOLBAR'])):
 ?>
 </div>
 <div class="catalog__footer">
@@ -82,3 +99,4 @@ else
     </div>
   </div>
 </div>
+<?endif;?>

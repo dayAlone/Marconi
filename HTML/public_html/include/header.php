@@ -54,9 +54,13 @@
         </div>
         <div class="col-xs-2">
           <div class="auth">
+          <?/*
             <a href="#" class="auth__item">Авторизация</a>
             <span class="auth__divider">|</span>
-            <a href="#" class="auth__item">Регистрация</a></div>
+            <a href="#" class="auth__item">Регистрация</a>
+            */
+          ?>
+          </div>
         </div>
       </div>
     </div>
@@ -80,7 +84,10 @@
         <div class="col-xs-4 center"><a href="/" class="logo"><?=svg('logo')?></a></div>
         <div class="col-xs-1 col-lg-2"><span class="logo__line logo__line--right"></span></div>
         <div class="col-xs-3 col-lg-2">
-          <div class="header__links"><a href="#" class="cart"><?=svg('cart')?>Товаров в корзине: 2</a><br><a href="#" class="simmilar"><?=svg('simmilar')?>К сравнению: 5</a></div>
+          <div class="header__links xs-margin-top">
+            <a href="#" class="cart"><?=svg('cart')?>Товаров в корзине: 2</a>
+            <?/*<br><a href="#" class="simmilar"><?=svg('simmilar')?>К сравнению: 5</a>*/?>
+          </div>
         </div>
       </div>
     <?endif;?>

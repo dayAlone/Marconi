@@ -9,7 +9,7 @@
     corners: 0,
     rotate: 0,
     direction: 1,
-    color: '#0c4ed0',
+    color: '#cf1237',
     speed: 1,
     trail: 68,
     shadow: false,
@@ -200,6 +200,251 @@
       }
       return e.preventDefault();
     });
+    if ($('.stores').length > 0) {
+      $('.stores').elem('content').spin(spinOptions);
+      $.getScript('http://maps.googleapis.com/maps/api/js?sensor=true&callback=mapInit', function() {
+        return window.mapInit = function() {
+          var center, clusterStyle, currentCity, currentStore, geocoder, goToCity, items, map, mapElement, mapOptions, markerCluster, markers, openModal;
+          center = new google.maps.LatLng(63.436317234268486, 67.10492205969675);
+          mapOptions = {
+            zoom: 3,
+            draggable: true,
+            zoomControl: true,
+            scrollwheel: false,
+            disableDoubleClickZoom: false,
+            disableDefaultUI: true,
+            center: center,
+            styles: [
+              {
+                featureType: "water",
+                elementType: "geometry",
+                stylers: [
+                  {
+                    color: "#000000"
+                  }, {
+                    lightness: 90
+                  }
+                ]
+              }, {
+                featureType: "landscape",
+                elementType: "geometry",
+                stylers: [
+                  {
+                    color: "#ffffff"
+                  }, {
+                    lightness: 100
+                  }
+                ]
+              }, {
+                featureType: "road.highway",
+                elementType: "geometry.fill",
+                stylers: [
+                  {
+                    color: "#000000"
+                  }, {
+                    lightness: 90
+                  }
+                ]
+              }, {
+                featureType: "road.highway",
+                elementType: "geometry.stroke",
+                stylers: [
+                  {
+                    color: "#000000"
+                  }, {
+                    lightness: 90
+                  }, {
+                    weight: .2
+                  }
+                ]
+              }, {
+                featureType: "road.arterial",
+                elementType: "geometry",
+                stylers: [
+                  {
+                    color: "#000000"
+                  }, {
+                    lightness: 90
+                  }
+                ]
+              }, {
+                featureType: "road.local",
+                elementType: "geometry",
+                stylers: [
+                  {
+                    color: "#000000"
+                  }, {
+                    lightness: 90
+                  }
+                ]
+              }, {
+                featureType: "poi",
+                elementType: "geometry",
+                stylers: [
+                  {
+                    color: "000000"
+                  }, {
+                    lightness: 50
+                  }
+                ]
+              }, {
+                elementType: "labels.text.stroke",
+                stylers: [
+                  {
+                    visibility: "off"
+                  }, {
+                    color: "#000000"
+                  }, {
+                    lightness: 16
+                  }
+                ]
+              }, {
+                elementType: "labels.text.fill",
+                stylers: [
+                  {
+                    saturation: 36
+                  }, {
+                    color: "#000000"
+                  }, {
+                    lightness: 40
+                  }
+                ]
+              }, {
+                elementType: "labels.icon",
+                stylers: [
+                  {
+                    visibility: "on"
+                  }
+                ]
+              }, {
+                featureType: "transit",
+                elementType: "geometry",
+                stylers: [
+                  {
+                    color: "#ffffff"
+                  }, {
+                    lightness: 19
+                  }
+                ]
+              }, {
+                featureType: "administrative",
+                elementType: "geometry.fill",
+                stylers: [
+                  {
+                    color: "#ffffff"
+                  }, {
+                    lightness: 0
+                  }
+                ]
+              }, {
+                featureType: "administrative",
+                elementType: "geometry.stroke",
+                stylers: [
+                  {
+                    color: "#000000"
+                  }, {
+                    lightness: 90
+                  }, {
+                    weight: 1.2
+                  }
+                ]
+              }
+            ]
+          };
+          mapElement = document.getElementById('map');
+          map = new google.maps.Map(mapElement, mapOptions);
+          geocoder = new google.maps.Geocoder();
+          items = $.parseJSON(window.items);
+          clusterStyle = [
+            {
+              url: '/layout/images/store-4.png',
+              height: 67,
+              width: 76,
+              anchor: [24, 0],
+              textColor: '#ffffff',
+              textSize: 11,
+              backgroundPosition: "center center",
+              backgroundSize: "contain; background-repeat: no-repeat"
+            }
+          ];
+          markers = [];
+          openModal = function(i) {
+            if (i.code.length > 0) {
+              map.setCenter(new google.maps.LatLng(parseFloat(i.coords[0]) - .00245, parseFloat(i.coords[1])));
+              map.setZoom(16);
+              console.log("/stores/" + i.code + "/?short=y");
+              $.get("/stores/" + i.code + "/?short=y", function(data) {
+                $('.stores').elem('content').html(data);
+                History.pushState(null, document.title, "/stores/" + i.code + "/");
+                $('html, body').animate({
+                  'scrollTop': $('#map').offset().top + $('#map').height()
+                }, 300);
+                return $('.stores').elem('modal').velocity({
+                  properties: "transition.slideUpIn",
+                  options: {
+                    duration: 300
+                  }
+                });
+              });
+              return $('.stores').elem('close').one('click', function(e) {
+                map.setCenter(new google.maps.LatLng(parseFloat(i.coords[0]), parseFloat(i.coords[1])));
+                $('.stores').elem('modal').velocity({
+                  properties: "transition.slideDownOut",
+                  options: {
+                    duration: 300,
+                    complete: function() {
+                      $('.stores').elem('content').html("");
+                      return $('.stores').elem('content').spin(spinOptions);
+                    }
+                  }
+                });
+                return e.preventDefault();
+              });
+            }
+          };
+          goToCity = function(name, code) {
+            return geocoder.geocode({
+              'address': name
+            }, function(results, status) {
+              if (status === google.maps.GeocoderStatus.OK) {
+                if (results) {
+                  History.pushState(null, document.title, "/stores/" + code + "/");
+                  map.setCenter(results[0].geometry.location);
+                  return map.setZoom(10);
+                }
+              }
+            });
+          };
+          $.each(items, function(k, i) {
+            var marker;
+            marker = new google.maps.Marker({
+              position: new google.maps.LatLng(i.coords[0], i.coords[1]),
+              icon: new google.maps.MarkerImage("/layout/images/store-" + i.type + ".png", null, null, null, new google.maps.Size(40, 34)),
+              animation: google.maps.Animation.DROP
+            });
+            markers.push(marker);
+            return google.maps.event.addListener(marker, 'click', function() {
+              return openModal(i);
+            });
+          });
+          markerCluster = new MarkerClusterer(map, markers, {
+            styles: clusterStyle,
+            gridSize: 1
+          });
+          if (window.currentStore) {
+            currentStore = $.parseJSON(window.currentStore);
+            openModal(currentStore);
+          } else if (window.currentCity) {
+            currentCity = $.parseJSON(window.currentCity);
+            goToCity(currentCity.name, currentCity.code);
+          }
+          return $('.dropdown').elem('item').click(function(e) {
+            goToCity($(this).text(), $(this).data('code'));
+            return e.preventDefault();
+          });
+        };
+      });
+    }
     $('.row.enter').isotope({
       itemSelector: "[class*='col-']",
       masonry: {
@@ -249,8 +494,9 @@
       });
     }).on('fotorama:showend', function(e, fotorama, extra) {
       return delay(300, function() {
+        size();
         return fotorama.resize({
-          height: $(fotorama.activeFrame.html).height()
+          height: $(fotorama.activeFrame.html).outerHeight()
         });
       });
     }).fotorama();
@@ -303,7 +549,21 @@
           gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, galleryOptions);
           gallery.init();
         }
+        if ($(this).hasMod('trigger')) {
+          $(this).block('sizes').mod('open', true);
+        }
         return e.preventDefault();
+      });
+      $('.product').elem('size').click(function(e) {
+        $('.product').elem('size').mod('active', false);
+        $(this).mod('active', true);
+        return e.preventDefault();
+      });
+      $('.product').elem('button').click(function(e) {
+        if ($(this).hasMod('cancel')) {
+          $(this).block('sizes').mod('open', false);
+          return e.preventDefault();
+        }
       });
       $('.product').elem('picture').lazyLoadXT();
       return $('.product').hoverIntent({
@@ -316,6 +576,7 @@
           var item;
           item = $(this);
           item.mod('hover', false);
+          $(this).block('sizes').mod('open', false);
           return $(this).find('.product__frame').one(end, function() {
             return item.mod('index', false);
           });
@@ -437,7 +698,7 @@
             url: ajaxURL,
             data: data,
             success: function(data) {
-              History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(el.parents('form').serialize()) + "&set_filter=Y");
+              History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(el.parents('form').serialize()).replace("&short=Y", "") + "&set_filter=Y");
               el.parents('.filter').mod('loading', false);
               if ($(data).filter('article').find('.pages').length > 0) {
                 $('.pages').html($(data).filter('article').find('.pages').html());

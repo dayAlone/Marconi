@@ -83,6 +83,7 @@
 		public function __construct()
 		{
 			CModule::IncludeModule("iblock");
+			CModule::IncludeModule("catalog");
 			CModule::IncludeModule("highloadblock");
 			
 			$this->iblocks    = Import::getIBlocks();
@@ -93,10 +94,10 @@
             $remove = array();
 			$this->remove = Import::getHighloadElements($this->iblocks['sizes'], true);
 			foreach ($this->remove as $i)
-				$remove[] = "/(\s(".$i['NAME'].")|_".strtolower($i['NAME']).")$/";
+				$remove[] = "/(\s(".$i['NAME'].")|_".strtolower(str_replace(array(',', '.'), '_', $i['NAME'])).")$/";
 			$this->remove = $remove;
 
-			$this->sections   = Import::getIBlockSections($this->iblocks['catalog'],3);
+			$this->sections   = Import::getIBlockSections($this->iblocks['catalog'], 3);
 			$this->categories = Import::getHighloadElements($this->iblocks['categories'], true);
 			$this->types      = Import::getHighloadElements($this->iblocks['types'], true);
 			$this->brands     = Import::getHighloadElements($this->iblocks['brands'], true);
@@ -126,7 +127,7 @@
 				$fields['NAME']   = preg_replace($this->remove, '', $fields['NAME']);
 				$fields['CODE']   = preg_replace($this->remove, '', $fields['CODE']);
 				$fields['XML_ID'] = $fields['CODE'];
-				
+
 				unset($fields['PROPERTY_VALUES']['CODE']);
 				
 				return $offer;
@@ -265,7 +266,7 @@
 			$name .= ' '.str_replace($artnumber.' ','', $item->getElementsByTagName('name')->item(0)->nodeValue);
 
 			$fields["NAME"] = $name;
-			$fields["CODE"] = Cutil::translit($note." ".$item->getElementsByTagName('name')->item(0)->nodeValue, "ru");
+			$fields["CODE"] = Cutil::translit($note." ". $item->getElementsByTagName('name')->item(0)->nodeValue, "ru");
 
 			$images = array_merge(glob($_SERVER['DOCUMENT_ROOT']."/import/photos/".$slug.".jpg"), glob($_SERVER['DOCUMENT_ROOT']."/import/photos/".$slug."_[0-9].jpg"));
 			
@@ -339,12 +340,13 @@
 						CIBlockElement::SetPropertyValuesEx($exist['ID'], $this->iblocks['products'], $diff);
 						$update = true;
 					endif;
-
-					if($fields['SORT'] != $exist['SORT']):
-						$raw = new CIBlockElement;
-						$raw->Update($exist['ID'], array('SORT' => $fields['SORT']));
-						$update = true;	
-					endif;
+					foreach (array('SORT') as $el):
+						if($fields[$el] != $exist[$el]):
+							$raw = new CIBlockElement;
+							$raw->Update($exist['ID'], array($el => $fields[$el]));
+							$update = true;	
+						endif;
+					endforeach;
 
 					if(array_diff($fields['IBLOCK_SECTION'], $exist['IBLOCK_SECTION']) || (count($fields['IBLOCK_SECTION'])!=count($exist['IBLOCK_SECTION']))):
 						fwrite(STDERR, "Разделы обновлены: ".var_export(array_diff($fields['IBLOCK_SECTION'], $exist['IBLOCK_SECTION']),true)." \n\r");
@@ -354,6 +356,7 @@
 					endif;
 
 					if(isset($props['OFFER_SIZE'])):
+						//CCatalogProduct::Add(array('ID'=>$exist['ID'], 'QUANTITY'=>1));
 						if(!isset($offers[$offer['XML_ID']])):
 							$offer['PROPERTY_VALUES']['CML2_LINK'] = $exist['ID'];
 							$id = Import::addIBlockElement($this->iblocks['offers'], $offer);
@@ -377,6 +380,7 @@
 
 				else:
 					$id = Import::addIBlockElement($this->iblocks['products'], $fields);
+					CCatalogProduct::Add(array('ID'=>$id, 'QUANTITY'=>1));
 					if(intval($id)>0): 
 						$this->counter['add']++;
 						$fields['ID'] = $id;
@@ -522,9 +526,8 @@
         	foreach ($data['items'] as $item):
         		$id     = $this->products[$item->getAttribute('id')]['ID'];
         		$prices = array('RETAIL'=>$item->getElementsByTagName('retail')->item(0)->nodeValue, 'WHOLESALE'=>$item->getElementsByTagName('wholesale')->item(0)->nodeValue);
-        		CCatalogProduct::Update($id, array('QUANTITY'=>1));
         		if(!isset($this->prices[$id])):
-        			CCatalogProduct::Add(array('ID'=>$id, 'QUANTITY'=>1));
+        			
 					foreach ($prices as $key => $price):
         				$arFields = Array(
 							"PRODUCT_ID"       => $id,

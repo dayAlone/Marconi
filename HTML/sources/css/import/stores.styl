@@ -1,0 +1,75 @@
+.stores
+	&__title
+		line-height 37px
+		text-transform: uppercase
+		font-weight: bold
+		margin-left 45px
+		img
+			position relative
+			top -2px
+			margin-right 5px
+			max-height 16px 
+	.dropdown
+		@extend .news .dropdown
+		width 100%
+		max-width none
+		text-transform: uppercase
+		&__trigger
+			background black
+			color white
+			svg
+				path
+					fill white
+	&__city
+		text-transform: uppercase
+		font-weight: bold
+		font-size: 17px
+		width 100%
+		margin-bottom 40px
+	&__address
+		font-size 28px
+		text-transform: uppercase
+		font-weight: bold
+		line-height 30px
+	&__description, &__metro
+		text-transform: uppercase
+		margin-top 35px
+	&__metro
+		svg
+			margin-right 5px
+			position relative
+			top 1px
+	&__modal
+		display none
+		padding 45px 40px
+		min-height 393px
+		position absolute
+		bottom 59px
+		left 50%
+		margin-left -480px
+		background white
+		border 1px solid black
+		z-index 600
+		width 960px
+		img
+			max-width 100%
+		@media (min-width: scr_lg)
+			width 1170px
+			margin-left -585px
+	&__close
+		position absolute
+		top 30px
+		right 30px
+		svg 
+			width 38px
+			height 38px
+			path
+				fill black
+		&:hover svg path
+			fill red
+			
+	#map
+		full-width()
+		min-height 800px
+		border-top 1px solid #e7e7e7
+		margin-top 30px
