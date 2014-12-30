@@ -34141,15 +34141,19 @@ return PhotoSwipeUI_Default;
     return setTimeout(func, ms);
   };
 
-  size = function(h, w) {
+  size = function() {
     if ($('.lookbook').elem('slider').length > 0) {
       $('.lookbook').elem('slider-preview').css({
         'top': $('.lookbook').elem('slider').offset().top,
         'opacity': 1,
         'width': function() {
-          var width;
+          var el, f, h, w, width;
           width = ($(window).width() - $('.page .container').width()) / 2 + 2;
           if ($(this).hasMod('width')) {
+            f = $('.lookbook').elem('slider').data('fotorama');
+            el = $(f.data[f.activeIndex].html).find('.lookbook__picture');
+            w = el.data('width');
+            h = el.data('height');
             width += ($('.lookbook').elem('picture').width() - ($('.lookbook').elem('picture').height() / h) * w) / 2;
           }
           return width;
@@ -34624,7 +34628,7 @@ return PhotoSwipeUI_Default;
       } else {
         $('.lookbook').elem('slider-preview').mod('width', false);
       }
-      size(el.data('height'), el.data('width'));
+      size();
       return $('.lookbook').elem('slider-preview').each(function() {
         if ($(this).hasMod('next')) {
           el = getElem(fotorama, 'next');

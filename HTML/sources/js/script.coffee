@@ -20,7 +20,7 @@ end = 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransit
 
 delay = (ms, func) -> setTimeout func, ms
 
-size = (h,w)->
+size = ->
 	if $('.lookbook').elem('slider').length > 0
 		$('.lookbook').elem('slider-preview').css
 			'top': $('.lookbook').elem('slider').offset().top
@@ -28,6 +28,10 @@ size = (h,w)->
 			'width': ->
 				width = ($(window).width()-$('.page .container').width())/2+2
 				if $(this).hasMod 'width'
+					f  = $('.lookbook').elem('slider').data 'fotorama'
+					el = $(f.data[f.activeIndex].html).find('.lookbook__picture')
+					w  = el.data 'width'
+					h  = el.data 'height'
 					width += ($('.lookbook').elem('picture').width() - ($('.lookbook').elem('picture').height()/h)*w)/2
 				return width
 
@@ -294,7 +298,7 @@ $(document).ready ->
 			else
 				$('.lookbook').elem('slider-preview').mod 'width', false
 			
-			size el.data('height'), el.data('width')
+			size()
 
 			$('.lookbook').elem('slider-preview').each ->
 				if $(this).hasMod 'next'
