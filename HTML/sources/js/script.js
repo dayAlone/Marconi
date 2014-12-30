@@ -35,7 +35,7 @@
           var width;
           width = ($(window).width() - $('.page .container').width()) / 2 + 2;
           if ($(this).hasMod('width')) {
-            width += ($('.lookbook').elem('picture').width() - (h / $('.lookbook').elem('picture').height()) * w) / 2;
+            width += ($('.lookbook').elem('picture').width() - ($('.lookbook').elem('picture').height() / h) * w) / 2;
           }
           return width;
         }
