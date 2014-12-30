@@ -34,7 +34,7 @@
         'width': function() {
           var width;
           width = ($(window).width() - $('.page .container').width()) / 2 + 2;
-          if ($(this).mod('width', true)) {
+          if ($(this).hasMod('width')) {
             width += 330;
           }
           return width;
@@ -516,7 +516,6 @@
       });
     }).on('fotorama:showend', function(e, fotorama, extra) {
       return delay(300, function() {
-        console.log($(fotorama.activeFrame.html).find('.lookbook__picture').hasMod('contain'));
         if ($(fotorama.activeFrame.html).find('.lookbook__picture').hasMod('contain')) {
           $('.lookbook').elem('slider-preview').mod('width', true);
         } else {
