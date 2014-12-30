@@ -702,6 +702,7 @@
             url: ajaxURL,
             data: data,
             success: function(data) {
+              console.log(el.parents('form').serialize());
               History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(el.parents('form').serialize()).replace("&short=Y", "") + "&set_filter=Y");
               el.parents('.filter').mod('loading', false);
               if ($(data).filter('article').find('.pages').length > 0) {
