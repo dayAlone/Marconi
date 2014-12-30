@@ -298,7 +298,7 @@ $(document).ready ->
 
 		)
 		.on('fotorama:showend', (e, fotorama, extra)->
-			delay 300, ->
+			delay 100, ->
 				if $(fotorama.activeFrame.html).find('.lookbook__picture').hasMod 'contain'
 					$('.lookbook').elem('slider-preview').mod 'width', true
 				else

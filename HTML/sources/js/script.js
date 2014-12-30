@@ -515,7 +515,7 @@
         });
       });
     }).on('fotorama:showend', function(e, fotorama, extra) {
-      return delay(300, function() {
+      return delay(100, function() {
         if ($(fotorama.activeFrame.html).find('.lookbook__picture').hasMod('contain')) {
           $('.lookbook').elem('slider-preview').mod('width', true);
         } else {

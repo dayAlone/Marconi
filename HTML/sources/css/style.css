@@ -1960,11 +1960,11 @@ svg g {
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
-  -webkit-transition-property: opacity, background;
-  -moz-transition-property: opacity, background;
-  -o-transition-property: opacity, background;
-  -ms-transition-property: opacity, background;
-  transition-property: opacity, background;
+  -webkit-transition-property: opacity, background, -webkit-transform, width;
+  -moz-transition-property: opacity, background, -moz-transform, width;
+  -o-transition-property: opacity, background, -o-transform, width;
+  -ms-transition-property: opacity, background, -ms-transform, width;
+  transition-property: opacity, background, transform, width;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
