@@ -2,7 +2,7 @@
 $this->setFrameMode(true);
 if(count($arResult['SECTIONS'])>0):
 ?>
-<div class="row ">
+<div class="row enter">
 	<?foreach($arResult['SECTIONS'] as $item):
 		
 	?>
