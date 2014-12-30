@@ -1936,6 +1936,9 @@ svg g {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+  -webkit-background-size: center center;
+  -moz-background-size: center center;
+  background-size: center center;
 }
 .lookbook__slider {
   width: 103%;
