@@ -753,7 +753,7 @@
       });
     };
     $('.brand-select .dropdown .dropdown__item').click(function(e) {
-      if ($(this).data('id').length > 0) {
+      if ($(this).data('id') > 0) {
         $.cookie('BRAND', $(this).data('id'));
       } else {
         $.removeCookie('BRAND');
