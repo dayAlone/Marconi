@@ -9,7 +9,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Партнерам", 
-		"#", 
+		"http://italbags.ru/", 
 		Array(), 
 		Array(), 
 		"" 
