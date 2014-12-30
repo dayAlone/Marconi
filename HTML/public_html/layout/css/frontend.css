@@ -5097,6 +5097,7 @@ svg g {
 .lookbook__slider-preview {
   position: absolute;
   min-height: 750px;
+  z-index: 40;
   top: 0;
   cursor: pointer;
   width: 300px;
