@@ -5,11 +5,11 @@
 <?foreach ($arResult['ITEMS'] as $key=>$item):?>
       <div class="lookbook__slider-item">
         <div style="background-image: url(<?=$item['PREVIEW_PICTURE']['SRC']?>)" class="lookbook__picture"></div>
-        <?if(count($item['PROPERTIES']['PRODUCTS']['VALUE'])>0):?>
+        <?if(count($item['PROPERTIES']['PRODUCTS']['VALUE'])>0  && isset($item['PROPERTIES']['PRODUCTS']['VALUE'][0])):?>
           <div class="lookbook__divider"><span>на этом фото</span></div>
           <div class="catalog catalog--full-width catalog--without-images">
           <?
-          if(count($item['PROPERTIES']['PRODUCTS']['VALUE'])>0 && isset($item['PROPERTIES']['PRODUCTS']['VALUE'][0])):
+          
             global $arrFilter;
             $arrFilter = array('=ID' => $item['PROPERTIES']['PRODUCTS']['VALUE']);
             $APPLICATION->IncludeComponent(
@@ -120,7 +120,7 @@
             	),
             	false
             );
-          endif;
+          
           ?>
           </div>
         <?endif;?>
