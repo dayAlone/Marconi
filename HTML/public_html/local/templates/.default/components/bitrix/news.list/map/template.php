@@ -20,7 +20,7 @@ if(!isset($_REQUEST['short'])):
 elseif(isset($active)):
   $item = $active;
   ?>
-<div class="stores__city">Москва</div>
+<div class="stores__city"><?=$arResult['SECTIONS'][$item['IBLOCK_SECTION_ID']]['NAME']?></div>
 <div class="row">
   <div class="col-xs-<?=(isset($item['PREVIEW_PICTURE']['SRC'])?"7":"12")?>">
   <?if(isset($item['PROPERTIES']['ADDRESS']['VALUE'])):?>
@@ -30,7 +30,7 @@ elseif(isset($active)):
   <?endif;?>
   <?if(isset($item['PREVIEW_TEXT'])):?>
     <div class="stores__description">
-      <?=$item['PREVIEW_TEXT']?>
+      <?=$item['~PREVIEW_TEXT']?>
     </div>
   <?endif;?>
   <?if(isset($item['PROPERTIES']['METRO']['VALUE'])):?>
