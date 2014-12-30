@@ -232,7 +232,7 @@ $(document).ready ->
 					google.maps.event.addListener marker, 'click', ->
 						openModal i
 						
-				markerCluster = new MarkerClusterer map, markers, { styles : clusterStyle, gridSize: 50, maxZoom: 6 }
+				markerCluster = new MarkerClusterer map, markers, { styles : clusterStyle, gridSize: 50, maxZoom: 5 }
 				
 				if window.currentStore
 					currentStore = $.parseJSON window.currentStore
