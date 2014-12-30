@@ -28,9 +28,9 @@ size = (h)->
 			'width': ->
 				width = ($(window).width()-$('.page .container').width())/2+2
 				if $(this).hasMod 'width'
-					ratio = $('.lookbook').elem('picture').width() / $('.lookbook').elem('picture').height()
+					ratio = $('.lookbook').elem('picture').height()/$('.lookbook').elem('picture').width()
 					console.log ($('.lookbook').elem('picture').width() - h*ratio)/2
-					width += -1 * ($('.lookbook').elem('picture').width() - h*ratio)/2
+					width += ($('.lookbook').elem('picture').width() - h*ratio)/2
 				return width
 
 	$('.filter')
