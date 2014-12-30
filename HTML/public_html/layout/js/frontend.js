@@ -34549,7 +34549,7 @@ return PhotoSwipeUI_Default;
           markerCluster = new MarkerClusterer(map, markers, {
             styles: clusterStyle,
             gridSize: 50,
-            maxZoom: 5
+            maxZoom: 13
           });
           if (window.currentStore) {
             currentStore = $.parseJSON(window.currentStore);
