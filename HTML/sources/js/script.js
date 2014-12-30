@@ -434,7 +434,7 @@
           markerCluster = new MarkerClusterer(map, markers, {
             styles: clusterStyle,
             gridSize: 1,
-            maxZoom: 12
+            maxZoom: 9
           });
           if (window.currentStore) {
             currentStore = $.parseJSON(window.currentStore);
