@@ -759,6 +759,7 @@
             url: ajaxURL,
             data: values,
             success: function(data) {
+              console.log(data);
               if (data) {
                 data = $.parseJSON(data);
               }
