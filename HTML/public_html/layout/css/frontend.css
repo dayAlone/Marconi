@@ -5080,9 +5080,13 @@ svg g {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  -webkit-background-size: center center;
-  -moz-background-size: center center;
-  background-size: center center;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.lookbook__picture--contain {
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  background-size: contain;
 }
 .lookbook__slider {
   width: 103%;
@@ -5150,6 +5154,20 @@ svg g {
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
   background-position: top left;
+}
+.lookbook__slider-preview--width.lookbook__slider-preview--prev {
+  -webkit-transform: translateX(calc(100% -200px));
+  -moz-transform: translateX(calc(100% -200px));
+  -o-transform: translateX(calc(100% -200px));
+  -ms-transform: translateX(calc(100% -200px));
+  transform: translateX(calc(100% -200px));
+}
+.lookbook__slider-preview--width.lookbook__slider-preview--next {
+  -webkit-transform: translateX(calc(-100% -200px));
+  -moz-transform: translateX(calc(-100% -200px));
+  -o-transform: translateX(calc(-100% -200px));
+  -ms-transform: translateX(calc(-100% -200px));
+  transform: translateX(calc(-100% -200px));
 }
 .lookbook__slider-item {
   padding: 0 1.5% 0px !important;

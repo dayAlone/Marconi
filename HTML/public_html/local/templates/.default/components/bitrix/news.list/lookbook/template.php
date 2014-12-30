@@ -2,10 +2,11 @@
 <div style="background-image: url(<?=$arResult['ITEMS'][count($arResult['ITEMS'])-1]['PREVIEW_PICTURE']['SRC']?>)" data-direction="&gt;" class="lookbook__slider-preview lookbook__slider-preview--prev"><?=svg('slider-arrow-left')?></div>
 <div style="background-image: url(<?=$arResult['ITEMS'][1]['PREVIEW_PICTURE']['SRC']?>)" data-direction="&lt;" class="lookbook__slider-preview lookbook__slider-preview--next"><?=svg('slider-arrow-right')?></div>
 <div data-loop="true" data-width="120%" data-nav="false" data-arrows="false" data-click="false" data-transition="crossfade" class="lookbook__slider">
-<?foreach ($arResult['ITEMS'] as $key=>$item):?>
+<?foreach ($arResult['ITEMS'] as $key=>$item):
+    ?>
       <div class="lookbook__slider-item">
-        <div style="background-image: url(<?=$item['PREVIEW_PICTURE']['SRC']?>)" class="lookbook__picture"></div>
-        <?if(count($item['PROPERTIES']['PRODUCTS']['VALUE'])>0  && isset($item['PROPERTIES']['PRODUCTS']['VALUE'][0])):?>
+        <div style="background-image: url(<?=$item['PREVIEW_PICTURE']['SRC']?>)" class="lookbook__picture <?=($item['PREVIEW_PICTURE']['HEIGHT'] > $item['PREVIEW_PICTURE']['WIDTH']?"lookbook__picture--contain":"")?>"></div>
+        <?if(count($item['PROPERTIES']['PRODUCTS']['VALUE'])>0 && isset($item['PROPERTIES']['PRODUCTS']['VALUE'][0])):?>
           <div class="lookbook__divider"><span>на этом фото</span></div>
           <div class="catalog catalog--full-width catalog--without-images">
           <?

@@ -25,7 +25,11 @@ size = ->
 		$('.lookbook').elem('slider-preview').css
 			'top': $('.lookbook').elem('slider').offset().top
 			'opacity': 1
-			'width': ($(window).width()-$('.page .container').width())/2+2
+			'width': ->
+				width = ($(window).width()-$('.page .container').width())/2+2
+				if $(this).mod 'width', true
+					width += 330
+				return width
 
 	$('.filter')
 		.removeAttr('style')
@@ -248,6 +252,7 @@ $(document).ready ->
 				$('.dropdown').elem('item').click (e)->
 					goToCity $(this).text(), $(this).data('code')
 					e.preventDefault()
+	
 	# Lookbook
 
 	$('.row.enter').isotope
@@ -294,6 +299,10 @@ $(document).ready ->
 		)
 		.on('fotorama:showend', (e, fotorama, extra)->
 			delay 300, ->
+				if $(fotorama.activeFrame.html).find('.lookbook__picture').hasMod 'contain'
+					$('.lookbook').elem('slider-preview').mod 'width', true
+				else
+					$('.lookbook').elem('slider-preview').mod 'width', false
 				size()
 				fotorama.resize
 					height : $(fotorama.activeFrame.html).outerHeight()
