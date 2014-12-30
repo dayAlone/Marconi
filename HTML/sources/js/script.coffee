@@ -510,9 +510,9 @@ $(document).ready ->
 					url      : ajaxURL
 					data     : values
 					success  : (data)->
+						console.log data
 						if data
 							data = $.parseJSON(data)
-						console.log data
 						if data.FILTER_URL
 							$('.catalog').elem('counter').find('a').attr 'href', data.FILTER_URL.replace(/&amp;/g, '&')
 							el.parents('.filter').mod 'loading', false
