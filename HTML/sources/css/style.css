@@ -1965,6 +1965,9 @@ svg g {
   -o-transition-duration: 0.3s;
   -ms-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
 }
 .lookbook__slider-preview svg {
   position: absolute;
@@ -1993,6 +1996,7 @@ svg g {
   -o-transform: translateX(100%);
   -ms-transform: translateX(100%);
   transform: translateX(100%);
+  background-position: top right;
 }
 .lookbook__slider-preview--next {
   left: 100%;
@@ -2001,6 +2005,7 @@ svg g {
   -o-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
+  background-position: top left;
 }
 .lookbook__slider-item {
   padding: 0 1.5% 0px !important;

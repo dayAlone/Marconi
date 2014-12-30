@@ -65,6 +65,7 @@
 			opacity 0
 			transition-property opacity, background
 			transition-duration .3s
+			background-size cover
 			svg
 				position absolute
 				z-index 10
@@ -82,9 +83,11 @@
 			&--prev
 				right 100%
 				transform translateX(100%)
+				background-position top right
 			&--next
 				left 100%
 				transform translateX(-100%)
+				background-position top left
 		&-item
 			padding 0 1.5% 0px !important
 			*, &
