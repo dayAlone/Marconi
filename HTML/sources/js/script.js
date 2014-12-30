@@ -724,7 +724,6 @@
       return filterTimer = delay(300, function() {
         var ajaxURL, data, values;
         ajaxURL = $('.page').elem('side').find('form').data('url');
-        console.log(ajaxURL);
         if ($('.catalog').hasMod('ajax')) {
           data = el.parents('form').serialize() + "&short=Y&set_filter=Y";
           return filterRequest = $.ajax({
@@ -732,7 +731,6 @@
             url: ajaxURL,
             data: data,
             success: function(data) {
-              console.log(el.parents('form').serialize());
               History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(el.parents('form').serialize()) + "&set_filter=Y");
               el.parents('.filter').mod('loading', false);
               if ($(data).filter('article').find('.pages').length > 0) {
@@ -763,9 +761,11 @@
               if (data) {
                 data = $.parseJSON(data);
               }
+              console.log(data);
               if (data.FILTER_URL) {
                 $('.catalog').elem('counter').find('a').attr('href', data.FILTER_URL.replace(/&amp;/g, '&'));
                 el.parents('.filter').mod('loading', false);
+                $('.catalog').elem('counter-value').text(data.ELEMENT_COUNT);
                 return $('.catalog').elem('counter').css({
                   'top': el.parents('.filter').position().top
                 }).velocity({
