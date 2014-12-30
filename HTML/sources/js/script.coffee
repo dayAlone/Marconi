@@ -191,7 +191,7 @@ $(document).ready ->
 								$('.stores').elem('content').html("")
 								$('.stores').elem('content').spin spinOptions
 				openModal  = (i)->
-					if i.code.length > 0
+					if i.code > 0
 						map.setCenter new google.maps.LatLng parseFloat(i.coords[0])-.00245, parseFloat(i.coords[1])
 						map.setZoom 16
 						
