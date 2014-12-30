@@ -26,10 +26,10 @@ if(!isset($_REQUEST['short'])):
 	    		</div>
 	    		<div class="col-xs-9 right">
 	    			<span class="stores__title">
-	    				<img src="/layout/images/store-3.png" alt=""> Фирменные магазины с самовывозом
+	    				<img src="/layout/images/store-1.png" alt=""> Фирменные магазины с самовывозом
 	    			</span>
 	    			<span class="stores__title">
-	    				<img src="/layout/images/store-1.png" alt=""> фирменные магазины
+	    				<img src="/layout/images/store-3.png" alt=""> фирменные магазины
 	    			</span>
 	    			<span class="stores__title">
 	    				<img src="/layout/images/store-2.png" alt=""> Места продаж

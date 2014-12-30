@@ -9,7 +9,7 @@ if(!isset($_REQUEST['short'])):
 ?>
 <script>
   var items = '<?=json_encode($items)?>';
-  <?if(isset($item)):
+  <?if(isset($active)):
     $item = $active;
   ?>
   var currentStore = '<?=json_encode(array('code'=>$item['CODE'], 'coords' => preg_split("/,/", $item['PROPERTIES']['COORDS']['VALUE']), 'type'=>$item['PROPERTIES']['TYPE']['VALUE_XML_ID']))?>';
