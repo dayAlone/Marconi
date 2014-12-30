@@ -733,7 +733,7 @@
               if (data) {
                 data = $.parseJSON(data);
               }
-              console.log(data);
+              console.log(data, ajaxURL);
               $('.catalog').elem('counter-value').text(data.ELEMENT_COUNT);
               if (data.FILTER_URL) {
                 $('.catalog').elem('counter').find('a').attr('href', data.FILTER_URL.replace(/&amp;/g, '&'));
