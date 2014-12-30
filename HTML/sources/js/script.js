@@ -502,6 +502,13 @@
       return el;
     };
     $('.lookbook').elem('slider').on('fotorama:show', function(e, fotorama, extra) {
+      console.log(extra);
+      if ($(fotorama.activeFrame.html).find('.lookbook__picture').hasMod('contain')) {
+        $('.lookbook').elem('slider-preview').mod('width', true);
+      } else {
+        $('.lookbook').elem('slider-preview').mod('width', false);
+      }
+      size();
       return $('.lookbook').elem('slider-preview').each(function() {
         var el;
         if ($(this).hasMod('next')) {
@@ -516,11 +523,6 @@
       });
     }).on('fotorama:showend', function(e, fotorama, extra) {
       return delay(100, function() {
-        if ($(fotorama.activeFrame.html).find('.lookbook__picture').hasMod('contain')) {
-          $('.lookbook').elem('slider-preview').mod('width', true);
-        } else {
-          $('.lookbook').elem('slider-preview').mod('width', false);
-        }
         size();
         return fotorama.resize({
           height: $(fotorama.activeFrame.html).outerHeight()

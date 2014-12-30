@@ -287,22 +287,25 @@ $(document).ready ->
 
 	$('.lookbook').elem('slider')
 		.on('fotorama:show', (e, fotorama, extra) ->
+			console.log extra
+			if $(fotorama.activeFrame.html).find('.lookbook__picture').hasMod 'contain'
+				$('.lookbook').elem('slider-preview').mod 'width', true
+			else
+				$('.lookbook').elem('slider-preview').mod 'width', false
+			size()
+				
 			$('.lookbook').elem('slider-preview').each ->
 				if $(this).hasMod 'next'
 					el = getElem fotorama, 'next'
 				if $(this).hasMod 'prev'
 					el = getElem fotorama, 'prev'
-
+				
 				$(this).css
 					'background-image' : el.find('.lookbook__picture').css 'background-image'
 
 		)
 		.on('fotorama:showend', (e, fotorama, extra)->
 			delay 100, ->
-				if $(fotorama.activeFrame.html).find('.lookbook__picture').hasMod 'contain'
-					$('.lookbook').elem('slider-preview').mod 'width', true
-				else
-					$('.lookbook').elem('slider-preview').mod 'width', false
 				size()
 				fotorama.resize
 					height : $(fotorama.activeFrame.html).outerHeight()
