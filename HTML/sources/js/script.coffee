@@ -506,11 +506,10 @@ $(document).ready ->
 				smartFilter.gatherInputsValues(values, inputs);
 				console.log values
 				filterRequest = $.ajax
-					type     : "POST" 
+					type     : "GET" 
 					url      : ajaxURL
 					data     : values
 					success  : (data)->
-						console.log data
 						if data
 							data = $.parseJSON(data)
 						if data.FILTER_URL

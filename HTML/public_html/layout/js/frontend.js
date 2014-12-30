@@ -34870,11 +34870,10 @@ return PhotoSwipeUI_Default;
           smartFilter.gatherInputsValues(values, inputs);
           console.log(values);
           return filterRequest = $.ajax({
-            type: "POST",
+            type: "GET",
             url: ajaxURL,
             data: values,
             success: function(data) {
-              console.log(data);
               if (data) {
                 data = $.parseJSON(data);
               }
