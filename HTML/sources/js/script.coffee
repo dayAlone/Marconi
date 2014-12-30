@@ -504,6 +504,7 @@ $(document).ready ->
 				values = []
 				values[0] = {name: 'ajax', value: 'y'}
 				smartFilter.gatherInputsValues(values, inputs);
+				console.log values
 				filterRequest = $.ajax
 					type     : "POST" 
 					url      : ajaxURL

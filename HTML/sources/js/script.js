@@ -753,6 +753,7 @@
             value: 'y'
           };
           smartFilter.gatherInputsValues(values, inputs);
+          console.log(values);
           return filterRequest = $.ajax({
             type: "POST",
             url: ajaxURL,
