@@ -224,7 +224,12 @@ $(document).ready ->
 					
 					marker = new google.maps.Marker
 						position  : new google.maps.LatLng i.coords[0], i.coords[1]
-						icon      : new google.maps.MarkerImage "/layout/images/store-#{i.type}.png", new google.maps.Size(40,35), new google.maps.Point(0,0), new google.maps.Point(20,0), new google.maps.Size(40,35)
+						icon      :
+							url        : "/layout/images/store-#{i.type}.png"
+							size       : new google.maps.Size(82,73),
+							origin     : new google.maps.Point(0, 0),
+							anchor     : new google.maps.Point(20, 0),
+							scaledSize : new google.maps.Size(40, 35)
 						animation : google.maps.Animation.DROP
 					
 					markers.push marker
