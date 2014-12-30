@@ -734,16 +734,18 @@
                 data = $.parseJSON(data);
               }
               $('.catalog').elem('counter-value').text(data.ELEMENT_COUNT);
-              $('.catalog').elem('counter').find('a').attr('href', data.FILTER_URL.replace(/&amp;/g, '&'));
-              el.parents('.filter').mod('loading', false);
-              return $('.catalog').elem('counter').css({
-                'top': el.parents('.filter').position().top
-              }).velocity({
-                properties: "transition.slideDownIn",
-                options: {
-                  duration: 300
-                }
-              });
+              if (data.FILTER_URL) {
+                $('.catalog').elem('counter').find('a').attr('href', data.FILTER_URL.replace(/&amp;/g, '&'));
+                el.parents('.filter').mod('loading', false);
+                return $('.catalog').elem('counter').css({
+                  'top': el.parents('.filter').position().top
+                }).velocity({
+                  properties: "transition.slideDownIn",
+                  options: {
+                    duration: 300
+                  }
+                });
+              }
             }
           });
         }
