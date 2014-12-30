@@ -9,7 +9,7 @@
           <div class="lookbook__divider"><span>на этом фото</span></div>
           <div class="catalog catalog--full-width catalog--without-images">
           <?
-          if(count($item['PROPERTIES']['PRODUCTS']['VALUE'])>0):
+          if(count($item['PROPERTIES']['PRODUCTS']['VALUE'])>0 && isset($item['PROPERTIES']['PRODUCTS']['VALUE'][0])):
             global $arrFilter;
             $arrFilter = array('=ID' => $item['PROPERTIES']['PRODUCTS']['VALUE']);
             $APPLICATION->IncludeComponent(
