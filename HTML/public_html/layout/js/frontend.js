@@ -34809,7 +34809,8 @@ return PhotoSwipeUI_Default;
       el.parents('.filter').mod('loading', true);
       inputs = el.parents('form').find('input');
       return filterTimer = delay(300, function() {
-        var data, values;
+        var ajaxURL, data, values;
+        ajaxURL = $('.page').elem('side').find('form').attr('action');
         if ($('.catalog').hasMod('ajax')) {
           data = el.parents('form').serialize() + "&short=Y&set_filter=Y";
           return filterRequest = $.ajax({
@@ -34848,8 +34849,6 @@ return PhotoSwipeUI_Default;
               if (data) {
                 data = $.parseJSON(data);
               }
-              console.log(data, ajaxURL);
-              $('.catalog').elem('counter-value').text(data.ELEMENT_COUNT);
               if (data.FILTER_URL) {
                 $('.catalog').elem('counter').find('a').attr('href', data.FILTER_URL.replace(/&amp;/g, '&'));
                 el.parents('.filter').mod('loading', false);
@@ -34871,7 +34870,7 @@ return PhotoSwipeUI_Default;
       if ($(this).data('id') > 0) {
         $.cookie('BRAND', $(this).data('id'));
       } else {
-        $.removeCookie('BRAND');
+        $.cookie('BRAND', null);
       }
       return window.location.reload();
     });

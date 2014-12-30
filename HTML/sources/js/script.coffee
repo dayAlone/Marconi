@@ -454,6 +454,7 @@ $(document).ready ->
 		el.parents('.filter').mod 'loading', true
 		inputs = el.parents('form').find('input')
 		filterTimer = delay 300, ->
+			ajaxURL = $('.page').elem('side').find('form').attr('action')
 			if $('.catalog').hasMod 'ajax'
 				data = el.parents('form').serialize() + "&short=Y&set_filter=Y"
 				filterRequest = $.ajax
@@ -489,8 +490,6 @@ $(document).ready ->
 					success  : (data)->
 						if data
 							data = $.parseJSON(data)
-						console.log data, ajaxURL
-						$('.catalog').elem('counter-value').text data.ELEMENT_COUNT
 						if data.FILTER_URL
 							$('.catalog').elem('counter').find('a').attr 'href', data.FILTER_URL.replace(/&amp;/g, '&')
 							el.parents('.filter').mod 'loading', false
@@ -508,7 +507,7 @@ $(document).ready ->
 		if $(this).data('id') > 0
 			$.cookie('BRAND', $(this).data('id'))
 		else
-			$.removeCookie('BRAND')
+			$.cookie('BRAND', null)
 
 		window.location.reload()
 

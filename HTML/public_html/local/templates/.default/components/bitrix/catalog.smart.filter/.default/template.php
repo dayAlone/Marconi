@@ -95,6 +95,5 @@ $this->setFrameMode(true);
 	</div>
 </form>
 <script>
-	var ajaxURL     = '<?echo CUtil::JSEscape($arResult["FORM_ACTION"])?>';
 	var smartFilter = new JCSmartFilter('<?echo CUtil::JSEscape($arResult["FORM_ACTION"])?>');
 </script>
