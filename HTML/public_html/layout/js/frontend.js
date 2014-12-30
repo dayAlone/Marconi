@@ -34538,7 +34538,7 @@ return PhotoSwipeUI_Default;
             var marker;
             marker = new google.maps.Marker({
               position: new google.maps.LatLng(i.coords[0], i.coords[1]),
-              icon: new google.maps.MarkerImage("/layout/images/store-" + i.type + ".png", null, null, null, new google.maps.Size(40, 34)),
+              icon: new google.maps.MarkerImage("/layout/images/store-" + i.type + ".png", new google.maps.Size(152, 134), null, null, new google.maps.Size(40, 35)),
               animation: google.maps.Animation.DROP
             });
             markers.push(marker);
