@@ -381,7 +381,7 @@
             });
           };
           openModal = function(i) {
-            if (i.code > 0) {
+            if (i.code) {
               map.setCenter(new google.maps.LatLng(parseFloat(i.coords[0]) - .00245, parseFloat(i.coords[1])));
               map.setZoom(16);
               console.log("/stores/" + i.code + "/?short=y");
