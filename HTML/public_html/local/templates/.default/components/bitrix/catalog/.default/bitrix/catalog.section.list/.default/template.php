@@ -11,7 +11,7 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-
+/*
 $arViewModeList = $arResult['VIEW_MODE_LIST'];
 
 $arViewStyles = array(
@@ -222,3 +222,21 @@ if (0 < $arResult["SECTIONS_COUNT"])
 	echo ('LINE' != $arParams['VIEW_MODE'] ? '<div style="clear: both;"></div>' : '');
 }
 ?></div>
+*/?>
+<div class="row">
+<div class="col-xs-4">
+<a class="catalog__intro" href="/catalog/women/">
+    <div style="background-image:url(/layout/images/i-1.jpg)" class="catalog__intro-picture"></div>
+    <div class="catalog__intro-text">Для нее</div></a>
+<a class="catalog__intro" href="/catalog/baggage/">
+    <div style="background-image:url(/layout/images/i-3.jpg)" class="catalog__intro-picture"></div>
+    <div class="catalog__intro-text catalog__intro-text--bottom">Багаж</div></a></div>
+<div class="col-xs-4"><a class="catalog__intro catalog__intro--big"  href="/catalog/all/">
+    <div style="background-image:url(/layout/images/i-2.jpg)" class="catalog__intro-picture"></div>
+    <div class="catalog__intro-text catalog__intro-text--center">Все товары</div></a></div>
+<div class="col-xs-4"><a class="catalog__intro"  href="/catalog/men/">
+    <div style="background-image:url(/layout/images/i-4.jpg)" class="catalog__intro-picture"></div>
+    <div class="catalog__intro-text catalog__intro-text--right">Для него</div></a><a class="catalog__intro">
+    <div style="background-image:url(/layout/images/i-5.jpg)" class="catalog__intro-picture"></div>
+    <div class="catalog__intro-text catalog__intro-text--bottom catalog__intro-text--black catalog__intro-text--right">Style look</div></a></div>
+</div>
