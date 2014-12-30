@@ -182,6 +182,14 @@ $(document).ready ->
 					backgroundSize : "contain; background-repeat: no-repeat"
 				]
 				markers    = [] 
+				closeModal = ->
+					$('.stores').elem('modal').velocity
+						properties: "transition.slideDownOut"
+						options:
+							duration: 300
+							complete: ->
+								$('.stores').elem('content').html("")
+								$('.stores').elem('content').spin spinOptions
 				openModal  = (i)->
 					if i.code.length > 0
 						map.setCenter new google.maps.LatLng parseFloat(i.coords[0])-.00245, parseFloat(i.coords[1])
@@ -200,16 +208,11 @@ $(document).ready ->
 						
 						$('.stores').elem('close').one 'click', (e)->
 							map.setCenter new google.maps.LatLng parseFloat(i.coords[0]), parseFloat(i.coords[1])
-							$('.stores').elem('modal').velocity
-								properties: "transition.slideDownOut"
-								options:
-									duration: 300
-									complete: ->
-										$('.stores').elem('content').html("")
-										$('.stores').elem('content').spin spinOptions
+							closeModal()
 							e.preventDefault()
 
 				goToCity = (name, code)->
+					closeModal()
 					geocoder.geocode {'address': name}, (results, status)->
 						if (status == google.maps.GeocoderStatus.OK)
 							if (results)

@@ -204,7 +204,7 @@
       $('.stores').elem('content').spin(spinOptions);
       $.getScript('http://maps.googleapis.com/maps/api/js?sensor=true&callback=mapInit', function() {
         return window.mapInit = function() {
-          var center, clusterStyle, currentCity, currentStore, geocoder, goToCity, items, map, mapElement, mapOptions, markerCluster, markers, openModal;
+          var center, closeModal, clusterStyle, currentCity, currentStore, geocoder, goToCity, items, map, mapElement, mapOptions, markerCluster, markers, openModal;
           center = new google.maps.LatLng(63.436317234268486, 67.10492205969675);
           mapOptions = {
             zoom: 3,
@@ -368,6 +368,18 @@
             }
           ];
           markers = [];
+          closeModal = function() {
+            return $('.stores').elem('modal').velocity({
+              properties: "transition.slideDownOut",
+              options: {
+                duration: 300,
+                complete: function() {
+                  $('.stores').elem('content').html("");
+                  return $('.stores').elem('content').spin(spinOptions);
+                }
+              }
+            });
+          };
           openModal = function(i) {
             if (i.code.length > 0) {
               map.setCenter(new google.maps.LatLng(parseFloat(i.coords[0]) - .00245, parseFloat(i.coords[1])));
@@ -388,21 +400,13 @@
               });
               return $('.stores').elem('close').one('click', function(e) {
                 map.setCenter(new google.maps.LatLng(parseFloat(i.coords[0]), parseFloat(i.coords[1])));
-                $('.stores').elem('modal').velocity({
-                  properties: "transition.slideDownOut",
-                  options: {
-                    duration: 300,
-                    complete: function() {
-                      $('.stores').elem('content').html("");
-                      return $('.stores').elem('content').spin(spinOptions);
-                    }
-                  }
-                });
+                closeModal();
                 return e.preventDefault();
               });
             }
           };
           goToCity = function(name, code) {
+            closeModal();
             return geocoder.geocode({
               'address': name
             }, function(results, status) {
