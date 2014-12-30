@@ -34838,7 +34838,8 @@ return PhotoSwipeUI_Default;
       inputs = el.parents('form').find('input');
       return filterTimer = delay(300, function() {
         var ajaxURL, data, values;
-        ajaxURL = $('.page').elem('side').find('form').attr('action');
+        ajaxURL = $('.page').elem('side').find('form').data('url');
+        console.log(ajaxURL);
         if ($('.catalog').hasMod('ajax')) {
           data = el.parents('form').serialize() + "&short=Y&set_filter=Y";
           return filterRequest = $.ajax({
@@ -34847,7 +34848,7 @@ return PhotoSwipeUI_Default;
             data: data,
             success: function(data) {
               console.log(el.parents('form').serialize());
-              History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(el.parents('form').serialize()).replace("&short=Y", "") + "&set_filter=Y");
+              History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(el.parents('form').serialize()) + "&set_filter=Y");
               el.parents('.filter').mod('loading', false);
               if ($(data).filter('article').find('.pages').length > 0) {
                 $('.pages').html($(data).filter('article').find('.pages').html());

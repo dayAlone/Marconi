@@ -12,15 +12,18 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get">
-	<?foreach($arResult["HIDDEN"] as $arItem):?>
+<form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" data-url="<?=$APPLICATION->GetCurDir()?>">
+	<?foreach($arResult["HIDDEN"] as $arItem):
+		if(!in_array($arItem["CONTROL_NAME"], array('range', 'short')) && strlen($arItem["HTML_VALUE"])>0):?>
 		<input
 			type="hidden"
 			name="<?echo $arItem["CONTROL_NAME"]?>"
 			id="<?echo $arItem["CONTROL_ID"]?>"
 			value="<?echo $arItem["HTML_VALUE"]?>"
 		/>
-	<?endforeach;?>
+	<?
+		endif;
+	endforeach;?>
 
 	<?foreach($arResult["ITEMS"] as $arItem):?>
 	<?if(!empty($arItem["VALUES"])):?>

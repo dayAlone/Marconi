@@ -476,7 +476,8 @@ $(document).ready ->
 		el.parents('.filter').mod 'loading', true
 		inputs = el.parents('form').find('input')
 		filterTimer = delay 300, ->
-			ajaxURL = $('.page').elem('side').find('form').attr('action')
+			ajaxURL = $('.page').elem('side').find('form').data('url')
+			console.log ajaxURL
 			if $('.catalog').hasMod 'ajax'
 				data = el.parents('form').serialize() + "&short=Y&set_filter=Y"
 				filterRequest = $.ajax
@@ -485,7 +486,7 @@ $(document).ready ->
 					data     : data
 					success  : (data)->
 						console.log el.parents('form').serialize()
-						History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(el.parents('form').serialize()).replace("&short=Y", "") + "&set_filter=Y");
+						History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(el.parents('form').serialize()) + "&set_filter=Y");
 						el.parents('.filter').mod 'loading', false
 						if $(data).filter('article').find('.pages').length > 0
 							$('.pages').html $(data).filter('article').find('.pages').html()
