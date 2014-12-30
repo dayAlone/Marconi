@@ -302,9 +302,9 @@ $(document).ready ->
 
 			$('.lookbook').elem('slider-preview').each ->
 				if $(this).hasMod 'next'
-					el = getElem fotorama, 'next'
-				if $(this).hasMod 'prev'
 					el = getElem fotorama, 'prev'
+				if $(this).hasMod 'prev'
+					el = getElem fotorama, 'next'
 				
 				$(this).css
 					'background-image' : el.find('.lookbook__picture').css 'background-image'

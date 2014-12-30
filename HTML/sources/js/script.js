@@ -516,10 +516,10 @@
       size();
       return $('.lookbook').elem('slider-preview').each(function() {
         if ($(this).hasMod('next')) {
-          el = getElem(fotorama, 'next');
+          el = getElem(fotorama, 'prev');
         }
         if ($(this).hasMod('prev')) {
-          el = getElem(fotorama, 'prev');
+          el = getElem(fotorama, 'next');
         }
         return $(this).css({
           'background-image': el.find('.lookbook__picture').css('background-image')
