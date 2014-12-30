@@ -1932,6 +1932,11 @@ svg g {
 .lookbook__picture {
   min-height: 750px;
 }
+.lookbook__picture {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
 .lookbook__slider {
   width: 103%;
   margin-left: -1.5%;
