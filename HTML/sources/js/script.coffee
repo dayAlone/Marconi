@@ -20,7 +20,7 @@ end = 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransit
 
 delay = (ms, func) -> setTimeout func, ms
 
-size = (h)->
+size = (h,w)->
 	if $('.lookbook').elem('slider').length > 0
 		$('.lookbook').elem('slider-preview').css
 			'top': $('.lookbook').elem('slider').offset().top
@@ -28,9 +28,7 @@ size = (h)->
 			'width': ->
 				width = ($(window).width()-$('.page .container').width())/2+2
 				if $(this).hasMod 'width'
-					ratio = $('.lookbook').elem('picture').height()/$('.lookbook').elem('picture').width()
-					console.log ($('.lookbook').elem('picture').width() - h*ratio)/2
-					width += ($('.lookbook').elem('picture').width() - h*ratio)/2
+					width += ($('.lookbook').elem('picture').width() - (h / $('.lookbook').elem('picture').height())*w)/2
 				return width
 
 	$('.filter')
@@ -290,11 +288,13 @@ $(document).ready ->
 	$('.lookbook').elem('slider')
 		.on('fotorama:show', (e, fotorama, extra) ->
 			
-			if $(fotorama.data[fotorama.activeIndex].html).find('.lookbook__picture').hasMod 'contain'
+			el = $(fotorama.data[fotorama.activeIndex].html).find('.lookbook__picture')
+			if el.hasMod 'contain'
 				$('.lookbook').elem('slider-preview').mod 'width', true
 			else
 				$('.lookbook').elem('slider-preview').mod 'width', false
-			size $(fotorama.data[fotorama.activeIndex].html).find('.lookbook__picture').data 'height'
+			
+			size el.data('height'), el.data('width')
 
 			$('.lookbook').elem('slider-preview').each ->
 				if $(this).hasMod 'next'
