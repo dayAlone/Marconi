@@ -433,8 +433,8 @@
           });
           markerCluster = new MarkerClusterer(map, markers, {
             styles: clusterStyle,
-            gridSize: 100,
-            maxZoom: 7
+            gridSize: 50,
+            maxZoom: 6
           });
           if (window.currentStore) {
             currentStore = $.parseJSON(window.currentStore);
