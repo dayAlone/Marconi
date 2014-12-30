@@ -312,6 +312,7 @@ $(document).ready ->
 		)
 		.on('fotorama:showend', (e, fotorama, extra)->
 			delay 100, ->
+				size()
 				fotorama.resize
 					height : $(fotorama.activeFrame.html).outerHeight()
 		)

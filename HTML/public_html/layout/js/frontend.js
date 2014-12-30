@@ -34642,6 +34642,7 @@ return PhotoSwipeUI_Default;
       });
     }).on('fotorama:showend', function(e, fotorama, extra) {
       return delay(100, function() {
+        size();
         return fotorama.resize({
           height: $(fotorama.activeFrame.html).outerHeight()
         });
