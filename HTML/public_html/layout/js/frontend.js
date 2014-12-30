@@ -34617,7 +34617,7 @@ return PhotoSwipeUI_Default;
       return el;
     };
     $('.lookbook').elem('slider').on('fotorama:show', function(e, fotorama, extra) {
-      console.log(extra);
+      console.log(e);
       if ($(fotorama.activeFrame.html).find('.lookbook__picture').hasMod('contain')) {
         $('.lookbook').elem('slider-preview').mod('width', true);
       } else {

@@ -287,13 +287,13 @@ $(document).ready ->
 
 	$('.lookbook').elem('slider')
 		.on('fotorama:show', (e, fotorama, extra) ->
-			console.log extra
+			console.log e
 			if $(fotorama.activeFrame.html).find('.lookbook__picture').hasMod 'contain'
 				$('.lookbook').elem('slider-preview').mod 'width', true
 			else
 				$('.lookbook').elem('slider-preview').mod 'width', false
 			size()
-				
+
 			$('.lookbook').elem('slider-preview').each ->
 				if $(this).hasMod 'next'
 					el = getElem fotorama, 'next'
