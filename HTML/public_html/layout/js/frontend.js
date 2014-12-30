@@ -34325,6 +34325,10 @@ return PhotoSwipeUI_Default;
             zoom: 3,
             draggable: true,
             zoomControl: true,
+            zoomControlOptions: {
+              style: google.maps.ZoomControlStyle.LARGE,
+              position: google.maps.ControlPosition.LEFT_CENTER
+            },
             scrollwheel: false,
             disableDoubleClickZoom: false,
             disableDefaultUI: true,
