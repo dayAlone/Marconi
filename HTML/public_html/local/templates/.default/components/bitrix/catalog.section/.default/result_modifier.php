@@ -14,6 +14,7 @@ foreach ($arResult['ITEMS'] as &$item):
 		foreach ($item['PROPERTIES']['PICTURES']['VALUE'] as $img)
 			$images[] = $img;
 	$small = CFile::ResizeImageGet(CFile::MakeFileArray($item['PREVIEW_PICTURE']['SRC']), Array("width" => 400, "height" => 400), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
+	var_dump($small);
 	$item['PREVIEW_PICTURE']['SRC'] = $small['src'];
 endforeach;
 $raw = CFile::GetList(array(), array('ID'=>$images));
