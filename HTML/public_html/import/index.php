@@ -358,7 +358,7 @@
 					endif;
 
 					if(isset($props['OFFER_SIZE'])):
-						CCatalogProduct::Add(array('ID'=>$offers[$fields['XML_ID']]['ID'], 'QUANTITY'=>1));
+						CCatalogProduct::Add(array('ID'=>$offers[$offer['XML_ID']]['ID'], 'QUANTITY'=>1));
 						if(!isset($offers[$offer['XML_ID']])):
 							$offer['PROPERTY_VALUES']['CML2_LINK'] = $exist['ID'];
 							$id = Import::addIBlockElement($this->iblocks['offers'], $offer);
@@ -371,7 +371,7 @@
 							if($offers[$offer['XML_ID']]['SIZE'] != $offer['PROPERTY_VALUES']['SIZE']):
 								fwrite(STDERR, "Размеры обновлены \n\r");
 								$update = true;
-								CIBlockElement::SetPropertyValuesEx($offers[$fields['XML_ID']]['ID'], $this->iblocks['offers'], array('SIZE'=>$offer['PROPERTY_VALUES']['SIZE']));
+								CIBlockElement::SetPropertyValuesEx($offers[$offer['XML_ID']]['ID'], $this->iblocks['offers'], array('SIZE'=>$offer['PROPERTY_VALUES']['SIZE']));
 							endif;
 						endif;		
 					endif;
