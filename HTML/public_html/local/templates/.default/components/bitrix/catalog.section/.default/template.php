@@ -24,8 +24,6 @@ if (!empty($arResult['ITEMS']))
   $strElementDelete = CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE");
   $arElementDeleteParams = array("CONFIRM" => GetMessage('CT_BCS_TPL_ELEMENT_DELETE_CONFIRM'));
 	foreach ($arResult['ITEMS'] as $item):
-    $this->AddEditAction($item['ID'], $item['EDIT_LINK'], $strElementEdit);
-    $this->AddDeleteAction($item['ID'], $item['DELETE_LINK'], $strElementDelete, $arElementDeleteParams);
     ?>
 			<div class="col-xs-4 col-lg-3">
         <div class="product">

@@ -366,6 +366,7 @@
 								$this->counter['error']++;
 							endif;	
 						else:
+							CCatalogProduct::Update($offers[$offer['XML_ID']]['ID'], array('QUANTITY'=>1));
 							if($offers[$offer['XML_ID']]['SIZE'] != $offer['PROPERTY_VALUES']['SIZE']):
 								fwrite(STDERR, "Размеры обновлены \n\r");
 								$update = true;
