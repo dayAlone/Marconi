@@ -342,7 +342,7 @@
 						CIBlockElement::SetPropertyValuesEx($exist['ID'], $this->iblocks['products'], $diff);
 						$update = true;
 					endif;
-					foreach (array('SORT', 'CODE') as $el):
+					foreach (array('SORT') as $el):
 						if($fields[$el] != $exist[$el]):
 							$raw = new CIBlockElement;
 							$raw->Update($exist['ID'], array($el => $fields[$el]));
@@ -358,7 +358,7 @@
 					endif;
 
 					if(isset($props['OFFER_SIZE'])):
-						//CCatalogProduct::Add(array('ID'=>$exist['ID'], 'QUANTITY'=>1));
+						CCatalogProduct::Add(array('ID'=>$offers[$fields['XML_ID']]['ID'], 'QUANTITY'=>1));
 						if(!isset($offers[$offer['XML_ID']])):
 							$offer['PROPERTY_VALUES']['CML2_LINK'] = $exist['ID'];
 							$id = Import::addIBlockElement($this->iblocks['offers'], $offer);
@@ -368,7 +368,6 @@
 								$this->counter['error']++;
 							endif;	
 						else:
-							CCatalogProduct::Add(array('ID'=>$offers[$fields['XML_ID']]['ID'], 'QUANTITY'=>1));
 							if($offers[$offer['XML_ID']]['SIZE'] != $offer['PROPERTY_VALUES']['SIZE']):
 								fwrite(STDERR, "Размеры обновлены \n\r");
 								$update = true;
