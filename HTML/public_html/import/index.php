@@ -366,7 +366,7 @@
 								$this->counter['error']++;
 							endif;	
 						else:
-							CCatalogProduct::Update($offers[$offer['XML_ID']]['ID'], array('QUANTITY'=>1));
+							CCatalogProduct::Update($offers[$fields['XML_ID']]['ID'], array('QUANTITY'=>1));
 							if($offers[$offer['XML_ID']]['SIZE'] != $offer['PROPERTY_VALUES']['SIZE']):
 								fwrite(STDERR, "Размеры обновлены \n\r");
 								$update = true;
@@ -622,7 +622,7 @@
 				unlink($this->lock);
 				$result++;
 
-				shell_exec("/Applications/MAMP/bin/php/php5.6.1/bin/php ".$_SERVER['DOCUMENT_ROOT']."/import/index.php ".$result);
+				shell_exec("php ".$_SERVER['DOCUMENT_ROOT']."/import/index.php ".$result);
 			else:
 				unlink($this->lock);
 				return;
