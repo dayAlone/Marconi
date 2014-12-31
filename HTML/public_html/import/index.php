@@ -380,8 +380,8 @@
 
 				else:
 					$id = Import::addIBlockElement($this->iblocks['products'], $fields);
-					CCatalogProduct::Add(array('ID'=>$id, 'QUANTITY'=>1));
 					if(intval($id)>0): 
+						CCatalogProduct::Add(array('ID'=>$id, 'QUANTITY'=>1));
 						$this->counter['add']++;
 						$fields['ID'] = $id;
 						$products[$fields['XML_ID']] = $this->getExist($fields);
@@ -389,6 +389,7 @@
 							$offer['PROPERTY_VALUES']['CML2_LINK'] = $id;
 							$id = Import::addIBlockElement($this->iblocks['offers'], $offer);
 							if(intval($id)>0):
+								CCatalogProduct::Add(array('ID'=>$id, 'QUANTITY'=>1));
 								$this->counter['offers']++;
 							else:
 								$this->counter['error']++;

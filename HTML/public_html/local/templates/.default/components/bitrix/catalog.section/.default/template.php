@@ -21,6 +21,7 @@ endif;
 if (!empty($arResult['ITEMS']))
 {
 	foreach ($arResult['ITEMS'] as $item):
+    
     ?>
 			<div class="col-xs-4 col-lg-3">
         <div class="product">
