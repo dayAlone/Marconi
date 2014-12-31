@@ -5,6 +5,8 @@
 	define("NOT_CHECK_PERMISSIONS",true); 
 	use Bitrix\Highloadblock as HL;
 	use Bitrix\Main\Entity;
+	ini_set('mbstring.internal_encoding','UTF-8');
+	ini_set('mbstring.func_overload', '2');
 	set_time_limit(0);
 	@ignore_user_abort(true);
 	
@@ -340,7 +342,7 @@
 						CIBlockElement::SetPropertyValuesEx($exist['ID'], $this->iblocks['products'], $diff);
 						$update = true;
 					endif;
-					foreach (array('SORT') as $el):
+					foreach (array('SORT', 'CODE') as $el):
 						if($fields[$el] != $exist[$el]):
 							$raw = new CIBlockElement;
 							$raw->Update($exist['ID'], array($el => $fields[$el]));
