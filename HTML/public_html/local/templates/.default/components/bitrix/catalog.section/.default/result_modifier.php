@@ -13,8 +13,7 @@ foreach ($arResult['ITEMS'] as &$item):
 	if(count($item['PROPERTIES']['PICTURES']['VALUE'])>0)
 		foreach ($item['PROPERTIES']['PICTURES']['VALUE'] as $img)
 			$images[] = $img;
-	$small = CFile::ResizeImageGet(CFile::MakeFileArray($item['PREVIEW_PICTURE']['SRC']), Array("width" => 400, "height" => 400), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
-	var_dump(CFile::MakeFileArray($item['PREVIEW_PICTURE']['SRC']));
+	$small = CFile::ResizeImageGet(CFile::GetFileArray($item['PREVIEW_PICTURE']['ID']), Array("width" => 400, "height" => 400), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 	$item['PREVIEW_PICTURE']['SRC'] = $small['src'];
 endforeach;
 $raw = CFile::GetList(array(), array('ID'=>$images));
