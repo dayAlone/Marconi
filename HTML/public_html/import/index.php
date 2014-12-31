@@ -358,7 +358,6 @@
 					endif;
 
 					if(isset($props['OFFER_SIZE'])):
-						CCatalogProduct::Add(array('ID'=>$offers[$offer['XML_ID']]['ID'], 'QUANTITY'=>1));
 						if(!isset($offers[$offer['XML_ID']])):
 							$offer['PROPERTY_VALUES']['CML2_LINK'] = $exist['ID'];
 							$id = Import::addIBlockElement($this->iblocks['offers'], $offer);
