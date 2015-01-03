@@ -4,17 +4,32 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
 ?>
 <div class="catalog__toolbar">
   <div class="row">
-    <div class="col-xs-4">сортировать по: <span class="dropdown">
+    <?
+      switch ($_REQUEST['sort_param']):
+        case 'PROPERTY_MIN_PRICE':
+            switch ($_REQUEST['sort_value']):
+              case 'ASC':
+                $text = 'Возрастанию цены';
+                $active ="PROPERTY_MIN_PRICE_ASC";
+              break;
+              case 'DESC':
+                $text = 'Убыванию цены';
+                $active ="PROPERTY_MIN_PRICE_DESC";
+              break;
+            endswitch;
+          break;
+      endswitch;
+    ?>
+    <div class="col-xs-4">сортировать по: <span class="dropdown" data-param="<?=(!isset($_REQUEST['sort_param'])?$_REQUEST['sort_param']:'')?>" data-value="<?=(!isset($_REQUEST['sort_value'])?$_REQUEST['sort_value']:'')?>">
       <a href="#" class="dropdown__trigger"><span class="dropdown__text">
         <?=(!isset($_REQUEST['sort_param'])?'Не выбрано':'')?>
-        <?=($_REQUEST['sort_param']=="PROPERTY_MIN_PRICE"&&$_REQUEST['sort_value']=="ASC"?'Возрастанию цены':'')?>
-        <?=($_REQUEST['sort_param']=="PROPERTY_MIN_PRICE"&&$_REQUEST['sort_value']=="DESC"?'Убыванию цены':'')?> 
+        <?=($text?$text:'')?> 
       
       </span><?=svg('arrow')?></a>
       <span class="dropdown__frame">
           <a href="#" <?=(!isset($_REQUEST['sort_param'])?'style="display:none"':'')?> class="dropdown__item">Не выбрано</a>
-          <a href="#" <?=($_REQUEST['sort_param']=="PROPERTY_MIN_PRICE"&&$_REQUEST['sort_value']=="ASC"?'style="display:none"':'')?> class="dropdown__item" data-param="PROPERTY_MIN_PRICE" data-value="ASC">Возрастанию цены</a>
-          <a href="#" <?=($_REQUEST['sort_param']=="PROPERTY_MIN_PRICE"&&$_REQUEST['sort_value']=="DESC"?'style="display:none"':'')?> class="dropdown__item" data-param="PROPERTY_MIN_PRICE" data-value="DESC">Убыванию цены</a>
+          <a href="#" <?=($active!="PROPERTY_MIN_PRICE_ASC"?'style="display:none"':'')?> class="dropdown__item" data-param="PROPERTY_MIN_PRICE" data-value="ASC">Возрастанию цены</a>
+          <a href="#" <?=($active!="PROPERTY_MIN_PRICE_DESC"?'style="display:none"':'')?> class="dropdown__item" data-param="PROPERTY_MIN_PRICE" data-value="DESC">Убыванию цены</a>
         </span>
         <select class="dropdown__select">
           <option data-param="PROPERTY_MIN_PRICE" data-value="ASC">Возрастанию цены</option>
