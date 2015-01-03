@@ -391,7 +391,7 @@ $(document).ready ->
 	initFiltres = ->
 		# Checkbox
 		$('.filter input.color').off('ifCreated').on 'ifCreated', ()->
-			$(this).parents('.icheckbox_color').css 'color', $(this).css('color')
+			$(this).parents('.icheckbox_color').addClass('ready').css 'color', $(this).css('color')
 		
 		$('.filter input[type="radio"], .filter input[type="checkbox"]').off('ifChanged').on 'ifChanged', ->
 			getFilter($(this))
@@ -432,6 +432,7 @@ $(document).ready ->
 							block.mod 'open', true
 
 			e.preventDefault()	
+		
 		# Range
 		$("input.range__from, input.range__to").on 'input', (e)->
 			if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
@@ -447,6 +448,7 @@ $(document).ready ->
 			slider.update
 				from : parseInt $("input.range__from").val()
 				to   : parseInt $("input.range__to").val()
+		
 		$(".filter__content input[name=range]").ionRangeSlider
 			type: "double"
 			onFinish: ->
@@ -474,19 +476,25 @@ $(document).ready ->
 		
 		filterRequest.abort() if filterRequest
 		$('.filter').mod 'loading', false
-		el.parents('.filter').mod 'loading', true
-		inputs = el.parents('form').find('input')
+		
+		el.parents('.filter').mod('loading', true) if el
+		
+		inputs = $('.page').elem('side').find('input')
+		form   = $('.page').elem('side').find('form')
+
 		filterTimer = delay 300, ->
-			ajaxURL = $('.page').elem('side').find('form').data('url')
+			ajaxURL = form.data('url')
 			if $('.catalog').hasMod 'ajax'
-				data = el.parents('form').serialize() + "&short=Y&set_filter=Y"
+				data = form.serialize() + "&short=Y&set_filter=Y"
 				filterRequest = $.ajax
 					type     : "GET" 
 					url      : ajaxURL 
 					data     : data
 					success  : (data)->
-						History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(el.parents('form').serialize()) + "&set_filter=Y");
-						el.parents('.filter').mod 'loading', false
+						el.parents('.filter').mod('loading', false) if el
+
+						History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(form.serialize()) + "&set_filter=Y");
+						
 						if $(data).filter('article').find('.pages').length > 0
 							$('.pages').html $(data).filter('article').find('.pages').html()
 						else
@@ -516,17 +524,30 @@ $(document).ready ->
 							data = $.parseJSON(data)
 						if data.FILTER_URL
 							$('.catalog').elem('counter').find('a').attr 'href', data.FILTER_URL.replace(/&amp;/g, '&')
-							el.parents('.filter').mod 'loading', false
 							$('.catalog').elem('counter-value').text data.ELEMENT_COUNT
-							$('.catalog').elem('counter')
-								.css(
-									'top' : el.parents('.filter').position().top
-								)
-								.velocity
-									properties: "transition.slideDownIn"
-									options:
-										duration: 300
+
+							if el
+								el.parents('.filter').mod('loading', false)
+								$('.catalog').elem('counter')
+									.css(
+										'top' : el.parents('.filter').position().top
+									)
+									.velocity
+										properties: "transition.slideDownIn"
+										options:
+											duration: 300
+							
+							
 	
+	$('.catalog__toolbar .dropdown .dropdown__item').click (e)->
+		ajaxURL = $('.page').elem('side').find('form').data('url')
+
+		if $(this).data('id') > 0
+			$.cookie('BRAND', $(this).data('id'))
+		else
+			$.cookie('BRAND', null)
+
+		#window.location.href = link
 
 	$('.brand-select .dropdown .dropdown__item').click (e)->
 		if $(this).data('id') > 0

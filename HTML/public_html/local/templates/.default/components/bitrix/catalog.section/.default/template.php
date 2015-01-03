@@ -4,10 +4,16 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
 ?>
 <div class="catalog__toolbar">
   <div class="row">
-    <div class="col-xs-4">сортировать по: <span class="dropdown"><a href="#" class="dropdown__trigger"><span class="dropdown__text">Не выбрано</span><?=svg('arrow')?></a><span class="dropdown__frame"><a href="#" style="display:none" class="dropdown__item">Не выбрано</a><a href="#" class="dropdown__item">Цене</a><a href="#" class="dropdown__item">Наличию</a></span>
+    <div class="col-xs-4">сортировать по: <span class="dropdown">
+      <a href="#" class="dropdown__trigger"><span class="dropdown__text">Не выбрано</span><?=svg('arrow')?></a>
+      <span class="dropdown__frame">
+          <a href="#" style="display:none" class="dropdown__item">Не выбрано</a>
+          <a href="#" class="dropdown__item" data-param="PRICE" data-value="ASC">Возрастанию цены</a>
+          <a href="#" class="dropdown__item" data-param="PRICE" data-value="DESC">Убыванию цены</a>
+        </span>
         <select class="dropdown__select">
-          <option value="Francesco Marconi">Цене</option>
-          <option value="Gilda Tonelli">Наличию</option>
+          <option data-param="PRICE" data-value="ASC">Возрастанию цены</option>
+          <option data-param="PRICE" data-value="DESC">Убыванию цены</option>
         </select></span></div>
     <div class="col-xs-8 right">
       <?=$arResult["NAV_STRING"]?>

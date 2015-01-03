@@ -34733,7 +34733,7 @@ return PhotoSwipeUI_Default;
     };
     initFiltres = function() {
       $('.filter input.color').off('ifCreated').on('ifCreated', function() {
-        return $(this).parents('.icheckbox_color').css('color', $(this).css('color'));
+        return $(this).parents('.icheckbox_color').addClass('ready').css('color', $(this).css('color'));
       });
       $('.filter input[type="radio"], .filter input[type="checkbox"]').off('ifChanged').on('ifChanged', function() {
         return getFilter($(this));
@@ -34820,7 +34820,7 @@ return PhotoSwipeUI_Default;
     filterTimer = false;
     filterRequest = false;
     getFilter = function(el) {
-      var inputs;
+      var form, inputs;
       if (!$('.catalog').hasMod('ajax')) {
         if ($('.catalog').elem('counter').is(':visible')) {
           $('.catalog').elem('counter').velocity({
@@ -34835,20 +34835,25 @@ return PhotoSwipeUI_Default;
         filterRequest.abort();
       }
       $('.filter').mod('loading', false);
-      el.parents('.filter').mod('loading', true);
-      inputs = el.parents('form').find('input');
+      if (el) {
+        el.parents('.filter').mod('loading', true);
+      }
+      inputs = $('.page').elem('side').find('input');
+      form = $('.page').elem('side').find('form');
       return filterTimer = delay(300, function() {
         var ajaxURL, data, values;
-        ajaxURL = $('.page').elem('side').find('form').data('url');
+        ajaxURL = form.data('url');
         if ($('.catalog').hasMod('ajax')) {
-          data = el.parents('form').serialize() + "&short=Y&set_filter=Y";
+          data = form.serialize() + "&short=Y&set_filter=Y";
           return filterRequest = $.ajax({
             type: "GET",
             url: ajaxURL,
             data: data,
             success: function(data) {
-              History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(el.parents('form').serialize()) + "&set_filter=Y");
-              el.parents('.filter').mod('loading', false);
+              if (el) {
+                el.parents('.filter').mod('loading', false);
+              }
+              History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(form.serialize()) + "&set_filter=Y");
               if ($(data).filter('article').find('.pages').length > 0) {
                 $('.pages').html($(data).filter('article').find('.pages').html());
               } else {
@@ -34881,22 +34886,33 @@ return PhotoSwipeUI_Default;
               }
               if (data.FILTER_URL) {
                 $('.catalog').elem('counter').find('a').attr('href', data.FILTER_URL.replace(/&amp;/g, '&'));
-                el.parents('.filter').mod('loading', false);
                 $('.catalog').elem('counter-value').text(data.ELEMENT_COUNT);
-                return $('.catalog').elem('counter').css({
-                  'top': el.parents('.filter').position().top
-                }).velocity({
-                  properties: "transition.slideDownIn",
-                  options: {
-                    duration: 300
-                  }
-                });
+                if (el) {
+                  el.parents('.filter').mod('loading', false);
+                  return $('.catalog').elem('counter').css({
+                    'top': el.parents('.filter').position().top
+                  }).velocity({
+                    properties: "transition.slideDownIn",
+                    options: {
+                      duration: 300
+                    }
+                  });
+                }
               }
             }
           });
         }
       });
     };
+    $('.catalog__toolbar .dropdown .dropdown__item').click(function(e) {
+      var ajaxURL;
+      ajaxURL = $('.page').elem('side').find('form').data('url');
+      if ($(this).data('id') > 0) {
+        return $.cookie('BRAND', $(this).data('id'));
+      } else {
+        return $.cookie('BRAND', null);
+      }
+    });
     $('.brand-select .dropdown .dropdown__item').click(function(e) {
       if ($(this).data('id') > 0) {
         $.cookie('BRAND', $(this).data('id'));
