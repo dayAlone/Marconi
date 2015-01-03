@@ -484,19 +484,24 @@ $(document).ready ->
 		
 		inputs = $('.page').elem('side').find('input')
 		form   = $('.page').elem('side').find('form')
-
+		sort   = [$('.catalog__toolbar .dropdown').data('param'), $('.catalog__toolbar .dropdown').data('value')]
+		if sort.length > 0
+			sort = "&sort_param=#{sort[0]}&sort_value=#{sort[1]}"
+		console.log sort
 		filterTimer = delay 300, ->
 			ajaxURL = form.data('url')
 			if $('.catalog').hasMod 'ajax'
 				data = form.serialize() + "&short=Y&set_filter=Y"
+				data += sort
 				filterRequest = $.ajax
 					type     : "GET" 
 					url      : ajaxURL 
 					data     : data
 					success  : (data)->
+						console.log 'loaded'
 						el.parents('.filter').mod('loading', false) if el
 
-						History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(form.serialize()) + "&set_filter=Y");
+						History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(form.serialize()) + sort + "&set_filter=Y");
 						
 						if $(data).filter('article').find('.pages').length > 0
 							$('.pages').html $(data).filter('article').find('.pages').html()
@@ -516,7 +521,6 @@ $(document).ready ->
 				values = []
 				values[0] = {name: 'ajax', value: 'y'}
 				smartFilter.gatherInputsValues(values, inputs);
-				console.log values
 				filterRequest = $.ajax
 					type     : "GET" 
 					url      : ajaxURL
@@ -526,7 +530,10 @@ $(document).ready ->
 						if data
 							data = $.parseJSON(data)
 						if data.FILTER_URL
-							$('.catalog').elem('counter').find('a').attr 'href', data.FILTER_URL.replace(/&amp;/g, '&')
+							href = data.FILTER_URL.replace(/&amp;/g, '&')
+							if sort.length > 0
+								href += sort
+							$('.catalog').elem('counter').find('a').attr 'href', href
 							$('.catalog').elem('counter-value').text data.ELEMENT_COUNT
 
 							if el
@@ -543,14 +550,9 @@ $(document).ready ->
 							
 	
 	$('.catalog__toolbar .dropdown .dropdown__item').click (e)->
-		ajaxURL = $('.page').elem('side').find('form').data('url')
-
-		if $(this).data('id') > 0
-			$.cookie('BRAND', $(this).data('id'))
-		else
-			$.cookie('BRAND', null)
-
-		#window.location.href = link
+		$(this).block().data 'value', $(this).data 'value'
+		$(this).block().data 'param', $(this).data 'param'
+		getFilter()
 
 	$('.brand-select .dropdown .dropdown__item').click (e)->
 		if $(this).data('id') > 0

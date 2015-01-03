@@ -8,12 +8,12 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
       <a href="#" class="dropdown__trigger"><span class="dropdown__text">Не выбрано</span><?=svg('arrow')?></a>
       <span class="dropdown__frame">
           <a href="#" style="display:none" class="dropdown__item">Не выбрано</a>
-          <a href="#" class="dropdown__item" data-param="PRICE" data-value="ASC">Возрастанию цены</a>
-          <a href="#" class="dropdown__item" data-param="PRICE" data-value="DESC">Убыванию цены</a>
+          <a href="#" class="dropdown__item" data-param="PROPERTY_MIN_PRICE" data-value="ASC">Возрастанию цены</a>
+          <a href="#" class="dropdown__item" data-param="PROPERTY_MIN_PRICE" data-value="DESC">Убыванию цены</a>
         </span>
         <select class="dropdown__select">
-          <option data-param="PRICE" data-value="ASC">Возрастанию цены</option>
-          <option data-param="PRICE" data-value="DESC">Убыванию цены</option>
+          <option data-param="PROPERTY_MIN_PRICE" data-value="ASC">Возрастанию цены</option>
+          <option data-param="PROPERTY_MIN_PRICE" data-value="DESC">Убыванию цены</option>
         </select></span></div>
     <div class="col-xs-8 right">
       <?=$arResult["NAV_STRING"]?>
@@ -39,11 +39,17 @@ if (!empty($arResult['ITEMS']))
             </a>
             <div class="product__brand"><?=$arResult['BRANDS'][$item['PROPERTIES']['BRAND']['VALUE']]?></div>
             <div class="product__name"><?=$item['NAME']?></div>
-            <div class="product__price"><?=number_format($item['MIN_PRICE']['VALUE'], 0, '.', ' ')?> ₷</div>
+            <div class="product__price">
+            <? if(isset($item['MIN_PRICE']['VALUE'])): ?>
+              <?=number_format($item['MIN_PRICE']['VALUE'], 0, '.', ' ')?> ₷
+            <? else: ?>
+              Товара нет в наличии
+            <? endif; ?>
+            </div>
           </div>
           <div class="product__hidden">
             <div class="product__frame"></div>
-            <?if(count($item['PROPERTIES']['PICTURES']['VALUE'])>0&&isset($item['PREVIEW_PICTURE']['SRC'])):?>
+            <?if(count($item['PROPERTIES']['PICTURES']['VALUE'])>0&&isset($item['PREVIEW_PICTURE']['SRC'])&&isset($item['MIN_PRICE']['VALUE'])):?>
               <a href="#" class="product__icon product__icon--zoom" data-pictures='<?=json_encode($item['PROPERTIES']['PICTURES']['VALUE'])?>'><?=svg('zoom')?></a>
             <?endif;?>
             <a href="#" class="product__icon product__icon--cart <?=(count($item['OFFERS'])>0?"product__icon--trigger":"")?>"><?=svg('cart')?></a>

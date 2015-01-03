@@ -34825,7 +34825,7 @@ return PhotoSwipeUI_Default;
     filterTimer = false;
     filterRequest = false;
     getFilter = function(el) {
-      var form, inputs;
+      var form, inputs, sort;
       if (!$('.catalog').hasMod('ajax')) {
         if ($('.catalog').elem('counter').is(':visible')) {
           $('.catalog').elem('counter').velocity({
@@ -34845,20 +34845,27 @@ return PhotoSwipeUI_Default;
       }
       inputs = $('.page').elem('side').find('input');
       form = $('.page').elem('side').find('form');
+      sort = [$('.catalog__toolbar .dropdown').data('param'), $('.catalog__toolbar .dropdown').data('value')];
+      if (sort.length > 0) {
+        sort = "&sort_param=" + sort[0] + "&sort_value=" + sort[1];
+      }
+      console.log(sort);
       return filterTimer = delay(300, function() {
         var ajaxURL, data, values;
         ajaxURL = form.data('url');
         if ($('.catalog').hasMod('ajax')) {
           data = form.serialize() + "&short=Y&set_filter=Y";
+          data += sort;
           return filterRequest = $.ajax({
             type: "GET",
             url: ajaxURL,
             data: data,
             success: function(data) {
+              console.log('loaded');
               if (el) {
                 el.parents('.filter').mod('loading', false);
               }
-              History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(form.serialize()) + "&set_filter=Y");
+              History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(form.serialize()) + sort + "&set_filter=Y");
               if ($(data).filter('article').find('.pages').length > 0) {
                 $('.pages').html($(data).filter('article').find('.pages').html());
               } else {
@@ -34879,18 +34886,22 @@ return PhotoSwipeUI_Default;
             value: 'y'
           };
           smartFilter.gatherInputsValues(values, inputs);
-          console.log(values);
           return filterRequest = $.ajax({
             type: "GET",
             url: ajaxURL,
             data: values,
             success: function(data) {
+              var href;
               console.log(data);
               if (data) {
                 data = $.parseJSON(data);
               }
               if (data.FILTER_URL) {
-                $('.catalog').elem('counter').find('a').attr('href', data.FILTER_URL.replace(/&amp;/g, '&'));
+                href = data.FILTER_URL.replace(/&amp;/g, '&');
+                if (sort.length > 0) {
+                  href += sort;
+                }
+                $('.catalog').elem('counter').find('a').attr('href', href);
                 $('.catalog').elem('counter-value').text(data.ELEMENT_COUNT);
                 if (el) {
                   el.parents('.filter').mod('loading', false);
@@ -34910,13 +34921,9 @@ return PhotoSwipeUI_Default;
       });
     };
     $('.catalog__toolbar .dropdown .dropdown__item').click(function(e) {
-      var ajaxURL;
-      ajaxURL = $('.page').elem('side').find('form').data('url');
-      if ($(this).data('id') > 0) {
-        return $.cookie('BRAND', $(this).data('id'));
-      } else {
-        return $.cookie('BRAND', null);
-      }
+      $(this).block().data('value', $(this).data('value'));
+      $(this).block().data('param', $(this).data('param'));
+      return getFilter();
     });
     $('.brand-select .dropdown .dropdown__item').click(function(e) {
       if ($(this).data('id') > 0) {

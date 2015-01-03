@@ -78,8 +78,8 @@ $APPLICATION->SetPageProperty('body_class', "catalog ".(!isset($_REQUEST['v'])?"
 		"SECTIONS_SHOW_PARENT_NAME" => "Y",
 		"PAGE_ELEMENT_COUNT"        => "32",
 		"LINE_ELEMENT_COUNT"        => "3",
-		"ELEMENT_SORT_FIELD"        => "sort",
-		"ELEMENT_SORT_ORDER"        => "asc",
+		"ELEMENT_SORT_FIELD"        => ($_REQUEST['sort_param']?$_REQUEST['sort_param']:"sort"),
+		"ELEMENT_SORT_ORDER"        => ($_REQUEST['sort_value']?$_REQUEST['sort_value']:"asc"),
 		"ELEMENT_SORT_FIELD2"       => "id",
 		"ELEMENT_SORT_ORDER2"       => "desc",
 		"LIST_PROPERTY_CODE" => array(

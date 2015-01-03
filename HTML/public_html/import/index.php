@@ -513,7 +513,7 @@
 			foreach ($data['items'] as $item)
 				$ids[] = $item->getAttribute('id');
 
-			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID')));
+			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID', 'PROPERTY_CML2_LINK')));
 
 			$ids  = array();
 			foreach ($this->products as $item)
@@ -529,8 +529,7 @@
         		$id     = $this->products[$item->getAttribute('id')]['ID'];
         		$prices = array('RETAIL'=>$item->getElementsByTagName('retail')->item(0)->nodeValue, 'WHOLESALE'=>$item->getElementsByTagName('wholesale')->item(0)->nodeValue);
         		if(!isset($this->prices[$id])):
-        			
-					foreach ($prices as $key => $price):
+        			foreach ($prices as $key => $price):
         				$arFields = Array(
 							"PRODUCT_ID"       => $id,
 							"CATALOG_GROUP_ID" => array_search($key, $this->types),
