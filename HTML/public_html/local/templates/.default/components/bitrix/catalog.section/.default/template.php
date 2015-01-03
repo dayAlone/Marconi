@@ -6,6 +6,9 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
   <div class="row">
     <?
       switch ($_REQUEST['sort_param']):
+        case 'SORT':
+          $active ="SORT";
+        break;
         case 'PROPERTY_MIN_PRICE':
             switch ($_REQUEST['sort_value']):
               case 'ASC':
@@ -27,7 +30,7 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
       
       </span><?=svg('arrow')?></a>
       <span class="dropdown__frame">
-          <a href="#" <?=(!isset($_REQUEST['sort_param'])?'style="display:none"':'')?> class="dropdown__item">Не выбрано</a>
+          <a href="#" <?=(!isset($_REQUEST['sort_param']) || $active=="SORT"?'style="display:none"':'')?> class="dropdown__item" data-param="SORT" data-value="ASC">Не выбрано</a>
           <a href="#" <?=($active!="PROPERTY_MIN_PRICE_ASC"?'style="display:none"':'')?> class="dropdown__item" data-param="PROPERTY_MIN_PRICE" data-value="ASC">Возрастанию цены</a>
           <a href="#" <?=($active!="PROPERTY_MIN_PRICE_DESC"?'style="display:none"':'')?> class="dropdown__item" data-param="PROPERTY_MIN_PRICE" data-value="DESC">Убыванию цены</a>
         </span>
