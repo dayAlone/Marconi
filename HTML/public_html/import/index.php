@@ -2,7 +2,7 @@
 	$_SERVER["DOCUMENT_ROOT"] = realpath(dirname(__FILE__)."/..");
 	require_once ($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include.php");
 	define("NO_KEEP_STATISTIC", true);
-	define("NOT_CHECK_PERMISSIONS",true); 
+	define("NOT_CHECK_PERMISSIONS", true); 
 	use Bitrix\Highloadblock as HL;
 	use Bitrix\Main\Entity;
 	ini_set('mbstring.internal_encoding','UTF-8');

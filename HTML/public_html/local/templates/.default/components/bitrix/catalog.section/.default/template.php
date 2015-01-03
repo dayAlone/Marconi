@@ -5,11 +5,16 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
 <div class="catalog__toolbar">
   <div class="row">
     <div class="col-xs-4">сортировать по: <span class="dropdown">
-      <a href="#" class="dropdown__trigger"><span class="dropdown__text">Не выбрано</span><?=svg('arrow')?></a>
+      <a href="#" class="dropdown__trigger"><span class="dropdown__text">
+        <?=(!isset($_REQUEST['sort_param'])?'Не выбрано':'')?>
+        <?=($_REQUEST['sort_param']=="PROPERTY_MIN_PRICE"&&$_REQUEST['sort_value']=="ASC"?'style="Возрастанию цены"':'')?>
+        <?=($_REQUEST['sort_param']=="PROPERTY_MIN_PRICE"&&$_REQUEST['sort_value']=="DESC"?'style="Убыванию цены"':'')?> 
+      
+      </span><?=svg('arrow')?></a>
       <span class="dropdown__frame">
-          <a href="#" style="display:none" class="dropdown__item">Не выбрано</a>
-          <a href="#" class="dropdown__item" data-param="PROPERTY_MIN_PRICE" data-value="ASC">Возрастанию цены</a>
-          <a href="#" class="dropdown__item" data-param="PROPERTY_MIN_PRICE" data-value="DESC">Убыванию цены</a>
+          <a href="#" <?=(!isset($_REQUEST['sort_param'])?'style="display:none"':'')?> class="dropdown__item">Не выбрано</a>
+          <a href="#" <?=($_REQUEST['sort_param']=="PROPERTY_MIN_PRICE"&&$_REQUEST['sort_value']=="ASC"?'style="display:none"':'')?> class="dropdown__item" data-param="PROPERTY_MIN_PRICE" data-value="ASC">Возрастанию цены</a>
+          <a href="#" <?=($_REQUEST['sort_param']=="PROPERTY_MIN_PRICE"&&$_REQUEST['sort_value']=="DESC"?'style="display:none"':'')?> class="dropdown__item" data-param="PROPERTY_MIN_PRICE" data-value="DESC">Убыванию цены</a>
         </span>
         <select class="dropdown__select">
           <option data-param="PROPERTY_MIN_PRICE" data-value="ASC">Возрастанию цены</option>
