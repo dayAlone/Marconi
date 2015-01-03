@@ -7,8 +7,8 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
     <div class="col-xs-4">сортировать по: <span class="dropdown">
       <a href="#" class="dropdown__trigger"><span class="dropdown__text">
         <?=(!isset($_REQUEST['sort_param'])?'Не выбрано':'')?>
-        <?=($_REQUEST['sort_param']=="PROPERTY_MIN_PRICE"&&$_REQUEST['sort_value']=="ASC"?'style="Возрастанию цены"':'')?>
-        <?=($_REQUEST['sort_param']=="PROPERTY_MIN_PRICE"&&$_REQUEST['sort_value']=="DESC"?'style="Убыванию цены"':'')?> 
+        <?=($_REQUEST['sort_param']=="PROPERTY_MIN_PRICE"&&$_REQUEST['sort_value']=="ASC"?'Возрастанию цены':'')?>
+        <?=($_REQUEST['sort_param']=="PROPERTY_MIN_PRICE"&&$_REQUEST['sort_value']=="DESC"?'Убыванию цены':'')?> 
       
       </span><?=svg('arrow')?></a>
       <span class="dropdown__frame">
