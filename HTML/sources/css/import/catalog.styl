@@ -450,8 +450,12 @@
 			box-shadow  inset 0 0 0 20px
 	.icheckbox_color
 		transition-duration 0s
+		opacity 0
 		&.ready
+			opacity 1
 			transition-duration .3s
+			&.disabled, &:disabled
+				opacity .3
 	input[type="checkbox"]
 		top -3px
 	input[name="color"]

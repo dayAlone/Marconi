@@ -2901,13 +2901,25 @@ svg g {
   -o-transition-duration: 0s;
   -ms-transition-duration: 0s;
   transition-duration: 0s;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
 }
 .filter .icheckbox_color.ready {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
   -ms-transition-duration: 0.3s;
   transition-duration: 0.3s;
+}
+.filter .icheckbox_color.ready.disabled,
+.filter .icheckbox_color.ready:disabled {
+  opacity: 0.3;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  filter: alpha(opacity=30);
 }
 .filter input[type="checkbox"] {
   top: -3px;
