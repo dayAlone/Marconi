@@ -11,5 +11,4 @@ if(count($elements) > 1):
 		unset($arrFilter[$key]);
 	$arrFilter[] = array_merge(array("LOGIC" => "OR"), $elements);
 endif;
-var_dump($arrFilter);
 ?>
