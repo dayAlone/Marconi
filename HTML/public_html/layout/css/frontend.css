@@ -6022,8 +6022,6 @@ svg g {
   cursor: pointer;
   top: 0;
 }
-.filter .icheckbox_color.disabled,
-.filter input.color.disabled,
 .filter .icheckbox_color:disabled,
 .filter input.color:disabled {
   opacity: 0.3;
