@@ -43,7 +43,7 @@ if (!empty($arResult['ITEMS']))
             <? if(isset($item['MIN_PRICE']['VALUE'])): ?>
               <?=number_format($item['MIN_PRICE']['VALUE'], 0, '.', ' ')?> ₷
             <? else: ?>
-              Товара нет в наличии
+              <small>Товара нет в наличии</small>
             <? endif; ?>
             </div>
           </div>
