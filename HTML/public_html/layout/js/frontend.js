@@ -34733,7 +34733,12 @@ return PhotoSwipeUI_Default;
     };
     initFiltres = function() {
       $('.filter input.color').off('ifCreated').on('ifCreated', function() {
-        return $(this).parents('.icheckbox_color').css('color', $(this).css('color')).addClass('ready');
+        var el;
+        el = $(this).parents('.icheckbox_color');
+        el.css('color', $(this).css('color'));
+        return delay(300, function() {
+          return el.addClass('ready');
+        });
       });
       $('.filter input[type="radio"], .filter input[type="checkbox"]').off('ifChanged').on('ifChanged', function() {
         return getFilter($(this));
