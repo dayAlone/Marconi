@@ -485,7 +485,6 @@
 				return $data['offset'];
 			else
 				return 0;
-			die();
 		}
 	}
 
@@ -510,10 +509,11 @@
 		{
 			$data = Import::getElements($file, array('prices', 'product'), $offset);
 			$ids  = array();
+
 			foreach ($data['items'] as $item)
 				$ids[] = $item->getAttribute('id');
 
-			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID', 'PROPERTY_CML2_LINK')));
+			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID', 'PROPERTY_MIN_PRICE')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID', 'PROPERTY_CML2_LINK','PROPERTY_CML2_LINK.PROPERTY_MIN_PRICE')));
 
 			$ids  = array();
 			foreach ($this->products as $item)
@@ -527,32 +527,61 @@
         	endwhile;
         	foreach ($data['items'] as $item):
         		$id     = $this->products[$item->getAttribute('id')]['ID'];
-        		$prices = array('RETAIL'=>$item->getElementsByTagName('retail')->item(0)->nodeValue, 'WHOLESALE'=>$item->getElementsByTagName('wholesale')->item(0)->nodeValue);
-        		if(!isset($this->prices[$id])):
-        			foreach ($prices as $key => $price):
-        				$arFields = Array(
-							"PRODUCT_ID"       => $id,
-							"CATALOG_GROUP_ID" => array_search($key, $this->types),
-							"PRICE"            => $price,
-							"CURRENCY"         => "RUB"
-						);
-        				CPrice::Add($arFields);
-        				$this->counter['add']++;
-        			endforeach;
-        		else:
-        			foreach ($prices as $key => $price):
-        				if($this->prices[$id][$key]['price'] != $price):
-        					$arFields = Array(
+        		if(intval($id) > 0):
+	        		$prices = array('RETAIL'=>$item->getElementsByTagName('retail')->item(0)->nodeValue, 'WHOLESALE'=>$item->getElementsByTagName('wholesale')->item(0)->nodeValue);
+	        		if(!isset($this->prices[$id])):
+	        			foreach ($prices as $key => $price):
+	        				$arFields = Array(
 								"PRODUCT_ID"       => $id,
 								"CATALOG_GROUP_ID" => array_search($key, $this->types),
 								"PRICE"            => $price,
 								"CURRENCY"         => "RUB"
 							);
-        					CPrice::Update($this->prices[$id][$key]['id'], $arFields);
-        					$this->counter['update']++;
-        				endif;
-        			endforeach;
-        		endif;
+	        				CPrice::Add($arFields);
+	        				$this->counter['add']++;
+	        			endforeach;
+	        		else:
+	        			foreach ($prices as $key => $price):
+	        				if(intval($this->prices[$id][$key]['price']) != intval($price)):
+	        					$arFields = Array(
+									"PRODUCT_ID"       => $id,
+									"CATALOG_GROUP_ID" => array_search($key, $this->types),
+									"PRICE"            => $price,
+									"CURRENCY"         => "RUB"
+								);
+	        					CPrice::Update($this->prices[$id][$key]['id'], $arFields);
+	        					$this->counter['update']++;
+	        				endif;
+	        			endforeach;
+	        		endif;
+	        		$exist = $this->products[$item->getAttribute('id')];
+	        		$price = intval($item->getElementsByTagName('retail')->item(0)->nodeValue);
+	        		if($exist):
+	        			if(isset($exist['CML2_LINK'])):
+	        				if(isset($exist['CML2_LINK_MIN_PRICE'])):
+	        					if($exist['CML2_LINK_MIN_PRICE'] < $price):
+									$new = $price;
+								endif;
+							else:
+								$new = $price;
+	        				endif;
+	        				if($new):
+	        					$id = $exist['CML2_LINK'];
+	        				endif;
+	        			else:
+	        				if(intval($exist['MIN_PRICE']) < $price):
+								$new = $price;
+								$id = $exist['ID'];
+							endif;
+	        			endif;
+	        			if($new):
+	        				CIBlockElement::SetPropertyValuesEx($id, $this->iblocks['products'], array('MIN_PRICE'=>$new));
+	        			endif;
+	        		else:
+	        			var_dump($item->getAttribute('id'));
+	        			die();
+	        		endif;
+	        	endif;
         	endforeach;
         	
         	fwrite(STDERR, "\033[35m Update: ".$this->counter['update']." \033[32m Add: ".$this->counter['add']." \033[37m\r\n");
@@ -561,7 +590,6 @@
 				return $data['offset'];
 			else
 				return 0;
-			die();
 		}
 	}
 
