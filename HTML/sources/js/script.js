@@ -618,7 +618,7 @@
     };
     initFiltres = function() {
       $('.filter input.color').off('ifCreated').on('ifCreated', function() {
-        return $(this).parents('.icheckbox_color').addClass('ready').css('color', $(this).css('color'));
+        return $(this).parents('.icheckbox_color').css('color', $(this).css('color')).addClass('ready');
       });
       $('.filter input[type="radio"], .filter input[type="checkbox"]').off('ifChanged').on('ifChanged', function() {
         return getFilter($(this));

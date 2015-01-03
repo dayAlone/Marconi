@@ -391,7 +391,9 @@ $(document).ready ->
 	initFiltres = ->
 		# Checkbox
 		$('.filter input.color').off('ifCreated').on 'ifCreated', ()->
-			$(this).parents('.icheckbox_color').addClass('ready').css 'color', $(this).css('color')
+			$(this).parents('.icheckbox_color')
+				.css( 'color', $(this).css('color') )
+				.addClass('ready')
 		
 		$('.filter input[type="radio"], .filter input[type="checkbox"]').off('ifChanged').on 'ifChanged', ->
 			getFilter($(this))
