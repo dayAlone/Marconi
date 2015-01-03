@@ -5684,7 +5684,7 @@ svg g {
   right: 4px;
 }
 .catalog .product__button--center {
-  width: 60%;
+  width: 60.5%;
   left: 50%;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
