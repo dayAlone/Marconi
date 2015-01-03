@@ -49,10 +49,12 @@ if (!empty($arResult['ITEMS']))
           </div>
           <div class="product__hidden">
             <div class="product__frame"></div>
-            <?if(count($item['PROPERTIES']['PICTURES']['VALUE'])>0&&isset($item['PREVIEW_PICTURE']['SRC'])&&isset($item['MIN_PRICE']['VALUE'])):?>
+            <?if(count($item['PROPERTIES']['PICTURES']['VALUE'])>0&&isset($item['PREVIEW_PICTURE']['SRC'])):?>
               <a href="#" class="product__icon product__icon--zoom" data-pictures='<?=json_encode($item['PROPERTIES']['PICTURES']['VALUE'])?>'><?=svg('zoom')?></a>
             <?endif;?>
+            <?if(isset($item['MIN_PRICE']['VALUE'])):?>
             <a href="#" class="product__icon product__icon--cart <?=(count($item['OFFERS'])>0?"product__icon--trigger":"")?>"><?=svg('cart')?></a>
+            <?endif;?>
             <a href="<?=$item['DETAIL_PAGE_URL']?>" class="product__button product__button--center product__button--more">Подробнее</a>
             <?/*<a href="" class="product__button product__button--simmilar">Сравнить</a>*/
             if(count($item['OFFERS'])>0):
