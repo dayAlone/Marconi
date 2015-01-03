@@ -5605,6 +5605,9 @@ svg g {
   -ms-filter: none;
   filter: none;
 }
+.catalog .product__sizes--open .product__button {
+  pointer-events: initial;
+}
 .catalog .product__sizes .product__brand {
   margin-bottom: 10px;
 }
@@ -5613,6 +5616,7 @@ svg g {
   opacity: 1;
   -ms-filter: none;
   filter: none;
+  pointer-events: none;
 }
 .catalog .product__size {
   display: inline-block;
