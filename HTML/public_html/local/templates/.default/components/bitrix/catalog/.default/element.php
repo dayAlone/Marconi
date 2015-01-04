@@ -124,7 +124,7 @@ if ($ElementID > 0)
 	"bitrix:catalog.bigdata.products", 
 	".default", 
 	array(
-		"RCM_TYPE" => "personal",
+		"RCM_TYPE" => "any_personal",
 		"ID" => $ElementID,
 		"IBLOCK_TYPE" => "catalog",
 		"IBLOCK_ID" => "2",
