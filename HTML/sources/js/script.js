@@ -135,7 +135,7 @@
   };
 
   $(document).ready(function() {
-    var closeDropdown, filterRequest, filterTimer, galleryOptions, getElem, getFilter, initFiltres, initProducts, openDropdown, scrollTimer, timer, x;
+    var closeDropdown, filterRequest, filterTimer, galleryOptions, getElem, getFilter, initFiltres, openDropdown, scrollTimer, timer, x;
     delay(300, function() {
       return size();
     });
@@ -399,7 +399,6 @@
             if (i.code) {
               map.setCenter(new google.maps.LatLng(parseFloat(i.coords[0]) - .00245, parseFloat(i.coords[1])));
               map.setZoom(16);
-              console.log("/stores/" + i.code + "/?short=y");
               $.get("/stores/" + i.code + "/?short=y", function(data) {
                 $('.stores').elem('content').html(data);
                 History.pushState(null, document.title, "/stores/" + i.code + "/");
@@ -573,7 +572,7 @@
       $.prettyPhoto.open($(this).data('pictures'));
       return e.preventDefault();
     });
-    initProducts = function() {
+    window.initProducts = function() {
       $('.product').elem('icon').click(function(e) {
         var gallery, items, pswpElement;
         if ($(this).hasMod('zoom')) {
@@ -734,7 +733,6 @@
       if (sort.length > 0) {
         sort = "&sort_param=" + sort[0] + "&sort_value=" + sort[1];
       }
-      console.log(sort);
       return filterTimer = delay(300, function() {
         var ajaxURL, data, values;
         ajaxURL = form.data('url');
@@ -832,6 +830,7 @@
       var text;
       clearTimeout(timer);
       text = x.elem('text').text();
+      console.log(text);
       x.elem('item').show();
       x.elem('frame').find("a:contains(" + text + ")").hide();
       return x.elem('frame').velocity({

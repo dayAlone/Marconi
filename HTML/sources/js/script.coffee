@@ -203,8 +203,6 @@ $(document).ready ->
 						map.setCenter new google.maps.LatLng parseFloat(i.coords[0])-.00245, parseFloat(i.coords[1])
 						map.setZoom 16
 						
-						console.log "/stores/#{i.code}/?short=y"
-
 						$.get "/stores/#{i.code}/?short=y", (data)->
 							$('.stores').elem('content').html(data)
 							History.pushState(null, document.title, "/stores/#{i.code}/");
@@ -353,7 +351,7 @@ $(document).ready ->
 			$.prettyPhoto.open $(this).data 'pictures'
 			e.preventDefault()
 		
-	initProducts = ->
+	window.initProducts = ->
 		$('.product').elem('icon').click (e)->
 			if $(this).hasMod 'zoom'
 				pswpElement = document.querySelectorAll('.pswp')[0];
@@ -487,7 +485,7 @@ $(document).ready ->
 		sort   = [$('.catalog__toolbar .dropdown').data('param'), $('.catalog__toolbar .dropdown').data('value')]
 		if sort.length > 0
 			sort = "&sort_param=#{sort[0]}&sort_value=#{sort[1]}"
-		console.log sort
+		
 		filterTimer = delay 300, ->
 			ajaxURL = form.data('url')
 			if $('.catalog').hasMod 'ajax'
@@ -576,6 +574,7 @@ $(document).ready ->
 	openDropdown = (x)->
 		clearTimeout timer
 		text = x.elem('text').text()
+		console.log text
 		x.elem('item').show()
 		x.elem('frame').find("a:contains(#{text})").hide()
 		x.elem('frame').velocity

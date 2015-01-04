@@ -33,4 +33,5 @@ BX.ready(BX.defer(function(){
 }));
 </script><?
 }
+$APPLICATION->SetPageProperty('body_class', "product");
 ?>
