@@ -13,5 +13,5 @@
 
 	$small = CFile::ResizeImageGet(CFile::GetFileArray($arResult['PREVIEW_PICTURE']['ID']), Array("width" => 800, "height" => 800), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 	$arResult['PREVIEW_PICTURE']['SMALL'] = $small['src'];
-
+	
 ?>
