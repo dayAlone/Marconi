@@ -14,9 +14,11 @@ foreach ($arResult['ITEMS'] as &$item):
 	
 	$rsPath = GetIBlockSectionPath($arResult['ID'], $item['IBLOCK_SECTION_ID']);
 	$arPath = $rsPath->GetNext();
-	$arResult['SECTIONS'][$item['IBLOCK_SECTION_ID']] = $arPath['CODE'];
 	
-	$item['DETAIL_PAGE_URL'] = "/catalog/".$arPath['CODE']."/".$item['CODE']."/";
+	if($arPath):
+		$arResult['SECTIONS'][$item['IBLOCK_SECTION_ID']] = $arPath['CODE'];
+		$item['DETAIL_PAGE_URL'] = "/catalog/".$arPath['CODE']."/".$item['CODE']."/";
+	endif;
 
 	$name = &$item['NAME'];
 	$name = substr($name, strpos($name, $brand)+strlen($brand), strlen($name));
