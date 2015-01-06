@@ -8,11 +8,11 @@
   <div class="picture">
     <div class="row">
       <div class="<?=(count($item['IMAGES'])>1?"col-xs-9 col-lg-10":"col-xs-12")?>">
-      	<? if(count($item['IMAGES'])>0):
+      	<? if(count($item['IMAGES'])>0 || isset($item['PREVIEW_PICTURE']['SRC'])):
       		$array = array_values($item['IMAGES']);
       	?>
-        	<div style="background-image:url(<?=$array[0]['middle']?>)" class="picture__big"></div>
-        	<a data-pictures='<?=json_encode($item['IMAGES'])?>' class="picture__zoom"><?=svg('zoom')?></a>
+        	<div style="background-image:url(<?=(isset($array[0]['middle'])?$array[0]['middle']:$item['PREVIEW_PICTURE']['SRC'])?>)" class="picture__big"></div>
+        	<a data-pictures='<?=(count($item['IMAGES'])>0?json_encode($item['IMAGES']):json_encode(array('src'=>$item['PREVIEW_PICTURE']['SRC'], 'w'=> $item['PREVIEW_PICTURE']['WIDTH'], 'h'=>$item['PREVIEW_PICTURE']['HEIGHT'])))?>' class="picture__zoom"><?=svg('zoom')?></a>
         <? endif;?>
       </div>
       <? if(count($item['IMAGES'])>1):?>
@@ -20,6 +20,7 @@
       <? foreach ($item['IMAGES'] as $key => $image): ?>
       	<a style="background-image:url(<?=$image['small']?>)" href="<?=$image['middle']?>" class="picture__small <?=($key==0?"picture__small--active":"")?>"></a>
       <? endforeach; ?>
+
       </div>
       <? endif;?>
     </div>
