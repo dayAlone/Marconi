@@ -65,6 +65,7 @@ $arItemIDs = array(
 $strObName = 'ob'.preg_replace("/[^a-zA-Z0-9_]/", "x", $strMainID);
 $templateData['JS_OBJ'] = $strObName;
 $item = &$arResult;
+$props = &$arResult['PROPERTIES'];
 ?>
 
 <div class="row">
