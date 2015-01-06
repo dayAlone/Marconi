@@ -48,7 +48,8 @@ if (!empty($arResult['ITEMS']))
   $strElementEdit = CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT");
   $strElementDelete = CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE");
   $arElementDeleteParams = array("CONFIRM" => GetMessage('CT_BCS_TPL_ELEMENT_DELETE_CONFIRM'));
-  require($_SERVER['DOCUMENT_ROOT'].'/include/product.php');
+  foreach ($arResult['ITEMS'] as $key => $item)
+    require($_SERVER['DOCUMENT_ROOT'].'/include/product.php');
 }
 else
 {

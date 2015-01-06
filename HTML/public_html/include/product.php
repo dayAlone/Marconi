@@ -1,7 +1,3 @@
-<? 
-	global $items;
-	foreach ($arResult['ITEMS'] as $key => $item):
-?>
 <div class="col-xs-4 col-lg-3">
 	<div class="product">
 	  <div class="product__content">
@@ -45,4 +41,3 @@
 	  </div>
 	</div>
 </div>
-<? endforeach; ?>
