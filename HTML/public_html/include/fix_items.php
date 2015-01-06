@@ -46,68 +46,45 @@ foreach ($arResult["COMBO"] as $id => $combination)
 	foreach ($combination as $PID => $value)
 		$index[$PID][$value][] = &$arResult["COMBO"][$id];
 
-$totalCheck = false;
-foreach ($allCHECKED as $key => $value)
-	if(in_array($key, getFilterProperties()))
-		$totalCheck = true;
+$this->facet = new \Bitrix\Iblock\PropertyIndex\Facet($arResult['SECTION']['IBLOCK_ID']);
+$this->facet->setPrices($arResult["PRICES"]);
+$this->facet->setSectionId($arResult['SECTION']['ID']);
 
-if(count($allCHECKED)>0):
+$facetIndex = array();
+$except     = getFilterProperties();
 
-foreach ($arResult["ITEMS"] as $PID => &$arItem)
-{
-	if ($arItem["PROPERTY_TYPE"] != "N" && !isset($arItem["PRICE"]))
-	{
-		//All except current one
-		$checked = $allCHECKED;
-		unset($checked[$PID]);
+foreach($arResult["ITEMS"] as $PID => $arItem):
+	foreach($arItem["VALUES"] as $key => $ar):
+		if ($arResult["FACET_FILTER"] && isset($ar["FACET_VALUE"]))
+			$facetIndex[$PID][$ar["FACET_VALUE"]] = &$arResult["ITEMS"][$PID]["VALUES"][$key];
+		if(
+			isset($_CHECK[$ar["CONTROL_NAME"]])
+			|| (
+				isset($_CHECK[$ar["CONTROL_NAME_ALT"]])
+				&& $_CHECK[$ar["CONTROL_NAME_ALT"]] == $ar["HTML_VALUE_ALT"]
+			)
+		):
+			if($_CHECK[$ar["CONTROL_NAME"]] == $ar["HTML_VALUE"] && !isset($arItem["PRICE"])):
+				if ($arResult["FACET_FILTER"] && !in_array($PID, $except)):
+					$this->facet->addDictionaryPropertyFilter($PID, "=", $ar["FACET_VALUE"]);
+				endif;
+			endif;
+		endif;
 
-		foreach ($arItem["VALUES"] as $key => &$arValue)
-		{
-			$found = false;
-			if (isset($index[$PID][$arValue["VALUE"]]))
-			{
-				//Check if there are any combinations exists
-				foreach ($index[$PID][$arValue["VALUE"]] as $id => $combination)
-				{
-					//Check if combination fits into the filter
-					$isOk = true;
-					foreach ($checked as $cPID => $values)
-					{
-						if(!in_array($cPID, getFilterProperties()))
-						{
-							if (!isset($values[$combination[$cPID]]))
-							{
-								$isOk = false;
-								break;
-							}
-						}
-					}
+	endforeach;
+endforeach;
 
-					if($isOk && $totalCheck)
-					{
-						$enter = false;
-						foreach ($checked as $cPID => $values)
-							if (isset($values[$combination[$cPID]]) && in_array($cPID, getFilterProperties()))
-								$enter = true;
-						if(!$enter)
-							$isOk = false;
-					}
-					if ($isOk)
-					{
-						$found = true;
-						break;
-					}
-				}
-			}
-			if (!$found)
-				$arValue["DISABLED"] = true;
-			else
-				unset($arValue["DISABLED"]);
-		}
-		unset($arValue);
-	}
-}
-
-endif;
-unset($arItem);
+$res = $this->facet->query($arResult["FACET_FILTER"]);
+while ($row = $res->fetch()):
+	$facetId = $row["FACET_ID"];
+	
+	if (\Bitrix\Iblock\PropertyIndex\Storage::isPropertyId($facetId)):
+		$pp = \Bitrix\Iblock\PropertyIndex\Storage::facetIdToPropertyId($facetId);
+		if ($arResult["ITEMS"][$pp]["PROPERTY_TYPE"] != "N"):
+			if (isset($facetIndex[$pp][$row["VALUE"]])):
+					unset($facetIndex[$pp][$row["VALUE"]]["DISABLED"]);
+				endif;
+		endif;
+	endif;
+endwhile;
 ?>
