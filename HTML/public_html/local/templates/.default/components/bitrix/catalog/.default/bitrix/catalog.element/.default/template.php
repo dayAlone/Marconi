@@ -181,7 +181,13 @@ $props = &$arResult['PROPERTIES'];
 	      </div>
 	    </div>
 	    <div class="tabs">
-	      <div class="tabs__title"><a href="#description" class="tabs__trigger tabs__trigger--active">описание</a><a href="#payment" class="tabs__trigger">оплата</a><a href="#delivery" class="tabs__trigger">доставка</a><a href="#refund" class="tabs__trigger">возврат</a><a href="#feedback" class="tabs__trigger">обратная связь</a></div>
+	      <div class="tabs__title">
+	      	<a href="#description" class="tabs__trigger tabs__trigger--active">описание</a>
+	      	<a href="#payment" class="tabs__trigger">оплата</a>
+	      	<a href="#delivery" class="tabs__trigger">доставка</a>
+	      	<a href="#refund" class="tabs__trigger">возврат</a>
+	      	<a href="#feedback" class="tabs__trigger">обратная связь</a>
+	      </div>
 	      <div id="description" class="tabs__content tabs__content--active">
 	        <p>Земля традиций и инноваций, фермеров и ремесленников, земля, где искусство встречается с технологиями, где хорошая кухня сочетается с гостеприимством местных жителей. Именно в Абруццо трое молодых братьев — Франческо, Назарено и Абрамо Тонелли, в небольшой мастерской объединив свои навыки и знания, основывают небольшую семейную фабрику в честь своих родителей.</p>
 	      </div>
