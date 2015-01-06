@@ -215,7 +215,7 @@ if ($ElementID > 0)
 		"MESS_BTN_BUY" => "Купить",
 		"MESS_BTN_DETAIL" => "Подробнее",
 		"MESS_BTN_SUBSCRIBE" => "Подписаться",
-		"PAGE_ELEMENT_COUNT" => "10",
+		"PAGE_ELEMENT_COUNT" => "5",
 		"LINE_ELEMENT_COUNT" => "5",
 		"TEMPLATE_THEME" => "blue",
 		"DETAIL_URL" => "/catalog/#SECTION_CODE#/#ELEMENT_CODE#/",

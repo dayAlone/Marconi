@@ -108,120 +108,152 @@ if (!empty($arResult['ITEMS']))
 {
 
 	?>
-		<input type="hidden" name="bigdata_recommendation_id" value="<?=htmlspecialcharsbx($arResult['RID'])?>">
-		<script>
-			initProducts();
-		</script>
-	<?
-
-	$arSkuTemplate = array();
-	if(is_array($arResult['SKU_PROPS']))
-	{
-		foreach ($arResult['SKU_PROPS'] as $iblockId => $skuProps)
-		{
-			$arSkuTemplate[$iblockId] = array();
-			foreach ($skuProps as &$arProp)
-			{
-				ob_start();
-				if ('TEXT' == $arProp['SHOW_MODE'])
-				{
-					if (5 < $arProp['VALUES_COUNT'])
-					{
-						$strClass = 'bx_item_detail_size full';
-						$strWidth = ($arProp['VALUES_COUNT'] * 20) . '%';
-						$strOneWidth = (100 / $arProp['VALUES_COUNT']) . '%';
-						$strSlideStyle = '';
-					}
-					else
-					{
-						$strClass = 'bx_item_detail_size';
-						$strWidth = '100%';
-						$strOneWidth = '20%';
-						$strSlideStyle = 'display: none;';
-					}
-					?>
-				<div class="<? echo $strClass; ?>" id="#ITEM#_prop_<? echo $arProp['ID']; ?>_cont">
-					<span class="bx_item_section_name_gray"><? echo htmlspecialcharsex($arProp['NAME']); ?></span>
-
-					<div class="bx_size_scroller_container">
-						<div class="bx_size">
-							<ul id="#ITEM#_prop_<? echo $arProp['ID']; ?>_list" style="width: <? echo $strWidth; ?>;"><?
-								foreach ($arProp['VALUES'] as $arOneValue)
-								{
-									?>
-								<li
-									data-treevalue="<? echo $arProp['ID'] . '_' . $arOneValue['ID']; ?>"
-									data-onevalue="<? echo $arOneValue['ID']; ?>"
-									style="width: <? echo $strOneWidth; ?>;"
-									><i></i><span class="cnt"><? echo htmlspecialcharsex($arOneValue['NAME']); ?></span>
-									</li><?
-								}
-								?></ul>
-						</div>
-						<div class="bx_slide_left" id="#ITEM#_prop_<? echo $arProp['ID']; ?>_left" data-treevalue="<? echo $arProp['ID']; ?>" style="<? echo $strSlideStyle; ?>"></div>
-						<div class="bx_slide_right" id="#ITEM#_prop_<? echo $arProp['ID']; ?>_right" data-treevalue="<? echo $arProp['ID']; ?>" style="<? echo $strSlideStyle; ?>"></div>
-					</div>
-					</div><?
-				}
-				elseif ('PICT' == $arProp['SHOW_MODE'])
-				{
-					if (5 < $arProp['VALUES_COUNT'])
-					{
-						$strClass = 'bx_item_detail_scu full';
-						$strWidth = ($arProp['VALUES_COUNT'] * 20) . '%';
-						$strOneWidth = (100 / $arProp['VALUES_COUNT']) . '%';
-						$strSlideStyle = '';
-					}
-					else
-					{
-						$strClass = 'bx_item_detail_scu';
-						$strWidth = '100%';
-						$strOneWidth = '20%';
-						$strSlideStyle = 'display: none;';
-					}
-					?>
-				<div class="<? echo $strClass; ?>" id="#ITEM#_prop_<? echo $arProp['ID']; ?>_cont">
-					<span class="bx_item_section_name_gray"><? echo htmlspecialcharsex($arProp['NAME']); ?></span>
-
-					<div class="bx_scu_scroller_container">
-						<div class="bx_scu">
-							<ul id="#ITEM#_prop_<? echo $arProp['ID']; ?>_list" style="width: <? echo $strWidth; ?>;"><?
-								foreach ($arProp['VALUES'] as $arOneValue)
-								{
-									?>
-								<li
-									data-treevalue="<? echo $arProp['ID'] . '_' . $arOneValue['ID'] ?>"
-									data-onevalue="<? echo $arOneValue['ID']; ?>"
-									style="width: <? echo $strOneWidth; ?>; padding-top: <? echo $strOneWidth; ?>;"
-									><i title="<? echo htmlspecialcharsbx($arOneValue['NAME']); ?>"></i>
-							<span class="cnt"><span class="cnt_item"
-													style="background-image:url('<? echo $arOneValue['PICT']['SRC']; ?>');"
-													title="<? echo htmlspecialcharsbx($arOneValue['NAME']); ?>"
-									></span></span></li><?
-								}
-								?></ul>
-						</div>
-						<div class="bx_slide_left" id="#ITEM#_prop_<? echo $arProp['ID']; ?>_left" data-treevalue="<? echo $arProp['ID']; ?>" style="<? echo $strSlideStyle; ?>"></div>
-						<div class="bx_slide_right" id="#ITEM#_prop_<? echo $arProp['ID']; ?>_right" data-treevalue="<? echo $arProp['ID']; ?>" style="<? echo $strSlideStyle; ?>"></div>
-					</div>
-					</div><?
-				}
-				$arSkuTemplate[$iblockId][$arProp['CODE']] = ob_get_contents();
-				ob_end_clean();
-				unset($arProp);
-			}
-		}
-	}
-
-	?>
+	<input type="hidden" name="bigdata_recommendation_id" value="<?=htmlspecialcharsbx($arResult['RID'])?>">
 	<div data-title="francesco marconi рекомендует" class="catalog__divider catalog__divider--title"></div>
 	<div class="catalog catalog--full-width catalog--one-line">
         <div class="row">
-        	<? 
-        		require($_SERVER['DOCUMENT_ROOT'].'/include/product.php');
-        	?>
-		</div>
-	</div>
+	<?
+	foreach ($arResult['ITEMS'] as $key => $arItem)
+	{
+		$item = $arItem;
+		require($_SERVER['DOCUMENT_ROOT'].'/include/product.php');
+
+		$strMainID = $this->GetEditAreaId($arItem['ID'] . $key);
+
+		$arItemIDs = array(
+			'ID' => $strMainID,
+			'PICT' => $strMainID . '_pict',
+			'SECOND_PICT' => $strMainID . '_secondpict',
+			'MAIN_PROPS' => $strMainID . '_main_props',
+
+			'QUANTITY' => $strMainID . '_quantity',
+			'QUANTITY_DOWN' => $strMainID . '_quant_down',
+			'QUANTITY_UP' => $strMainID . '_quant_up',
+			'QUANTITY_MEASURE' => $strMainID . '_quant_measure',
+			'BUY_LINK' => $strMainID . '_buy_link',
+			'SUBSCRIBE_LINK' => $strMainID . '_subscribe',
+
+			'PRICE' => $strMainID . '_price',
+			'DSC_PERC' => $strMainID . '_dsc_perc',
+			'SECOND_DSC_PERC' => $strMainID . '_second_dsc_perc',
+
+			'PROP_DIV' => $strMainID . '_sku_tree',
+			'PROP' => $strMainID . '_prop_',
+			'DISPLAY_PROP_DIV' => $strMainID . '_sku_prop',
+			'BASKET_PROP_DIV' => $strMainID . '_basket_prop'
+		);
+
+		$strObName = 'ob' . preg_replace("/[^a-zA-Z0-9_]/", "x", $strMainID);
+
+		$strTitle = (
+		isset($arItem["IPROPERTY_VALUES"]["ELEMENT_PREVIEW_PICTURE_FILE_TITLE"]) && '' != isset($arItem["IPROPERTY_VALUES"]["ELEMENT_PREVIEW_PICTURE_FILE_TITLE"])
+			? $arItem["IPROPERTY_VALUES"]["ELEMENT_PREVIEW_PICTURE_FILE_TITLE"]
+			: $arItem['NAME']
+		);
+		$showImgClass = $arParams['SHOW_IMAGE'] != "Y" ? "no-imgs" : "";
+
+		?>
+		<?
+		if (!isset($arItem['OFFERS']) || empty($arItem['OFFERS'])) // Simple Product
+		{
+		
+			$arJSParams = array(
+				'PRODUCT_TYPE' => $arItem['CATALOG_TYPE'],
+				'SHOW_QUANTITY' => $arParams['USE_PRODUCT_QUANTITY'],
+				'SHOW_ADD_BASKET_BTN' => false,
+				'SHOW_BUY_BTN' => true,
+				'SHOW_ABSENT' => true,
+				'PRODUCT' => array(
+					'ID' => $arItem['ID'],
+					'NAME' => $arItem['~NAME'],
+					'PICT' => ('Y' == $arItem['SECOND_PICT'] ? $arItem['PREVIEW_PICTURE_SECOND'] : $arItem['PREVIEW_PICTURE']),
+					'CAN_BUY' => $arItem["CAN_BUY"],
+					'SUBSCRIPTION' => ('Y' == $arItem['CATALOG_SUBSCRIPTION']),
+					'CHECK_QUANTITY' => $arItem['CHECK_QUANTITY'],
+					'MAX_QUANTITY' => $arItem['CATALOG_QUANTITY'],
+					'STEP_QUANTITY' => $arItem['CATALOG_MEASURE_RATIO'],
+					'QUANTITY_FLOAT' => is_double($arItem['CATALOG_MEASURE_RATIO']),
+					'ADD_URL' => $arItem['~ADD_URL'],
+					'SUBSCRIBE_URL' => $arItem['~SUBSCRIBE_URL']
+				),
+				'BASKET' => array(
+					'ADD_PROPS' => ('Y' == $arParams['ADD_PROPERTIES_TO_BASKET']),
+					'QUANTITY' => $arParams['PRODUCT_QUANTITY_VARIABLE'],
+					'PROPS' => $arParams['PRODUCT_PROPS_VARIABLE'],
+					'EMPTY_PROPS' => $emptyProductProperties
+				),
+				'VISUAL' => array(
+					'ID' => $arItemIDs['ID'],
+					'PICT_ID' => ('Y' == $arItem['SECOND_PICT'] ? $arItemIDs['SECOND_PICT'] : $arItemIDs['PICT']),
+					'QUANTITY_ID' => $arItemIDs['QUANTITY'],
+					'QUANTITY_UP_ID' => $arItemIDs['QUANTITY_UP'],
+					'QUANTITY_DOWN_ID' => $arItemIDs['QUANTITY_DOWN'],
+					'PRICE_ID' => $arItemIDs['PRICE'],
+					'BUY_ID' => $arItemIDs['BUY_LINK'],
+					'BASKET_PROP_DIV' => $arItemIDs['BASKET_PROP_DIV']
+				),
+				'LAST_ELEMENT' => $arItem['LAST_ELEMENT']
+			);
+			?>
+				<script type="text/javascript">
+					var <? echo $strObName; ?> = new JCCatalogBigdataProducts(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
+				</script><?
+		}
+		else // Wth Sku
+		{
+			$arJSParams = array(
+				'PRODUCT_TYPE' => $arItem['CATALOG_TYPE'],
+				'SHOW_QUANTITY' => $arParams['USE_PRODUCT_QUANTITY'],
+				'SHOW_ADD_BASKET_BTN' => false,
+				'SHOW_BUY_BTN' => true,
+				'SHOW_ABSENT' => true,
+				'SHOW_SKU_PROPS' => $arItem['OFFERS_PROPS_DISPLAY'],
+				'SECOND_PICT' => ($arParams['SHOW_IMAGE'] == "Y" ? $arItem['SECOND_PICT'] : false),
+				'SHOW_OLD_PRICE' => ('Y' == $arParams['SHOW_OLD_PRICE']),
+				'SHOW_DISCOUNT_PERCENT' => ('Y' == $arParams['SHOW_DISCOUNT_PERCENT']),
+				'DEFAULT_PICTURE' => array(
+					'PICTURE' => $arItem['PRODUCT_PREVIEW'],
+					'PICTURE_SECOND' => $arItem['PRODUCT_PREVIEW_SECOND']
+				),
+				'VISUAL' => array(
+					'ID' => $arItemIDs['ID'],
+					'PICT_ID' => $arItemIDs['PICT'],
+					'SECOND_PICT_ID' => $arItemIDs['SECOND_PICT'],
+					'QUANTITY_ID' => $arItemIDs['QUANTITY'],
+					'QUANTITY_UP_ID' => $arItemIDs['QUANTITY_UP'],
+					'QUANTITY_DOWN_ID' => $arItemIDs['QUANTITY_DOWN'],
+					'QUANTITY_MEASURE' => $arItemIDs['QUANTITY_MEASURE'],
+					'PRICE_ID' => $arItemIDs['PRICE'],
+					'TREE_ID' => $arItemIDs['PROP_DIV'],
+					'TREE_ITEM_ID' => $arItemIDs['PROP'],
+					'BUY_ID' => $arItemIDs['BUY_LINK'],
+					'ADD_BASKET_ID' => $arItemIDs['ADD_BASKET_ID'],
+					'DSC_PERC' => $arItemIDs['DSC_PERC'],
+					'SECOND_DSC_PERC' => $arItemIDs['SECOND_DSC_PERC'],
+					'DISPLAY_PROP_DIV' => $arItemIDs['DISPLAY_PROP_DIV'],
+				),
+				'BASKET' => array(
+					'QUANTITY' => $arParams['PRODUCT_QUANTITY_VARIABLE'],
+					'PROPS' => $arParams['PRODUCT_PROPS_VARIABLE']
+				),
+				'PRODUCT' => array(
+					'ID' => $arItem['ID'],
+					'NAME' => $arItem['~NAME']
+				),
+				'OFFERS' => $arItem['JS_OFFERS'],
+				'OFFER_SELECTED' => $arItem['OFFERS_SELECTED'],
+				'TREE_PROPS' => $arSkuProps,
+				'LAST_ELEMENT' => $arItem['LAST_ELEMENT']
+			);
+			?>
+				<script type="text/javascript">
+					var <? echo $strObName; ?> = new JCCatalogBigdataProducts(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
+				</script>
+			<?
+		}
+	}
+	?>
+	</div></div>
 <?
 }
 
