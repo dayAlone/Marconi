@@ -16,4 +16,3 @@ BX.ready(BX.defer(function(){
 </script><?
 }
 ?>
-?>
