@@ -51,6 +51,8 @@ foreach ($allCHECKED as $key => $value)
 	if(in_array($key, getFilterProperties()))
 		$totalCheck = true;
 
+if(count($allCHECKED)>0):
+
 foreach ($arResult["ITEMS"] as $PID => &$arItem)
 {
 	if ($arItem["PROPERTY_TYPE"] != "N" && !isset($arItem["PRICE"]))
@@ -105,5 +107,7 @@ foreach ($arResult["ITEMS"] as $PID => &$arItem)
 		unset($arValue);
 	}
 }
+
+endif;
 unset($arItem);
 ?>
