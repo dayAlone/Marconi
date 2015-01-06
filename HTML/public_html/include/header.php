@@ -20,6 +20,7 @@
     ?></title>
   <?
     $APPLICATION->ShowHead();
+    $APPLICATION->ShowViewContent('header');
   ?>
 </head>
 <body class="<?=$APPLICATION->AddBufferContent("body_class");?>">

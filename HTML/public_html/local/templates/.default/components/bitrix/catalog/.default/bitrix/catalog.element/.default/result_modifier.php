@@ -14,4 +14,10 @@
 	$small = CFile::ResizeImageGet(CFile::GetFileArray($arResult['PREVIEW_PICTURE']['ID']), Array("width" => 800, "height" => 800), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 	$arResult['PREVIEW_PICTURE']['SMALL'] = $small['src'];
 	
+	$APPLICATION->SetPageProperty('description', strip_tags($arResult["PREVIEW_TEXT"]));
+	if(isset($arResult['PREVIEW_PICTURE']['SRC'])):
+		$this->SetViewTarget('header');
+			?><link rel="image_src" href="http://<?=$arResult['PREVIEW_PICTURE']['SRC'])?>" /><?
+		$this->EndViewTarget();
+	endif;
 ?>
