@@ -109,6 +109,7 @@ if (!empty($arResult['ITEMS']))
 
 	?>
 	<input type="hidden" name="bigdata_recommendation_id" value="<?=htmlspecialcharsbx($arResult['RID'])?>">
+	<script> window.initProducts() </script>
 	<div data-title="francesco marconi рекомендует" class="catalog__divider catalog__divider--title"></div>
 	<div class="catalog catalog--full-width catalog--one-line">
         <div class="row">
