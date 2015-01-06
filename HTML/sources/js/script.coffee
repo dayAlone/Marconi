@@ -348,7 +348,11 @@ $(document).ready ->
 			backgroundImage : "url(#{$(this).attr('href')})"
 		e.preventDefault()
 	$('.picture').elem('zoom').click (e)->
-			$.prettyPhoto.open $(this).data 'pictures'
+			pswpElement = document.querySelectorAll('.pswp')[0];
+			items = $(this).data('pictures')
+			console.log items
+			gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, galleryOptions);
+			gallery.init();
 			e.preventDefault()
 		
 	window.initProducts = ->
@@ -356,9 +360,7 @@ $(document).ready ->
 			if $(this).hasMod 'zoom'
 				pswpElement = document.querySelectorAll('.pswp')[0];
 				items = $(this).data('pictures')
-
 				gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, galleryOptions);
-
 				gallery.init();
 			if $(this).hasMod 'trigger'
 				$(this).block('sizes').mod 'open', true

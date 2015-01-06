@@ -12,7 +12,6 @@
 /** @var CBitrixComponent $component */
 use Bitrix\Main\Loader;
 use Bitrix\Main\ModuleManager;
-
 $this->setFrameMode(true);
 if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMON_SETTINGS_BASKET_POPUP'] == 'Y')
 {
@@ -126,7 +125,7 @@ if ($ElementID > 0)
 	array(
 		"LINE_ELEMENT_COUNT" => "3",
 		"TEMPLATE_THEME" => "blue",
-		"DETAIL_URL" => "",
+		"DETAIL_URL" => "/catalog/#SECTION_CODE#/#ELEMENT_CODE#/",
 		"BASKET_URL" => "/personal/basket.php",
 		"ACTION_VARIABLE" => "action",
 		"PRODUCT_ID_VARIABLE" => "id",
@@ -151,7 +150,7 @@ if ($ElementID > 0)
 		"PAGE_ELEMENT_COUNT" => "5",
 		"SHOW_FROM_SECTION" => "N",
 		"IBLOCK_ID" => "1",
-		"SECTION_ID" => $_REQUEST["SECTION_CODE"],
+		"SECTION_ID" => "",
 		"SECTION_CODE" => "",
 		"SHOW_PRODUCTS_6" => "N",
 		"PROPERTY_CODE_6" => "",
@@ -170,7 +169,7 @@ if ($ElementID > 0)
 		"CACHE_TIME" => "36000000",
 		"CACHE_GROUPS" => "Y",
 		"SHOW_PRODUCTS_1" => "Y",
-		"SECTION_ELEMENT_ID" => $GLOBALS["CATALOG_CURRENT_ELEMENT_ID"],
+		"SECTION_ELEMENT_ID" => "",
 		"SECTION_ELEMENT_CODE" => "",
 		"DEPTH" => "2",
 		"PROPERTY_CODE_1" => array(
@@ -190,16 +189,15 @@ if ($ElementID > 0)
 			1 => "",
 		),
 		"CART_PROPERTIES_2" => array(
-			0 => "",
-			1 => "SIZE",
-			2 => "",
+			0 => "SIZE",
+			1 => "",
 		),
 		"ADDITIONAL_PICT_PROP_2" => "",
 		"OFFER_TREE_PROPS_2" => array(
 			0 => "-",
 		)
 	),
-	false
+	$component
 );
 	$APPLICATION->IncludeComponent(
 	"bitrix:catalog.bigdata.products", 
@@ -292,12 +290,12 @@ if ($ElementID > 0)
 			0 => "SIZE",
 		),
 		"SECTION_ID" => "",
-		"SECTION_CODE" => "",
+		"SECTION_CODE" => $arResult['VARIABLES']['SECTION_CODE'],
 		"SECTION_ELEMENT_ID" => "",
 		"SECTION_ELEMENT_CODE" => "",
 		"DEPTH" => "2"
 	),
-	false
+	$component
 );
 }
 ?>

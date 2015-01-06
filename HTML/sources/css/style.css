@@ -3099,6 +3099,9 @@ svg g {
   padding: 0 15px;
   margin-bottom: 20px;
 }
+.product__big-button--width {
+  min-width: 70%;
+}
 .product__big-button--border {
   color: #000;
   background: #fff;

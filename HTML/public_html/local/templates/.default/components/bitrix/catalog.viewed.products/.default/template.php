@@ -5,7 +5,6 @@
 /** @global CDatabase $DB */
 
 $frame = $this->createFrame()->begin();
-
 if (!empty($arResult['ITEMS']))
 {
 	$templateData = array(

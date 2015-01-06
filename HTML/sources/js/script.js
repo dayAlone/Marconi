@@ -569,7 +569,12 @@
       return e.preventDefault();
     });
     $('.picture').elem('zoom').click(function(e) {
-      $.prettyPhoto.open($(this).data('pictures'));
+      var gallery, items, pswpElement;
+      pswpElement = document.querySelectorAll('.pswp')[0];
+      items = $(this).data('pictures');
+      console.log(items);
+      gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, galleryOptions);
+      gallery.init();
       return e.preventDefault();
     });
     window.initProducts = function() {

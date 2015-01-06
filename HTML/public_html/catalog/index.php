@@ -179,7 +179,7 @@ $APPLICATION->SetPageProperty('body_class', "catalog ".(!isset($_REQUEST['v'])?"
 		"SEF_URL_TEMPLATES" => array(
 			"sections" => "",
 			"section"  => "#SECTION_CODE#/",
-			"element"  => "#SECTION_CODE#/#ELEMENT_ID#/",
+			"element"  => "#SECTION_CODE#/#ELEMENT_CODE#/",
 			"compare"  => "compare.php?action=#ACTION_CODE#",
 		),
 		"VARIABLE_ALIASES" => array(

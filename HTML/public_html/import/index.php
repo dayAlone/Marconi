@@ -769,7 +769,8 @@
 			$raw   = new CIBlockSection;
 			$array = Array(
 				"ACTIVE"    => "Y",
-				"IBLOCK_ID" => $id
+				"IBLOCK_ID" => $id,
+				"CODE"      => Cutil::translit($data['NAME'], "ru");
 			);
 			$array = array_merge($array, $data);
 			return $raw->Add($array);
