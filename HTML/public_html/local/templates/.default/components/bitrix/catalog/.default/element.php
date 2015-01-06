@@ -123,7 +123,7 @@ if ($ElementID > 0)
 	"bitrix:catalog.viewed.products", 
 	".default", 
 	array(
-		"LINE_ELEMENT_COUNT" => "3",
+		"LINE_ELEMENT_COUNT" => "5",
 		"TEMPLATE_THEME" => "blue",
 		"DETAIL_URL" => "/catalog/#SECTION_CODE#/#ELEMENT_CODE#/",
 		"BASKET_URL" => "/personal/basket.php",
@@ -216,7 +216,7 @@ if ($ElementID > 0)
 		"MESS_BTN_DETAIL" => "Подробнее",
 		"MESS_BTN_SUBSCRIBE" => "Подписаться",
 		"PAGE_ELEMENT_COUNT" => "10",
-		"LINE_ELEMENT_COUNT" => "3",
+		"LINE_ELEMENT_COUNT" => "5",
 		"TEMPLATE_THEME" => "blue",
 		"DETAIL_URL" => "/catalog/#SECTION_CODE#/#ELEMENT_CODE#/",
 		"CACHE_TYPE" => "A",
