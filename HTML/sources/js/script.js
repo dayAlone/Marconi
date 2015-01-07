@@ -553,8 +553,8 @@
       focus: false,
       shareEl: false
     };
-    $('.tabs__trigger:first').mod('active', true);
-    $('.tabs__content:first').mod('active', true);
+    $('.tabs__trigger').addClass('.tabs__trigger--active');
+    $('.tabs__content').addClass('.tabs__content--active');
     $('.sizes .dropdown').elem('item').click(function(e) {
       return $(this).block().data('id', $(this).data('id'));
     });
