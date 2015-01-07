@@ -6341,7 +6341,7 @@ svg g {
   background-size: 150px auto;
   border: 1px solid #fff;
   background-position: center center;
-  background-position: calc(50% -20px) calc(50% -20px);
+  background-position: calc(50% - 20px) calc(50% - 20px);
   -webkit-box-shadow: inset 0 0 0 2px #fff;
   box-shadow: inset 0 0 0 2px #fff;
   -webkit-transition-property: all;
