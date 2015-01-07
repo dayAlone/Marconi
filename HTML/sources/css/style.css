@@ -3423,10 +3423,12 @@ svg g {
   position: relative;
   top: -7px;
 }
+.product .sizes .dropdown--disable {
+  pointer-events: none;
+}
 .product .sizes .dropdown--disable .dropdown__trigger {
   padding: 0 10px;
   text-align: center;
-  pointer-events: none;
 }
 .product .sizes .dropdown:hover .dropdown__trigger,
 .product .sizes .dropdown--open .dropdown__trigger {
