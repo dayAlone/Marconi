@@ -77,7 +77,7 @@
     <?else:?>
       <div class="row">
         <div class="col-xs-3 col-lg-2">
-          <div class="contacts"><?=svg('phone')?>8 800 555 333 0</a>
+          <div class="contacts"><?=svg('phone')?>+7 926 468 86 86</a>
             <div class="contacts__text">Горячая линия</div>
           </div>
         </div>
