@@ -238,6 +238,8 @@
 					path
 						fill black
 	.available
+		&__row
+			position relative
 		&__product-name
 			text-transform: uppercase
 			font-weight: bold
@@ -250,10 +252,43 @@
 		&__title
 			position absolute
 			top 50%
-			margin-top -10px
+			max-width 60%
 			transform translateY(-50%)
+		&__icon
+			width 15px
+			height 15px
+			display inline-block
+			position relative
+			top 3px
+			border-radius 14px
+			&--true
+				background #009100
+			&--false
+				background #ff282d
 		&__picture
 			width 170px
 			height 170px
 			background-size auto 90%
 			margin-bottom 10px
+		
+		&__table
+			font-size 13px
+			
+			tbody
+				td
+					padding 10px 0
+					text-transform: uppercase
+					font-weight: bold
+					span
+						margin-right 8px
+					&.available__address
+						font-size 12px
+						text-transform: none
+						font-weight: normal
+			th
+				border-top 1px solid #e2e5e8
+				border-bottom 1px solid #e2e5e8
+				font-weight: normal
+				font-size 12px
+				padding 7px 0 2px
+			

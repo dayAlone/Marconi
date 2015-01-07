@@ -381,7 +381,7 @@ $this->SetViewTarget('footer');
     <div class="modal-content">
     	<a href="#" class="close" data-dismiss="modal" aria-label="Close"><?=svg('close')?></a>
     	<div class="modal-frame" data-title="где купить">
-	    	<div class="row">
+	    	<div class="row available__row">
 	    		<div class="col-xs-3">
 	    			<div class="available__picture" style="background-image: url(<?=(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg")?>)"></div>	
 	    		</div>
@@ -395,6 +395,10 @@ $this->SetViewTarget('footer');
 	    	<?
 	    	global $arFilter;
         	$arFilter = array('!PROPERTY_STORE' => false);
+        	$offers   = array();
+        	foreach ($item['OFFERS'] as $offer)
+        		$offers[$offer['ID']] = $item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']];
+
         	$APPLICATION->IncludeComponent("bitrix:news.list", "available", 
 				array(
 					"IBLOCK_ID"     => 6,
@@ -405,7 +409,8 @@ $this->SetViewTarget('footer');
 					"SORT_ORDER1"   => "ASC",
 					"DETAIL_URL"    => "/catalog/",
 					"CACHE_TYPE"    => "A",
-					'PROPERTY_CODE' => array(),
+					'PROPERTY_CODE' => array('ADDRESS'),
+					'OFFERS'        => $offers,
 					"SET_TITLE"     => "N"
 				),
 				$component

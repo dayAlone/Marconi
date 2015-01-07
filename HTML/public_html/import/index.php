@@ -577,9 +577,6 @@
 	        			if($new):
 	        				CIBlockElement::SetPropertyValuesEx($id, $this->iblocks['products'], array('MIN_PRICE'=>$new));
 	        			endif;
-	        		else:
-	        			var_dump($item->getAttribute('id'));
-	        			die();
 	        		endif;
 	        	endif;
         	endforeach;

@@ -3475,6 +3475,9 @@ svg g {
 .product .sizes .dropdown__trigger svg path {
   fill: #000;
 }
+.product .available__row {
+  position: relative;
+}
 .product .available__product-name {
   text-transform: uppercase;
   font-weight: bold;
@@ -3489,12 +3492,27 @@ svg g {
 .product .available__title {
   position: absolute;
   top: 50%;
-  margin-top: -10px;
+  max-width: 60%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+.product .available__icon {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  -webkit-border-radius: 14px;
+  border-radius: 14px;
+}
+.product .available__icon--true {
+  background: #009100;
+}
+.product .available__icon--false {
+  background: #ff282d;
 }
 .product .available__picture {
   width: 170px;
@@ -3503,6 +3521,29 @@ svg g {
   -moz-background-size: auto 90%;
   background-size: auto 90%;
   margin-bottom: 10px;
+}
+.product .available__table {
+  font-size: 13px;
+}
+.product .available__table tbody td {
+  padding: 10px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.product .available__table tbody td span {
+  margin-right: 8px;
+}
+.product .available__table tbody td.available__address {
+  font-size: 12px;
+  text-transform: none;
+  font-weight: normal;
+}
+.product .available__table th {
+  border-top: 1px solid #e2e5e8;
+  border-bottom: 1px solid #e2e5e8;
+  font-weight: normal;
+  font-size: 12px;
+  padding: 7px 0 2px;
 }
 .basket .nav__item:nth-child(6) {
   background: #fff;
