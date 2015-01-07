@@ -3521,6 +3521,8 @@ svg g {
   -moz-background-size: auto 90%;
   background-size: auto 90%;
   margin-bottom: 10px;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 .product .available__table {
   font-size: 13px;

@@ -335,7 +335,7 @@ $(document).ready ->
 		focus   : false
 		shareEl : false
 
-	$('#available').modal()
+	
 
 	$('.tabs__trigger:first').addClass 'tabs__trigger--active'
 	$('.tabs__content:first').addClass 'tabs__content--active'
