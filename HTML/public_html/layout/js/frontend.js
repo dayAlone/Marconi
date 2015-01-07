@@ -38396,8 +38396,8 @@ return PhotoSwipeUI_Default;
       focus: false,
       shareEl: false
     };
-    $('.tabs__trigger').addClass('.tabs__trigger--active');
-    $('.tabs__content').addClass('.tabs__content--active');
+    $('.tabs__trigger:first').addClass('.tabs__trigger--active');
+    $('.tabs__content:first').addClass('.tabs__content--active');
     $('.sizes .dropdown').elem('item').click(function(e) {
       return $(this).block().data('id', $(this).data('id'));
     });
