@@ -6316,12 +6316,10 @@ svg g {
 .product__description {
   padding-left: 22px;
   margin-left: -22px;
-  border-left: 2px solid #000;
 }
 .product .picture {
   width: 100%;
   margin-bottom: 30px;
-  border-right: 2px solid #000;
   padding-right: 25px;
 }
 .product .picture__big,
