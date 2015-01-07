@@ -335,7 +335,7 @@ $(document).ready ->
 		focus   : false
 		shareEl : false
 
-	
+
 
 	$('.tabs__trigger:first').addClass 'tabs__trigger--active'
 	$('.tabs__content:first').addClass 'tabs__content--active'
@@ -563,11 +563,11 @@ $(document).ready ->
 		getFilter()
 
 	$('.brand-select .dropdown .dropdown__item').click (e)->
-		if $(this).data('id') > 0
+		if $(this).data('id').length > 0
 			$.cookie('BRAND', $(this).data('id'))
 		else
 			$.cookie('BRAND', null)
-
+		
 		window.location.reload()
 
 	# Dropdown
