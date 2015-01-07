@@ -114,6 +114,7 @@ $props = &$arResult['PROPERTIES'];
 					),
 					$component
 				);
+				var_dump($item['OFFERS']);
 	        ?>
 	      </div>
 	      <div class="col-lg-6">
@@ -182,27 +183,47 @@ $props = &$arResult['PROPERTIES'];
 	    </div>
 	    <div class="tabs">
 	      <div class="tabs__title">
-	      	<a href="#description" class="tabs__trigger tabs__trigger--active">описание</a>
-	      	<a href="#payment" class="tabs__trigger">оплата</a>
-	      	<a href="#delivery" class="tabs__trigger">доставка</a>
-	      	<a href="#refund" class="tabs__trigger">возврат</a>
-	      	<a href="#feedback" class="tabs__trigger">обратная связь</a>
+	      	<?if(strlen($item['PREVIEW_TEXT'])>0):?>
+	      		<a href="#description" class="tabs__trigger">описание</a>
+	      	<?endif;?>
+	      	<?if(strlen(COption::GetOptionString("grain.customsettings","payment"))>0):?>
+	      		<a href="#payment" class="tabs__trigger <?=(!$show?"tabs__trigger--active":"")?>">оплата</a>
+	      	<?endif;?>
+	      	<?if(strlen(COption::GetOptionString("grain.customsettings","delivery"))>0):?>
+	      		<a href="#delivery" class="tabs__trigger">доставка</a>
+	      	<?endif;?>
+	      	<?if(strlen(COption::GetOptionString("grain.customsettings","refund"))>0):?>
+	      		<a href="#refund" class="tabs__trigger">возврат</a>
+	      	<?endif;?>
+	      	<?if(strlen(COption::GetOptionString("grain.customsettings","feedback"))>0):?>
+	      		<a href="#feedback" class="tabs__trigger">обратная связь</a>
+	      	<?endif;?>
 	      </div>
+	      <?if(strlen($item['PREVIEW_TEXT'])>0):?>
 	      <div id="description" class="tabs__content tabs__content--active">
-	        <p>Земля традиций и инноваций, фермеров и ремесленников, земля, где искусство встречается с технологиями, где хорошая кухня сочетается с гостеприимством местных жителей. Именно в Абруццо трое молодых братьев — Франческо, Назарено и Абрамо Тонелли, в небольшой мастерской объединив свои навыки и знания, основывают небольшую семейную фабрику в честь своих родителей.</p>
+	        <p><?=$item['PREVIEW_TEXT']?></p>
 	      </div>
+	      <?endif;?>
+	      <?if(strlen(COption::GetOptionString("grain.customsettings","payment"))>0):?>
 	      <div id="payment" class="tabs__content">
-	        <p>Земля традиций и инноваций, фермеров и ремесленников, земля, где искусство встречается с технологиями, где хорошая кухня сочетается с гостеприимством местных жителей. Именно в Абруццо трое молодых братьев — Франческо, Назарено и Абрамо Тонелли, в небольшой мастерской объединив свои навыки и знания, основывают небольшую семейную фабрику в честь своих родителей.</p>
+	        <?=COption::GetOptionString("grain.customsettings","payment")?>
 	      </div>
+	      <?endif;?>
+	      <?if(strlen(COption::GetOptionString("grain.customsettings","delivery"))>0):?>
 	      <div id="delivery" class="tabs__content">
-	        <p>Земля традиций и инноваций, фермеров и ремесленников,</p>
+	        <?=COption::GetOptionString("grain.customsettings","delivery")?>
 	      </div>
+	      <?endif;?>
+	      <?if(strlen(COption::GetOptionString("grain.customsettings","refund"))>0):?>
 	      <div id="refund" class="tabs__content">
-	        <p>Земля традиций и инноваций, фермеров и ремесленников, земля, где искусство встречается</p>
+	        <?=COption::GetOptionString("grain.customsettings","refund")?>
 	      </div>
+	      <?endif;?>
+	      <?if(strlen(COption::GetOptionString("grain.customsettings","feedback"))>0):?>
 	      <div id="feedback" class="tabs__content">
-	        <p>Земля традиций и инноваций, фермеров и ремесленников, земля, где искусство встречается с технологиями, где </p>
+	        <?=COption::GetOptionString("grain.customsettings","feedback")?>
 	      </div>
+	      <?endif;?>
 	    </div>
 	  </div>
 	</div>

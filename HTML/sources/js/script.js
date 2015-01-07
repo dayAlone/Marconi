@@ -553,6 +553,8 @@
       focus: false,
       shareEl: false
     };
+    $('.tabs__trigger:first').mod('active', true);
+    $('.tabs__content:first').mod('active', true);
     $('.tabs').elem('trigger').click(function(e) {
       $('.tabs').elem('content').mod('active', false);
       $('.tabs').elem('trigger').mod('active', false);

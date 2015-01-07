@@ -6399,6 +6399,10 @@ svg g {
   color: #000;
   margin-top: -14px;
 }
+.product .props__item--price .props__value small {
+  font-size: 15px;
+  margin-top: 0;
+}
 .product .props__name,
 .product .props__value {
   background: #fff;
