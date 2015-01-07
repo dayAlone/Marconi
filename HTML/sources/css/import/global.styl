@@ -59,3 +59,39 @@ svg
 .dropdown
 	&__frame, &__select
 		display none
+
+.modal
+	.close
+		position absolute
+		right -60px
+		top 0
+		svg
+			width 40px
+			height 40px
+			path
+				fill white
+	&-content
+		border-radius 0
+		min-height 100px
+		padding 30px
+	&-frame
+		width 100%
+		border 2px solid black
+		min-height 100px
+		position relative
+		padding 30px
+		&:after
+			content attr(data-title)
+			position absolute
+			background white
+			text-transform: uppercase
+			font-weight: bold
+			padding 0 20px
+			top -8px
+			left 50%
+			font-size 13px
+			letter-spacing 6px
+			transform translateX(-50%)
+	&-backdrop
+		&.in
+			opacity .8

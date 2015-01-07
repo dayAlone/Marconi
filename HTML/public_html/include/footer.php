@@ -84,5 +84,6 @@
     </div>
 
 </div>
+<?$APPLICATION->ShowViewContent('footer');?>
 </body>
 </html>

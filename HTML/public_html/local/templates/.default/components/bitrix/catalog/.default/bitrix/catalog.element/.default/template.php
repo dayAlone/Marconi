@@ -75,8 +75,8 @@ $props = &$arResult['PROPERTIES'];
 	      <div class="<?=(count($item['IMAGES'])>1?"col-xs-9 col-lg-10":"col-xs-12")?>">
 	      	<? if(count($item['IMAGES'])>0 || isset($item['PREVIEW_PICTURE']['SRC'])):
 	      		$array = array_values($item['IMAGES']);
-	      	?>
-	        	<div style="background-image:url(<?=(isset($array[0]['middle'])?$array[0]['middle']:$item['PREVIEW_PICTURE']['SMALL'])?>)" class="picture__big"></div>
+	      	?>	
+	        	<div style="background-image:url(<?=(isset($array[0]['middle'])?$array[0]['middle']:(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg"))?>)" class="picture__big"></div>
 	        	<a data-pictures='<?=(count($item['IMAGES'])>0?json_encode($item['IMAGES']):json_encode(array(0=>array('src'=>$item['PREVIEW_PICTURE']['SRC'], 'w'=> $item['PREVIEW_PICTURE']['WIDTH'], 'h'=>$item['PREVIEW_PICTURE']['HEIGHT']))))?>' class="picture__zoom"><?=svg('zoom')?></a>
 	        <? endif;?>
 	      </div>
@@ -85,7 +85,6 @@ $props = &$arResult['PROPERTIES'];
 	      <? foreach ($item['IMAGES'] as $key => $image): ?>
 	      	<a style="background-image:url(<?=$image['small']?>)" href="<?=$image['middle']?>" class="picture__small <?=($key==0?"picture__small--active":"")?>"></a>
 	      <? endforeach; ?>
-
 	      </div>
 	      <? endif;?>
 	    </div>
@@ -213,7 +212,7 @@ $props = &$arResult['PROPERTIES'];
 	      <? endif; ?>
 	      	<? /*<a href="#" class="product__big-button">сравнить</a> */?>
 	      </div>
-	      <div class="col-lg-6"><a href="#" class="product__big-button product__big-button--border">наличие в магазинах</a>
+	      <div class="col-lg-6"><a href="#available" data-toggle="modal" data-target="#available" class="product__big-button product__big-button--border">наличие в магазинах</a>
 	        <div class="social-likes social-likes_notext"><div class="facebook"></div><div class="twitter"></div><div class="vkontakte"></div><div class="odnoklassniki"></div></div>
 	      </div>
 	    </div>
@@ -372,6 +371,52 @@ else
 	}
 	unset($emptyProductProperties);
 }
+
+
+
+$this->SetViewTarget('footer');
+?>
+<div class="modal fade" id="available" tabindex="-1" role="dialog" aria-labelledby="available" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    	<a href="#" class="close" data-dismiss="modal" aria-label="Close"><?=svg('close')?></a>
+    	<div class="modal-frame" data-title="где купить">
+	    	<div class="row">
+	    		<div class="col-xs-3">
+	    			<div class="available__picture" style="background-image: url(<?=(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg")?>)"></div>	
+	    		</div>
+	    		<div class="col-xs-9 no-position">
+	    			<div class="available__title">
+	    				<div class="available__product-name"><?=$item['NAME']?></div>
+	    				<div class="available__product-artnumber">Арт. <?=$props['ARTNUMBER']['VALUE']?></div>
+	    			</div>	
+	    		</div>
+	    	</div>
+	    	<?
+	    	global $arFilter;
+        	$arFilter = array('!PROPERTY_STORE' => false);
+        	$APPLICATION->IncludeComponent("bitrix:news.list", "available", 
+				array(
+					"IBLOCK_ID"     => 6,
+					"NEWS_COUNT"    => "9999999",
+					"CACHE_NOTES"   => $item['ID'],
+					"FILTER_NAME"   => "arFilter",
+					"SORT_BY1"      => "ID",
+					"SORT_ORDER1"   => "ASC",
+					"DETAIL_URL"    => "/catalog/",
+					"CACHE_TYPE"    => "A",
+					'PROPERTY_CODE' => array(),
+					"SET_TITLE"     => "N"
+				),
+				$component
+			);
+			?>
+    	</div>
+    </div>
+  </div>
+</div>
+<?
+$this->EndViewTarget();
 ?>
 <script type="text/javascript">
 var <? echo $strObName; ?> = new JCCatalogElement(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
