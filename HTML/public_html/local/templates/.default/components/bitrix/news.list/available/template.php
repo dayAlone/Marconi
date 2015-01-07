@@ -15,7 +15,7 @@
 		$store = $item['PROPERTIES']['STORE']['VALUE'];
 		?>
 		<tr>
-			<td width="25%"><?=$item['NAME']?></td>
+			<td width="25%"><?=preg_replace('@\(.*?\)@', '', $item['NAME'])?></td>
 			<td width="25%">
 				<? if($arResult['COUNTS'][$store]):?>
 					<span class="available__icon available__icon--true"></span>Есть в наличии
