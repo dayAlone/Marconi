@@ -6533,6 +6533,9 @@ svg g {
 .product .tabs__content a:hover {
   text-decoration: none;
 }
+.product .tabs__content ul {
+  margin-left: 20px;
+}
 .product .tabs__content--active {
   display: block;
 }
