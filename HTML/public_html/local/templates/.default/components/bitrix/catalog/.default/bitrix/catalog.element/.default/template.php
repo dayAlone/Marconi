@@ -169,23 +169,28 @@ $props = &$arResult['PROPERTIES'];
 	        		$colors = "";
 	        		foreach ($props['COLOR']['VALUE'] as $key=>$color)
 	        			$colors .= ($key!=0?" / ":"").$arResult['COLORS'][$color];
-
+	        	if(strlen($colors)>0):
 	        ?>
 	          <div class="props__item">
 	            <div class="props__name">цвет</div>
 	            <div class="props__value"><?=$colors?></div>
 	          </div>
-	        <? endif;?>
+	        <? 
+	        	endif;
+	        endif;?>
 	        <? if(count($props['MATERIAL']['VALUE'])>0):
 	        		$materials = "";
 	        		foreach ($props['MATERIAL']['VALUE'] as $key=>$color)
 	        			$materials .= ($key!=0?" / ":"").$arResult['MATERIALS'][$color];
+	        		if(strlen($materials)>0):
 	       	?>
 	          <div class="props__item">
 	            <div class="props__name">материал</div>
 	            <div class="props__value"><?=$materials?></div>
 	          </div>
-	        <? endif;?>
+	        <? 
+	        		endif;
+	        endif;?>
 	        <? if(strlen($props['SIZE']['VALUE'])>0):?>
 	          <div class="props__item">
 	            <div class="props__name">размер</div>
