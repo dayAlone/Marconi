@@ -203,7 +203,7 @@ function getHighloadElements($name, $key, $value)
 	$id        = $iblocks[$name];
 	$obCache   = new CPHPCache();
 	$cacheLife = 86400; 
-	$cacheID   = 'getHighloadElements_site_'.$id;
+	$cacheID   = 'getHighloadElements_site_'.$key.$value.$id;
 	$cachePath = '/'.$cacheID;
 
 	if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):
