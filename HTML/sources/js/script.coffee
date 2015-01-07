@@ -338,6 +338,9 @@ $(document).ready ->
 	$('.tabs__trigger:first').mod('active', true)
 	$('.tabs__content:first').mod('active', true)
 	
+	$('.sizes .dropdown').elem('item').click (e)->
+		$(this).block().data 'id', $(this).data 'id'
+
 	$('.tabs').elem('trigger').click (e)->
 		$('.tabs').elem('content').mod 'active', false
 		$('.tabs').elem('trigger').mod 'active', false
@@ -579,9 +582,10 @@ $(document).ready ->
 	openDropdown = (x)->
 		clearTimeout timer
 		text = x.elem('text').text()
-		console.log text
 		x.elem('item').show()
-		x.elem('frame').find("a:contains(#{text})").hide()
+		x.elem('frame').find("a").each ->
+			if $(this).text() == text
+				$(this).hide()
 		x.elem('frame').velocity
 			properties: "transition.slideDownIn"
 			options:

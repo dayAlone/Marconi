@@ -3,6 +3,7 @@
 	$arResult['BRANDS']    = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
 	$arResult['COLORS']    = getHighloadElements('colors', 'UF_XML_ID', 'UF_NAME');
 	$arResult['MATERIALS'] = getHighloadElements('materials', 'UF_XML_ID', 'UF_NAME');
+	$arResult['SIZES']     = getHighloadElements('sizes', 'UF_XML_ID', 'UF_NAME');
 	$arResult['IMAGES']    = array();
 	$raw = CFile::GetList(array(), array('ID'=>implode($arResult['PROPERTIES']['PICTURES']['VALUE'])));
 	while($img = $raw->Fetch()):

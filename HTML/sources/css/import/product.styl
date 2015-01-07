@@ -177,3 +177,62 @@
 	.nav__item:nth-child(6)
 		background white
 		color black
+	.sizes
+		width 100%
+		margin-bottom 25px
+		margin-top 20px
+		position relative
+		z-index: 30
+		&__title
+			text-transform: uppercase
+			font-weight: bold
+			width 85px
+			line-height 14px
+			display inline-block
+		.dropdown
+			position relative
+			top -7px
+			
+			&--disable
+				.dropdown__trigger
+					padding 0 10px
+					text-align: center
+					pointer-events none
+			&:hover, &--open
+				.dropdown__trigger
+					background red
+					border-color red
+					color white
+					svg path
+						fill white
+			&__frame
+				position absolute
+				top 100%
+				left 0
+				min-width 100%
+				white-space no-wrap
+				background red
+				color white
+				padding 5px 10px 2px
+				a
+					font-weight: bold
+					color white
+					font-size 13px
+					full-width()
+			&__trigger
+				display inline-block
+				border 1px solid black
+				height 26px
+				padding 0 7px 0 9px
+				line-height 30px
+				font-weight: bold
+				color black
+				font-size 13px
+				position relative
+				svg
+					margin-left 5px
+					max-width 7px
+					position relative
+					top -1px
+					path
+						fill black

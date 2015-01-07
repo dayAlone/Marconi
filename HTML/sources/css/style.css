@@ -3357,6 +3357,76 @@ svg g {
   background: #fff;
   color: #000;
 }
+.product .sizes {
+  width: 100%;
+  margin-bottom: 25px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 30;
+}
+.product .sizes__title {
+  text-transform: uppercase;
+  font-weight: bold;
+  width: 85px;
+  line-height: 14px;
+  display: inline-block;
+}
+.product .sizes .dropdown {
+  position: relative;
+  top: -7px;
+}
+.product .sizes .dropdown--disable .dropdown__trigger {
+  padding: 0 10px;
+  text-align: center;
+  pointer-events: none;
+}
+.product .sizes .dropdown:hover .dropdown__trigger,
+.product .sizes .dropdown--open .dropdown__trigger {
+  background: #d10a32;
+  border-color: #d10a32;
+  color: #fff;
+}
+.product .sizes .dropdown:hover .dropdown__trigger svg path,
+.product .sizes .dropdown--open .dropdown__trigger svg path {
+  fill: #fff;
+}
+.product .sizes .dropdown__frame {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 100%;
+  white-space: nowrap;
+  background: #d10a32;
+  color: #fff;
+  padding: 5px 10px 2px;
+}
+.product .sizes .dropdown__frame a {
+  font-weight: bold;
+  color: #fff;
+  font-size: 13px;
+  float: left;
+  width: 100%;
+}
+.product .sizes .dropdown__trigger {
+  display: inline-block;
+  border: 1px solid #000;
+  height: 26px;
+  padding: 0 7px 0 9px;
+  line-height: 30px;
+  font-weight: bold;
+  color: #000;
+  font-size: 13px;
+  position: relative;
+}
+.product .sizes .dropdown__trigger svg {
+  margin-left: 5px;
+  max-width: 7px;
+  position: relative;
+  top: -1px;
+}
+.product .sizes .dropdown__trigger svg path {
+  fill: #000;
+}
 .basket .nav__item:nth-child(6) {
   background: #fff;
   color: #000;

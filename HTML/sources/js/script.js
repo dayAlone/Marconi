@@ -555,6 +555,9 @@
     };
     $('.tabs__trigger:first').mod('active', true);
     $('.tabs__content:first').mod('active', true);
+    $('.sizes .dropdown').elem('item').click(function(e) {
+      return $(this).block().data('id', $(this).data('id'));
+    });
     $('.tabs').elem('trigger').click(function(e) {
       $('.tabs').elem('content').mod('active', false);
       $('.tabs').elem('trigger').mod('active', false);
@@ -837,9 +840,12 @@
       var text;
       clearTimeout(timer);
       text = x.elem('text').text();
-      console.log(text);
       x.elem('item').show();
-      x.elem('frame').find("a:contains(" + text + ")").hide();
+      x.elem('frame').find("a").each(function() {
+        if ($(this).text() === text) {
+          return $(this).hide();
+        }
+      });
       return x.elem('frame').velocity({
         properties: "transition.slideDownIn",
         options: {

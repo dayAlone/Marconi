@@ -114,7 +114,39 @@ $props = &$arResult['PROPERTIES'];
 					),
 					$component
 				);
-				var_dump($item['OFFERS']);
+				if(count($item['OFFERS'])>1):
+					?>
+					<div class="sizes">
+						<span class="sizes__title">
+							выберите размер
+						</span>
+						<span class="dropdown" data-id="<?$item['OFFERS'][0]['ID']?>">
+							<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white"><?=$item['SIZES'][$item['OFFERS'][0]['PROPERTIES']['SIZE']['VALUE']]?></span><?=svg('arrow')?></a>
+								
+							<span class="dropdown__frame">
+								<?foreach($item['OFFERS'] as $k=>$offer):?>
+								<a href="#" data-id="<?=$offer['ID']?>" class="dropdown__item"><?=$item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']]?></a>
+								<?endforeach;?>
+							</span>
+							<select class="dropdown__select">
+								<?foreach ($arResult['SECTIONS'] as $key => &$item):?>
+								<option value="<?=$offer['ID']?>"><?=$item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']]?></a>
+								<?endforeach;?>
+							</select>
+						</span>
+					</div><?
+				elseif(count($item['OFFERS'])==1):
+					?>
+					<div class="sizes">
+						<span class="sizes__title">
+							только в размере
+						</span>
+						<span class="dropdown dropdown--disable" data-id="<?$item['OFFERS'][0]['ID']?>">
+							<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white"><?=$item['SIZES'][$item['OFFERS'][0]['PROPERTIES']['SIZE']['VALUE']]?></span></a>
+						</span>
+					</div>
+					<?
+				endif;
 	        ?>
 	      </div>
 	      <div class="col-lg-6">
