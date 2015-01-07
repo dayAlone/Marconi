@@ -4313,11 +4313,11 @@ div.pp_default .pp_loaderIcon {
   color: #d10a32;
 }
 .sub-nav__item--active {
-  background: #000;
-  color: #fff;
+  color: #000;
+  border-bottom: 2px solid #000;
 }
 .sub-nav__item--active:hover {
-  color: #fff;
+  color: #000;
 }
 .search {
   width: 100%;
