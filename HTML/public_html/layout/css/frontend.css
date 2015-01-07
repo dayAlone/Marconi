@@ -6534,7 +6534,7 @@ svg g {
   text-decoration: none;
 }
 .product .tabs__content ul {
-  margin-left: 20px;
+  padding-left: 20px;
 }
 .product .tabs__content--active {
   display: block;
