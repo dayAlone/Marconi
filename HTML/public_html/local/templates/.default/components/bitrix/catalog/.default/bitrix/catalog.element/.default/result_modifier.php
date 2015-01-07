@@ -18,7 +18,7 @@
 	$APPLICATION->SetPageProperty('description', strip_tags($arResult["PREVIEW_TEXT"]));
 	if(isset($arResult['PREVIEW_PICTURE']['SRC'])):
 		$this->SetViewTarget('header');
-			?><link rel="image_src" href="http://<?=$arResult['PREVIEW_PICTURE']['SRC']?>" /><?
+			?><link rel="image_src" href="<?=$arResult['PREVIEW_PICTURE']['SRC']?>" /><?
 		$this->EndViewTarget();
 	endif;
 ?>
