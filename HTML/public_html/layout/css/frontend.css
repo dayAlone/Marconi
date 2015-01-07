@@ -6261,9 +6261,8 @@ svg g {
 }
 .product__title {
   text-transform: uppercase;
-  font-weight: bold;
   margin-top: 0;
-  font-size: 28px;
+  font-size: 25px;
 }
 .product__big-button {
   min-width: 45%;
@@ -6561,7 +6560,6 @@ svg g {
 }
 .product .sizes__title {
   text-transform: uppercase;
-  font-weight: bold;
   width: 85px;
   line-height: 14px;
   display: inline-block;
