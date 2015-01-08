@@ -346,11 +346,14 @@ $(document).ready ->
 			url = "/include/basket.php?action=add&id=#{id}"
 			if param_size
 				url += "&size=#{param_size}"
+
 			block = $('.picture')
 			offset = block.offset()
-			offset.top -= $('.header .cart').offset().top - 130
-			offset.left -= $('.header .cart').offset().left
+			offset.top -= $('.header .cart').offset().top - block.height()/2
+			offset.left -= $('.header .cart').offset().left - block.width()/2
 			
+
+
 			block.clone().prependTo(block).mod('absolute', true).velocity
 				properties: 
 					translateX : -offset.left
@@ -405,8 +408,8 @@ $(document).ready ->
 		id     = el.data 'id'
 		block  = el.block()
 		offset = block.offset()
-		offset.top -= $('.header .cart').offset().top - 130
-		offset.left -= $('.header .cart').offset().left
+		offset.top -= $('.header .cart').offset().top - block.height()/2
+		offset.left -= $('.header .cart').offset().left - block.width()/2
 		url    = "/include/basket.php?action=add&id=#{id}"
 		if el.data('size')
 			url += "&size=#{el.data('size')}"
