@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-8 col-sm-3 col-sm-4 col-md-3">
-        <div class="copyright">© 2014 ООО «Мегатрон» </div>
+        <div class="copyright">© <?=date('Y')?> ООО «Мегатрон» </div>
       </div>
       <div class="col-sm-3 col-md-2">
         <div class="contacts"><span>Москва,  ул. адмирала макарова, 8 <br></span><a href="mailto:info@fmarconi.ru" class="contacts_link">info@fmarconi.ru</a></div>
