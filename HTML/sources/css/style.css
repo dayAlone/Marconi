@@ -3191,6 +3191,10 @@ svg g {
   z-index: 400;
   top: 0;
   margin-left: 10px;
+  background: transparent url("../images/loader.gif") center center no-repeat;
+  -webkit-background-size: 80px auto;
+  -moz-background-size: 80px auto;
+  background-size: 80px auto;
 }
 .product .picture .easyzoom-notice {
   display: none;
