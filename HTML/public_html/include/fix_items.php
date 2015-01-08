@@ -84,12 +84,11 @@ if(count($allCHECKED)>0):
 				$facetIndex[$PID][$ar["FACET_VALUE"]] = &$arResult["ITEMS"][$PID]["VALUES"][$key];
 			if(condition($_CHECK, $ar))
 				if(in_array($PID, $except))
-					$directions[] = $PID;
+					$directions[$PID][] = $ar["FACET_VALUE"];
 		endforeach;
 	endforeach;
-
 	if(count($directions) > 0):
-		foreach ($directions as $direction):
+		foreach ($directions as $k => $direction):
 				$this->facet = new \Bitrix\Iblock\PropertyIndex\Facet($arResult['SECTION']['IBLOCK_ID']);
 				$this->facet->setPrices($arResult["PRICES"]);
 				$this->facet->setSectionId($arResult['SECTION']['ID']);
@@ -100,10 +99,9 @@ if(count($allCHECKED)>0):
 							if($_CHECK[$ar["CONTROL_NAME"]] == $ar["HTML_VALUE"] && !isset($arItem["PRICE"]))
 								if ($arResult["FACET_FILTER"] && !in_array($PID, $except))
 									$this->facet->addDictionaryPropertyFilter($PID, "=", $ar["FACET_VALUE"]);
-								else if($PID == $direction)
-									$value = $ar["FACET_VALUE"];
-				
-				$this->facet->addDictionaryPropertyFilter($direction, "=", $value);
+								
+				foreach ($direction as $value)
+					$this->facet->addDictionaryPropertyFilter($k, "=", $value);
 				
 				apply($arResult, $facetIndex, $this);
 			endforeach;
