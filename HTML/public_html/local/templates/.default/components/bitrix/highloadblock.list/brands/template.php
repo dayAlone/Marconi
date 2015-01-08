@@ -1,4 +1,5 @@
 <?
+	$this->setFrameMode(true);
 	if(count($arResult['rows'])):
 		if(isset($_COOKIE['BRAND'])):
 			foreach ($arResult['rows'] as $item):
