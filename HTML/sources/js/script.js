@@ -568,6 +568,7 @@
         if (param_size) {
           url += "&size=" + param_size;
         }
+        console.log(url);
         block = $('.picture');
         offset = block.offset();
         offset.top -= $('.header .cart').offset().top - block.height() / 2;

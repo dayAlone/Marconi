@@ -1,11 +1,26 @@
 Host: fm.local
-Date: 2015-01-08 22:57:31
-Module: composite
-/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/html_pages/fm.local/catalog/women/index@.html.delete.1420739851.13
-    Bitrix\Main\Data\StaticHtmlCache::writeDebug < Bitrix\Main\Data\StaticHtmlCache::delete < Bitrix\Main\Page\Frame::processPageContent < Bitrix\Main\Page\Frame::endBuffering < CAllMain::EndBufferContent
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/data/statichtmlcache.php:166
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:365
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:315
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3298
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3244
+Date: 2015-01-08 22:59:36
+Module: Composite was rejected
+Reason: bitrix:catalog.smart.filter
+Request URI: /catalog/women/?arrFilter_6_60915077=Y&arrFilter_P1_MIN=0&arrFilter_P1_MAX=27630&range=0;27630&sort_param=&sort_value=&set_filter=Y
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponent::includeComponent < CAllMain::IncludeComponent < include < CBitrixComponentTemplate::__IncludePHPTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:521
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:1011
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/section.php:97
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:505
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+----------
+Host: fm.local
+Date: 2015-01-08 23:01:16
+Module: Composite was rejected
+Reason: bitrix:catalog.smart.filter
+Request URI: /catalog/women/?arrFilter_6_60915077=Y&arrFilter_P1_MIN=0&arrFilter_P1_MAX=27630&range=0;27630&sort_param=&sort_value=&set_filter=Y
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponent::includeComponent < CAllMain::IncludeComponent < include < CBitrixComponentTemplate::__IncludePHPTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:521
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:1011
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/section.php:97
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:505
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
 ----------
