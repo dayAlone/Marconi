@@ -38446,7 +38446,7 @@ return PhotoSwipeUI_Default;
       id = el.data('id');
       block = el.block();
       offset = block.offset();
-      offset.top -= $('.header .cart').offset().top - 100;
+      offset.top -= $('.header .cart').offset().top - 130;
       offset.left -= $('.header .cart').offset().left;
       url = "/include/basket.php?action=add&id=" + id;
       if (el.data('size')) {
