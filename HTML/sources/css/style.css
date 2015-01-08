@@ -1574,8 +1574,7 @@ svg g {
   transition-duration: 0.3s;
 }
 .index #bx-composite-banner {
-  right: auto;
-  left: 0;
+  right: 100%;
 }
 #bx-composite-banner:hover {
   opacity: 1;
