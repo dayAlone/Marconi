@@ -194,6 +194,9 @@
 				transition-duration .2s
 		&--index, &--hover
 			z-index 50
+		&--absolute
+			z-index 500
+			position absolute
 		&__frame
 			position absolute
 			background white
@@ -220,17 +223,18 @@
 			background white
 			z-index 300
 			min-height 120px
-			&--open
-				pointer-events initial
-				opacity 1
-				.product__button
-					pointer-events initial
 			.product__brand
 				margin-bottom 10px
 			.product__button
 				bottom 10px
 				opacity 1
 				pointer-events none
+			&--open
+				pointer-events initial
+				opacity 1
+				.product__button
+					pointer-events initial
+			
 		&__size
 			display inline-block
 			border 1px solid #a0a0a0

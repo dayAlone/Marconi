@@ -20,7 +20,7 @@
 	      <a href="#" class="product__icon product__icon--zoom" data-pictures='<?=json_encode($item['PROPERTIES']['PICTURES']['VALUE'])?>'><?=svg('zoom')?></a>
 	    <?endif;?>
 	    <?if(isset($item['MIN_PRICE']['VALUE'])):?>
-	    <a href="#" class="product__icon product__icon--cart <?=(count($item['OFFERS'])>0?"product__icon--trigger":"")?>"><?=svg('cart')?></a>
+	    <a href="#" class="product__icon product__icon--cart <?=(count($item['OFFERS'])>0?"product__icon--trigger":"")?>" data-id="<?=$item['ID']?>"><?=svg('cart')?></a>
 	    <?endif;?>
 	    <a href="<?=$item['DETAIL_PAGE_URL']?>" class="product__button product__button--center product__button--more">Подробнее</a>
 	    <?/*<a href="" class="product__button product__button--simmilar">Сравнить</a>*/
@@ -29,7 +29,7 @@
 	      <div class="product__sizes">
 	        <div class="product__brand">Выберите размер</div>
 	          <? foreach($item['OFFERS'] as $k=>$size):?>
-	            <a href="#" class="product__size <?=($k==0?"product__size--active":"")?>" data-id="<?=$size['ID']?>"> <?=$arResult['SIZES'][$size['DISPLAY_PROPERTIES']['SIZE']['VALUE']]?> </a>
+	            <a href="#" class="product__size <?=($k==0?"product__size--active":"")?>" data-id="<?=$size['ID']?>" data-size="<?=$arResult['SIZES'][$size['DISPLAY_PROPERTIES']['SIZE']['VALUE']]?>"> <?=$arResult['SIZES'][$size['DISPLAY_PROPERTIES']['SIZE']['VALUE']]?> </a>
 	          <? endforeach; ?>
 	        <a href="#" class="product__button product__button--cancel">Отмена</a>
 	        <a href="#" class="product__button product__button--buy">В корзину</a>

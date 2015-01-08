@@ -37987,7 +37987,7 @@ return PhotoSwipeUI_Default;
   };
 
   $(document).ready(function() {
-    var closeDropdown, filterRequest, filterTimer, galleryOptions, getElem, getFilter, initFiltres, openDropdown, scrollTimer, timer, x;
+    var addToCart, closeDropdown, filterRequest, filterTimer, galleryOptions, getElem, getFilter, initFiltres, openDropdown, scrollTimer, timer, x;
     delay(300, function() {
       return size();
     });
@@ -38441,6 +38441,37 @@ return PhotoSwipeUI_Default;
       gallery.init();
       return e.preventDefault();
     });
+    addToCart = function(el) {
+      var block, id, offset, url;
+      id = el.data('id');
+      block = el.block();
+      offset = block.offset();
+      offset.top -= $('.header .cart').offset().top - 100;
+      offset.left -= $('.header .cart').offset().left;
+      url = "/include/basket.php?action=add&id=" + id;
+      if (el.data('size')) {
+        url += "&size=" + (el.data('size'));
+      }
+      block.clone().prependTo(block).mod('absolute', true).velocity({
+        properties: {
+          translateX: -offset.left,
+          translateY: -offset.top,
+          opacity: .2,
+          scale: .3
+        },
+        options: {
+          duration: 500,
+          complete: function() {
+            return $(this).remove();
+          }
+        }
+      });
+      return $.get(url, function(data) {
+        if (data === 'success') {
+          return bx_cart_block1.refreshCart({});
+        }
+      });
+    };
     window.initProducts = function() {
       $('.product').elem('icon').click(function(e) {
         var gallery, items, pswpElement;
@@ -38449,9 +38480,10 @@ return PhotoSwipeUI_Default;
           items = $(this).data('pictures');
           gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, galleryOptions);
           gallery.init();
-        }
-        if ($(this).hasMod('trigger')) {
+        } else if ($(this).hasMod('trigger')) {
           $(this).block('sizes').mod('open', true);
+        } else if ($(this).hasMod('cart')) {
+          addToCart($(this));
         }
         return e.preventDefault();
       });
@@ -38461,8 +38493,20 @@ return PhotoSwipeUI_Default;
         return e.preventDefault();
       });
       $('.product').elem('button').click(function(e) {
+        var button;
         if ($(this).hasMod('cancel')) {
           $(this).block('sizes').mod('open', false);
+          e.preventDefault();
+        }
+        if ($(this).hasMod('buy')) {
+          button = $(this);
+          $(this).block('size').each(function() {
+            if ($(this).hasMod('active')) {
+              button.data('id', $(this).data('id'));
+              return button.data('size', $(this).data('size'));
+            }
+          });
+          addToCart(button);
           return e.preventDefault();
         }
       });

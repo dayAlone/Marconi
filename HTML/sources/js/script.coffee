@@ -369,7 +369,30 @@ $(document).ready ->
 			gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, galleryOptions);
 			gallery.init();
 			e.preventDefault()
-		
+	
+	addToCart = (el)->
+		id     = el.data 'id'
+		block  = el.block()
+		offset = block.offset()
+		offset.top -= $('.header .cart').offset().top - 100
+		offset.left -= $('.header .cart').offset().left
+		url    = "/include/basket.php?action=add&id=#{id}"
+		if el.data('size')
+			url += "&size=#{el.data('size')}"
+		block.clone().prependTo(block).mod('absolute', true).velocity
+			properties: 
+				translateX : -offset.left
+				translateY : -offset.top
+				opacity    : .2
+				scale      : .3
+			options:
+				duration: 500
+				complete: ->
+					$(this).remove()
+		$.get url, (data)->
+			if data == 'success'
+				bx_cart_block1.refreshCart({})
+
 	window.initProducts = ->
 		$('.product').elem('icon').click (e)->
 			if $(this).hasMod 'zoom'
@@ -377,9 +400,13 @@ $(document).ready ->
 				items = $(this).data('pictures')
 				gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, galleryOptions);
 				gallery.init();
-			if $(this).hasMod 'trigger'
+			else if $(this).hasMod 'trigger'
 				$(this).block('sizes').mod 'open', true
+			else if $(this).hasMod 'cart'
+				addToCart $(this)
+				
 			e.preventDefault()
+		
 		$('.product').elem('size').click (e)->
 			$('.product').elem('size').mod 'active', false
 			$(this).mod 'active', true
@@ -388,6 +415,14 @@ $(document).ready ->
 		$('.product').elem('button').click (e)->
 			if $(this).hasMod 'cancel'
 				$(this).block('sizes').mod 'open', false
+				e.preventDefault()
+			if $(this).hasMod 'buy'
+				button = $(this)
+				$(this).block('size').each ->
+					if $(this).hasMod 'active'
+						button.data 'id', $(this).data 'id'	
+						button.data 'size', $(this).data 'size'	
+				addToCart button
 				e.preventDefault()
 		$('.product').elem('picture').lazyLoadXT()
 		
