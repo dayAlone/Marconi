@@ -3192,6 +3192,9 @@ svg g {
   top: 0;
   margin-left: 10px;
 }
+.product .picture .easyzoom-notice {
+  display: none;
+}
 .product .picture__big,
 .product .picture__small {
   width: 100%;
