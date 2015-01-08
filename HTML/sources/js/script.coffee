@@ -335,8 +335,8 @@ $(document).ready ->
 		focus   : false
 		shareEl : false
 
-
-
+	$('.picture').elem('big').easyZoom()
+	
 	$('.tabs__trigger:first').addClass 'tabs__trigger--active'
 	$('.tabs__content:first').addClass 'tabs__content--active'
 	

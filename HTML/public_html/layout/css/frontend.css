@@ -6322,6 +6322,20 @@ svg g {
   margin-bottom: 30px;
   padding-right: 25px;
 }
+.product .picture__big a {
+  display: none;
+}
+.product .picture .easyzoom-flyout {
+  position: absolute;
+  left: 100%;
+  width: 100%;
+  width: calc(100% + 32px);
+  height: 100%;
+  overflow: hidden;
+  z-index: 400;
+  top: 0;
+  margin-left: 10px;
+}
 .product .picture__big,
 .product .picture__small {
   width: 100%;
