@@ -38405,6 +38405,44 @@ return PhotoSwipeUI_Default;
       focus: false,
       shareEl: false
     };
+    $('.product').elem('big-button').click(function(e) {
+      var block, id, offset, param_size, url;
+      if ($(this).hasMod('buy')) {
+        id = $(this).data('id');
+        if ($('.sizes').length > 0) {
+          id = $('.sizes .dropdown').data('id');
+          param_size = $('.sizes .dropdown__text').text();
+        }
+        url = "/include/basket.php?action=add&id=" + id;
+        if (param_size) {
+          url += "&size=" + param_size;
+        }
+        block = $('.picture');
+        offset = block.offset();
+        offset.top -= $('.header .cart').offset().top - 130;
+        offset.left -= $('.header .cart').offset().left;
+        block.clone().prependTo(block).mod('absolute', true).velocity({
+          properties: {
+            translateX: -offset.left,
+            translateY: -offset.top,
+            opacity: .2,
+            scale: .3
+          },
+          options: {
+            duration: 500,
+            complete: function() {
+              return $(this).remove();
+            }
+          }
+        });
+        $.get(url, function(data) {
+          if (data === 'success') {
+            return bx_cart_block1.refreshCart({});
+          }
+        });
+      }
+      return e.preventDefault();
+    });
     $('.picture').elem('big').easyZoom({
       onShow: function() {
         if ($('.product').elem('description').height() > $('.easyzoom-flyout').height()) {
@@ -38415,7 +38453,8 @@ return PhotoSwipeUI_Default;
     $('.tabs__trigger:first').addClass('tabs__trigger--active');
     $('.tabs__content:first').addClass('tabs__content--active');
     $('.sizes .dropdown').elem('item').click(function(e) {
-      return $(this).block().data('id', $(this).data('id'));
+      $(this).block().data('id', $(this).data('id'));
+      return $(this).block().data('size', $(this).data('size'));
     });
     $('.tabs').elem('trigger').click(function(e) {
       $('.tabs').elem('content').mod('active', false);

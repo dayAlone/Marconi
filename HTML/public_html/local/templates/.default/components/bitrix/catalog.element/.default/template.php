@@ -217,7 +217,7 @@ $props = &$arResult['PROPERTIES'];
 	    <div class="row">
 	      <div class="col-lg-6 center-lg">
 	      <? if(isset($item['MIN_PRICE']['VALUE'])): ?>
-	      	<a href="#" class="product__big-button product__big-button--width">В корзину</a>
+	      	<a href="#" class="product__big-button product__big-button--buy product__big-button--width" data-id="<?=$item['ID']?>">В корзину</a>
 	      <? endif; ?>
 	      	<? /*<a href="#" class="product__big-button">сравнить</a> */?>
 	      </div>

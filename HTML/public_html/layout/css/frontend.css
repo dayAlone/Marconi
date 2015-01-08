@@ -6340,6 +6340,11 @@ svg g {
 .product .picture__big a {
   display: none;
 }
+.product .picture--absolute {
+  position: absolute;
+  pointer-events: none;
+  z-index: 500;
+}
 .product .picture .easyzoom-flyout {
   min-height: 389px;
   position: absolute;
@@ -6616,6 +6621,7 @@ svg g {
   text-transform: uppercase;
   width: 85px;
   line-height: 14px;
+  font-size: 12px;
   display: inline-block;
 }
 .product .sizes .dropdown {

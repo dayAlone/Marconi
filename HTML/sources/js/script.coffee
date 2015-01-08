@@ -337,6 +337,36 @@ $(document).ready ->
 		history : false
 		focus   : false
 		shareEl : false
+	$('.product').elem('big-button').click (e)->
+		if $(this).hasMod 'buy'
+			id = $(this).data 'id'
+			if $('.sizes').length > 0
+				id = $('.sizes .dropdown').data 'id'
+				param_size = $('.sizes .dropdown__text').text()
+			url = "/include/basket.php?action=add&id=#{id}"
+			if param_size
+				url += "&size=#{param_size}"
+			block = $('.picture')
+			offset = block.offset()
+			offset.top -= $('.header .cart').offset().top - 130
+			offset.left -= $('.header .cart').offset().left
+			
+			block.clone().prependTo(block).mod('absolute', true).velocity
+				properties: 
+					translateX : -offset.left
+					translateY : -offset.top
+					opacity    : .2
+					scale      : .3
+				options:
+					duration: 500
+					complete: ->
+						$(this).remove()
+			
+			$.get url, (data)->
+				if data == 'success'
+					bx_cart_block1.refreshCart({})
+		
+		e.preventDefault()
 
 	$('.picture').elem('big').easyZoom
 		onShow: ->
@@ -349,6 +379,7 @@ $(document).ready ->
 	
 	$('.sizes .dropdown').elem('item').click (e)->
 		$(this).block().data 'id', $(this).data 'id'
+		$(this).block().data 'size', $(this).data 'size'
 
 	$('.tabs').elem('trigger').click (e)->
 		$('.tabs').elem('content').mod 'active', false
