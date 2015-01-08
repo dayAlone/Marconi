@@ -1,3 +1,4 @@
+<? $this->setFrameMode(true);?>
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $cartStyle = 'bx_cart_block';
 $cartId = $cartStyle.$component->getNextNumber();

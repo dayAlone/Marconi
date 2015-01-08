@@ -1553,6 +1553,31 @@ svg g {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   filter: alpha(opacity=80);
 }
+#bx-composite-banner {
+  text-transform: none;
+  top: -7px;
+  position: absolute;
+  right: 0;
+  opacity: 0.4;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+  filter: alpha(opacity=40);
+  line-height: 40px;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -ms-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+#bx-composite-banner:hover {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
 @-moz-keyframes zoom {
   from {
     -webkit-transform: scale(1);
@@ -3154,6 +3179,9 @@ svg g {
 }
 .product__big-button--width {
   min-width: 70%;
+}
+.product__big-button--disabled {
+  pointer-events: none;
 }
 .product__big-button--border {
   color: #000;

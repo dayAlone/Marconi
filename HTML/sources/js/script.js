@@ -572,6 +572,7 @@
         offset = block.offset();
         offset.top -= $('.header .cart').offset().top - block.height() / 2;
         offset.left -= $('.header .cart').offset().left - block.width() / 2;
+        $(this).text('Товар в корзине').mod('border', true).mod('disabled', true);
         block.clone().prependTo(block).mod('absolute', true).velocity({
           properties: {
             translateX: -offset.left,
@@ -637,7 +638,7 @@
       block = el.block();
       offset = block.offset();
       offset.top -= $('.header .cart').offset().top - block.height() / 2;
-      offset.left -= $('.header .cart').offset().left;
+      offset.left -= $('.header .cart').offset().left - block.width() / 2;
       url = "/include/basket.php?action=add&id=" + id;
       if (el.data('size')) {
         url += "&size=" + (el.data('size'));

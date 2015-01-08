@@ -1,3 +1,4 @@
+<? $this->setFrameMode(true);?>
 <? if(count($arResult['ITEMS'])>1): ?>
 <div class="colors">
 <?foreach ($arResult['ITEMS'] as $key=>$item):

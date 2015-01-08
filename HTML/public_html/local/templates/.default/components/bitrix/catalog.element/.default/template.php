@@ -216,9 +216,18 @@ $props = &$arResult['PROPERTIES'];
 	    </div>
 	    <div class="row">
 	      <div class="col-lg-6 center-lg">
-	      <? if(isset($item['MIN_PRICE']['VALUE'])): ?>
-	      	<a href="#" class="product__big-button product__big-button--buy product__big-button--width" data-id="<?=$item['ID']?>">В корзину</a>
-	      <? endif; ?>
+
+	      <?
+	      $frame = $this->createFrame()->begin();
+			if(isset($item['MIN_PRICE']['VALUE'])): ?>
+	      		<a href="#" class="product__big-button product__big-button--buy product__big-button--width" data-id="<?=$item['ID']?>">В корзину</a>
+	      	<? endif; 
+	      $frame->beginStub();
+	      	if(isset($item['MIN_PRICE']['VALUE'])): ?>
+	      		<a href="#" class="product__big-button product__big-button--buy product__big-button--width" data-id="<?=$item['ID']?>">В корзину</a>
+	      	<? endif; 
+	      $frame->end();
+	      ?>
 	      	<? /*<a href="#" class="product__big-button">сравнить</a> */?>
 	      </div>
 	      <div class="col-lg-6"><a href="#available" data-toggle="modal" data-target="#available" class="product__big-button product__big-button--border">наличие в магазинах</a>

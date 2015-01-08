@@ -1,3 +1,4 @@
+<? $this->setFrameMode(true);?>
 <?foreach ($arResult['ITEMS'] as $key=>$item):?>
 <div class="news-item">
   <div class="news-item__date"><?=r_date($item['ACTIVE_FROM'])?></div><a href="#" class="news-item__title"><?=$item['NAME']?></a>

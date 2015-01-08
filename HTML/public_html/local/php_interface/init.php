@@ -2,6 +2,10 @@
 ini_set('xdebug.var_display_max_depth', 5);
 ini_set('xdebug.var_display_max_children', 256);
 ini_set('xdebug.var_display_max_data', 1024);
+
+define("BX_COMPOSITE_DEBUG", true);
+define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
+
 use Bitrix\Highloadblock as HL;
 use Bitrix\Main\Entity;
 

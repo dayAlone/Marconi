@@ -1,3 +1,4 @@
+<? $this->setFrameMode(true);?>
 <? if(count($arResult['ITEMS'])>0): ?>
 <table width="100%" valign="middle" class="available__table" cellpadding="10">
 	<thead>

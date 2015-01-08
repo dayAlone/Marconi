@@ -1,3 +1,4 @@
+<? $this->setFrameMode(true);?>
 <h1 class="lookbook__title"><span><?=$arResult['SECTION']['PATH'][0]['NAME']?></span></h1>
 <div style="background-image: url(<?=$arResult['ITEMS'][count($arResult['ITEMS'])-1]['PREVIEW_PICTURE']['SRC']?>)" data-direction="&lt;" class="lookbook__slider-preview lookbook__slider-preview--prev"><?=svg('slider-arrow-left')?></div>
 <div style="background-image: url(<?=$arResult['ITEMS'][1]['PREVIEW_PICTURE']['SRC']?>)" data-direction="&gt;" class="lookbook__slider-preview lookbook__slider-preview--next"><?=svg('slider-arrow-right')?></div>

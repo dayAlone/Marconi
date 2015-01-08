@@ -1,3 +1,4 @@
+<? $this->setFrameMode(true);?>
 <?
   $items = array();
   foreach ($arResult['ITEMS'] as $key=>$item):
