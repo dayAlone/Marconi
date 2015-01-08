@@ -47,7 +47,7 @@ foreach ($arResult["COMBO"] as $id => $combination)
 		$index[$PID][$value][] = &$arResult["COMBO"][$id];
 
 $this->facet = new \Bitrix\Iblock\PropertyIndex\Facet($arResult['SECTION']['IBLOCK_ID']);
-if($this->facet->isValid()):
+if(count($allCHECKED)>0):
 
 	$this->facet->setPrices($arResult["PRICES"]);
 	$this->facet->setSectionId($arResult['SECTION']['ID']);
