@@ -219,13 +219,24 @@ $props = &$arResult['PROPERTIES'];
 
 	      <?
 	      $frame = $this->createFrame()->begin();
-			if(isset($item['MIN_PRICE']['VALUE'])): ?>
+			if(isset($item['MIN_PRICE']['VALUE'])): 
+				$inCart = false;
+				if(in_array($item['ID'],$_SESSION['ELEMENS']))
+					$inCart = true;
+				foreach ($item['OFFERS'] as $offer)
+					if(in_array($offer['ID'], $_SESSION['ELEMENS']))
+						$inCart = true;
+				if($inCart):?>
+	      		<a href="#" class="product__big-button product__big-button--border product__big-button--disabled product__big-button--width" data-id="<?=$item['ID']?>">Товар в корзине</a>
+	      		<?else:?>
 	      		<a href="#" class="product__big-button product__big-button--buy product__big-button--width" data-id="<?=$item['ID']?>">В корзину</a>
-	      	<? endif; 
+	      	<? 
+	      	endif; 
 	      $frame->beginStub();
 	      	if(isset($item['MIN_PRICE']['VALUE'])): ?>
 	      		<a href="#" class="product__big-button product__big-button--buy product__big-button--width" data-id="<?=$item['ID']?>">В корзину</a>
 	      	<? endif; 
+	      	endif; 
 	      $frame->end();
 	      ?>
 	      	<? /*<a href="#" class="product__big-button">сравнить</a> */?>

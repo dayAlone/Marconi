@@ -3186,6 +3186,7 @@ svg g {
 }
 .product__big-button--disabled {
   pointer-events: none;
+  color: #000;
 }
 .product__big-button--border {
   color: #000;
