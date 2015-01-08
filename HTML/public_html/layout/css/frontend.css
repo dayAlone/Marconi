@@ -4702,6 +4702,7 @@ svg g {
   top: -7px;
   position: absolute;
   right: 0;
+  white-space: nowrap;
   opacity: 0.4;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
   filter: alpha(opacity=40);
@@ -4718,7 +4719,7 @@ svg g {
   transition-duration: 0.3s;
 }
 .index #bx-composite-banner {
-  right: 100%;
+  right: 80%;
 }
 #bx-composite-banner:hover {
   opacity: 1;
