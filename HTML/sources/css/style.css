@@ -1573,6 +1573,10 @@ svg g {
   -ms-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
+.index #bx-composite-banner {
+  right: auto;
+  left: 0;
+}
 #bx-composite-banner:hover {
   opacity: 1;
   -ms-filter: none;
