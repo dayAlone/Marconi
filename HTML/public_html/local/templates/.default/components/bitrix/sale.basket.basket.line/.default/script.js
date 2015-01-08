@@ -167,7 +167,6 @@ BitrixSmallCart.prototype = {
 
 	setCartBody: function (result)
 	{
-		console.log(result)
 		if (BX(this.cartId))
 			BX(this.cartId).innerHTML = result;
 		if (this.fixedPosition)
