@@ -38407,6 +38407,9 @@ return PhotoSwipeUI_Default;
         return $('.easyzoom-flyout').height($('.product').elem('description').height());
       }
     });
+    $('.picture').elem('big').height(function() {
+      return $('.product').elem('description').height();
+    });
     $('.tabs__trigger:first').addClass('tabs__trigger--active');
     $('.tabs__content:first').addClass('tabs__content--active');
     $('.sizes .dropdown').elem('item').click(function(e) {
