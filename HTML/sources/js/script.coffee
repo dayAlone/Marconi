@@ -167,7 +167,28 @@ $(document).ready ->
 						block.mod 'open', true
 						trigger.mod 'disabled', false
 		e.preventDefault()
+
+	# Contacts
+
+	if $('.contacts').length > 0
 	
+		$.getScript 'http://maps.googleapis.com/maps/api/js?sensor=true&callback=contactsInit', ->
+			window.contactsInit = ->
+				center     = new google.maps.LatLng(55.83666078, 37.48988550);
+				mapOptions = {zoom:14,draggable:true,zoomControl:true,zoomControlOptions: {style: google.maps.ZoomControlStyle.LARGE,position: google.maps.ControlPosition.LEFT_CENTER},scrollwheel:false,disableDoubleClickZoom:false,disableDefaultUI:true,center:center,styles:[{featureType:"water",elementType:"geometry",stylers:[{color:"#000000"},{lightness:90}]},{featureType:"landscape",elementType:"geometry",stylers:[{color:"#ffffff"},{lightness:100}]},{featureType:"road.highway",elementType:"geometry.fill",stylers:[{color:"#000000"},{lightness:90}]},{featureType:"road.highway",elementType:"geometry.stroke",stylers:[{color:"#000000"},{lightness:90},{weight:.2}]},{featureType:"road.arterial",elementType:"geometry",stylers:[{color:"#000000"},{lightness:90}]},{featureType:"road.local",elementType:"geometry",stylers:[{color:"#000000"},{lightness:90}]},{featureType:"poi",elementType:"geometry",stylers:[{color:"000000"},{lightness:50}]},{elementType:"labels.text.stroke",stylers:[{visibility:"off"},{color:"#000000"},{lightness:16}]},{elementType:"labels.text.fill",stylers:[{saturation:36},{color:"#000000"},{lightness:40}]},{elementType:"labels.icon",stylers:[{visibility:"on"}]},{featureType:"transit",elementType:"geometry",stylers:[{color:"#ffffff"},{lightness:19}]},{featureType:"administrative",elementType:"geometry.fill",stylers:[{color:"#ffffff"},{lightness:0}]},{featureType:"administrative",elementType:"geometry.stroke",stylers:[{color:"#000000"},{lightness:90},{weight:1.2}]}]}
+				mapElement = document.getElementById('contactsMap');
+				map        = new google.maps.Map(mapElement, mapOptions);
+
+				marker = new google.maps.Marker
+					position  : center
+					map       : map
+					icon      :
+						url        : "/layout/images/store-3.png"
+						size       : new google.maps.Size(82,73),
+						origin     : new google.maps.Point(0, 0),
+						anchor     : new google.maps.Point(20, 0),
+						scaledSize : new google.maps.Size(40, 35)
+					animation : google.maps.Animation.DROP
 	# Stores
 
 	if $('.stores').length > 0
