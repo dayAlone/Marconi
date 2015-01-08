@@ -34,6 +34,9 @@ size = ->
 					h  = el.data 'height'
 					width += ($('.lookbook').elem('picture').width() - ($('.lookbook').elem('picture').height()/h)*w)/2
 				return width
+	
+	$('.picture').elem('big').height ->
+		return $('.product').elem('description').height()
 
 	$('.filter')
 		.removeAttr('style')
@@ -339,8 +342,6 @@ $(document).ready ->
 		onShow: ->
 			$('.easyzoom-flyout').height $('.product').elem('description').height()
 
-	$('.picture').elem('big').height ->
-		return $('.product').elem('description').height()
 	$('.tabs__trigger:first').addClass 'tabs__trigger--active'
 	$('.tabs__content:first').addClass 'tabs__content--active'
 	

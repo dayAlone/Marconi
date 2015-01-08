@@ -6322,6 +6322,9 @@ svg g {
   margin-bottom: 30px;
   padding-right: 25px;
 }
+.product .picture__big {
+  min-height: 389px;
+}
 .product .picture__big a {
   display: none;
 }
