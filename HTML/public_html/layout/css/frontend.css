@@ -5317,6 +5317,8 @@ svg g {
   margin-bottom: 40px;
   position: relative;
   z-index: 200;
+  float: left;
+  width: 100%;
 }
 .catalog__counter {
   position: absolute;
