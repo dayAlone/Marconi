@@ -340,7 +340,9 @@ $(document).ready ->
 
 	$('.picture').elem('big').easyZoom
 		onShow: ->
-			$('.easyzoom-flyout').height $('.product').elem('description').height()
+			if $('.product').elem('description').height() > $('.easyzoom-flyout').height()
+				$('.easyzoom-flyout')
+					.height $('.product').elem('description').height()
 
 	$('.tabs__trigger:first').addClass 'tabs__trigger--active'
 	$('.tabs__content:first').addClass 'tabs__content--active'

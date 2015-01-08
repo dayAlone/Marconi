@@ -3185,6 +3185,7 @@ svg g {
   display: none;
 }
 .product .picture .easyzoom-flyout {
+  min-height: 389px;
   position: absolute;
   left: 100%;
   width: 100%;

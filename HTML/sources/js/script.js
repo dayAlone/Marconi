@@ -558,7 +558,9 @@
     };
     $('.picture').elem('big').easyZoom({
       onShow: function() {
-        return $('.easyzoom-flyout').height($('.product').elem('description').height());
+        if ($('.product').elem('description').height() > $('.easyzoom-flyout').height()) {
+          return $('.easyzoom-flyout').height($('.product').elem('description').height());
+        }
       }
     });
     $('.tabs__trigger:first').addClass('tabs__trigger--active');
