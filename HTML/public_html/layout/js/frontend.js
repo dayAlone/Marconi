@@ -38402,7 +38402,11 @@ return PhotoSwipeUI_Default;
       focus: false,
       shareEl: false
     };
-    $('.picture').elem('big').easyZoom();
+    $('.picture').elem('big').easyZoom({
+      onShow: function() {
+        return $('.easyzoom-flyout').height($('.product').elem('description').height());
+      }
+    });
     $('.tabs__trigger:first').addClass('tabs__trigger--active');
     $('.tabs__content:first').addClass('tabs__content--active');
     $('.sizes .dropdown').elem('item').click(function(e) {

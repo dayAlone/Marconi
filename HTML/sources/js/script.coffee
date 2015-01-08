@@ -335,8 +335,10 @@ $(document).ready ->
 		focus   : false
 		shareEl : false
 
-	$('.picture').elem('big').easyZoom()
-	
+	$('.picture').elem('big').easyZoom
+		onShow: ->
+			$('.easyzoom-flyout').height $('.product').elem('description').height()
+
 	$('.tabs__trigger:first').addClass 'tabs__trigger--active'
 	$('.tabs__content:first').addClass 'tabs__content--active'
 	
