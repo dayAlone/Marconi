@@ -409,7 +409,7 @@ $(document).ready ->
 		block  = el.block()
 		offset = block.offset()
 		offset.top -= $('.header .cart').offset().top - block.height()/2
-		offset.left -= $('.header .cart').offset().left - block.width()/2
+		offset.left -= $('.header .cart').offset().left
 		url    = "/include/basket.php?action=add&id=#{id}"
 		if el.data('size')
 			url += "&size=#{el.data('size')}"
