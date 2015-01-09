@@ -1581,10 +1581,11 @@ svg g {
   line-height: 23px;
 }
 .contacts #contactsMap {
-  min-height: 500px;
+  min-height: 550px;
   float: left;
   width: 100%;
   margin-top: 40px;
+  border-top: 1px solid #e7e7e7;
 }
 #bx-composite-banner {
   text-transform: none;
