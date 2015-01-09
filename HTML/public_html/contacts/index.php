@@ -22,6 +22,11 @@ if(!isset($_REQUEST['short'])):
 						Суббота с 10 до 17 ч.<br>
 						Выходные дни: воскресенье, а также праздничные дни.
 	    			</p>
+
+	    		</div>
+	    		<div class="col-md-2">
+	    			<a href="#feedback" data-toggle="modal" data-target="#feedback" class="product__big-button product__big-button--border full-width xxl-margin-bottom">Напишите нам</a>
+	    			<p class="xxl-margin-top full-width">ООО «Мегатрон»</p>
 	    		</div>
 	    	</div>
 		</div>

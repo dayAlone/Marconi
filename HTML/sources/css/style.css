@@ -24,6 +24,10 @@ a:hover {
 .no-position {
   position: initial;
 }
+.full-width {
+  float: left;
+  width: 100%;
+}
 .inline-block {
   display: inline-block;
 }
