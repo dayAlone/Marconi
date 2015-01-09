@@ -1,0 +1,2 @@
+<? $this->setFrameMode(true);?>
+<side-nav class="side-nav"><?foreach ($arResult as $key=>$item):?><a href="<?=$item['LINK']?>" class="side-nav__item <?=($item['SELECTED']?'side-nav__item--active':'')?>"><?=$item['TEXT']?></a><?endforeach;?></side-nav>

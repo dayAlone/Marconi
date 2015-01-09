@@ -1576,6 +1576,31 @@ svg g {
 .page__title:hover {
   text-decoration: none;
 }
+.side-nav {
+  width: 100%;
+  border: 1px solid #dfdfdf;
+  padding: 28px 20px 20px;
+  margin-top: 0px;
+  float: left;
+  width: 100%;
+  max-width: 200px;
+}
+.side-nav__item {
+  width: 100%;
+  display: inline-block;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: bold;
+}
+.side-nav__item--active {
+  color: #d10a32;
+}
+.side-nav__item:hover {
+  color: #d10a32;
+}
+.side-nav__item + .side-nav__item {
+  margin-top: 15px;
+}
 .contacts p {
   font-size: 15px;
   line-height: 23px;

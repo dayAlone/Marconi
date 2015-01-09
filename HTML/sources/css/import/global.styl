@@ -103,6 +103,26 @@ svg
 		border-line alpha(black, .2)
 		margin-bottom 15px
 		max-width 95%
+
+.side-nav
+	width 100%
+	border 1px solid #dfdfdf
+	padding 28px 20px 20px
+	margin-top 0px
+	full-width()
+	max-width 200px
+	&__item
+		width 100%
+		display inline-block
+		text-transform: uppercase
+		color black
+		font-weight: bold
+		&--active
+			color red
+		&:hover
+			color red
+		& + .side-nav__item
+			margin-top 15px
 .contacts
 	p
 		font-size 15px
