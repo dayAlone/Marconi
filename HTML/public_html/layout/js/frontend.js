@@ -38918,9 +38918,7 @@ return PhotoSwipeUI_Default;
       $('.picture').elem('big').css({
         backgroundImage: "url(" + ($(this).attr('href')) + ")"
       });
-      $('.picture').elem('big').data('easyZoom').teardown();
       $('.picture__big a').attr('href', $(this).attr('href'));
-      initZoom();
       return e.preventDefault();
     });
     $('.picture').elem('zoom').click(function(e) {
