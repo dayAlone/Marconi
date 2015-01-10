@@ -127,7 +127,7 @@ $(document).ready ->
 
 	# Basket
 	$('.basket input[type="radio"]').iCheck()
-
+	$('.basket .bx-ui-sls-fake').attr 'placeholder', 'город *'
 	basketCalc = (el)->
 		total  = 0
 		sale   = 0
@@ -137,8 +137,6 @@ $(document).ready ->
 			useGrouping : true
 			separator   : ' '
 			decimal     : ' '
-
-		console.log $('.basket').elem('count').length
 
 		if $('.basket').elem('count').length == 0
 			location.href = "/catalog/"

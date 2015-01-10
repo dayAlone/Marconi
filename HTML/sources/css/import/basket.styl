@@ -2,6 +2,45 @@
 	.nav__item:nth-child(6)
 		background white
 		color black
+	small
+		strong
+			text-transform: uppercase
+			margin-bottom 5px
+			display inline-block
+			font-size 11px
+	.bx-sls
+		margin-bottom 10px
+		.bx-ui-sls-pane
+			border-radius 0
+			font-size 13px
+			.dropdown-item
+				padding-bottom 4px
+				border-radius 0
+				&.bx-ui-sls-variant-active
+					background red
+					.dropdown-item-text
+						color alpha(#fff,.6)
+						span
+							color white
+		.bx-ui-sls-clear
+			background url(../images/svg/close.svg) center center no-repeat
+			background-size 16px auto
+			margin-top -1px
+			opacity .7
+			&:hover
+				opacity 1
+		.dropdown-block
+			padding 0 0px
+			border-radius 0
+			box-shadow none
+			border-color #d5dbdf
+			max-height 30px
+			.dropdown-icon, .dropdown-fade2white
+				display none
+			input
+				max-height 30px
+				line-height 34px
+				font-family 'Proxima', 'Helvetica Neue', 'Arial', sans-serif
 	&__delete
 		position absolute
 		right 15px
@@ -131,7 +170,6 @@
 		width 100%
 		padding 15px 13px 3px
 		border 1px solid #d5dbdf
-		margin-top 20px
 		margin-bottom 100px
 		.iradio, input[type="radio"]
 			display inline-block

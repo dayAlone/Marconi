@@ -72,21 +72,21 @@ $props = &$arResult['PROPERTIES'];
 	<div class="col-xs-6">
 	  <div class="picture">
 	    <div class="row">
-	      <div class="<?=(count($item['IMAGES'])>1?"col-xs-9 col-lg-10":"col-xs-12")?>">
-	      	<? if(count($item['IMAGES'])>0 || isset($item['PREVIEW_PICTURE']['SRC'])):
-	      		$array = array_values($item['IMAGES']);
+	      <div class="<?=(count($props['IMAGES']['VALUE'])>1?"col-xs-9 col-lg-10":"col-xs-12")?>">
+	      	<? if(count($props['IMAGES']['VALUE'])>0 || isset($item['PREVIEW_PICTURE']['SRC'])):
+	      		$array = array_values($props['IMAGES']['VALUE']);
 	      	?>	
 	        	<div style="background-image:url(<?=(isset($array[0]['middle'])?$array[0]['middle']:(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg"))?>)" class="picture__big">
 					<a href="<?=(isset($array[0]['big'])?$array[0]['big']:(isset($item['PREVIEW_PICTURE']['SRC'])?$item['PREVIEW_PICTURE']['SRC']:"/layout/images/no-image.jpg"))?>">
 				        <img src="<?=(isset($array[0]['middle'])?$array[0]['middle']:(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg"))?>" alt="" />
 				    </a>
 	        	</div>
-	        	<a data-pictures='<?=(count($item['IMAGES'])>0?json_encode($item['IMAGES']):json_encode(array(0=>array('src'=>$item['PREVIEW_PICTURE']['SRC'], 'w'=> $item['PREVIEW_PICTURE']['WIDTH'], 'h'=>$item['PREVIEW_PICTURE']['HEIGHT']))))?>' class="picture__zoom"><?=svg('zoom')?></a>
+	        	<a data-pictures='<?=(count($props['IMAGES']['VALUE'])>0?json_encode($props['IMAGES']['VALUE']):json_encode(array(0=>array('src'=>$item['PREVIEW_PICTURE']['SRC'], 'w'=> $item['PREVIEW_PICTURE']['WIDTH'], 'h'=>$item['PREVIEW_PICTURE']['HEIGHT']))))?>' class="picture__zoom"><?=svg('zoom')?></a>
 	        <? endif;?>
 	      </div>
-	      <? if(count($item['IMAGES'])>1):?>
+	      <? if(count($props['IMAGES']['VALUE'])>1):?>
 	      <div class="col-xs-3 col-lg-2">
-	      <? foreach ($item['IMAGES'] as $key => $image): ?>
+	      <? foreach ($props['IMAGES']['VALUE'] as $key => $image): ?>
 	      	<a style="background-image:url(<?=$image['small']?>)" href="<?=$image['middle']?>" class="picture__small <?=($key==0?"picture__small--active":"")?>"></a>
 	      <? endforeach; ?>
 	      </div>

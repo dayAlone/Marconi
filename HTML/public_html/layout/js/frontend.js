@@ -38196,6 +38196,7 @@ return PhotoSwipeUI_Default;
       });
     });
     $('.basket input[type="radio"]').iCheck();
+    $('.basket .bx-ui-sls-fake').attr('placeholder', 'город *');
     basketCalc = function(el) {
       var counter, last, options, row, sale, saleCounter, saleVal, total, totalCounter, totalVal, val;
       total = 0;
@@ -38207,7 +38208,6 @@ return PhotoSwipeUI_Default;
         separator: ' ',
         decimal: ' '
       };
-      console.log($('.basket').elem('count').length);
       if ($('.basket').elem('count').length === 0) {
         location.href = "/catalog/";
       }
