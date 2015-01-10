@@ -32,7 +32,7 @@ foreach ($arResult['ITEMS'] as &$item):
 
 endforeach;
 
-$raw = CFile::GetList(array(), array('ID'=>$images));
+$raw = CFile::GetList(array(), array('@ID'=>implode($images,',')));
 while($img = $raw->Fetch())
 	$arResult['IMAGES'][$img['ID']] = array('src'=>"/upload/".$img['SUBDIR']."/".$img['FILE_NAME'], 'h'=>$img['HEIGHT'], 'w'=>$img['WIDTH']);
 
