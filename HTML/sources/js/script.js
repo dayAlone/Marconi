@@ -879,6 +879,7 @@
       $('.picture').elem('big').css({
         backgroundImage: "url(" + ($(this).attr('href')) + ")"
       });
+      $('.picture a').attr('src', $(this).attr('href'));
       return e.preventDefault();
     });
     $('.picture').elem('zoom').click(function(e) {

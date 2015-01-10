@@ -486,6 +486,7 @@ $(document).ready ->
 		$(this).mod 'active', true
 		$('.picture').elem('big').css
 			backgroundImage : "url(#{$(this).attr('href')})"
+		$('.picture a').attr 'src', $(this).attr('href')
 		e.preventDefault()
 	$('.picture').elem('zoom').click (e)->
 			pswpElement = document.querySelectorAll('.pswp')[0];
