@@ -2,7 +2,8 @@
 <?
   $items = array();
   foreach ($arResult['ITEMS'] as $key=>$item):
-    $items[$item['ID']] = array('code'=>$item['CODE'], 'coords' => preg_split("/,/", $item['PROPERTIES']['COORDS']['VALUE']), 'type'=>$item['PROPERTIES']['TYPE']['VALUE_XML_ID']);
+    if(count(preg_split("/,/", $item['PROPERTIES']['COORDS']['VALUE']))>0)
+      $items[$item['ID']] = array('code'=>$item['CODE'], 'coords' => preg_split("/,/", $item['PROPERTIES']['COORDS']['VALUE']), 'type'=>$item['PROPERTIES']['TYPE']['VALUE_XML_ID']);
     if($item['CODE'] == $_REQUEST['ELEMENT_CODE'])
       $active = $item;
   endforeach;
