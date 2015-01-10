@@ -38920,6 +38920,7 @@ return PhotoSwipeUI_Default;
       });
       $('.picture').elem('big').data('easyZoom').teardown();
       $('.picture__big a').attr('src', $(this).attr('href'));
+      initZoom();
       return e.preventDefault();
     });
     $('.picture').elem('zoom').click(function(e) {
