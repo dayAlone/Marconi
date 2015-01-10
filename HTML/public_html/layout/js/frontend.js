@@ -38919,7 +38919,7 @@ return PhotoSwipeUI_Default;
         backgroundImage: "url(" + ($(this).attr('href')) + ")"
       });
       $('.picture').elem('big').data('easyZoom').teardown();
-      $('.picture__big a').attr('src', $(this).attr('href'));
+      $('.picture__big a').attr('href', $(this).attr('href'));
       initZoom();
       return e.preventDefault();
     });

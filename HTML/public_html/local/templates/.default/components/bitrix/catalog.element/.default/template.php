@@ -72,7 +72,7 @@ $props = &$arResult['PROPERTIES'];
 	<div class="col-xs-6">
 	  <div class="picture">
 	    <div class="row">
-	      <div class="<?=(count($item['IMAGES'])>1?"col-xs-9 col-lg-10":"col-xs-12")?>">
+	      <div class="<?=(count($item['IMAGES'])>1?"col-xs-9 col-lg-10 no-position":"col-xs-12")?>">
 	      	<? if(count($item['IMAGES'])>0 || isset($item['PREVIEW_PICTURE']['SRC'])):
 	      		$array = array_values($item['IMAGES']);
 	      	?>	

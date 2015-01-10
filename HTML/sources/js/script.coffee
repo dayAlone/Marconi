@@ -489,7 +489,7 @@ $(document).ready ->
 		$('.picture').elem('big').css
 			backgroundImage : "url(#{$(this).attr('href')})"
 		$('.picture').elem('big').data('easyZoom').teardown()
-		$('.picture__big a').attr 'src', $(this).attr('href')
+		$('.picture__big a').attr 'href', $(this).attr('href')
 		initZoom()
 		e.preventDefault()
 	$('.picture').elem('zoom').click (e)->
