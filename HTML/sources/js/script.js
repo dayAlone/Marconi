@@ -571,7 +571,7 @@
       $('.stores').elem('content').spin(spinOptions);
       window.mapInit = function() {
         var center, closeModal, clusterStyle, currentCity, currentStore, geocoder, goToCity, items, map, mapElement, mapOptions, markerCluster, markers, openModal;
-        center = new google.maps.LatLng(63.436317234268486, 67.10492205969675);
+        center = new google.maps.LatLng(51.1801, 71.44598);
         mapOptions = {
           zoom: 4,
           draggable: true,

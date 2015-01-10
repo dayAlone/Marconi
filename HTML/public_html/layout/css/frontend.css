@@ -7302,7 +7302,7 @@ svg g {
 .stores #map {
   float: left;
   width: 100%;
-  min-height: 800px;
+  min-height: 700px;
   border-top: 1px solid #e7e7e7;
   margin-top: 30px;
 }
