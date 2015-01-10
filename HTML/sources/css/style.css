@@ -3247,6 +3247,10 @@ svg g {
   pointer-events: none;
   color: #000;
 }
+.product__big-button:focus,
+.product__big-button:active {
+  color: #fff;
+}
 .product__big-button--border {
   color: #000;
   background: #fff;
@@ -3268,10 +3272,6 @@ svg g {
   color: #fff;
   -webkit-box-shadow: 0 0 0 1px #d10a32;
   box-shadow: 0 0 0 1px #d10a32;
-}
-.product__big-button:focus,
-.product__big-button:active {
-  color: #fff;
 }
 .product__description {
   padding-left: 22px;
