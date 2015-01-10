@@ -3706,6 +3706,9 @@ svg g {
   background: #fff;
   color: #000;
 }
+.basket__frame {
+  margin-bottom: 40px;
+}
 .basket__frame--no-sale .basket__title .col-xs-4,
 .basket__frame--no-sale .basket__item .col-xs-4,
 .basket__frame--no-sale .basket__footer .col-xs-4 {
