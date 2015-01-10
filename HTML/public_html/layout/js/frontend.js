@@ -38246,7 +38246,13 @@ return PhotoSwipeUI_Default;
         maxHeight: 0
       });
       url = "/include/basket.php?action=delete&id=" + id;
-      $.get(url);
+      $.get(url, function(data) {
+        if (data === 'success') {
+          if (bx_cart_block1) {
+            return bx_cart_block1.refreshCart({});
+          }
+        }
+      });
       row.on(end, function() {
         $(this).remove();
         return basketCalc();

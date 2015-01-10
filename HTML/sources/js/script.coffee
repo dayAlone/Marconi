@@ -174,7 +174,10 @@ $(document).ready ->
 		row.css
 			maxHeight: 0
 		url = "/include/basket.php?action=delete&id=#{id}"
-		$.get url
+		$.get url, (data)->
+			if data == 'success'
+				if bx_cart_block1
+					bx_cart_block1.refreshCart({})
 		row.on end , ->
 			$(this).remove()
 			basketCalc()
