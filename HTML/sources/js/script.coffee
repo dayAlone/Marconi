@@ -462,11 +462,13 @@ $(document).ready ->
 		
 		e.preventDefault()
 
-	$('.picture').elem('big').easyZoom
-		onShow: ->
-			if $('.product').elem('description').height() > $('.easyzoom-flyout').height()
-				$('.easyzoom-flyout')
-					.height $('.product').elem('description').height()
+	initZoom = ->
+		$('.picture').elem('big').easyZoom
+			onShow: ->
+				if $('.product').elem('description').height() > $('.easyzoom-flyout').height()
+					$('.easyzoom-flyout')
+						.height $('.product').elem('description').height()
+	initZoom()
 
 	$('.tabs__trigger:first').addClass 'tabs__trigger--active'
 	$('.tabs__content:first').addClass 'tabs__content--active'
@@ -486,7 +488,8 @@ $(document).ready ->
 		$(this).mod 'active', true
 		$('.picture').elem('big').css
 			backgroundImage : "url(#{$(this).attr('href')})"
-		$('.picture a').attr 'src', $(this).attr('href')
+		$('.picture').elem('big').data('easyZoom').teardown()
+		$('.picture__big a').attr 'src', $(this).attr('href')
 		e.preventDefault()
 	$('.picture').elem('zoom').click (e)->
 			pswpElement = document.querySelectorAll('.pswp')[0];
