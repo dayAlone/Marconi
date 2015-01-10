@@ -127,6 +127,54 @@ $(document).ready ->
 
 	# Basket
 	$('.basket input[type="radio"]').iCheck()
+
+	basketCalc = (el)->
+		total  = 0
+		sale   = 0
+		options =
+			separator   : "&nbsp;"
+			useEasing   : true
+			useGrouping : true
+			separator   : ' '
+			decimal     : ' '
+		$('.basket').elem('count').each ->
+			if parseInt($(this).val()) <= 0 || !$(this).val()
+				$(this).val(1)
+			row = $(this).parents('.basket__item')
+			total += parseInt($(this).data('price'))*$(this).val()
+			sale  += parseInt(row.find('.sale').data('value'))*$(this).val()
+		
+		row = el.parents('.basket__item')
+		val = parseInt(row.find('.basket__count').data('price')) * row.find('.basket__count').val()
+		counter = new countUp row.find('.total')[0], parseInt(row.find('.total').text()), val, 0, 2, options
+		counter.start()
+		
+
+		saleVal = parseInt $('.basket__sale-total span').text().replace(' ','')
+		if saleVal != sale
+			saleCounter = new countUp $('.basket__sale-total span')[0], saleVal, sale, 0, 2, options
+			saleCounter.start()
+
+		totalVal = parseInt $('.basket__total span').text().replace(' ','')
+		if totalVal != total
+			totalCounter = new countUp $('.basket__total span')[0], totalVal, total, 0, 2, options
+			totalCounter.start()
+
+		#$('basket').elem('total').text total
+	updateTimer = false
+
+	$('.basket').elem('count').on 'keydown', (e)->
+		if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
+			return false
+		clearTimeout updateTimer
+		el = $(this)
+		updateTimer = delay 400, ->
+			id    = el.data 'id'
+			count = el.val()
+			url   = "/include/basket.php?action=update&id=#{id}&count=#{count}"
+			basketCalc el
+			$.get url
+
 	# News
 	$('.news-item').each ->
 		h = $(this).outerHeight()

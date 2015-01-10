@@ -1,6 +1,7 @@
 <?
 	require_once ($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include.php");
 	CModule::IncludeModule("catalog");
+	CModule::IncludeModule("sale");
 	global $APPLICATION;
 	
 	$action = $_GET['action'];
@@ -15,6 +16,15 @@
 				if(intval($result)>0)
 					echo 'success';
 
+			break;
+		case 'update':
+				$id    = intval($_GET['id']);
+				$count = intval($_GET['count']);
+				if( $id > 0 && $count > 0):
+			        $arFields = array("QUANTITY" => $count);
+			        if(CSaleBasket::Update($id, $arFields))
+			            echo 'success';
+			    endif;
 			break;
 	endswitch;
 ?>

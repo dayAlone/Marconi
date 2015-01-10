@@ -11378,6 +11378,193 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
  * @modified    Monday, September 15th, 2014
  * @version     2.2.1
  */!function(a){"use strict";function b(b,c){return this.$target=a(b),this.opts=a.extend({},i,c),void 0===this.isOpen&&this._init(),this}var c,d,e,f,g,h,i={loadingNotice:"Loading image",errorNotice:"The image could not be loaded",errorDuration:2500,preventClicks:!0,onShow:void 0,onHide:void 0};b.prototype._init=function(){var b=this;this.$link=this.$target.find("a"),this.$image=this.$target.find("img"),this.$flyout=a('<div class="easyzoom-flyout" />'),this.$notice=a('<div class="easyzoom-notice" />'),this.$target.on("mouseenter.easyzoom touchstart.easyzoom",function(a){b.isMouseOver=!0,a.originalEvent.touches&&1!==a.originalEvent.touches.length||(a.preventDefault(),b.show(a,!0))}).on("mousemove.easyzoom touchmove.easyzoom",function(a){b.isOpen&&(a.preventDefault(),b._move(a))}).on("mouseleave.easyzoom touchend.easyzoom",function(){b.isMouseOver=!1,b.isOpen&&b.hide()}),this.opts.preventClicks&&this.$target.on("click.easyzoom","a",function(a){a.preventDefault()})},b.prototype.show=function(a,b){var g,h,i,j,k=this;return this.isReady?(this.$target.append(this.$flyout),g=this.$target.width(),h=this.$target.height(),i=this.$flyout.width(),j=this.$flyout.height(),c=this.$zoom.width()-i,d=this.$zoom.height()-j,e=c/g,f=d/h,this.isOpen=!0,this.opts.onShow&&this.opts.onShow.call(this),void(a&&this._move(a))):void this._load(this.$link.attr("href"),function(){(k.isMouseOver||!b)&&k.show(a)})},b.prototype._load=function(b,c){var d=new Image;this.$target.addClass("is-loading").append(this.$notice.text(this.opts.loadingNotice)),this.$zoom=a(d),d.onerror=a.proxy(function(){var a=this;this.$notice.text(this.opts.errorNotice),this.$target.removeClass("is-loading").addClass("is-error"),this.detachNotice=setTimeout(function(){a.$notice.detach(),a.detachNotice=null},this.opts.errorDuration)},this),d.onload=a.proxy(function(){d.width&&(this.isReady=!0,this.$notice.detach(),this.$flyout.html(this.$zoom),this.$target.removeClass("is-loading").addClass("is-ready"),c())},this),d.style.position="absolute",d.src=b},b.prototype._move=function(a){if(0===a.type.indexOf("touch")){var b=a.touches||a.originalEvent.touches;g=b[0].pageX,h=b[0].pageY}else g=a.pageX||g,h=a.pageY||h;var i=this.$target.offset(),j=h-i.top,k=g-i.left,l=Math.ceil(j*f),m=Math.ceil(k*e);0>m||0>l||m>c||l>d?this.hide():this.$zoom.css({top:""+-1*l+"px",left:""+-1*m+"px"})},b.prototype.hide=function(){this.isOpen&&(this.$flyout.detach(),this.isOpen=!1,this.opts.onHide&&this.opts.onHide.call(this))},b.prototype.swap=function(b,c,d){this.hide(),this.isReady=!1,this.detachNotice&&clearTimeout(this.detachNotice),this.$notice.parent().length&&this.$notice.detach(),a.isArray(d)&&(d=d.join()),this.$target.removeClass("is-loading is-ready is-error"),this.$image.attr({src:b,srcset:d}),this.$link.attr("href",c)},b.prototype.teardown=function(){this.hide(),this.$target.removeClass("is-loading is-ready is-error").off(".easyzoom"),this.detachNotice&&clearTimeout(this.detachNotice),delete this.$link,delete this.$zoom,delete this.$image,delete this.$notice,delete this.$flyout,delete this.isOpen,delete this.isReady},a.fn.easyZoom=function(c){return this.each(function(){var d=a.data(this,"easyZoom");d?void 0===d.isOpen&&d._init():a.data(this,"easyZoom",new b(this,c))})},"function"==typeof define&&define.amd?define(function(){return b}):"undefined"!=typeof module&&module.exports&&(module.exports=b)}(jQuery);
+/*
+
+    countUp.js
+    by @inorganik
+
+*/
+
+// target = id of html element or var of previously selected html element where counting occurs
+// startVal = the value you want to begin at
+// endVal = the value you want to arrive at
+// decimals = number of decimal places, default 0
+// duration = duration of animation in seconds, default 2
+// options = optional object of options (see below)
+
+function countUp(target, startVal, endVal, decimals, duration, options) {
+
+    // make sure requestAnimationFrame and cancelAnimationFrame are defined
+    // polyfill for browsers without native support
+    // by Opera engineer Erik Möller
+    var lastTime = 0;
+    var vendors = ['webkit', 'moz', 'ms', 'o'];
+    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+        window.cancelAnimationFrame =
+          window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+    }
+    if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = function(callback, element) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+            var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+              timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        }
+    }
+    if (!window.cancelAnimationFrame) {
+        window.cancelAnimationFrame = function(id) {
+            clearTimeout(id);
+        }
+    }
+
+     // default options
+    this.options = options || {
+        useEasing : true, // toggle easing
+        useGrouping : true, // 1,000,000 vs 1000000
+        separator : ',', // character to use as a separator
+        decimal : '.', // character to use as a decimal
+    }
+    if (this.options.separator == '') this.options.useGrouping = false;
+    if (this.options.prefix == null) this.options.prefix = '';
+    if (this.options.suffix == null) this.options.suffix = '';
+
+    var self = this;
+    
+    this.d = (typeof target === 'string') ? document.getElementById(target) : target;
+    this.startVal = Number(startVal);
+    this.endVal = Number(endVal);
+    this.countDown = (this.startVal > this.endVal) ? true : false;
+    this.startTime = null;
+    this.timestamp = null;
+    this.remaining = null;
+    this.frameVal = this.startVal;
+    this.rAF = null;
+    this.decimals = Math.max(0, decimals || 0);
+    this.dec = Math.pow(10, this.decimals);
+    this.duration = duration * 1000 || 2000;
+
+    this.version = function () { return '1.3.2' }
+    
+    // Print value to target
+    this.printValue = function(value) {
+        var result = (!isNaN(value)) ? self.formatNumber(value) : '--';
+        if (self.d.tagName == 'INPUT') {
+            this.d.value = result;
+        } 
+        else if (self.d.tagName == 'text') {
+            this.d.textContent = result;
+        }
+        else {
+            this.d.innerHTML = result;
+        }
+    }
+
+    // Robert Penner's easeOutExpo
+    this.easeOutExpo = function(t, b, c, d) {
+        return c * (-Math.pow(2, -10 * t / d) + 1) * 1024 / 1023 + b;
+    }
+    this.count = function(timestamp) {
+
+        if (self.startTime === null) self.startTime = timestamp;
+
+        self.timestamp = timestamp;
+
+        var progress = timestamp - self.startTime;
+        self.remaining = self.duration - progress;
+
+        // to ease or not to ease
+        if (self.options.useEasing) {
+            if (self.countDown) {
+                var i = self.easeOutExpo(progress, 0, self.startVal - self.endVal, self.duration);
+                self.frameVal = self.startVal - i;
+            } else {
+                self.frameVal = self.easeOutExpo(progress, self.startVal, self.endVal - self.startVal, self.duration);
+            }
+        } else {
+            if (self.countDown) {
+                var i = (self.startVal - self.endVal) * (progress / self.duration);
+                self.frameVal = self.startVal - i;
+            } else {
+                self.frameVal = self.startVal + (self.endVal - self.startVal) * (progress / self.duration);
+            }
+        }
+
+        // don't go past endVal since progress can exceed duration in the last frame
+        if (self.countDown) {
+            self.frameVal = (self.frameVal < self.endVal) ? self.endVal : self.frameVal;
+        } else {
+            self.frameVal = (self.frameVal > self.endVal) ? self.endVal : self.frameVal;
+        }
+
+        // decimal
+        self.frameVal = Math.round(self.frameVal*self.dec)/self.dec;
+
+        // format and print value
+        self.printValue(self.frameVal);
+               
+        // whether to continue
+        if (progress < self.duration) {
+            self.rAF = requestAnimationFrame(self.count);
+        } else {
+            if (self.callback != null) self.callback();
+        }
+    }
+    this.start = function(callback) {
+        self.callback = callback;
+        // make sure values are valid
+        if (!isNaN(self.endVal) && !isNaN(self.startVal)) {
+            self.rAF = requestAnimationFrame(self.count);
+        } else {
+            console.log('countUp error: startVal or endVal is not a number');
+            self.printValue();
+        }
+        return false;
+    }
+    this.stop = function() {
+        cancelAnimationFrame(self.rAF);
+    }
+    this.reset = function() {
+        self.startTime = null;
+        self.startVal = startVal;
+        cancelAnimationFrame(self.rAF);
+        self.printValue(self.startVal);
+    }
+    this.resume = function() {
+        self.stop();
+        self.startTime = null;
+        self.duration = self.remaining;
+        self.startVal = self.frameVal;
+        requestAnimationFrame(self.count);
+    }
+    this.formatNumber = function(nStr) {
+        nStr = nStr.toFixed(self.decimals);
+        nStr += '';
+        var x, x1, x2, rgx;
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? self.options.decimal + x[1] : '';
+        rgx = /(\d+)(\d{3})/;
+        if (self.options.useGrouping) {
+            while (rgx.test(x1)) {
+                x1 = x1.replace(rgx, '$1' + self.options.separator + '$2');
+            }
+        }
+        return self.options.prefix + x1 + x2 + self.options.suffix;
+    }
+
+    // format startVal on initialization
+    self.printValue(self.startVal);
+}
+
+// Example:
+// var numAnim = new countUp("SomeElementYouWantToAnimate", 0, 99.99, 2, 2.5);
+// numAnim.start();
+// with optional callback:
+// numAnim.start(someMethodToCallOnComplete);
+
 /*!
  * jQuery Browser Plugin 0.0.7
  * https://github.com/gabceb/jquery-browser-plugin
@@ -37987,7 +38174,7 @@ return PhotoSwipeUI_Default;
   };
 
   $(document).ready(function() {
-    var addToCart, closeDropdown, filterRequest, filterTimer, galleryOptions, getElem, getFilter, initFiltres, openDropdown, scrollTimer, timer, x;
+    var addToCart, basketCalc, closeDropdown, filterRequest, filterTimer, galleryOptions, getElem, getFilter, initFiltres, openDropdown, scrollTimer, timer, updateTimer, x;
     delay(300, function() {
       return size();
     });
@@ -38009,6 +38196,58 @@ return PhotoSwipeUI_Default;
       });
     });
     $('.basket input[type="radio"]').iCheck();
+    basketCalc = function(el) {
+      var counter, options, row, sale, saleCounter, saleVal, total, totalCounter, totalVal, val;
+      total = 0;
+      sale = 0;
+      options = {
+        separator: "&nbsp;",
+        useEasing: true,
+        useGrouping: true,
+        separator: ' ',
+        decimal: ' '
+      };
+      $('.basket').elem('count').each(function() {
+        var row;
+        if (parseInt($(this).val()) <= 0 || !$(this).val()) {
+          $(this).val(1);
+        }
+        row = $(this).parents('.basket__item');
+        total += parseInt($(this).data('price')) * $(this).val();
+        return sale += parseInt(row.find('.sale').data('value')) * $(this).val();
+      });
+      row = el.parents('.basket__item');
+      val = parseInt(row.find('.basket__count').data('price')) * row.find('.basket__count').val();
+      counter = new countUp(row.find('.total')[0], parseInt(row.find('.total').text()), val, 0, 2, options);
+      counter.start();
+      saleVal = parseInt($('.basket__sale-total span').text().replace(' ', ''));
+      if (saleVal !== sale) {
+        saleCounter = new countUp($('.basket__sale-total span')[0], saleVal, sale, 0, 2, options);
+        saleCounter.start();
+      }
+      totalVal = parseInt($('.basket__total span').text().replace(' ', ''));
+      if (totalVal !== total) {
+        totalCounter = new countUp($('.basket__total span')[0], totalVal, total, 0, 2, options);
+        return totalCounter.start();
+      }
+    };
+    updateTimer = false;
+    $('.basket').elem('count').on('keydown', function(e) {
+      var el;
+      if ((e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37, 38, 39, 40, 13, 27, 9, 8, 46]) === -1) {
+        return false;
+      }
+      clearTimeout(updateTimer);
+      el = $(this);
+      return updateTimer = delay(400, function() {
+        var count, id, url;
+        id = el.data('id');
+        count = el.val();
+        url = "/include/basket.php?action=update&id=" + id + "&count=" + count;
+        basketCalc(el);
+        return $.get(url);
+      });
+    });
     $('.news-item').each(function() {
       var h;
       h = $(this).outerHeight();

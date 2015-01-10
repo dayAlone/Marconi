@@ -35,6 +35,9 @@
    "cookie":{
       "js":"/jquery.cookie/jquery.cookie.js"
    },
+   "count":{
+      "js":"/countUp.js/countUp.js"
+   },
    "easyzoom":{
       "js":"/easyzoom/dist/easyzoom.js"
    },

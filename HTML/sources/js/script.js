@@ -138,7 +138,7 @@
   };
 
   $(document).ready(function() {
-    var addToCart, closeDropdown, filterRequest, filterTimer, galleryOptions, getElem, getFilter, initFiltres, openDropdown, scrollTimer, timer, x;
+    var addToCart, basketCalc, closeDropdown, filterRequest, filterTimer, galleryOptions, getElem, getFilter, initFiltres, openDropdown, scrollTimer, timer, updateTimer, x;
     delay(300, function() {
       return size();
     });
@@ -160,6 +160,58 @@
       });
     });
     $('.basket input[type="radio"]').iCheck();
+    basketCalc = function(el) {
+      var counter, options, row, sale, saleCounter, saleVal, total, totalCounter, totalVal, val;
+      total = 0;
+      sale = 0;
+      options = {
+        separator: "&nbsp;",
+        useEasing: true,
+        useGrouping: true,
+        separator: ' ',
+        decimal: ' '
+      };
+      $('.basket').elem('count').each(function() {
+        var row;
+        if (parseInt($(this).val()) <= 0 || !$(this).val()) {
+          $(this).val(1);
+        }
+        row = $(this).parents('.basket__item');
+        total += parseInt($(this).data('price')) * $(this).val();
+        return sale += parseInt(row.find('.sale').data('value')) * $(this).val();
+      });
+      row = el.parents('.basket__item');
+      val = parseInt(row.find('.basket__count').data('price')) * row.find('.basket__count').val();
+      counter = new countUp(row.find('.total')[0], parseInt(row.find('.total').text()), val, 0, 2, options);
+      counter.start();
+      saleVal = parseInt($('.basket__sale-total span').text().replace(' ', ''));
+      if (saleVal !== sale) {
+        saleCounter = new countUp($('.basket__sale-total span')[0], saleVal, sale, 0, 2, options);
+        saleCounter.start();
+      }
+      totalVal = parseInt($('.basket__total span').text().replace(' ', ''));
+      if (totalVal !== total) {
+        totalCounter = new countUp($('.basket__total span')[0], totalVal, total, 0, 2, options);
+        return totalCounter.start();
+      }
+    };
+    updateTimer = false;
+    $('.basket').elem('count').on('keydown', function(e) {
+      var el;
+      if ((e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37, 38, 39, 40, 13, 27, 9, 8, 46]) === -1) {
+        return false;
+      }
+      clearTimeout(updateTimer);
+      el = $(this);
+      return updateTimer = delay(400, function() {
+        var count, id, url;
+        id = el.data('id');
+        count = el.val();
+        url = "/include/basket.php?action=update&id=" + id + "&count=" + count;
+        basketCalc(el);
+        return $.get(url);
+      });
+    });
     $('.news-item').each(function() {
       var h;
       h = $(this).outerHeight();
