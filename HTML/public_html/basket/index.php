@@ -3,8 +3,6 @@ require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 $APPLICATION->SetPageProperty('body_class', "basket");
 $APPLICATION->SetTitle('Корзина');
 ?>
-<div class="page">
-    <div class="container">
 	<?
 	$APPLICATION->IncludeComponent("bitrix:sale.basket.basket","",Array(
 	        "OFFERS_PROPS" => array("COLOR_REF"),
@@ -19,6 +17,4 @@ $APPLICATION->SetTitle('Корзина');
 	        "ACTION_VARIABLE" => "action"
 	    )
 	);?>
-	</div>
-</div>
 <? require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php'); ?>
