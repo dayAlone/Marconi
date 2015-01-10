@@ -175,8 +175,9 @@ $(document).ready ->
 			maxHeight: 0
 		url = "/include/basket.php?action=delete&id=#{id}"
 		$.get url
-		row.remove()
-		basketCalc()
+		row.on end , ->
+			$(this).remove()
+			basketCalc()
 		e.preventDefault()
 
 	$('.basket').elem('count').on 'keydown', (e)->

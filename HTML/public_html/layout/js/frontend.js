@@ -38247,8 +38247,10 @@ return PhotoSwipeUI_Default;
       });
       url = "/include/basket.php?action=delete&id=" + id;
       $.get(url);
-      row.remove();
-      basketCalc();
+      row.on(end, function() {
+        $(this).remove();
+        return basketCalc();
+      });
       return e.preventDefault();
     });
     $('.basket').elem('count').on('keydown', function(e) {
