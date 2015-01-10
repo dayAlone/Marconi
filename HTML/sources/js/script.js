@@ -837,7 +837,11 @@
           options: {
             duration: 500,
             complete: function() {
-              return $(this).remove();
+              var el;
+              el = $(this);
+              return delay(300, function() {
+                return el.remove();
+              });
             }
           }
         });

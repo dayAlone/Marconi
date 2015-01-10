@@ -454,7 +454,9 @@ $(document).ready ->
 				options:
 					duration: 500
 					complete: ->
-						$(this).remove()
+						el = $(this)
+						delay 300, ->
+							el.remove()
 			
 			$.get url, (data)->
 				if data == 'success'
