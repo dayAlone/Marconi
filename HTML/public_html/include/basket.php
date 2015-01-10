@@ -26,5 +26,12 @@
 			            echo 'success';
 			    endif;
 			break;
+		case 'delete':
+				$id    = intval($_GET['id']);
+				if( $id > 0):
+			        if(CSaleBasket::Delete($id))
+			            echo 'success';
+			    endif;
+			break;
 	endswitch;
 ?>

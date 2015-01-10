@@ -6850,6 +6850,43 @@ svg g {
   background: #fff;
   color: #000;
 }
+.basket__delete {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  margin-top: -13px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  opacity: 0.3;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  filter: alpha(opacity=30);
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -ms-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.basket__delete:hover {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.basket__delete svg {
+  width: 21px;
+  height: 21px;
+}
+.basket__delete svg path {
+  fill: #d10a32;
+  stroke: #d10a32;
+  stroke-location: inside;
+  stroke-width: 1px;
+}
 .basket__frame {
   margin-bottom: 40px;
 }
@@ -6903,15 +6940,29 @@ svg g {
 .basket__item {
   text-transform: uppercase;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition-property: max-height;
+  -moz-transition-property: max-height;
+  -o-transition-property: max-height;
+  -ms-transition-property: max-height;
+  transition-property: max-height;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 @media (min-width: 992px) {
   .basket__item {
     line-height: 110px;
+    max-height: 110px;
   }
 }
 @media (min-width: 1200px) {
   .basket__item {
     line-height: 130px;
+    max-height: 130px;
   }
 }
 .basket__item [class*='col-'] > * {

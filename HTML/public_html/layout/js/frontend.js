@@ -38207,6 +38207,7 @@ return PhotoSwipeUI_Default;
         separator: ' ',
         decimal: ' '
       };
+      console.log($('.basket').elem('count').length);
       $('.basket').elem('count').each(function() {
         var row;
         if (parseInt($(this).val()) <= 0 || !$(this).val()) {
@@ -38216,12 +38217,14 @@ return PhotoSwipeUI_Default;
         total += parseInt($(this).data('price')) * $(this).val();
         return sale += parseInt(row.find('.sale').data('value')) * $(this).val();
       });
-      row = el.parents('.basket__item');
-      val = parseInt(row.find('.basket__count').data('price')) * row.find('.basket__count').val();
-      last = parseInt(row.find('.total').text().replace(' ', ''));
-      if (val !== last) {
-        counter = new countUp(row.find('.total')[0], last, val, 0, 2, options);
-        counter.start();
+      if (el) {
+        row = el.parents('.basket__item');
+        val = parseInt(row.find('.basket__count').data('price')) * row.find('.basket__count').val();
+        last = parseInt(row.find('.total').text().replace(' ', ''));
+        if (val !== last) {
+          counter = new countUp(row.find('.total')[0], last, val, 0, 2, options);
+          counter.start();
+        }
       }
       saleVal = parseInt($('.basket__sale-total span').text().replace(' ', ''));
       if (saleVal !== sale) {
@@ -38235,6 +38238,19 @@ return PhotoSwipeUI_Default;
       }
     };
     updateTimer = false;
+    $('.basket').elem('delete').click(function(e) {
+      var id, row, url;
+      row = $(this).parents('.basket__item');
+      id = $(this).data('id');
+      row.css({
+        maxHeight: 0
+      });
+      url = "/include/basket.php?action=delete&id=" + id;
+      $.get(url);
+      row.remove();
+      basketCalc();
+      return e.preventDefault();
+    });
     $('.basket').elem('count').on('keydown', function(e) {
       var el;
       if ((e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37, 38, 39, 40, 13, 27, 9, 8, 46]) === -1) {

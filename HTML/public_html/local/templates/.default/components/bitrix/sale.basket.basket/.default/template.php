@@ -53,7 +53,12 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			            <div class="col-xs-1"> 
 			              <input value="<?=$item['QUANTITY']?>" class="basket__count" data-id="<?=$item['ID']?>" data-price="<?=$item['PRICE']?>">
 			            </div>
-			            <div class="col-xs-3"> <strong><span class="total"><?=number_format($item['QUANTITY']*$item['PRICE'], 0, ' ', ' ')?></span> ₷</strong></div>
+			            <div class="col-xs-3">
+			            	<strong><span class="total"><?=number_format($item['QUANTITY']*$item['PRICE'], 0, ' ', ' ')?></span> ₷</strong>
+							<a href="#" class="basket__delete" data-id="<?=$item['ID']?>">
+								<?=svg('close')?>
+							</a>
+			            </div>
 			          </div>
 			        </div>
 			    	<? endforeach;?>
