@@ -266,7 +266,7 @@ $(document).ready ->
 		$('.stores').elem('content').spin spinOptions
 		window.mapInit = ->
 			center     = new google.maps.LatLng(63.436317234268486, 67.10492205969675);
-			mapOptions = {zoom:3,draggable:true,zoomControl:true,zoomControlOptions: {style: google.maps.ZoomControlStyle.LARGE,position: google.maps.ControlPosition.LEFT_CENTER},scrollwheel:false,disableDoubleClickZoom:false,disableDefaultUI:true,center:center,styles:window.styles}
+			mapOptions = {zoom:4,draggable:true,zoomControl:true,zoomControlOptions: {style: google.maps.ZoomControlStyle.LARGE,position: google.maps.ControlPosition.LEFT_CENTER},scrollwheel:false,disableDoubleClickZoom:false,disableDefaultUI:true,center:center,styles:window.styles}
 			mapElement = document.getElementById('map');
 			map        = new google.maps.Map(mapElement, mapOptions);
 			geocoder   = new google.maps.Geocoder();

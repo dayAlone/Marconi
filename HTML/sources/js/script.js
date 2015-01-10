@@ -573,7 +573,7 @@
         var center, closeModal, clusterStyle, currentCity, currentStore, geocoder, goToCity, items, map, mapElement, mapOptions, markerCluster, markers, openModal;
         center = new google.maps.LatLng(63.436317234268486, 67.10492205969675);
         mapOptions = {
-          zoom: 3,
+          zoom: 4,
           draggable: true,
           zoomControl: true,
           zoomControlOptions: {
