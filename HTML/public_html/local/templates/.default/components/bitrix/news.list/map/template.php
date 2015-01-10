@@ -24,17 +24,17 @@ elseif(isset($active)):
 <div class="stores__city"><?=$arResult['SECTIONS'][$item['IBLOCK_SECTION_ID']]['NAME']?></div>
 <div class="row">
   <div class="col-xs-<?=(isset($item['PREVIEW_PICTURE']['SRC'])?"7":"12")?>">
-  <?if(isset($item['PROPERTIES']['ADDRESS']['VALUE'])):?>
+  <?if(strlen($item['PROPERTIES']['ADDRESS']['VALUE'])>0):?>
     <div class="stores__address">
       <?=html_entity_decode($item['PROPERTIES']['ADDRESS']['VALUE']['TEXT'])?>
     </div>
   <?endif;?>
-  <?if(isset($item['PREVIEW_TEXT'])):?>
+  <?if(strlen($item['PREVIEW_TEXT'])>0):?>
     <div class="stores__description">
       <?=$item['~PREVIEW_TEXT']?>
     </div>
   <?endif;?>
-  <?if(isset($item['PROPERTIES']['METRO']['VALUE'])):?>
+  <?if(strlen($item['PROPERTIES']['METRO']['VALUE'])>0):?>
     <div class="stores__metro">
       <?=svg('metro')?> <?=$item['PROPERTIES']['METRO']['VALUE']?>
     </div>
