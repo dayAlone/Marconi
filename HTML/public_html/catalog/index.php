@@ -91,8 +91,8 @@ $APPLICATION->SetPageProperty('body_class', "catalog ".(!isset($_REQUEST['v'])?"
 		"LIST_META_DESCRIPTION" => "-",
 		"LIST_BROWSER_TITLE"    => "-",
 		"DETAIL_PROPERTY_CODE" => array(
-			0 => "",
-			1 => "",
+			0 => "BRAND",
+			1 => "PICTURES",
 		),
 		"DETAIL_META_KEYWORDS"             => "-",
 		"DETAIL_META_DESCRIPTION"          => "-",
