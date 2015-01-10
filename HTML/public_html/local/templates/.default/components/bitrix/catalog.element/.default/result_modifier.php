@@ -5,7 +5,7 @@
 	$arResult['MATERIALS'] = getHighloadElements('materials', 'UF_XML_ID', 'UF_NAME');
 	$arResult['SIZES']     = getHighloadElements('sizes', 'UF_XML_ID', 'UF_NAME');
 	$arResult['IMAGES']    = array();
-	$raw = CFile::GetList(array(), array('ID'=>$arResult['PROPERTIES']['PICTURES']['VALUE']));
+	$raw = CFile::GetList(array(), array('ID'=>implode($arResult['PROPERTIES']['PICTURES']['VALUE'])));
 	while($img = $raw->Fetch()):
 		if(file_exists($_SERVER['DOCUMENT_ROOT']."/upload/".$img['SUBDIR']."/".$img['FILE_NAME'])):
 			$small = CFile::ResizeImageGet(CFile::GetFileArray($img['ID']), Array("width" => 200, "height" => 200), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
