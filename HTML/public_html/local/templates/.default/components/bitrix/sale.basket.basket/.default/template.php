@@ -5,6 +5,9 @@ $arUrls = Array(
 	"delay" => $APPLICATION->GetCurPage()."?".$arParams["ACTION_VARIABLE"]."=delay&id=#ID#",
 	"add" => $APPLICATION->GetCurPage()."?".$arParams["ACTION_VARIABLE"]."=add&id=#ID#",
 );
+
+$brands = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
+
 if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 {
 	?>
@@ -38,14 +41,13 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			          </div>
 			        </div>
 			        <? 
-			        foreach($arResult['GRID']['ROWS'] as $item): 
-			        	#var_dump($item);
+			        foreach($arResult['GRID']['ROWS'] as $item):
 			        ?>
 			        <div class="basket__item" data-id="<?=$item['ID']?>">
 			          <div class="row">
 			            <div class="col-xs-4 left">
 			              <div style="background-image: url(<?=($item['PREVIEW_PICTURE_SRC']?$item['PREVIEW_PICTURE_SRC']:'/layout/images/no-image.jpg')?>)" class="basket__picture"></div>
-			              <div class="basket__name">Сумка женская <br><span class="basket__brand">francesco marconi <br></span>pelle arancione</div>
+			              <div class="basket__name"><?=str_replace($brands[$item['PROPERTY_BRAND_VALUE']], "<br><span class='basket__brand'>".$brands[$item['PROPERTY_BRAND_VALUE']]."</span><br>", $item['NAME'])?></div>
 			            </div>
 			            <div class="col-xs-2"><?=$item['PROPERTY_ARTNUMBER_VALUE']?></div>
 			            <div class="<?=($showSale?'col-xs-1':'col-xs-3')?>"> <strong class="sale" data-value="<?=$item['DISCOUNT_PRICE']?>"><?=number_format($item['FULL_PRICE'], 0, ' ', ' ')?> ₷</strong></div>
