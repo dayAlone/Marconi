@@ -172,6 +172,9 @@
         decimal: ' '
       };
       console.log($('.basket').elem('count').length);
+      if ($('.basket').elem('count').length === 0) {
+        location.href = "/catalog/";
+      }
       $('.basket').elem('count').each(function() {
         var row;
         if (parseInt($(this).val()) <= 0 || !$(this).val()) {
