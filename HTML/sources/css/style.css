@@ -3706,6 +3706,11 @@ svg g {
   background: #fff;
   color: #000;
 }
+.basket__frame--no-sale .basket__title .col-xs-4,
+.basket__frame--no-sale .basket__item .col-xs-4,
+.basket__frame--no-sale .basket__footer .col-xs-4 {
+  width: 34%;
+}
 .basket__title .col-xs-offset-7,
 .basket__item .col-xs-offset-7,
 .basket__footer .col-xs-offset-7 {
