@@ -3862,9 +3862,9 @@ svg g {
   color: #000;
 }
 .basket__picture {
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  background-size: contain;
+  -webkit-background-size: auto 90%;
+  -moz-background-size: auto 90%;
+  background-size: auto 90%;
   background-repeat: no-repeat;
   background-position: center center;
 }
