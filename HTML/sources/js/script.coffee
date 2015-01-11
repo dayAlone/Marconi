@@ -683,7 +683,6 @@ $(document).ready ->
 					url      : ajaxURL 
 					data     : data
 					success  : (data)->
-						console.log 'loaded'
 						el.parents('.filter').mod('loading', false) if el
 
 						History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(form.serialize()) + sort + "&set_filter=Y");
@@ -731,13 +730,23 @@ $(document).ready ->
 										properties: "transition.slideDownIn"
 										options:
 											duration: 300
-							
-							
+
+	getParameterByName = (name)->
+    	match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    	return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 	
+	console.log getParameterByName('sort_param')
+
 	$('.catalog__toolbar .dropdown .dropdown__item').click (e)->
 		$(this).block().data 'value', $(this).data 'value'
 		$(this).block().data 'param', $(this).data 'param'
-		getFilter()
+		if $('.page').elem('side').find('form').length > 0
+			getFilter()
+		else
+			if !getParameterByName('sort_param')
+				location.href = location.href + "&sort_param=#{$(this).data('param')}&sort_value=#{$(this).data('value')}"
+			else
+				location.href = location.href.replace(getParameterByName('sort_param'), $(this).data('param')).replace(getParameterByName('sort_value'), $(this).data('value'))
 
 	$('.brand-select .dropdown .dropdown__item').click (e)->
 		if $(this).data('id').length > 0

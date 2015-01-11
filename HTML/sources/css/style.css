@@ -2285,7 +2285,7 @@ svg g {
 .catalog__nav {
   margin-bottom: 40px;
   position: relative;
-  z-index: 200;
+  z-index: 700;
   float: left;
   width: 100%;
 }
@@ -2352,7 +2352,7 @@ svg g {
   font-size: 12px;
   color: #171929;
   position: relative;
-  z-index: 800;
+  z-index: 400;
 }
 .catalog__toolbar .dropdown {
   position: relative;
