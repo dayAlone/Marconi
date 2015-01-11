@@ -1269,15 +1269,19 @@ div.pp_default .pp_loaderIcon {
   left: 0;
   width: 100%;
   z-index: 20;
-  padding: 3px 10px;
+  padding: 0px;
 }
 .brand-select .dropdown__item {
   width: 100%;
   display: inline-block;
   color: #fff;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: bold;
+  padding: 9px 10px 3px;
+}
+.brand-select .dropdown__item:hover {
+  background: #000;
 }
 .footer {
   float: left;
@@ -2355,10 +2359,10 @@ svg g {
 .catalog__toolbar .dropdown__frame {
   padding-top: 20px;
   min-width: 110%;
-  left: -8px;
-  top: -5px;
+  left: -10px;
+  top: -11px;
   position: absolute;
-  padding: 20px 8px 0px 8px;
+  padding: 30px 0px 0px 0px;
   background: #fff;
   -webkit-box-shadow: 0 0 10px rgba(116,132,149,0.8);
   box-shadow: 0 0 10px rgba(116,132,149,0.8);
@@ -2366,12 +2370,16 @@ svg g {
 .catalog__toolbar .dropdown__item {
   float: left;
   clear: both;
-  font-size: 9px;
+  font-size: 12px;
   line-height: 15px;
   color: #000;
   white-space: nowrap;
-  letter-spacing: 1px;
-  font-weight: bold;
+  padding: 9px 10px 3px;
+  width: 100%;
+}
+.catalog__toolbar .dropdown__item:hover {
+  background: #000;
+  color: #fff;
 }
 .catalog__toolbar .dropdown__trigger {
   color: #000;
