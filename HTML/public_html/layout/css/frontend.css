@@ -7781,6 +7781,8 @@ svg g {
   left: 0;
   min-width: 100%;
   z-index: 10;
+  max-height: 100px;
+  overflow: scroll;
 }
 .basket__block .dropdown__item {
   float: left;
