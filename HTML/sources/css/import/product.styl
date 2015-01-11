@@ -276,6 +276,7 @@
 	.available
 		&__row
 			position relative
+			
 		&__product-name
 			text-transform: uppercase
 			font-weight: bold
@@ -316,6 +317,12 @@
 					padding 10px 0
 					text-transform: uppercase
 					font-weight: bold
+					a
+						color black
+						border-line(alpha(@color, .3))
+						&:hover
+							color red
+							border-line(alpha(@color, .3))
 					span
 						margin-right 8px
 					&.available__address
