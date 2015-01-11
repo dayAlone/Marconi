@@ -281,7 +281,7 @@
 			if(!isset($fields['PREVIEW_PICTURE'])):
 				$fields['SORT'] = 60000000;
 			else:
-				$fields['SORT'] = $fields['IBLOCK_SECTION'][0]*100;
+				$fields['SORT'] = (count($this->categories)+1-$this->categories[$propSections['category']]['ID'])*100;
 			endif;
 
 			$fields["PROPERTY_VALUES"] = $props;
