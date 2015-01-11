@@ -77,7 +77,7 @@ $props = &$arResult['PROPERTIES'];
 	      		$array = array_values($item['IMAGES']);
 	      	?>	
 	        	<div style="background-image:url(<?=(isset($array[0]['middle'])?$array[0]['middle']:(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg"))?>)" class="picture__big">
-					<a href="<?=(isset($array[0]['big'])?$array[0]['big']:(isset($item['PREVIEW_PICTURE']['SRC'])?$item['PREVIEW_PICTURE']['SRC']:"/layout/images/no-image.jpg"))?>">
+					<a href="<?=(isset($array[0]['src'])?$array[0]['src']:(isset($item['PREVIEW_PICTURE']['SRC'])?$item['PREVIEW_PICTURE']['SRC']:"/layout/images/no-image.jpg"))?>">
 				        <img src="<?=(isset($array[0]['middle'])?$array[0]['middle']:(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg"))?>" alt="" />
 				    </a>
 	        	</div>
@@ -87,7 +87,7 @@ $props = &$arResult['PROPERTIES'];
 	      <? if(count($item['IMAGES'])>1):?>
 	      <div class="col-xs-3 col-lg-2">
 	      <? foreach ($item['IMAGES'] as $key => $image): ?>
-	      	<a style="background-image:url(<?=$image['small']?>)" href="<?=$image['middle']?>" class="picture__small <?=($key==0?"picture__small--active":"")?>"></a>
+	      	<a style="background-image:url(<?=$image['small']?>)" href="<?=$image['src']?>" data-middle="<?=$image['middle']?>" class="picture__small <?=($key==0?"picture__small--active":"")?>"></a>
 	      <? 
 	      	if ($key>3)
 	      		break;

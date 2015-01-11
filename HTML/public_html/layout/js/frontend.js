@@ -38880,9 +38880,10 @@ return PhotoSwipeUI_Default;
       $('.picture').elem('small').mod('active', false);
       $(this).mod('active', true);
       $('.picture').elem('big').css({
-        backgroundImage: "url(" + ($(this).attr('href')) + ")"
+        backgroundImage: "url(" + ($(this).data('middle')) + ")"
       });
-      $('.picture__big a').attr('href', $(this).attr('href'));
+      $('.picture').elem('big').data('easyZoom').swap($(this).data('middle'), $(this).attr('href'));
+      console.log($(this).data('middle'), $(this).attr('href'));
       return e.preventDefault();
     });
     $('.picture').elem('zoom').click(function(e) {
