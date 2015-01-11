@@ -79,7 +79,7 @@ if (!function_exists("cmpBySort"))
 							"bitrix:sale.location.selector.search", 
 							".default", 
 							array(
-								"ID"                     => $value,
+								"ID"                     => ($value>0?$value:$prop['DEFAULT_VALUE']),
 								"CODE"                   => "",
 								"CACHE_NOTE"             => $arResult["BUYER_STORE"],
 								"INPUT_NAME"             => $prop['FIELD_NAME'],

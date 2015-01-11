@@ -4139,7 +4139,7 @@ svg g {
   margin-right: 15px;
 }
 .basket__block .bx-ui-sls-quick-locations {
-  display: none;
+  display: block;
 }
 .basket__block .dropdown {
   position: relative;
