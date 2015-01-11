@@ -6,7 +6,7 @@
 	    </a>
 	    <div class="product__type"><?=str_replace($arResult['BRANDS'][$item['PROPERTIES']['BRAND']['VALUE']], '</div><div class="product__brand">'.$arResult['BRANDS'][$item['PROPERTIES']['BRAND']['VALUE']].'</div><div class="product__name">', $item['NAME'])?></div>
 	    <div class="product__price">
-	    <? if(isset($item['MIN_PRICE']['VALUE'])): ?>
+	    <? if(isset($item['MIN_PRICE']['VALUE'])&&intval($item['MIN_PRICE']['VALUE'])!=0): ?>
 	      <?=number_format($item['MIN_PRICE']['VALUE'], 0, '.', ' ')?> ₷
 	    <? else: ?>
 	      <small>Товара нет в наличии</small>
