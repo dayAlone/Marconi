@@ -210,7 +210,8 @@ $(document).ready ->
 		$('.stores-list .dropdown').elem('item').off('click').on 'click', (e)->
 			$(this).block().find('select').val $(this).data 'id'
 			e.preventDefault()
-		
+	$('.bx-ui-sls-clear').click ->
+		getOrderDate()
 	$('.bx-sls input:hidden:first').change ->
 		if parseInt($(this).val()) > 0
 			getOrderDate()
@@ -816,8 +817,8 @@ $(document).ready ->
 				duration: 300
 				complete: ()->
 					x.mod('open', true)
-					timer = delay 3000, ()->
-						closeDropdown x
+					#timer = delay 6000, ()->
+						#closeDropdown x
 
 	initDropdown = ->
 		$('.dropdown').elem('item').off('change').on 'click', (e)->

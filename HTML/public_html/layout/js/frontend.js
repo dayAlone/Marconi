@@ -39992,6 +39992,9 @@ return PhotoSwipeUI_Default;
         return e.preventDefault();
       });
     };
+    $('.bx-ui-sls-clear').click(function() {
+      return getOrderDate();
+    });
     $('.bx-sls input:hidden:first').change(function() {
       if (parseInt($(this).val()) > 0) {
         return getOrderDate();
@@ -40964,10 +40967,7 @@ return PhotoSwipeUI_Default;
         options: {
           duration: 300,
           complete: function() {
-            x.mod('open', true);
-            return timer = delay(3000, function() {
-              return closeDropdown(x);
-            });
+            return x.mod('open', true);
           }
         }
       });
