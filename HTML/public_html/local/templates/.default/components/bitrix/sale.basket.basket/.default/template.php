@@ -43,7 +43,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			        <? 
 			        $sections = array();
 			        foreach($arResult['GRID']['ROWS'] as $item):
-			        	if($sections[$item['CATALOG']['SECTION_ID'][0]])
+			        	if($sections[$item['CATALOG']['SECTION_ID'][0]]):
 			        		$section = $sections[$item['CATALOG']['SECTION_ID'][0]];
 			        	else:
 			        		$section = CIBlockSection::GetByID($item['CATALOG']['SECTION_ID'][0])->Fetch();
