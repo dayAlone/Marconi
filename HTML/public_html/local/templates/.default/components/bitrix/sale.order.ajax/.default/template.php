@@ -188,7 +188,7 @@ if (!function_exists("cmpBySort"))
 	<input type="hidden" name="is_ajax_post" id="is_ajax_post" value="Y">
 	<input type="hidden" name="json" value="Y">
 
-	<input type="submit">
+	<? /*<input type="submit">*/?>
 </form>
 <?if(CSaleLocation::isLocationProEnabled()):?>
 
