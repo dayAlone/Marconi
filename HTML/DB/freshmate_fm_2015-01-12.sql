@@ -266,20 +266,6 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table b_sale_person_type
-# ------------------------------------------------------------
-
-LOCK TABLES `b_sale_person_type` WRITE;
-/*!40000 ALTER TABLE `b_sale_person_type` DISABLE KEYS */;
-
-INSERT INTO `b_sale_person_type` (`ID`, `LID`, `NAME`, `SORT`, `ACTIVE`)
-VALUES
-	(1,'s1','Розничный покупатель',0,'Y');
-
-/*!40000 ALTER TABLE `b_sale_person_type` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
 # Dump of table b_sale_person_type_site
 # ------------------------------------------------------------
 
