@@ -5739,6 +5739,7 @@ svg g {
 .catalog .product__content {
   position: relative;
   z-index: 7;
+  min-height: 308px;
 }
 .catalog .product__icon,
 .catalog .product__button,
