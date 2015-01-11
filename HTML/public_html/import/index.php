@@ -279,9 +279,9 @@
 			endforeach;
 
 			if(!isset($fields['PREVIEW_PICTURE'])):
-				$fields['SORT'] = 600;
+				$fields['SORT'] = 60000000;
 			else:
-				$fields['SORT'] = 500;
+				$fields['SORT'] = $fields['IBLOCK_SECTION'][0]*100;
 			endif;
 
 			$fields["PROPERTY_VALUES"] = $props;
