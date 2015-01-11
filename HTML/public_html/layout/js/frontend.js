@@ -38790,7 +38790,7 @@ return PhotoSwipeUI_Default;
     }).fotorama();
     $('.about').elem('slider').on('fotorama:show', function(e, fotorama, extra) {
       console.log(1);
-      return $('.about').elem('slider-arrow').one('click', function(e) {
+      return $('.about').elem('slider-arrow').off('click').on('click', function(e) {
         var slider;
         slider = $('.about').elem('slider').data('fotorama');
         slider.show($(this).data('direction'));
