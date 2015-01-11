@@ -9,9 +9,6 @@ define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 use Bitrix\Highloadblock as HL;
 use Bitrix\Main\Entity;
 
-if(isset($_COOKIE['BRAND']) && $_COOKIE['BRAND'] != 'null')
-	\Bitrix\Main\Data\StaticHtmlCache::getInstance()->markNonCacheable();
-
 function svg($value='')
 {
 	$path = $_SERVER["DOCUMENT_ROOT"]."/layout/images/svg/".$value.".svg";
