@@ -5,7 +5,6 @@
 			foreach ($arResult['rows'] as $item):
 				if($_COOKIE['BRAND']==$item['UF_XML_ID']):
 					$current =  $item;
-					\Bitrix\Main\Data\StaticHtmlCache::getInstance()->markNonCacheable();
 				endif;
 			endforeach;
 		endif;
