@@ -203,10 +203,31 @@ $(document).ready ->
 	# Order
 
 	initOrder = ->
-		$('.basket input[type="radio"]').iCheck()
-		$('.bx-sls input:hidden:first').change ->
-			if parseInt($(this).val()) > 0
-				console.log $(this).val()
+		$('.basket .delivery input[type="radio"], .basket .payment input[type="radio"]')
+			.iCheck()
+			.one 'ifChecked', ->
+				getOrderDate()
+		$('.stores-list .dropdown').elem('item').off('click').on 'click', (e)->
+			$(this).block().find('select').val $(this).data 'id'
+			e.preventDefault()
+		
+	$('.bx-sls input:hidden:first').change ->
+		if parseInt($(this).val()) > 0
+			getOrderDate()
+	getOrderDate = ->
+		data = $('#ORDER_FORM').serialize()
+		$('.basket').elem('block').mod 'loading', true
+		$.ajax
+			type     : "POST" 
+			url      : $('#ORDER_FORM').attr('action') 
+			data     : data
+			success  : (data)->
+				$('#ORDER_FORM .props').html $(data).find('.props').html()
+				$('#ORDER_FORM .delivery').html $(data).find('.delivery').html()
+				$('#ORDER_FORM .payment').html $(data).find('.payment').html()
+				initOrder()
+				initDropdown()
+				$('.basket').elem('block').mod 'loading', false
 	initOrder()
 	# News
 	$('.news-item').each ->
@@ -794,33 +815,36 @@ $(document).ready ->
 					timer = delay 3000, ()->
 						closeDropdown x
 
-	$('.dropdown').elem('item').click (e)->
-		if $(this).attr('href')[0] == "#"
-			$(this).block().elem('text').html($(this).text())
-			$(this).block().elem('frame').velocity
-					properties: "transition.slideUpOut"
-					options:
-						duration: 300
-			e.preventDefault()
-		else
-			window.location.href = $(this).attr('href')
+	initDropdown = ->
+		$('.dropdown').elem('item').off('change').on 'click', (e)->
 
-	$('.dropdown').elem('select').on 'change', ()->
-		
-		val = $(this).val()
-		$(this).block().find("a[href='#{val}']").trigger 'click'
-		$(this).mod 'open', true
-		
-	$('.dropdown').hoverIntent
-			over : ()->
-				if $(window).width() > 970
-					openDropdown $(this)
-				else
-					$(this)
-						.elem('select').focus()
-						.mod 'open', true
-			out : ()->
-				if $(window).width() > 970
-					closeDropdown $(this)
+			if $(this).attr('href')[0] == "#"
+				$(this).block().elem('text').html($(this).text())
+				$(this).block().elem('frame').velocity
+						properties: "transition.slideUpOut"
+						options:
+							duration: 300
+				e.preventDefault()
+			else
+				window.location.href = $(this).attr('href')
 
+		$('.dropdown').elem('select').off('change').on 'change', ()->
+			
+			val = $(this).val()
+			$(this).block().find("a[href='#{val}']").trigger 'click'
+			$(this).mod 'open', true
+			
+		$('.dropdown').hoverIntent
+				over : ()->
+					if $(window).width() > 970
+						openDropdown $(this)
+					else
+						$(this)
+							.elem('select').focus()
+							.mod 'open', true
+				out : ()->
+					if $(window).width() > 970
+						closeDropdown $(this)
+
+	initDropdown()
 	

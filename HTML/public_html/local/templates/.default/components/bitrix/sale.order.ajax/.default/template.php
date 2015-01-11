@@ -28,39 +28,40 @@ if (!function_exists("cmpBySort"))
 		<div class="col-xs-4">
 			<div class="basket__block">
 				<div class="basket__block-title">доставка</div>
-				<input type="hidden" name="BUYER_STORE" id="BUYER_STORE" value="<?=$arResult["BUYER_STORE"]?>" />
-				<? 
-				$showStores = false;
-				foreach ($arResult["DELIVERY"] as $delivery_id => $delivery):
-					if(isset($delivery['PROFILES'])):
-						foreach ($delivery['PROFILES'] as $profile_id => $arDelivery):
-							if($arDelivery["CHECKED"]=="Y")
-								$currenDelivery = $delivery_id;
-						?>
-						<input type="radio"
-							id="ID_DELIVERY_<?=$delivery_id?>_<?=$profile_id?>"
-							name="<?=htmlspecialcharsbx($arDelivery["FIELD_NAME"])?>"
-							value="<?=$delivery_id.":".$profile_id;?>" <?if ($arDelivery["CHECKED"]=="Y") echo " checked";?>
-							/>
-	    				<label for="ID_DELIVERY_<?=$delivery_id?>_<?=$profile_id?>"><?=$delivery['TITLE']?> <?=($arDelivery["PRICE_FORMATED"]&&$arDelivery["CHECKED"]?$arDelivery["PRICE_FORMATED"]:"")?></label>
-						<? 
-						endforeach;
-					else:
-						if(isset($delivery["STORE"]))
-							$showStores = $delivery["STORE"];
-						?>
-							<input type="radio"
-								id="ID_DELIVERY_ID_<?= $delivery["ID"] ?>"
-								name="<?=htmlspecialcharsbx($delivery["FIELD_NAME"])?>"
-								value="<?= $delivery["ID"] ?>"<?if ($delivery["CHECKED"]=="Y") echo " checked";?>
-								onclick="submitForm();"
+				<div class="delivery">
+					<? 
+					$showStores = false;
+					$checked    = false;
+					foreach ($arResult["DELIVERY"] as $delivery_id => $delivery):
+						if(isset($delivery['PROFILES'])):
+							foreach ($delivery['PROFILES'] as $profile_id => $arDelivery):
+								if($arDelivery["CHECKED"]=="Y")
+									$currenDelivery = $delivery_id;
+							?>
+							<nobr><input type="radio"
+								id="ID_DELIVERY_<?=$delivery_id?>_<?=$profile_id?>"
+								name="<?=htmlspecialcharsbx($arDelivery["FIELD_NAME"])?>"
+								value="<?=$delivery_id.":".$profile_id;?>" <?if ($arDelivery["CHECKED"]=="Y") echo " checked";?>
 								/>
-	    				<label for="ID_DELIVERY_ID_<?=$delivery["ID"]?>"><?=$delivery['NAME']?></label>
-						<?
-					endif;
-				endforeach; ?>
+		    				<label for="ID_DELIVERY_<?=$delivery_id?>_<?=$profile_id?>"><?=$delivery['TITLE']?> <?=($arDelivery["PRICE_FORMATED"]&&$arDelivery["CHECKED"]?$arDelivery["PRICE_FORMATED"]:"")?></label></nobr>
+							<? 
+							endforeach;
+						else:
+							if(isset($delivery["STORE"])&&$delivery["CHECKED"]=="Y")
+								$showStores = $delivery["STORE"];
+							?>
+							<nobr><input type="radio"
+									id="ID_DELIVERY_ID_<?= $delivery["ID"] ?>"
+									name="<?=htmlspecialcharsbx($delivery["FIELD_NAME"])?>"
+									value="<?= $delivery["ID"] ?>"<?if ($delivery["CHECKED"]=="Y") echo " checked";?>
+									/>
+		    				<label for="ID_DELIVERY_ID_<?=$delivery["ID"]?>"><?=$delivery['NAME']?></label></nobr>
+							<?
+						endif;
+					endforeach; ?>
+				</div>
 				<small><strong>адрес доставки *</strong></small>
-				<? foreach (array_merge($arResult['ORDER_PROP']['USER_PROPS_N'],$arResult['ORDER_PROP']['RELATED']) as $prop):
+				<? foreach ($arResult['ORDER_PROP']['USER_PROPS_N'] as $prop):
 					if ($prop["TYPE"] == "LOCATION"):
 						$value = 0;
 						if (is_array($prop["VARIANTS"]) && count($prop["VARIANTS"]) > 0)
@@ -80,6 +81,7 @@ if (!function_exists("cmpBySort"))
 							array(
 								"ID"                     => $value,
 								"CODE"                   => "",
+								"CACHE_NOTE"             => $arResult["BUYER_STORE"],
 								"INPUT_NAME"             => $prop['FIELD_NAME'],
 								"PROVIDE_LINK_BY"        => "id",
 								"SEARCH_BY_PRIMARY"      => "Y",
@@ -91,7 +93,11 @@ if (!function_exists("cmpBySort"))
 							),
 							false
 						);
-					elseif($prop['CODE']=="index"):
+				 	endif;
+				endforeach;?>
+				<div class="props">
+				<? foreach ($arResult['ORDER_PROP']['RELATED'] as $prop):
+					if($prop['CODE']=="index"):
 						?>
 						<input type="hidden" name="<?=$prop['FIELD_NAME']?>" value="<?=$prop["VALUE"]?>">
 					<?
@@ -122,9 +128,26 @@ if (!function_exists("cmpBySort"))
 						?><input class="<?=($prop['SIZE1']==2?"small":"")?>" type="text" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=='Y'?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?> value="<?=$prop["VALUE"]?>"><?
 					endif;
 					endforeach ?>
-				<?if($showStores):?>
-					123
-				<?endif;?>
+				<?if($showStores):
+					global $arFilter;
+	        		$arFilter = array('PROPERTY_STORE' => $showStores);
+					$APPLICATION->IncludeComponent("bitrix:news.list", "stores", 
+						array(
+							"IBLOCK_ID"     => 6,
+							"NEWS_COUNT"    => "9999999",
+							"FILTER_NAME"   => "arFilter",
+							"SORT_BY1"      => "ID",
+							"SORT_ORDER1"   => "ASC",
+							"DETAIL_URL"    => "/catalog/",
+							"CACHE_TYPE"    => "A",
+							'PROPERTY_CODE' => array('STORE'),
+							'OFFERS'        => $offers,
+							"SET_TITLE"     => "N"
+						),
+						$component
+					);
+				endif;?>
+				</div>
 			</div>
 		</div>
 		<div class="col-xs-4">
@@ -139,6 +162,7 @@ if (!function_exists("cmpBySort"))
 		<div class="col-xs-4">
 			<div class="basket__block">
 				<div class="basket__block-title">способы оплаты</div>
+				<div class="payment">
 				<?
 					uasort($arResult["PAY_SYSTEM"], "cmpBySort"); // resort arrays according to SORT value
 
@@ -153,6 +177,7 @@ if (!function_exists("cmpBySort"))
 							<?
 					endforeach;
 				?>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -205,4 +230,7 @@ if (!function_exists("cmpBySort"))
 );?>
 </div>
 <?endif?>
-
+<?
+if($_POST["is_ajax_post"] == "Y")
+	die;
+?>

@@ -39874,7 +39874,7 @@ return PhotoSwipeUI_Default;
   };
 
   $(document).ready(function() {
-    var addToCart, basketCalc, closeDropdown, filterRequest, filterTimer, galleryOptions, getElem, getFilter, getParameterByName, initFiltres, initOrder, initZoom, openDropdown, scrollTimer, timer, updateTimer, x;
+    var addToCart, basketCalc, closeDropdown, filterRequest, filterTimer, galleryOptions, getElem, getFilter, getOrderDate, getParameterByName, initDropdown, initFiltres, initOrder, initZoom, openDropdown, scrollTimer, timer, updateTimer, x;
     delay(300, function() {
       return size();
     });
@@ -39984,10 +39984,34 @@ return PhotoSwipeUI_Default;
       });
     });
     initOrder = function() {
-      $('.basket input[type="radio"]').iCheck();
-      return $('.bx-sls input:hidden:first').change(function() {
-        if (parseInt($(this).val()) > 0) {
-          return console.log($(this).val());
+      $('.basket .delivery input[type="radio"], .basket .payment input[type="radio"]').iCheck().one('ifChecked', function() {
+        return getOrderDate();
+      });
+      return $('.stores-list .dropdown').elem('item').off('click').on('click', function(e) {
+        $(this).block().find('select').val($(this).data('id'));
+        return e.preventDefault();
+      });
+    };
+    $('.bx-sls input:hidden:first').change(function() {
+      if (parseInt($(this).val()) > 0) {
+        return getOrderDate();
+      }
+    });
+    getOrderDate = function() {
+      var data;
+      data = $('#ORDER_FORM').serialize();
+      $('.basket').elem('block').mod('loading', true);
+      return $.ajax({
+        type: "POST",
+        url: $('#ORDER_FORM').attr('action'),
+        data: data,
+        success: function(data) {
+          $('#ORDER_FORM .props').html($(data).find('.props').html());
+          $('#ORDER_FORM .delivery').html($(data).find('.delivery').html());
+          $('#ORDER_FORM .payment').html($(data).find('.payment').html());
+          initOrder();
+          initDropdown();
+          return $('.basket').elem('block').mod('loading', false);
         }
       });
     };
@@ -40945,40 +40969,43 @@ return PhotoSwipeUI_Default;
         }
       });
     };
-    $('.dropdown').elem('item').click(function(e) {
-      if ($(this).attr('href')[0] === "#") {
-        $(this).block().elem('text').html($(this).text());
-        $(this).block().elem('frame').velocity({
-          properties: "transition.slideUpOut",
-          options: {
-            duration: 300
-          }
-        });
-        return e.preventDefault();
-      } else {
-        return window.location.href = $(this).attr('href');
-      }
-    });
-    $('.dropdown').elem('select').on('change', function() {
-      var val;
-      val = $(this).val();
-      $(this).block().find("a[href='" + val + "']").trigger('click');
-      return $(this).mod('open', true);
-    });
-    return $('.dropdown').hoverIntent({
-      over: function() {
-        if ($(window).width() > 970) {
-          return openDropdown($(this));
+    initDropdown = function() {
+      $('.dropdown').elem('item').off('change').on('click', function(e) {
+        if ($(this).attr('href')[0] === "#") {
+          $(this).block().elem('text').html($(this).text());
+          $(this).block().elem('frame').velocity({
+            properties: "transition.slideUpOut",
+            options: {
+              duration: 300
+            }
+          });
+          return e.preventDefault();
         } else {
-          return $(this).elem('select').focus().mod('open', true);
+          return window.location.href = $(this).attr('href');
         }
-      },
-      out: function() {
-        if ($(window).width() > 970) {
-          return closeDropdown($(this));
+      });
+      $('.dropdown').elem('select').off('change').on('change', function() {
+        var val;
+        val = $(this).val();
+        $(this).block().find("a[href='" + val + "']").trigger('click');
+        return $(this).mod('open', true);
+      });
+      return $('.dropdown').hoverIntent({
+        over: function() {
+          if ($(window).width() > 970) {
+            return openDropdown($(this));
+          } else {
+            return $(this).elem('select').focus().mod('open', true);
+          }
+        },
+        out: function() {
+          if ($(window).width() > 970) {
+            return closeDropdown($(this));
+          }
         }
-      }
-    });
+      });
+    };
+    return initDropdown();
   });
 
 }).call(this);

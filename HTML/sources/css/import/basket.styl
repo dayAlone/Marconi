@@ -182,6 +182,19 @@
 		padding 15px 13px 3px
 		border 1px solid #d5dbdf
 		margin-bottom 100px
+		position relative
+		&--loading
+			pointer-events none
+			&:after
+				z-index 10
+				position absolute
+				content ""
+				top 0
+				left 0
+				width 100%
+				height 100%
+				background alpha(white, .6) url(../images/loader.gif) center center no-repeat
+				background-size 80px auto
 		.iradio, input[type="radio"]
 			display inline-block
 			appearance none
@@ -205,9 +218,13 @@
 			top 30px
 		input.date:focus + .blue-arrow svg path
 			fill white
+		nobr
+			margin-right 15px
+			
 		.dropdown
 			position relative
-			full-width()
+			display inline-block
+			width 100%
 			&--open
 				.dropdown__trigger
 					background red
@@ -253,7 +270,7 @@
 			font-weight normal
 			font-size 12px
 			text-transform: uppercase
-			margin-left 7px
+			margin-left 5px
 			margin-bottom 10px
 			color #4e4e51
 			& + .iradio, & + input[type="radio"]

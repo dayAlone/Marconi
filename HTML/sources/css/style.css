@@ -4069,6 +4069,23 @@ svg g {
   padding: 15px 13px 3px;
   border: 1px solid #d5dbdf;
   margin-bottom: 100px;
+  position: relative;
+}
+.basket__block--loading {
+  pointer-events: none;
+}
+.basket__block--loading:after {
+  z-index: 10;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.6) url("../images/loader.gif") center center no-repeat;
+  -webkit-background-size: 80px auto;
+  -moz-background-size: 80px auto;
+  background-size: 80px auto;
 }
 .basket__block .iradio,
 .basket__block input[type="radio"] {
@@ -4118,9 +4135,12 @@ svg g {
 .basket__block input.date:focus + .blue-arrow svg path {
   fill: #fff;
 }
+.basket__block nobr {
+  margin-right: 15px;
+}
 .basket__block .dropdown {
   position: relative;
-  float: left;
+  display: inline-block;
   width: 100%;
 }
 .basket__block .dropdown--open .dropdown__trigger {
@@ -4187,7 +4207,7 @@ svg g {
   font-weight: normal;
   font-size: 12px;
   text-transform: uppercase;
-  margin-left: 7px;
+  margin-left: 5px;
   margin-bottom: 10px;
   color: #4e4e51;
 }
@@ -4279,6 +4299,7 @@ svg g {
 }
 .stores .dropdown {
   width: 100%;
+  z-index: 10000;
   max-width: none;
   text-transform: uppercase;
 }
