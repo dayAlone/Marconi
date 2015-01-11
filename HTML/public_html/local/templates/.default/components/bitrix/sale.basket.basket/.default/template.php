@@ -7,7 +7,10 @@ $arUrls = Array(
 );
 
 $brands = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
-
+$sizes  = getHighloadElements('sizes', 'UF_XML_ID', 'UF_NAME');
+$remove = array();
+foreach ($sizes as $i)
+	$remove[] = "/(\s(".$i.")|_".strtolower(str_replace(array(',', '.'), '_', $i)).")$/";
 if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 {
 	?>
@@ -53,7 +56,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			        <div class="basket__item" data-id="<?=$item['ID']?>">
 			          <div class="row">
 			            <div class="col-xs-4 left">
-			              <a href="/catalog/<?=$section['CODE']?>/<?=$item['CATALOG']['CODE']?>/"><div style="background-image: url(<?=($item['PREVIEW_PICTURE_SRC']?$item['PREVIEW_PICTURE_SRC']:'/layout/images/no-image.jpg')?>)" class="basket__picture"></div></a>
+			              <a href="/catalog/<?=$section['CODE']?>/<?=preg_replace($remove, '', $item['CATALOG']['CODE'])?>/"><div style="background-image: url(<?=($item['PREVIEW_PICTURE_SRC']?$item['PREVIEW_PICTURE_SRC']:'/layout/images/no-image.jpg')?>)" class="basket__picture"></div></a>
 			              <div class="basket__name"><?=str_replace($brands[$item['PROPERTY_BRAND_VALUE']], "<br><span class='basket__brand'>".$brands[$item['PROPERTY_BRAND_VALUE']]."</span><br>", $item['NAME'])?></div>
 			            </div>
 			            <div class="col-xs-2"><?=$item['PROPERTY_ARTNUMBER_VALUE']?></div>
