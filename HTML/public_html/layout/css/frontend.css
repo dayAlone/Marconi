@@ -6496,6 +6496,10 @@ svg g {
 .product .picture .easyzoom-notice {
   display: none;
 }
+.product .picture__big {
+  position: relative;
+  z-index: 200;
+}
 .product .picture__big,
 .product .picture__small {
   width: 100%;
