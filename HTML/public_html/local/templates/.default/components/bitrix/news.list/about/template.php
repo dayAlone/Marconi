@@ -1,5 +1,5 @@
 <? $this->setFrameMode(true);?>
-<div data-width="100%" data-height="100%" data-nav="false" data-arrows="false" data-transition="crossfade" data-click="false" class="about__slider fotorama">
+<div data-width="100%" data-height="100%" data-nav="false" data-arrows="false" data-transition="crossfade" data-click="false" class="about__slider">
   <?foreach ($arResult['ITEMS'] as $key=>$item):?>
   <div style="background-image: url(<?=$item['PREVIEW_PICTURE']['SRC']?>)" class="about__slider-item">
     <div class="about__slider-item-content">

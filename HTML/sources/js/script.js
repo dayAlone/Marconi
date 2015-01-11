@@ -752,12 +752,14 @@
         });
       });
     }).fotorama();
-    $('.about').elem('slider-arrow').click(function(e) {
-      var slider;
-      slider = $('.about').elem('slider').data('fotorama');
-      slider.show($(this).data('direction'));
-      return e.preventDefault();
-    });
+    $('.about').elem('slider').on('fotorama:show', function() {
+      return $('.about').elem('slider-arrow').one('click', function(e) {
+        var slider;
+        slider = $('.about').elem('slider').data('fotorama');
+        slider.show($(this).data('direction'));
+        return e.preventDefault();
+      });
+    }).fotorama();
     $('.about').elem('slider-title').each(function() {
       var el, title, w;
       title = $(this);

@@ -410,10 +410,13 @@ $(document).ready ->
 		.fotorama()
 
 	# About
-	$('.about').elem('slider-arrow').click (e)->
-		slider = $('.about').elem('slider').data('fotorama')
-		slider.show $(this).data('direction')
-		e.preventDefault()
+	$('.about').elem('slider').on('fotorama:show', ->
+		$('.about').elem('slider-arrow').one 'click', (e)->
+			slider = $('.about').elem('slider').data('fotorama')
+			slider.show $(this).data('direction')
+			e.preventDefault()
+	).fotorama()
+	
 
 	$('.about').elem('slider-title').each ->
 		title = $(this)
@@ -422,6 +425,7 @@ $(document).ready ->
 		el.css
 			'width' : w
 		el.show()
+
 	# Product
 	galleryOptions =     
 		history : false
