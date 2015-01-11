@@ -410,7 +410,8 @@ $(document).ready ->
 		.fotorama()
 
 	# About
-	$('.about').elem('slider').on('fotorama:show', ->
+	$('.about').elem('slider').on('fotorama:show', (e, fotorama, extra) ->
+		console.log 1
 		$('.about').elem('slider-arrow').one 'click', (e)->
 			slider = $('.about').elem('slider').data('fotorama')
 			slider.show $(this).data('direction')

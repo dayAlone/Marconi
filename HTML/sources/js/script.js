@@ -752,7 +752,8 @@
         });
       });
     }).fotorama();
-    $('.about').elem('slider').on('fotorama:show', function() {
+    $('.about').elem('slider').on('fotorama:show', function(e, fotorama, extra) {
+      console.log(1);
       return $('.about').elem('slider-arrow').one('click', function(e) {
         var slider;
         slider = $('.about').elem('slider').data('fotorama');
