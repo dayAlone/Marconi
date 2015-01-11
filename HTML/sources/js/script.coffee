@@ -126,7 +126,11 @@ $(document).ready ->
 	
 
 	# Basket
-	$('.basket input[type="radio"]').iCheck()
+	$('.basket input.date').on 'keydown', (e)->
+		e.preventDefault()
+	$('.basket form .dropdown').elem('item').on 'click', (e)->
+		$(this).block().siblings('input').val $(this).text()
+	
 	$('.basket .bx-ui-sls-fake').attr 'placeholder', 'город *'
 	basketCalc = (el)->
 		total  = 0
@@ -195,6 +199,15 @@ $(document).ready ->
 			basketCalc el
 			$.get url
 
+
+	# Order
+
+	initOrder = ->
+		$('.basket input[type="radio"]').iCheck()
+		$('.bx-sls input:hidden:first').change ->
+			if parseInt($(this).val()) > 0
+				console.log $(this).val()
+	initOrder()
 	# News
 	$('.news-item').each ->
 		h = $(this).outerHeight()
@@ -734,8 +747,6 @@ $(document).ready ->
 	getParameterByName = (name)->
     	match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
     	return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-	
-	console.log getParameterByName('sort_param')
 
 	$('.catalog__toolbar .dropdown .dropdown__item').click (e)->
 		$(this).block().data 'value', $(this).data 'value'

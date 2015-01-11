@@ -73,6 +73,7 @@ $arParams['USE_FILTER'] = (isset($arParams['USE_FILTER']) && $arParams['USE_FILT
 			{
 				$arCurSection = array();
 			}
+			
 			?><?$APPLICATION->IncludeComponent(
 				"bitrix:catalog.smart.filter",
 				"",

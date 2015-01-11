@@ -3,8 +3,10 @@
 	if(count($arResult['rows'])):
 		if(isset($_COOKIE['BRAND'])):
 			foreach ($arResult['rows'] as $item):
-				if($_COOKIE['BRAND']==$item['UF_XML_ID'])
+				if($_COOKIE['BRAND']==$item['UF_XML_ID']):
 					$current =  $item;
+					$this->setFrameMode(false);
+				endif;
 			endforeach;
 		endif;
 		?>

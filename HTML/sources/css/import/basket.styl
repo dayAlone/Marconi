@@ -7,7 +7,18 @@
 			text-transform: uppercase
 			margin-bottom 5px
 			display inline-block
-			font-size 11px
+			font-size 10px
+			white-space no-wrap
+	.datepicker
+		z-index 1000 !important
+		&.dropdown-menu
+			font-family 'Proxima', 'Helvetica Neue', 'Arial', sans-serif
+			border-radius 0
+			table tr td.active, table tr td.active:hover, table tr td.active.disabled, table tr td.active.disabled:hover
+				background red
+			td, th
+				border-radius 0
+				padding: 5px 2px 0px
 	.bx-sls
 		margin-bottom 10px
 		.bx-ui-sls-pane
@@ -188,7 +199,56 @@
 			&:checked, &.checked
 				background red
 				border-color red
-				
+		.blue-arrow
+			position absolute
+			right 20px
+			top 30px
+		input.date:focus + .blue-arrow svg path
+			fill white
+		.dropdown
+			position relative
+			full-width()
+			&--open
+				.dropdown__trigger
+					background red
+					color white
+					svg path
+						fill white
+			&__frame
+				background red
+				position absolute
+				top 100%
+				left 0
+				min-width 100%
+				z-index 10
+			&__item
+				full-width()
+				padding 9px 10px 3px
+				color white
+				font-size 12px
+				t background
+				&:hover
+					background black
+			&__trigger
+				width 100%
+				background #d5dbdf
+				full-width()
+				height 30px
+				line-height 35px
+				color black
+				font-size 12px
+				padding 0 10px
+				position relative
+				z-index 20
+				&:hover
+					background red
+					color white
+					svg path
+						fill white
+				svg
+					position absolute
+					right 10px
+					top 13px
 		label
 			font-weight normal
 			font-size 12px
@@ -207,6 +267,17 @@
 			line-height 34px
 			font-size 12px
 			t border
+			&.date
+				background #d5dbdf
+				border-color #d5dbdf
+				&:focus
+					border-color red
+					background red
+					color white
+			&.small
+				max-width 18.4%
+				& + .small
+					margin-left 2%
 			&:focus
 				outline 0
 				border-color black

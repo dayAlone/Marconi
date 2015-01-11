@@ -138,7 +138,7 @@
   };
 
   $(document).ready(function() {
-    var addToCart, basketCalc, closeDropdown, filterRequest, filterTimer, galleryOptions, getElem, getFilter, getParameterByName, initFiltres, initZoom, openDropdown, scrollTimer, timer, updateTimer, x;
+    var addToCart, basketCalc, closeDropdown, filterRequest, filterTimer, galleryOptions, getElem, getFilter, getParameterByName, initFiltres, initOrder, initZoom, openDropdown, scrollTimer, timer, updateTimer, x;
     delay(300, function() {
       return size();
     });
@@ -159,7 +159,12 @@
         return $('.scroll-fix').mod('on', false);
       });
     });
-    $('.basket input[type="radio"]').iCheck();
+    $('.basket input.date').on('keydown', function(e) {
+      return e.preventDefault();
+    });
+    $('.basket form .dropdown').elem('item').on('click', function(e) {
+      return $(this).block().siblings('input').val($(this).text());
+    });
     $('.basket .bx-ui-sls-fake').attr('placeholder', 'город *');
     basketCalc = function(el) {
       var counter, last, options, row, sale, saleCounter, saleVal, total, totalCounter, totalVal, val;
@@ -242,6 +247,15 @@
         return $.get(url);
       });
     });
+    initOrder = function() {
+      $('.basket input[type="radio"]').iCheck();
+      return $('.bx-sls input:hidden:first').change(function() {
+        if (parseInt($(this).val()) > 0) {
+          return console.log($(this).val());
+        }
+      });
+    };
+    initOrder();
     $('.news-item').each(function() {
       var h;
       h = $(this).outerHeight();
@@ -1141,7 +1155,6 @@
       match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
       return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
     };
-    console.log(getParameterByName('sort_param'));
     $('.catalog__toolbar .dropdown .dropdown__item').click(function(e) {
       $(this).block().data('value', $(this).data('value'));
       $(this).block().data('param', $(this).data('param'));
