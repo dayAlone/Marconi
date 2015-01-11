@@ -39999,6 +39999,7 @@ return PhotoSwipeUI_Default;
     });
     getOrderDate = function() {
       var data;
+      console.log(1);
       data = $('#ORDER_FORM').serialize();
       $('.basket').elem('block').mod('loading', true);
       return $.ajax({
@@ -40016,6 +40017,8 @@ return PhotoSwipeUI_Default;
       });
     };
     initOrder();
+    getOrderDate();
+    $('.bx-ui-sls-quick-locations a:first').trigger('click');
     $('.news-item').each(function() {
       var h;
       h = $(this).outerHeight();

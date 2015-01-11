@@ -165,7 +165,6 @@ if (!function_exists("cmpBySort"))
 				<div class="payment">
 				<?
 					uasort($arResult["PAY_SYSTEM"], "cmpBySort"); // resort arrays according to SORT value
-
 					foreach($arResult["PAY_SYSTEM"] as $arPaySystem):
 							?>
 							<input 

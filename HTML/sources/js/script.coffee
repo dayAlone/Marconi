@@ -214,7 +214,9 @@ $(document).ready ->
 	$('.bx-sls input:hidden:first').change ->
 		if parseInt($(this).val()) > 0
 			getOrderDate()
+	
 	getOrderDate = ->
+		console.log 1
 		data = $('#ORDER_FORM').serialize()
 		$('.basket').elem('block').mod 'loading', true
 		$.ajax
@@ -229,6 +231,8 @@ $(document).ready ->
 				initDropdown()
 				$('.basket').elem('block').mod 'loading', false
 	initOrder()
+	getOrderDate()
+	$('.bx-ui-sls-quick-locations a:first').trigger 'click'
 	# News
 	$('.news-item').each ->
 		h = $(this).outerHeight()

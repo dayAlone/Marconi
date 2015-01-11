@@ -7762,6 +7762,9 @@ svg g {
 .basket__block nobr {
   margin-right: 15px;
 }
+.basket__block .bx-ui-sls-quick-locations {
+  display: none;
+}
 .basket__block .dropdown {
   position: relative;
   display: inline-block;
