@@ -5881,7 +5881,6 @@ svg g {
   opacity: 0.6;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
   filter: alpha(opacity=60);
-  margin-bottom: 1px;
   letter-spacing: 2px;
 }
 .catalog .product__price {
