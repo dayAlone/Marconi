@@ -9,7 +9,6 @@ $arResult['SECTIONS'] = array();
 
 foreach ($arResult['ITEMS'] as &$item):
 
-	$item['OLD_NAME'] = $item['NAME'];
 	$brand = $arResult['BRANDS'][$item['PROPERTIES']['BRAND']['VALUE']];
 	
 	$rsPath = GetIBlockSectionPath($arResult['ID'], $item['IBLOCK_SECTION_ID']);
@@ -19,9 +18,6 @@ foreach ($arResult['ITEMS'] as &$item):
 		$arResult['SECTIONS'][$item['IBLOCK_SECTION_ID']] = $arPath['CODE'];
 		$item['DETAIL_PAGE_URL'] = "/catalog/".$arPath['CODE']."/".$item['CODE']."/";
 	endif;
-
-	$name = &$item['NAME'];
-	$name = substr($name, strpos($name, $brand)+strlen($brand), strlen($name));
 	
 	if(count($item['PROPERTIES']['PICTURES']['VALUE'])>0)
 		foreach ($item['PROPERTIES']['PICTURES']['VALUE'] as $img)
