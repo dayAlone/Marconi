@@ -167,10 +167,10 @@ $APPLICATION->SetPageProperty('body_class', "catalog ".(!isset($_REQUEST['v'])?"
 			0 => "",
 			1 => "",
 		),
-		"OFFERS_SORT_FIELD"    => "sort",
+		"OFFERS_SORT_FIELD"    => "id",
 		"OFFERS_SORT_ORDER"    => "asc",
-		"OFFERS_SORT_FIELD2"   => "id",
-		"OFFERS_SORT_ORDER2"   => "desc",
+		"OFFERS_SORT_FIELD2"   => "sort",
+		"OFFERS_SORT_ORDER2"   => "asc",
 		"PRODUCT_DISPLAY_MODE" => "N",
 		"OFFER_ADD_PICT_PROP"  => "-",
 		"OFFER_TREE_PROPS" => array(
