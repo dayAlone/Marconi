@@ -85,10 +85,13 @@ $props = &$arResult['PROPERTIES'];
 	      </div>
 	      <? if(count($item['IMAGES'])>1):?>
 	      <div class="col-xs-3 col-lg-2">
-	      <? foreach ($item['IMAGES'] as $key => $image): ?>
+	      <? 
+	      $i=0;
+	      foreach ($item['IMAGES'] as $key => $image): ?>
 	      	<a style="background-image:url(<?=$image['small']?>)" href="<?=$image['src']?>" data-middle="<?=$image['middle']?>" class="picture__small <?=($key==0?"picture__small--active":"")?>"></a>
 	      <? 
-	      	if ($key>3)
+	      	$i++;
+	      	if ($i>4)
 	      		break;
 	      endforeach; ?>
 	      </div>
