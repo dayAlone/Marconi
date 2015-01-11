@@ -40,7 +40,7 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
   </div>
 </div>
 <h1 class="catalog__title"><?=$arResult['NAME']?></h1>
-<div class="row catalog__frame">
+<div class="row catalog__frame <?=$arParams['CLASS']?>">
 <?
 endif;
 if (!empty($arResult['ITEMS']))

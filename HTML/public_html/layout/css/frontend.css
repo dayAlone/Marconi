@@ -5415,6 +5415,9 @@ svg g {
 .lookbook__divider span {
   font-weight: bold;
 }
+.catalog .search-page {
+  display: none;
+}
 .catalog .nav__item:nth-child(6) {
   background: #fff;
   color: #000;
