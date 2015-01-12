@@ -7815,7 +7815,10 @@ svg g {
   fill: #fff;
 }
 .basket__block nobr {
-  margin-right: 15px;
+  margin-right: 12px;
+}
+.basket__block nobr:last-of-type {
+  margin-right: 0;
 }
 .basket__block .bx-ui-sls-quick-locations {
   display: block;
@@ -7891,7 +7894,7 @@ svg g {
   font-weight: normal;
   font-size: 12px;
   text-transform: uppercase;
-  margin-left: 5px;
+  margin-left: 1px;
   margin-bottom: 10px;
   color: #4e4e51;
 }
