@@ -4364,8 +4364,25 @@ svg g {
   text-transform: uppercase;
 }
 .stores .dropdown__frame {
-  max-height: 300px;
+  max-height: 320px;
   overflow: scroll;
+  padding: 0;
+}
+.stores .dropdown__item {
+  padding: 9px 10px 3px;
+  -webkit-transition-property: background;
+  -moz-transition-property: background;
+  -o-transition-property: background;
+  -ms-transition-property: background;
+  transition-property: background;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.stores .dropdown__item:hover {
+  background: #000;
 }
 .stores .dropdown__trigger {
   background: #000;
