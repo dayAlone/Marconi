@@ -7,6 +7,8 @@ $APPLICATION->SetTitle('Корзина');
 		$APPLICATION->SetTitle('Заказ успешно оформлен');
 		$APPLICATION->SetPageProperty('body_class', "text");
 	?>
+	<p>Номер вашего заказа: <strong><?=$_REQUEST['ORDER_ID']?></strong></p>
+	<p>В ближайшее время оператор нашего интернет-магазина свяжется с вами для подтверждения заказа</p>
 	<?
 	else:
 		$APPLICATION->SetPageProperty('body_class', "basket");
