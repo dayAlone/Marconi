@@ -7725,6 +7725,11 @@ svg g {
   background-repeat: no-repeat;
   background-position: center center;
 }
+.basket__picture--no-image {
+  -webkit-background-size: auto 50%;
+  -moz-background-size: auto 50%;
+  background-size: auto 50%;
+}
 @media (min-width: 992px) {
   .basket__picture {
     height: 90px;
