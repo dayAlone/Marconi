@@ -17,7 +17,7 @@
 	
 	$items = $xpath->evaluate($element[1]."[position() >= $start and not(position() > $end)]", $products);
 
-	$errors = array('category'=>array(), 'type'=>array(), 'brand'=>array(), 'color'=>array(), 'material'=>array());
+	$errors = array('category'=>array(), 'type'=>array(), 'brand'=>array(), 'color'=>array(), 'material'=>array(), '');
 
 	foreach ($items as $item) {
 		$raw = $item->getElementsByTagName('property');
@@ -33,6 +33,9 @@
 			if(!isset($props[$key]))
 				$el[] = $item->getElementsByTagName('name')->item(0)->nodeValue;
 		}
+		$description = $item->getElementsByTagName('description')->item(0)->nodeValue;
+		if(strlen($description)>0)
+			var_dump($item->getElementsByTagName('name')->item(0)->nodeValue);
 	}
 	$title = array('section'=>"Без раздела(section)", 'category'=>"Без категории(category)", 'type'=>"Без типа(type)", 'brand'=>"Без бренда(brand)", 'color'=>"Без цвета", 'material'=>"Без материала");
 	$text = "";

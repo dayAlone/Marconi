@@ -252,7 +252,7 @@ $props = &$arResult['PROPERTIES'];
 	    </div>
 	    <div class="tabs">
 	      <div class="tabs__title">
-	      	<?if(strlen($item['PREVIEW_TEXT'])>0):?>
+	      	<?if(strlen($item['DETAIL_TEXT'])>0):?>
 	      		<a href="#description" class="tabs__trigger">описание</a>
 	      	<?endif;?>
 	      	<?if(strlen(COption::GetOptionString("grain.customsettings","payment"))>0):?>
@@ -268,9 +268,9 @@ $props = &$arResult['PROPERTIES'];
 	      		<a href="#feedback" class="tabs__trigger">обратная связь</a>
 	      	<?endif;?>
 	      </div>
-	      <?if(strlen($item['PREVIEW_TEXT'])>0):?>
+	      <?if(strlen($item['DETAIL_TEXT'])>0):?>
 	      <div id="description" class="tabs__content">
-	        <p><?=$item['PREVIEW_TEXT']?></p>
+	        <p><?=$item['DETAIL_TEXT']?></p>
 	      </div>
 	      <?endif;?>
 	      <?if(strlen(COption::GetOptionString("grain.customsettings","payment"))>0):?>

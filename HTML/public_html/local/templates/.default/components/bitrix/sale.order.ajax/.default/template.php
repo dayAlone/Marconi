@@ -23,6 +23,13 @@ if (!function_exists("cmpBySort"))
 		if(!empty($arResult["ERROR"]) && $arResult["USER_VALS"]["FINAL_STEP"] == "Y")
 			foreach($arResult["ERROR"] as $v)
 				echo ShowError($v);
+		unset($arResult['PERSON_TYPE']);
+		unset($arResult['ORDER_PROP']);
+		unset($arResult['DELIVERY']);
+		unset($arResult['PAY_SYSTEM']);
+		unset($arResult['BASKET_ITEMS']);
+		unset($arResult['GRID']);
+		var_dump($arResult);
 	?>
 	<div class="row">
 		<div class="col-xs-4">
