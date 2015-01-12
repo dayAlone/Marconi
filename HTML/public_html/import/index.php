@@ -327,6 +327,8 @@
 			
 					if(!isset($exist['PICTURES']) && count($props['PICTURES'])>0):
 						$diff['PICTURES'] = $props['PICTURES'];
+						$raw = new CIBlockElement;
+						$raw->Update($exist['ID'], array('PREVIEW_PICTURE'=>$props['PICTURES']['n0']['VALUE']));
 					endif;
 
 					unset($diff['OFFER_SIZE']);
