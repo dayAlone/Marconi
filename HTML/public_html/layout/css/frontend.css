@@ -7987,6 +7987,10 @@ svg g {
   max-width: none;
   text-transform: uppercase;
 }
+.stores .dropdown__frame {
+  max-height: 300px;
+  overflow: scroll;
+}
 .stores .dropdown__trigger {
   background: #000;
   color: #fff;
