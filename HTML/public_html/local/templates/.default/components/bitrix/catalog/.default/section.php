@@ -175,7 +175,7 @@ $arParams['USE_FILTER'] = (isset($arParams['USE_FILTER']) && $arParams['USE_FILT
 				
 				"SECTION_ID"                      => $arResult["VARIABLES"]["SECTION_ID"],
 				"SECTION_CODE"                    => $arResult["VARIABLES"]["SECTION_CODE"],#($arResult["VARIABLES"]["SECTION_CODE"]=='all' ?"":$arResult["VARIABLES"]["SECTION_CODE"]),
-				"BY_LINK"                         => "N"#($arResult["VARIABLES"]["SECTION_CODE"]=='all'? "Y" : "N"),
+				"BY_LINK"                         => "N",#($arResult["VARIABLES"]["SECTION_CODE"]=='all'? "Y" : "N"),
 				"SECTION_URL"                     => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
 				"DETAIL_URL"                      => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["element"],
 				'CONVERT_CURRENCY'                => $arParams['CONVERT_CURRENCY'],
