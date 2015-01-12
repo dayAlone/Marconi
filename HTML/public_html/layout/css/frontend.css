@@ -7995,6 +7995,11 @@ svg g {
 .basket__block textarea.small {
   max-width: 18.4%;
 }
+.basket__block input[type="text"].small:first-of-type,
+.basket__block input[type="email"].small:first-of-type,
+.basket__block textarea.small:first-of-type {
+  margin-left: 0 !important;
+}
 .basket__block input[type="text"].small + .small,
 .basket__block input[type="email"].small + .small,
 .basket__block textarea.small + .small {
