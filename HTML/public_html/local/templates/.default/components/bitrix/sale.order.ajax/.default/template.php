@@ -180,18 +180,26 @@ if (!function_exists("cmpBySort"))
 
 			</div>
 			<div class="total">
+				<?if(intval($arResult['DELIVERY_PRICE'])>0):?>
 				<div class="total__item">
-					<?if($arResult['DELIVERY_SUM']>0):?>
+					
 					<div class="row">
 						<div class="col-xs-7">ВАШ ЗАКАЗ НА СУММУ</div>
-						<div class="col-xs-5"><?=$arResult['ORDER_PRICE']?> ₷</div>
+						<div class="col-xs-5 right"><?=number_format($arResult['ORDER_PRICE'], 0, " ", " ")?> ₷</div>
 					</div>
-
+				</div>
+				<div class="total__item">
 					<div class="row">
 						<div class="col-xs-7">ДОСТАВКА</div>
-						<div class="col-xs-5"><?=$arResult['DELIVERY_SUM']?> ₷</div>
+						<div class="col-xs-5 right"><?=number_format($arResult['DELIVERY_PRICE'], 0, " ", " ")?> ₷</div>
 					</div>
-					<? endif;?>
+				</div>
+				<?endif;?>
+				<div class="total__item total__item--big">
+					<div class="row">
+						<div class="col-xs-7">к оплате</div>
+						<div class="col-xs-5 right"><?=number_format($arResult['ORDER_PRICE']+$arResult['DELIVERY_PRICE'], 0, " ", " ")?> ₷</div>
+					</div>
 				</div>
 			</div>
 			<input type="submit" class="basket__submit" value="оформить заказ">

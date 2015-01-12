@@ -3887,6 +3887,15 @@ svg g {
   font-size: 12px;
   padding: 7px 0 2px;
 }
+.basket .total {
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+.basket .total__item--big {
+  margin-top: 7px;
+  font-weight: bold;
+  font-size: 25px;
+}
 .basket .nav__item:nth-child(6) {
   background: #fff;
   color: #000;
@@ -4191,7 +4200,7 @@ svg g {
 }
 .basket input[type="submit"] {
   width: 100%;
-  margin-top: 25px;
+  margin-top: 5px;
   background: #000;
   border: 0;
   text-transform: uppercase;
