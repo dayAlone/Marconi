@@ -238,6 +238,7 @@ $(document).ready ->
 					$('#ORDER_FORM .props').html $(data).find('.props').html()
 					$('#ORDER_FORM .delivery').html $(data).find('.delivery').html()
 					$('#ORDER_FORM .payment').html $(data).find('.payment').html()
+					$('#ORDER_FORM .total').html  $(data).find('.total').html()
 					initOrder()
 					initDropdown()
 					$('.basket').elem('block').mod 'loading', false

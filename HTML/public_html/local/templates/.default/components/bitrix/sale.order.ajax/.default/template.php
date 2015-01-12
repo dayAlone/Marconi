@@ -23,13 +23,6 @@ if (!function_exists("cmpBySort"))
 		if(!empty($arResult["ERROR"]) && $arResult["USER_VALS"]["FINAL_STEP"] == "Y")
 			foreach($arResult["ERROR"] as $v)
 				echo ShowError($v);
-		unset($arResult['PERSON_TYPE']);
-		unset($arResult['ORDER_PROP']);
-		unset($arResult['DELIVERY']);
-		unset($arResult['PAY_SYSTEM']);
-		unset($arResult['BASKET_ITEMS']);
-		unset($arResult['GRID']);
-		var_dump($arResult);
 	?>
 	<div class="row">
 		<div class="col-xs-4">
@@ -185,6 +178,21 @@ if (!function_exists("cmpBySort"))
 				?>
 				</div>
 
+			</div>
+			<div class="total">
+				<div class="total__item">
+					<?if($arResult['DELIVERY_SUM']>0):?>
+					<div class="row">
+						<div class="col-xs-7">ВАШ ЗАКАЗ НА СУММУ</div>
+						<div class="col-xs-5"><?=$arResult['ORDER_PRICE']?> ₷</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-7">ДОСТАВКА</div>
+						<div class="col-xs-5"><?=$arResult['DELIVERY_SUM']?> ₷</div>
+					</div>
+					<? endif;?>
+				</div>
 			</div>
 			<input type="submit" class="basket__submit" value="оформить заказ">
 		</div>
