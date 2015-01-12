@@ -40375,6 +40375,73 @@ return PhotoSwipeUI_Default;
         return $('.scroll-fix').mod('on', false);
       });
     });
+    initOrder = function() {
+      $('.basket .delivery input[type="radio"], .basket .payment input[type="radio"]').iCheck().one('ifChecked', function() {
+        return getOrderDate();
+      });
+      $('.stores-list .dropdown__item').off('click').on('click', function(e) {
+        $(this).block().find('select').val($(this).data('id'));
+        console.log($(this).block().find('select'));
+        $(this).block().find('.parsley-errors-list').removeClass('.filled');
+        return e.preventDefault();
+      });
+      return $('input[name="ORDER_PROP_3"]').mask('+7 (000) 000 00 00');
+    };
+    $('.bx-ui-sls-clear').click(function() {
+      return getOrderDate();
+    });
+    $('.bx-sls input:hidden:first').change(function() {
+      if (parseInt($(this).val()) > 0) {
+        return getOrderDate();
+      }
+    });
+    isJson = function(str) {
+      var e;
+      try {
+        JSON.parse(str);
+      } catch (_error) {
+        e = _error;
+        return false;
+      }
+      return true;
+    };
+    getOrderDate = function() {
+      var data;
+      data = $('#ORDER_FORM').serialize();
+      $('.basket').elem('block').mod('loading', true);
+      $('.basket').elem('submit').attr('disabled', 'disabled');
+      return $.ajax({
+        type: "POST",
+        url: $('#ORDER_FORM').attr('action'),
+        data: data,
+        success: function(data) {
+          console.log(data);
+          if (!isJson(data)) {
+            $('#ORDER_FORM .props').html($(data).find('.props').html());
+            $('#ORDER_FORM .delivery').html($(data).find('.delivery').html());
+            $('#ORDER_FORM .payment').html($(data).find('.payment').html());
+            $('#ORDER_FORM .total').html($(data).find('.total').html());
+            initOrder();
+            initDropdown();
+            $('.basket').elem('block').mod('loading', false);
+            return $('.basket').elem('submit').removeAttr('disabled');
+          } else {
+            data = $.parseJSON(data);
+            if (data.success === 'Y') {
+              return location.href = data.redirect;
+            }
+          }
+        }
+      });
+    };
+    if ($('body.basket').length > 0) {
+      initOrder();
+      getOrderDate();
+    }
+    $('#ORDER_FORM').submit(function(e) {
+      getOrderDate();
+      return e.preventDefault();
+    });
     $('.basket input.date').on('keydown', function(e) {
       return e.preventDefault();
     });
@@ -40437,8 +40504,9 @@ return PhotoSwipeUI_Default;
       $.get(url, function(data) {
         if (data === 'success') {
           if (bx_cart_block1) {
-            return bx_cart_block1.refreshCart({});
+            bx_cart_block1.refreshCart({});
           }
+          return getOrderDate();
         }
       });
       row.on(end, function() {
@@ -40460,76 +40528,11 @@ return PhotoSwipeUI_Default;
         count = el.val();
         url = "/include/basket.php?action=update&id=" + id + "&count=" + count;
         basketCalc(el);
-        return $.get(url);
+        return $.get(url, function() {
+          return getOrderDate();
+        });
       });
     });
-    initOrder = function() {
-      $('.basket .delivery input[type="radio"], .basket .payment input[type="radio"]').iCheck().one('ifChecked', function() {
-        return getOrderDate();
-      });
-      $('.stores-list .dropdown__item').off('click').on('click', function(e) {
-        $(this).block().find('select').val($(this).data('id'));
-        console.log($(this).block().find('select'));
-        $(this).block().find('.parsley-errors-list').removeClass('.filled');
-        return e.preventDefault();
-      });
-      return $('input[name="ORDER_PROP_3"]').mask('+7 (000) 000 00 00');
-    };
-    $('.bx-ui-sls-clear').click(function() {
-      return getOrderDate();
-    });
-    $('.bx-sls input:hidden:first').change(function() {
-      if (parseInt($(this).val()) > 0) {
-        return getOrderDate();
-      }
-    });
-    isJson = function(str) {
-      var e;
-      try {
-        JSON.parse(str);
-      } catch (_error) {
-        e = _error;
-        return false;
-      }
-      return true;
-    };
-    getOrderDate = function() {
-      var data;
-      data = $('#ORDER_FORM').serialize();
-      $('.basket').elem('block').mod('loading', true);
-      $('.basket').elem('submit').attr('disabled', 'disabled');
-      return $.ajax({
-        type: "POST",
-        url: $('#ORDER_FORM').attr('action'),
-        data: data,
-        success: function(data) {
-          if (!isJson(data)) {
-            $('#ORDER_FORM .props').html($(data).find('.props').html());
-            $('#ORDER_FORM .delivery').html($(data).find('.delivery').html());
-            $('#ORDER_FORM .payment').html($(data).find('.payment').html());
-            $('#ORDER_FORM .total').html($(data).find('.total').html());
-            initOrder();
-            initDropdown();
-            $('.basket').elem('block').mod('loading', false);
-            return $('.basket').elem('submit').removeAttr('disabled');
-          } else {
-            data = $.parseJSON(data);
-            if (data.success === 'Y') {
-              return location.href = data.redirect;
-            }
-          }
-        }
-      });
-    };
-    if ($('body.basket').length > 0) {
-      initOrder();
-      getOrderDate();
-    }
-    $('#ORDER_FORM').submit(function(e) {
-      getOrderDate();
-      return e.preventDefault();
-    });
-    $('.bx-ui-sls-quick-locations a:first').trigger('click');
     $('.news-item').each(function() {
       var h;
       h = $(this).outerHeight();

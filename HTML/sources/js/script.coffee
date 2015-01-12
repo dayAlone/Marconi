@@ -125,6 +125,66 @@ $(document).ready ->
 			$('.scroll-fix').mod 'on', false
 	
 
+
+
+
+	# Order
+
+	initOrder = ->
+		$('.basket .delivery input[type="radio"], .basket .payment input[type="radio"]')
+			.iCheck()
+			.one 'ifChecked', ->
+				getOrderDate()
+		$('.stores-list .dropdown__item').off('click').on 'click', (e)->
+			$(this).block().find('select').val $(this).data 'id'
+			console.log $(this).block().find('select')
+			$(this).block().find('.parsley-errors-list').removeClass '.filled'
+			e.preventDefault()
+		$('input[name="ORDER_PROP_3"]').mask '+7 (000) 000 00 00'
+	
+	$('.bx-ui-sls-clear').click ->
+		getOrderDate()
+	$('.bx-sls input:hidden:first').change ->
+		if parseInt($(this).val()) > 0
+			getOrderDate()
+	isJson = (str)->
+		try
+			JSON.parse(str);
+		catch e
+			return false;
+		return true;
+	getOrderDate = ->
+		data = $('#ORDER_FORM').serialize()
+		$('.basket').elem('block').mod 'loading', true
+		$('.basket').elem('submit').attr 'disabled', 'disabled'
+		$.ajax
+			type     : "POST" 
+			url      : $('#ORDER_FORM').attr('action') 
+			data     : data
+			success  : (data)->
+				console.log data
+				if !isJson data
+					$('#ORDER_FORM .props').html $(data).find('.props').html()
+					$('#ORDER_FORM .delivery').html $(data).find('.delivery').html()
+					$('#ORDER_FORM .payment').html $(data).find('.payment').html()
+					$('#ORDER_FORM .total').html  $(data).find('.total').html()
+					initOrder()
+					initDropdown()
+					$('.basket').elem('block').mod 'loading', false
+					$('.basket').elem('submit').removeAttr 'disabled'
+				else
+					data = $.parseJSON data
+					if data.success == 'Y'
+						location.href = data.redirect
+	
+	if $('body.basket').length > 0
+		initOrder()
+		getOrderDate()
+	
+	$('#ORDER_FORM').submit (e)->
+		getOrderDate()
+		e.preventDefault()
+
 	# Basket
 	$('.basket input.date').on 'keydown', (e)->
 		e.preventDefault()
@@ -182,6 +242,7 @@ $(document).ready ->
 			if data == 'success'
 				if bx_cart_block1
 					bx_cart_block1.refreshCart({})
+				getOrderDate()
 		row.on end , ->
 			$(this).remove()
 			basketCalc()
@@ -197,65 +258,9 @@ $(document).ready ->
 			count = el.val()
 			url   = "/include/basket.php?action=update&id=#{id}&count=#{count}"
 			basketCalc el
-			$.get url
-
-
-	# Order
-
-	initOrder = ->
-		$('.basket .delivery input[type="radio"], .basket .payment input[type="radio"]')
-			.iCheck()
-			.one 'ifChecked', ->
+			$.get url, ->
 				getOrderDate()
-		$('.stores-list .dropdown__item').off('click').on 'click', (e)->
-			$(this).block().find('select').val $(this).data 'id'
-			console.log $(this).block().find('select')
-			$(this).block().find('.parsley-errors-list').removeClass '.filled'
-			e.preventDefault()
-		$('input[name="ORDER_PROP_3"]').mask '+7 (000) 000 00 00'
-	
-	$('.bx-ui-sls-clear').click ->
-		getOrderDate()
-	$('.bx-sls input:hidden:first').change ->
-		if parseInt($(this).val()) > 0
-			getOrderDate()
-	isJson = (str)->
-		try
-			JSON.parse(str);
-		catch e
-			return false;
-		return true;
-	getOrderDate = ->
-		data = $('#ORDER_FORM').serialize()
-		$('.basket').elem('block').mod 'loading', true
-		$('.basket').elem('submit').attr 'disabled', 'disabled'
-		$.ajax
-			type     : "POST" 
-			url      : $('#ORDER_FORM').attr('action') 
-			data     : data
-			success  : (data)->
-				if !isJson data
-					$('#ORDER_FORM .props').html $(data).find('.props').html()
-					$('#ORDER_FORM .delivery').html $(data).find('.delivery').html()
-					$('#ORDER_FORM .payment').html $(data).find('.payment').html()
-					$('#ORDER_FORM .total').html  $(data).find('.total').html()
-					initOrder()
-					initDropdown()
-					$('.basket').elem('block').mod 'loading', false
-					$('.basket').elem('submit').removeAttr 'disabled'
-				else
-					data = $.parseJSON data
-					if data.success == 'Y'
-						location.href = data.redirect
-	
-	if $('body.basket').length > 0
-		initOrder()
-		getOrderDate()
-	
-	$('#ORDER_FORM').submit (e)->
-		getOrderDate()
-		e.preventDefault()
-	$('.bx-ui-sls-quick-locations a:first').trigger 'click'
+
 	# News
 	$('.news-item').each ->
 		h = $(this).outerHeight()
@@ -296,6 +301,8 @@ $(document).ready ->
 						block.mod 'open', true
 						trigger.mod 'disabled', false
 		e.preventDefault()
+
+
 
 	window.styles = [{stylers:[{visibility:"on"},{saturation:-100},{lightness:30}]},{featureType:"administrative.country",elementType:"labels",stylers:[{weight:.1},{visibility:"off"},{color:"#ffffff"}]},{featureType:"administrative",elementType:"geometry",stylers:[{visibility:"on"},{weight:.4},{color:"#646464"}]},{featureType:"poi.school",stylers:[{visibility:"off"}]},{featureType:"road.highway",elementType:"geometry",stylers:[{color:"#ffffff"},{visibility:"simplified"}]},{featureType:"road.highway",elementType:"labels.text",stylers:[{weight:.1},{color:"#ffffff"},{visibility:"on"}]},{featureType:"road.arterial",elementType:"geometry",stylers:[{color:"#ffffff"},{visibility:"simplified"}]},{featureType:"road.arterial",elementType:"labels",stylers:[{weight:.1},{color:"#ffffff"},{visibility:"on"}]},{featureType:"road.local",elementType:"geometry",stylers:[{color:"#ffffff"}]},{featureType:"road.local",elementType:"labels",stylers:[{weight:.1},{color:"#ffffff"}]},{featureType:"transit.station",elementType:"labels.icon",stylers:[{hue:"#8800ff"},{visibility:"on"},{saturation:5}]},{featureType:"road.highway",elementType:"labels.icon",stylers:[{weight:.1},{saturation:11},{lightness:50},{visibility:"off"}]},{featureType:"administrative.locality",elementType:"labels.text",stylers:[{visibility:"off"}]},{featureType:"transit.station",elementType:"labels.text",stylers:[{visibility:"on"},{weight:.1},{color:"#323232"}]},{featureType:"transit.station.bus",elementType:"labels.icon",stylers:[{gamma:.72},{weight:.1},{saturation:77},{lightness:1},{hue:"#0099ff"}]},{featureType:"transit.station",elementType:"labels.text",stylers:[{visibility:"on"},{weight:.1},{color:"#3c3c3c"}]},{elementType:"labels.text.stroke",stylers:[{visibility:"on"},{weight:.1},{color:"#464646"}]},{featureType:"administrative.land_parcel",elementType:"labels.text",stylers:[{visibility:"on"},{color:"#3c3c3c"}]},{featureType:"water",elementType:"labels",stylers:[{visibility:"off"}]},{featureType:"water",elementType:"geometry.fill",stylers:[{visibility:"on"},{color:"#eeeeee"}]},{featureType:"road",elementType:"labels.icon",stylers:[{visibility:"off"}]},{featureType:"administrative.country",elementType:"labels",stylers:[{visibility:"off"}]}]
 	
