@@ -934,6 +934,23 @@ div.pp_default .pp_loaderIcon {
   src: local('☺'), url("../fonts/ProximaNova-Light.ttf") format('truetype');
   font-weight: 300;
 }
+@font-face {
+  font-family: 'Rubl';
+  src: url("../fonts/Rubl-Bold.ttf");
+  src: local('☺'), url("../fonts/Rubl-Bold.ttf") format('truetype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Rubl';
+  src: url("../fonts/Rubl-Regular.ttf");
+  src: local('☺'), url("../fonts/Rubl-Regular.ttf") format('truetype');
+  font-weight: normal;
+}
+.rubl {
+  font-family: 'Rubl';
+  margin-top: -4px;
+  display: inline-block;
+}
 .toolbar {
   float: left;
   width: 100%;
@@ -2850,10 +2867,6 @@ svg g {
   position: relative;
   display: block;
   overflow: hidden;
-  background: transparent url("../images/loader.gif") center center no-repeat;
-  -webkit-background-size: 80px auto;
-  -moz-background-size: 80px auto;
-  background-size: 80px auto;
 }
 .catalog--without-images .product__picture-frame {
   position: absolute;

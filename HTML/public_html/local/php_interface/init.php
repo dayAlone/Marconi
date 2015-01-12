@@ -6,6 +6,12 @@ ini_set('xdebug.var_display_max_data', 1024);
 define("BX_COMPOSITE_DEBUG", false);
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
+AddEventHandler("main", "OnEndBufferContent", "OnEndBufferContentHandler");
+	function OnEndBufferContentHandler(&$content)
+	{
+		$content = str_replace("₷", "<span class='rubl'>&#x20bd;</span>", $content);
+	}
+
 use Bitrix\Highloadblock as HL;
 use Bitrix\Main\Entity;
 
