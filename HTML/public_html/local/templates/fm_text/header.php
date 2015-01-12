@@ -1,6 +1,7 @@
 <?if(!isset($_REQUEST['short'])):?>
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
+$APPLICATION->SetPageProperty('body_class', "textpage");
 ?>
 <?endif;?>
 <div class="page">
@@ -19,5 +20,5 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
 	          false);
 	      ?>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 textpage__content">
         	<div class="page__title xl-margin-bottom"><?=$APPLICATION->ShowTitle();?></div>
