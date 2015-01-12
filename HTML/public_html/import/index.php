@@ -278,7 +278,9 @@
 					$fields['PREVIEW_PICTURE'] = CFile::MakeFileArray($image);
 				$props['PICTURES']['n'.$key] = array("VALUE"=>CFile::MakeFileArray($image));
 			endforeach;
-
+			var_dump($slug);
+			var_dump($props['PICTURES']);
+			die();
 			if(!isset($fields['PREVIEW_PICTURE'])):
 				$fields['SORT'] = 60000000;
 			else:
