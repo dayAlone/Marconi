@@ -40415,7 +40415,6 @@ return PhotoSwipeUI_Default;
         url: $('#ORDER_FORM').attr('action'),
         data: data,
         success: function(data) {
-          console.log(data);
           if (!isJson(data)) {
             $('#ORDER_FORM .props').html($(data).find('.props').html());
             $('#ORDER_FORM .delivery').html($(data).find('.delivery').html());

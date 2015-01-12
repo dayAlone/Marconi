@@ -162,7 +162,7 @@ $(document).ready ->
 			url      : $('#ORDER_FORM').attr('action') 
 			data     : data
 			success  : (data)->
-				console.log data
+				#console.log data
 				if !isJson data
 					$('#ORDER_FORM .props').html $(data).find('.props').html()
 					$('#ORDER_FORM .delivery').html $(data).find('.delivery').html()
