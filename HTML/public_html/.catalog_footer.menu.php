@@ -20,35 +20,6 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
-	),
-	Array(
-		"гаратния", 
-		"/info/garanty/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	/*
-	Array(
-		"коллекции", 
-		"/catalog/collections/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Новости", 
-		"/news/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Интернет-магазин", 
-		"/catalog/", 
-		Array(), 
-		Array(), 
-		"" 
-	)*/
+	)
 );
 ?>
