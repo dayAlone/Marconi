@@ -159,7 +159,7 @@ if (!function_exists("cmpBySort"))
 				<textarea name="ORDER_DESCRIPTION" id="ORDER_DESCRIPTION" style="max-width:100%;min-height:120px" placeholder="комментарий к заказу"><?=$arResult["USER_VALS"]["ORDER_DESCRIPTION"]?></textarea>
 			</div>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-xs-4 no-position">
 			<div class="basket__block">
 				<div class="basket__block-title">способы оплаты</div>
 				<div class="payment">
@@ -179,30 +179,32 @@ if (!function_exists("cmpBySort"))
 				</div>
 
 			</div>
-			<div class="total">
-				<?if(intval($arResult['DELIVERY_PRICE'])>0):?>
-				<div class="total__item">
-					
-					<div class="row">
-						<div class="col-xs-7">ВАШ ЗАКАЗ НА СУММУ</div>
-						<div class="col-xs-5 right"><?=number_format($arResult['ORDER_PRICE'], 0, " ", " ")?> ₷</div>
+			<div class="total__frame">
+				<div class="total">
+					<?if(intval($arResult['DELIVERY_PRICE'])>0):?>
+					<div class="total__item">
+						
+						<div class="row">
+							<div class="col-xs-7">ВАШ ЗАКАЗ НА СУММУ</div>
+							<div class="col-xs-5 right"><?=number_format($arResult['ORDER_PRICE'], 0, " ", " ")?> ₷</div>
+						</div>
+					</div>
+					<div class="total__item">
+						<div class="row">
+							<div class="col-xs-7">ДОСТАВКА</div>
+							<div class="col-xs-5 right"><?=number_format($arResult['DELIVERY_PRICE'], 0, " ", " ")?> ₷</div>
+						</div>
+					</div>
+					<?endif;?>
+					<div class="total__item total__item--big">
+						<div class="row">
+							<div class="col-xs-7">к оплате</div>
+							<div class="col-xs-5 right"><?=number_format($arResult['ORDER_PRICE']+$arResult['DELIVERY_PRICE'], 0, " ", " ")?> ₷</div>
+						</div>
 					</div>
 				</div>
-				<div class="total__item">
-					<div class="row">
-						<div class="col-xs-7">ДОСТАВКА</div>
-						<div class="col-xs-5 right"><?=number_format($arResult['DELIVERY_PRICE'], 0, " ", " ")?> ₷</div>
-					</div>
-				</div>
-				<?endif;?>
-				<div class="total__item total__item--big">
-					<div class="row">
-						<div class="col-xs-7">к оплате</div>
-						<div class="col-xs-5 right"><?=number_format($arResult['ORDER_PRICE']+$arResult['DELIVERY_PRICE'], 0, " ", " ")?> ₷</div>
-					</div>
-				</div>
+				<input type="submit" class="basket__submit" value="оформить заказ">
 			</div>
-			<input type="submit" class="basket__submit" value="оформить заказ">
 		</div>
 	</div>
 	

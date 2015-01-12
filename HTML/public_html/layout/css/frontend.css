@@ -7511,9 +7511,19 @@ svg g {
   font-size: 12px;
   padding: 7px 0 2px;
 }
+.basket .row {
+  position: relative;
+}
 .basket .total {
   text-transform: uppercase;
   margin-top: 20px;
+}
+.basket .total__frame {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 33.33333333%;
+  padding: 0 10px;
 }
 .basket .total__item--big {
   margin-top: 7px;
