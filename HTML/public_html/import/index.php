@@ -193,7 +193,7 @@
 			if($propSections['type']):
 				$value  = $propSections['type'];
 				
-				$fields['IBLOCK_SECTION_ID'] = array();
+				$fields['IBLOCK_SECTION'] = array();
 				foreach ($sections['first'] as $k => $s):
 					unset($parent);
 					$parent = &$this->sections[$s]['CHILD'][$sections['second']];
@@ -203,6 +203,7 @@
 					if(isset($parent['CHILD'][$value]))
 						$fields['IBLOCK_SECTION'][] = $parent['CHILD'][$value];
 				endforeach;
+				$fields['IBLOCK_SECTION'][] = 150;
 				if(intval($sections['id'])>0)
 					$props['SECTION_'.$sections['id']] = $value;
 			endif;
