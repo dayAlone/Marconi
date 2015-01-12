@@ -69,15 +69,11 @@ if(count($allCHECKED)>0):
 		endwhile;
 	}
 
-	$index = array();
-	foreach ($arResult["COMBO"] as $id => $combination)
-		foreach ($combination as $PID => $value)
-			$index[$PID][$value][] = &$arResult["COMBO"][$id];
-
 	$facetIndex = array();
 	$except     = getFilterProperties();
 
 	$directions = array();
+	
 	foreach($arResult["ITEMS"] as $PID => $arItem):
 		foreach($arItem["VALUES"] as $key => $ar):
 			if ($arResult["FACET_FILTER"] && isset($ar["FACET_VALUE"]))
@@ -89,7 +85,8 @@ if(count($allCHECKED)>0):
 	endforeach;
 	if(count($directions) > 0):
 		foreach ($directions as $k => $direction):
-				$this->facet = new \Bitrix\Iblock\PropertyIndex\Facet($arResult['SECTION']['IBLOCK_ID']);
+			$this->facet = new \Bitrix\Iblock\PropertyIndex\Facet($arResult['SECTION']['IBLOCK_ID']);
+			if ($this->facet->isValid()):
 				$this->facet->setPrices($arResult["PRICES"]);
 				$this->facet->setSectionId($arResult['SECTION']['ID']);
 				$value = false;
@@ -104,20 +101,88 @@ if(count($allCHECKED)>0):
 					$this->facet->addDictionaryPropertyFilter($k, "=", $value);
 				
 				apply($arResult, $facetIndex, $this);
-			endforeach;
+
+			endif;
+		endforeach;
 	else:
 		$this->facet = new \Bitrix\Iblock\PropertyIndex\Facet($arResult['SECTION']['IBLOCK_ID']);
-		$this->facet->setPrices($arResult["PRICES"]);
-		$this->facet->setSectionId($arResult['SECTION']['ID']);
-		
-		foreach($arResult["ITEMS"] as $PID => $arItem)
-			foreach($arItem["VALUES"] as $key => $ar)
-				if(condition($_CHECK, $ar))
-					if($_CHECK[$ar["CONTROL_NAME"]] == $ar["HTML_VALUE"] && !isset($arItem["PRICE"]))
-						if ($arResult["FACET_FILTER"])
-							$this->facet->addDictionaryPropertyFilter($PID, "=", $ar["FACET_VALUE"]);
-					
-		apply($arResult, $facetIndex, $this);
+		if ($this->facet->isValid()):
+			$this->facet->setPrices($arResult["PRICES"]);
+			$this->facet->setSectionId($arResult['SECTION']['ID']);
+			
+			foreach($arResult["ITEMS"] as $PID => $arItem)
+				foreach($arItem["VALUES"] as $key => $ar)
+					if(condition($_CHECK, $ar))
+						if($_CHECK[$ar["CONTROL_NAME"]] == $ar["HTML_VALUE"] && !isset($arItem["PRICE"]))
+							if ($arResult["FACET_FILTER"])
+								$this->facet->addDictionaryPropertyFilter($PID, "=", $ar["FACET_VALUE"]);
+						
+			apply($arResult, $facetIndex, $this);
+		endif;
+	endif;
+
+	$index = array();
+	foreach ($arResult["COMBO"] as $id => $combination)
+		foreach ($combination as $PID => $value)
+			$index[$PID][$value][] = &$arResult["COMBO"][$id];
+	$totalCheck = false;
+	foreach ($allCHECKED as $key => $value)
+		if(in_array($key, getFilterProperties()))
+			$totalCheck = true;
+	if(count($index)>0):
+		foreach ($arResult["ITEMS"] as $PID => &$arItem)
+		{
+			if ($arItem["PROPERTY_TYPE"] != "N" && !isset($arItem["PRICE"]))
+			{
+				//All except current one
+				$checked = $allCHECKED;
+				unset($checked[$PID]);
+				foreach ($arItem["VALUES"] as $key => &$arValue)
+				{
+					$found = false;
+					if (isset($index[$PID][$arValue["VALUE"]]))
+					{
+						//Check if there are any combinations exists
+						foreach ($index[$PID][$arValue["VALUE"]] as $id => $combination)
+						{
+							//Check if combination fits into the filter
+							$isOk = true;
+							foreach ($checked as $cPID => $values)
+							{
+								if(!in_array($cPID, getFilterProperties()))
+								{
+									if (!isset($values[$combination[$cPID]]))
+									{
+										$isOk = false;
+										break;
+									}
+								}
+							}
+							if($isOk && $totalCheck)
+							{
+								$enter = false;
+								foreach ($checked as $cPID => $values)
+									if (isset($values[$combination[$cPID]]) && in_array($cPID, getFilterProperties()))
+										$enter = true;
+								if(!$enter)
+									$isOk = false;
+							}
+							if ($isOk)
+							{
+								$found = true;
+								break;
+							}
+						}
+					}
+					if (!$found)
+						$arValue["DISABLED"] = true;
+					else
+						unset($arValue["DISABLED"]);
+				}
+				unset($arValue);
+			}
+		}
+		unset($arItem);
 	endif;
 endif;
 ?>
