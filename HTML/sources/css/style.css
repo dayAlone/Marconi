@@ -46,6 +46,33 @@ a:hover {
 .right {
   text-align: right !important;
 }
+.bg-center-center {
+  background-position: center center !important;
+}
+.bg-center-left {
+  background-position: center left !important;
+}
+.bg-center-right {
+  background-position: center right !important;
+}
+.bg-top-center {
+  background-position: top center !important;
+}
+.bg-top-left {
+  background-position: top left !important;
+}
+.bg-top-right {
+  background-position: top right !important;
+}
+.bg-bottom-center {
+  background-position: bottom center !important;
+}
+.bg-bottom-left {
+  background-position: bottom left !important;
+}
+.bg-bottom-right {
+  background-position: bottom right !important;
+}
 .no-margin {
   margin: 0 !important;
 }

@@ -37,6 +37,10 @@ value = 0px 5px 10px 15px 20px 25px 30px
 value_sm = 5px 10px 15px 20px 25px 30px 35px
 sizes = scr_xs scr_sm scr_md scr_lg
 
+for vx in center top bottom
+	for zx in center left right
+		.bg-{vx}-{zx}
+			background-position: vx zx !important
 for vx in margin padding
 	.no-{vx}
 		{vx} 0 !important
