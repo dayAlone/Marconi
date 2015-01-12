@@ -5070,7 +5070,7 @@ body.index {
 }
 .textpage__content ul li,
 .textpage__content ol li {
-  margin-top: 5px;
+  margin-top: 15px;
 }
 .textpage__content a {
   color: #d10a32;

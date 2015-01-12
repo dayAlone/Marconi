@@ -2,8 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Возврат");
 ?>
-<div class="col-md-11">
-	<h3>100% возврат денег, если товар не подошел</h3>
+<h3 class="no-margin-top l-margin-bottom">100% возврат денег, если товар не подошел</h3>
 
 <ol>
 <li>Вернуть или обменять товар надлежащего качества можно в течение 30 дней с момента получения (п. 4 ст. 
@@ -18,6 +17,5 @@ $APPLICATION->SetTitle("Возврат");
 
 	<li>Возврат товара ненадлежащего качества производится до истечения Гарантийного срока.</li>
 	</ol>
-</div>
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
