@@ -2354,6 +2354,42 @@ svg g {
   background: #fff;
   color: #000;
 }
+.catalog__back {
+  display: inline-block;
+  height: 32px;
+  border: 2px solid #000;
+  color: #000;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 33px;
+  padding: 0 5px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+.catalog__back:after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: calc(100% + 4px);
+  background: url("../images/arrow.jpg") top left no-repeat;
+  -webkit-background-size: auto 200%;
+  -moz-background-size: auto 200%;
+  background-size: auto 200%;
+  z-index: 2000;
+  top: -2px;
+  left: -2px;
+}
+.catalog__back:hover,
+.catalog__back:focus {
+  background: #000;
+  color: #fff;
+}
+.catalog__back:hover:after,
+.catalog__back:focus:after {
+  background-position: bottom left;
+}
 .catalog__nav {
   margin-bottom: 40px;
   position: relative;
@@ -2867,6 +2903,10 @@ svg g {
   position: relative;
   display: block;
   overflow: hidden;
+  background: transparent url("../images/loader.gif") center center no-repeat;
+  -webkit-background-size: 80px auto;
+  -moz-background-size: 80px auto;
+  background-size: 80px auto;
 }
 .catalog--without-images .product__picture-frame {
   position: absolute;

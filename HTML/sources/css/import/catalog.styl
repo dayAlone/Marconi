@@ -4,11 +4,40 @@
 	.nav__item:nth-child(6)
 		background white
 		color black
+	&__back
+		display inline-block
+		height 32px
+		border 2px solid black
+		color black
+		text-transform: uppercase
+		font-size 11px
+		font-weight: bold
+		line-height 33px
+		padding 0 5px
+		position relative
+		text-align: center
+		width 100%
+		&:after
+			content ""
+			position absolute
+			width 8px
+			height calc(100% + 4px)
+			background url(../images/arrow.jpg) top left no-repeat
+			background-size auto 200%
+			z-index 2000
+			top -2px
+			left -2px
+		&:hover, &:focus
+			background black
+			color white
+			&:after
+				background-position bottom left
 	&__nav
 		margin-bottom 40px
 		position relative
 		z-index 700
 		full-width()
+		
 	&__counter
 		position absolute
 		left 100%
@@ -335,7 +364,7 @@
 				position relative
 				display block
 				overflow hidden
-				//b('loader.gif', center center no-repeat, transparent, 80px auto)
+				b('loader.gif', center center no-repeat, transparent, 80px auto)
 	&--without-images
 		.product
 			&__picture-frame

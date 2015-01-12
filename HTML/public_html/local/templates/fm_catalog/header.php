@@ -5,9 +5,9 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
 <div class="catalog__nav">
     <div class="container">
       <div class="row">
-      
         <div class="col-xs-2">
         	<?
+          if(!preg_match("/\/catalog\/(.*?)\/(.*?)\/|\/basket\//", $APPLICATION->GetCurDir(), $matches)):
         	$APPLICATION->IncludeComponent(
     				"bitrix:highloadblock.list", 
     				"brands", 
@@ -17,6 +17,13 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
     				),
     				false
     			);
+
+          else:
+            ?>
+          <a class="catalog__back" href="<?=(isset($matches[1])?"/catalog/".$matches[1]."/":"/catalog/")?>">
+            Вернуться в каталог
+          </a>
+          <?endif;
 			/*
           <div class="brand-select">
             <div class="dropdown">
