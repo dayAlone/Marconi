@@ -2,6 +2,11 @@
 	.nav__item:nth-child(6)
 		background white
 		color black
+	.parsley
+		&-errors-list
+			display none
+		&-error
+			border-color red !important
 	small
 		strong
 			text-transform: uppercase
@@ -179,11 +184,29 @@
 			top -16px
 	.delivery
 		margin-top 13px
+	#ORDER_FORM
+		margin-bottom 60px
+	input[type="submit"]
+		width 100%
+		margin-top 25px
+		background black
+		border 0
+		text-transform: uppercase
+		font-weight: bold
+		font-size 17px
+		text-align: center
+		height 51px
+		line-height 54px
+		color white
+		t background
+		&:hover
+			background red
+		&:disabled
+			background alpha(black,.3)
 	&__block
 		width 100%
 		padding 15px 13px 3px
 		border 1px solid #d5dbdf
-		margin-bottom 100px
 		position relative
 		&--loading
 			pointer-events none
@@ -230,6 +253,18 @@
 			position relative
 			display inline-block
 			width 100%
+			.parsley-errors-list.filled
+				position absolute
+				border 1px solid red
+				top 0
+				left 0
+				width 100%
+				height 100%
+				pointer-events none
+				display block
+				z-index 200
+				li
+					display none
 			&--open
 				.dropdown__trigger
 					background red
@@ -283,6 +318,7 @@
 			color #4e4e51
 			& + .iradio, & + input[type="radio"]
 				margin-left 25px
+		
 		input[type="text"], input[type="email"], textarea
 			width 100%
 			border 1px solid #d5dbdf

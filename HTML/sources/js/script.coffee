@@ -207,10 +207,13 @@ $(document).ready ->
 			.iCheck()
 			.one 'ifChecked', ->
 				getOrderDate()
-		$('.stores-list .dropdown').elem('item').off('click').on 'click', (e)->
+		$('.stores-list .dropdown__item').off('click').on 'click', (e)->
 			$(this).block().find('select').val $(this).data 'id'
+			console.log $(this).block().find('select')
+			$(this).block().find('.parsley-errors-list').removeClass '.filled'
 			e.preventDefault()
 		$('input[name="ORDER_PROP_3"]').mask '+7 (000) 000 00 00'
+	
 	$('.bx-ui-sls-clear').click ->
 		getOrderDate()
 	$('.bx-sls input:hidden:first').change ->
@@ -218,22 +221,31 @@ $(document).ready ->
 			getOrderDate()
 	
 	getOrderDate = ->
-		console.log 1
 		data = $('#ORDER_FORM').serialize()
 		$('.basket').elem('block').mod 'loading', true
+		$('.basket').elem('submit').attr 'disabled', 'disabled'
 		$.ajax
 			type     : "POST" 
 			url      : $('#ORDER_FORM').attr('action') 
 			data     : data
 			success  : (data)->
-				$('#ORDER_FORM .props').html $(data).find('.props').html()
-				$('#ORDER_FORM .delivery').html $(data).find('.delivery').html()
-				$('#ORDER_FORM .payment').html $(data).find('.payment').html()
-				initOrder()
-				initDropdown()
-				$('.basket').elem('block').mod 'loading', false
+				if $(data).find('.props').html()
+					$('#ORDER_FORM .props').html $(data).find('.props').html()
+					$('#ORDER_FORM .delivery').html $(data).find('.delivery').html()
+					$('#ORDER_FORM .payment').html $(data).find('.payment').html()
+					initOrder()
+					initDropdown()
+					$('.basket').elem('block').mod 'loading', false
+					$('.basket').elem('submit').removeAttr 'disabled'
+				else
+					data = $.parseJSON data
+					if data.success == 'Y'
+						location.href = data.redirect
 	initOrder()
 	getOrderDate()
+	$('#ORDER_FORM').submit (e)->
+		getOrderDate()
+		e.preventDefault()
 	$('.bx-ui-sls-quick-locations a:first').trigger 'click'
 	# News
 	$('.news-item').each ->

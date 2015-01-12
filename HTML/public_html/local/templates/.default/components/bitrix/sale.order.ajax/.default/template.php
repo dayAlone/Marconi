@@ -18,7 +18,7 @@ if (!function_exists("cmpBySort"))
 	}
 }
 ?>
-<form action="<?=$APPLICATION->GetCurPage();?>" method="POST" name="ORDER_FORM" id="ORDER_FORM" enctype="multipart/form-data">
+<form action="<?=$APPLICATION->GetCurPage();?>" method="POST" name="ORDER_FORM" id="ORDER_FORM" enctype="multipart/form-data" data-parsley-validate>
 	<?
 		if(!empty($arResult["ERROR"]) && $arResult["USER_VALS"]["FINAL_STEP"] == "Y")
 			foreach($arResult["ERROR"] as $v)
@@ -177,7 +177,9 @@ if (!function_exists("cmpBySort"))
 					endforeach;
 				?>
 				</div>
+
 			</div>
+			<input type="submit" class="basket__submit" value="оформить заказ">
 		</div>
 	</div>
 	
@@ -188,7 +190,7 @@ if (!function_exists("cmpBySort"))
 	<input type="hidden" name="is_ajax_post" id="is_ajax_post" value="Y">
 	<input type="hidden" name="json" value="Y">
 
-	<? /*<input type="submit">*/?>
+	
 </form>
 <?if(CSaleLocation::isLocationProEnabled()):?>
 

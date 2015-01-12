@@ -40467,8 +40467,10 @@ return PhotoSwipeUI_Default;
       $('.basket .delivery input[type="radio"], .basket .payment input[type="radio"]').iCheck().one('ifChecked', function() {
         return getOrderDate();
       });
-      $('.stores-list .dropdown').elem('item').off('click').on('click', function(e) {
+      $('.stores-list .dropdown__item').off('click').on('click', function(e) {
         $(this).block().find('select').val($(this).data('id'));
+        console.log($(this).block().find('select'));
+        $(this).block().find('.parsley-errors-list').removeClass('.filled');
         return e.preventDefault();
       });
       return $('input[name="ORDER_PROP_3"]').mask('+7 (000) 000 00 00');
@@ -40483,25 +40485,37 @@ return PhotoSwipeUI_Default;
     });
     getOrderDate = function() {
       var data;
-      console.log(1);
       data = $('#ORDER_FORM').serialize();
       $('.basket').elem('block').mod('loading', true);
+      $('.basket').elem('submit').attr('disabled', 'disabled');
       return $.ajax({
         type: "POST",
         url: $('#ORDER_FORM').attr('action'),
         data: data,
         success: function(data) {
-          $('#ORDER_FORM .props').html($(data).find('.props').html());
-          $('#ORDER_FORM .delivery').html($(data).find('.delivery').html());
-          $('#ORDER_FORM .payment').html($(data).find('.payment').html());
-          initOrder();
-          initDropdown();
-          return $('.basket').elem('block').mod('loading', false);
+          if ($(data).find('.props').html()) {
+            $('#ORDER_FORM .props').html($(data).find('.props').html());
+            $('#ORDER_FORM .delivery').html($(data).find('.delivery').html());
+            $('#ORDER_FORM .payment').html($(data).find('.payment').html());
+            initOrder();
+            initDropdown();
+            $('.basket').elem('block').mod('loading', false);
+            return $('.basket').elem('submit').removeAttr('disabled');
+          } else {
+            data = $.parseJSON(data);
+            if (data.success === 'Y') {
+              return location.href = data.redirect;
+            }
+          }
         }
       });
     };
     initOrder();
     getOrderDate();
+    $('#ORDER_FORM').submit(function(e) {
+      getOrderDate();
+      return e.preventDefault();
+    });
     $('.bx-ui-sls-quick-locations a:first').trigger('click');
     $('.news-item').each(function() {
       var h;
