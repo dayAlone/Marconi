@@ -206,6 +206,7 @@
 
 				if(intval($sections['id'])>0)
 					$props['SECTION_'.$sections['id']] = $value;
+				$fields['IBLOCK_SECTION'][] = 150;
 			endif;
 		}
 		private function getData($item)
@@ -356,7 +357,7 @@
 					endforeach;
 
 					if(array_diff($fields['IBLOCK_SECTION'], $exist['IBLOCK_SECTION']) || (count($fields['IBLOCK_SECTION'])!=count($exist['IBLOCK_SECTION']))):
-						fwrite(STDERR, "Разделы обновлены: ".var_export(array_diff($fields['IBLOCK_SECTION'], $exist['IBLOCK_SECTION']),true)." \n\r");
+						#fwrite(STDERR, "Разделы обновлены: ".var_export(array_diff($fields['IBLOCK_SECTION'], $exist['IBLOCK_SECTION']),true)." \n\r");
 						$raw = new CIBlockElement;
 						$raw->Update($exist['ID'], array('IBLOCK_SECTION'=>$fields['IBLOCK_SECTION']));
 						$update = true;
