@@ -8011,6 +8011,9 @@ svg g {
 .basket__block textarea::-webkit-input-placeholder {
   text-transform: uppercase;
 }
+.basket__block .parsley-errors-list + input.small {
+  margin-left: 2%;
+}
 .basket__block textarea {
   margin-bottom: 0;
   resize: none;
