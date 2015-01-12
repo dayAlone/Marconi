@@ -210,6 +210,7 @@ $(document).ready ->
 		$('.stores-list .dropdown').elem('item').off('click').on 'click', (e)->
 			$(this).block().find('select').val $(this).data 'id'
 			e.preventDefault()
+		$('input[name="ORDER_PROP_3"]').mask '+7 (000) 000 00 00'
 	$('.bx-ui-sls-clear').click ->
 		getOrderDate()
 	$('.bx-sls input:hidden:first').change ->

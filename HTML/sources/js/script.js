@@ -251,10 +251,11 @@
       $('.basket .delivery input[type="radio"], .basket .payment input[type="radio"]').iCheck().one('ifChecked', function() {
         return getOrderDate();
       });
-      return $('.stores-list .dropdown').elem('item').off('click').on('click', function(e) {
+      $('.stores-list .dropdown').elem('item').off('click').on('click', function(e) {
         $(this).block().find('select').val($(this).data('id'));
         return e.preventDefault();
       });
+      return $('input[name="ORDER_PROP_3"]').mask('+7 (000) 000 00 00');
     };
     $('.bx-ui-sls-clear').click(function() {
       return getOrderDate();

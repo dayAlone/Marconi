@@ -11,7 +11,7 @@
 			endforeach;
 			?>
 		</span>
-		<select class="dropdown__select" name="BUYER_STORE">
+		<select class="dropdown__select" name="BUYER_STORE" required>
 	        <option value="">Выберите пункт самовывоза</option>
 	        <?
 			foreach ($arResult['ITEMS'] as $item):
