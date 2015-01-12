@@ -138,7 +138,7 @@
   };
 
   $(document).ready(function() {
-    var addToCart, basketCalc, closeDropdown, filterRequest, filterTimer, galleryOptions, getElem, getFilter, getOrderDate, getParameterByName, initDropdown, initFiltres, initOrder, initZoom, openDropdown, scrollTimer, timer, updateTimer, x;
+    var addToCart, basketCalc, closeDropdown, filterRequest, filterTimer, galleryOptions, getElem, getFilter, getOrderDate, getParameterByName, initDropdown, initFiltres, initOrder, initZoom, isJson, openDropdown, scrollTimer, timer, updateTimer, x;
     delay(300, function() {
       return size();
     });
@@ -267,6 +267,16 @@
         return getOrderDate();
       }
     });
+    isJson = function(str) {
+      var e;
+      try {
+        JSON.parse(str);
+      } catch (_error) {
+        e = _error;
+        return false;
+      }
+      return true;
+    };
     getOrderDate = function() {
       var data;
       data = $('#ORDER_FORM').serialize();
@@ -277,7 +287,7 @@
         url: $('#ORDER_FORM').attr('action'),
         data: data,
         success: function(data) {
-          if ($(data).find('.props').html()) {
+          if (!isJson(data)) {
             $('#ORDER_FORM .props').html($(data).find('.props').html());
             $('#ORDER_FORM .delivery').html($(data).find('.delivery').html());
             $('#ORDER_FORM .payment').html($(data).find('.payment').html());
@@ -294,8 +304,10 @@
         }
       });
     };
-    initOrder();
-    getOrderDate();
+    if ($('body.basket').length > 0) {
+      initOrder();
+      getOrderDate();
+    }
     $('#ORDER_FORM').submit(function(e) {
       getOrderDate();
       return e.preventDefault();

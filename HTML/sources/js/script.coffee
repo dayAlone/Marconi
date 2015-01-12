@@ -219,7 +219,12 @@ $(document).ready ->
 	$('.bx-sls input:hidden:first').change ->
 		if parseInt($(this).val()) > 0
 			getOrderDate()
-	
+	isJson = (str)->
+		try
+			JSON.parse(str);
+		catch e
+			return false;
+		return true;
 	getOrderDate = ->
 		data = $('#ORDER_FORM').serialize()
 		$('.basket').elem('block').mod 'loading', true
@@ -229,7 +234,7 @@ $(document).ready ->
 			url      : $('#ORDER_FORM').attr('action') 
 			data     : data
 			success  : (data)->
-				if $(data).find('.props').html()
+				if !isJson data
 					$('#ORDER_FORM .props').html $(data).find('.props').html()
 					$('#ORDER_FORM .delivery').html $(data).find('.delivery').html()
 					$('#ORDER_FORM .payment').html $(data).find('.payment').html()
@@ -241,8 +246,11 @@ $(document).ready ->
 					data = $.parseJSON data
 					if data.success == 'Y'
 						location.href = data.redirect
-	initOrder()
-	getOrderDate()
+	
+	if $('body.basket').length > 0
+		initOrder()
+		getOrderDate()
+	
 	$('#ORDER_FORM').submit (e)->
 		getOrderDate()
 		e.preventDefault()
