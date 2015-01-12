@@ -20,7 +20,7 @@
     "velocity": "latest",
     "jquery.cookie": "latest",
     "parsleyjs": "latest",
-    "jQuery-Mask-Plugin": "latest",
+    "jQuery-Mask-Plugin": "~1.11.2",
     "chosen": "https://github.com/harvesthq/chosen/releases/download/v1.1.0/chosen_v1.1.0.zip",
     "prettyPhoto": "git@github.com:scaron/prettyphoto.git",
     "nested": "git@github.com:suprb/Nested.git",

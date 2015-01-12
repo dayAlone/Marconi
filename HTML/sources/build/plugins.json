@@ -78,7 +78,7 @@
       "js":"/jquery/dist/jquery.js"
    },
    "mask":{
-      "js":"/jQuery-Mask-Plugin/jquery.mask.js"
+      "js":"/jQuery-Mask-Plugin/dist/jquery.mask.js"
    },
    "parsley":{
       "js":"/parsleyjs/dist/parsley.js"
