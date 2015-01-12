@@ -5061,7 +5061,7 @@ body.index {
 .container {
   min-width: 980px;
 }
-.textpage .page {
+.textpage__content {
   padding-bottom: 50px;
 }
 .textpage__content ul,
