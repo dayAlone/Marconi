@@ -117,7 +117,7 @@ $props = &$arResult['PROPERTIES'];
 						"SORT_ORDER1"   => "ASC",
 						"DETAIL_URL"    => "/catalog/",
 						"CACHE_TYPE"    => "A",
-						'PROPERTY_CODE' => array(),
+						'PROPERTY_CODE' => array('PICTURES'),
 						"SET_TITLE"     => "N"
 					),
 					$component

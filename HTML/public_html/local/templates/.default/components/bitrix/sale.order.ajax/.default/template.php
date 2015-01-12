@@ -181,25 +181,23 @@ if (!function_exists("cmpBySort"))
 			</div>
 			<div class="total__frame">
 				<div class="total">
-					<?if(intval($arResult['DELIVERY_PRICE'])>0):?>
-					<div class="total__item">
-						
+					
+					<div class="total__item <?=(intval($arResult['DELIVERY_PRICE'])>0?"":"hidden")?>">
 						<div class="row">
 							<div class="col-xs-7">ВАШ ЗАКАЗ НА СУММУ</div>
-							<div class="col-xs-5 right"><?=number_format($arResult['ORDER_PRICE'], 0, " ", " ")?> ₷</div>
+							<div class="col-xs-5 right total__counter"><?=number_format($arResult['ORDER_PRICE'], 0, " ", " ")?> ₷</div>
 						</div>
 					</div>
-					<div class="total__item">
+					<div class="total__item <?=(intval($arResult['DELIVERY_PRICE'])>0?"":"hidden")?>">
 						<div class="row">
 							<div class="col-xs-7">ДОСТАВКА</div>
-							<div class="col-xs-5 right"><?=number_format($arResult['DELIVERY_PRICE'], 0, " ", " ")?> ₷</div>
+							<div class="col-xs-5 right total__counter"><?=number_format($arResult['DELIVERY_PRICE'], 0, " ", " ")?> ₷</div>
 						</div>
 					</div>
-					<?endif;?>
 					<div class="total__item total__item--big">
 						<div class="row">
 							<div class="col-xs-7">к оплате</div>
-							<div class="col-xs-5 right"><?=number_format($arResult['ORDER_PRICE']+$arResult['DELIVERY_PRICE'], 0, " ", " ")?> ₷</div>
+							<div class="col-xs-5 right total__counter"><?=number_format($arResult['ORDER_PRICE']+$arResult['DELIVERY_PRICE'], 0, " ", " ")?> ₷</div>
 						</div>
 					</div>
 				</div>
