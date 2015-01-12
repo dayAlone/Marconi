@@ -203,7 +203,7 @@
 					if(isset($parent['CHILD'][$value]))
 						$fields['IBLOCK_SECTION'][] = $parent['CHILD'][$value];
 				endforeach;
-				$fields['IBLOCK_SECTION'][] = 150;
+
 				if(intval($sections['id'])>0)
 					$props['SECTION_'.$sections['id']] = $value;
 			endif;
@@ -278,7 +278,7 @@
 					$fields['PREVIEW_PICTURE'] = CFile::MakeFileArray($image);
 				$props['PICTURES']['n'.$key] = array("VALUE"=>CFile::MakeFileArray($image));
 			endforeach;
-			
+
 			if(!isset($fields['PREVIEW_PICTURE'])):
 				$fields['SORT'] = 60000000;
 			else:
@@ -324,11 +324,13 @@
 				if(isset($exist)):
 					$update = false;
 					$diff   = array_diff($props, $exist);
-					
-					if(isset($exist['PICTURES']))
-						unset($diff['PICTURES']);
-					
+			
+					if(!isset($exist['PICTURES']) && count($props['PICTURES'])>0):
+						$diff['PICTURES'] = $props['PICTURES'];
+					endif;
+
 					unset($diff['OFFER_SIZE']);
+					
 
 					foreach (array('COLOR', 'MATERIAL') as $el):
 						if(array_diff($props[$el], $exist[$el]) || (count($props[$el])!=count($exist[$el]))):
