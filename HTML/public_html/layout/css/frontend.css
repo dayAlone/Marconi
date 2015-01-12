@@ -5067,6 +5067,7 @@ body.index {
 .textpage__content ul,
 .textpage__content ol {
   padding-left: 20px;
+  margin-bottom: 25px;
 }
 .textpage__content ul li,
 .textpage__content ol li {
