@@ -214,7 +214,7 @@
 			$artnumber = $item->getElementsByTagName('artnumber')->item(0)->nodeValue;
 			$tmp       = $item->getElementsByTagName('namePrint')->item(0)->nodeValue;
 			$note      = substr($tmp, 0, strpos($tmp, $artnumber)-1);
-			$slug      = str_replace(' ','_', preg_replace($this->remove, '', $item->getElementsByTagName('name')->item(0)->nodeValue));
+			$slug      = str_replace(array(' ','/'),'_', preg_replace($this->remove, '', $item->getElementsByTagName('name')->item(0)->nodeValue));
 
 			$fields = array(
 				'XML_ID'      => $xml_id,
