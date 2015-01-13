@@ -176,7 +176,9 @@
           duration: 300,
           complete: function() {
             $(this).remove();
-            return $.cookie('card', 'Y');
+            return $.cookie('card', 'Y', {
+              path: "/"
+            });
           }
         }
       });
