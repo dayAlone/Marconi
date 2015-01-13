@@ -650,6 +650,7 @@
           mapOptions = {
             zoom: 14,
             draggable: true,
+            minZoom: 3,
             zoomControl: true,
             zoomControlOptions: {
               style: google.maps.ZoomControlStyle.LARGE,
@@ -685,6 +686,7 @@
         mapOptions = {
           zoom: 4,
           draggable: true,
+          minZoom: 3,
           zoomControl: true,
           zoomControlOptions: {
             style: google.maps.ZoomControlStyle.LARGE,

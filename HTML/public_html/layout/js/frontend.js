@@ -40866,6 +40866,7 @@ return PhotoSwipeUI_Default;
           mapOptions = {
             zoom: 14,
             draggable: true,
+            minZoom: 3,
             zoomControl: true,
             zoomControlOptions: {
               style: google.maps.ZoomControlStyle.LARGE,
@@ -40901,6 +40902,7 @@ return PhotoSwipeUI_Default;
         mapOptions = {
           zoom: 4,
           draggable: true,
+          minZoom: 3,
           zoomControl: true,
           zoomControlOptions: {
             style: google.maps.ZoomControlStyle.LARGE,
