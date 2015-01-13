@@ -13,6 +13,14 @@
 $this->setFrameMode(true);
 $templateLibrary = array('popup');
 $currencyList = '';
+
+global $colorFilter;
+$colorFilter['!SECTION_ID'] = $arResult['IBLOCK_SECTION_ID'];
+if(count($arResult['PROPERTIES']['COLOR']['VALUE'])>1)
+	$colorFilter['?PROPERTY_COLOR'] = implode($arResult['PROPERTIES']['COLOR']['VALUE'],' || ');
+elseif(count($arResult['PROPERTIES']['COLOR']['VALUE'])==1)
+	$colorFilter['=PROPERTY_COLOR'] = $arResult['PROPERTIES']['COLOR']['VALUE'][0];
+
 if (!empty($arResult['CURRENCIES']))
 {
 	$templateLibrary[] = 'currency';

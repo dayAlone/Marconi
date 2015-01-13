@@ -1,5 +1,5 @@
 <?
-	require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/catalog.element/templates/.default/result_modifier.php');
+	require($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/catalog.element/templates/.default/result_modifier.php');
 	$arResult['BRANDS']    = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
 	$arResult['COLORS']    = getHighloadElements('colors', 'UF_XML_ID', 'UF_NAME');
 	$arResult['MATERIALS'] = getHighloadElements('materials', 'UF_XML_ID', 'UF_NAME');

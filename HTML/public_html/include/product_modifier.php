@@ -3,12 +3,10 @@ $arResult['BRANDS'] = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
 
 $images   = array();
 $sections = array();
-
 $arResult['IMAGES']   = array();
 $arResult['SECTIONS'] = array();
 
 foreach ($arResult['ITEMS'] as &$item):
-
 	$brand = $arResult['BRANDS'][$item['PROPERTIES']['BRAND']['VALUE']];
 	
 	$rsPath = GetIBlockSectionPath($arResult['ID'], $item['IBLOCK_SECTION_ID']);
