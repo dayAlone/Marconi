@@ -10,6 +10,9 @@
 	$res = CIBlockElement::GetList(Array(), $arFilter, false, false, array('ID', 'PROPERTY_PICTURES'));
 	while($el = $res->Fetch()):
 		$raw = new CIBlockElement;
-		$raw->Update($el['ID'], array("PREVIEW_PICTURE" =>CFile::GetFileArray($el['PROPERTY_PICTURES_VALUE'][0])));
+		$result = $raw->Update($el['ID'], array("PREVIEW_PICTURE" =>CFile::GetFileArray($el['PROPERTY_PICTURES_VALUE'][0])));
+		var_dump($el['ID']);
+		var_dump($result);
+		die();
 	endwhile;
 ?>
