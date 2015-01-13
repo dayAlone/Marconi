@@ -40871,7 +40871,7 @@ return PhotoSwipeUI_Default;
               style: google.maps.ZoomControlStyle.LARGE,
               position: google.maps.ControlPosition.LEFT_CENTER
             },
-            scrollwheel: false,
+            scrollwheel: true,
             disableDoubleClickZoom: false,
             disableDefaultUI: true,
             center: center,
@@ -40906,7 +40906,7 @@ return PhotoSwipeUI_Default;
             style: google.maps.ZoomControlStyle.LARGE,
             position: google.maps.ControlPosition.LEFT_CENTER
           },
-          scrollwheel: false,
+          scrollwheel: true,
           disableDoubleClickZoom: false,
           disableDefaultUI: true,
           center: center,

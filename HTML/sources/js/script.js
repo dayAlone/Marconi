@@ -655,7 +655,7 @@
               style: google.maps.ZoomControlStyle.LARGE,
               position: google.maps.ControlPosition.LEFT_CENTER
             },
-            scrollwheel: false,
+            scrollwheel: true,
             disableDoubleClickZoom: false,
             disableDefaultUI: true,
             center: center,
@@ -690,7 +690,7 @@
             style: google.maps.ZoomControlStyle.LARGE,
             position: google.maps.ControlPosition.LEFT_CENTER
           },
-          scrollwheel: false,
+          scrollwheel: true,
           disableDoubleClickZoom: false,
           disableDefaultUI: true,
           center: center,
