@@ -227,7 +227,7 @@ if ($ElementID > 0)
 			"PRODUCT_QUANTITY_VARIABLE"       => $arParams["PRODUCT_QUANTITY_VARIABLE"],
 			"PRODUCT_PROPS_VARIABLE"          => $arParams["PRODUCT_PROPS_VARIABLE"],
 			"FILTER_NAME"                     => 'colorFilter',
-			"CACHE_TYPE"                      => 'N',
+			"CACHE_TYPE"                      => $arParams["CACHE_TYPE"],
 			"CACHE_TIME"                      => $arParams["CACHE_TIME"],
 			"CACHE_FILTER"                    => $arParams["CACHE_FILTER"],
 			"CACHE_GROUPS"                    => $arParams["CACHE_GROUPS"],
