@@ -6,9 +6,10 @@
 	@ignore_user_abort(true);
 	define("NO_KEEP_STATISTIC", true);
 	define("NOT_CHECK_PERMISSIONS", true); 
-	$arFilter = array('PREVIEW_PICTURE'=>false, '!PROPERTY_PICTURES'=>false);
-	$res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
+	$arFilter = array('!PROPERTY_PICTURES'=>false, 'PREVIEW_PICTURE'=>false);
+	$res = CIBlockElement::GetList(Array(), $arFilter, false, false, array('ID', 'PROPERTY_PICTURES'));
 	while($el = $res->Fetch()):
-		var_dump($el['ID']);
+		$raw = new CIBlockElement;
+		$el->Update($el['ID'], array("PREVIEW_PICTURE" =>CFile::GetFileArray($el['PROPERTY_PICTURES_VALUE'][0])));
 	endwhile;
 ?>
