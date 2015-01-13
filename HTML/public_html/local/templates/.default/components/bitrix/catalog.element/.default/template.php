@@ -418,7 +418,7 @@ $this->SetViewTarget('footer');
     	<div class="modal-frame" data-title="где купить">
 	    	<div class="row available__row">
 	    		<div class="col-xs-3">
-	    			<div class="available__picture" style="background-image: url(<?=(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg")?>)"></div>	
+	    			<div class="available__picture" style="background-image: url(<?=(isset($array[0]['middle'])?$array[0]['middle']:(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg"))?>)"></div>	
 	    		</div>
 	    		<div class="col-xs-9 no-position">
 	    			<div class="available__title">
