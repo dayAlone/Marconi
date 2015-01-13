@@ -11,5 +11,5 @@ if(count($elements) > 1):
 		unset($arrFilter[$key]);
 	$arrFilter[] = array_merge(array("LOGIC" => "OR"), $elements);
 endif;
-#$arrFilter['!PROPERTY_MIN_PRICE'] = false;
+$arrFilter['!PROPERTY_MIN_PRICE'] = false;
 ?>
