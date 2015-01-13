@@ -21,6 +21,8 @@ if(count($arResult['PROPERTIES']['COLOR']['VALUE'])>1)
 elseif(count($arResult['PROPERTIES']['COLOR']['VALUE'])==1)
 	$colorFilter['=PROPERTY_COLOR'] = $arResult['PROPERTIES']['COLOR']['VALUE'][0];
 
+$colorFilter['!PROPERTY_PICTURES'] = false;
+
 if (!empty($arResult['CURRENCIES']))
 {
 	$templateLibrary[] = 'currency';
