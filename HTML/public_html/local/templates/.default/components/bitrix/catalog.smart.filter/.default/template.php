@@ -70,7 +70,7 @@ $this->setFrameMode(true);
 							onclick="smartFilter.click(this)"
 							style="color: <?=$arResult['COLORS'][$ar['VALUE']]?>"
 							class="color"
-							<?=($ar["DISABLED"]&&!preg_match("/SECTION_(.*)/", $arItem['CODE']&&!$ar["CHECKED"])?"disabled":"")?>
+							<?=($ar["DISABLED"]&&!preg_match("/SECTION_(.*)/", $arItem['CODE'])&&!$ar['CHECKED']?"disabled":"")?>
 						/>
 					<?else:
 						?>
@@ -82,7 +82,7 @@ $this->setFrameMode(true);
 								id="<?echo $ar["CONTROL_ID"]?>"
 								<?echo $ar["CHECKED"]? 'checked="checked"': ''?>
 								onclick="smartFilter.click(this)"
-								<?=($ar["DISABLED"]&&!preg_match("/SECTION_(.*)/", $arItem['CODE']&&!$ar["CHECKED"])?"disabled":"")?>
+								<?=($ar["DISABLED"]&&!preg_match("/SECTION_(.*)/", $arItem['CODE'])&&!$ar['CHECKED']?"disabled":"")?>
 							/>
 							<label for="<?echo $ar["CONTROL_ID"]?>"><?echo $ar["VALUE"];?></label>
 						</div>
