@@ -40375,6 +40375,40 @@ return PhotoSwipeUI_Default;
         return $('.scroll-fix').mod('on', false);
       });
     });
+    $('a.catalog__card-button').click(function(e) {
+      var block, offset;
+      block = $('.catalog__card');
+      offset = block.offset();
+      offset.top -= $('.header .cart').offset().top - block.height() / 2;
+      offset.left -= $('.header .cart').offset().left - block.width() / 2;
+      block.velocity({
+        properties: {
+          translateX: -offset.left,
+          translateY: -offset.top,
+          opacity: .2,
+          scale: 0
+        },
+        options: {
+          duration: 300,
+          complete: function() {
+            $(this).remove();
+            return $.cookie('card', 'Y');
+          }
+        }
+      });
+      $('.catalog__card-frame, a.catalog__card-button, .catalog__card-text').css({
+        opacity: 0
+      }).on(end, function() {
+        return $(this).remove();
+      });
+      return e.preventDefault();
+    });
+    $('body').on('mousewheel', function(e) {
+      if ($(e.target).hasClass('catalog__card-frame')) {
+        e.preventDefault();
+        return e.stopPropagation();
+      }
+    });
     initOrder = function() {
       $('.basket .delivery input[type="radio"], .basket .payment input[type="radio"]').iCheck().one('ifChecked', function() {
         return getOrderDate();
