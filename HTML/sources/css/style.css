@@ -3232,9 +3232,9 @@ svg g {
 .filter .icheckbox:disabled + label,
 .filter input[type="checkbox"]:disabled + label,
 .filter .icheckbox_color:disabled + label {
-  opacity: 0.3;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-  filter: alpha(opacity=30);
+  opacity: 0.15;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+  filter: alpha(opacity=15);
   pointer-events: none;
 }
 .filter .icheckbox_color,
@@ -3256,9 +3256,9 @@ svg g {
 }
 .filter .icheckbox_color:disabled,
 .filter input.color:disabled {
-  opacity: 0.3;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-  filter: alpha(opacity=30);
+  opacity: 0.15;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+  filter: alpha(opacity=15);
   pointer-events: none;
 }
 .filter .icheckbox_color.checked,
@@ -3291,9 +3291,9 @@ svg g {
 }
 .filter .icheckbox_color.ready.disabled,
 .filter .icheckbox_color.ready:disabled {
-  opacity: 0.3;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-  filter: alpha(opacity=30);
+  opacity: 0.15;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+  filter: alpha(opacity=15);
 }
 .filter input[type="checkbox"] {
   top: -3px;
