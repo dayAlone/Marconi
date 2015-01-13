@@ -582,6 +582,7 @@
 	        			endif;
 	        			if($new):
 	        				CIBlockElement::SetPropertyValuesEx($id, $this->iblocks['products'], array('MIN_PRICE'=>$new));
+	        				$this->counter['update']++;
 	        			endif;
 	        		endif;
 	        	endif;
