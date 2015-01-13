@@ -13,6 +13,7 @@ elseif(count($arResult['PROPERTIES']['COLOR']['VALUE'])==1)
 	$colorFilter['=PROPERTY_COLOR'] = $arResult['PROPERTIES']['COLOR']['VALUE'][0];
 
 $colorFilter['!PROPERTY_PICTURES'] = false;
+$colorFilter['!ID'] = $arResult['ID'];
 
 if (isset($templateData['TEMPLATE_THEME']))
 {
