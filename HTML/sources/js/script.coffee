@@ -242,12 +242,12 @@ $(document).ready ->
 			val  = parseInt(row.find('.basket__count').data('price')) * row.find('.basket__count').val()
 			last = parseInt row.find('.total').text().replace(' ','')
 			if val != last
-				counter = new countUp row.find('.total')[0], last, val, 0, 2, options
+				counter = new countUp row.find('.total')[0], last, val, 0, 1, options
 				counter.start()
 
 		saleVal = parseInt $('.basket__sale-total span').text().replace(' ','')
 		if saleVal != sale
-			saleCounter = new countUp $('.basket__sale-total span')[0], saleVal, sale, 0, 2, options
+			saleCounter = new countUp $('.basket__sale-total span')[0], saleVal, sale, 0, 1, options
 			saleCounter.start()
 
 		totalVal = parseInt $('.basket__total span').text().replace(' ','')

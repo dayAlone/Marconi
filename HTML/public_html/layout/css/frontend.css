@@ -7647,6 +7647,7 @@ svg g {
   opacity: 0.7;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
   filter: alpha(opacity=70);
+  display: none;
 }
 .basket .bx-sls .bx-ui-sls-clear:hover {
   opacity: 1;
