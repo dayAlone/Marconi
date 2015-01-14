@@ -2,6 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Каталог");
 $APPLICATION->SetPageProperty('body_class', "catalog ".(!isset($_REQUEST['v'])?"catalog--ajax":""));
+$v = getHighloadElements('categories', 'UF_XML_ID', 'ID');
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:catalog", 
 	".default", 

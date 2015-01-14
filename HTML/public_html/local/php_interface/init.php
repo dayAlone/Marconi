@@ -222,7 +222,7 @@ function getHighloadElements($name, $key, $value)
 		$data = $vars['data'];
 
 	elseif( $obCache->StartDataCache() ):
-
+		
 		$hlblock = HL\HighloadBlockTable::getById($id)->fetch();
 		$entity  = HL\HighloadBlockTable::compileEntity($hlblock);
 		$class   = $entity->getDataClass();
@@ -241,5 +241,20 @@ function getHighloadElements($name, $key, $value)
 		
 	endif;
 	return $data;
+}
+
+function getFilterStringValues($id, $section, $values)
+{
+	$current = COption::GetOptionString("main","getFilterStringValues_".$id."_".$value);
+	if(count($values)>0):
+		$string = "";
+		foreach ($values as $val)
+			$string .= $val['CONTROL_ID']."=Y&";
+		if(md5($current) != md5($string)):
+			COption::SetOptionString("main","getFilterStringValues_".$id."_".$value,$string);
+		endif;
+	elseif(strlen($current)>0):
+		return $current;
+	endif;
 }
 ?>

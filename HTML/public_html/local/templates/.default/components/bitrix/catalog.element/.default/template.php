@@ -68,7 +68,17 @@ $templateData['JS_OBJ'] = $strObName;
 $item = &$arResult;
 $props = &$arResult['PROPERTIES'];
 ?>
-
+<div class="breadcrumbs">
+	<a href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/"><?=$item['SECTION']['PATH'][0]['NAME']?></a>
+	<?
+		$category = $props['SECTION_'.$arResult['CATEGORIES'][$item['SECTIONS'][1]['XML_ID']]];
+		$data = getFilterStringValues($category['ID'], $item['SECTION']['PATH'][0]['ID']);
+	?>
+	<span>&rsaquo;</span>
+	<a href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/?<?=$data?>&set_filter=Y"><?=$category['NAME']?></a>
+	<span>&rsaquo;</span>
+	<a href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/?arrFilter_<?=$category['ID']?>_<?=abs(crc32($category['VALUE']))?>=Y&set_filter=Y"><?=$arResult['TYPES'][$category['VALUE']]?></a>
+</div>
 <div class="row">
 	<div class="col-xs-6">
 	  <div class="picture">

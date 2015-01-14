@@ -53,7 +53,7 @@
 	foreach ($prices as $price) {
 		unset($elements[$price->getAttribute('id')]);
 	}
-	var_dump($elements);
+	
 	$title = array('section'=>"Без раздела(section)", 'category'=>"Без категории(category)", 'type'=>"Без типа(type)", 'brand'=>"Без бренда(brand)", 'color'=>"Без цвета", 'material'=>"Без материала", 'price'=>"Без цен(price)");
 	$text = "";
 	foreach ($errors as $key => &$el) 
