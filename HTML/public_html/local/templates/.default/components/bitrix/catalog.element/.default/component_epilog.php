@@ -12,7 +12,7 @@ $rsPath = GetIBlockSectionPath($arResult['IBLOCK_ID'], $arResult['IBLOCK_SECTION
 while($arPath = $rsPath->GetNext())
 	$arResult['SECTIONS'][] = $arPath;
 
-$colorFilter['!SECTION_'.$arResult['CATEGORIES'][$arResult['SECTIONS'][1]['XML_ID']]] = $arResult['SECTIONS'][2];
+$colorFilter['!PROPERTY_SECTION_'.$arResult['CATEGORIES'][$arResult['SECTIONS'][1]['XML_ID']]] = $arResult['SECTIONS'][2]['XML_ID'];
 
 if(count($arResult['PROPERTIES']['COLOR']['VALUE'])>1)
 	$colorFilter['?PROPERTY_COLOR'] = implode($arResult['PROPERTIES']['COLOR']['VALUE'],' || ');
