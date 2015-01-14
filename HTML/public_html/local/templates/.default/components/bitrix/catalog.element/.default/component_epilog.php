@@ -6,7 +6,8 @@ use Bitrix\Main\Loader;
 global $APPLICATION;
 
 global $colorFilter;
-$colorFilter['SECTION_ID'] = $arResult['IBLOCK_SECTION_ID'];
+$section = CIBlockSection::GetByID($arResult['IBLOCK_SECTION_ID'])->Fetch();
+$colorFilter['!PROPERTY_TYPE'] = $section['XML_ID'];
 if(count($arResult['PROPERTIES']['COLOR']['VALUE'])>1)
 	$colorFilter['?PROPERTY_COLOR'] = implode($arResult['PROPERTIES']['COLOR']['VALUE'],' || ');
 elseif(count($arResult['PROPERTIES']['COLOR']['VALUE'])==1)
