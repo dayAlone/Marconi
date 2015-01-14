@@ -70,6 +70,7 @@ $props = &$arResult['PROPERTIES'];
 $this->SetViewTarget('toolbar');
 ?>
 <div class="breadcrumbs">
+	<a href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/?brand="><?=$arResult['BRANDS'][$props['BRAND']['VALUE']]?></a>
 	<span>&rsaquo;</span>
 	<a href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/"><?=$item['SECTION']['PATH'][0]['NAME']?></a>
 	<?
