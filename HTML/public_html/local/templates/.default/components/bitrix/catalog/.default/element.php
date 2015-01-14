@@ -41,7 +41,7 @@ else
 		"CACHE_TYPE" => $arParams["CACHE_TYPE"],
 		"CACHE_TIME" => $arParams["CACHE_TIME"],
 		"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-		"SET_TITLE" => "N",
+		"SET_TITLE" => "Y",
 		"SET_STATUS_404" => $arParams["SET_STATUS_404"],
 		"PRICE_CODE" => $arParams["PRICE_CODE"],
 		"USE_PRICE_COUNT" => $arParams["USE_PRICE_COUNT"],
