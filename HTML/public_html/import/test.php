@@ -1,25 +1,41 @@
 <?
 	$_SERVER["DOCUMENT_ROOT"] = realpath(dirname(__FILE__)."/..");
-	$path = iconv('windows-1251', 'UTF-8', file_get_contents($_SERVER['DOCUMENT_ROOT']."/import/upload/products.xml"));
-
-	$dom  = new DOMDocument('1.0', 'utf-8');
-	$dom->loadXML($path);
-	$path = "";
-	$element = array('products', 'product');
-	$xpath    = new DOMXPath($dom);
-	$elements = $dom->getElementsByTagName($element[0])->item(0);
-	$count    = $xpath->evaluate("count(".$element[1].")", $elements); 
-
-	$start = 1;
-	if(intval($offset)>0)
-		$start = $offset;
-	$end   = 2226;
 	
-	$items = $xpath->evaluate($element[1]."[position() >= $start and not(position() > $end)]", $products);
+	function getElements($file, $element, $offset=false)
+	{
+		$path = iconv('windows-1251', 'UTF-8', file_get_contents($_SERVER['DOCUMENT_ROOT']."/import/upload/".$file));
+		
+		$dom  = new DOMDocument('1.0', 'utf-8');
+		$dom->loadXML($path);
+		$path = "";
 
-	$errors = array('category'=>array(), 'type'=>array(), 'brand'=>array(), 'color'=>array(), 'material'=>array(), '');
+		$xpath    = new DOMXPath($dom);
+		$elements = $dom->getElementsByTagName($element[0])->item(0);
+		$count    = $xpath->evaluate("count(".$element[1].")", $elements); 
+
+		$start = 1;
+		if(intval($offset)>0)
+			$start = $offset;
+		$end = $count;
+		
+		$items = $xpath->evaluate($element[1]."[position() >= $start and not(position() > $end)]", $products);
+
+		if($offset)
+			return array('items'=>$items, 'offset'=>($end==$count?'end':$end));
+		else
+			return $items;
+	}
+	
+	$items = getElements("products.xml", array('products', 'product'));
+
+	$prices = getElements("prices.xml", array('products', 'product'));;
+
+	$errors = array('category'=>array(), 'type'=>array(), 'brand'=>array(), 'color'=>array(), 'material'=>array(), 'price'=>array());
+
+	$elements = array();
 
 	foreach ($items as $item) {
+		$elements[$item->getAttribute('id')] = $item->getElementsByTagName('name')->item(0)->nodeValue;
 		$raw = $item->getElementsByTagName('property');
 		$props = array();
 		foreach ($raw as $prop) 
@@ -33,16 +49,17 @@
 			if(!isset($props[$key]))
 				$el[] = $item->getElementsByTagName('name')->item(0)->nodeValue;
 		}
-		$description = $item->getElementsByTagName('description')->item(0)->nodeValue;
-		if(strlen($description)>0)
-			var_dump($item->getElementsByTagName('name')->item(0)->nodeValue);
 	}
-	$title = array('section'=>"Без раздела(section)", 'category'=>"Без категории(category)", 'type'=>"Без типа(type)", 'brand'=>"Без бренда(brand)", 'color'=>"Без цвета", 'material'=>"Без материала");
+	foreach ($prices as $price) {
+		unset($elements[$price->getAttribute('id')]);
+	}
+	var_dump($elements);
+	$title = array('section'=>"Без раздела(section)", 'category'=>"Без категории(category)", 'type'=>"Без типа(type)", 'brand'=>"Без бренда(brand)", 'color'=>"Без цвета", 'material'=>"Без материала", 'price'=>"Без цен(price)");
 	$text = "";
 	foreach ($errors as $key => &$el) 
 		$text .= "-------------------\n\r\n\r".$title[$key].":\n\r\n\r".implode($el, "\n\r")."\n\r";
 	
-
+	/*
 	$_SERVER["DOCUMENT_ROOT"] = realpath(dirname(__FILE__)."/..");
 	require_once ($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include.php");
 	use Bitrix\Highloadblock as HL;
@@ -66,7 +83,7 @@
 
 	while($arData = $rsData->Fetch())
 		$data[] = "/(\s(".$arData['UF_NAME'].")|_".strtolower($arData['UF_NAME']).")$/";
-
+	
 	$noimages = array();
     foreach ($items as $item) {
     	$name   = preg_replace($data, '', $item->getElementsByTagName('name')->item(0)->nodeValue);
@@ -75,8 +92,10 @@
     	if(count($images)==0 && !in_array($name, $noimages))
     		$noimages[] = $name;
     }
-
+    
     $text .= "-------------------\n\r\n\rНет картинок:\n\r\n\r".implode($noimages, "\n\r")."\n\r";
 
+	
+	*/
 	file_put_contents($_SERVER['DOCUMENT_ROOT']."/import/log.txt", $text);
 ?>

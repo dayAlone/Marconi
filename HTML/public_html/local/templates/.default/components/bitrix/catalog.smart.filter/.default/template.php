@@ -57,7 +57,9 @@ $this->setFrameMode(true);
 	                </div>
 	                <input type="text" name="range" data-min="<?=$arItem["VALUES"]["MIN"]["VALUE"]?>" data-max="<?=$arItem["VALUES"]["MAX"]["VALUE"]?>" data-from="<?=($arItem["VALUES"]["MIN"]["HTML_VALUE"]?$arItem["VALUES"]["MIN"]["HTML_VALUE"]:$arItem["VALUES"]["MIN"]["VALUE"])?>" data-to="<?=($arItem["VALUES"]["MAX"]["HTML_VALUE"]?$arItem["VALUES"]["MAX"]["HTML_VALUE"]:$arItem["VALUES"]["MAX"]["VALUE"])?>">
 				<?else:?>
-					<?foreach($arItem["VALUES"] as $val => $ar):?>
+					<?foreach($arItem["VALUES"] as $val => $ar):
+					#var_dump(abs(crc32($val)));
+					?>
 					<?/*$ar["DISABLED"]? ' lvl2_disabled': ''*/?>
 					<?if($arItem['CODE']=='COLOR'):
 						?>

@@ -1,4 +1,4 @@
-<products date="12.01.2015 16:53:16">
+<products date="14.01.2015 17:03:14">
 	<product id="b40d2532-08f2-11e4-8013-0025908101de" code="00000033304">
 		<artnumber>72328ip</artnumber>
 		<name>72328ip pelle nero</name>
@@ -370,7 +370,7 @@
 			<property id="type" value="76184789-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1804-b177-11e2-950a-0025901865a3" />
-			<property id="color" value="d24c17f2-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1c-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -436,7 +436,7 @@
 			<property id="type" value="76184789-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c180f-b177-11e2-950a-0025901865a3" />
-			<property id="color" value="d24c17f2-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1c-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -709,11 +709,12 @@
 		<namePrint>Сумка мужская 70352fm пелле нотте</namePrint>
 		<description></description>
 		<properties>
-			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5a-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -723,11 +724,12 @@
 		<namePrint>Сумка мужская 70353fm пелле нотте</namePrint>
 		<description></description>
 		<properties>
-			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5a-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -1104,12 +1106,12 @@
 		<namePrint>Сумка женская 83138sl черво коралло/беж</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
-			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -1155,8 +1157,8 @@
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="7c1ed1ba-4004-11e4-86ee-0025908101de" />
 			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -1198,13 +1200,13 @@
 		<namePrint>Сумка женская 83312sl черво коралло/беж</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="SizeForWeb" value="29*34*25 ручки 8" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
-			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -1343,12 +1345,12 @@
 		<namePrint>Сумка женская 83370sl черво турчес</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="SizeForWeb" value="28*14*05 ручки 58" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -1388,11 +1390,11 @@
 		<namePrint>Ключница 63147sl черво джинс</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="9c279e28-8460-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="15*08*01" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="9c279e28-8460-11e4-82e4-0025908101de" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -1497,7 +1499,7 @@
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3" />
 			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -1583,11 +1585,11 @@
 		<namePrint>Сумка женская 82558sl черво турчес/джалло</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="SizeForWeb" value="22*32*34 ручки 17" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
@@ -1669,11 +1671,11 @@
 		<namePrint>Сумка женская 82596sl кокко камэл</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -1725,11 +1727,11 @@
 		<namePrint>Сумка женская 82597sl кокко камэл</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -2011,12 +2013,12 @@
 		<description></description>
 		<properties>
 			<property id="size" value="e2e7309b-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="3,8" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
-			<property id="SizeForWeb" value="3,8" />
-			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -2060,12 +2062,11 @@
 		<description></description>
 		<properties>
 			<property id="size" value="e2e7309b-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="3,9" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
-			<property id="SizeForWeb" value="3,9" />
-			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -2082,7 +2083,6 @@
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="3,9" />
-			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -2578,12 +2578,11 @@
 		<description></description>
 		<properties>
 			<property id="size" value="e2e7309b-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="3,4" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
-			<property id="SizeForWeb" value="3,4" />
-			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -2691,13 +2690,12 @@
 		<description></description>
 		<properties>
 			<property id="size" value="e99ae833-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="3,4" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
-			<property id="SizeForWeb" value="3,4" />
 			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
-			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -2993,22 +2991,6 @@
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-		</properties>
-	</product>
-	<product id="42ca7168-5e50-11e3-830d-0025901865a3" code="00000032082">
-		<artnumber>65197ip</artnumber>
-		<name>65197ip pitone roccia</name>
-		<namePrint>Косметичка 65197ip питоне рокиа</namePrint>
-		<description>Косметичка женская из тисненой кожи, цвета натурального питона. Это пожалуй, один из самых необходимых аксессуаров каждой дамы. Именно здесь спрятаны самые главные женские секреты, помогающие подчеркнуть женскую красоту. Удобна в использовании как дома, так и на работе, и в путешествии. Косметичка состоит из одного отделения с двумя маленькими кармашками, закрывается на молнию.</description>
-		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="e824a244-8460-11e4-82e4-0025908101de" />
-			<property id="SizeForWeb" value="22*13*04" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -3888,11 +3870,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="a988a9a9-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
@@ -3905,11 +3886,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="c1cab1fe-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
@@ -3922,11 +3902,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="c870ad9f-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
@@ -3939,11 +3918,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="c870ada0-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
@@ -3956,11 +3934,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="dc2ac635-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
@@ -3973,11 +3950,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="c1cab1fe-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
@@ -3990,11 +3966,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="c870ad9f-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
@@ -4007,11 +3982,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="c870ada0-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
@@ -4024,11 +3998,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="a988a9a9-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
@@ -4041,11 +4014,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="c1cab1fe-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
@@ -4058,11 +4030,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="c870ad9f-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
@@ -4075,11 +4046,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="c870ada0-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
@@ -4092,11 +4062,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="dc2ac635-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
@@ -4445,10 +4414,11 @@
 		<description></description>
 		<properties>
 			<property id="size" value="8b2c4774-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="33*21*48" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3" />
 			<property id="material" value="091b5d1b-b174-11e2-950a-0025901865a3" />
@@ -4462,10 +4432,11 @@
 		<description></description>
 		<properties>
 			<property id="size" value="8b2c4774-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="33*21*48" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1804-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
@@ -4481,10 +4452,11 @@
 		<description></description>
 		<properties>
 			<property id="size" value="96d0503d-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="41*25*60" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1804-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
@@ -4500,10 +4472,11 @@
 		<description></description>
 		<properties>
 			<property id="size" value="9e7042a3-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="49*29*71" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1804-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
@@ -7875,6 +7848,16 @@
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
+	<product id="43288376-dfea-11e1-8b99-002713963884" code="00000012691">
+		<artnumber>480905</artnumber>
+		<name>480905 calf nero/marr L</name>
+		<namePrint>Ремень мужской 480905 кальф неро/марроне L</namePrint>
+		<description></description>
+		<properties>
+			<property id="size" value="e2e7309b-954c-11e3-bf27-0025901865a3" />
+			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
+		</properties>
+	</product>
 	<product id="5096f963-dfea-11e1-8b99-002713963884" code="00000021580">
 		<artnumber>5020Rbr</artnumber>
 		<name>5020Rbr vacch bianco</name>
@@ -9924,22 +9907,6 @@
 			<property id="material" value="13331c7d-4d38-11e4-b748-0025908101de" />
 		</properties>
 	</product>
-	<product id="2c3cb096-dfeb-11e1-8b99-002713963884" code="00000025181">
-		<artnumber>7361P</artnumber>
-		<name>7361P nappa/cachemir nero 7</name>
-		<namePrint>Перчатки женские 7361P наппа/кашемир неро 7</namePrint>
-		<description></description>
-		<properties>
-			<property id="size" value="c870ad9f-954c-11e3-bf27-0025901865a3" />
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-			<property id="material" value="13331c7d-4d38-11e4-b748-0025908101de" />
-		</properties>
-	</product>
 	<product id="2c3cb099-dfeb-11e1-8b99-002713963884" code="00000027563">
 		<artnumber>736am</artnumber>
 		<name>736am pitone multicolore</name>
@@ -10141,22 +10108,6 @@
 		<description></description>
 		<properties>
 			<property id="size" value="c870ada0-954c-11e3-bf27-0025901865a3" />
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
-		</properties>
-	</product>
-	<product id="2c3cb0f6-dfeb-11e1-8b99-002713963884" code="00000027093">
-		<artnumber>7549P</artnumber>
-		<name>7549P nappa/lana nero 8</name>
-		<namePrint>Перчатки женские 7549P наппа/лана неро 8</namePrint>
-		<description></description>
-		<properties>
-			<property id="size" value="dc2ac635-954c-11e3-bf27-0025901865a3" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
@@ -10605,12 +10556,13 @@
 		<namePrint>Сумка женская 80542fm спеккио марина</namePrint>
 		<description></description>
 		<properties>
-			<property id="SizeForWeb" value="" />
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -10840,22 +10792,6 @@
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
-	<product id="7a5f83d3-dfeb-11e1-8b99-002713963884" code="00000026930">
-		<artnumber>8062P</artnumber>
-		<name>8062P nappa/lana nero 10</name>
-		<namePrint>Перчатки мужские 8062P наппа/лана неро 10</namePrint>
-		<description></description>
-		<properties>
-			<property id="size" value="71b4eb84-954c-11e3-bf27-0025901865a3" />
-			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
-		</properties>
-	</product>
 	<product id="82802ac5-dfeb-11e1-8b99-002713963884" code="00000027271">
 		<artnumber>8081P</artnumber>
 		<name>8081P nappa/lana nero 6,5</name>
@@ -10896,12 +10832,13 @@
 		<namePrint>Сумка женская 81079Mg кальф элиза</namePrint>
 		<description></description>
 		<properties>
-			<property id="SizeForWeb" value="" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -11998,11 +11935,11 @@
 		<namePrint>Шарф мужской 1426gl риго неви</namePrint>
 		<description></description>
 		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="76184789-8469-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="594c8995-01dc-11e4-ac6f-0025908101de" />
 		</properties>
@@ -12017,7 +11954,8 @@
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1804-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -12109,21 +12047,6 @@
 			<property id="type" value="e824a244-8460-11e4-82e4-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-		</properties>
-	</product>
-	<product id="c63fd0dc-1717-11e4-8e4c-0025908101de" code="00000033371">
-		<artnumber>63212sl</artnumber>
-		<name>63212sl pitone rosso</name>
-		<namePrint>Косметичка 63212sl питоне россо</namePrint>
-		<description></description>
-		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="SizeForWeb" value="17*10*06" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="e824a244-8460-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -12736,11 +12659,11 @@
 		<namePrint>Кошелек женский 60550fm пелле петролио/джалло</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="21*11*02" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
@@ -12752,12 +12675,13 @@
 		<namePrint>Кошелек женский 60550fm пелле гьяччо</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="21*11*02" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -13023,14 +12947,13 @@
 		<namePrint>Кошелек женский 60560fm пелле лунгомаре</namePrint>
 		<description></description>
 		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
-			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -13076,20 +12999,6 @@
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-		</properties>
-	</product>
-	<product id="f68ec07d-4206-11e3-8e50-0025901865a3" code="00000031381">
-		<artnumber>530143fm</artnumber>
-		<name>530143fm nappa arancione</name>
-		<namePrint>Кошелек женский 530143fm наппа аранчионе</namePrint>
-		<description></description>
-		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -13313,13 +13222,13 @@
 		<namePrint>Портфель женский 80863fm пелле гьяччо</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="60596af9-8466-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
-			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -13329,11 +13238,12 @@
 		<namePrint>Портфель женский 80863fm пелле пругна</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="60596af9-8466-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c180f-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f3-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -13402,11 +13312,12 @@
 		<namePrint>Сумка женская 80806fm наппа джалло</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -13416,11 +13327,12 @@
 		<namePrint>Сумка женская 80807fm наппа блу</namePrint>
 		<description>Комбинация из нескольких цветов делает модель невероятно актуальной в этом сезоне. Модель без сомнения станет удачным завершением вашего повседневного образа. Закрывается на молнию, носится на сгибе руки или надевается на плечо с помощью дополнительного ремня на карабинах. Внутри один отдел, на задней стенке многослойный карман на молнии и ключница. Снаружи  два кармана на задней и передней частях сумки. Дополнительно ремень с карабинами.</description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -13430,11 +13342,12 @@
 		<namePrint>Сумка женская 80807fm наппа вердэ</namePrint>
 		<description>Сумка шикарного исполнения поможет завершить Вам эффектный, поистине безпроигрышный образ. На такой аксессуар обратят внимание и оценят.  Стильная и удобная, прекрасно подойдет на каждый день. Закрывается на молнию, носится на сгибе руки. Внутри один отдел, на задней стенке  многослойный карман на молнии и ключница. Дополнительно ремень с карабинами.</description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -13921,12 +13834,13 @@
 		<namePrint>Сумка женская 80832fm наппа/кокко аранчионе</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="SizeForWeb" value="22*08*18" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -13936,12 +13850,13 @@
 		<namePrint>Сумка женская 80832fm наппа/кокко блу</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="SizeForWeb" value="22*08*18" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -13951,12 +13866,13 @@
 		<namePrint>Сумка женская 80832fm наппа/кокко джалло</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="SizeForWeb" value="22*08*18" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -13966,12 +13882,13 @@
 		<namePrint>Сумка женская 80832fm наппа/кокко неро</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="SizeForWeb" value="22*08*18" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -14067,12 +13984,13 @@
 		<namePrint>Сумка женская 80840fm пелле марина</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="SizeForWeb" value="23*07*26" />
-			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -14098,12 +14016,13 @@
 		<namePrint>Сумка женская 80841fm пелле марина</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="SizeForWeb" value="27*12*22 ручки 12" />
-			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -14129,11 +14048,12 @@
 		<namePrint>Сумка женская 80842fm пелле марина</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -14203,12 +14123,13 @@
 		<namePrint>Сумка женская 80846fm пелле беж</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -14218,12 +14139,14 @@
 		<namePrint>Сумка женская 80846fm пелле фореста</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180f-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -14289,11 +14212,11 @@
 		<namePrint>Сумка женская 80852fm пелле камэл</namePrint>
 		<description>Эта элегантная сумка отличается от других моделей своим необычным и стильным дизайном, выполненная из великолепной кожи, песочного цвета. Объемная и вместительная она станет незаменимой для тех женщин и девушек, которые постоянно хотят иметь все необходимое под рукой. Два отдельных объемных отделения и множество внутренних карманов помогут оценить все достоинства этой сумки. Покупая эту модель , Вы прикоснетесь к искусству итальянских модельеров.</description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -14332,12 +14255,12 @@
 		<namePrint>Сумка женская 80853fm пелле камэл</namePrint>
 		<description>Невероятно эластичная, мягкая и приятная на ощупь кожа. Поверьте, вам не захочется выпускать эту сумочку из рук. Но главное достоинство модели – два отделения, которые не связаны между собой, благодаря чему внутри всегда будет царить идеальный порядок. Замочки с молниями и безупречная строчка, идеальное распределение внутреннего пространства, наличие нескольких цветовых решений – вот несомненные плюсы этого аксессуара.</description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="SizeForWeb" value="27*18*23 ручки 14" />
-			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -14377,15 +14300,14 @@
 		<namePrint>Сумка женская 80857fm пелле лунгомаре</namePrint>
 		<description></description>
 		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
-			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -14814,11 +14736,11 @@
 		<namePrint>Сумка женская 81164mg вирджиниа таупе</namePrint>
 		<description></description>
 		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -16099,7 +16021,7 @@
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
-			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -16114,7 +16036,7 @@
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
-			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -16449,7 +16371,7 @@
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
-			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -16464,7 +16386,7 @@
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
-			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -16813,7 +16735,7 @@
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
-			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -16828,7 +16750,7 @@
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
-			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -17299,7 +17221,7 @@
 			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -17331,7 +17253,7 @@
 			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -17361,6 +17283,32 @@
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
+	<product id="7fbe1677-dbfa-11e3-92d2-0025908101de" code="00000032757">
+		<artnumber>60594fm</artnumber>
+		<name>60594fm cocco nero</name>
+		<namePrint>Визитница 60594fm кокко неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="6b75b79b-845e-11e4-82e4-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="7fbe167d-dbfa-11e3-92d2-0025908101de" code="00000032760">
+		<artnumber>60594fm</artnumber>
+		<name>60594fm cocco t.moro</name>
+		<namePrint>Визитница 60594fm кокко тиморо</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="6b75b79b-845e-11e4-82e4-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
 	<product id="7fbe1685-dbfa-11e3-92d2-0025908101de" code="00000032764">
 		<artnumber>60595fm</artnumber>
 		<name>60595fm nappa nero</name>
@@ -17385,6 +17333,18 @@
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="6b75b79b-845e-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="10*1*7" />
+			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="7fbe1689-dbfa-11e3-92d2-0025908101de" code="00000032766">
+		<artnumber>60605fm</artnumber>
+		<name>60605fm pelle stromboli</name>
+		<namePrint>Визитница 60605fm пелле стромболи</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="6b75b79b-845e-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -17487,6 +17447,141 @@
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
+	<product id="7fbe169f-dbfa-11e3-92d2-0025908101de" code="00000032777">
+		<artnumber>60613fm</artnumber>
+		<name>60613fm cocco nero</name>
+		<namePrint>Визитница 60613fm кокко неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="6b75b79b-845e-11e4-82e4-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="7fbe16a1-dbfa-11e3-92d2-0025908101de" code="00000032778">
+		<artnumber>60613fm</artnumber>
+		<name>60613fm cocco t.moro</name>
+		<namePrint>Визитница 60613fm кокко тиморо</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="6b75b79b-845e-11e4-82e4-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="7fbe16ab-dbfa-11e3-92d2-0025908101de" code="00000032783">
+		<artnumber>60613fm</artnumber>
+		<name>60613fm nappa nero</name>
+		<namePrint>Визитница 60613fm наппа неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="6b75b79b-845e-11e4-82e4-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="cfc67791-dbfa-11e3-92d2-0025908101de" code="00000032786">
+		<artnumber>60593fm</artnumber>
+		<name>60593fm nappa nero</name>
+		<namePrint>Кошелек дорожный 60593fm наппа неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="de32c6e7-85dd-11e4-82e4-0025908101de" />
+			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="cfc67793-dbfa-11e3-92d2-0025908101de" code="00000032787">
+		<artnumber>60593fm</artnumber>
+		<name>60593fm nappa rosso</name>
+		<namePrint>Кошелек дорожный 60593fm наппа россо</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="de32c6e7-85dd-11e4-82e4-0025908101de" />
+			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="cfc67795-dbfa-11e3-92d2-0025908101de" code="00000032788">
+		<artnumber>60593fm</artnumber>
+		<name>60593fm nappa verde</name>
+		<namePrint>Кошелек дорожный 60593fm наппа вердэ</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="de32c6e7-85dd-11e4-82e4-0025908101de" />
+			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="cfc67797-dbfa-11e3-92d2-0025908101de" code="00000032789">
+		<artnumber>60593fm</artnumber>
+		<name>60593fm nappa celesta</name>
+		<namePrint>Кошелек дорожный 60593fm наппа челеста</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="de32c6e7-85dd-11e4-82e4-0025908101de" />
+			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="cfc67799-dbfa-11e3-92d2-0025908101de" code="00000032790">
+		<artnumber>60593fm</artnumber>
+		<name>60593fm nappa blu</name>
+		<namePrint>Кошелек дорожный 60593fm наппа блу</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="de32c6e7-85dd-11e4-82e4-0025908101de" />
+			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="cfc6779b-dbfa-11e3-92d2-0025908101de" code="00000032791">
+		<artnumber>60593fm</artnumber>
+		<name>60593fm nappa camel</name>
+		<namePrint>Кошелек дорожный 60593fm наппа камэл</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="de32c6e7-85dd-11e4-82e4-0025908101de" />
+			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="0ff435a7-dbfb-11e3-92d2-0025908101de" code="00000032792">
+		<artnumber>60604fm</artnumber>
+		<name>60604fm pelle stromboli</name>
+		<namePrint>Ключница 60604fm пелле стромболи</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="9c279e28-8460-11e4-82e4-0025908101de" />
+			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
 	<product id="0ff435a9-dbfb-11e3-92d2-0025908101de" code="00000032793">
 		<artnumber>60609fm</artnumber>
 		<name>60609fm nappa blu</name>
@@ -17545,6 +17640,22 @@
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
+	<product id="3d4b325b-dbfb-11e3-92d2-0025908101de" code="00000032797">
+		<artnumber>60580fm</artnumber>
+		<name>60580fm pelle virgola</name>
+		<namePrint>Кошелек женский 60580fm пелле виргола</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
 	<product id="3d4b325d-dbfb-11e3-92d2-0025908101de" code="00000032798">
 		<artnumber>60581fm</artnumber>
 		<name>60581fm sauri nero</name>
@@ -17590,6 +17701,22 @@
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
+	<product id="3d4b3269-dbfb-11e3-92d2-0025908101de" code="00000032804">
+		<artnumber>60583fm</artnumber>
+		<name>60583fm pelle spruzzi</name>
+		<namePrint>Кошелек женский 60583fm пелле спруци</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d17-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
 	<product id="3d4b3273-dbfb-11e3-92d2-0025908101de" code="00000032809">
 		<artnumber>60591fm</artnumber>
 		<name>60591fm pitone nero</name>
@@ -17602,6 +17729,34 @@
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="3d4b3291-dbfb-11e3-92d2-0025908101de" code="00000032824">
+		<artnumber>60602fm</artnumber>
+		<name>60602fm pelle stromboli</name>
+		<namePrint>Кошелек женский 60602fm пелле стромболи</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="3d4b3293-dbfb-11e3-92d2-0025908101de" code="00000032825">
+		<artnumber>60603fm</artnumber>
+		<name>60603fm pelle stromboli</name>
+		<namePrint>Кошелек женский 60603fm пелле стромболи</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -17709,6 +17864,129 @@
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
+	<product id="3d4b32a9-dbfb-11e3-92d2-0025908101de" code="00000032836">
+		<artnumber>60615fm</artnumber>
+		<name>60615fm nappa/cocco blu</name>
+		<namePrint>Кошелек женский 60615fm наппа/кокко блу</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="3d4b32ab-dbfb-11e3-92d2-0025908101de" code="00000032837">
+		<artnumber>60615fm</artnumber>
+		<name>60615fm nappa/cocco nero</name>
+		<namePrint>Кошелек женский 60615fm наппа/кокко неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="3d4b32ad-dbfb-11e3-92d2-0025908101de" code="00000032838">
+		<artnumber>60616fm</artnumber>
+		<name>60616fm nappa/cocco blu</name>
+		<namePrint>Кошелек женский 60616fm наппа/кокко блу</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="3d4b32af-dbfb-11e3-92d2-0025908101de" code="00000032839">
+		<artnumber>60616fm</artnumber>
+		<name>60616fm nappa/cocco nero</name>
+		<namePrint>Кошелек женский 60616fm наппа/кокко неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="9741e0a3-dbfb-11e3-92d2-0025908101de" code="00000032840">
+		<artnumber>560126fm</artnumber>
+		<name>560126fm cocco nero</name>
+		<namePrint>Набор подарочный 560126fm кокко неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="0bd59ac9-85e2-11e4-82e4-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="9741e0a5-dbfb-11e3-92d2-0025908101de" code="00000032841">
+		<artnumber>560127fm</artnumber>
+		<name>560127fm cocco nero</name>
+		<namePrint>Набор подарочный 560127fm кокко неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="0bd59ac9-85e2-11e4-82e4-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="bbcf5b31-dbfb-11e3-92d2-0025908101de" code="00000032845">
+		<artnumber>60614fm</artnumber>
+		<name>60614fm cocco nero</name>
+		<namePrint>Обложка для документов 60614fm кокко неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="48cab1f2-8462-11e4-82e4-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="bbcf5b33-dbfb-11e3-92d2-0025908101de" code="00000032846">
+		<artnumber>60614fm</artnumber>
+		<name>60614fm cocco t.moro</name>
+		<namePrint>Обложка для документов 60614fm кокко тиморо</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="48cab1f2-8462-11e4-82e4-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="bbcf5b3d-dbfb-11e3-92d2-0025908101de" code="00000032851">
+		<artnumber>60614fm</artnumber>
+		<name>60614fm nappa nero</name>
+		<namePrint>Обложка для документов 60614fm наппа неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="48cab1f2-8462-11e4-82e4-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
 	<product id="0706abf3-dbfc-11e3-92d2-0025908101de" code="00000032853">
 		<artnumber>530117fm</artnumber>
 		<name>530117fm cocco t.moro</name>
@@ -17805,20 +18083,6 @@
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-		</properties>
-	</product>
-	<product id="6c19f885-dbfc-11e3-92d2-0025908101de" code="00000032869">
-		<artnumber>80884fm</artnumber>
-		<name>80884fm pitone oliva</name>
-		<namePrint>Сумка женская 80884fm питоне олива</namePrint>
-		<description></description>
-		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -18022,6 +18286,50 @@
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
+	<product id="7212355b-dbfc-11e3-92d2-0025908101de" code="00000032927">
+		<artnumber>80917fm</artnumber>
+		<name>80917fm pelle stromboli</name>
+		<namePrint>Сумка женская 80917fm пелле стромболи</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="72123562-dbfc-11e3-92d2-0025908101de" code="00000032928">
+		<artnumber>80918fm</artnumber>
+		<name>80918fm pelle stromboli</name>
+		<namePrint>Сумка женская 80918fm пелле стромболи</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="72123568-dbfc-11e3-92d2-0025908101de" code="00000032929">
+		<artnumber>80920fm</artnumber>
+		<name>80920fm pelle virgola</name>
+		<namePrint>Сумка женская 80920fm пелле виргола</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
 	<product id="72123575-dbfc-11e3-92d2-0025908101de" code="00000032931">
 		<artnumber>80922fm</artnumber>
 		<name>80922fm nappa rosso</name>
@@ -18034,6 +18342,38 @@
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="721235a0-dbfc-11e3-92d2-0025908101de" code="00000032938">
+		<artnumber>80925fm</artnumber>
+		<name>80925fm pelle spruzzi</name>
+		<namePrint>Сумка женская 80925fm пелле спруци</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d17-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="721235a6-dbfc-11e3-92d2-0025908101de" code="00000032939">
+		<artnumber>80926fm</artnumber>
+		<name>80926fm pelle spruzzi</name>
+		<namePrint>Сумка женская 80926fm пелле спруци</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d17-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
 	<product id="721235ad-dbfc-11e3-92d2-0025908101de" code="00000032940">
@@ -18092,6 +18432,63 @@
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="SizeForWeb" value="26*12*32 ручки 18" />
 			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="721235dc-dbfc-11e3-92d2-0025908101de" code="00000032948">
+		<artnumber>80930fm</artnumber>
+		<name>80930fm nappa nero/marrone</name>
+		<namePrint>Сумка женская 80930fm наппа неро/марроне</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="721235e2-dbfc-11e3-92d2-0025908101de" code="00000032949">
+		<artnumber>80931fm</artnumber>
+		<name>80931fm nappa/cocco blu</name>
+		<namePrint>Сумка женская 80931fm наппа/кокко блу</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="721235e9-dbfc-11e3-92d2-0025908101de" code="00000032950">
+		<artnumber>80931fm</artnumber>
+		<name>80931fm nappa/cocco nero</name>
+		<namePrint>Сумка женская 80931fm наппа/кокко неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="8e64adf8-dbfd-11e3-92d2-0025908101de" code="00000032951">
+		<artnumber>70406fm</artnumber>
+		<name>70406fm pelle nero</name>
+		<namePrint>Сумка мужская 70406fm пелле неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5a-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -18348,11 +18745,13 @@
 		<namePrint>Сумка женская 81155Mg пелле/кам блу</namePrint>
 		<description></description>
 		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180f-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -18362,11 +18761,13 @@
 		<namePrint>Сумка женская 81155Mg пелле/кам марроне</namePrint>
 		<description></description>
 		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -18565,12 +18966,12 @@
 		<namePrint>Сумка женская 81179Mg питоне джалло</namePrint>
 		<description></description>
 		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -18746,12 +19147,12 @@
 		<namePrint>Сумка женская 80689fm пелле/кокко бордо</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c17f3-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180f-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -18761,12 +19162,12 @@
 		<namePrint>Сумка женская 80689fm пелле/кокко миртилло</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c180f-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f3-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -18866,13 +19267,13 @@
 		<namePrint>Сумка женская 80695fm пелле блу/камэл</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
-			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -19615,11 +20016,13 @@
 		<namePrint>Сумка женская 80743fm пелле маттоне</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -19731,12 +20134,12 @@
 		<namePrint>Сумка женская 80749fm вирджиниа петролио</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="SizeForWeb" value="22*10*17" />
-			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -19943,13 +20346,14 @@
 		<namePrint>Кошелек женский 60459fm пелле аранчионе</namePrint>
 		<description>Удобен и практичен. Функционален? Однозначно. В первую очередь это кошелек, но благодаря ремешку на запястье он с легкостью становится клатчем</description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="19*10*02" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -19959,13 +20363,14 @@
 		<namePrint>Кошелек женский 60459fm пелле камэл</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="19*10*02" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f3-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -19975,13 +20380,14 @@
 		<namePrint>Кошелек женский 60459fm пелле джалло</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="19*10*02" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -20279,12 +20685,13 @@
 		<namePrint>Кошелек женский 60469fm дакар блу</namePrint>
 		<description>Страус, крокодил и гад. Целый зверинец на страже «драгоценного» камня открывающего доступ к содержимому. Это по истине прекрасный кошелёк с экзотическим тиснением кожи и богатым содержанием.</description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="12*10*02" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -20294,13 +20701,14 @@
 		<namePrint>Кошелек женский 60469fm дакар марроне</namePrint>
 		<description>Страус, крокодил и гад. Целый зверинец на страже «драгоценного» камня открывающего доступ к содержимому. Это по истине прекрасный кошелёк с экзотическим тиснением кожи и богатым содержанием.</description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="12*10*02" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -20310,13 +20718,14 @@
 		<namePrint>Кошелек женский 60469fm дакар неро</namePrint>
 		<description>Страус, крокодил и гад. Целый зверинец на страже «драгоценного» камня открывающего доступ к содержимому. Это по истине прекрасный кошелёк с экзотическим тиснением кожи и богатым содержанием.</description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="12*10*02" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f3-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -20326,13 +20735,14 @@
 		<namePrint>Кошелек женский 60469fm дакар виола</namePrint>
 		<description>Страус, крокодил и гад. Целый зверинец на страже «драгоценного» камня открывающего доступ к содержимому. Это по истине прекрасный кошелёк с экзотическим тиснением кожи и богатым содержанием.</description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="12*10*02" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c180f-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -20342,13 +20752,14 @@
 		<namePrint>Кошелек женский 60470fm дакар блу</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="19*10*03" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -20359,13 +20770,14 @@
 		<description>Ты яркая, позитивная и любишь жизнь? Отлично! Значит перед тобой тот акссесуар, который искал именно тебя.
 Диктуй свои правила и нарушай чужии . А эта замечательная модель кошелька будет твоим союзником.</description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="19*10*03" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -20375,13 +20787,14 @@
 		<namePrint>Кошелек женский 60470fm дакар неро</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="19*10*03" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f3-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -20391,13 +20804,14 @@
 		<namePrint>Кошелек женский 60470fm дакар виола</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="19*10*03" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c180f-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -20410,13 +20824,14 @@
 Внешний карман для мелочи на молнии, в котором имеются два отделения очень удобен в использовании.
 Собрать коллекцию аксессуаров в одном стиле вам помогут обложка для документов 60468 и ключница 60524.</description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="13*10*03" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -20429,13 +20844,14 @@
 Внешний карман для мелочи на молнии, в котором имеются два отделения очень удобен в использовании.
 Собрать коллекцию аксессуаров в одном стиле вам помогут обложка для документов 60468 и ключница 60524.</description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="13*10*03" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -20448,13 +20864,14 @@
 Внешний карман для мелочи на молнии, в котором имеются два отделения очень удобен в использовании.
 Собрать коллекцию аксессуаров в одном стиле вам помогут обложка для документов 60468 и ключница 60524.</description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="13*10*03" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f3-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -20467,13 +20884,14 @@
 Внешний карман для мелочи на молнии, в котором имеются два отделения очень удобен в использовании.
 Собрать коллекцию аксессуаров в одном стиле вам помогут обложка для документов 60468 и ключница 60524.</description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="13*10*03" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c180f-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -20572,21 +20990,6 @@
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="13*10*03" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c180f-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-		</properties>
-	</product>
-	<product id="a27db1ff-be19-11e2-950a-0025901865a3" code="00000030137">
-		<artnumber>60475fm</artnumber>
-		<name>60475fm pelle prugna</name>
-		<namePrint>Кошелек женский 60475fm пелле пругна</namePrint>
-		<description>Как только Ваша рука коснется этой поразительно приятной, мягкой кожи, желание обладать ею не отпустит ни на одну минуту! Вы будете наслаждаться при каждом прикосновении, снова и снова. Это потрясающая модель женского кошелька, в котором просто нет ни одного изъяна. Все выполнено по высшему разряду. Замки и молнии, идеальные строчки и безупречно организованное внутреннее пространство — вот явные преимущества этой модели. И деньги, и карты, и важные документы — все и всегда будет в полном порядке!</description>
-		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
-			<property id="SizeForWeb" value="20*10*03" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c180f-b177-11e2-950a-0025901865a3" />
@@ -21016,12 +21419,13 @@
 		<namePrint>Кошелек женский 60487fm пелле терра</namePrint>
 		<description>Маленькая, но практичная модель кошелька имеющая два цветовых варианта - серый и бежевый. Закрывается на кнопку, имеет несколько отделений под банкноты и пластиковые карты, а также имеет отдельно вынимающийся вкладыш для пропуска или проездного, который очень удобно доставать и убирать обратно, не показывая никому из окружающих содержимое вашего кошелька.</description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="13*09*02" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -21376,21 +21780,6 @@
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="b2c6dc49-8462-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="10*14" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-		</properties>
-	</product>
-	<product id="b58e3fb4-be19-11e2-950a-0025901865a3" code="00000030238">
-		<artnumber>60507fm</artnumber>
-		<name>60507fm pelle nero</name>
-		<namePrint>Зажим для денег 60507fm пелле неро</namePrint>
-		<description>Деньги нужно содержать в порядке, тогда вас точно ждет успех. И современному мужчине совсем необязательно пользоваться портмоне, когда свою индивидуальность можно подчеркнуть таким стильным аксессуаром, как зажим для денег. В нашем зажиме использована оригинальная идея:  снаружи он выполнен из высококачественной итальянской кожи черного цвета,а внутри темно зеленый. А еще в наше время многие пользуются безналичным расчетом, поэтому четыре внутренних отделения под карточки всегда пригодятся. Так же он легко поместится в кармане одежды или в маленькую сумку, и подчеркнет вашу индивидуальность.</description>
-		<properties>
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="b36f2783-845e-11e4-82e4-0025908101de" />
-			<property id="SizeForWeb" value="10*8,5*1,5" />
-			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -22065,7 +22454,7 @@
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -22145,7 +22534,7 @@
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -22161,7 +22550,7 @@
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -22193,7 +22582,7 @@
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -22209,7 +22598,7 @@
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -22225,7 +22614,7 @@
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -22528,12 +22917,13 @@
 		<namePrint>Сумка женская 80635fm кальф джалло</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -22543,12 +22933,13 @@
 		<namePrint>Сумка женская 80635fm кальф аранчионе</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -22649,12 +23040,14 @@
 		<namePrint>Кошелек женский 60417fm софиано маре</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="98d1045d-8461-11e4-82e4-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
-			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -22791,6 +23184,19 @@
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
+	<product id="523a5596-21c2-11e2-9798-0025901865a3" code="00000028952">
+		<artnumber>60448fm</artnumber>
+		<name>60448fm pelle nero</name>
+		<namePrint>Визитница 60448fm пелле неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="6b75b79b-845e-11e4-82e4-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
 	<product id="f2ea3b5b-9b60-11e2-98fb-0025901865a3" code="00000029596">
 		<artnumber>5215</artnumber>
 		<name>5215 riga flou giallo/beige</name>
@@ -22895,20 +23301,6 @@
 		<artnumber>70395fm</artnumber>
 		<name>70395fm nappa nero</name>
 		<namePrint>Сумка мужская 70395fm наппа неро</namePrint>
-		<description></description>
-		<properties>
-			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="category" value="bd171b5a-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-		</properties>
-	</product>
-	<product id="9d9d393e-7d0f-11e3-9945-0025901865a3" code="00000032180">
-		<artnumber>70396fm</artnumber>
-		<name>70396fm nappa nero</name>
-		<namePrint>Сумка мужская 70396fm наппа неро</namePrint>
 		<description></description>
 		<properties>
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
@@ -23077,10 +23469,12 @@
 		<namePrint>Чемодан 20220fm тессутто неро</namePrint>
 		<description></description>
 		<properties>
+			<property id="size" value="8b2c4774-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="33*21*48" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1d-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -23091,10 +23485,12 @@
 		<namePrint>Чемодан 20224fm тессутто неро</namePrint>
 		<description></description>
 		<properties>
+			<property id="size" value="96d0503d-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="41*25*60" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1d-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -23105,10 +23501,12 @@
 		<namePrint>Чемодан 20228fm тессутто неро</namePrint>
 		<description></description>
 		<properties>
+			<property id="size" value="9e7042a3-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="49*29*71" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1d-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -23119,6 +23517,7 @@
 		<namePrint>Рюкзак мужской 20216fm тессутто неро</namePrint>
 		<description></description>
 		<properties>
+			<property id="SizeForWeb" value="37*19*42" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5a-7fb6-11e4-aec5-0025908101de" />
@@ -23133,6 +23532,7 @@
 		<namePrint>Сумка дорожная 20320fm тессутто неро</namePrint>
 		<description></description>
 		<properties>
+			<property id="SizeForWeb" value="50*30*27 ручки 14" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
@@ -23152,20 +23552,6 @@
 			<property id="type" value="a459849d-8466-11e4-82e4-0025908101de" />
 			<property id="category" value="bd171b5a-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-		</properties>
-	</product>
-	<product id="f9d54265-c1e4-11e2-9a0c-0025901865a3" code="00000030243">
-		<artnumber>70325fm</artnumber>
-		<name>70325fm pelle nero</name>
-		<namePrint>Сумка мужская 70325fm пелле неро</namePrint>
-		<description></description>
-		<properties>
-			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="category" value="bd171b5a-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -23441,20 +23827,6 @@
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
-	<product id="45b31537-c46f-11e2-9a0c-0025901865a3" code="00000030294">
-		<artnumber>70297fm</artnumber>
-		<name>70297fm pelle nero</name>
-		<namePrint>Сумка мужская 70297fm pelle nero</namePrint>
-		<description></description>
-		<properties>
-			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="category" value="bd171b5a-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-		</properties>
-	</product>
 	<product id="45b31538-c46f-11e2-9a0c-0025901865a3" code="00000030295">
 		<artnumber>70298fm</artnumber>
 		<name>70298fm pelle nero</name>
@@ -23691,6 +24063,21 @@
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5a-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="f8f7152b-c839-11e2-9a0c-0025901865a3" code="00000030336">
+		<artnumber>60525fm</artnumber>
+		<name>60525fm dunhill nero</name>
+		<namePrint>Портмоне мужское 60525fm данхилл неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="95ab2387-8465-11e4-82e4-0025908101de" />
+			<property id="SizeForWeb" value="19*10*02" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -24308,12 +24695,12 @@
 		<description>Брутальный ремень под джинсы, который при носке становится только круче, благодаря особой обработке кожи. Настоящая стальная пряжка, смотрится стильно и агрессивно. Подойдет любому мужчине, который любит ежедневно или на выходных одеваться в стиле casual!</description>
 		<properties>
 			<property id="size" value="e99ae835-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="3,5" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
-			<property id="SizeForWeb" value="3,5" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -24587,12 +24974,12 @@
 		<description></description>
 		<properties>
 			<property id="size" value="e2e7309b-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="1,5" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
-			<property id="SizeForWeb" value="1,5" />
-			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -24990,20 +25377,6 @@
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
-	<product id="443de617-e0db-11e3-9ea7-0025908101de" code="00000033024">
-		<artnumber>84008fd</artnumber>
-		<name>84008fd cocco rosso</name>
-		<namePrint>Сумка женская 84008fd кокко россо</namePrint>
-		<description></description>
-		<properties>
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-		</properties>
-	</product>
 	<product id="2622249a-ea49-11e3-9ea7-0025908101de" code="00000033102">
 		<artnumber>20015sw</artnumber>
 		<name>20015sw pitone roccia</name>
@@ -25030,6 +25403,118 @@
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224be-ea49-11e3-9ea7-0025908101de" code="00000033120">
+		<artnumber>20022sw</artnumber>
+		<name>20022sw cresta nero</name>
+		<namePrint>Сумка женская 20022sw креста неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224c0-ea49-11e3-9ea7-0025908101de" code="00000033121">
+		<artnumber>20022sw</artnumber>
+		<name>20022sw cresta petrolio</name>
+		<namePrint>Сумка женская 20022sw креста петролио</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224c2-ea49-11e3-9ea7-0025908101de" code="00000033122">
+		<artnumber>20023sw</artnumber>
+		<name>20023sw cresta nero</name>
+		<namePrint>Сумка женская 20023sw креста неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224c4-ea49-11e3-9ea7-0025908101de" code="00000033123">
+		<artnumber>20023sw</artnumber>
+		<name>20023sw cresta petrolio</name>
+		<namePrint>Сумка женская 20023sw креста петролио</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224c6-ea49-11e3-9ea7-0025908101de" code="00000033124">
+		<artnumber>20024sw</artnumber>
+		<name>20024sw cresta nero</name>
+		<namePrint>Сумка женская 20024sw креста неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224c8-ea49-11e3-9ea7-0025908101de" code="00000033125">
+		<artnumber>20024sw</artnumber>
+		<name>20024sw cresta petrolio</name>
+		<namePrint>Сумка женская 20024sw креста петролио</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224ca-ea49-11e3-9ea7-0025908101de" code="00000033126">
+		<artnumber>20025sw</artnumber>
+		<name>20025sw cresta nero</name>
+		<namePrint>Сумка женская 20025sw креста неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224cc-ea49-11e3-9ea7-0025908101de" code="00000033127">
+		<artnumber>20025sw</artnumber>
+		<name>20025sw cresta petrolio</name>
+		<namePrint>Сумка женская 20025sw креста петролио</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -25114,6 +25599,177 @@
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17f3-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224e6-ea49-11e3-9ea7-0025908101de" code="00000033140">
+		<artnumber>20012sw</artnumber>
+		<name>20012sw cresta nero/grigio</name>
+		<namePrint>Сумка женская 20012sw креста неро/гриджио</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224e8-ea49-11e3-9ea7-0025908101de" code="00000033141">
+		<artnumber>20013sw</artnumber>
+		<name>20013sw cresta nero/grigio</name>
+		<namePrint>Сумка женская 20013sw креста неро/гриджио</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224ea-ea49-11e3-9ea7-0025908101de" code="00000033142">
+		<artnumber>20014sw</artnumber>
+		<name>20014sw cresta nero/grigio</name>
+		<namePrint>Сумка женская 20014sw креста неро/гриджио</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224ec-ea49-11e3-9ea7-0025908101de" code="00000033143">
+		<artnumber>20007sw</artnumber>
+		<name>20007sw nappa nero</name>
+		<namePrint>Сумка женская 20007sw наппа неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224ee-ea49-11e3-9ea7-0025908101de" code="00000033144">
+		<artnumber>20007sw</artnumber>
+		<name>20007sw nappa rosso</name>
+		<namePrint>Сумка женская 20007sw наппа россо</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224f0-ea49-11e3-9ea7-0025908101de" code="00000033145">
+		<artnumber>20007sw</artnumber>
+		<name>20007sw nappa camel</name>
+		<namePrint>Сумка женская 20007sw наппа камэл</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224f2-ea49-11e3-9ea7-0025908101de" code="00000033146">
+		<artnumber>20008sw</artnumber>
+		<name>20008sw nappa nero</name>
+		<namePrint>Сумка женская 20008sw наппа неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224f4-ea49-11e3-9ea7-0025908101de" code="00000033147">
+		<artnumber>20008sw</artnumber>
+		<name>20008sw nappa rosso</name>
+		<namePrint>Сумка женская 20008sw наппа россо</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224f6-ea49-11e3-9ea7-0025908101de" code="00000033148">
+		<artnumber>20008sw</artnumber>
+		<name>20008sw nappa camel</name>
+		<namePrint>Сумка женская 20008sw наппа камэл</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224f8-ea49-11e3-9ea7-0025908101de" code="00000033149">
+		<artnumber>20009sw</artnumber>
+		<name>20009sw nappa nero</name>
+		<namePrint>Сумка женская 20009sw наппа неро</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224fa-ea49-11e3-9ea7-0025908101de" code="00000033150">
+		<artnumber>20009sw</artnumber>
+		<name>20009sw nappa taupe</name>
+		<namePrint>Сумка женская 20009sw наппа таупе</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
+			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
+		</properties>
+	</product>
+	<product id="262224fc-ea49-11e3-9ea7-0025908101de" code="00000033151">
+		<artnumber>20009sw</artnumber>
+		<name>20009sw nappa foresta</name>
+		<namePrint>Сумка женская 20009sw наппа фореста</namePrint>
+		<description></description>
+		<properties>
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -25319,11 +25975,11 @@
 		<namePrint>Сумка женская 20031sw наппа пругна</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c180f-b177-11e2-950a-0025901865a3" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17f3-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -25361,11 +26017,11 @@
 		<namePrint>Сумка женская 20032sw наппа пругна</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c180f-b177-11e2-950a-0025901865a3" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17f3-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -25403,11 +26059,11 @@
 		<namePrint>Сумка женская 20033sw наппа пругна</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c180f-b177-11e2-950a-0025901865a3" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17f3-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -25445,11 +26101,11 @@
 		<namePrint>Сумка женская 20034sw наппа пругна</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c180f-b177-11e2-950a-0025901865a3" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
+			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
+			<property id="color" value="d24c17f3-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -25493,7 +26149,7 @@
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="76184789-8469-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c17f2-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c17f3-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1e-b174-11e2-950a-0025901865a3" />
@@ -25585,7 +26241,7 @@
 			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
-			<property id="color" value="3a86e644-9ec0-11e3-89e9-0025901865a3" />
+			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -25624,10 +26280,11 @@
 		<description></description>
 		<properties>
 			<property id="size" value="8b2c4774-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="33*21*48" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1d-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -25639,10 +26296,11 @@
 		<description></description>
 		<properties>
 			<property id="size" value="96d0503d-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="41*25*60" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1d-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -25654,10 +26312,11 @@
 		<description></description>
 		<properties>
 			<property id="size" value="9e7042a3-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="49*29*71" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1d-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -25668,12 +26327,11 @@
 		<namePrint>Косметичка дорожная 79711fm тессутто марроне</namePrint>
 		<description></description>
 		<properties>
-			<property id="size" value="846aacce-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="29*10*26" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
 			<property id="type" value="14326814-85dd-11e4-82e4-0025908101de" />
-			<property id="SizeForWeb" value="29*10*26" />
 			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1d-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -25804,12 +26462,12 @@
 		<namePrint>Сумка женская 80760fm пелле коралло/бианко</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
-			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f1-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -26524,13 +27182,13 @@
 		<namePrint>Сумка женская 80794fm спеккио коралло/беж</namePrint>
 		<description></description>
 		<properties>
-			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
+			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="sale" value="77ebb502-85d4-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
-			<property id="color" value="d24c17fb-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -26909,11 +27567,12 @@
 		<namePrint>Ремень мужской 461060fm карбоне неро L</namePrint>
 		<description></description>
 		<properties>
+			<property id="size" value="e2e7309b-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="3,4" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
-			<property id="SizeForWeb" value="3,4" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -26924,11 +27583,12 @@
 		<namePrint>Ремень мужской 461053fm пелле неро/аранчионе L</namePrint>
 		<description></description>
 		<properties>
+			<property id="size" value="e2e7309b-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="3,4" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
-			<property id="SizeForWeb" value="3,4" />
 			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
@@ -27145,10 +27805,11 @@
 		<description></description>
 		<properties>
 			<property id="size" value="8b2c4774-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="33*21*48" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1b-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -27159,10 +27820,12 @@
 		<namePrint>Чемодан 40224fm поликарбоне вердэ</namePrint>
 		<description></description>
 		<properties>
+			<property id="size" value="96d0503d-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="41*25*60" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c17f6-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1b-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -27174,10 +27837,11 @@
 		<description></description>
 		<properties>
 			<property id="size" value="8b2c4774-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="33*21*48" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1b-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -27188,10 +27852,12 @@
 		<namePrint>Чемодан 40224fm поликарбоне аранчионе</namePrint>
 		<description></description>
 		<properties>
+			<property id="size" value="96d0503d-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="41*25*60" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1b-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -27202,10 +27868,12 @@
 		<namePrint>Чемодан 40228fm поликарбоне аранчионе</namePrint>
 		<description></description>
 		<properties>
+			<property id="size" value="9e7042a3-954c-11e3-bf27-0025901865a3" />
+			<property id="SizeForWeb" value="49*29*71" />
 			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
 			<property id="section" value="98c2eff8-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="category" value="97e83208-8133-11e4-82e4-0025908101de" />
+			<property id="type" value="29b2a629-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1b-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -27297,7 +27965,6 @@
 			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
 			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
-			<property id="color" value="d24c1800-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -27428,7 +28095,7 @@
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="76184789-8469-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c17f2-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1e-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -27443,20 +28110,6 @@
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="76184789-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c1804-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d1e-b174-11e2-950a-0025901865a3" />
-		</properties>
-	</product>
-	<product id="3f3acb5f-ed68-11e3-ac6f-0025908101de" code="00000033253">
-		<artnumber>1409dy</artnumber>
-		<name>1409dy elica navy</name>
-		<namePrint>Шарф женский 1409dy элика неви</namePrint>
-		<description></description>
-		<properties>
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="76184789-8469-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1e-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -27501,9 +28154,9 @@
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="76184789-8469-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c17f2-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
-			<property id="color" value="0b7b8e7c-4260-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1e-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -27548,7 +28201,7 @@
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="76184789-8469-11e4-82e4-0025908101de" />
 			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
-			<property id="color" value="0b7b8e7c-4260-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1e-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -27836,7 +28489,7 @@
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="76184789-8469-11e4-82e4-0025908101de" />
-			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="480d192f-2f7d-11e4-86c0-0025908101de" />
 			<property id="material" value="091b5d1c-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -27884,7 +28537,7 @@
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="76184789-8469-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c17f2-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d1c-b174-11e2-950a-0025901865a3" />
 			<property id="material" value="480d192f-2f7d-11e4-86c0-0025908101de" />
@@ -28970,7 +29623,7 @@
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="123d7705-8467-11e4-82e4-0025908101de" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -29529,7 +30182,7 @@
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="76184789-8469-11e4-82e4-0025908101de" />
 			<property id="SizeForWeb" value="100*100" />
-			<property id="color" value="d24c17f2-b177-11e2-950a-0025901865a3" />
+			<property id="color" value="d24c180a-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1809-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="594c8995-01dc-11e4-ac6f-0025908101de" />
 		</properties>
@@ -29818,7 +30471,7 @@
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="0b7b8e7c-4260-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1802-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c17f0-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
@@ -30026,7 +30679,7 @@
 			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="b45e4df1-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="d937c68c-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="bf00fe7e-4002-11e4-86ee-0025908101de" />
+			<property id="color" value="d24c17fa-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
 	</product>
@@ -30522,38 +31175,6 @@
 			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
 		</properties>
 	</product>
-	<product id="fc605feb-9563-11e3-bf27-0025901865a3" code="00000032360">
-		<artnumber>9853P</artnumber>
-		<name>9853P nappa/lana nero 8,5</name>
-		<namePrint>Перчатки мужские 9853P наппа/лана неро 8,5</namePrint>
-		<description></description>
-		<properties>
-			<property id="size" value="dc2ac636-954c-11e3-bf27-0025901865a3" />
-			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
-		</properties>
-	</product>
-	<product id="fc605fed-9563-11e3-bf27-0025901865a3" code="00000032361">
-		<artnumber>9853P</artnumber>
-		<name>9853P nappa/lana nero 9</name>
-		<namePrint>Перчатки мужские 9853P наппа/лана неро 9</namePrint>
-		<description></description>
-		<properties>
-			<property id="size" value="e2e73099-954c-11e3-bf27-0025901865a3" />
-			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
-		</properties>
-	</product>
 	<product id="fc605ff3-9563-11e3-bf27-0025901865a3" code="00000032364">
 		<artnumber>2175P</artnumber>
 		<name>2175P nappa/lana nero 8</name>
@@ -30783,22 +31404,6 @@
 			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
 		</properties>
 	</product>
-	<product id="fc606011-9563-11e3-bf27-0025901865a3" code="00000032379">
-		<artnumber>5053P</artnumber>
-		<name>5053P nappa/lana nero 8</name>
-		<namePrint>Перчатки мужские 5053P наппа/лана неро 8</namePrint>
-		<description></description>
-		<properties>
-			<property id="size" value="dc2ac635-954c-11e3-bf27-0025901865a3" />
-			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
-		</properties>
-	</product>
 	<product id="fc606015-9563-11e3-bf27-0025901865a3" code="00000032381">
 		<artnumber>5053P</artnumber>
 		<name>5053P nappa/lana nero 9</name>
@@ -30868,21 +31473,6 @@
 		<description></description>
 		<properties>
 			<property id="size" value="e2e73099-954c-11e3-bf27-0025901865a3" />
-			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-		</properties>
-	</product>
-	<product id="fc606021-9563-11e3-bf27-0025901865a3" code="00000032387">
-		<artnumber>1460P</artnumber>
-		<name>1460P cervo nero 9,5</name>
-		<namePrint>Перчатки мужские 1460P черво неро 9,5</namePrint>
-		<description></description>
-		<properties>
-			<property id="size" value="e2e7309a-954c-11e3-bf27-0025901865a3" />
 			<property id="section" value="98c2eff7-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
@@ -32634,22 +33224,6 @@
 			<property id="material" value="23beb74c-8776-11e4-82e4-0025908101de" />
 		</properties>
 	</product>
-	<product id="effb5d46-9565-11e3-bf27-0025901865a3" code="00000032509">
-		<artnumber>6138P</artnumber>
-		<name>6138P nappa/lana nero 6</name>
-		<namePrint>Перчатки женские 6138P наппа/лана неро 6</namePrint>
-		<description></description>
-		<properties>
-			<property id="size" value="a988a9a9-954c-11e3-bf27-0025901865a3" />
-			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
-			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
-			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
-			<property id="material" value="23beb74b-8776-11e4-82e4-0025908101de" />
-		</properties>
-	</product>
 	<product id="f606c254-9565-11e3-bf27-0025901865a3" code="00000032511">
 		<artnumber>6138P</artnumber>
 		<name>6138P nappa/lana nero 7</name>
@@ -33176,11 +33750,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="a988a9a9-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -33192,11 +33765,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="c870ad9f-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -33208,11 +33780,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="c870ada0-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>
@@ -33224,11 +33795,10 @@
 		<description></description>
 		<properties>
 			<property id="size" value="dc2ac635-954c-11e3-bf27-0025901865a3" />
+			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
+			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
 			<property id="category" value="bd171b5b-7fb6-11e4-aec5-0025908101de" />
 			<property id="type" value="4202b6c5-8464-11e4-82e4-0025908101de" />
-			<property id="section" value="92c85955-7fb6-11e4-aec5-0025908101de" />
-			<property id="brand" value="4d20dff1-7fb6-11e4-aec5-0025908101de" />
-			<property id="color" value="d24c17f5-b177-11e2-950a-0025901865a3" />
 			<property id="color" value="d24c1811-b177-11e2-950a-0025901865a3" />
 			<property id="material" value="091b5d16-b174-11e2-950a-0025901865a3" />
 		</properties>

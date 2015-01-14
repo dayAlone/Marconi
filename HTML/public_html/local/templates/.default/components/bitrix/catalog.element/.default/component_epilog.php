@@ -15,6 +15,8 @@ elseif(count($arResult['PROPERTIES']['COLOR']['VALUE'])==1)
 $colorFilter['!PROPERTY_PICTURES'] = false;
 $colorFilter['!ID'] = $arResult['ID'];
 
+var_dump($colorFilter);
+
 if (isset($templateData['TEMPLATE_THEME']))
 {
 	$APPLICATION->SetAdditionalCSS($templateData['TEMPLATE_THEME']);
