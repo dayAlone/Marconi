@@ -7212,7 +7212,7 @@ svg g {
   width: 100%;
   margin-top: 10px;
   max-height: 153px;
-  overflow: scroll;
+  overflow: auto;
   margin-bottom: 25px;
 }
 .product .colors__item {
