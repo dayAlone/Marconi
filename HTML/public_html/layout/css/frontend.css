@@ -6223,6 +6223,7 @@ svg g {
 }
 .catalog__footer {
   padding: 19px 0 14px;
+  margin-bottom: 40px;
   border-bottom: 1px solid #d5dbdf;
   border-top: 1px solid #d5dbdf;
   font-size: 12px;
