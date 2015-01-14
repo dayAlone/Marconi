@@ -67,8 +67,10 @@ $strObName = 'ob'.preg_replace("/[^a-zA-Z0-9_]/", "x", $strMainID);
 $templateData['JS_OBJ'] = $strObName;
 $item = &$arResult;
 $props = &$arResult['PROPERTIES'];
+$this->SetViewTarget('toolbar');
 ?>
 <div class="breadcrumbs">
+	<span>&rsaquo;</span>
 	<a href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/"><?=$item['SECTION']['PATH'][0]['NAME']?></a>
 	<?
 		$category = $props['SECTION_'.$arResult['CATEGORIES'][$item['SECTIONS'][1]['XML_ID']]];
@@ -79,6 +81,9 @@ $props = &$arResult['PROPERTIES'];
 	<span>&rsaquo;</span>
 	<a href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/?arrFilter_<?=$category['ID']?>_<?=abs(crc32($category['VALUE']))?>=Y&set_filter=Y"><?=$arResult['TYPES'][$category['VALUE']]?></a>
 </div>
+<?
+$this->EndViewTarget();
+?>
 <div class="row">
 	<div class="col-xs-6">
 	  <div class="picture">

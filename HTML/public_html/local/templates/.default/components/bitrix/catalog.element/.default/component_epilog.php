@@ -6,8 +6,13 @@ use Bitrix\Main\Loader;
 global $APPLICATION;
 
 global $colorFilter;
-$section = CIBlockSection::GetByID($arResult['IBLOCK_SECTION_ID'])->Fetch();
-$colorFilter['!PROPERTY_TYPE'] = $section['XML_ID'];
+$arResult['CATEGORIES'] = getHighloadElements('categories', 'UF_XML_ID', 'ID');
+$arResult['SECTIONS']   = array();
+$rsPath = GetIBlockSectionPath($arResult['IBLOCK_ID'], $arResult['IBLOCK_SECTION_ID']);
+while($arPath = $rsPath->GetNext())
+	$arResult['SECTIONS'][] = $arPath;
+
+$colorFilter['!SECTION_'.$arResult['CATEGORIES'][$arResult['SECTIONS'][1]['XML_ID']]] = $section['XML_ID'];
 if(count($arResult['PROPERTIES']['COLOR']['VALUE'])>1)
 	$colorFilter['?PROPERTY_COLOR'] = implode($arResult['PROPERTIES']['COLOR']['VALUE'],' || ');
 elseif(count($arResult['PROPERTIES']['COLOR']['VALUE'])==1)
