@@ -6,7 +6,7 @@ use Bitrix\Main\Loader;
 global $APPLICATION;
 
 global $colorFilter;
-$colorFilter['!SECTION_ID'] = $arResult['IBLOCK_SECTION_ID'];
+$colorFilter['SECTION_ID'] = $arResult['IBLOCK_SECTION_ID'];
 if(count($arResult['PROPERTIES']['COLOR']['VALUE'])>1)
 	$colorFilter['?PROPERTY_COLOR'] = implode($arResult['PROPERTIES']['COLOR']['VALUE'],' || ');
 elseif(count($arResult['PROPERTIES']['COLOR']['VALUE'])==1)
@@ -14,8 +14,6 @@ elseif(count($arResult['PROPERTIES']['COLOR']['VALUE'])==1)
 
 $colorFilter['!PROPERTY_PICTURES'] = false;
 $colorFilter['!ID'] = $arResult['ID'];
-
-var_dump($colorFilter);
 
 if (isset($templateData['TEMPLATE_THEME']))
 {
