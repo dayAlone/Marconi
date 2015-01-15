@@ -7673,13 +7673,12 @@ svg g {
   font-size: 13px;
 }
 .available__table tbody td {
-  padding: 10px 0;
+  padding: 10px 15px 10px 0;
   text-transform: uppercase;
   font-weight: bold;
 }
 .available__table tbody td a {
   color: #000;
-  max-width: 95%;
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(0,0,0,0.3) 50%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(0,0,0,0.3) 50%);
   background-image: -o-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(0,0,0,0.3) 50%);
