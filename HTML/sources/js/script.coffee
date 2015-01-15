@@ -580,8 +580,9 @@ $(document).ready ->
 		$(this).block().data 'size', $(this).data 'size'
 		if parseInt($(this).data('price')) > 0
 			el   = $('.props__item--price strong')
-			last = parseInt el.text()
+			last = parseInt el.text().replace(' ','')
 			val  = parseInt $(this).data('price')
+			console.log last, val
 			if last != val
 				counter = new countUp el[0], last, val, 0, 1, countUpOptions
 				counter.start()
