@@ -21,10 +21,13 @@ isJson = (str)->
 	catch e
 		return false;
 	return true;
-getOrderDate = ->
+getOrderDate = (confirm)->
 	data = $('#ORDER_FORM').serialize()
 	$('.basket').elem('block').mod 'loading', true
 	$('.basket').elem('submit').attr 'disabled', 'disabled'
+	console.log data
+	if confirm
+		data += "&confirmorder=Y"
 	$.ajax
 		type     : "POST" 
 		url      : $('#ORDER_FORM').attr('action') 
@@ -51,5 +54,5 @@ $(document).ready ->
 		getOrderDate()
 
 		$('#ORDER_FORM').submit (e)->
-			getOrderDate()
+			getOrderDate(true)
 			e.preventDefault()

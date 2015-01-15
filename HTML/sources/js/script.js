@@ -1168,11 +1168,15 @@
     return true;
   };
 
-  getOrderDate = function() {
+  getOrderDate = function(confirm) {
     var data;
     data = $('#ORDER_FORM').serialize();
     $('.basket').elem('block').mod('loading', true);
     $('.basket').elem('submit').attr('disabled', 'disabled');
+    console.log(data);
+    if (confirm) {
+      data += "&confirmorder=Y";
+    }
     return $.ajax({
       type: "POST",
       url: $('#ORDER_FORM').attr('action'),
@@ -1202,7 +1206,7 @@
       initOrder();
       getOrderDate();
       return $('#ORDER_FORM').submit(function(e) {
-        getOrderDate();
+        getOrderDate(true);
         return e.preventDefault();
       });
     }
