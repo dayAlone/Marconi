@@ -6550,7 +6550,6 @@ svg g {
   opacity: 0.6;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
   filter: alpha(opacity=60);
-  margin-bottom: 10px;
   font-weight: normal;
 }
 .catalog .product__type {
@@ -6563,8 +6562,17 @@ svg g {
   max-height: 14px;
   overflow: hidden;
 }
+.catalog .product__artnumber {
+  font-size: 9px;
+  font-weight: normal;
+  opacity: 0.6;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  filter: alpha(opacity=60);
+  margin-top: 1px;
+}
 .catalog .product__price {
   font-size: 12px;
+  margin-top: 10px;
 }
 .catalog .product__picture {
   min-height: 220px;
