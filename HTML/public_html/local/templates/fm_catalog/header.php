@@ -20,7 +20,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
 
           else:
             ?>
-          <a class="catalog__back" href="#<?/*=(isset($matches[1])?"/catalog/".$matches[1]."/":"/catalog/")*/?>">
+          <a class="catalog__back" href=<?=(isset($matches[1])?"/catalog/".$matches[1]."/":"/catalog/")?>">
             Вернуться в каталог
           </a>
           <?endif;

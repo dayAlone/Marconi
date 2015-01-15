@@ -526,12 +526,7 @@ $(document).ready ->
 		history : false
 		focus   : false
 		shareEl : false
-	
-	$('.catalog__back').click (e)->
-		console.log 1
-		window.history.back()
-		e.preventDefault()
-
+		
 	$('.product').elem('big-button').click (e)->
 		if $(this).hasMod 'buy'
 			id = $(this).data 'id'
