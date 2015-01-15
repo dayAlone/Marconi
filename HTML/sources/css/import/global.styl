@@ -136,15 +136,15 @@ svg
 		& + .side-nav__item
 			margin-top 15px
 .contacts
-	a
-		color red
-		border-line(alpha(@color, .4))
-		&:hover
-			color black
-			border-line(alpha(@color, .4))
 	p
 		font-size 15px
 		line-height 23px
+		a
+			color red
+			border-line(alpha(@color, .4))
+			&:hover
+				color black
+				border-line(alpha(@color, .4))
 	#contactsMap
 		min-height 550px
 		full-width()
@@ -164,3 +164,69 @@ svg
 	t opacity
 	&:hover
 		opacity 1
+
+.feedback
+	&__dialog
+		max-width 500px
+	&__form
+		.parsley-errors-list
+			display none
+		.captcha_refresh
+			svg
+				width 30px
+				height 30px
+				position relative
+				left -15px
+				top 24px
+				path
+					fill black
+			&:hover
+				svg
+					path
+						fill red
+		label
+			text-align: center
+			width 100%
+			letter-spacing 2px
+			font-size 11px
+			text-transform: uppercase
+		ul + label
+			margin-top 10px
+		.captcha
+			height 32px
+			background-position center center
+			background-repeat no-repeat
+			width 100%
+			border 1px solid #cccccc
+		input
+			+ label
+				margin-top 10px
+			&[type="text"], &[type="email"]
+				height 32px
+				line-height 35px
+				width 100%
+				border 1px solid #cccccc
+				t border
+				text-align: center
+				padding 0 10px
+				&:focus
+					border-color black
+				&.parsley-error
+					border-color red
+			&[type="submit"]
+				appearance none
+				border 0
+				margin-bottom 0
+				font-size 13px
+		textarea
+			min-height 80px
+			resize none
+			width 100%
+			border 1px solid #cccccc
+			t border
+			text-align: center
+			padding 0 10px
+			&:focus
+				border-color black
+	&__success
+		display none

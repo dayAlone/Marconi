@@ -40894,6 +40894,25 @@ return PhotoSwipeUI_Default;
         ]
       }
     ];
+    $('a.captcha_refresh').click(function(e) {
+      getCaptcha();
+      return e.preventDefault();
+    });
+    $('.feedback').elem('form').submit(function(e) {
+      var data;
+      data = $(this).serialize();
+      $.post('/include/send.php', data, function(data) {
+        data = $.parseJSON(data);
+        if (data.status === "ok") {
+          $('.feedback').elem('form').hide();
+          return $('.feedback').elem('success').show();
+        } else if (data.status === "error") {
+          $('input[name=captcha_word]').addClass('parsley-error');
+          return getCaptcha();
+        }
+      });
+      return e.preventDefault();
+    });
     if ($('body.contacts').length > 0) {
       $.getScript('http://maps.googleapis.com/maps/api/js?sensor=true&callback=contactsInit', function() {
         return window.contactsInit = function() {
@@ -41205,7 +41224,6 @@ return PhotoSwipeUI_Default;
         el = $('.props__item--price strong');
         last = parseInt(el.text().replace(' ', ''));
         val = parseInt($(this).data('price'));
-        console.log(last, val);
         if (last !== val) {
           counter = new countUp(el[0], last, val, 0, 1, countUpOptions);
           return counter.start();
@@ -41213,10 +41231,12 @@ return PhotoSwipeUI_Default;
       }
     });
     $('.tabs').elem('trigger').click(function(e) {
-      $('.tabs').elem('content').mod('active', false);
-      $('.tabs').elem('trigger').mod('active', false);
-      $(this).mod('active', true);
-      $($(this).attr('href')).mod('active', true);
+      if (!$(this).data('toggle')) {
+        $('.tabs').elem('content').mod('active', false);
+        $('.tabs').elem('trigger').mod('active', false);
+        $(this).mod('active', true);
+        $($(this).attr('href')).mod('active', true);
+      }
       return e.preventDefault();
     });
     $('.picture').elem('small').click(function(e) {

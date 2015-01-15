@@ -24,7 +24,7 @@ if(!isset($_REQUEST['short'])):
 
 	    		</div>
 	    		<div class="col-md-2">
-	    		<!--	<a href="#feedback" data-toggle="modal" data-target="#feedback" class="product__big-button product__big-button--border full-width xxl-margin-bottom">Напишите нам</a>-->
+	    			<a href="#feedback" data-toggle="modal" data-target="#feedback" class="product__big-button product__big-button--border full-width xxl-margin-bottom">Напишите нам</a>
 	    			<p class="xxl-margin-top full-width">ООО «Мегатрон»</p>
 	    		</div>
 	    	</div>

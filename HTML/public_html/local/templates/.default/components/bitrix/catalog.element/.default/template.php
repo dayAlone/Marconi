@@ -282,9 +282,9 @@ $this->EndViewTarget();
 	      	<?if(strlen(COption::GetOptionString("grain.customsettings","refund"))>0):?>
 	      		<a href="#refund" class="tabs__trigger">возврат</a>
 	      	<?endif;?>
-	      	<?if(strlen(COption::GetOptionString("grain.customsettings","feedback"))>0):?>
-	      		<a href="#feedback" class="tabs__trigger">обратная связь</a>
-	      	<?endif;?>
+	      	
+	      	<a href="#feedback" data-toggle="modal" data-target="#feedback" class="tabs__trigger">обратная связь</a>
+	      	
 	      </div>
 	      <?if(strlen($item['DETAIL_TEXT'])>0):?>
 	      <div id="description" class="tabs__content">
@@ -304,11 +304,6 @@ $this->EndViewTarget();
 	      <?if(strlen(COption::GetOptionString("grain.customsettings","refund"))>0):?>
 	      <div id="refund" class="tabs__content">
 	        <?=COption::GetOptionString("grain.customsettings","refund")?>
-	      </div>
-	      <?endif;?>
-	      <?if(strlen(COption::GetOptionString("grain.customsettings","feedback"))>0):?>
-	      <div id="feedback" class="tabs__content">
-	        <?=COption::GetOptionString("grain.customsettings","feedback")?>
 	      </div>
 	      <?endif;?>
 	    </div>

@@ -5301,7 +5301,11 @@ svg g {
 .side-nav__item + .side-nav__item {
   margin-top: 15px;
 }
-.contacts a {
+.contacts p {
+  font-size: 15px;
+  line-height: 23px;
+}
+.contacts p a {
   color: #d10a32;
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.4) 50%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.4) 50%);
@@ -5314,10 +5318,10 @@ svg g {
   background-size: 2px 2px;
   background-position: 0 calc(100% - 2px);
 }
-.contacts a:hover {
+.contacts p a:hover {
   text-decoration: none;
 }
-.contacts a:hover {
+.contacts p a:hover {
   color: #000;
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(0,0,0,0.4) 50%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(0,0,0,0.4) 50%);
@@ -5330,12 +5334,8 @@ svg g {
   background-size: 2px 2px;
   background-position: 0 calc(100% - 2px);
 }
-.contacts a:hover:hover {
+.contacts p a:hover:hover {
   text-decoration: none;
-}
-.contacts p {
-  font-size: 15px;
-  line-height: 23px;
 }
 .contacts #contactsMap {
   min-height: 550px;
@@ -5372,6 +5372,104 @@ svg g {
   opacity: 1;
   -ms-filter: none;
   filter: none;
+}
+.feedback__dialog {
+  max-width: 500px;
+}
+.feedback__form .parsley-errors-list {
+  display: none;
+}
+.feedback__form .captcha_refresh svg {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  left: -15px;
+  top: 24px;
+}
+.feedback__form .captcha_refresh svg path {
+  fill: #000;
+}
+.feedback__form .captcha_refresh:hover svg path {
+  fill: #d10a32;
+}
+.feedback__form label {
+  text-align: center;
+  width: 100%;
+  letter-spacing: 2px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+.feedback__form ul + label {
+  margin-top: 10px;
+}
+.feedback__form .captcha {
+  height: 32px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+.feedback__form input + label {
+  margin-top: 10px;
+}
+.feedback__form input[type="text"],
+.feedback__form input[type="email"] {
+  height: 32px;
+  line-height: 35px;
+  width: 100%;
+  border: 1px solid #ccc;
+  -webkit-transition-property: border;
+  -moz-transition-property: border;
+  -o-transition-property: border;
+  -ms-transition-property: border;
+  transition-property: border;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  text-align: center;
+  padding: 0 10px;
+}
+.feedback__form input[type="text"]:focus,
+.feedback__form input[type="email"]:focus {
+  border-color: #000;
+}
+.feedback__form input[type="text"].parsley-error,
+.feedback__form input[type="email"].parsley-error {
+  border-color: #d10a32;
+}
+.feedback__form input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  margin-bottom: 0;
+  font-size: 13px;
+}
+.feedback__form textarea {
+  min-height: 80px;
+  resize: none;
+  width: 100%;
+  border: 1px solid #ccc;
+  -webkit-transition-property: border;
+  -moz-transition-property: border;
+  -o-transition-property: border;
+  -ms-transition-property: border;
+  transition-property: border;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  text-align: center;
+  padding: 0 10px;
+}
+.feedback__form textarea:focus {
+  border-color: #000;
+}
+.feedback__success {
+  display: none;
 }
 @-moz-keyframes zoom {
   from {
