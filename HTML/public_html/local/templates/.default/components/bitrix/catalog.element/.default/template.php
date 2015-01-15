@@ -242,7 +242,7 @@ $this->EndViewTarget();
 
 	      <?
 	      $frame = $this->createFrame()->begin();
-			if(isset($item['MIN_PRICE']['VALUE'])): 
+			if(isset($arResult['MIN_PRICE']['VALUE'])&&intval($arResult['MIN_PRICE']['VALUE'])!=0): 
 				$inCart = false;
 				if(in_array($item['ID'],$_SESSION['ELEMENS']))
 					$inCart = true;
