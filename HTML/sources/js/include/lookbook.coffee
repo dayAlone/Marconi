@@ -17,7 +17,6 @@ getElem = (fotorama, direction) ->
 	return el
 $(document).ready ->
 	if $('body').hasClass 'lookbook'
-
 		$('.row.enter').isotope
 			itemSelector : "[class*='col-']"
 			masonry:

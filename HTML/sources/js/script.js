@@ -632,7 +632,7 @@
   updateTimer = false;
 
   $(document).ready(function() {
-    if ($('body.basket').length > 0) {
+    if ($('body').hasClass('basket')) {
       $('.basket input.date').on('keydown', function(e) {
         return e.preventDefault();
       });
@@ -1061,7 +1061,7 @@
   });
 
   $(document).ready(function() {
-    if ($('body.news').length > 0) {
+    if ($('body').hasClass('news')) {
       $('.news-item').each(function() {
         var h;
         h = $(this).outerHeight();
@@ -1183,19 +1183,19 @@
   };
 
   $(document).ready(function() {
-    if ($('body.basket').length > 0) {
+    if ($('body').hasClass('order')) {
       initOrder();
       getOrderDate();
+      return $('#ORDER_FORM').submit(function(e) {
+        getOrderDate();
+        return e.preventDefault();
+      });
     }
-    return $('#ORDER_FORM').submit(function(e) {
-      getOrderDate();
-      return e.preventDefault();
-    });
   });
 
   $(document).ready(function() {
     var initZoom;
-    if ($('body.product').length > 0) {
+    if ($('body').hasClass('product')) {
       $('.breadcrumbs').elem('brand').click(function(e) {
         if ($(this).data('value').length > 0) {
           $.cookie('BRAND', $(this).data('value'), {

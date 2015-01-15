@@ -46,10 +46,10 @@ getOrderDate = ->
 					location.href = data.redirect
 
 $(document).ready ->
-	if $('body.basket').length > 0
+	if $('body').hasClass 'order'
 		initOrder()
 		getOrderDate()
 
-	$('#ORDER_FORM').submit (e)->
-		getOrderDate()
-		e.preventDefault()
+		$('#ORDER_FORM').submit (e)->
+			getOrderDate()
+			e.preventDefault()

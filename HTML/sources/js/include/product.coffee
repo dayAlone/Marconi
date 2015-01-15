@@ -1,7 +1,7 @@
 # Product
 
 $(document).ready ->
-	if $('body.product').length > 0
+	if $('body').hasClass 'product'
 		
 		$('.breadcrumbs').elem('brand').click (e)->
 			if $(this).data('value').length > 0

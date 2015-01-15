@@ -1,6 +1,6 @@
 # News
 $(document).ready ->
-	if $('body.news').length > 0
+	if $('body').hasClass 'news'
 		$('.news-item').each ->
 			h = $(this).outerHeight()
 			$(this)

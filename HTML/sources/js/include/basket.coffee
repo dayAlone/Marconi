@@ -34,7 +34,7 @@ basketCalc = (el)->
 updateTimer = false
 
 $(document).ready ->
-	if $('body.basket').length > 0
+	if $('body').hasClass 'basket'
 		$('.basket input.date').on 'keydown', (e)->
 			e.preventDefault()
 		$('.basket form .dropdown').elem('item').on 'click', (e)->
