@@ -301,7 +301,6 @@
       });
     }
     $('.about').elem('slider').on('fotorama:show', function(e, fotorama, extra) {
-      console.log(1);
       return $('.about').elem('slider-arrow').off('click').on('click', function(e) {
         var slider;
         slider = $('.about').elem('slider').data('fotorama');

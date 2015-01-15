@@ -87,7 +87,6 @@ $(document).ready ->
 
 	# About
 	$('.about').elem('slider').on('fotorama:show', (e, fotorama, extra) ->
-		console.log 1
 		$('.about').elem('slider-arrow').off('click').on 'click', (e)->
 			slider = $('.about').elem('slider').data('fotorama')
 			slider.show $(this).data('direction')

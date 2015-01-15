@@ -168,7 +168,7 @@ function getHighloadBlocks()
 		$data = $vars['data'];
 	
 	elseif( $obCache->StartDataCache() ):
-
+		CModule::IncludeModule("highloadblock");
 		$data    = array();
 		$dbHblock = HL\HighloadBlockTable::getList();
 	    while ($ib = $dbHblock->Fetch())
@@ -222,7 +222,7 @@ function getHighloadElements($name, $key, $value)
 		$data = $vars['data'];
 
 	elseif( $obCache->StartDataCache() ):
-		
+		CModule::IncludeModule("highloadblock");
 		$hlblock = HL\HighloadBlockTable::getById($id)->fetch();
 		$entity  = HL\HighloadBlockTable::compileEntity($hlblock);
 		$class   = $entity->getDataClass();
