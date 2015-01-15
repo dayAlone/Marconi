@@ -71,6 +71,9 @@ initFiltres = ->
 	$('.filter input.color').off('ifCreated').on 'ifCreated', ()->
 		el = $(this).parents('.icheckbox_color')
 		el.css( 'color', $(this).css('color') )
+		color = rgb2hex $(this).css('color')
+		el.addClass color
+		$(this).addClass color
 		delay 300, ->
 			el.addClass('ready')
 	

@@ -94,6 +94,13 @@ closeDropdown = (x)->
 		options:
 			duration: 300
 
+rgb2hex = (rgb)->
+	rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+	if (rgb && rgb.length == 4) 
+		return ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) + ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) + ("0" + parseInt(rgb[3],10).toString(16)).slice(-2)
+	else
+		return false
+
 openDropdown = (x)->
 	clearTimeout timer
 	text = x.elem('text').text()

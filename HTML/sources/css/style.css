@@ -3382,14 +3382,19 @@ svg g {
 }
 .filter .icheckbox_color,
 .filter input.color {
-  width: 20px;
+  width: 21px;
   margin: 3px;
-  height: 20px;
-  -webkit-box-shadow: inset 0 0 0 3px;
-  box-shadow: inset 0 0 0 3px;
+  height: 21px;
+  -webkit-box-shadow: inset 0 0 0 3.5px;
+  box-shadow: inset 0 0 0 3.5px;
   border: 0;
   cursor: pointer;
   top: 0;
+}
+.filter .icheckbox_color.ffffff,
+.filter input.color.ffffff {
+  -webkit-box-shadow: inset #ddd 0 0 0 1px, inset #fff 0 0 0 3.5px, inset #ddd 0 0 0 4px;
+  box-shadow: inset #ddd 0 0 0 1px, inset #fff 0 0 0 3.5px, inset #ddd 0 0 0 4px;
 }
 .filter .icheckbox_color.disabled,
 .filter input.color.disabled {
@@ -3411,6 +3416,13 @@ svg g {
   background: #fff;
   -webkit-box-shadow: inset 0 0 0 20px;
   box-shadow: inset 0 0 0 20px;
+}
+.filter .icheckbox_color.checked.ffffff,
+.filter input.color.checked.ffffff,
+.filter .icheckbox_color:checked.ffffff,
+.filter input.color:checked.ffffff {
+  -webkit-box-shadow: inset #ddd 0 0 0 1px, inset #fff 0 0 0 3.5px;
+  box-shadow: inset #ddd 0 0 0 1px, inset #fff 0 0 0 3.5px;
 }
 .filter .icheckbox_color {
   -webkit-transition-duration: 0s;

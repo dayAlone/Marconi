@@ -1,5 +1,5 @@
 (function() {
-  var addToCart, autoHeight, basketCalc, closeDropdown, countUpOptions, delay, end, filterRequest, filterTimer, galleryOptions, getCaptcha, getElem, getFilter, getOrderDate, getParameterByName, initDropdown, initFiltres, initOrder, isJson, openDropdown, setCaptcha, size, spinOptions, timer, updateTimer;
+  var addToCart, autoHeight, basketCalc, closeDropdown, countUpOptions, delay, end, filterRequest, filterTimer, galleryOptions, getCaptcha, getElem, getFilter, getOrderDate, getParameterByName, initDropdown, initFiltres, initOrder, isJson, openDropdown, rgb2hex, setCaptcha, size, spinOptions, timer, updateTimer;
 
   delay = function(ms, func) {
     return setTimeout(func, ms);
@@ -126,6 +126,15 @@
         duration: 300
       }
     });
+  };
+
+  rgb2hex = function(rgb) {
+    rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+    if (rgb && rgb.length === 4) {
+      return ("0" + parseInt(rgb[1], 10).toString(16)).slice(-2) + ("0" + parseInt(rgb[2], 10).toString(16)).slice(-2) + ("0" + parseInt(rgb[3], 10).toString(16)).slice(-2);
+    } else {
+      return false;
+    }
   };
 
   openDropdown = function(x) {
@@ -774,9 +783,12 @@
 
   initFiltres = function() {
     $('.filter input.color').off('ifCreated').on('ifCreated', function() {
-      var el;
+      var color, el;
       el = $(this).parents('.icheckbox_color');
       el.css('color', $(this).css('color'));
+      color = rgb2hex($(this).css('color'));
+      el.addClass(color);
+      $(this).addClass(color);
       return delay(300, function() {
         return el.addClass('ready');
       });
