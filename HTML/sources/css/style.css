@@ -2809,8 +2809,8 @@ svg g {
   top: 230px;
   background: #fff;
   z-index: 300;
-  min-height: 134px;
-  padding-top: 14px;
+  min-height: 148px;
+  padding: 14px 0;
 }
 .catalog .product__sizes .product__brand {
   margin-bottom: 10px;

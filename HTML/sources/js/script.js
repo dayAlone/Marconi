@@ -1,5 +1,13 @@
 (function() {
-  var autoHeight, delay, end, getCaptcha, setCaptcha, size, spinOptions;
+  var autoHeight, countUpOptions, delay, end, getCaptcha, setCaptcha, size, spinOptions;
+
+  countUpOptions = {
+    separator: "&nbsp;",
+    useEasing: true,
+    useGrouping: true,
+    separator: ' ',
+    decimal: ' '
+  };
 
   spinOptions = {
     lines: 13,
@@ -269,16 +277,9 @@
     });
     $('.basket .bx-ui-sls-fake').attr('placeholder', 'город *');
     basketCalc = function(el) {
-      var counter, last, options, row, sale, saleCounter, saleVal, total, totalCounter, totalVal, val;
+      var counter, last, row, sale, saleCounter, saleVal, total, totalCounter, totalVal, val;
       total = 0;
       sale = 0;
-      options = {
-        separator: "&nbsp;",
-        useEasing: true,
-        useGrouping: true,
-        separator: ' ',
-        decimal: ' '
-      };
       if ($('.basket').elem('count').length === 0) {
         location.href = "/catalog/";
       }
@@ -296,18 +297,18 @@
         val = parseInt(row.find('.basket__count').data('price')) * row.find('.basket__count').val();
         last = parseInt(row.find('.total').text().replace(' ', ''));
         if (val !== last) {
-          counter = new countUp(row.find('.total')[0], last, val, 0, 1, options);
+          counter = new countUp(row.find('.total')[0], last, val, 0, 1, countUpOptions);
           counter.start();
         }
       }
       saleVal = parseInt($('.basket__sale-total span').text().replace(' ', ''));
       if (saleVal !== sale) {
-        saleCounter = new countUp($('.basket__sale-total span')[0], saleVal, sale, 0, 1, options);
+        saleCounter = new countUp($('.basket__sale-total span')[0], saleVal, sale, 0, 1, countUpOptions);
         saleCounter.start();
       }
       totalVal = parseInt($('.basket__total span').text().replace(' ', ''));
       if (totalVal !== total) {
-        totalCounter = new countUp($('.basket__total span')[0], totalVal, total, 0, 2, options);
+        totalCounter = new countUp($('.basket__total span')[0], totalVal, total, 0, 2, countUpOptions);
         return totalCounter.start();
       }
     };
@@ -944,9 +945,19 @@
     initZoom();
     $('.tabs__trigger:first').addClass('tabs__trigger--active');
     $('.tabs__content:first').addClass('tabs__content--active');
-    $('.sizes .dropdown').elem('item').click(function(e) {
+    $('.sizes .dropdown__item').click(function(e) {
+      var counter, el, last, val;
       $(this).block().data('id', $(this).data('id'));
-      return $(this).block().data('size', $(this).data('size'));
+      $(this).block().data('size', $(this).data('size'));
+      if (parseInt($(this).data('price')) > 0) {
+        el = $('.props__item--price strong');
+        last = parseInt(el.text());
+        val = parseInt($(this).data('price'));
+        if (last !== val) {
+          counter = new countUp(el[0], last, val, 0, 1, countUpOptions);
+          return counter.start();
+        }
+      }
     });
     $('.tabs').elem('trigger').click(function(e) {
       $('.tabs').elem('content').mod('active', false);

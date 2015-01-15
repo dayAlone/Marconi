@@ -1,3 +1,9 @@
+countUpOptions =
+	separator   : "&nbsp;"
+	useEasing   : true
+	useGrouping : true
+	separator   : ' '
+	decimal     : ' '
 spinOptions = 
 	lines     : 13
 	length    : 21
@@ -221,13 +227,7 @@ $(document).ready ->
 	basketCalc = (el)->
 		total  = 0
 		sale   = 0
-		options =
-			separator   : "&nbsp;"
-			useEasing   : true
-			useGrouping : true
-			separator   : ' '
-			decimal     : ' '
-
+		
 		if $('.basket').elem('count').length == 0
 			location.href = "/catalog/"
 		$('.basket').elem('count').each ->
@@ -242,17 +242,17 @@ $(document).ready ->
 			val  = parseInt(row.find('.basket__count').data('price')) * row.find('.basket__count').val()
 			last = parseInt row.find('.total').text().replace(' ','')
 			if val != last
-				counter = new countUp row.find('.total')[0], last, val, 0, 1, options
+				counter = new countUp row.find('.total')[0], last, val, 0, 1, countUpOptions
 				counter.start()
 
 		saleVal = parseInt $('.basket__sale-total span').text().replace(' ','')
 		if saleVal != sale
-			saleCounter = new countUp $('.basket__sale-total span')[0], saleVal, sale, 0, 1, options
+			saleCounter = new countUp $('.basket__sale-total span')[0], saleVal, sale, 0, 1, countUpOptions
 			saleCounter.start()
 
 		totalVal = parseInt $('.basket__total span').text().replace(' ','')
 		if totalVal != total
-			totalCounter = new countUp $('.basket__total span')[0], totalVal, total, 0, 2, options
+			totalCounter = new countUp $('.basket__total span')[0], totalVal, total, 0, 2, countUpOptions
 			totalCounter.start()
 
 		#$('basket').elem('total').text total
@@ -526,7 +526,7 @@ $(document).ready ->
 		history : false
 		focus   : false
 		shareEl : false
-		
+
 	$('.product').elem('big-button').click (e)->
 		if $(this).hasMod 'buy'
 			id = $(this).data 'id'
@@ -574,9 +574,17 @@ $(document).ready ->
 	$('.tabs__trigger:first').addClass 'tabs__trigger--active'
 	$('.tabs__content:first').addClass 'tabs__content--active'
 	
-	$('.sizes .dropdown').elem('item').click (e)->
+
+	$('.sizes .dropdown__item').click (e)->
 		$(this).block().data 'id', $(this).data 'id'
 		$(this).block().data 'size', $(this).data 'size'
+		if parseInt($(this).data('price')) > 0
+			el   = $('.props__item--price strong')
+			last = parseInt el.text()
+			val  = parseInt $(this).data('price')
+			if last != val
+				counter = new countUp el[0], last, val, 0, 1, countUpOptions
+				counter.start()
 
 	$('.tabs').elem('trigger').click (e)->
 		$('.tabs').elem('content').mod 'active', false
