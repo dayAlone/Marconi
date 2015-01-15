@@ -130,6 +130,7 @@ $this->EndViewTarget();
 						"NEWS_COUNT"    => "9999999",
 						"CACHE_NOTES"   => $item['ID'],
 						"FILTER_NAME"   => "arFilter",
+						"CACHE_FILTER"  => "Y",
 						"SORT_BY1"      => "ID",
 						"SORT_ORDER1"   => "ASC",
 						"DETAIL_URL"    => "/catalog/",
