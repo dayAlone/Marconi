@@ -3396,6 +3396,38 @@ svg g {
   -webkit-box-shadow: inset #ddd 0 0 0 1px, inset #fff 0 0 0 3.5px, inset #ddd 0 0 0 4px;
   box-shadow: inset #ddd 0 0 0 1px, inset #fff 0 0 0 3.5px, inset #ddd 0 0 0 4px;
 }
+.filter .icheckbox_color.f12312,
+.filter input.color.f12312 {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  position: relative;
+  background: -webkit-linear-gradient(left top, #f00 0%, #ff0 25%, #0f0 40%, #0ff 50%, #00f 65%, #f0f 80%, #f00 100%);
+  background: -moz-linear-gradient(left top, #f00 0%, #ff0 25%, #0f0 40%, #0ff 50%, #00f 65%, #f0f 80%, #f00 100%);
+  background: -o-linear-gradient(left top, #f00 0%, #ff0 25%, #0f0 40%, #0ff 50%, #00f 65%, #f0f 80%, #f00 100%);
+  background: -ms-linear-gradient(left top, #f00 0%, #ff0 25%, #0f0 40%, #0ff 50%, #00f 65%, #f0f 80%, #f00 100%);
+  background: linear-gradient(to right bottom, #f00 0%, #ff0 25%, #0f0 40%, #0ff 50%, #00f 65%, #f0f 80%, #f00 100%);
+}
+.filter .icheckbox_color.f12312:after,
+.filter input.color.f12312:after {
+  position: absolute;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -ms-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  content: "";
+  top: 3.5px;
+  left: 3.5px;
+  width: calc(100% - 7px);
+  height: calc(100% - 7px);
+  background: #fff;
+  pointer-events: none;
+}
 .filter .icheckbox_color.disabled,
 .filter input.color.disabled {
   opacity: 0;
@@ -3423,6 +3455,26 @@ svg g {
 .filter input.color:checked.ffffff {
   -webkit-box-shadow: inset #ddd 0 0 0 1px, inset #fff 0 0 0 3.5px;
   box-shadow: inset #ddd 0 0 0 1px, inset #fff 0 0 0 3.5px;
+}
+.filter .icheckbox_color.checked.f12312,
+.filter input.color.checked.f12312,
+.filter .icheckbox_color:checked.f12312,
+.filter input.color:checked.f12312 {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: -webkit-linear-gradient(left top, #f00 0%, #ff0 25%, #0f0 40%, #0ff 50%, #00f 65%, #f0f 80%, #f00 100%);
+  background: -moz-linear-gradient(left top, #f00 0%, #ff0 25%, #0f0 40%, #0ff 50%, #00f 65%, #f0f 80%, #f00 100%);
+  background: -o-linear-gradient(left top, #f00 0%, #ff0 25%, #0f0 40%, #0ff 50%, #00f 65%, #f0f 80%, #f00 100%);
+  background: -ms-linear-gradient(left top, #f00 0%, #ff0 25%, #0f0 40%, #0ff 50%, #00f 65%, #f0f 80%, #f00 100%);
+  background: linear-gradient(to right bottom, #f00 0%, #ff0 25%, #0f0 40%, #0ff 50%, #00f 65%, #f0f 80%, #f00 100%);
+}
+.filter .icheckbox_color.checked.f12312:after,
+.filter input.color.checked.f12312:after,
+.filter .icheckbox_color:checked.f12312:after,
+.filter input.color:checked.f12312:after {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
 }
 .filter .icheckbox_color {
   -webkit-transition-duration: 0s;
