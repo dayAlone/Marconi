@@ -40251,7 +40251,7 @@ return PhotoSwipeUI_Default;
 }));
 
 (function() {
-  var addToCart, autoHeight, basketCalc, closeDropdown, countUpOptions, delay, end, galleryOptions, getCaptcha, getOrderDate, initDropdown, initFiltres, initOrder, isJson, openDropdown, setCaptcha, size, spinOptions, timer, updateTimer;
+  var addToCart, autoHeight, basketCalc, closeDropdown, countUpOptions, delay, end, galleryOptions, getCaptcha, getElem, getOrderDate, initDropdown, initFiltres, initOrder, isJson, openDropdown, setCaptcha, size, spinOptions, timer, updateTimer;
 
   delay = function(ms, func) {
     return setTimeout(func, ms);
@@ -41244,9 +41244,31 @@ return PhotoSwipeUI_Default;
     });
   });
 
+  getElem = function(fotorama, direction) {
+    var el, i;
+    if (direction === "next") {
+      if (fotorama.activeIndex === 0) {
+        el = $(fotorama.data[fotorama.data.length - 1].html);
+        i = fotorama.data[fotorama.data.length - 1].i;
+      } else {
+        el = $(fotorama.data[fotorama.activeIndex - 1].html);
+        i = fotorama.data[fotorama.activeIndex - 1].i;
+      }
+    }
+    if (direction === "prev") {
+      if (fotorama.activeIndex === fotorama.data.length - 1) {
+        el = $(fotorama.data[0].html);
+        i = fotorama.data[0].i;
+      } else {
+        el = $(fotorama.data[fotorama.activeIndex + 1].html);
+        i = fotorama.data[fotorama.activeIndex + 1].i;
+      }
+    }
+    return el;
+  };
+
   $(document).ready(function() {
-    var getElem;
-    if ($('body.lookbook').lenght > 0) {
+    if ($('body').hasClass('lookbook')) {
       $('.row.enter').isotope({
         itemSelector: "[class*='col-']",
         masonry: {
@@ -41259,28 +41281,6 @@ return PhotoSwipeUI_Default;
         slider.show($(this).data('direction'));
         return e.preventDefault();
       });
-      getElem = function(fotorama, direction) {
-        var el, i;
-        if (direction === "next") {
-          if (fotorama.activeIndex === 0) {
-            el = $(fotorama.data[fotorama.data.length - 1].html);
-            i = fotorama.data[fotorama.data.length - 1].i;
-          } else {
-            el = $(fotorama.data[fotorama.activeIndex - 1].html);
-            i = fotorama.data[fotorama.activeIndex - 1].i;
-          }
-        }
-        if (direction === "prev") {
-          if (fotorama.activeIndex === fotorama.data.length - 1) {
-            el = $(fotorama.data[0].html);
-            i = fotorama.data[0].i;
-          } else {
-            el = $(fotorama.data[fotorama.activeIndex + 1].html);
-            i = fotorama.data[fotorama.activeIndex + 1].i;
-          }
-        }
-        return el;
-      };
       return $('.lookbook').elem('slider').on('fotorama:show', function(e, fotorama, extra) {
         var el;
         el = $(fotorama.data[fotorama.activeIndex].html).find('.lookbook__picture');

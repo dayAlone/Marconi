@@ -4,7 +4,7 @@
 	<thead>
 		<tr>
 			<th>Магазин</th>
-			<?if(count($arParams['OFFERS'])>0):?>
+			<?if(isset($arParams['CACHE_NOTES'])):?>
 			<th>Наличие</th>
 			<?endif;?>
 			<?if(count($arParams['OFFERS'])>0):?>
@@ -19,7 +19,7 @@
 		?>
 		<tr>
 			<td width="25%"><a href="/stores/<?=$item['CODE']?>/"><?=preg_replace('@\(.*?\)@', '', $item['NAME'])?></a></td>
-			<?if(count($arParams['OFFERS'])>0):?>
+			<?if(isset($arParams['CACHE_NOTES'])):?>
 			<td width="25%">
 				<? if($arResult['COUNTS'][$store]):?>
 					<span class="available__icon available__icon--true"></span>Есть в наличии
