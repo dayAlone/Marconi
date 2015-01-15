@@ -4,43 +4,41 @@ $APPLICATION->SetPageProperty('body_class', "product");
 /** @var @global CMain $APPLICATION */
 use Bitrix\Main\Loader;
 global $APPLICATION;
-
 global $colorFilter;
-$arResult['CATEGORIES'] = getHighloadElements('categories', 'UF_XML_ID', 'ID');
-$arResult['SECTIONS']   = array();
-$rsPath = GetIBlockSectionPath($arResult['IBLOCK_ID'], $arResult['IBLOCK_SECTION_ID']);
-while($arPath = $rsPath->GetNext())
-	$arResult['SECTIONS'][] = $arPath;
 
-$colorFilter['!PROPERTY_SECTION_'.$arResult['CATEGORIES'][$arResult['SECTIONS'][1]['XML_ID']]] = $arResult['SECTIONS'][2]['XML_ID'];
+$obCache   = new CPHPCache();
+$cacheLife = 86400; 
+$cacheID   = 'colorFilter_'.$arResult['ID'];
+$cachePath = '/'.$cacheID;
 
-if(count($arResult['PROPERTIES']['COLOR']['VALUE'])>1)
-	$colorFilter['?PROPERTY_COLOR'] = implode($arResult['PROPERTIES']['COLOR']['VALUE'],' || ');
-elseif(count($arResult['PROPERTIES']['COLOR']['VALUE'])==1)
-	$colorFilter['=PROPERTY_COLOR'] = $arResult['PROPERTIES']['COLOR']['VALUE'][0];
+if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):
 
-$colorFilter['!PROPERTY_PICTURES'] = false;
-$colorFilter['!ID'] = $arResult['ID'];
+	$vars = $obCache->GetVars();
+	$colorFilter = $vars['data'];
 
-if (isset($templateData['TEMPLATE_THEME']))
-{
-	$APPLICATION->SetAdditionalCSS($templateData['TEMPLATE_THEME']);
-}
-if (isset($templateData['TEMPLATE_LIBRARY']) && !empty($templateData['TEMPLATE_LIBRARY']))
-{
-	$loadCurrency = false;
-	if (!empty($templateData['CURRENCIES']))
-		$loadCurrency = Loader::includeModule('currency');
-	CJSCore::Init($templateData['TEMPLATE_LIBRARY']);
-	if ($loadCurrency)
-	{
-	?>
-	<script type="text/javascript">
-		BX.Currency.setCurrencies(<? echo $templateData['CURRENCIES']; ?>);
-	</script>
-<?
-	}
-}
+elseif( $obCache->StartDataCache() ):
+
+	$arResult['CATEGORIES'] = getHighloadElements('categories', 'UF_XML_ID', 'ID');
+	$arResult['SECTIONS']   = array();
+	$rsPath = GetIBlockSectionPath($arResult['IBLOCK_ID'], $arResult['IBLOCK_SECTION_ID']);
+	while($arPath = $rsPath->GetNext())
+		$arResult['SECTIONS'][] = $arPath;
+
+	$colorFilter['!PROPERTY_SECTION_'.$arResult['CATEGORIES'][$arResult['SECTIONS'][1]['XML_ID']]] = $arResult['SECTIONS'][2]['XML_ID'];
+
+	if(count($arResult['PROPERTIES']['COLOR']['VALUE'])>1)
+		$colorFilter['?PROPERTY_COLOR'] = implode($arResult['PROPERTIES']['COLOR']['VALUE'],' || ');
+	elseif(count($arResult['PROPERTIES']['COLOR']['VALUE'])==1)
+		$colorFilter['=PROPERTY_COLOR'] = $arResult['PROPERTIES']['COLOR']['VALUE'][0];
+
+	$colorFilter['!PROPERTY_PICTURES'] = false;
+	$colorFilter['!ID'] = $arResult['ID'];
+	
+	$obCache->EndDataCache(array('data' => $colorFilter));
+	
+endif;
+
+
 if (isset($templateData['JS_OBJ']))
 {
 ?><script type="text/javascript">
