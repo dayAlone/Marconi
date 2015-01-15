@@ -1652,6 +1652,10 @@ svg g {
 .page__title:hover {
   text-decoration: none;
 }
+.page__title--no-border {
+  background: transparent;
+  max-width: 100%;
+}
 .side-nav {
   width: 100%;
   border: 1px solid #dfdfdf;
@@ -3992,21 +3996,21 @@ svg g {
 .product .sizes .dropdown__trigger svg path {
   fill: #000;
 }
-.product .available__row {
+.available__row {
   position: relative;
 }
-.product .available__product-name {
+.available__product-name {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 28px;
   line-height: 34px;
   margin-bottom: 3px;
 }
-.product .available__product-artnumber {
+.available__product-artnumber {
   text-transform: uppercase;
   font-size: 11px;
 }
-.product .available__title {
+.available__title {
   position: absolute;
   top: 50%;
   max-width: 60%;
@@ -4016,7 +4020,7 @@ svg g {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-.product .available__icon {
+.available__icon {
   width: 15px;
   height: 15px;
   display: inline-block;
@@ -4025,13 +4029,13 @@ svg g {
   -webkit-border-radius: 14px;
   border-radius: 14px;
 }
-.product .available__icon--true {
+.available__icon--true {
   background: #009100;
 }
-.product .available__icon--false {
+.available__icon--false {
   background: #ff282d;
 }
-.product .available__picture {
+.available__picture {
   width: 170px;
   height: 170px;
   -webkit-background-size: auto 90%;
@@ -4041,15 +4045,15 @@ svg g {
   background-repeat: no-repeat;
   background-position: center center;
 }
-.product .available__table {
+.available__table {
   font-size: 13px;
 }
-.product .available__table tbody td {
+.available__table tbody td {
   padding: 10px 0;
   text-transform: uppercase;
   font-weight: bold;
 }
-.product .available__table tbody td a {
+.available__table tbody td a {
   color: #000;
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(0,0,0,0.3) 50%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(0,0,0,0.3) 50%);
@@ -4062,10 +4066,10 @@ svg g {
   background-size: 2px 2px;
   background-position: 0 calc(100% - 2px);
 }
-.product .available__table tbody td a:hover {
+.available__table tbody td a:hover {
   text-decoration: none;
 }
-.product .available__table tbody td a:hover {
+.available__table tbody td a:hover {
   color: #d10a32;
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.3) 50%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.3) 50%);
@@ -4078,18 +4082,18 @@ svg g {
   background-size: 2px 2px;
   background-position: 0 calc(100% - 2px);
 }
-.product .available__table tbody td a:hover:hover {
+.available__table tbody td a:hover:hover {
   text-decoration: none;
 }
-.product .available__table tbody td span {
+.available__table tbody td span {
   margin-right: 8px;
 }
-.product .available__table tbody td.available__address {
+.available__table tbody td.available__address {
   font-size: 12px;
   text-transform: none;
   font-weight: normal;
 }
-.product .available__table th {
+.available__table th {
   border-top: 1px solid #e2e5e8;
   border-bottom: 1px solid #e2e5e8;
   font-weight: normal;
@@ -4744,7 +4748,7 @@ svg g {
 }
 .stores .dropdown {
   width: 100%;
-  z-index: 10000;
+  z-index: 1000;
   max-width: none;
   text-transform: uppercase;
 }

@@ -4,7 +4,9 @@
 	<thead>
 		<tr>
 			<th>Магазин</th>
+			<?if(count($arParams['OFFERS'])>0):?>
 			<th>Наличие</th>
+			<?endif;?>
 			<?if(count($arParams['OFFERS'])>0):?>
 			<th>Размеры в наличии</th>
 			<?endif;?>
@@ -17,6 +19,7 @@
 		?>
 		<tr>
 			<td width="25%"><a href="/stores/<?=$item['CODE']?>/"><?=preg_replace('@\(.*?\)@', '', $item['NAME'])?></a></td>
+			<?if(count($arParams['OFFERS'])>0):?>
 			<td width="25%">
 				<? if($arResult['COUNTS'][$store]):?>
 					<span class="available__icon available__icon--true"></span>Есть в наличии
@@ -24,6 +27,7 @@
 					<span class="available__icon available__icon--false"></span>нет в наличии
 				<? endif; ?>
 			</td>
+			<?endif;?>
 			<?if(count($arParams['OFFERS'])>0):?>
 			<td width="25%">
 				<? if(isset($arResult['COUNTS'][$store])):

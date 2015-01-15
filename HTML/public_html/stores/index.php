@@ -48,7 +48,35 @@ if(!isset($_REQUEST['short'])):
 	</div>
 	<?
 endif;
-?><?
+?>
+<div id="stores" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade">
+  <div class="modal-dialog stores__dialog">
+    <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
+    <div class="page__title page__title--no-border center">Магазины с самовывозом</div>
+    <?
+    	global $arFilter;
+    	$arFilter = array('!PROPERTY_STORE' => false);
+
+    	$APPLICATION->IncludeComponent("bitrix:news.list", "available", 
+			array(
+				"IBLOCK_ID"     => 6,
+				"NEWS_COUNT"    => "9999999",
+				"FILTER_NAME"   => "arFilter",
+				"SORT_BY1"      => "ID",
+				"SORT_ORDER1"   => "ASC",
+				"DETAIL_URL"    => "/catalog/",
+				"CACHE_TYPE"    => "A",
+				'PROPERTY_CODE' => array('ADDRESS'),
+				'OFFERS'        => $offers,
+				"SET_TITLE"     => "N"
+			),
+			$component
+		);
+	?>
+    </div>
+  </div>
+</div>
+<?
 $APPLICATION->IncludeComponent("bitrix:news.list", "map", 
 	array(
 		"IBLOCK_ID"     => 6,
