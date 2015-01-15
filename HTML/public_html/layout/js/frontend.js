@@ -41104,6 +41104,11 @@ return PhotoSwipeUI_Default;
       focus: false,
       shareEl: false
     };
+    $('.catalog__back').click(function(e) {
+      console.log(1);
+      window.history.back();
+      return e.preventDefault();
+    });
     $('.product').elem('big-button').click(function(e) {
       var block, id, offset, param_size, url;
       if ($(this).hasMod('buy')) {
