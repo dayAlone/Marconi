@@ -635,11 +635,10 @@
 		top -4px
 	&-hidden-input
 		display none
-
 .pages
 	width 100%
 	margin-top -3px
-	&__item
+	.pages__item
 		display inline-block
 		min-width 15px
 		height 16px
@@ -666,5 +665,11 @@
 			color white
 			&:hover
 				color white
+.catalog__per-page
+	@extends .pages .pages__item
+	margin 0 1px
+	padding 0 2px
+	&:first-of-type
+		margin-left 6px
 .pswp__caption__center
 	text-align: center

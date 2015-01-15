@@ -41234,6 +41234,13 @@ return PhotoSwipeUI_Default;
   $(document).ready(function() {
     initProducts();
     initFiltres();
+    $('.catalog').elem('per-page').click(function(e) {
+      $.cookie('PER_PAGE', $(this).text(), {
+        path: "/"
+      });
+      window.location.reload();
+      return e.preventDefault();
+    });
     $('.catalog__toolbar .dropdown .dropdown__item').click(function(e) {
       $(this).block().data('value', $(this).data('value'));
       $(this).block().data('param', $(this).data('param'));

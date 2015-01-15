@@ -34,7 +34,13 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
           <option data-param="PROPERTY_MIN_PRICE" data-value="ASC">Возрастанию цены</option>
           <option data-param="PROPERTY_MIN_PRICE" data-value="DESC">Убыванию цены</option>
         </select></span></div>
-    <div class="col-xs-8 right">
+    <div class="col-xs-3 center">
+      показывать по:
+      <? foreach (array(40, 80, 120) as $count):?>
+        <a href="#" class="catalog__per-page <?=($arParams['PAGE_ELEMENT_COUNT']==$count?"catalog__per-page--active":"")?>"><?=$count?></a>
+      <? endforeach; ?>
+    </div>
+    <div class="col-xs-5 right">
       <?=$arResult["NAV_STRING"]?>
     </div>
   </div>

@@ -231,6 +231,11 @@ $(document).ready ->
 	initProducts()
 	initFiltres()
 
+	$('.catalog').elem('per-page').click (e)->
+		$.cookie('PER_PAGE', $(this).text(),{path:"/"})
+		window.location.reload()
+		e.preventDefault()
+
 	$('.catalog__toolbar .dropdown .dropdown__item').click (e)->
 		$(this).block().data 'value', $(this).data 'value'
 		$(this).block().data 'param', $(this).data 'param'
