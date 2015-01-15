@@ -46,7 +46,7 @@ getOrderDate = ->
 					location.href = data.redirect
 
 $(document).ready ->
-	if $('body').hasClass 'order'
+	if $('body').hasClass 'basket'
 		initOrder()
 		getOrderDate()
 

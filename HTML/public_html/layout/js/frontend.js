@@ -41450,7 +41450,7 @@ return PhotoSwipeUI_Default;
   };
 
   $(document).ready(function() {
-    if ($('body').hasClass('order')) {
+    if ($('body').hasClass('basket')) {
       initOrder();
       getOrderDate();
       return $('#ORDER_FORM').submit(function(e) {
