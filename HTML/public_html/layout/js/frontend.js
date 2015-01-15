@@ -40251,7 +40251,7 @@ return PhotoSwipeUI_Default;
 }));
 
 (function() {
-  var addToCart, autoHeight, basketCalc, closeDropdown, countUpOptions, delay, end, galleryOptions, getCaptcha, getElem, getOrderDate, initDropdown, initFiltres, initOrder, isJson, openDropdown, setCaptcha, size, spinOptions, timer, updateTimer;
+  var addToCart, autoHeight, basketCalc, closeDropdown, countUpOptions, delay, end, filterRequest, filterTimer, galleryOptions, getCaptcha, getElem, getFilter, getOrderDate, getParameterByName, initDropdown, initFiltres, initOrder, isJson, openDropdown, setCaptcha, size, spinOptions, timer, updateTimer;
 
   delay = function(ms, func) {
     return setTimeout(func, ms);
@@ -41114,111 +41114,114 @@ return PhotoSwipeUI_Default;
     });
   };
 
-  $(document).ready(function() {
-    var filterRequest, filterTimer, getFilter, getParameterByName;
-    initProducts();
-    initFiltres();
-    filterTimer = false;
-    filterRequest = false;
-    getFilter = function(el) {
-      var form, inputs, sort;
-      if (!$('.catalog').hasMod('ajax')) {
-        if ($('.catalog').elem('counter').is(':visible')) {
-          $('.catalog').elem('counter').velocity({
-            properties: "transition.slideUpOut",
-            options: {
-              duration: 300
+  filterTimer = false;
+
+  filterRequest = false;
+
+  getFilter = function(el) {
+    var form, inputs, sort;
+    if (!$('.catalog').hasMod('ajax')) {
+      if ($('.catalog').elem('counter').is(':visible')) {
+        $('.catalog').elem('counter').velocity({
+          properties: "transition.slideUpOut",
+          options: {
+            duration: 300
+          }
+        });
+      }
+    }
+    if (filterRequest) {
+      filterRequest.abort();
+    }
+    $('.filter').mod('loading', false);
+    if (el) {
+      el.parents('.filter').mod('loading', true);
+    }
+    inputs = $('.page').elem('side').find('input');
+    form = $('.page').elem('side').find('form');
+    sort = [$('.catalog__toolbar .dropdown').data('param'), $('.catalog__toolbar .dropdown').data('value')];
+    if (sort.length > 0) {
+      sort = "&sort_param=" + sort[0] + "&sort_value=" + sort[1];
+    }
+    return filterTimer = delay(300, function() {
+      var ajaxURL, data, values;
+      ajaxURL = form.data('url');
+      if ($('.catalog').hasMod('ajax')) {
+        data = form.serialize() + "&short=Y&set_filter=Y";
+        data += sort;
+        return filterRequest = $.ajax({
+          type: "GET",
+          url: ajaxURL,
+          data: data,
+          success: function(data) {
+            if (el) {
+              el.parents('.filter').mod('loading', false);
             }
-          });
-        }
-      }
-      if (filterRequest) {
-        filterRequest.abort();
-      }
-      $('.filter').mod('loading', false);
-      if (el) {
-        el.parents('.filter').mod('loading', true);
-      }
-      inputs = $('.page').elem('side').find('input');
-      form = $('.page').elem('side').find('form');
-      sort = [$('.catalog__toolbar .dropdown').data('param'), $('.catalog__toolbar .dropdown').data('value')];
-      if (sort.length > 0) {
-        sort = "&sort_param=" + sort[0] + "&sort_value=" + sort[1];
-      }
-      return filterTimer = delay(300, function() {
-        var ajaxURL, data, values;
-        ajaxURL = form.data('url');
-        if ($('.catalog').hasMod('ajax')) {
-          data = form.serialize() + "&short=Y&set_filter=Y";
-          data += sort;
-          return filterRequest = $.ajax({
-            type: "GET",
-            url: ajaxURL,
-            data: data,
-            success: function(data) {
+            History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(form.serialize()) + sort + "&set_filter=Y");
+            if ($(data).filter('article').find('.pages').length > 0) {
+              $('.pages').html($(data).filter('article').find('.pages').html());
+            } else {
+              $('.pages').html('');
+            }
+            $('.catalog__frame').html($(data).filter('article').find('.catalog__frame').html());
+            initProducts();
+            $('.page__side').html($(data).filter('article').find('.page__side').html());
+            initFiltres();
+            size();
+            return $(window).scrollTop($(window).scrollTop() + 1);
+          }
+        });
+      } else {
+        values = [];
+        values[0] = {
+          name: 'ajax',
+          value: 'y'
+        };
+        smartFilter.gatherInputsValues(values, inputs);
+        return filterRequest = $.ajax({
+          type: "GET",
+          url: ajaxURL,
+          data: values,
+          success: function(data) {
+            var href;
+            console.log(data);
+            if (data) {
+              data = $.parseJSON(data);
+            }
+            if (data.FILTER_URL) {
+              href = data.FILTER_URL.replace(/&amp;/g, '&');
+              if (sort.length > 0) {
+                href += sort;
+              }
+              $('.catalog').elem('counter').find('a').attr('href', href);
+              $('.catalog').elem('counter-value').text(data.ELEMENT_COUNT);
               if (el) {
                 el.parents('.filter').mod('loading', false);
-              }
-              History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(form.serialize()) + sort + "&set_filter=Y");
-              if ($(data).filter('article').find('.pages').length > 0) {
-                $('.pages').html($(data).filter('article').find('.pages').html());
-              } else {
-                $('.pages').html('');
-              }
-              $('.catalog__frame').html($(data).filter('article').find('.catalog__frame').html());
-              initProducts();
-              $('.page__side').html($(data).filter('article').find('.page__side').html());
-              initFiltres();
-              size();
-              return $(window).scrollTop($(window).scrollTop() + 1);
-            }
-          });
-        } else {
-          values = [];
-          values[0] = {
-            name: 'ajax',
-            value: 'y'
-          };
-          smartFilter.gatherInputsValues(values, inputs);
-          return filterRequest = $.ajax({
-            type: "GET",
-            url: ajaxURL,
-            data: values,
-            success: function(data) {
-              var href;
-              console.log(data);
-              if (data) {
-                data = $.parseJSON(data);
-              }
-              if (data.FILTER_URL) {
-                href = data.FILTER_URL.replace(/&amp;/g, '&');
-                if (sort.length > 0) {
-                  href += sort;
-                }
-                $('.catalog').elem('counter').find('a').attr('href', href);
-                $('.catalog').elem('counter-value').text(data.ELEMENT_COUNT);
-                if (el) {
-                  el.parents('.filter').mod('loading', false);
-                  return $('.catalog').elem('counter').css({
-                    'top': el.parents('.filter').position().top
-                  }).velocity({
-                    properties: "transition.slideDownIn",
-                    options: {
-                      duration: 300
-                    }
-                  });
-                }
+                return $('.catalog').elem('counter').css({
+                  'top': el.parents('.filter').position().top
+                }).velocity({
+                  properties: "transition.slideDownIn",
+                  options: {
+                    duration: 300
+                  }
+                });
               }
             }
-          });
-        }
-      });
-    };
-    getParameterByName = function(name) {
-      var match;
-      match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-    };
+          }
+        });
+      }
+    });
+  };
+
+  getParameterByName = function(name) {
+    var match;
+    match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+  };
+
+  $(document).ready(function() {
+    initProducts();
+    initFiltres();
     $('.catalog__toolbar .dropdown .dropdown__item').click(function(e) {
       $(this).block().data('value', $(this).data('value'));
       $(this).block().data('param', $(this).data('param'));

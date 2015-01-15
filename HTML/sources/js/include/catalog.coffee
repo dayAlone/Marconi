@@ -141,92 +141,92 @@ initFiltres = ->
 			$("input.range__from").val(x.from)
 			$("input.range__to").val(x.to)
 
+filterTimer   = false
+filterRequest = false
+getFilter = (el)->
+	if !$('.catalog').hasMod 'ajax'
+		if $('.catalog').elem('counter').is ':visible'
+			$('.catalog').elem('counter').velocity
+				properties: "transition.slideUpOut"
+				options:
+					duration: 300
+	
+	filterRequest.abort() if filterRequest
+	$('.filter').mod 'loading', false
+	
+	el.parents('.filter').mod('loading', true) if el
+	
+	inputs = $('.page').elem('side').find('input')
+	form   = $('.page').elem('side').find('form')
+	sort   = [$('.catalog__toolbar .dropdown').data('param'), $('.catalog__toolbar .dropdown').data('value')]
+	if sort.length > 0
+		sort = "&sort_param=#{sort[0]}&sort_value=#{sort[1]}"
+	
+	filterTimer = delay 300, ->
+		ajaxURL = form.data('url')
+		if $('.catalog').hasMod 'ajax'
+			data = form.serialize() + "&short=Y&set_filter=Y"
+			data += sort
+			filterRequest = $.ajax
+				type     : "GET" 
+				url      : ajaxURL 
+				data     : data
+				success  : (data)->
+					el.parents('.filter').mod('loading', false) if el
+
+					History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(form.serialize()) + sort + "&set_filter=Y");
+					
+					if $(data).filter('article').find('.pages').length > 0
+						$('.pages').html $(data).filter('article').find('.pages').html()
+					else
+						$('.pages').html('')
+					
+					$('.catalog__frame').html $(data).filter('article').find('.catalog__frame').html()
+					initProducts()
+
+					$('.page__side').html $(data).filter('article').find('.page__side').html()
+					initFiltres()
+
+					size()
+
+					$(window).scrollTop $(window).scrollTop()+1
+		else
+			values = []
+			values[0] = {name: 'ajax', value: 'y'}
+			smartFilter.gatherInputsValues(values, inputs);
+			filterRequest = $.ajax
+				type     : "GET" 
+				url      : ajaxURL
+				data     : values
+				success  : (data)->
+					console.log data
+					if data
+						data = $.parseJSON(data)
+					if data.FILTER_URL
+						href = data.FILTER_URL.replace(/&amp;/g, '&')
+						if sort.length > 0
+							href += sort
+						$('.catalog').elem('counter').find('a').attr 'href', href
+						$('.catalog').elem('counter-value').text data.ELEMENT_COUNT
+
+						if el
+							el.parents('.filter').mod('loading', false)
+							$('.catalog').elem('counter')
+								.css(
+									'top' : el.parents('.filter').position().top
+								)
+								.velocity
+									properties: "transition.slideDownIn"
+									options:
+										duration: 300
+
+getParameterByName = (name)->
+	match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+	return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+
 $(document).ready ->
 	initProducts()
 	initFiltres()
-
-	filterTimer   = false
-	filterRequest = false
-	getFilter = (el)->
-		if !$('.catalog').hasMod 'ajax'
-			if $('.catalog').elem('counter').is ':visible'
-				$('.catalog').elem('counter').velocity
-					properties: "transition.slideUpOut"
-					options:
-						duration: 300
-		
-		filterRequest.abort() if filterRequest
-		$('.filter').mod 'loading', false
-		
-		el.parents('.filter').mod('loading', true) if el
-		
-		inputs = $('.page').elem('side').find('input')
-		form   = $('.page').elem('side').find('form')
-		sort   = [$('.catalog__toolbar .dropdown').data('param'), $('.catalog__toolbar .dropdown').data('value')]
-		if sort.length > 0
-			sort = "&sort_param=#{sort[0]}&sort_value=#{sort[1]}"
-		
-		filterTimer = delay 300, ->
-			ajaxURL = form.data('url')
-			if $('.catalog').hasMod 'ajax'
-				data = form.serialize() + "&short=Y&set_filter=Y"
-				data += sort
-				filterRequest = $.ajax
-					type     : "GET" 
-					url      : ajaxURL 
-					data     : data
-					success  : (data)->
-						el.parents('.filter').mod('loading', false) if el
-
-						History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(form.serialize()) + sort + "&set_filter=Y");
-						
-						if $(data).filter('article').find('.pages').length > 0
-							$('.pages').html $(data).filter('article').find('.pages').html()
-						else
-							$('.pages').html('')
-						
-						$('.catalog__frame').html $(data).filter('article').find('.catalog__frame').html()
-						initProducts()
-
-						$('.page__side').html $(data).filter('article').find('.page__side').html()
-						initFiltres()
-
-						size()
-
-						$(window).scrollTop $(window).scrollTop()+1
-			else
-				values = []
-				values[0] = {name: 'ajax', value: 'y'}
-				smartFilter.gatherInputsValues(values, inputs);
-				filterRequest = $.ajax
-					type     : "GET" 
-					url      : ajaxURL
-					data     : values
-					success  : (data)->
-						console.log data
-						if data
-							data = $.parseJSON(data)
-						if data.FILTER_URL
-							href = data.FILTER_URL.replace(/&amp;/g, '&')
-							if sort.length > 0
-								href += sort
-							$('.catalog').elem('counter').find('a').attr 'href', href
-							$('.catalog').elem('counter-value').text data.ELEMENT_COUNT
-
-							if el
-								el.parents('.filter').mod('loading', false)
-								$('.catalog').elem('counter')
-									.css(
-										'top' : el.parents('.filter').position().top
-									)
-									.velocity
-										properties: "transition.slideDownIn"
-										options:
-											duration: 300
-
-	getParameterByName = (name)->
-		match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-		return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 
 	$('.catalog__toolbar .dropdown .dropdown__item').click (e)->
 		$(this).block().data 'value', $(this).data 'value'
