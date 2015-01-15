@@ -6693,7 +6693,7 @@ svg g {
   overflow: hidden;
 }
 .catalog .product__artnumber {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: normal;
   opacity: 0.6;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
