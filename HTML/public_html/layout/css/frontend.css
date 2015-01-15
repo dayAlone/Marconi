@@ -6534,7 +6534,7 @@ svg g {
 .catalog .product__content {
   position: relative;
   z-index: 7;
-  min-height: 308px;
+  min-height: 323px;
 }
 .catalog .product__icon,
 .catalog .product__button,
@@ -8327,6 +8327,38 @@ svg g {
   text-transform: uppercase;
   font-weight: bold;
   margin-left: 45px;
+}
+.stores__title a {
+  color: #000;
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(0,0,0,0.2) 50%);
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(0,0,0,0.2) 50%);
+  background-image: -o-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(0,0,0,0.2) 50%);
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(0,0,0,0.2) 50%);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.2) 50%);
+  background-repeat: repeat-x;
+  -webkit-background-size: 2px 2px;
+  -moz-background-size: 2px 2px;
+  background-size: 2px 2px;
+  background-position: 0 calc(100% - 2px);
+}
+.stores__title a:hover {
+  text-decoration: none;
+}
+.stores__title a:hover {
+  color: #d10a32;
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.3) 50%);
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.3) 50%);
+  background-image: -o-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.3) 50%);
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.3) 50%);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(209,10,50,0.3) 50%);
+  background-repeat: repeat-x;
+  -webkit-background-size: 2px 2px;
+  -moz-background-size: 2px 2px;
+  background-size: 2px 2px;
+  background-position: 0 calc(100% - 2px);
+}
+.stores__title a:hover:hover {
+  text-decoration: none;
 }
 .stores__title img {
   position: relative;

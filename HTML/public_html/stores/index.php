@@ -26,7 +26,7 @@ if(!isset($_REQUEST['short'])):
 	    		</div>
 	    		<div class="col-xs-9 right">
 	    			<span class="stores__title">
-	    				<img src="/layout/images/store-3.png" alt=""> Фирменные магазины с самовывозом
+	    				<img src="/layout/images/store-3.png" alt=""> <a href="#stores" data-toggle="modal" data-target="#stores" >Фирменные магазины с самовывозом</a>
 	    			</span>
 	    			<span class="stores__title">
 	    				<img src="/layout/images/store-2.png" alt=""> фирменные магазины
