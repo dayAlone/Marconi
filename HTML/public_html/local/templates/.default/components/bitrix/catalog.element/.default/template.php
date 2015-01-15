@@ -227,9 +227,8 @@ $this->EndViewTarget();
 	            <div class="props__name">цена</div>
 	            <div class="props__value">
 	            <?
-	            var_dump($item['MIN_PRICE']);
-	            if(isset($item['MIN_PRICE']['VALUE'])&&intval($item['MIN_PRICE']['VALUE'])!=0): ?>
-			      <?=number_format($item['MIN_PRICE']['VALUE'], 0, '.', ' ')?> ₷
+	            if(isset($arResult['MIN_PRICE']['VALUE'])&&intval($arResult['MIN_PRICE']['VALUE'])!=0): ?>
+			      <?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?> ₷
 			    <? else: ?>
 			      <small>Товара нет в наличии</small>
 			    <? endif; ?>
