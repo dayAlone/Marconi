@@ -1266,9 +1266,22 @@
         }
       }
     });
+    $('.breadcrumbs').elem('brand').click(function(e) {
+      if ($(this).data('value').length > 0) {
+        $.cookie('BRAND', $(this).data('value'), {
+          path: "/"
+        });
+      } else {
+        $.cookie('BRAND', null);
+      }
+      window.location = $(this).data('href');
+      return e.preventDefault();
+    });
     $('.brand-select .dropdown .dropdown__item').click(function(e) {
       if ($(this).data('id').length > 0) {
-        $.cookie('BRAND', $(this).data('id'));
+        $.cookie('BRAND', $(this).data('id'), {
+          path: "/"
+        });
       } else {
         $.cookie('BRAND', null);
       }
