@@ -84,3 +84,59 @@ getCaptcha = ()->
 setCaptcha = (code)->
 	$('input[name=captcha_code]').val(code)
 	$('.captcha').css 'background-image', "url(/include/captcha.php?captcha_sid=#{code})"
+
+timer = false
+
+closeDropdown = (x)->
+	x.mod('open', false)
+	x.elem('frame').velocity
+		properties: "transition.slideUpOut"
+		options:
+			duration: 300
+
+openDropdown = (x)->
+	clearTimeout timer
+	text = x.elem('text').text()
+	x.elem('item').show()
+	x.elem('frame').find("a").each ->
+		if $(this).text() == text
+			$(this).hide()
+	x.elem('frame').velocity
+		properties: "transition.slideDownIn"
+		options:
+			duration: 300
+			complete: ()->
+				x.mod('open', true)
+				#timer = delay 6000, ()->
+					#closeDropdown x
+
+initDropdown = ->
+	$('.dropdown').elem('item').off('change').on 'click', (e)->
+
+		if $(this).attr('href')[0] == "#"
+			$(this).block().elem('text').html($(this).text())
+			$(this).block().elem('frame').velocity
+					properties: "transition.slideUpOut"
+					options:
+						duration: 300
+			e.preventDefault()
+		else
+			window.location.href = $(this).attr('href')
+
+	$('.dropdown').elem('select').off('change').on 'change', ()->
+		
+		val = $(this).val()
+		$(this).block().find("a[href='#{val}']").trigger 'click'
+		$(this).mod 'open', true
+		
+	$('.dropdown').hoverIntent
+			over : ()->
+				if $(window).width() > 970
+					openDropdown $(this)
+				else
+					$(this)
+						.elem('select').focus()
+						.mod 'open', true
+			out : ()->
+				if $(window).width() > 970
+					closeDropdown $(this)
