@@ -2,21 +2,21 @@
 $aMenuLinks = Array(
 	Array(
 		"для нее", 
-		"/catalog/women/", 
+		"/catalog/women/?del_filter=Y", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"для него", 
-		"/catalog/men/", 
+		"/catalog/men/?del_filter=Y", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"багаж", 
-		"/catalog/baggage/", 
+		"/catalog/baggage/?del_filter=Y", 
 		Array(), 
 		Array(), 
 		"" 
