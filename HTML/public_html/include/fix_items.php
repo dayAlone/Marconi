@@ -1,14 +1,16 @@
 <?
+$FILTER_NAME = $arParams['FILTER_NAME'];
 if(isset($_REQUEST["ajax"]) && $_REQUEST["ajax"] === "y")
 	$_CHECK = &$_REQUEST;
 elseif(isset($_REQUEST["del_filter"]))
 	$_CHECK = array();
 elseif(isset($_GET["set_filter"]))
 	$_CHECK = &$_GET;
-elseif($arParams["SAVE_IN_SESSION"] && isset($_SESSION[$FILTER_NAME][$this->SECTION_ID]))
-	$_CHECK = $_SESSION[$FILTER_NAME][$this->SECTION_ID];
+elseif($arParams["SAVE_IN_SESSION"] && isset($_SESSION[$FILTER_NAME][$arResult['SECTION']['ID']]))
+	$_CHECK = $_SESSION[$FILTER_NAME][$arResult['SECTION']['ID']];
 else
 	$_CHECK = array();
+
 
 $allCHECKED = array();
 foreach($arResult["ITEMS"] as $PID => $arItem)
@@ -40,7 +42,6 @@ foreach($arResult["ITEMS"] as $PID => $arItem)
 		}
 	}
 }
-
 if(count($allCHECKED)>0):
 	function condition($_CHECK, $ar)
 	{
@@ -83,6 +84,7 @@ if(count($allCHECKED)>0):
 					$directions[$PID][] = $ar["FACET_VALUE"];
 		endforeach;
 	endforeach;
+	
 	if(count($directions) > 0):
 		foreach ($directions as $k => $direction):
 			$this->facet = new \Bitrix\Iblock\PropertyIndex\Facet($arResult['SECTION']['IBLOCK_ID']);
