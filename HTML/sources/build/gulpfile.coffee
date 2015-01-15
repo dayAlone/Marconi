@@ -76,11 +76,12 @@ gulp.task 'js_plugins', ->
 	.pipe gulp.dest path.js.sources
 
 gulp.task 'js_coffee', ->
-	gulp.src [ "#{path.js.sources}/script.coffee" ]
+	gulp.src [ "#{path.js.sources}/include/*.coffee" ]
 	.pipe plumber
 		errorHandler: notify.onError("Error: <%= error.message %>")
+	.pipe concat "#{path.js.sources}/script.coffee"
 	.pipe coffee()
-	.pipe gulp.dest path.js.sources
+	.pipe gulp.dest './'
 
 gulp.task 'js_front', ['js_coffee'], ->
 	gulp.src [ "#{path.js.sources}/plugins.js", "#{path.js.sources}/script.js" ]
@@ -169,7 +170,7 @@ gulp.task 'default', ->
 	
 	livereload.listen()
 
-	gulp.watch "#{path.js.sources}/script.coffee", ->
+	gulp.watch "#{path.js.sources}/**/*.coffee", ->
 		sequence 'js_front', 'reload'
 	
 	gulp.watch "#{path.css.sources}/**/*.styl", ->
