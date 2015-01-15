@@ -139,7 +139,7 @@ $this->EndViewTarget();
 					),
 					$component
 				);
-				if(isset($item['MIN_PRICE']['VALUE'])):
+				if(isset($arResult['MIN_PRICE']['VALUE'])):
 					if(count($item['OFFERS'])>1):
 						?>
 						<div class="sizes">
@@ -151,12 +151,12 @@ $this->EndViewTarget();
 									
 								<span class="dropdown__frame">
 									<?foreach($item['OFFERS'] as $k=>$offer):?>
-									<a href="#" data-id="<?=$offer['ID']?>" class="dropdown__item"><?=$item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']]?></a>
+									<a href="#" data-id="<?=$offer['ID']?>" <?=($offer['MIN_PRICE']['VALUE'] != $arResult['MIN_PRICE']['VALUE']?"data-price='".$offer['MIN_PRICE']['VALUE']."'":"")?> class="dropdown__item"><?=$item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']]?></a>
 									<?endforeach;?>
 								</span>
 								<select class="dropdown__select">
 									<?foreach ($arResult['SECTIONS'] as $key => &$item):?>
-									<option value="<?=$offer['ID']?>"><?=$item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']]?></a>
+									<option value="<?=$offer['ID']?>" <?=($offer['MIN_PRICE']['VALUE'] != $arResult['MIN_PRICE']['VALUE']?"data-price='".$offer['MIN_PRICE']['VALUE']."'":"")?>><?=$item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']]?></a>
 									<?endforeach;?>
 								</select>
 							</span>
