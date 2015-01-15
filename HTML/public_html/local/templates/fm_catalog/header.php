@@ -39,7 +39,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
         </div>
         <div class="col-xs-8">
         	<?php
-            if(!preg_match("/\/catalog\/(.*?)\/(.*?)\/|\/basket\//", $APPLICATION->GetCurDir(), $matches)):
+            if(!preg_match("/\/catalog\/(.*?)\/(.*?)\//", $APPLICATION->GetCurDir(), $matches)):
               $APPLICATION->IncludeComponent("bitrix:menu", "catalog", 
               array(
                   "ALLOW_MULTI_SELECT" => "Y",
