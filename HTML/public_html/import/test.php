@@ -30,7 +30,7 @@
 
 	$prices = getElements("prices.xml", array('products', 'product'));;
 
-	$errors = array('category'=>array(), 'type'=>array(), 'brand'=>array(), 'color'=>array(), 'material'=>array(), 'price'=>array());
+	$errors = array('category'=>array(), 'type'=>array(), 'brand'=>array(), 'color'=>array(), 'material'=>array(), 'price'=>array(), 'size'=>array());
 
 	$elements = array();
 
@@ -44,9 +44,13 @@
 			$value = $prop->getAttribute('value');
 			$props[$id] = $value;
 		}
+		
+		if($props['type'] == "123d7705-8467-11e4-82e4-0025908101de" && !isset($props['size']))
+			$errors['size'][] = $item->getElementsByTagName('name')->item(0)->nodeValue;
+
 		foreach ($errors as $key => &$el) 
 		{
-			if(!isset($props[$key]))
+			if(!isset($props[$key])&&$key!="size")
 				$el[] = $item->getElementsByTagName('name')->item(0)->nodeValue;
 		}
 	}
@@ -55,7 +59,7 @@
 	}
 	$errors['price'] = $elements;
 
-	$title = array('section'=>"Без раздела(section)", 'category'=>"Без категории(category)", 'type'=>"Без типа(type)", 'brand'=>"Без бренда(brand)", 'color'=>"Без цвета", 'material'=>"Без материала", 'price'=>"Без цен(price)");
+	$title = array('section'=>"Без раздела(section)", 'category'=>"Без категории(category)", 'type'=>"Без типа(type)", 'brand'=>"Без бренда(brand)", 'color'=>"Без цвета", 'material'=>"Без материала", 'size'=>"Без размеров", 'price'=>"Без цен(price)");
 	$text = "";
 	foreach ($errors as $key => &$el) 
 		$text .= "-------------------\n\r\n\r".$title[$key].":\n\r\n\r".implode($el, "\n\r")."\n\r";

@@ -15,7 +15,7 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"багаж", 
+		"для путешествий", 
 		"/catalog/baggage/?del_filter=Y", 
 		Array(), 
 		Array(), 
