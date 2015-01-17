@@ -5,8 +5,6 @@
 	define("NOT_CHECK_PERMISSIONS", true); 
 	use Bitrix\Highloadblock as HL;
 	use Bitrix\Main\Entity;
-	ini_set('mbstring.internal_encoding','UTF-8');
-	ini_set('mbstring.func_overload', '2');
 	set_time_limit(0);
 	@ignore_user_abort(true);
 	
@@ -39,6 +37,7 @@
 					case 'materials':
 					case 'types':
 					case 'sizes':
+					case 'sale':
 						$data  = Import::getHighloadElements($this->iblocks[$code], false, true);
 						$items = $item->getElementsByTagName('item');
 						foreach ($items as $el):
@@ -80,6 +79,8 @@
 
 		private $counter = array('add'=>0, 'update'=>0, 'offers'=>0, 'error'=>0);
 
+		private $together = array('92c85955-7fb6-11e4-aec5-0025908101de', '98c2eff7-7fb6-11e4-aec5-0025908101de'); // Общие разделы
+
 		private $remove;
 
 		public function __construct()
@@ -98,8 +99,7 @@
 			foreach ($this->remove as $i)
 				$remove[] = "/(\s(".$i['NAME'].")|_".strtolower(str_replace(array(',', '.'), '_', $i['NAME'])).")$/";
 			$this->remove = $remove;
-
-			$this->sections   = Import::getIBlockSections($this->iblocks['catalog'], 3);
+			$this->sections   = Import::getIBlockSections($this->iblocks['products'], 3);
 			$this->categories = Import::getHighloadElements($this->iblocks['categories'], true);
 			$this->types      = Import::getHighloadElements($this->iblocks['types'], true);
 			$this->brands     = Import::getHighloadElements($this->iblocks['brands'], true);
@@ -177,11 +177,8 @@
 				$value  = $propSections['category'];
 				unset($parent);
 				if(!isset($sections['first'])):
-					$keys = array_keys($this->sections);
-					$sections['first'] = array($keys[0], $keys[1]);
+					$sections['first'] = array($this->together[0], $this->together[1]);
 				endif;
-				$sections['id']     = array();
-				$sections['second'] = array();
 				foreach ($sections['first'] as $s):
 					$parent = &$this->sections[$s];
 					if(!isset($parent['CHILD'][$value]))
@@ -197,13 +194,11 @@
 				foreach ($sections['first'] as $k => $s):
 					unset($parent);
 					$parent = &$this->sections[$s]['CHILD'][$sections['second']];
-					
 					if(!isset($parent['CHILD'][$value]))
 						$this->addParentCatagory($parent, $this->types[$value]);
 					if(isset($parent['CHILD'][$value]))
 						$fields['IBLOCK_SECTION'][] = $parent['CHILD'][$value];
 				endforeach;
-
 				if(intval($sections['id'])>0)
 					$props['SECTION_'.$sections['id']] = $value;
 				$fields['IBLOCK_SECTION'][] = 150;
@@ -214,7 +209,12 @@
 			$xml_id    = $item->getAttribute('id');
 			$artnumber = $item->getElementsByTagName('artnumber')->item(0)->nodeValue;
 			$tmp       = $item->getElementsByTagName('namePrint')->item(0)->nodeValue;
-			$note      = substr($tmp, 0, strpos($tmp, $artnumber)-1);
+			if(strpos($tmp, $artnumber) == 0):
+				$note  = str_replace($item->getElementsByTagName('name')->item(0)->nodeValue, "", $tmp);
+				$note  = mb_strtoupper(mb_substr($note, 1, 1)) . substr($note, 2, strlen($note));
+			else:
+				$note  = substr($tmp, 0, strpos($tmp, $artnumber)-1);
+			endif;
 			$slug      = str_replace(array(' ','/', '.'), '_', preg_replace($this->remove, '', $item->getElementsByTagName('name')->item(0)->nodeValue));
 
 			$fields = array(
@@ -230,6 +230,7 @@
 				'COLOR'      => array(),
 				'MATERIAL'   => array(),
 				'PICTURES'   => array(),
+				'SALE'       => ""
 			);
 			
 			$raw = $item->getElementsByTagName('property');
@@ -243,6 +244,7 @@
 				switch ($id):
 					case 'material':
 					case 'color':
+					case 'sale':
 						$props[strtoupper($id)][] = $value;
 					break;
 					case 'SizeForWeb':
@@ -262,7 +264,7 @@
 				endswitch;
 			endforeach;
 
-			$this->getSections($propSections, $fields, $props);
+			
 			
 			$name = $note;
 			if($this->brands[$props['BRAND']]['NAME'])
@@ -271,7 +273,10 @@
 
 			$fields["NAME"] = $name;
 			$fields["CODE"] = Cutil::translit($note." ". $item->getElementsByTagName('name')->item(0)->nodeValue, "ru");
+			var_dump($fields['CODE']);
+			die();
 
+			$this->getSections($propSections, $fields, $props);
 			$images = array_merge(glob($_SERVER['DOCUMENT_ROOT']."/import/photos/".$slug.".jpg"), glob($_SERVER['DOCUMENT_ROOT']."/import/photos/".$slug."_[0-9].jpg"));
 			
 			foreach ($images as $key=>$image):
@@ -348,7 +353,7 @@
 						CIBlockElement::SetPropertyValuesEx($exist['ID'], $this->iblocks['products'], $diff);
 						$update = true;
 					endif;
-					foreach (array('SORT') as $el):
+					foreach (array('SORT', 'NAME') as $el):
 						if($fields[$el] != $exist[$el]):
 							$raw = new CIBlockElement;
 							$raw->Update($exist['ID'], array($el => $fields[$el]));
@@ -709,12 +714,17 @@
 			$sections = array();
 			$data     = array();
 			$array    = Array('IBLOCK_ID'=>$id, 'ACTIVE'=>'Y', '=<DEPTH_LEVEL'=>$depth, 'CHECK_PERMISSIONS' => 'N');
-			$raw      = CIBlockSection::GetList(Array("LEFT_MARGIN"=>"ASC"), $array, true, array('ID', 'NAME', 'XML_ID', 'DEPTH_LEVEL', 'IBLOCK_SECTION_ID'));
+			$sort     = Array("LEFT_MARGIN"=>"ASC");
+			if($depth == 1)
+				$sort = Array("ID"=>"ASC");
+			$raw      = CIBlockSection::GetList($sort, $array, true, array('ID', 'NAME', 'CODE', 'XML_ID', 'DEPTH_LEVEL', 'IBLOCK_SECTION_ID'));
 
 			while($section = $raw->GetNext()):
 				$sections[$section['ID']] = $section;
 			endwhile;
 			foreach ($sections as $s):
+				if(!isset($s['XML_ID']))
+					$s['XML_ID'] = $s['CODE'];
 				switch ($s['DEPTH_LEVEL']):
 					case '1':
 						$data[$s['XML_ID']] = $s['ID'];
@@ -777,7 +787,12 @@
 				"CODE"      => Cutil::translit($data["NAME"], "ru")
 			);
 			$array = array_merge($array, $data);
-			return $raw->Add($array);
+			if($id = $raw->Add($array)):
+				return $id;
+			else:
+				var_dump($raw->LAST_ERROR);
+			endif;
+
 		}
 
 		public function addIBlockElement($id, $data)
