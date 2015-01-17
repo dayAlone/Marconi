@@ -1,12 +1,54 @@
 <?
 	$_SERVER["DOCUMENT_ROOT"] = realpath(dirname(__FILE__)."/..");
 	require_once ($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include.php");
+	
 	define("NO_KEEP_STATISTIC", true);
 	define("NOT_CHECK_PERMISSIONS", true); 
+	
 	use Bitrix\Highloadblock as HL;
 	use Bitrix\Main\Entity;
+	
 	set_time_limit(0);
 	@ignore_user_abort(true);
+	
+	class Translit
+	{
+	    function Transliterate($string)
+	    {
+	        $cyr = array(
+	                "Щ",  "Ш", "Ч", "Ц","Ю", "Я", "Ж", "А","Б","В","Г","Д","Е","Ё","З","И","Й","К","Л","М","Н","О","П","Р","С","Т","У","Ф","Х", "Ь","Ы","Ъ","Э","Є","Ї",
+	                "щ",  "ш", "ч", "ц","ю", "я", "ж", "а","б","в","г","д","е","ё","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х", "ь","ы","ъ","э","є","ї"
+	        );
+	        $lat = array(
+	                "Shh","Sh","Ch","C","Ju","Ja","Zh","A","B","V","G","D","Je","Jo","Z","I","J","K","L","M","N","O","P","R","S","T","U","F","Kh","'","Y","`","E","Je","Ji",
+	                "shh","sh","ch","c","ju","ja","zh","a","b","v","g","d","je","jo","z","i","j","k","l","m","n","o","p","r","s","t","u","f","kh","'","y","`","e","je","ji"
+	        );
+	        for ($i=0; $i < count($cyr); $i++)
+	        {
+	            $c_cyr = $cyr[$i];
+	            $c_lat = $lat[$i];
+	            $string = str_replace($c_cyr, $c_lat, $string);
+	        }
+	        $string = preg_replace("/([qwrtpsdfghklzxcvbnmQWRTPSDFGHKLZXCVBNM]+)[jJ]e/", "\${1}e", $string);
+	        $string = preg_replace("/([qwrtpsdfghklzxcvbnmQWRTPSDFGHKLZXCVBNM]+)[jJ]/", "\${1}'", $string);
+	        $string = preg_replace("/([eyuioaEYUIOA]+)[Kk]h/", "\${1}h", $string);
+	        $string = preg_replace("/^kh/", "h", $string);
+	        $string = preg_replace("/^Kh/", "H", $string);
+	        return $string;
+	    }
+	    function UrlTranslit($string)
+	    {
+	        $string = preg_replace("/[_\s\.,?!\[\](){}]+/", "_", $string);
+	        $string = preg_replace("/-{2,}/", "__", $string);
+	        $string = preg_replace("/_-+_/", "__", $string);
+	        $string = preg_replace("/[_\-]+$/", "", $string);
+	        $string = Translit::Transliterate($string);
+	        $string = ToLower($string);
+	        $string = preg_replace("/j{2,}/", "j", $string);
+	        $string = preg_replace("/[^0-9a-z_\-]+/", "", $string);
+	        return $string;
+	    }
+	}
 	
 	class Properties
 	{
@@ -103,7 +145,7 @@
 			$this->categories = Import::getHighloadElements($this->iblocks['categories'], true);
 			$this->types      = Import::getHighloadElements($this->iblocks['types'], true);
 			$this->brands     = Import::getHighloadElements($this->iblocks['brands'], true);
-			$this->properties = Array("SORT", "PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_MATERIAL", "PROPERTY_PICTURES", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "PROPERTY_SECTION_4", "IBLOCK_SECTION", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL" );
+			$this->properties = Array("SORT", "PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_MATERIAL", "PROPERTY_SALE", "PROPERTY_PICTURES", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "PROPERTY_SECTION_4", "IBLOCK_SECTION", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL" );
 		}
 		private function addParentCatagory(&$parent, $array)
 		{
@@ -201,7 +243,7 @@
 				endforeach;
 				if(intval($sections['id'])>0)
 					$props['SECTION_'.$sections['id']] = $value;
-				$fields['IBLOCK_SECTION'][] = 150;
+				$fields['IBLOCK_SECTION'][] = $this->sections['all'];
 			endif;
 		}
 		private function getData($item)
@@ -229,8 +271,7 @@
 				'NOTE_FULL'  => preg_replace($this->remove, '', $tmp),
 				'COLOR'      => array(),
 				'MATERIAL'   => array(),
-				'PICTURES'   => array(),
-				'SALE'       => ""
+				'PICTURES'   => array()
 			);
 			
 			$raw = $item->getElementsByTagName('property');
@@ -244,7 +285,6 @@
 				switch ($id):
 					case 'material':
 					case 'color':
-					case 'sale':
 						$props[strtoupper($id)][] = $value;
 					break;
 					case 'SizeForWeb':
@@ -254,6 +294,7 @@
 					case 'size':
 						$props['OFFER_SIZE'] = $value;
 					break;
+					case 'sale':
 					case 'brand':
 						$props[strtoupper($id)] = $value;
 						break;
@@ -264,19 +305,19 @@
 				endswitch;
 			endforeach;
 
-			
-			
+			$this->getSections($propSections, $fields, $props);
+			if(isset($props["SALE"]))
+				$fields['IBLOCK_SECTION'][] = $this->sections['sale'];
+
 			$name = $note;
 			if($this->brands[$props['BRAND']]['NAME'])
 				$name .= ' '.$this->brands[$props['BRAND']]['NAME'];
 			$name .= ' '.str_replace($artnumber.' ','', $item->getElementsByTagName('name')->item(0)->nodeValue);
 
 			$fields["NAME"] = $name;
-			$fields["CODE"] = Cutil::translit($note." ". $item->getElementsByTagName('name')->item(0)->nodeValue, "ru");
-			var_dump($fields['CODE']);
-			die();
+			$fields["CODE"] = Translit::UrlTranslit($note." ". $item->getElementsByTagName('name')->item(0)->nodeValue);
 
-			$this->getSections($propSections, $fields, $props);
+			
 			$images = array_merge(glob($_SERVER['DOCUMENT_ROOT']."/import/photos/".$slug.".jpg"), glob($_SERVER['DOCUMENT_ROOT']."/import/photos/".$slug."_[0-9].jpg"));
 			
 			foreach ($images as $key=>$image):
@@ -302,7 +343,7 @@
 			
 			foreach ($data['items'] as $item):
 				$ids[] = $item->getAttribute('id');
-				$ids[] = Cutil::translit(substr($item->getElementsByTagName('namePrint')->item(0)->nodeValue, 0, strpos($item->getElementsByTagName('namePrint')->item(0)->nodeValue, $item->getElementsByTagName('artnumber')->item(0)->nodeValue)-1)." ".preg_replace($this->remove, '', $item->getElementsByTagName('name')->item(0)->nodeValue), "ru");
+				$ids[] = Translit::UrlTranslit(substr($item->getElementsByTagName('namePrint')->item(0)->nodeValue, 0, strpos($item->getElementsByTagName('namePrint')->item(0)->nodeValue, $item->getElementsByTagName('artnumber')->item(0)->nodeValue)-1)." ".preg_replace($this->remove, '', $item->getElementsByTagName('name')->item(0)->nodeValue));
 			endforeach;
 
 			$offers   = Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('PROPERTY_SIZE', "PROPERTY_CML2_LINK", "PROPERTY_CML2_LINK.XML_ID"));
@@ -337,8 +378,12 @@
 						$raw->Update($exist['ID'], array('PREVIEW_PICTURE'=>$props['PICTURES']['n0']['VALUE']));
 					endif;
 
+					if(!isset($exist['SALE']) && strlen($props['SALE'])>0):
+						$diff['SALE'] = $props['SALE'];
+					elseif(isset($exist['SALE']) && !isset($props['SALE'])):
+						$diff['SALE'] = false;
+					endif;
 					unset($diff['OFFER_SIZE']);
-					
 
 					foreach (array('COLOR', 'MATERIAL') as $el):
 						if(array_diff($props[$el], $exist[$el]) || (count($props[$el])!=count($exist[$el]))):
@@ -784,7 +829,7 @@
 			$array = Array(
 				"ACTIVE"    => "Y",
 				"IBLOCK_ID" => $id,
-				"CODE"      => Cutil::translit($data["NAME"], "ru")
+				"CODE"      => Translit::UrlTranslit($data["NAME"])
 			);
 			$array = array_merge($array, $data);
 			if($id = $raw->Add($array)):
