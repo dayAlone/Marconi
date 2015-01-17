@@ -70,9 +70,9 @@ $props = &$arResult['PROPERTIES'];
 $this->SetViewTarget('toolbar');
 ?>
 <div class="breadcrumbs">
-	<a class="breadcrumbs__brand" href="#" data-href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/" data-value="<?=$props['BRAND']['VALUE']?>"><?=$arResult['BRANDS'][$props['BRAND']['VALUE']]?></a>
+	<a class="breadcrumbs__brand" href="#" data-href="/catalog/<?=$item['SECTIONS'][0]['CODE']?>/" data-value="<?=$props['BRAND']['VALUE']?>"><?=$arResult['BRANDS'][$props['BRAND']['VALUE']]?></a>
 	<span>&rsaquo;</span>
-	<a href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/"><?=$item['SECTION']['PATH'][0]['NAME']?></a>
+	<a href="/catalog/<?=$item['SECTIONS'][0]['CODE']?>/"><?=$item['SECTIONS'][0]['NAME']?></a>
 	<?
 		$category = $props['SECTION_'.$arResult['CATEGORIES'][$item['SECTIONS'][1]['XML_ID']]];
 		$data = getFilterStringValues($category['ID'], $item['SECTION']['PATH'][0]['ID']);

@@ -8,6 +8,11 @@
 	$arResult['CATEGORIES'] = getHighloadElements('categories', 'UF_XML_ID', 'ID');
 	$arResult['SECTIONS']   = array();
 
+	$raw = CIBlockElement::GetElementGroups($arResult['ID']);
+	while($data = $raw->GetNext())
+		if(!in_array($data['CODE'], array('all', 'sale')))
+			$arResult['IBLOCK_SECTION_ID'] = $data['ID'];
+
 	$rsPath = GetIBlockSectionPath($arResult['IBLOCK_ID'], $arResult['IBLOCK_SECTION_ID']);
 	while($arPath = $rsPath->GetNext())
 		$arResult['SECTIONS'][] = $arPath;
