@@ -1,11 +1,11 @@
-<div id="feedback" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade">
+<div id="feedback" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade feedback">
   <div class="modal-dialog feedback__dialog">
     <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
     <div class="feedback__success">
       <h1 class="center">Ваше сообщение успешно отправлено. </h1>
       <p class="center">В ближайшее время представители нашей компании свяжутся с вами. Благодарим за обращение.</p>
     </div>
-    <form class="feedback__form visible" data-parsley-validate>
+    <form class="feedback__form" data-parsley-validate>
       <input type="hidden" name="group_id" value="5">
       <label>представьтесь, пожалуйста</label>
       <input name="name" type="text" required>

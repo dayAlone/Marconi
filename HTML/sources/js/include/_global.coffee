@@ -51,7 +51,9 @@ $(document).ready ->
 	$('a.captcha_refresh').click (e)->
 		getCaptcha()
 		e.preventDefault()
-	$('.feedback').elem('form').submit (e)->
+		
+	$('#feedback form').submit (e)->
+		e.preventDefault()
 		data = $(this).serialize()
 		$.post '/include/send.php', data,
 	        (data) ->
@@ -62,7 +64,7 @@ $(document).ready ->
 	        	else if data.status == "error"
 	        		$('input[name=captcha_word]').addClass('parsley-error')
 	        		getCaptcha()
-		e.preventDefault()
+		
 
 	if $('body.contacts').length > 0
 		

@@ -40509,10 +40509,11 @@ return PhotoSwipeUI_Default;
       getCaptcha();
       return e.preventDefault();
     });
-    $('.feedback').elem('form').submit(function(e) {
+    $('#feedback form').submit(function(e) {
       var data;
+      e.preventDefault();
       data = $(this).serialize();
-      $.post('/include/send.php', data, function(data) {
+      return $.post('/include/send.php', data, function(data) {
         data = $.parseJSON(data);
         if (data.status === "ok") {
           $('.feedback').elem('form').hide();
@@ -40522,7 +40523,6 @@ return PhotoSwipeUI_Default;
           return getCaptcha();
         }
       });
-      return e.preventDefault();
     });
     if ($('body.contacts').length > 0) {
       $.getScript('http://maps.googleapis.com/maps/api/js?sensor=true&callback=contactsInit', function() {
@@ -41527,7 +41527,9 @@ return PhotoSwipeUI_Default;
             }
           });
         }
-        return e.preventDefault();
+        if ($(this).parents('form').length === 0) {
+          return e.preventDefault();
+        }
       });
       initZoom = function() {
         return $('.picture').elem('big').easyZoom({

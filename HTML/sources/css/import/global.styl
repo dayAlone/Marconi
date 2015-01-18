@@ -202,6 +202,8 @@ svg
 			width 100%
 			border 1px solid #cccccc
 		input
+			&:focus
+				outline 0
 			+ label
 				margin-top 10px
 			&[type="text"], &[type="email"]
@@ -222,6 +224,8 @@ svg
 				margin-bottom 0
 				font-size 13px
 		textarea
+			&:focus
+				outline 0
 			min-height 80px
 			resize none
 			width 100%
@@ -229,6 +233,8 @@ svg
 			t border
 			text-align: center
 			padding 0 10px
+			&.parsley-error
+					border-color red
 			&:focus
 				border-color black
 	&__success

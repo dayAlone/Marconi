@@ -5415,6 +5415,9 @@ svg g {
   width: 100%;
   border: 1px solid #ccc;
 }
+.feedback__form input:focus {
+  outline: 0;
+}
 .feedback__form input + label {
   margin-top: 10px;
 }
@@ -5470,6 +5473,12 @@ svg g {
   transition-duration: 0.3s;
   text-align: center;
   padding: 0 10px;
+}
+.feedback__form textarea:focus {
+  outline: 0;
+}
+.feedback__form textarea.parsley-error {
+  border-color: #d10a32;
 }
 .feedback__form textarea:focus {
   border-color: #000;

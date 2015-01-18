@@ -17,7 +17,6 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
     				),
     				false
     			);
-
           else:
             $ref   = parse_url($_SERVER['HTTP_REFERER']);
             parse_str($ref['query'], $query);

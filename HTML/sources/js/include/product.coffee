@@ -45,7 +45,8 @@ $(document).ready ->
 					if data == 'success'
 						bx_cart_block1.refreshCart({})
 			
-			e.preventDefault()
+			if $(this).parents('form').length == 0
+				e.preventDefault()
 
 		initZoom = ->
 			$('.picture').elem('big').easyZoom

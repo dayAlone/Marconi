@@ -87,7 +87,9 @@
     </div>
 
 </div>
+
 <? require_once($_SERVER['DOCUMENT_ROOT'].'/include/form.php'); ?>
+
 <?$APPLICATION->ShowViewContent('footer');?>
 </body>
 </html>
