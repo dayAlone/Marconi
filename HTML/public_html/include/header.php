@@ -10,10 +10,11 @@
   $APPLICATION->AddHeadScript('/layout/js/frontend.js');
   $APPLICATION->ShowViewContent('header');?>
   <title><?php 
+    $rsSites = CSite::GetByID(SITE_ID);
+    $arSite  = $rsSites->Fetch();
     if($APPLICATION->GetCurDir() != '/') {
       $APPLICATION->ShowTitle();
-      $rsSites = CSite::GetByID(SITE_ID);
-      $arSite  = $rsSites->Fetch();
+      
       echo ' | ' . $arSite['NAME'];
     }
     else echo $arSite['NAME'];
