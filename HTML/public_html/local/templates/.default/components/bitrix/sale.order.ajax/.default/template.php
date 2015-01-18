@@ -151,7 +151,7 @@ if (!function_exists("cmpBySort"))
 			</div>
 		</div>
 		<div class="col-xs-4">
-			<div class="basket__block">
+			<div class="basket__block basket__block--profile">
 				<div class="basket__block-title">контактная информация</div>
 				<div class="row">
 				<? foreach ($arResult['ORDER_PROP']['USER_PROPS_Y'] as $prop):?>
