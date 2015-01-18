@@ -153,9 +153,13 @@ if (!function_exists("cmpBySort"))
 		<div class="col-xs-4">
 			<div class="basket__block">
 				<div class="basket__block-title">контактная информация</div>
+				<div class="row">
 				<? foreach ($arResult['ORDER_PROP']['USER_PROPS_Y'] as $prop):?>
-					<input type="text" value="<?=$prop["VALUE"]?>" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
+					<div class="col-xs-<?=($prop['SIZE1']==6?"6":"12")?>">
+						<input type="text" value="<?=$prop["VALUE"]?>" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
+					</div>
 				<? endforeach ?>
+				</div>
 				<textarea name="ORDER_DESCRIPTION" id="ORDER_DESCRIPTION" style="max-width:100%;min-height:120px" placeholder="комментарий к заказу"><?=$arResult["USER_VALS"]["ORDER_DESCRIPTION"]?></textarea>
 			</div>
 		</div>
