@@ -13,7 +13,7 @@
             <div id="video-1"></div>
         </div>
         <?endif;?>
-        <div style="background-image: url(<?=$item['PREVIEW_PICTURE']['SRC']?>)" class="lookbook__picture <?=($item['PREVIEW_PICTURE']['HEIGHT'] > $item['PREVIEW_PICTURE']['WIDTH'] || ($item['PREVIEW_PICTURE']['HEIGHT']/$item['PREVIEW_PICTURE']['WIDTH']) > 0.7 ?"lookbook__picture--contain":"")?>" data-height="<?=$item['PREVIEW_PICTURE']['HEIGHT']?>"  data-width="<?=$item['PREVIEW_PICTURE']['WIDTH']?>"></div>
+        <div style="background-image: url(<?=$item['PREVIEW_PICTURE']['SRC']?>), url(<?=$item['PREVIEW_PICTURE']['SMALL']?>)" class="lookbook__picture <?=($item['PREVIEW_PICTURE']['HEIGHT'] > $item['PREVIEW_PICTURE']['WIDTH'] || ($item['PREVIEW_PICTURE']['HEIGHT']/$item['PREVIEW_PICTURE']['WIDTH']) > 0.7 ?"lookbook__picture--contain":"")?>" data-height="<?=$item['PREVIEW_PICTURE']['HEIGHT']?>"  data-width="<?=$item['PREVIEW_PICTURE']['WIDTH']?>"></div>
         <?if(count($item['PROPERTIES']['PRODUCTS']['VALUE'])>0 && isset($item['PROPERTIES']['PRODUCTS']['VALUE'][0])):?>
           <div class="lookbook__divider"><span>на этом фото</span></div>
           <div class="catalog catalog--full-width catalog--without-images">
