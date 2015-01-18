@@ -29,7 +29,7 @@ $APPLICATION->SetTitle('Lookbook');
 						"SORT_ORDER1"    => "ASC",
 						"DETAIL_URL"     => "/lookbook/",
 						"CACHE_TYPE"     => "A",
-						'PROPERTY_CODE'  => array('PRODUCTS'),
+						'PROPERTY_CODE'  => array('PRODUCTS','VIDEO'),
 						"SET_TITLE"      => "N"
 					),
 					false

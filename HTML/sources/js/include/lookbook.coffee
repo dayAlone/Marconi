@@ -17,6 +17,11 @@ getElem = (fotorama, direction) ->
 	return el
 $(document).ready ->
 	if $('body').hasClass 'lookbook'
+		tag = document.createElement('script');
+		tag.src = "https://www.youtube.com/iframe_api";
+		firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
 		$('.row.enter').isotope
 			itemSelector : "[class*='col-']"
 			masonry:
@@ -27,31 +32,47 @@ $(document).ready ->
 			slider.show $(this).data('direction')
 			e.preventDefault()
 
-		$('.lookbook').elem('slider')
-			.on('fotorama:show', (e, fotorama, extra) ->
-				
-				el = $(fotorama.data[fotorama.activeIndex].html).find('.lookbook__picture')
-				if el.hasMod 'contain'
-					$('.lookbook').elem('slider-preview').mod 'width', true
-				else
-					$('.lookbook').elem('slider-preview').mod 'width', false
-				
-				size()
-
-				$('.lookbook').elem('slider-preview').each ->
-					if $(this).hasMod 'next'
-						el = getElem fotorama, 'prev'
-					if $(this).hasMod 'prev'
-						el = getElem fotorama, 'next'
+		
+		window.onYouTubeIframeAPIReady = ->
+			window.player = false
+			$('.lookbook').elem('slider')
+				.on('fotorama:show', (e, fotorama, extra) ->
+					if window.player
+						player.destroy()
+						window.player = false
+					video = $(fotorama.data[fotorama.activeIndex].html).find('.lookbook__slider-video')
+					if video.length > 0
+						window.player = new YT.Player video.find('div:first').attr('id'), { 
+							videoId    : video.data('id')
+							playerVars :
+								showinfo : 0
+							events     : 
+								onReady : (e)->
+									e.target.playVideo()
+					}
+	          
+					el = $(fotorama.data[fotorama.activeIndex].html).find('.lookbook__picture')
+					if el.hasMod 'contain'
+						$('.lookbook').elem('slider-preview').mod 'width', true
+					else
+						$('.lookbook').elem('slider-preview').mod 'width', false
 					
-					$(this).css
-						'background-image' : el.find('.lookbook__picture').css 'background-image'
-
-			)
-			.on('fotorama:showend', (e, fotorama, extra)->
-				delay 100, ->
 					size()
-					fotorama.resize
-						height : $(fotorama.activeFrame.html).outerHeight()
-			)
-			.fotorama()
+
+					$('.lookbook').elem('slider-preview').each ->
+						if $(this).hasMod 'next'
+							el = getElem fotorama, 'prev'
+						if $(this).hasMod 'prev'
+							el = getElem fotorama, 'next'
+						
+						$(this).css
+							'background-image' : el.find('.lookbook__picture').css 'background-image'
+
+				)
+				.on('fotorama:showend', (e, fotorama, extra)->
+					delay 100, ->
+						size()
+						fotorama.resize
+							height : $(fotorama.activeFrame.html).outerHeight()
+				)
+				.fotorama()

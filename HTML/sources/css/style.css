@@ -2324,6 +2324,15 @@ svg g {
   position: relative;
   z-index: 30;
 }
+.lookbook__slider iframe {
+  width: 100%;
+  min-height: 750px;
+}
+.lookbook__slider-video {
+  width: 100%;
+  height: 750px;
+  overflow: hidden;
+}
 .lookbook__slider-preview {
   position: absolute;
   min-height: 750px;
