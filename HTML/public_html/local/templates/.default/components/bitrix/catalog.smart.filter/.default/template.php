@@ -71,6 +71,7 @@ $this->setFrameMode(true);
 							<?echo $ar["CHECKED"]? 'checked="checked"': ''?>
 							onclick="smartFilter.click(this)"
 							style="color: <?=$arResult['COLORS'][$ar['VALUE']]?>"
+							data-color="<?=$arResult['COLORS'][$ar['VALUE']]?>"
 							class="color"
 							<?=($ar["DISABLED"]&&!preg_match("/SECTION_(.*)/", $arItem['CODE'])&&!$ar['CHECKED']?"disabled":"")?>
 						/>

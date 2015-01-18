@@ -785,8 +785,8 @@
     $('.filter input.color').off('ifCreated').on('ifCreated', function() {
       var color, el;
       el = $(this).parents('.icheckbox_color');
-      el.css('color', $(this).css('color'));
-      color = rgb2hex($(this).css('color'));
+      el.css('color', $(this).data('color'));
+      color = $(this).data('color').replace('#', '');
       el.addClass(color);
       $(this).addClass(color);
       return delay(300, function() {

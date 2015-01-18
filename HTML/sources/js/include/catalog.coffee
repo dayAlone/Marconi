@@ -70,8 +70,8 @@ initFiltres = ->
 	# Checkbox
 	$('.filter input.color').off('ifCreated').on 'ifCreated', ()->
 		el = $(this).parents('.icheckbox_color')
-		el.css( 'color', $(this).css('color') )
-		color = rgb2hex $(this).css('color')
+		el.css( 'color', $(this).data('color') )
+		color = $(this).data('color').replace('#','')
 		el.addClass color
 		$(this).addClass color
 		delay 300, ->
@@ -146,6 +146,7 @@ initFiltres = ->
 
 filterTimer   = false
 filterRequest = false
+
 getFilter = (el)->
 	if !$('.catalog').hasMod 'ajax'
 		if $('.catalog').elem('counter').is ':visible'
