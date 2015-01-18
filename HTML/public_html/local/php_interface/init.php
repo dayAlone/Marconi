@@ -246,7 +246,6 @@ function getHighloadElements($name, $key, $value)
 function getFilterStringValues($id, $section, $values)
 {
 	$current = COption::GetOptionString("main","getFilterStringValues_".$id."_".$value);
-	$time    = COption::GetOptionString("main","getFilterStringValues_".$id."_".$value."_time");
 	if(count($values)>0):
 		$string = "";
 		foreach ($values as $val)
