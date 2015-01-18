@@ -32,7 +32,7 @@ $APPLICATION->SetTitle('Новости');
 					"SORT_ORDER1"    => "DESC",
 					"DETAIL_URL"     => "/news/",
 					"CACHE_TYPE"     => "A",
-					'PROPERTY_CODE'  => array('TITLE'),
+					'PROPERTY_CODE'  => array('TITLE', 'PICTURES'),
 					"SET_TITLE"      => "N"
 				),
 				false
