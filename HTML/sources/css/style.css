@@ -4670,6 +4670,12 @@ svg g {
   border: 1px solid #d5dbdf;
   position: relative;
 }
+.basket__block--profile .row {
+  padding: 0 15px;
+}
+.basket__block--profile .row > [class*='col-'] {
+  padding: 0 5px;
+}
 .basket__block--loading {
   pointer-events: none;
 }
