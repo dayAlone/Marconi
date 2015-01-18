@@ -19,8 +19,15 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
     			);
 
           else:
+            $ref   = parse_url($_SERVER['HTTP_REFERER']);
+            parse_str($ref['query'], $query);
+            $link  = "/catalog/";
+            if(isset($matches[1]))
+              $link = "/catalog/".$matches[1]."/";
+            if($link==$ref['path']&&isset($query['PAGEN_1']))
+              $link .= "?PAGEN_1=".$query['PAGEN_1'];
             ?>
-          <a class="catalog__back" href="<?=(isset($matches[1])?"/catalog/".$matches[1]."/":"/catalog/")?>">
+          <a class="catalog__back" href="<?=$link?>">
             Вернуться в каталог
           </a>
           <?endif;
