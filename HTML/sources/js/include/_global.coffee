@@ -14,9 +14,15 @@ $(document).ready ->
 		clearTimeout scrollTimer
 		if !$('.scroll-fix').hasMod 'on'
 			$('.scroll-fix').mod 'on', true
-		scrollTimer = delay 300, ()->
+		scrollTimer = delay 400, ()->
 			$('.scroll-fix').mod 'on', false
 	
+	$('.catalog').elem('top').on('click', (e)->
+		$('html, body').animate({'scrollTop' : 0 },300)
+		e.preventDefault()
+	).scrollToFixed
+		marginTop: 20
+
 	# Card
 	$('a.catalog__card-button').click (e)->
 		block  = $('.catalog__card')

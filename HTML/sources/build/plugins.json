@@ -113,6 +113,9 @@
       "js":"/perfect-scrollbar/src/perfect-scrollbar.js",
       "css":"/perfect-scrollbar/src/perfect-scrollbar.css"
    },
+   "ScrollToFixed":{
+      "js":"/ScrollToFixed/jquery-scrolltofixed.js"
+   },
    "tooltip":{
       "js":"/tooltip/js/tooltip.js"
    },

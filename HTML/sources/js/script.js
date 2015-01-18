@@ -213,9 +213,17 @@
       if (!$('.scroll-fix').hasMod('on')) {
         $('.scroll-fix').mod('on', true);
       }
-      return scrollTimer = delay(300, function() {
+      return scrollTimer = delay(400, function() {
         return $('.scroll-fix').mod('on', false);
       });
+    });
+    $('.catalog').elem('top').on('click', function(e) {
+      $('html, body').animate({
+        'scrollTop': 0
+      }, 300);
+      return e.preventDefault();
+    }).scrollToFixed({
+      marginTop: 20
     });
     $('a.catalog__card-button').click(function(e) {
       var block, offset;

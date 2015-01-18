@@ -98,6 +98,7 @@ $arParams['USE_FILTER'] = (isset($arParams['USE_FILTER']) && $arParams['USE_FILT
 			);?><?
 		}
 		?>
+		<a href="#" class="catalog__top"><?=svg('arrow')?> Наверх</a>
 	</div>
 	<div class="col-xs-9 col-lg-10">
 		<?

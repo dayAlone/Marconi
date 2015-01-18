@@ -230,6 +230,11 @@ $this->EndViewTarget();
 	            <?
 	            if(isset($arResult['MIN_PRICE']['VALUE'])&&intval($arResult['MIN_PRICE']['VALUE'])!=0): ?>
 			      <strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?></strong> ₷
+			      <?if(strlen($props['SALE']['VALUE'])>0):?>
+			      <div class="product__sale">
+			      	<span>Уникальная</span><br><span>цена</span>
+			      </div>
+			      <?endif;?>
 			    <? else: ?>
 			      <small>Товара нет в наличии</small>
 			    <? endif; ?>

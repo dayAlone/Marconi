@@ -1,18 +1,17 @@
 .product
-	.breadcrumbs
-		full-width()
-		border-top 1px solid #d5dbde
-		border-bottom 1px solid #d5dbde
-		line-height 35px
-		height 32px
-		text-align: center
+	&__sale
+		font-size 8px
+		display inline-block
+		line-height 10px
+		position relative
+		top -1px
 		span
-			margin 0 5px
-		a
-			color black
-			font-size 13px
-			&:hover
-				color red
+			padding 0px 4px 0
+			&:first-of-type
+				padding-top 4px
+			
+			background red
+			color white
 	&__title
 		text-transform: uppercase
 		margin-top 0
@@ -52,11 +51,24 @@
 			background red
 			color white
 			box-shadow 0 0 0 1px red
-		
 	&__description
 		padding-left 22px
 		margin-left -22px
 		//border-left 2px solid black
+	.breadcrumbs
+		full-width()
+		border-top 1px solid #d5dbde
+		border-bottom 1px solid #d5dbde
+		line-height 35px
+		height 32px
+		text-align: center
+		span
+			margin 0 5px
+		a
+			color black
+			font-size 13px
+			&:hover
+				color red
 	.picture
 		width 100%
 		margin-bottom 30px
