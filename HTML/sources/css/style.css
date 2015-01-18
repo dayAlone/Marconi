@@ -4671,7 +4671,7 @@ svg g {
   position: relative;
 }
 .basket__block--profile .row {
-  padding: 0 15px;
+  padding: 0 5px;
 }
 .basket__block--profile .row > [class*='col-'] {
   padding: 0 5px;
