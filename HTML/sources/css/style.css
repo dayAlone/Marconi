@@ -2513,9 +2513,6 @@ svg g {
   line-height: 33px;
   font-size: 11px;
   letter-spacing: 2px;
-  opacity: 0.2;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
-  filter: alpha(opacity=20);
   -webkit-transition-property: color, border, opacity;
   -moz-transition-property: color, border, opacity;
   -o-transition-property: color, border, opacity;
