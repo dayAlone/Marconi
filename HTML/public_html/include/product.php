@@ -13,6 +13,10 @@
 	      <small>Товара нет в наличии</small>
 	    <? endif; ?>
 	    </div>
+	    <?
+	    if(strlen($item['PROPERTIES']['SALE']['VALUE'])>0): ?>
+	    <div class="product__sale">Уникальная цена</div>
+	    <? endif; ?>
 	  </div>
 	  <div class="product__hidden">
 	    <div class="product__frame"></div>
