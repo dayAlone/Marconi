@@ -41054,7 +41054,8 @@ return PhotoSwipeUI_Default;
           complete: function() {
             $(this).remove();
             return $.cookie('card', 'Y', {
-              path: "/"
+              path: "/",
+              expires: 7
             });
           }
         }

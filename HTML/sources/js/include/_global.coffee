@@ -40,7 +40,7 @@ $(document).ready ->
 				duration: 300
 				complete: ->
 					$(this).remove()
-					$.cookie('card', 'Y',{path:"/"})
+					$.cookie('card', 'Y',{path:"/", expires: 7})
 		
 		$('.catalog__card-frame, a.catalog__card-button, .catalog__card-text').css(
 			opacity: 0
