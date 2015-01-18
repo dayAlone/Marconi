@@ -2871,6 +2871,13 @@ svg g {
   z-index: 20;
   background: #fff;
 }
+.catalog .product--hover .product__sale {
+  -webkit-transform: scale(0.85);
+  -moz-transform: scale(0.85);
+  -o-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
+}
 .catalog .product--hover .product__picture {
   -webkit-transform: scale(1.03);
   -moz-transform: scale(1.03);
@@ -2922,6 +2929,16 @@ svg g {
   -webkit-border-radius: 50%;
   border-radius: 50%;
   padding-top: 34px;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  -ms-transition-property: -ms-transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 .catalog .product__frame {
   position: absolute;
