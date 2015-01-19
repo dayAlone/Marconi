@@ -118,20 +118,23 @@ initFiltres = ->
 		e.preventDefault()	
 	
 	# Range
-	$("input.range__from, input.range__to").on 'input', (e)->
+	$("input.range__from, input.range__to").on('input', (e)->
 		if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
 			return false
-		slider = $("input[name=range]").data("ionRangeSlider")
-		
-		if parseInt($("input.range__from").val()) < slider.result.min
-			$("input.range__from").val slider.result.min
+		).on 'focusout', ->
+			slider = $("input[name=range]").data("ionRangeSlider")
+			
+			if parseInt($("input.range__from").val()) < slider.result.min
+				$("input.range__from").val slider.result.min
 
-		if parseInt($("input.range__to").val()) > slider.result.max
-			$("input.range__to").val slider.result.max
+			if parseInt($("input.range__to").val()) > slider.result.max
+				$("input.range__to").val slider.result.max
 
-		slider.update
-			from : parseInt $("input.range__from").val()
-			to   : parseInt $("input.range__to").val()
+			slider.update
+				from : parseInt $("input.range__from").val()
+				to   : parseInt $("input.range__to").val()
+
+			getFilter $("input.range__to")
 	
 	$(".filter__content input[name=range]").ionRangeSlider
 		type: "double"

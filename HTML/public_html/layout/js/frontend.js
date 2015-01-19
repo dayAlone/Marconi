@@ -41662,10 +41662,11 @@ return PhotoSwipeUI_Default;
       return e.preventDefault();
     });
     $("input.range__from, input.range__to").on('input', function(e) {
-      var slider;
       if ((e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37, 38, 39, 40, 13, 27, 9, 8, 46]) === -1) {
         return false;
       }
+    }).on('focusout', function() {
+      var slider;
       slider = $("input[name=range]").data("ionRangeSlider");
       if (parseInt($("input.range__from").val()) < slider.result.min) {
         $("input.range__from").val(slider.result.min);
@@ -41673,10 +41674,11 @@ return PhotoSwipeUI_Default;
       if (parseInt($("input.range__to").val()) > slider.result.max) {
         $("input.range__to").val(slider.result.max);
       }
-      return slider.update({
+      slider.update({
         from: parseInt($("input.range__from").val()),
         to: parseInt($("input.range__to").val())
       });
+      return getFilter($("input.range__to"));
     });
     return $(".filter__content input[name=range]").ionRangeSlider({
       type: "double",
