@@ -60,9 +60,9 @@ $(document).ready ->
 	# About
 	$('.about').elem('slider').on('fotorama:show', (e, fotorama, extra) ->
 		item = $(fotorama.data[fotorama.activeIndex].html)
-		if item.data 'dark' == 'Y'
+		if item.data('dark') == 'Y'
 			$('.about').mod 'white', true
-		else
+		else if $('.about').hasMod 'white'
 			$('.about').mod 'white', false
 		$('.about').elem('slider-arrow').off('click').on 'click', (e)->
 			slider = $('.about').elem('slider').data('fotorama')

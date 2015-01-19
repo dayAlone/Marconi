@@ -24283,7 +24283,6 @@ $('#el').spin('flower', 'red');
         indeterminate: input.attr(_indeterminate) == 'true' || input.attr(_determinate) == 'false'
       } : node[state];
 
-    console.log(input)
     // Check, disable or indeterminate
     if (/^(ch|di|in)/.test(method) && !active) {
       on(input, state);
@@ -31175,7 +31174,7 @@ if ('undefined' !== typeof window.ParsleyValidator)
     });
 }));
 
-/*! PhotoSwipe - v4.0.2 - 2015-01-03
+/*! PhotoSwipe - v4.0.5 - 2015-01-15
 * http://photoswipe.com
 * Copyright (c) 2015 Dmitry Semenov; */
 (function (root, factory) { 
@@ -31513,6 +31512,7 @@ var _options = {
     		return item.initialZoomLevel < 0.7 ? 1 : 1.5;
     	}
     },
+    maxSpreadZoom: 2,
 
 	// not fully implemented yet
 	scaleMode: 'fit', // TODO
@@ -31548,6 +31548,7 @@ var _isOpen,
 	_translatePrefix,
 	_translateSufix,
 	_updateSizeInterval,
+	_itemsNeedUpdate,
 	_currPositionIndex = 0,
 	_offset,
 	_slideSize = _getEmptyPoint(), // size of slide area, including spacing
@@ -31726,6 +31727,19 @@ var _isOpen,
 			_currPanBounds = bounds;
 		}
 		return bounds;
+	},
+	
+	_getMinZoomLevel = function(item) {
+		if(!item) {
+			item = self.currItem;
+		}
+		return item.initialZoomLevel;
+	},
+	_getMaxZoomLevel = function(item) {
+		if(!item) {
+			item = self.currItem;
+		}
+		return item.w > 0 ? _options.maxSpreadZoom : 1;
 	},
 
 	// Return true if offset is out of the bounds
@@ -32237,7 +32251,9 @@ var publicMethods = {
 		}
 	},
 
+
 	invalidateCurrItems: function() {
+		_itemsNeedUpdate = true;
 		for(var i = 0; i < NUM_HOLDERS; i++) {
 			if( _itemHolders[i].item ) {
 				_itemHolders[i].item.needsUpdate = true;
@@ -32354,22 +32370,28 @@ var publicMethods = {
 				holder = _itemHolders[i];
 				_setTranslateX( (i+_containerShiftIndex) * _slideSize.x, holder.el.style);
 
-				hIndex = holder.index === -1 ? (_currentItemIndex+i-1) : holder.index;
+				hIndex = _getLoopedId(_currentItemIndex+i-1);
 
 				// update zoom level on items and refresh source (if needsUpdate)
 				item = _getItemAt( hIndex );
 
-				if(item.needsUpdate) {
+				// re-render gallery item if `needsUpdate`,
+				// or doesn't have `bounds` (entirely new slide object)
+				if(_itemsNeedUpdate || item.needsUpdate || !item.bounds) {
 
-					self.cleanSlide( item ); 
+					if(item) {
+						self.cleanSlide( item );
+					}
+					
 					self.setContent( holder, hIndex );
 
 					// if "center" slide
 					if(i === 1) {
+						self.currItem = item;
 						self.updateCurrZoomItem(true);
 					}
 
-					item.needsUpdate  = false;
+					item.needsUpdate = false;
 				} else if(holder.index === -1 && hIndex >= 0) {
 					// add content first time
 					self.setContent( holder, hIndex );
@@ -32380,6 +32402,7 @@ var publicMethods = {
 				}
 				
 			}
+			_itemsNeedUpdate = false;
 		}	
 
 		_startZoomLevel = _currZoomLevel = self.currItem.initialZoomLevel;
@@ -32942,32 +32965,35 @@ var _gestureStartTime,
 			}
 
 			// Apply the friction if zoom level is out of the bounds
-			var zoomFriction = 1;
-			if ( zoomLevel < self.currItem.minZoom ) {
+			var zoomFriction = 1,
+				minZoomLevel = _getMinZoomLevel(),
+				maxZoomLevel = _getMaxZoomLevel();
+
+			if ( zoomLevel < minZoomLevel ) {
 				
 				if(_options.pinchToClose && !_wasOverInitialZoom && _startZoomLevel <= self.currItem.initialZoomLevel) {
 					// fade out background if zooming out
-					var minusDiff = self.currItem.minZoom - zoomLevel;
-					var percent = 1 - minusDiff / (self.currItem.minZoom / 1.2);
+					var minusDiff = minZoomLevel - zoomLevel;
+					var percent = 1 - minusDiff / (minZoomLevel / 1.2);
 
 					_applyBgOpacity(percent);
 					_shout('onPinchClose', percent);
 					_opacityChanged = true;
 				} else {
-					zoomFriction = (self.currItem.minZoom - zoomLevel) / (self.currItem.minZoom);
+					zoomFriction = (minZoomLevel - zoomLevel) / minZoomLevel;
 					if(zoomFriction > 1) {
 						zoomFriction = 1;
 					}
-					zoomLevel = self.currItem.minZoom - (zoomFriction) * (self.currItem.minZoom / 3);
+					zoomLevel = minZoomLevel - zoomFriction * (minZoomLevel / 3);
 				}
 				
-			} else if ( zoomLevel > self.currItem.maxZoom ) {
+			} else if ( zoomLevel > maxZoomLevel ) {
 				// 1.5 - extra zoom level above the max. E.g. if max is x6, real max 6 + 1.5 = 7.5
-				zoomFriction = (zoomLevel - self.currItem.maxZoom) / ( self.currItem.minZoom * 6 );
+				zoomFriction = (zoomLevel - maxZoomLevel) / ( minZoomLevel * 6 );
 				if(zoomFriction > 1) {
 					zoomFriction = 1;
 				}
-				zoomLevel = self.currItem.maxZoom + (zoomFriction) * (self.currItem.minZoom);
+				zoomLevel = maxZoomLevel + zoomFriction * minZoomLevel;
 			}
 
 			if(zoomFriction < 0) {
@@ -33500,19 +33526,21 @@ var _gestureStartTime,
 
 	// Resets zoom if it's out of bounds
 	_completeZoomGesture = function() {
-		var destZoomLevel = _currZoomLevel;
+		var destZoomLevel = _currZoomLevel,
+			minZoomLevel = _getMinZoomLevel(),
+			maxZoomLevel = _getMaxZoomLevel();
 
-		if ( _currZoomLevel < self.currItem.minZoom ) {
-			destZoomLevel = self.currItem.minZoom;
-		} else if ( _currZoomLevel > self.currItem.maxZoom ) {
-			destZoomLevel = self.currItem.maxZoom;
+		if ( _currZoomLevel < minZoomLevel ) {
+			destZoomLevel = minZoomLevel;
+		} else if ( _currZoomLevel > maxZoomLevel ) {
+			destZoomLevel = maxZoomLevel;
 		}
 
 		var destOpacity = 1,
 			onUpdate,
 			initialOpacity = _bgOpacity;
 
-		if(_opacityChanged && !_isZoomingIn && !_wasOverInitialZoom && _currZoomLevel < self.currItem.minZoom) {
+		if(_opacityChanged && !_isZoomingIn && !_wasOverInitialZoom && _currZoomLevel < minZoomLevel) {
 			//_closedByScroll = true;
 			self.close();
 			return true;
@@ -33868,7 +33896,7 @@ var _getItemAt,
 				var vRatio = _tempPanAreaSize.y / item.h;
 
 				item.fitRatio = hRatio < vRatio ? hRatio : vRatio;
-				item.fillRatio = hRatio > vRatio ? hRatio : vRatio;
+				//item.fillRatio = hRatio > vRatio ? hRatio : vRatio;
 
 				var scaleMode = _options.scaleMode;
 
@@ -33876,19 +33904,17 @@ var _getItemAt,
 					zoomLevel = 1;
 				} else if (scaleMode === 'fit') {
 					zoomLevel = item.fitRatio;
-				} else if (scaleMode === 'fill') {
-					zoomLevel = item.fillRatio;
 				}
 
 				if (zoomLevel > 1) {
 					zoomLevel = 1;
 				}
+
 				item.initialZoomLevel = zoomLevel;
-				item.maxZoom = 2;
-				item.minZoom = zoomLevel;
 				
 				if(!item.bounds) {
-					item.bounds = _getZeroBounds(); // reuse bounds object
+					// reuse bounds object
+					item.bounds = _getZeroBounds(); 
 				}
 			}
 
@@ -33905,7 +33931,7 @@ var _getItemAt,
 			return item.bounds;
 		} else {
 			item.w = item.h = 0;
-			item.initialZoomLevel = item.maxZoom = item.minZoom = item.fitRatio = item.fillRatio = 1;
+			item.initialZoomLevel = item.fitRatio = 1;
 			item.bounds = _getZeroBounds();
 			item.initialPosition = item.bounds.center;
 
@@ -34789,7 +34815,7 @@ _registerModule('History', {
 	framework.extend(self, publicMethods); };
 	return PhotoSwipe;
 });
-/*! PhotoSwipe Default UI - 4.0.2 - 2015-01-02
+/*! PhotoSwipe Default UI - 4.0.5 - 2015-01-15
 * http://photoswipe.com
 * Copyright (c) 2015 Dmitry Semenov; */
 /**
@@ -34865,6 +34891,8 @@ var PhotoSwipeUI_Default =
 			tapToClose: false,
 			tapToToggleControls: true,
 
+			clickToCloseNonZoomable: true,
+
 			shareButtons: [
 				{id:'facebook', label:'Share on Facebook', url:'https://www.facebook.com/sharer/sharer.php?u={{url}}'},
 				{id:'twitter', label:'Tweet', url:'https://twitter.com/intent/tweet?text={{text}}&url={{url}}'},
@@ -34897,6 +34925,11 @@ var PhotoSwipeUI_Default =
 
 
 			e = e || window.event;
+
+			if(_options.timeToIdle && _options.mouseUsed && !_isIdle) {
+				// reset idle timer
+				_onIdleMouseMove();
+			}
 
 
 			var target = e.target || e.srcElement,
@@ -35471,6 +35504,10 @@ var PhotoSwipeUI_Default =
 			_overlayUIUpdated = false;
 		}
 
+		if(!_shareModalHidden) {
+			_toggleShareModal();
+		}
+
 		_countNumItems();
 	};
 
@@ -35499,11 +35536,14 @@ var PhotoSwipeUI_Default =
 			// close gallery if clicked outside of the image
 			if(_hasCloseClass(target)) {
 				pswp.close();
+				return;
 			}
 
 			if(framework.hasClass(target, 'pswp__img')) {
 				if(pswp.getZoomLevel() === 1 && pswp.getZoomLevel() <= pswp.currItem.fitRatio) {
-					pswp.close();
+					if(_options.clickToCloseNonZoomable) {
+						pswp.close();
+					}
 				} else {
 					pswp.toggleDesktopZoom(e.detail.releasePoint);
 				}
@@ -37591,6 +37631,7 @@ return PhotoSwipeUI_Default;
 	var classPrefix = prefix + '__';
 	var openClass = prefix + '_opened';
 	var protocol = location.protocol === 'https:' ? 'https:' : 'http:';
+	var isHttps = protocol === 'https:';
 
 
 	/**
@@ -37658,7 +37699,9 @@ return PhotoSwipeUI_Default;
 			popupHeight: 330
 		},
 		odnoklassniki: {
-			counterUrl: protocol + '//www.ok.ru/dk?st.cmd=extLike&ref={url}&uid={index}',
+			// connect.ok.ru works on mobiles but doesn’t work with HTTPS
+			// www.ok.ru works with HTTPS but redirects to HTML page on mobiles
+			counterUrl: (isHttps ? 'https://www' : 'http://connect') + '.ok.ru/dk?st.cmd=extLike&ref={url}&uid={index}',
 			counter: function(jsonUrl, deferred) {
 				var options = services.odnoklassniki;
 				if (!options._) {
@@ -37680,7 +37723,7 @@ return PhotoSwipeUI_Default;
 		},
 		plusone: {
 			// HTTPS not supported yet: http://clubs.ya.ru/share/1499
-			counterUrl: protocol === 'http:' ? 'http://share.yandex.ru/gpp.xml?url={url}' : undefined,
+			counterUrl: isHttps ? undefined : 'http://share.yandex.ru/gpp.xml?url={url}',
 			counter: function(jsonUrl, deferred) {
 				var options = services.plusone;
 				if (options._) {
@@ -37862,7 +37905,7 @@ return PhotoSwipeUI_Default;
 			widget.append(button);
 			wrapper.append(widget);
 
-			widget.click(function() {
+			widget.on('click', function() {
 				var activeClass = prefix + '__widget_active';
 				widget.toggleClass(activeClass);
 				if (widget.hasClass(activeClass)) {
@@ -38019,7 +38062,7 @@ return PhotoSwipeUI_Default;
 				this.widget = widget = link;
 			}
 			else {
-				widget.click($.proxy(this.click, this));
+				widget.on('click', $.proxy(this.click, this));
 			}
 
 			widget.removeClass(this.service);
@@ -38062,6 +38105,9 @@ return PhotoSwipeUI_Default;
 		},
 
 		updateCounter: function(number) {
+			if (typeof number === 'string') {
+				number = number.replace(/\D/g, '');
+			}
 			number = parseInt(number, 10) || 0;
 
 			var params = {

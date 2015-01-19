@@ -276,9 +276,9 @@
     $('.about').elem('slider').on('fotorama:show', function(e, fotorama, extra) {
       var item;
       item = $(fotorama.data[fotorama.activeIndex].html);
-      if (item.data('dark' === 'Y')) {
+      if (item.data('dark') === 'Y') {
         $('.about').mod('white', true);
-      } else {
+      } else if ($('.about').hasMod('white')) {
         $('.about').mod('white', false);
       }
       return $('.about').elem('slider-arrow').off('click').on('click', function(e) {
