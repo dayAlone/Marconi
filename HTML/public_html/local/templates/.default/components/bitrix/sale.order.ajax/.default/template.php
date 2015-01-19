@@ -156,7 +156,7 @@ if (!function_exists("cmpBySort"))
 				<div class="row">
 				<? foreach ($arResult['ORDER_PROP']['USER_PROPS_Y'] as $prop):?>
 					<div class="col-xs-<?=($prop['SIZE1']==6?"6":"12")?>">
-						<input type="text" value="<?=$prop["VALUE"]?>" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
+						<input type="text" value="<?=$prop["VALUE"]?>" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=="Y"?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
 					</div>
 				<? endforeach ?>
 				</div>
