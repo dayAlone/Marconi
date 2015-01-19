@@ -5604,11 +5604,11 @@ svg g {
 .about--white .header a:hover {
   text-decoration: none;
 }
+.about--white .header .logo {
+  background: transparent;
+}
 .about--white .header .logo__line {
   background: #fff;
-}
-.about--white .header .logo a {
-  background: transparent;
 }
 .about .nav__item:nth-child(1) {
   background: #fff;
