@@ -11,7 +11,8 @@ $APPLICATION->SetTitle('О бренде');
 	    "DETAIL_URL"          => "/about/",
 	    "CACHE_TYPE"          => "A",
 	    "DISPLAY_PANEL"       => "N",
-	    "SET_TITLE"           => "N"
+	    "SET_TITLE"           => "N",
+	    "PROPERTY_FIELD"      => array('DARK')
        ),
        false
     );
