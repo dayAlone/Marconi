@@ -133,7 +133,6 @@ initFiltres = ->
 			slider.update
 				from : parseInt $("input.range__from").val()
 				to   : parseInt $("input.range__to").val()
-
 			getFilter $("input.range__to")
 	
 	$(".filter__content input[name=range]").ionRangeSlider

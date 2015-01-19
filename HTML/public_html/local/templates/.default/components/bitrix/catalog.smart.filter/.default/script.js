@@ -44,25 +44,6 @@ JCSmartFilter.prototype.postHandler = function (result)
 {
 	if(result.ITEMS)
 	{
-		for(var PID in result.ITEMS)
-		{
-			var arItem = result.ITEMS[PID];
-			if(arItem.PROPERTY_TYPE == 'N' || arItem.PRICE)
-			{
-			}
-			else if(arItem.VALUES)
-			{
-				for(var i in arItem.VALUES)
-				{
-					var ar = arItem.VALUES[i];
-					var control = BX(ar.CONTROL_ID);
-					if(control)
-					{
-						control.parentNode.className = ar.DISABLED? 'lvl2 lvl2_disabled': 'lvl2';
-					}
-				}
-			}
-		}
 		var modef = BX('modef');
 		var modef_num = BX('modef_num');
 		if(modef && modef_num)

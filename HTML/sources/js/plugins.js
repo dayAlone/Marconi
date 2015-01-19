@@ -24283,6 +24283,7 @@ $('#el').spin('flower', 'red');
         indeterminate: input.attr(_indeterminate) == 'true' || input.attr(_determinate) == 'false'
       } : node[state];
 
+    console.log(input)
     // Check, disable or indeterminate
     if (/^(ch|di|in)/.test(method) && !active) {
       on(input, state);
