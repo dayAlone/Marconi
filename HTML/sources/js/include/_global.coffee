@@ -17,46 +17,11 @@ $(document).ready ->
 		scrollTimer = delay 400, ()->
 			$('.scroll-fix').mod 'on', false
 	
-	$('.catalog').elem('top').on('click', (e)->
-		$('html, body').animate({'scrollTop' : 0 },300)
-		e.preventDefault()
-	).scrollToFixed
-		marginTop: 20
-
-	# Card
-	$('a.catalog__card-button').click (e)->
-		block  = $('.catalog__card')
-		offset = block.offset()
-		offset.top -= $('.header .cart').offset().top - block.height()/2
-		offset.left -= $('.header .cart').offset().left - block.width()/2
-
-		block.velocity
-			properties: 
-				translateX : -offset.left
-				translateY : -offset.top
-				opacity    : .2
-				scale      : 0
-			options:
-				duration: 300
-				complete: ->
-					$(this).remove()
-					$.cookie('card', 'Y',{path:"/", expires: 7})
-		
-		$('.catalog__card-frame, a.catalog__card-button, .catalog__card-text').css(
-			opacity: 0
-		).on end, ->
-			$(this).remove()
-		e.preventDefault()
-	$('body').on 'mousewheel', (e)->
-		if $(e.target).hasClass 'catalog__card-frame'
-			e.preventDefault();
-			e.stopPropagation();
-	
-	
-	# Contacts
 	$('a.captcha_refresh').click (e)->
 		getCaptcha()
 		e.preventDefault()
+	
+	# Contacts
 		
 	$('#feedback form').submit (e)->
 		e.preventDefault()
@@ -92,9 +57,13 @@ $(document).ready ->
 						scaledSize : new google.maps.Size(40, 35)
 					animation : google.maps.Animation.DROP
 	
-
 	# About
 	$('.about').elem('slider').on('fotorama:show', (e, fotorama, extra) ->
+		item = $(fotorama.data[fotorama.activeIndex].html)
+		if item.data 'dark' == 'Y'
+			$('.about').mod 'white', true
+		else
+			$('.about').mod 'white', false
 		$('.about').elem('slider-arrow').off('click').on 'click', (e)->
 			slider = $('.about').elem('slider').data('fotorama')
 			slider.show $(this).data('direction')

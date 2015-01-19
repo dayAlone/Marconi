@@ -257,3 +257,39 @@ $(document).ready ->
 			$.cookie('BRAND', null)
 		
 		window.location.reload()
+
+	# Card
+	$('a.catalog__card-button').click (e)->
+		block  = $('.catalog__card')
+		offset = block.offset()
+		offset.top -= $('.header .cart').offset().top - block.height()/2
+		offset.left -= $('.header .cart').offset().left - block.width()/2
+
+		block.velocity
+			properties: 
+				translateX : -offset.left
+				translateY : -offset.top
+				opacity    : .2
+				scale      : 0
+			options:
+				duration: 300
+				complete: ->
+					$(this).remove()
+					$.cookie('card', 'Y',{path:"/", expires: 7})
+		
+		$('.catalog__card-frame, a.catalog__card-button, .catalog__card-text').css(
+			opacity: 0
+		).on end, ->
+			$(this).remove()
+		e.preventDefault()
+	$('body').on 'mousewheel', (e)->
+		if $(e.target).hasClass 'catalog__card-frame'
+			e.preventDefault();
+			e.stopPropagation();
+	
+	# Top button
+	$('.catalog').elem('top').on('click', (e)->
+		$('html, body').animate({'scrollTop' : 0 },300)
+		e.preventDefault()
+	).scrollToFixed
+		marginTop: 20

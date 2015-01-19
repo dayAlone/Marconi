@@ -217,51 +217,6 @@
         return $('.scroll-fix').mod('on', false);
       });
     });
-    $('.catalog').elem('top').on('click', function(e) {
-      $('html, body').animate({
-        'scrollTop': 0
-      }, 300);
-      return e.preventDefault();
-    }).scrollToFixed({
-      marginTop: 20
-    });
-    $('a.catalog__card-button').click(function(e) {
-      var block, offset;
-      block = $('.catalog__card');
-      offset = block.offset();
-      offset.top -= $('.header .cart').offset().top - block.height() / 2;
-      offset.left -= $('.header .cart').offset().left - block.width() / 2;
-      block.velocity({
-        properties: {
-          translateX: -offset.left,
-          translateY: -offset.top,
-          opacity: .2,
-          scale: 0
-        },
-        options: {
-          duration: 300,
-          complete: function() {
-            $(this).remove();
-            return $.cookie('card', 'Y', {
-              path: "/",
-              expires: 7
-            });
-          }
-        }
-      });
-      $('.catalog__card-frame, a.catalog__card-button, .catalog__card-text').css({
-        opacity: 0
-      }).on(end, function() {
-        return $(this).remove();
-      });
-      return e.preventDefault();
-    });
-    $('body').on('mousewheel', function(e) {
-      if ($(e.target).hasClass('catalog__card-frame')) {
-        e.preventDefault();
-        return e.stopPropagation();
-      }
-    });
     $('a.captcha_refresh').click(function(e) {
       getCaptcha();
       return e.preventDefault();
@@ -319,6 +274,13 @@
       });
     }
     $('.about').elem('slider').on('fotorama:show', function(e, fotorama, extra) {
+      var item;
+      item = $(fotorama.data[fotorama.activeIndex].html);
+      if (item.data('dark' === 'Y')) {
+        $('.about').mod('white', true);
+      } else {
+        $('.about').mod('white', false);
+      }
       return $('.about').elem('slider-arrow').off('click').on('click', function(e) {
         var slider;
         slider = $('.about').elem('slider').data('fotorama');
@@ -1013,7 +975,7 @@
         }
       }
     });
-    return $('.brand-select .dropdown .dropdown__item').click(function(e) {
+    $('.brand-select .dropdown .dropdown__item').click(function(e) {
       if ($(this).data('id').length > 0) {
         $.cookie('BRAND', $(this).data('id'), {
           path: "/"
@@ -1022,6 +984,51 @@
         $.cookie('BRAND', null);
       }
       return window.location.reload();
+    });
+    $('a.catalog__card-button').click(function(e) {
+      var block, offset;
+      block = $('.catalog__card');
+      offset = block.offset();
+      offset.top -= $('.header .cart').offset().top - block.height() / 2;
+      offset.left -= $('.header .cart').offset().left - block.width() / 2;
+      block.velocity({
+        properties: {
+          translateX: -offset.left,
+          translateY: -offset.top,
+          opacity: .2,
+          scale: 0
+        },
+        options: {
+          duration: 300,
+          complete: function() {
+            $(this).remove();
+            return $.cookie('card', 'Y', {
+              path: "/",
+              expires: 7
+            });
+          }
+        }
+      });
+      $('.catalog__card-frame, a.catalog__card-button, .catalog__card-text').css({
+        opacity: 0
+      }).on(end, function() {
+        return $(this).remove();
+      });
+      return e.preventDefault();
+    });
+    $('body').on('mousewheel', function(e) {
+      if ($(e.target).hasClass('catalog__card-frame')) {
+        e.preventDefault();
+        return e.stopPropagation();
+      }
+    });
+    return $('.catalog').elem('top').on('click', function(e) {
+      $('html, body').animate({
+        'scrollTop': 0
+      }, 300);
+      return e.preventDefault();
+    }).scrollToFixed({
+      marginTop: 20
     });
   });
 

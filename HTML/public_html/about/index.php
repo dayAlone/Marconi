@@ -12,7 +12,7 @@ $APPLICATION->SetTitle('О бренде');
 	    "CACHE_TYPE"          => "A",
 	    "DISPLAY_PANEL"       => "N",
 	    "SET_TITLE"           => "N",
-	    "PROPERTY_FIELD"      => array('DARK')
+	    "PROPERTY_CODE"       => array('DARK')
        ),
        false
     );
