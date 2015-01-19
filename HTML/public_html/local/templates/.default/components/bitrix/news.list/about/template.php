@@ -3,7 +3,8 @@
   <?foreach ($arResult['ITEMS'] as $key=>$item):?>
   <div style="background-image: url(<?=$item['PREVIEW_PICTURE']['SRC']?>)" class="about__slider-item" data-dark="<?=($item['PROPERTIES']['DARK']['VALUE_XML_ID']=='Y'?"Y":"N")?>">
     <div class="about__slider-item-content">
-      <h2 class="about__slider-title"> <span><?=$item['PROPERTIES']['DARK']['VALUE_XML_ID']?><?=$item['NAME']?></span>
+    <?var_dump($item['PROPERTIES']['DARK'])?>
+      <h2 class="about__slider-title"> <span><?=$item['NAME']?></span>
         <div class="about__slider-title-after"></div>
         <div class="about__slider-title-before"></div>
       </h2>
