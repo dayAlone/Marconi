@@ -41594,6 +41594,9 @@ return PhotoSwipeUI_Default;
     }
     if ($.inArray(id, simmilar) !== -1) {
       callback();
+      el.text('Удалить');
+    } else {
+      el.text('Сравнить');
     }
     if (simmilar.length > 0) {
       $('.simmilar').elem('text').text("К сравнению: " + simmilar.length);
@@ -41603,14 +41606,12 @@ return PhotoSwipeUI_Default;
         expires: 7
       });
       $('.simmilar').attr('href', '/catalog/compare.php');
-      el.text('Удалить');
     } else {
       $('.simmilar').elem('text').text("Товары не выбраны");
       $.removeCookie('simmilar', {
         path: "/"
       });
       $('.simmilar').attr('href', '#');
-      el.text('Сравнить');
     }
   };
 
