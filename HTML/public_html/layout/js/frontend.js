@@ -40857,7 +40857,7 @@ return PhotoSwipeUI_Default;
 }));
 
 (function() {
-  var addToCart, autoHeight, basketCalc, closeDropdown, countUpOptions, delay, end, filterRequest, filterTimer, galleryOptions, getCaptcha, getElem, getFilter, getOrderDate, getParameterByName, initDropdown, initFiltres, initOrder, isJson, openDropdown, rgb2hex, setCaptcha, size, spinOptions, timer, updateTimer;
+  var addToCart, autoHeight, basketCalc, closeDropdown, countUpOptions, delay, end, filterRequest, filterTimer, galleryOptions, getCaptcha, getElem, getFilter, getOrderDate, getParameterByName, initDropdown, initFiltres, initOrder, isJson, openDropdown, rangeTimer, rgb2hex, setCaptcha, size, spinOptions, timer, updateTimer;
 
   delay = function(ms, func) {
     return setTimeout(func, ms);
@@ -41521,6 +41521,12 @@ return PhotoSwipeUI_Default;
     }
   });
 
+  rangeTimer = false;
+
+  filterTimer = false;
+
+  filterRequest = false;
+
   addToCart = function(el) {
     var block, id, offset, url;
     id = el.data('id');
@@ -41674,20 +41680,22 @@ return PhotoSwipeUI_Default;
       if ((e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37, 38, 39, 40, 13, 27, 9, 8, 46]) === -1) {
         return false;
       }
-    }).on('focusout', function() {
-      var slider;
-      slider = $("input[name=range]").data("ionRangeSlider");
-      if (parseInt($("input.range__from").val()) < slider.result.min) {
-        $("input.range__from").val(slider.result.min);
-      }
-      if (parseInt($("input.range__to").val()) > slider.result.max) {
-        $("input.range__to").val(slider.result.max);
-      }
-      slider.update({
-        from: parseInt($("input.range__from").val()),
-        to: parseInt($("input.range__to").val())
+      clearTimeout(rangeTimer);
+      return rangeTimer = delay(2000, function() {
+        var slider;
+        slider = $("input[name=range]").data("ionRangeSlider");
+        if (parseInt($("input.range__from").val()) < slider.result.min) {
+          $("input.range__from").val(slider.result.min);
+        }
+        if (parseInt($("input.range__to").val()) > slider.result.max) {
+          $("input.range__to").val(slider.result.max);
+        }
+        slider.update({
+          from: parseInt($("input.range__from").val()),
+          to: parseInt($("input.range__to").val())
+        });
+        return getFilter($("input.range__to"));
       });
-      return getFilter($("input.range__to"));
     });
     return $(".filter__content input[name=range]").ionRangeSlider({
       type: "double",
@@ -41704,10 +41712,6 @@ return PhotoSwipeUI_Default;
       }
     });
   };
-
-  filterTimer = false;
-
-  filterRequest = false;
 
   getFilter = function(el) {
     var form, inputs, sort;
@@ -41734,6 +41738,7 @@ return PhotoSwipeUI_Default;
     if (sort.length > 0) {
       sort = "&sort_param=" + sort[0] + "&sort_value=" + sort[1];
     }
+    clearTimeout(filterTimer);
     return filterTimer = delay(300, function() {
       var ajaxURL, data, values;
       ajaxURL = form.data('url');

@@ -1,3 +1,7 @@
+rangeTimer    = false
+filterTimer   = false
+filterRequest = false
+
 addToCart = (el)->
 	id     = el.data 'id'
 	block  = el.block()
@@ -118,10 +122,11 @@ initFiltres = ->
 		e.preventDefault()	
 	
 	# Range
-	$("input.range__from, input.range__to").on('input', (e)->
+	$("input.range__from, input.range__to").on 'input', (e)->
 		if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
 			return false
-		).on 'focusout', ->
+		clearTimeout rangeTimer
+		rangeTimer = delay 2000, ->
 			slider = $("input[name=range]").data("ionRangeSlider")
 			
 			if parseInt($("input.range__from").val()) < slider.result.min
@@ -146,9 +151,6 @@ initFiltres = ->
 			$("input.range__from").val(x.from)
 			$("input.range__to").val(x.to)
 
-filterTimer   = false
-filterRequest = false
-
 getFilter = (el)->
 	if !$('.catalog').hasMod 'ajax'
 		if $('.catalog').elem('counter').is ':visible'
@@ -167,7 +169,7 @@ getFilter = (el)->
 	sort   = [$('.catalog__toolbar .dropdown').data('param'), $('.catalog__toolbar .dropdown').data('value')]
 	if sort.length > 0
 		sort = "&sort_param=#{sort[0]}&sort_value=#{sort[1]}"
-	
+	clearTimeout filterTimer
 	filterTimer = delay 300, ->
 		ajaxURL = form.data('url')
 		if $('.catalog').hasMod 'ajax'
