@@ -41623,10 +41623,13 @@ return PhotoSwipeUI_Default;
         }
         if ($.inArray(id, simmilar) === -1) {
           simmilar.push(id);
+          fly(block, $('.header .simmilar'));
         } else {
           simmilar.remByVal(id);
+          if ($('.catalog').hasMod('simmilar')) {
+            block.parent().remove();
+          }
         }
-        fly(block, $('.header .simmilar'));
         $('.simmilar').elem('text').text("К сравнению: " + simmilar.length);
         $('.simmilar').attr('href', '/catalog/compare.php');
         simmilar = JSON.stringify(simmilar);

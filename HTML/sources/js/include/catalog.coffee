@@ -65,9 +65,11 @@ window.initProducts = ->
 				simmilar = JSON.parse simmilar
 			if $.inArray(id, simmilar) == -1
 				simmilar.push(id)
+				fly block, $('.header .simmilar')
 			else
 				simmilar.remByVal id
-			fly block, $('.header .simmilar')
+				if $('.catalog').hasMod 'simmilar'
+					block.parent().remove()
 
 			$('.simmilar').elem('text').text "К сравнению: #{simmilar.length}"
 			
