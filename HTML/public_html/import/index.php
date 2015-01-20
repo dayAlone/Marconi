@@ -123,6 +123,8 @@
 
 		private $together = array('92c85955-7fb6-11e4-aec5-0025908101de', '98c2eff7-7fb6-11e4-aec5-0025908101de'); // Общие разделы
 
+		private $sale = "77ebb501-85d4-11e4-82e4-0025908101de";
+
 		private $remove;
 
 		public function __construct()
@@ -306,7 +308,7 @@
 			endforeach;
 
 			$this->getSections($propSections, $fields, $props);
-			if(isset($props["SALE"]))
+			if(isset($props["SALE"])&&$props["SALE"]==$this->sale)
 				$fields['IBLOCK_SECTION'][] = $this->sections['sale'];
 
 			$name = $note;

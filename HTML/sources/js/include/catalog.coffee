@@ -17,7 +17,7 @@ fly = (block, target)->
 			complete: ->
 				$(this).remove()
 
-getSimmilar = (el, callback = (-> return)) ->
+getSimmilar = (el, callbackOn = (-> return), callbackOff = (-> return)) ->
 
 	block    = el.block()
 	id       = el.data 'id'
@@ -35,9 +35,10 @@ getSimmilar = (el, callback = (-> return)) ->
 			simmilar.remByVal id	
 	
 	if $.inArray(id, simmilar) != -1
-		callback()
+		callbackOn()
 		el.text 'Удалить'
 	else
+		callbackOff()
 		el.text 'Сравнить'
 
 	if simmilar.length > 0
@@ -94,8 +95,9 @@ window.initProducts = ->
 		
 		if $(this).hasMod 'simmilar'
 			block = $(this).block()
-			getSimmilar $(this), ->
+			getSimmilar $(this), (->
 				fly block, $('.header .simmilar')
+				), ->
 				if $('.catalog').hasMod 'simmilar'
 					block.parent().remove()
 			e.preventDefault()

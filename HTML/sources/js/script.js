@@ -712,10 +712,13 @@
     });
   };
 
-  getSimmilar = function(el, callback) {
+  getSimmilar = function(el, callbackOn, callbackOff) {
     var block, id, simmilar;
-    if (callback == null) {
-      callback = (function() {});
+    if (callbackOn == null) {
+      callbackOn = (function() {});
+    }
+    if (callbackOff == null) {
+      callbackOff = (function() {});
     }
     block = el.block();
     id = el.data('id');
@@ -735,9 +738,10 @@
       }
     }
     if ($.inArray(id, simmilar) !== -1) {
-      callback();
+      callbackOn();
       el.text('Удалить');
     } else {
+      callbackOff();
       el.text('Сравнить');
     }
     if (simmilar.length > 0) {
@@ -801,8 +805,9 @@
       }
       if ($(this).hasMod('simmilar')) {
         block = $(this).block();
-        getSimmilar($(this), function() {
-          fly(block, $('.header .simmilar'));
+        getSimmilar($(this), (function() {
+          return fly(block, $('.header .simmilar'));
+        }), function() {
           if ($('.catalog').hasMod('simmilar')) {
             return block.parent().remove();
           }
