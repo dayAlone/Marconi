@@ -41652,14 +41652,18 @@ return PhotoSwipeUI_Default;
       return e.preventDefault();
     });
     $('.product').elem('button').click(function(e) {
-      var button;
+      var block, button;
       if ($(this).hasMod('cancel')) {
         $(this).block('sizes').mod('open', false);
         e.preventDefault();
       }
       if ($(this).hasMod('simmilar')) {
+        block = $(this).block();
         getSimmilar($(this), function() {
-          return fly($(this).block(), $('.header .simmilar'));
+          fly(block, $('.header .simmilar'));
+          if ($('.catalog').hasMod('simmilar')) {
+            return block.parent().remove();
+          }
         });
         e.preventDefault();
       }

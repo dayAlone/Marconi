@@ -18,10 +18,11 @@ fly = (block, target)->
 				$(this).remove()
 
 getSimmilar = (el, callback = (-> return)) ->
+
 	block    = el.block()
 	id       = el.data 'id'
 	simmilar = $.cookie 'simmilar'	
-	
+
 	if !simmilar
 		$.removeCookie 'simmilar', { path : "/" }
 		simmilar = [] 
@@ -38,7 +39,7 @@ getSimmilar = (el, callback = (-> return)) ->
 		el.text 'Удалить'
 	else
 		el.text 'Сравнить'
-		
+
 	if simmilar.length > 0
 		$('.simmilar').elem('text').text "К сравнению: #{simmilar.length}"
 		simmilar = JSON.stringify simmilar
@@ -92,10 +93,11 @@ window.initProducts = ->
 			e.preventDefault()
 		
 		if $(this).hasMod 'simmilar'
-			
+			block = $(this).block()
 			getSimmilar $(this), ->
-				fly $(this).block(), $('.header .simmilar')
-			
+				fly block, $('.header .simmilar')
+				if $('.catalog').hasMod 'simmilar'
+					block.parent().remove()
 			e.preventDefault()
 
 		if $(this).hasMod 'buy'
