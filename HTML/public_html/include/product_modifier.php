@@ -9,14 +9,13 @@ $arResult['SECTIONS'] = array();
 foreach ($arResult['ITEMS'] as &$item):
 	$brand = $arResult['BRANDS'][$item['PROPERTIES']['BRAND']['VALUE']];
 	
-	$raw = CIBlockElement::GetElementGroups($arResult['ID']);
+	$raw = CIBlockElement::GetElementGroups($item['ID']);
 	while($data = $raw->GetNext())
 		if(!in_array($data['CODE'], array('all', 'sale')))
-			$arResult['IBLOCK_SECTION_ID'] = $data['ID'];
-
+			$item['IBLOCK_SECTION_ID'] = $data['ID'];
 	$rsPath = GetIBlockSectionPath($arResult['ID'], $item['IBLOCK_SECTION_ID']);
 	$arPath = $rsPath->GetNext();
-	
+
 	if($arPath):
 		$arResult['SECTIONS'][$item['IBLOCK_SECTION_ID']] = $arPath['CODE'];
 		$item['DETAIL_PAGE_URL'] = "/catalog/".$arPath['CODE']."/".$item['CODE']."/";

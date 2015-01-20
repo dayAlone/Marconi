@@ -45,7 +45,7 @@
 			$props[$id] = $value;
 		}
 		
-		if($props['type'] == "4202b6c5-8464-11e4-82e4-0025908101de" && !isset($props['size']))
+		if(!isset($props['size']))
 			$errors['size'][] = $item->getElementsByTagName('name')->item(0)->nodeValue;
 
 		foreach ($errors as $key => &$el) 
