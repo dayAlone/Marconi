@@ -70,6 +70,19 @@ window.initProducts = ->
 				$(this).find('.product__frame').one end, ->
 					item.mod 'index', false
 
+checkRange = ->
+	slider = $("input[name=range]").data("ionRangeSlider")
+			
+	if parseInt($("input.range__from").val()) < slider.result.min
+		$("input.range__from").val slider.result.min
+
+	if parseInt($("input.range__to").val()) > slider.result.max
+		$("input.range__to").val slider.result.max
+
+	slider.update
+		from : parseInt $("input.range__from").val()
+		to   : parseInt $("input.range__to").val()
+	getFilter $("input.range__to")
 initFiltres = ->
 	# Checkbox
 	$('.filter input.color').off('ifCreated').on 'ifCreated', ()->
@@ -125,20 +138,13 @@ initFiltres = ->
 	$("input.range__from, input.range__to").on 'input', (e)->
 		if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
 			return false
-		clearTimeout rangeTimer
-		rangeTimer = delay 2000, ->
-			slider = $("input[name=range]").data("ionRangeSlider")
-			
-			if parseInt($("input.range__from").val()) < slider.result.min
-				$("input.range__from").val slider.result.min
-
-			if parseInt($("input.range__to").val()) > slider.result.max
-				$("input.range__to").val slider.result.max
-
-			slider.update
-				from : parseInt $("input.range__from").val()
-				to   : parseInt $("input.range__to").val()
+		if e.keyCode == 13
 			getFilter $("input.range__to")
+			checkRange()
+		else
+			rangeTimer = delay 1000, ->
+				checkRange()
+			
 	
 	$(".filter__content input[name=range]").ionRangeSlider
 		type: "double"

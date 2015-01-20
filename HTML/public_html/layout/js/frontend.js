@@ -40857,7 +40857,7 @@ return PhotoSwipeUI_Default;
 }));
 
 (function() {
-  var addToCart, autoHeight, basketCalc, closeDropdown, countUpOptions, delay, end, filterRequest, filterTimer, galleryOptions, getCaptcha, getElem, getFilter, getOrderDate, getParameterByName, initDropdown, initFiltres, initOrder, isJson, openDropdown, rangeTimer, rgb2hex, setCaptcha, size, spinOptions, timer, updateTimer;
+  var addToCart, autoHeight, basketCalc, checkRange, closeDropdown, countUpOptions, delay, end, filterRequest, filterTimer, galleryOptions, getCaptcha, getElem, getFilter, getOrderDate, getParameterByName, initDropdown, initFiltres, initOrder, isJson, openDropdown, rangeTimer, rgb2hex, setCaptcha, size, spinOptions, timer, updateTimer;
 
   delay = function(ms, func) {
     return setTimeout(func, ms);
@@ -41616,6 +41616,22 @@ return PhotoSwipeUI_Default;
     });
   };
 
+  checkRange = function() {
+    var slider;
+    slider = $("input[name=range]").data("ionRangeSlider");
+    if (parseInt($("input.range__from").val()) < slider.result.min) {
+      $("input.range__from").val(slider.result.min);
+    }
+    if (parseInt($("input.range__to").val()) > slider.result.max) {
+      $("input.range__to").val(slider.result.max);
+    }
+    slider.update({
+      from: parseInt($("input.range__from").val()),
+      to: parseInt($("input.range__to").val())
+    });
+    return getFilter($("input.range__to"));
+  };
+
   initFiltres = function() {
     $('.filter input.color').off('ifCreated').on('ifCreated', function() {
       var color, el;
@@ -41680,22 +41696,14 @@ return PhotoSwipeUI_Default;
       if ((e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37, 38, 39, 40, 13, 27, 9, 8, 46]) === -1) {
         return false;
       }
-      clearTimeout(rangeTimer);
-      return rangeTimer = delay(2000, function() {
-        var slider;
-        slider = $("input[name=range]").data("ionRangeSlider");
-        if (parseInt($("input.range__from").val()) < slider.result.min) {
-          $("input.range__from").val(slider.result.min);
-        }
-        if (parseInt($("input.range__to").val()) > slider.result.max) {
-          $("input.range__to").val(slider.result.max);
-        }
-        slider.update({
-          from: parseInt($("input.range__from").val()),
-          to: parseInt($("input.range__to").val())
+      if (e.keyCode === 13) {
+        getFilter($("input.range__to"));
+        return checkRange();
+      } else {
+        return rangeTimer = delay(1000, function() {
+          return checkRange();
         });
-        return getFilter($("input.range__to"));
-      });
+      }
     });
     return $(".filter__content input[name=range]").ionRangeSlider({
       type: "double",
