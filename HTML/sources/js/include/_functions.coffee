@@ -31,6 +31,20 @@ size = ->
 			$(this).mod 'loaded', true
 	return
 
+Array.prototype.remByVal = (val)->
+	for i in [0...this.length]
+        if this[i] == val
+            this.splice(i, 1)
+            i--;
+    return this;
+
+isJson = (str)->
+	try
+		JSON.parse(str);
+	catch e
+		return false;
+	return true;
+
 autoHeight = (el, selector='', height_selector = false, use_padding=false, debug=false)->
 	if el.length > 0
 		item = el.find(selector)

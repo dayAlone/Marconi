@@ -299,6 +299,7 @@
 		@media (min-width scr_lg)
 			.col-lg-3:nth-child(n+5)
 				display block
+
 	article
 		margin-bottom 50px
 	.search-page
@@ -484,6 +485,16 @@
 				display block
 				overflow hidden
 				b('loader.gif', center center no-repeat, transparent, 80px auto)
+	&--big
+		.product
+			&__sizes
+				top 360px
+			&__sale
+				top 265px
+			&__content
+				min-height 453px
+			&__picture
+				min-height 350px
 .filter
 	width 100%
 	border 1px solid #dddddd

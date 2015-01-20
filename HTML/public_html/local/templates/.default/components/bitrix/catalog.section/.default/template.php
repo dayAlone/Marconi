@@ -45,7 +45,7 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
     </div>
   </div>
 </div>
-<h1 class="catalog__title"><?=$arResult['NAME']?></h1>
+<h1 class="catalog__title"><?=($arParams['NAME']?$arParams['NAME']:$arResult['NAME'])?></h1>
 <div class="row catalog__frame <?=$arParams['CLASS']?>">
 <?
 endif;

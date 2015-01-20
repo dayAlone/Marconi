@@ -3318,6 +3318,18 @@ svg g {
   -moz-background-size: 80px auto;
   background-size: 80px auto;
 }
+.catalog--big .product__sizes {
+  top: 360px;
+}
+.catalog--big .product__sale {
+  top: 265px;
+}
+.catalog--big .product__content {
+  min-height: 453px;
+}
+.catalog--big .product__picture {
+  min-height: 350px;
+}
 .filter {
   width: 100%;
   border: 1px solid #ddd;

@@ -1,5 +1,5 @@
 (function() {
-  var addToCart, autoHeight, basketCalc, checkRange, closeDropdown, countUpOptions, delay, end, filterRequest, filterTimer, galleryOptions, getCaptcha, getElem, getFilter, getOrderDate, getParameterByName, initDropdown, initFiltres, initOrder, isJson, openDropdown, rangeTimer, rgb2hex, setCaptcha, size, spinOptions, timer, updateTimer;
+  var addToCart, autoHeight, basketCalc, checkRange, closeDropdown, countUpOptions, delay, end, filterRequest, filterTimer, fly, galleryOptions, getCaptcha, getElem, getFilter, getOrderDate, getParameterByName, initDropdown, initFiltres, initOrder, isJson, openDropdown, rangeTimer, rgb2hex, setCaptcha, size, spinOptions, timer, updateTimer;
 
   delay = function(ms, func) {
     return setTimeout(func, ms);
@@ -37,6 +37,28 @@
     }).on(end, function() {
       return $(this).mod('loaded', true);
     });
+  };
+
+  Array.prototype.remByVal = function(val) {
+    var i, _i, _ref;
+    for (i = _i = 0, _ref = this.length; 0 <= _ref ? _i < _ref : _i > _ref; i = 0 <= _ref ? ++_i : --_i) {
+      if (this[i] === val) {
+        this.splice(i, 1);
+        i--;
+      }
+    }
+    return this;
+  };
+
+  isJson = function(str) {
+    var e;
+    try {
+      JSON.parse(str);
+    } catch (_error) {
+      e = _error;
+      return false;
+    }
+    return true;
   };
 
   autoHeight = function(el, selector, height_selector, use_padding, debug) {
@@ -669,18 +691,12 @@
 
   filterRequest = false;
 
-  addToCart = function(el) {
-    var block, id, offset, url;
-    id = el.data('id');
-    block = el.block();
+  fly = function(block, target) {
+    var offset;
     offset = block.offset();
-    offset.top -= $('.header .cart').offset().top - block.height() / 2;
-    offset.left -= $('.header .cart').offset().left - block.width() / 2;
-    url = "/include/basket.php?action=add&id=" + id;
-    if (el.data('size')) {
-      url += "&size=" + (el.data('size'));
-    }
-    block.clone().prependTo(block).mod('absolute', true).velocity({
+    offset.top -= target.offset().top - block.height() / 2;
+    offset.left -= target.offset().left - block.width() / 2;
+    return block.clone().prependTo(block).mod('absolute', true).velocity({
       properties: {
         translateX: -offset.left,
         translateY: -offset.top,
@@ -694,6 +710,17 @@
         }
       }
     });
+  };
+
+  addToCart = function(el) {
+    var block, id, url;
+    id = el.data('id');
+    block = el.block();
+    url = "/include/basket.php?action=add&id=" + id;
+    if (el.data('size')) {
+      url += "&size=" + (el.data('size'));
+    }
+    fly(block, $('.header .cart'));
     return $.get(url, function(data) {
       if (data === 'success') {
         return bx_cart_block1.refreshCart({});
@@ -722,9 +749,33 @@
       return e.preventDefault();
     });
     $('.product').elem('button').click(function(e) {
-      var button;
+      var block, button, id, simmilar;
       if ($(this).hasMod('cancel')) {
         $(this).block('sizes').mod('open', false);
+        e.preventDefault();
+      }
+      if ($(this).hasMod('simmilar')) {
+        block = $(this).block();
+        id = $(this).data('id');
+        simmilar = $.cookie('simmilar');
+        if (!isJson(simmilar)) {
+          simmilar = [];
+        } else {
+          simmilar = JSON.parse(simmilar);
+        }
+        if ($.inArray(id, simmilar) === -1) {
+          simmilar.push(id);
+        } else {
+          simmilar.remByVal(id);
+        }
+        fly(block, $('.header .simmilar'));
+        $('.simmilar').elem('text').text("К сравнению: " + simmilar.length);
+        $('.simmilar').attr('href', '/catalog/compare.php');
+        simmilar = JSON.stringify(simmilar);
+        $.cookie('simmilar', simmilar, {
+          path: "/",
+          expires: 7
+        });
         e.preventDefault();
       }
       if ($(this).hasMod('buy')) {
@@ -741,7 +792,7 @@
     });
     $('.product').elem('picture').lazyLoadXT();
     return $('.product').hoverIntent({
-      sensitivity: 20,
+      sensitivity: 40,
       over: function() {
         $(this).mod('hover', true);
         return $(this).mod('index', true);
@@ -1221,17 +1272,6 @@
       return getOrderDate();
     }
   });
-
-  isJson = function(str) {
-    var e;
-    try {
-      JSON.parse(str);
-    } catch (_error) {
-      e = _error;
-      return false;
-    }
-    return true;
-  };
 
   getOrderDate = function(confirm) {
     var data;

@@ -86,7 +86,7 @@
         <div class="col-xs-4 center"><a href="/" class="logo"><?=svg('logo')?></a></div>
         <div class="col-xs-1 col-lg-2"><span class="logo__line logo__line--right"></span></div>
         <div class="col-xs-3 col-lg-2">
-          <div class="header__links xs-margin-top">
+          <div class="header__links">
             <?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line","",Array(
               "PATH_TO_BASKET"      => "/basket/",
               "PATH_TO_PERSONAL"    => "/personal/",
@@ -106,7 +106,12 @@
               "SHOW_PRICE"          => "Y",
               "SHOW_SUMMARY"        => "Y"
           ));?>
-            <?/*<br><a href="#" class="simmilar"><?=svg('simmilar')?>К сравнению: 5</a>*/?>
+            <?if(isset($_COOKIE['simmilar'])&&count(json_decode($_COOKIE['simmilar']))>0):?>
+            <a href="/catalog/compare.php" class="simmilar"><?=svg('simmilar')?><span class="simmilar__text">К сравнению: <?=count(json_decode($_COOKIE['simmilar']))?></span></a>
+            <?else:?>
+            <a href="#" class="simmilar"><?=svg('simmilar')?><span class="simmilar__text">Товары не выбраны</span></a>
+            <?endif;?>
+            
           </div>
         </div>
       </div>

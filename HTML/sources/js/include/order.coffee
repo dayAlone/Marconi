@@ -16,13 +16,6 @@ $('.bx-ui-sls-clear').click ->
 $('.bx-sls input:hidden:first').change ->
 	if parseInt($(this).val()) > 0
 		getOrderDate()
-isJson = (str)->
-	try
-		JSON.parse(str);
-	catch e
-		return false;
-	return true;
-
 
 getOrderDate = (confirm)->
 	data = $('#ORDER_FORM').serialize()

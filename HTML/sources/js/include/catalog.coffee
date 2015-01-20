@@ -2,15 +2,10 @@ rangeTimer    = false
 filterTimer   = false
 filterRequest = false
 
-addToCart = (el)->
-	id     = el.data 'id'
-	block  = el.block()
+fly = (block, target)->
 	offset = block.offset()
-	offset.top -= $('.header .cart').offset().top - block.height()/2
-	offset.left -= $('.header .cart').offset().left - block.width()/2
-	url    = "/include/basket.php?action=add&id=#{id}"
-	if el.data('size')
-		url += "&size=#{el.data('size')}"
+	offset.top  -= target.offset().top - block.height()/2
+	offset.left -= target.offset().left - block.width()/2
 	block.clone().prependTo(block).mod('absolute', true).velocity
 		properties: 
 			translateX : -offset.left
@@ -21,6 +16,17 @@ addToCart = (el)->
 			duration: 500
 			complete: ->
 				$(this).remove()
+
+addToCart = (el)->
+	id     = el.data 'id'
+	block  = el.block()
+	
+	url    = "/include/basket.php?action=add&id=#{id}"
+	if el.data('size')
+		url += "&size=#{el.data('size')}"
+	fly block, $('.header .cart')
+	
+	
 	$.get url, (data)->
 		if data == 'success'
 			bx_cart_block1.refreshCart({})
@@ -48,6 +54,31 @@ window.initProducts = ->
 		if $(this).hasMod 'cancel'
 			$(this).block('sizes').mod 'open', false
 			e.preventDefault()
+		
+		if $(this).hasMod 'simmilar'
+			block    = $(this).block()
+			id       = $(this).data 'id'
+			simmilar = $.cookie 'simmilar'
+			if !isJson simmilar
+				simmilar = [] 
+			else
+				simmilar = JSON.parse simmilar
+			if $.inArray(id, simmilar) == -1
+				simmilar.push(id)
+			else
+				simmilar.remByVal id
+			fly block, $('.header .simmilar')
+
+			$('.simmilar').elem('text').text "К сравнению: #{simmilar.length}"
+			
+			$('.simmilar').attr 'href', '/catalog/compare.php'
+
+			simmilar = JSON.stringify simmilar
+			$.cookie 'simmilar', simmilar, { path:"/", expires: 7}
+
+
+			e.preventDefault()
+
 		if $(this).hasMod 'buy'
 			button = $(this)
 			$(this).block('size').each ->
@@ -59,7 +90,7 @@ window.initProducts = ->
 	$('.product').elem('picture').lazyLoadXT()
 	
 	$('.product').hoverIntent
-			sensitivity: 20
+			sensitivity: 40
 			over : ()->
 				$(this).mod 'hover', true
 				$(this).mod 'index', true

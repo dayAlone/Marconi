@@ -26,8 +26,8 @@
 	    <?if(isset($item['MIN_PRICE']['VALUE'])):?>
 	    <a href="#" class="product__icon product__icon--cart <?=(count($item['OFFERS'])>0?"product__icon--trigger":"")?>" data-id="<?=$item['ID']?>"><?=svg('cart')?></a>
 	    <?endif;?>
-	    <a href="<?=$item['DETAIL_PAGE_URL']?>" class="product__button product__button--center product__button--more">Подробнее</a>
-	    <?/*<a href="" class="product__button product__button--simmilar">Сравнить</a>*/
+	    <a href="<?=$item['DETAIL_PAGE_URL']?>" class="product__button product__button--more">Подробнее</a>
+	    <a href="#" data-id="<?=$item['ID']?>" class="product__button product__button--simmilar"><?=($arParams['COMPARE_TEXT']?$arParams['COMPARE_TEXT']:"Сравнить")?></a><?
 	    if(count($item['OFFERS'])>0):
 	      ?>
 	      <div class="product__sizes">
