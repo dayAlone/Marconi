@@ -40857,7 +40857,7 @@ return PhotoSwipeUI_Default;
 }));
 
 (function() {
-  var addToCart, autoHeight, basketCalc, checkRange, closeDropdown, countUpOptions, delay, end, filterRequest, filterTimer, fly, galleryOptions, getCaptcha, getElem, getFilter, getOrderDate, getParameterByName, initDropdown, initFiltres, initOrder, isJson, openDropdown, rangeTimer, rgb2hex, setCaptcha, size, spinOptions, timer, updateTimer;
+  var addToCart, autoHeight, basketCalc, checkRange, closeDropdown, countUpOptions, delay, end, filterRequest, filterTimer, fly, flyProduct, galleryOptions, getCaptcha, getElem, getFilter, getOrderDate, getParameterByName, initDropdown, initFiltres, initOrder, isJson, openDropdown, rangeTimer, rgb2hex, setCaptcha, size, spinOptions, timer, updateTimer;
 
   delay = function(ms, func) {
     return setTimeout(func, ms);
@@ -41630,7 +41630,11 @@ return PhotoSwipeUI_Default;
             block.parent().remove();
           }
         }
-        $('.simmilar').elem('text').text("К сравнению: " + simmilar.length);
+        if (simmilar.length > 0) {
+          $('.simmilar').elem('text').text("К сравнению: " + simmilar.length);
+        } else {
+          $('.simmilar').elem('text').text("Товары не выбраны");
+        }
         $('.simmilar').attr('href', '/catalog/compare.php');
         simmilar = JSON.stringify(simmilar);
         $.cookie('simmilar', simmilar, {
@@ -42182,6 +42186,33 @@ return PhotoSwipeUI_Default;
     }
   });
 
+  flyProduct = function() {
+    var block, offset;
+    block = $('.picture');
+    offset = block.offset();
+    offset.top -= $('.header .cart').offset().top - block.height() / 2;
+    offset.left -= $('.header .cart').offset().left - block.width() / 2;
+    $(this).text('Товар в корзине').mod('border', true).mod('disabled', true);
+    return block.clone().prependTo(block).mod('absolute', true).velocity({
+      properties: {
+        translateX: -offset.left,
+        translateY: -offset.top,
+        opacity: .2,
+        scale: .3
+      },
+      options: {
+        duration: 500,
+        complete: function() {
+          var el;
+          el = $(this);
+          return delay(300, function() {
+            return el.remove();
+          });
+        }
+      }
+    });
+  };
+
   $(document).ready(function() {
     var initZoom;
     if ($('body').hasClass('product')) {
@@ -42197,7 +42228,7 @@ return PhotoSwipeUI_Default;
         return e.preventDefault();
       });
       $('.product').elem('big-button').click(function(e) {
-        var block, id, offset, param_size, url;
+        var id, param_size, simmilar, url;
         if ($(this).hasMod('buy')) {
           id = $(this).data('id');
           if ($('.sizes').length > 0) {
@@ -42208,35 +42239,39 @@ return PhotoSwipeUI_Default;
           if (param_size) {
             url += "&size=" + param_size;
           }
-          console.log(url);
-          block = $('.picture');
-          offset = block.offset();
-          offset.top -= $('.header .cart').offset().top - block.height() / 2;
-          offset.left -= $('.header .cart').offset().left - block.width() / 2;
-          $(this).text('Товар в корзине').mod('border', true).mod('disabled', true);
-          block.clone().prependTo(block).mod('absolute', true).velocity({
-            properties: {
-              translateX: -offset.left,
-              translateY: -offset.top,
-              opacity: .2,
-              scale: .3
-            },
-            options: {
-              duration: 500,
-              complete: function() {
-                var el;
-                el = $(this);
-                return delay(300, function() {
-                  return el.remove();
-                });
-              }
-            }
-          });
+          flyProduct();
           $.get(url, function(data) {
             if (data === 'success') {
               return bx_cart_block1.refreshCart({});
             }
           });
+        }
+        if ($(this).hasMod('simmilar')) {
+          id = $(this).data('id');
+          simmilar = $.cookie('simmilar');
+          if (!isJson(simmilar)) {
+            simmilar = [];
+          } else {
+            simmilar = JSON.parse(simmilar);
+          }
+          if ($.inArray(id, simmilar) === -1) {
+            simmilar.push(id);
+            flyProduct();
+          } else {
+            simmilar.remByVal(id);
+          }
+          if (simmilar.length > 0) {
+            $('.simmilar').elem('text').text("К сравнению: " + simmilar.length);
+          } else {
+            $('.simmilar').elem('text').text("Товары не выбраны");
+          }
+          $('.simmilar').attr('href', '/catalog/compare.php');
+          simmilar = JSON.stringify(simmilar);
+          $.cookie('simmilar', simmilar, {
+            path: "/",
+            expires: 7
+          });
+          e.preventDefault();
         }
         if ($(this).parents('form').length === 0) {
           return e.preventDefault();

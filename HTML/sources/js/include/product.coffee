@@ -1,5 +1,25 @@
 # Product
 
+flyProduct = ->
+	block = $('.picture')
+	offset = block.offset()
+	offset.top -= $('.header .cart').offset().top - block.height()/2
+	offset.left -= $('.header .cart').offset().left - block.width()/2
+	
+	$(this).text('Товар в корзине').mod('border', true).mod('disabled', true)
+
+	block.clone().prependTo(block).mod('absolute', true).velocity
+		properties: 
+			translateX : -offset.left
+			translateY : -offset.top
+			opacity    : .2
+			scale      : .3
+		options:
+			duration: 500
+			complete: ->
+				el = $(this)
+				delay 300, ->
+					el.remove()
 $(document).ready ->
 	if $('body').hasClass 'product'
 		
@@ -20,31 +40,38 @@ $(document).ready ->
 				url = "/include/basket.php?action=add&id=#{id}"
 				if param_size
 					url += "&size=#{param_size}"
-				console.log(url)
-				block = $('.picture')
-				offset = block.offset()
-				offset.top -= $('.header .cart').offset().top - block.height()/2
-				offset.left -= $('.header .cart').offset().left - block.width()/2
 				
-				$(this).text('Товар в корзине').mod('border', true).mod('disabled', true)
+				flyProduct()
 
-				block.clone().prependTo(block).mod('absolute', true).velocity
-					properties: 
-						translateX : -offset.left
-						translateY : -offset.top
-						opacity    : .2
-						scale      : .3
-					options:
-						duration: 500
-						complete: ->
-							el = $(this)
-							delay 300, ->
-								el.remove()
-				
 				$.get url, (data)->
 					if data == 'success'
 						bx_cart_block1.refreshCart({})
-			
+			if $(this).hasMod 'simmilar'
+				id       = $(this).data 'id'
+				simmilar = $.cookie 'simmilar'
+				if !isJson simmilar
+					simmilar = [] 
+				else
+					simmilar = JSON.parse simmilar
+				
+				if $.inArray(id, simmilar) == -1
+					simmilar.push(id)
+					flyProduct()
+				else
+					simmilar.remByVal id
+				
+				if simmilar.length > 0
+					$('.simmilar').elem('text').text "К сравнению: #{simmilar.length}"
+				else
+					$('.simmilar').elem('text').text "Товары не выбраны"
+				
+				$('.simmilar').attr 'href', '/catalog/compare.php'
+
+				simmilar = JSON.stringify simmilar
+				$.cookie 'simmilar', simmilar, { path:"/", expires: 7}
+
+				e.preventDefault()
+
 			if $(this).parents('form').length == 0
 				e.preventDefault()
 

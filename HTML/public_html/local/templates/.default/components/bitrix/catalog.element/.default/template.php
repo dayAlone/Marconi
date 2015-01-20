@@ -256,19 +256,19 @@ $this->EndViewTarget();
 					if(in_array($offer['ID'], $_SESSION['ELEMENS']))
 						$inCart = true;
 				if($inCart):?>
-	      		<a href="#" class="product__big-button product__big-button--border product__big-button--disabled product__big-button--width" data-id="<?=$item['ID']?>">Товар в корзине</a>
+	      		<a href="#" class="product__big-button product__big-button--border product__big-button--disabled" data-id="<?=$item['ID']?>">Товар в корзине</a>
 	      		<?else:?>
-	      		<a href="#" class="product__big-button product__big-button--buy product__big-button--width" data-id="<?=$item['ID']?>">В корзину</a>
+	      		<a href="#" class="product__big-button product__big-button--buy" data-id="<?=$item['ID']?>">В корзину</a>
 	      	<? 
 	      	endif; 
 	      $frame->beginStub();
 	      	if(isset($item['MIN_PRICE']['VALUE'])&&intval($item['MIN_PRICE']['VALUE'])!=0): ?>
-	      		<a href="#" class="product__big-button product__big-button--buy product__big-button--width" data-id="<?=$item['ID']?>">В корзину</a>
+	      		<a href="#" class="product__big-button product__big-button--buy" data-id="<?=$item['ID']?>">В корзину</a>
 	      	<? endif; 
 	      	endif; 
 	      $frame->end();
 	      ?>
-	      	<? /*<a href="#" class="product__big-button">сравнить</a> */?>
+	      	<a href="#"  data-id="<?=$item['ID']?>" class="product__big-button product__big-button--simmilar no-margin-right">сравнить</a>
 	      </div>
 	      <div class="col-lg-6"><a href="#available" data-toggle="modal" data-target="#available" class="product__big-button product__big-button--border">наличие в магазинах</a>
 	        <div class="social-likes social-likes_notext"><div class="facebook"></div><div class="twitter"></div><div class="vkontakte"></div><div class="odnoklassniki"></div></div>

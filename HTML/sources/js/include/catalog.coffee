@@ -70,8 +70,10 @@ window.initProducts = ->
 				simmilar.remByVal id
 				if $('.catalog').hasMod 'simmilar'
 					block.parent().remove()
-
-			$('.simmilar').elem('text').text "К сравнению: #{simmilar.length}"
+			if simmilar.length > 0
+				$('.simmilar').elem('text').text "К сравнению: #{simmilar.length}"
+			else
+				$('.simmilar').elem('text').text "Товары не выбраны"
 			
 			$('.simmilar').attr 'href', '/catalog/compare.php'
 
