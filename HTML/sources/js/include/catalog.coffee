@@ -17,6 +17,39 @@ fly = (block, target)->
 			complete: ->
 				$(this).remove()
 
+getSimmilar = (el, callback = (-> return)) ->
+	block    = el.block()
+	id       = el.data 'id'
+	simmilar = $.cookie 'simmilar'	
+	
+	if !simmilar
+		$.removeCookie 'simmilar', { path : "/" }
+		simmilar = [] 
+		simmilar.push(id)
+	else
+		simmilar = JSON.parse simmilar
+		if $.inArray(id, simmilar) == -1
+			simmilar.push(id)
+		else
+			simmilar.remByVal id	
+	
+	if $.inArray(id, simmilar) != -1
+		callback()
+
+	if simmilar.length > 0
+		$('.simmilar').elem('text').text "К сравнению: #{simmilar.length}"
+		simmilar = JSON.stringify simmilar
+		$.cookie 'simmilar', simmilar, { path:"/", expires: 7}
+		$('.simmilar').attr 'href', '/catalog/compare.php'
+		el.text 'Удалить'
+	else
+		$('.simmilar').elem('text').text "Товары не выбраны"
+		$.removeCookie 'simmilar', { path : "/" }
+		$('.simmilar').attr 'href', '#'
+		el.text 'Сравнить'
+	
+	return
+
 addToCart = (el)->
 	id     = el.data 'id'
 	block  = el.block()
@@ -56,31 +89,10 @@ window.initProducts = ->
 			e.preventDefault()
 		
 		if $(this).hasMod 'simmilar'
-			block    = $(this).block()
-			id       = $(this).data 'id'
-			simmilar = $.cookie 'simmilar'
-			if !isJson simmilar
-				simmilar = [] 
-			else
-				simmilar = JSON.parse simmilar
-			if $.inArray(id, simmilar) == -1
-				simmilar.push(id)
-				fly block, $('.header .simmilar')
-			else
-				simmilar.remByVal id
-				if $('.catalog').hasMod 'simmilar'
-					block.parent().remove()
-			if simmilar.length > 0
-				$('.simmilar').elem('text').text "К сравнению: #{simmilar.length}"
-			else
-				$('.simmilar').elem('text').text "Товары не выбраны"
 			
-			$('.simmilar').attr 'href', '/catalog/compare.php'
-
-			simmilar = JSON.stringify simmilar
-			$.cookie 'simmilar', simmilar, { path:"/", expires: 7}
-
-
+			getSimmilar $(this), ->
+				fly $(this).block(), $('.header .simmilar')
+			
 			e.preventDefault()
 
 		if $(this).hasMod 'buy'
