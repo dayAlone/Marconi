@@ -1202,6 +1202,7 @@
     $('.basket .delivery input[type="radio"], .basket .payment input[type="radio"]').iCheck().one('ifChecked', function() {
       return getOrderDate();
     });
+    $('.basket input[type="checkbox"]').iCheck();
     $('.stores-list .dropdown__item').off('click').on('click', function(e) {
       $(this).block().find('select').val($(this).data('id'));
       console.log($(this).block().find('select'));
@@ -1241,11 +1242,15 @@
     if (confirm) {
       data += "&confirmorder=Y";
     }
+    if ($('#register_user:not(:checked)').length > 0) {
+      data += "&delete_user=Y";
+    }
     return $.ajax({
       type: "POST",
       url: $('#ORDER_FORM').attr('action'),
       data: data,
       success: function(data) {
+        console.log(data);
         if (!isJson(data)) {
           $('#ORDER_FORM .props').html($(data).find('.props').html());
           $('#ORDER_FORM .delivery').html($(data).find('.delivery').html());

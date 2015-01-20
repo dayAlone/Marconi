@@ -6,11 +6,57 @@ ini_set('xdebug.var_display_max_data', 1024);
 define("BX_COMPOSITE_DEBUG", false);
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
-AddEventHandler("main", "OnEndBufferContent", "OnEndBufferContentHandler");
-	function OnEndBufferContentHandler(&$content)
-	{
-		$content = str_replace("₷", "<span class='rubl'>&#x20bd;</span>", $content);
+
+AddEventHandler('sale', 'OnOrderUpdate', Array('CSaleGuestHandlers', 'OnOrderUpdateHandler'));
+AddEventHandler('sale', 'OnSaleComponentOrderOneStepProcess', Array('CSaleGuestHandlers', 'OnSaleComponentOrderOneStepProcessHandler'));
+AddEventHandler('sale', 'OnSaleComponentOrderOneStepComplete', Array('CSaleGuestHandlers', 'OnSaleComponentOrderOneStepCompleteHandler'));
+AddEventHandler('sale', 'OnSaleComponentOrderOneStepFinal', Array('CSaleGuestHandlers', 'OnSaleComponentOrderOneStepFinalHandler'));
+
+class CSaleGuestHandlers {
+
+	private static $bGuestOrder = false;
+
+	public static function OnOrderUpdateHandler($ID, $arFields) {
+		
+		if (self::$bGuestOrder && $GLOBALS['USER']->IsAuthorized() && $_REQUEST['delete_user']=="Y") {
+			$_SESSION['SAVED_UID'] = $GLOBALS['USER']->GetID();
+			$GLOBALS['USER']->Logout();
+		}
 	}
+
+	public static function OnSaleComponentOrderOneStepProcessHandler($arResult, $arUserResult, $arParams) {
+		if ($_REQUEST['delete_user']=="Y" && empty($arResult['ERROR']) && $arUserResult['CONFIRM_ORDER']=='Y' && !$GLOBALS['USER']->IsAuthorized()) {
+			if ($arUser = CUser::GetList($by='id', $order='asc', array('LOGIN' => 'system'))->Fetch()) {
+				if (!in_array(1, CUser::GetUserGroup($arUser['ID']))) {
+					$GLOBALS['USER']->Authorize($arUser['ID']);
+					self::$bGuestOrder = true;
+				}
+			}
+		}
+	}
+
+	public static function OnSaleComponentOrderOneStepCompleteHandler($ID, $arOrder, $arParams) {
+		if ($ID <= 0) {
+			if (self::$bGuestOrder) {
+				$GLOBALS['USER']->Logout();
+			}
+		}
+	}
+
+	public static function OnSaleComponentOrderOneStepFinalHandler($ID, $arOrder, $arParams) {
+		if ((!$GLOBALS['USER']->IsAuthorized() && $_SESSION['SAVED_UID']!=$arOrder['USER_ID']) ||
+			($GLOBALS['USER']->IsAuthorized() && $GLOBALS['USER']->GetID()!=$arOrder['USER_ID'])
+		) {
+			$arOrder = array();
+		}
+	}
+}
+
+AddEventHandler("main", "OnEndBufferContent", "OnEndBufferContentHandler");
+function OnEndBufferContentHandler(&$content)
+{
+	$content = str_replace("₷", "<span class='rubl'>&#x20bd;</span>", $content);
+}
 
 use Bitrix\Highloadblock as HL;
 use Bitrix\Main\Entity;

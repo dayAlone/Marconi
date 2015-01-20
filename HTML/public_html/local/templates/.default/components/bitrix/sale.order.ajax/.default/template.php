@@ -161,6 +161,11 @@ if (!function_exists("cmpBySort"))
 				<? endforeach ?>
 				</div>
 				<textarea name="ORDER_DESCRIPTION" id="ORDER_DESCRIPTION" style="max-width:100%;min-height:120px" placeholder="комментарий к заказу"><?=$arResult["USER_VALS"]["ORDER_DESCRIPTION"]?></textarea>
+				<? global $USER;
+					if(!$USER->getID()):
+				?>
+				<input type="checkbox" name="register_user" id="register_user" value="Y" checked="checked"> <label for="register_user">Зарегистрироваться на сайте</label>
+			<? endif;?>
 			</div>
 		</div>
 		<div class="col-xs-4 no-position">

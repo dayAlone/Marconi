@@ -3,6 +3,7 @@ initOrder = ->
 		.iCheck()
 		.one 'ifChecked', ->
 			getOrderDate()
+	$('.basket input[type="checkbox"]').iCheck()
 	$('.stores-list .dropdown__item').off('click').on 'click', (e)->
 		$(this).block().find('select').val $(this).data 'id'
 		console.log $(this).block().find('select')
@@ -21,6 +22,8 @@ isJson = (str)->
 	catch e
 		return false;
 	return true;
+
+
 getOrderDate = (confirm)->
 	data = $('#ORDER_FORM').serialize()
 	$('.basket').elem('block').mod 'loading', true
@@ -28,12 +31,14 @@ getOrderDate = (confirm)->
 	console.log data
 	if confirm
 		data += "&confirmorder=Y"
+	if $('#register_user:not(:checked)').length > 0
+		data += "&delete_user=Y"
 	$.ajax
 		type     : "POST" 
 		url      : $('#ORDER_FORM').attr('action') 
 		data     : data
 		success  : (data)->
-			#console.log data
+			console.log data
 			if !isJson data
 				$('#ORDER_FORM .props').html $(data).find('.props').html()
 				$('#ORDER_FORM .delivery').html $(data).find('.delivery').html()

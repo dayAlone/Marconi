@@ -1,10 +1,52 @@
 Host: fm.local
-Date: 2015-01-12 15:32:52
+Date: 2015-01-20 16:30:12
 Module: test
-Страница кейсов 
+true
+    CSaleGuestHandlers::OnOrderUpdateHandler < call_user_func_array < ExecuteModuleEventEx < CSaleOrder::Update < CAllSaleOrder::SetAccountNumber
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/module.php:461
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/sale/mysql/order.php:135
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/sale/general/order.php:2862
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/sale/mysql/order.php:64
 ----------
 Host: fm.local
-Date: 2015-01-12 15:32:52
+Date: 2015-01-20 16:30:12
 Module: test
-Страница кейсов 
+true
+    CSaleGuestHandlers::OnOrderUpdateHandler < call_user_func_array < ExecuteModuleEventEx < CSaleOrder::Update < CAllSaleOrder::SetAccountNumber
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/module.php:461
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/sale/mysql/order.php:135
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/sale/general/order.php:2862
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/sale/mysql/order.php:64
+----------
+Host: fm.local
+Date: 2015-01-20 16:30:12
+Module: test
+false
+    CSaleGuestHandlers::OnOrderUpdateHandler < call_user_func_array < ExecuteModuleEventEx < CSaleOrder::Update < CAllSaleOrder::SetAccountNumber
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/module.php:461
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/sale/mysql/order.php:135
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/sale/general/order.php:2862
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/sale/mysql/order.php:64
+----------
+Host: fm.local
+Date: 2015-01-20 16:31:18
+Module: main
+File: /Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/sale/mysql/order_user_props_value.php<br>Line: 164 MySql Query Error: INSERT INTO b_sale_user_props_value(`VALUE`, `NAME`, `ORDER_PROPS_ID`, `USER_PROPS_ID`) VALUES('123123', 'Ваше имя', '1',  NULL ) [Column 'USER_PROPS_ID' cannot be null]
+    CDatabaseMysql::Query < CSaleOrderUserPropsValue::Add < CAllSaleOrderUserProps::DoSaveUserProfile < include < CBitrixComponent::__includeComponent
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/sale/mysql/order_user_props_value.php:164
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/sale/general/order_user_props.php:136
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.order.ajax/component.php:2020
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:472
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:515
+----------
+Host: fm.local
+Date: 2015-01-20 16:31:51
+Module: main
+File: /Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/sale/mysql/order_user_props_value.php<br>Line: 164 MySql Query Error: INSERT INTO b_sale_user_props_value(`VALUE`, `NAME`, `ORDER_PROPS_ID`, `USER_PROPS_ID`) VALUES('Пиу', 'Ваше имя', '1',  NULL ) [Column 'USER_PROPS_ID' cannot be null]
+    CDatabaseMysql::Query < CSaleOrderUserPropsValue::Add < CAllSaleOrderUserProps::DoSaveUserProfile < include < CBitrixComponent::__includeComponent
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/sale/mysql/order_user_props_value.php:164
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/sale/general/order_user_props.php:136
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.order.ajax/component.php:2020
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:472
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:515
 ----------
