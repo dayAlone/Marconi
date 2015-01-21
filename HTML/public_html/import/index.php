@@ -73,13 +73,14 @@
 			foreach ($data as $item):
 				$code = $item->getAttribute('id');
 				switch ($code) {
-					case 'brands':
-					case 'categories':
-					case 'colors':
-					case 'materials':
-					case 'types':
-					case 'sizes':
-					case 'sale':
+					case 'sale'       :
+					case 'types'      :
+					case 'sizes'      :
+					case 'brands'     :
+					case 'colors'     :
+					case 'materials'  :
+					case 'tradeline'  :
+					case 'categories' :
 						$data  = Import::getHighloadElements($this->iblocks[$code], false, true);
 						$items = $item->getElementsByTagName('item');
 						foreach ($items as $el):
