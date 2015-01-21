@@ -5010,6 +5010,7 @@ div.pp_default .pp_loaderIcon {
   font-weight: bold;
   padding: 9px 10px 3px;
   background: #d10a32;
+  white-space: nowrap;
 }
 .brand-select .dropdown__item:hover {
   background: #000;
