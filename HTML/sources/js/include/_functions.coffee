@@ -114,7 +114,7 @@ rgb2hex = (rgb)->
 	text = x.elem('text').text()
 	x.elem('item').show()
 	x.elem('frame').find("a").each ->
-		if $(this).text() == text
+		if $(this).text() == text && $(this).parents('li').find('ul').length == 0
 			$(this).hide()
 	x.elem('frame').velocity
 		properties: "transition.slideDownIn"

@@ -41013,7 +41013,7 @@ return PhotoSwipeUI_Default;
     text = x.elem('text').text();
     x.elem('item').show();
     x.elem('frame').find("a").each(function() {
-      if ($(this).text() === text) {
+      if ($(this).text() === text && $(this).parents('li').find('ul').length === 0) {
         return $(this).hide();
       }
     });
