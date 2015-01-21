@@ -1,5 +1,31 @@
 # Product
 
+@initBigButton = ->
+	$('.product').elem('big-button').click (e)->
+		if $(this).hasMod 'buy'
+			id = $(this).data 'id'
+			if $('.sizes').length > 0
+				id = $('.sizes .dropdown').data 'id'
+				param_size = $('.sizes .dropdown__text').text()
+			url = "/include/basket.php?action=add&id=#{id}"
+			if param_size
+				url += "&size=#{param_size}"
+			
+			fly $('.picture'), $('.header .cart')
+			$(this).text('Товар в корзине').mod('border', true).mod('disabled', true)
+
+			$.get url, (data)->
+				if data == 'success'
+					bx_cart_block1.refreshCart({})
+		if $(this).hasMod 'simmilar'
+
+			getSimmilar $(this), ->
+				fly $('.picture'), $('.header .simmilar')
+
+			e.preventDefault()
+
+		if $(this).parents('form').length == 0
+			e.preventDefault()
 $(document).ready ->
 	if $('body').hasClass 'product'
 		
@@ -11,31 +37,7 @@ $(document).ready ->
 			window.location = $(this).data('href')
 			e.preventDefault()
 
-		$('.product').elem('big-button').click (e)->
-			if $(this).hasMod 'buy'
-				id = $(this).data 'id'
-				if $('.sizes').length > 0
-					id = $('.sizes .dropdown').data 'id'
-					param_size = $('.sizes .dropdown__text').text()
-				url = "/include/basket.php?action=add&id=#{id}"
-				if param_size
-					url += "&size=#{param_size}"
-				
-				fly $('.picture'), $('.header .cart')
-				$(this).text('Товар в корзине').mod('border', true).mod('disabled', true)
-
-				$.get url, (data)->
-					if data == 'success'
-						bx_cart_block1.refreshCart({})
-			if $(this).hasMod 'simmilar'
-
-				getSimmilar $(this), ->
-					fly $('.picture'), $('.header .simmilar')
-
-				e.preventDefault()
-
-			if $(this).parents('form').length == 0
-				e.preventDefault()
+		initBigButton()
 
 		initZoom = ->
 			$('.picture').elem('big').easyZoom

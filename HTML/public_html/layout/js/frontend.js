@@ -42248,6 +42248,39 @@ return PhotoSwipeUI_Default;
     }
   });
 
+  this.initBigButton = function() {
+    return $('.product').elem('big-button').click(function(e) {
+      var id, param_size, url;
+      if ($(this).hasMod('buy')) {
+        id = $(this).data('id');
+        if ($('.sizes').length > 0) {
+          id = $('.sizes .dropdown').data('id');
+          param_size = $('.sizes .dropdown__text').text();
+        }
+        url = "/include/basket.php?action=add&id=" + id;
+        if (param_size) {
+          url += "&size=" + param_size;
+        }
+        fly($('.picture'), $('.header .cart'));
+        $(this).text('Товар в корзине').mod('border', true).mod('disabled', true);
+        $.get(url, function(data) {
+          if (data === 'success') {
+            return bx_cart_block1.refreshCart({});
+          }
+        });
+      }
+      if ($(this).hasMod('simmilar')) {
+        getSimmilar($(this), function() {
+          return fly($('.picture'), $('.header .simmilar'));
+        });
+        e.preventDefault();
+      }
+      if ($(this).parents('form').length === 0) {
+        return e.preventDefault();
+      }
+    });
+  };
+
   $(document).ready(function() {
     var initZoom;
     if ($('body').hasClass('product')) {
@@ -42262,36 +42295,7 @@ return PhotoSwipeUI_Default;
         window.location = $(this).data('href');
         return e.preventDefault();
       });
-      $('.product').elem('big-button').click(function(e) {
-        var id, param_size, url;
-        if ($(this).hasMod('buy')) {
-          id = $(this).data('id');
-          if ($('.sizes').length > 0) {
-            id = $('.sizes .dropdown').data('id');
-            param_size = $('.sizes .dropdown__text').text();
-          }
-          url = "/include/basket.php?action=add&id=" + id;
-          if (param_size) {
-            url += "&size=" + param_size;
-          }
-          fly($('.picture'), $('.header .cart'));
-          $(this).text('Товар в корзине').mod('border', true).mod('disabled', true);
-          $.get(url, function(data) {
-            if (data === 'success') {
-              return bx_cart_block1.refreshCart({});
-            }
-          });
-        }
-        if ($(this).hasMod('simmilar')) {
-          getSimmilar($(this), function() {
-            return fly($('.picture'), $('.header .simmilar'));
-          });
-          e.preventDefault();
-        }
-        if ($(this).parents('form').length === 0) {
-          return e.preventDefault();
-        }
-      });
+      initBigButton();
       initZoom = function() {
         return $('.picture').elem('big').easyZoom({
           onShow: function() {
