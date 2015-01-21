@@ -109,7 +109,7 @@ $arParams['USE_FILTER'] = (isset($arParams['USE_FILTER']) && $arParams['USE_FILT
 			$arrFilter[] = array( 
 							"LOGIC" => "OR",
 							"=PROPERTY_4" => $_COOKIE['BRAND'],
-							"=PROPERTY_29" => $_COOKIE['BRAND']
+							"=PROPERTY_35" => $_COOKIE['BRAND']
 						);
 
 
