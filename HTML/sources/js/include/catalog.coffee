@@ -319,8 +319,15 @@ $(document).ready ->
 	initFiltres()
 	initBrandSelect()
 	$('.catalog').elem('per-page').click (e)->
+		if window.location.search.length == 0 
+			symbol = "?"
+		else
+			symbol = "&"
 		$.cookie('PER_PAGE', $(this).text(),{path:"/"})
-		window.location.reload()
+		if !getParameterByName('brand')
+			location.href = location.href + symbol + "per_page=#{$(this).text()}"
+		else
+			location.href = location.href.replace(getParameterByName('per_page'), $(this).text())
 		e.preventDefault()
 
 	$('.catalog__toolbar .dropdown .dropdown__item').click (e)->

@@ -41947,10 +41947,20 @@ return PhotoSwipeUI_Default;
     initFiltres();
     initBrandSelect();
     $('.catalog').elem('per-page').click(function(e) {
+      var symbol;
+      if (window.location.search.length === 0) {
+        symbol = "?";
+      } else {
+        symbol = "&";
+      }
       $.cookie('PER_PAGE', $(this).text(), {
         path: "/"
       });
-      window.location.reload();
+      if (!getParameterByName('brand')) {
+        location.href = location.href + symbol + ("per_page=" + ($(this).text()));
+      } else {
+        location.href = location.href.replace(getParameterByName('per_page'), $(this).text());
+      }
       return e.preventDefault();
     });
     $('.catalog__toolbar .dropdown .dropdown__item').click(function(e) {
