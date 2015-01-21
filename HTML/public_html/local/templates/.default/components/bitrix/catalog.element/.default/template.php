@@ -238,9 +238,8 @@ $this->EndViewTarget();
 	      		<a href="#" class="product__big-button product__big-button--buy" data-id="<?=$item['ID']?>">В корзину</a>
 	      	<? 
 	      	endif; 
-	      	var_dump($_COOKIE['simmilar']);
 	      	?>
-	      	<a href="#"  data-id="<?=$item['ID']?>" class="product__big-button product__big-button--simmilar no-margin-right"><?=(in_array($item['ID'],$_COOKIE['simmilar'])?"удалить":"сравнить")?></a>
+	      	<a href="#"  data-id="<?=$item['ID']?>" class="product__big-button product__big-button--simmilar no-margin-right"><?=(in_array($item['ID'],json_decode($_COOKIE['simmilar']))?"удалить":"сравнить")?></a>
 	      	<script>initBigButton()</script>
 	      	<?
 	      $frame->beginStub();

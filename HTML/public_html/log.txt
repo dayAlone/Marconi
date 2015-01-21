@@ -948,3 +948,53 @@ Module: composite
 	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3298
 	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3244
 ----------
+Host: fm.local
+Date: 2015-01-21 19:23:19
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/highloadblock.list/brands/template.php
+Request URI: /catalog/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/highloadblock.list/component.php:160
+----------
+Host: fm.local
+Date: 2015-01-21 19:23:23
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/highloadblock.list/brands/template.php
+Request URI: /catalog/all/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/highloadblock.list/component.php:160
+----------
+Host: fm.local
+Date: 2015-01-21 19:23:31
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/highloadblock.list/brands/template.php
+Request URI: /catalog/all/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/highloadblock.list/component.php:160
+----------
+Host: fm.local
+Date: 2015-01-21 19:23:43
+Module: composite
+/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/html_pages/fm.local/catalog/dlya_nee/perchatki_zhenskije_9050p_cervo_giallo/index@.html.delete.1421850223.74
+    Bitrix\Main\Data\StaticHtmlCache::writeDebug < Bitrix\Main\Data\StaticHtmlCache::delete < Bitrix\Main\Page\Frame::processPageContent < Bitrix\Main\Page\Frame::endBuffering < CAllMain::EndBufferContent
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/data/statichtmlcache.php:166
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:365
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:315
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3298
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3244
+----------
