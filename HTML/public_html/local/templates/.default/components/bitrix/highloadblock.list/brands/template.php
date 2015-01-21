@@ -1,14 +1,18 @@
 <?
-	$frame = $this->createFrame()->begin();
+	$arResult['TRADELINES'] = getHighloadElements('tradeline', 'UF_XML_ID', 'UF_NAME');
 	if(count($arResult['rows'])):
 		if(isset($_COOKIE['BRAND'])):
+			$this->setFrameMode(false);
 			foreach ($arResult['rows'] as $item):
 				if($_COOKIE['BRAND']==$item['UF_XML_ID']):
 					$current =  $item;
 					$this->setFrameMode(false);
 				endif;
 			endforeach;
+		else:
+			$this->setFrameMode(true);
 		endif;
+
 		?>
 		<div class="brand-select">
 			<div class="dropdown">
@@ -33,13 +37,4 @@
 		</div>
 		<?
 	endif;
-	$frame->beginStub();
-		?>
-		<div class="brand-select">
-			<div class="dropdown">
-				<a href="#" class="dropdown__trigger"><span class="dropdown__text">Все бренды</span><?=svg('arrow')?></a>
-			</div>
-		</div>
-		<?
-	$frame->end();
 ?>

@@ -288,6 +288,28 @@ getFilter = (el)->
 									options:
 										duration: 300
 
+@initBrandSelect = ->
+	$('.brand-select .dropdown .dropdown__item').click (e)->
+		if window.location.search.length == 0 
+			symbol = "?"
+		else
+			symbol = "&"
+		if $(this).data('id').length > 0
+			console.log symbol
+			$.cookie('BRAND', $(this).data('id'), { path: "/" } )
+			if !getParameterByName('brand')
+				location.href = location.href + symbol + "brand=#{$(this).data('id')}"
+			else
+				location.href = location.href.replace(getParameterByName('brand'), $(this).data('id'))
+		else
+			$.removeCookie('BRAND', { path: "/" })
+			if !getParameterByName('brand')
+				location.href = location.href
+			else
+				location.href = symbol+"brand="+getParameterByName('brand')
+				location.href = location.href.replace(symbol+"brand="+getParameterByName('brand'), "")
+
+
 getParameterByName = (name)->
 	match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
 	return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
@@ -295,7 +317,7 @@ getParameterByName = (name)->
 $(document).ready ->
 	initProducts()
 	initFiltres()
-
+	initBrandSelect()
 	$('.catalog').elem('per-page').click (e)->
 		$.cookie('PER_PAGE', $(this).text(),{path:"/"})
 		window.location.reload()
@@ -311,14 +333,6 @@ $(document).ready ->
 				location.href = location.href + "&sort_param=#{$(this).data('param')}&sort_value=#{$(this).data('value')}"
 			else
 				location.href = location.href.replace(getParameterByName('sort_param'), $(this).data('param')).replace(getParameterByName('sort_value'), $(this).data('value'))
-
-	$('.brand-select .dropdown .dropdown__item').click (e)->
-		if $(this).data('id').length > 0
-			$.cookie('BRAND', $(this).data('id'),{path:"/"})
-		else
-			$.cookie('BRAND', null)
-		
-		window.location.reload()
 
 	# Card
 	$('a.catalog__card-button').click (e)->

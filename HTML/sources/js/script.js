@@ -1,5 +1,5 @@
 (function() {
-  var addToCart, autoHeight, basketCalc, checkRange, closeDropdown, countUpOptions, delay, end, filterRequest, filterTimer, fly, galleryOptions, getCaptcha, getElem, getFilter, getOrderDate, getParameterByName, getSimmilar, initDropdown, initFiltres, initOrder, isJson, openDropdown, rangeTimer, rgb2hex, setCaptcha, size, spinOptions, timer, updateTimer;
+  var addToCart, autoHeight, basketCalc, checkRange, countUpOptions, delay, end, filterRequest, filterTimer, fly, galleryOptions, getCaptcha, getElem, getFilter, getOrderDate, getParameterByName, getSimmilar, initFiltres, initOrder, isJson, rangeTimer, rgb2hex, setCaptcha, size, spinOptions, timer, updateTimer;
 
   delay = function(ms, func) {
     return setTimeout(func, ms);
@@ -140,16 +140,6 @@
 
   timer = false;
 
-  closeDropdown = function(x) {
-    x.mod('open', false);
-    return x.elem('frame').velocity({
-      properties: "transition.slideUpOut",
-      options: {
-        duration: 300
-      }
-    });
-  };
-
   rgb2hex = function(rgb) {
     rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
     if (rgb && rgb.length === 4) {
@@ -159,7 +149,7 @@
     }
   };
 
-  openDropdown = function(x) {
+  this.openDropdown = function(x) {
     var text;
     clearTimeout(timer);
     text = x.elem('text').text();
@@ -180,7 +170,17 @@
     });
   };
 
-  initDropdown = function() {
+  this.closeDropdown = function(x) {
+    x.mod('open', false);
+    return x.elem('frame').velocity({
+      properties: "transition.slideUpOut",
+      options: {
+        duration: 300
+      }
+    });
+  };
+
+  this.initDropdown = function() {
     $('.dropdown').elem('item').off('change').on('click', function(e) {
       if ($(this).attr('href')[0] === "#") {
         $(this).block().elem('text').html($(this).text());
@@ -320,7 +320,7 @@
       });
       return el.show();
     });
-    return initDropdown();
+    return window.initDropdown();
   });
 
   countUpOptions = {
@@ -1046,6 +1046,38 @@
     });
   };
 
+  this.initBrandSelect = function() {
+    return $('.brand-select .dropdown .dropdown__item').click(function(e) {
+      var symbol;
+      if (window.location.search.length === 0) {
+        symbol = "?";
+      } else {
+        symbol = "&";
+      }
+      if ($(this).data('id').length > 0) {
+        console.log(symbol);
+        $.cookie('BRAND', $(this).data('id'), {
+          path: "/"
+        });
+        if (!getParameterByName('brand')) {
+          return location.href = location.href + symbol + ("brand=" + ($(this).data('id')));
+        } else {
+          return location.href = location.href.replace(getParameterByName('brand'), $(this).data('id'));
+        }
+      } else {
+        $.removeCookie('BRAND', {
+          path: "/"
+        });
+        if (!getParameterByName('brand')) {
+          return location.href = location.href;
+        } else {
+          location.href = symbol + "brand=" + getParameterByName('brand');
+          return location.href = location.href.replace(symbol + "brand=" + getParameterByName('brand'), "");
+        }
+      }
+    });
+  };
+
   getParameterByName = function(name) {
     var match;
     match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
@@ -1055,6 +1087,7 @@
   $(document).ready(function() {
     initProducts();
     initFiltres();
+    initBrandSelect();
     $('.catalog').elem('per-page').click(function(e) {
       $.cookie('PER_PAGE', $(this).text(), {
         path: "/"
@@ -1074,16 +1107,6 @@
           return location.href = location.href.replace(getParameterByName('sort_param'), $(this).data('param')).replace(getParameterByName('sort_value'), $(this).data('value'));
         }
       }
-    });
-    $('.brand-select .dropdown .dropdown__item').click(function(e) {
-      if ($(this).data('id').length > 0) {
-        $.cookie('BRAND', $(this).data('id'), {
-          path: "/"
-        });
-      } else {
-        $.cookie('BRAND', null);
-      }
-      return window.location.reload();
     });
     $('a.catalog__card-button').click(function(e) {
       var block, offset;

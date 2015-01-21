@@ -78,5 +78,5 @@ $(document).ready ->
 			'width' : w
 		el.show()
 
-	initDropdown()
+	window.initDropdown()
 	

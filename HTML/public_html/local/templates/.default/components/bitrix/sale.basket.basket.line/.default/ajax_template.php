@@ -1,5 +1,6 @@
 <?
 $frame = $this->createFrame()->begin();
+$frame->setBrowserStorage(true);
 $_SESSION['ELEMENS'] = array();
 foreach($arResult['CATEGORIES']['READY'] as $item)
 	$_SESSION['ELEMENS'][] = $item['PRODUCT_ID'];

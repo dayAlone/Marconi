@@ -101,12 +101,6 @@ setCaptcha = (code)->
 
 timer = false
 
-closeDropdown = (x)->
-	x.mod('open', false)
-	x.elem('frame').velocity
-		properties: "transition.slideUpOut"
-		options:
-			duration: 300
 
 rgb2hex = (rgb)->
 	rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
@@ -115,7 +109,7 @@ rgb2hex = (rgb)->
 	else
 		return false
 
-openDropdown = (x)->
+@openDropdown = (x)->
 	clearTimeout timer
 	text = x.elem('text').text()
 	x.elem('item').show()
@@ -131,7 +125,14 @@ openDropdown = (x)->
 				#timer = delay 6000, ()->
 					#closeDropdown x
 
-initDropdown = ->
+@closeDropdown = (x)->
+	x.mod('open', false)
+	x.elem('frame').velocity
+		properties: "transition.slideUpOut"
+		options:
+			duration: 300
+
+@initDropdown = ->
 	$('.dropdown').elem('item').off('change').on 'click', (e)->
 
 		if $(this).attr('href')[0] == "#"
