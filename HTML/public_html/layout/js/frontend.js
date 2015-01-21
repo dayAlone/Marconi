@@ -41956,7 +41956,7 @@ return PhotoSwipeUI_Default;
       $.cookie('PER_PAGE', $(this).text(), {
         path: "/"
       });
-      if (!getParameterByName('brand')) {
+      if (!getParameterByName('per_page')) {
         location.href = location.href + symbol + ("per_page=" + ($(this).text()));
       } else {
         location.href = location.href.replace(getParameterByName('per_page'), $(this).text());
