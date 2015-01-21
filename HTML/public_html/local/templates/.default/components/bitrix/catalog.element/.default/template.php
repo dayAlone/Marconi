@@ -179,51 +179,28 @@ $this->EndViewTarget();
 	      </div>
 	      <div class="col-lg-6">
 	        <div class="props">
-	        <? if(strlen($props['ARTNUMBER']['VALUE'])>0):?>
-	          <div class="props__item">
-	            <div class="props__name">артикул</div>
-	            <div class="props__value"><?=$props['ARTNUMBER']['VALUE']?></div>
-	          </div>
-	        <? endif; ?>
-	        <? if(strlen($props['BRAND']['VALUE'])>0):?>
-	          <div class="props__item">
-	            <div class="props__name">бренд</div>
-	            <div class="props__value"><?=$arResult['BRANDS'][$props['BRAND']['VALUE']]?></div>
-	          </div>
-	        <? endif; ?>
 	        <? 
-	        	if(count($props['COLOR']['VALUE'])>0):
-	        		$colors = "";
-	        		foreach ($props['COLOR']['VALUE'] as $key=>$color)
-	        			$colors .= ($key!=0?" / ":"").$arResult['COLORS'][$color];
-	        	if(strlen($colors)>0):
-	        ?>
-	          <div class="props__item">
-	            <div class="props__name">цвет</div>
-	            <div class="props__value"><?=$colors?></div>
-	          </div>
-	        <? 
+	        $values = array(
+				'артикул'  => $props['ARTNUMBER']['VALUE'],
+				'бренд'    => $arResult['BRANDS'][$props['BRAND']['VALUE']],
+				'линия'    => $arResult['TRANDELINES'][$props['TRANDELINE']['VALUE']],
+				'цвет'     => $props['COLOR']['VALUE'],
+	        	'материал' => $props['MATERIAL']['VALUE'],
+	        	'размер'   => $props['SIZE']['VALUE'],
+	        	
+	        );
+	        foreach ($values as $title => $text):
+	        	if(strlen($text)>0||is_array($text)>0):
+	        		if(is_array($text)) $text = str_replace(array_merge(array_keys($arResult['COLORS']),array_keys($arResult['MATERIALS'])), array_merge(array_values($arResult['COLORS']),array_values($arResult['MATERIALS'])), implode($text, ' / '));
+	        	?>
+	        	<div class="props__item">
+					<div class="props__name"><?=$title?></div>
+					<div class="props__value"><?=$text?></div>
+		        </div>
+	        	<?
 	        	endif;
-	        endif;?>
-	        <? if(count($props['MATERIAL']['VALUE'])>0):
-	        		$materials = "";
-	        		foreach ($props['MATERIAL']['VALUE'] as $key=>$color)
-	        			$materials .= ($key!=0?" / ":"").$arResult['MATERIALS'][$color];
-	        		if(strlen($materials)>0):
-	       	?>
-	          <div class="props__item">
-	            <div class="props__name">материал</div>
-	            <div class="props__value"><?=$materials?></div>
-	          </div>
-	        <? 
-	        		endif;
-	        endif;?>
-	        <? if(strlen($props['SIZE']['VALUE'])>0):?>
-	          <div class="props__item">
-	            <div class="props__name">размер</div>
-	            <div class="props__value"><?=$props['SIZE']['VALUE']?></div>
-	          </div>
-	        <? endif; ?>
+	        endforeach;
+	        ?>
 	          <div class="props__item props__item--price">
 	            <div class="props__name">цена</div>
 	            <div class="props__value">

@@ -148,7 +148,7 @@
 			$this->categories = Import::getHighloadElements($this->iblocks['categories'], true);
 			$this->types      = Import::getHighloadElements($this->iblocks['types'], true);
 			$this->brands     = Import::getHighloadElements($this->iblocks['brands'], true);
-			$this->properties = Array("SORT", "PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_MATERIAL", "PROPERTY_SALE", "PROPERTY_PICTURES", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "PROPERTY_SECTION_4", "IBLOCK_SECTION", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL" );
+			$this->properties = Array("SORT", "PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_TRADELINE", "PROPERTY_MATERIAL", "PROPERTY_SALE", "PROPERTY_PICTURES", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "PROPERTY_SECTION_4", "IBLOCK_SECTION", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL" );
 		}
 		private function addParentCatagory(&$parent, $array)
 		{
@@ -200,6 +200,8 @@
 					case 'MATERIAL':
 					case 'COLOR':
 					case 'SIZE':
+					case 'SALE':
+					case 'TRADELINE':
 					case 'ARTNUMBER':
 						$array[$key] = $prop;
 						break;
@@ -298,6 +300,7 @@
 						$props['OFFER_SIZE'] = $value;
 					break;
 					case 'sale':
+					case 'tradeline':
 					case 'brand':
 						$props[strtoupper($id)] = $value;
 						break;
@@ -309,9 +312,10 @@
 			endforeach;
 
 			$this->getSections($propSections, $fields, $props);
-			if(isset($props["SALE"])&&$props["SALE"]==$this->sale)
+			
+			if($props["SALE"]==$this->sale):
 				$fields['IBLOCK_SECTION'][] = $this->sections['sale'];
-
+			endif;
 			$name = $note;
 			if($this->brands[$props['BRAND']]['NAME'])
 				$name .= ' '.$this->brands[$props['BRAND']]['NAME'];
@@ -386,6 +390,7 @@
 					elseif(isset($exist['SALE']) && !isset($props['SALE'])):
 						$diff['SALE'] = false;
 					endif;
+
 					unset($diff['OFFER_SIZE']);
 
 					foreach (array('COLOR', 'MATERIAL') as $el):

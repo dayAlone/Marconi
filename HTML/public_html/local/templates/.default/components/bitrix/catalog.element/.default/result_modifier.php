@@ -5,6 +5,7 @@
 	$arResult['MATERIALS']  = getHighloadElements('materials', 'UF_XML_ID', 'UF_NAME');
 	$arResult['SIZES']      = getHighloadElements('sizes', 'UF_XML_ID', 'UF_NAME');
 	$arResult['TYPES']      = getHighloadElements('types', 'UF_XML_ID', 'UF_NAME');
+	$arResult['TRADELINES'] = getHighloadElements('tradeline', 'UF_XML_ID', 'UF_NAME');
 	$arResult['CATEGORIES'] = getHighloadElements('categories', 'UF_XML_ID', 'ID');
 	$arResult['SECTIONS']   = array();
 
