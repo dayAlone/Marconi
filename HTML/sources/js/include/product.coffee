@@ -1,7 +1,7 @@
 # Product
 
 @initBigButton = ->
-	$('.product').elem('big-button').click (e)->
+	$('.product').elem('big-button').off('click').on 'click', (e)->
 		if $(this).hasMod 'buy'
 			id = $(this).data 'id'
 			if $('.sizes').length > 0
@@ -26,6 +26,7 @@
 
 		if $(this).parents('form').length == 0
 			e.preventDefault()
+			
 $(document).ready ->
 	if $('body').hasClass 'product'
 		

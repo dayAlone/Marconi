@@ -1391,7 +1391,7 @@
   });
 
   this.initBigButton = function() {
-    return $('.product').elem('big-button').click(function(e) {
+    return $('.product').elem('big-button').off('click').on('click', function(e) {
       var id, param_size, url;
       if ($(this).hasMod('buy')) {
         id = $(this).data('id');
