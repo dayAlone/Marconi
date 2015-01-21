@@ -9,7 +9,7 @@ $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section",
 	"",
 	array(
-		"NAME"                            => "Сравниение товаров",
+		"NAME"                            => "Сравнение товаров",
 		"CLASS"                           => "catalog--big",
 		"COMPARE_TEXT"                    => "Удалить",
 		"IBLOCK_TYPE"                     => $arParams["IBLOCK_TYPE"],
