@@ -106,11 +106,18 @@
               "SHOW_PRICE"          => "Y",
               "SHOW_SUMMARY"        => "Y"
           ));?>
-            <?if(isset($_COOKIE['simmilar'])&&count(json_decode($_COOKIE['simmilar']))>0):?>
-            <a href="/catalog/compare.php" class="simmilar"><?=svg('simmilar')?><span class="simmilar__text">К сравнению: <?=count(json_decode($_COOKIE['simmilar']))?></span></a>
-            <?else:?>
-            <a href="#" class="simmilar"><?=svg('simmilar')?><span class="simmilar__text">Товары не выбраны</span></a>
-            <?endif;?>
+            <?
+            $frame = new \Bitrix\Main\Page\FrameHelper("compare");
+            $frame->begin();
+              if(isset($_COOKIE['simmilar'])&&count(json_decode($_COOKIE['simmilar']))>0):?>
+                <a href="/catalog/compare.php" class="simmilar"><?=svg('simmilar')?><span class="simmilar__text">К сравнению: <?=count(json_decode($_COOKIE['simmilar']))?></span></a>
+              <?else:?>
+                <a href="#" class="simmilar"><?=svg('simmilar')?><span class="simmilar__text">Товары не выбраны</span></a>
+              <?endif;
+            $frame->beginStub();
+              ?><a href="#" class="simmilar"><?=svg('simmilar')?><span class="simmilar__text">Товары не выбраны</span></a><?
+            $frame->end();
+            ?>
             
           </div>
         </div>
