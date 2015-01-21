@@ -207,7 +207,7 @@ $this->EndViewTarget();
 	            <?
 	            if(isset($arResult['MIN_PRICE']['VALUE'])&&intval($arResult['MIN_PRICE']['VALUE'])!=0): ?>
 			      <strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?></strong> ₷
-			      <?if(strlen($props['SALE']['VALUE'])>0):?>
+			      <?if($props['SALE']['VALUE']=="77ebb501-85d4-11e4-82e4-0025908101de"):?>
 			      <div class="product__sale">
 			      	<span>Уникальная</span><br><span>цена</span>
 			      </div>
@@ -226,11 +226,29 @@ $this->EndViewTarget();
 	      <?
 	      $frame = $this->createFrame()->begin();
 			if(isset($arResult['MIN_PRICE']['VALUE'])&&intval($arResult['MIN_PRICE']['VALUE'])!=0): 
+				$arBasketItems = array();
+
+				$dbBasketItems = CSaleBasket::GetList(
+			        array(
+			                "NAME" => "ASC",
+			                "ID" => "ASC"
+			            ),
+			        array(
+			                "FUSER_ID" => CSaleBasket::GetBasketUserID(),
+			                "LID" => SITE_ID,
+			                "ORDER_ID" => "NULL"
+			            ),
+			        false,
+			        false,
+			        array("ID", "PRODUCT_ID")
+			    );
+				while ($arItems = $dbBasketItems->Fetch())
+					$arBasketItems[] = $arItems['PRODUCT_ID'];
 				$inCart = false;
-				if(in_array($item['ID'],$_SESSION['ELEMENS']))
+				if(in_array($item['ID'],$arBasketItems))
 					$inCart = true;
 				foreach ($item['OFFERS'] as $offer)
-					if(in_array($offer['ID'], $_SESSION['ELEMENS']))
+					if(in_array($offer['ID'], $arBasketItems))
 						$inCart = true;
 				if($inCart):?>
 	      		<a href="#" class="product__big-button product__big-button--border product__big-button--disabled" data-id="<?=$item['ID']?>">Товар в корзине</a>

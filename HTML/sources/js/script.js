@@ -1404,7 +1404,9 @@
           url += "&size=" + param_size;
         }
         fly($('.picture'), $('.header .cart'));
-        $(this).text('Товар в корзине').mod('border', true).mod('disabled', true);
+        $(this).mod('border', true).mod('disabled', true).on(end, function() {
+          return $(this).text('Товар в корзине');
+        });
         $.get(url, function(data) {
           if (data === 'success') {
             return bx_cart_block1.refreshCart({});

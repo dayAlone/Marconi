@@ -3868,6 +3868,7 @@ svg g {
   text-align: center;
   color: #fff;
   font-size: 12px;
+  white-space: nowrap;
   -webkit-transition-property: all;
   -moz-transition-property: all;
   -o-transition-property: all;
@@ -3891,6 +3892,9 @@ svg g {
 .product__big-button:focus,
 .product__big-button:active {
   color: #fff;
+}
+.product__big-button--buy {
+  max-width: 45%;
 }
 .product__big-button--border {
   color: #000;

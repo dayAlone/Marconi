@@ -14,7 +14,7 @@
 	    <? endif; ?>
 	    </div>
 	    <?
-	    if(strlen($item['PROPERTIES']['SALE']['VALUE'])>0): ?>
+	    if($item['PROPERTIES']['SALE']['VALUE']=="77ebb501-85d4-11e4-82e4-0025908101de"): ?>
 	    <div class="product__sale">Уникальная цена</div>
 	    <? endif; ?>
 	  </div>

@@ -12,7 +12,8 @@
 				url += "&size=#{param_size}"
 			
 			fly $('.picture'), $('.header .cart')
-			$(this).text('Товар в корзине').mod('border', true).mod('disabled', true)
+			$(this).mod('border', true).mod('disabled', true).on end, ->
+				$(this).text('Товар в корзине')
 
 			$.get url, (data)->
 				if data == 'success'
