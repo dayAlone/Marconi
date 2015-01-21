@@ -663,7 +663,7 @@
 
 		private $checkfile = false;
 
-		const step = 300;
+		const step = 1000;
 
 		private $steps = array('properties', 'products', 'counts', 'prices');//, , , 'write-off');
 		

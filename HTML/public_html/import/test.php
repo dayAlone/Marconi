@@ -45,7 +45,7 @@
 			$props[$id] = $value;
 		}
 		
-		if(!isset($props['size']))
+		if(!isset($props['SizeForWeb']))
 			$errors['size'][] = $item->getElementsByTagName('name')->item(0)->nodeValue;
 
 		foreach ($errors as $key => &$el) 
