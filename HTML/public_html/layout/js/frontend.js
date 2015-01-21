@@ -41596,11 +41596,11 @@ return PhotoSwipeUI_Default;
       }
     }
     if ($.inArray(id, simmilar) !== -1) {
-      callbackOn();
       el.text('Удалить');
+      callbackOn();
     } else {
-      callbackOff();
       el.text('Сравнить');
+      callbackOff();
     }
     if (simmilar.length > 0) {
       $('.simmilar').elem('text').text("К сравнению: " + simmilar.length);
