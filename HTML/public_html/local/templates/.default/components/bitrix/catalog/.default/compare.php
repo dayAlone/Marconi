@@ -1,6 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?
-$APPLICATION->SetTitle("Сравниение товаров");
+$APPLICATION->SetTitle("Сравнение товаров");
 $APPLICATION->SetPageProperty('body_class', "catalog catalog--simmilar");
 global $compareFilter;
 $compareFilter = array('ID'=>json_decode($_COOKIE['simmilar']));
