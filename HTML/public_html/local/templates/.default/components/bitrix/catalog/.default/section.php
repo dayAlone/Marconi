@@ -106,7 +106,12 @@ $arParams['USE_FILTER'] = (isset($arParams['USE_FILTER']) && $arParams['USE_FILT
 		require_once($_SERVER['DOCUMENT_ROOT'].'/include/fix_filter.php');
 		
 		if(isset($_COOKIE['BRAND'])&& $_COOKIE['BRAND'] != 'null')
-			$arrFilter["=PROPERTY_4"] = $_COOKIE['BRAND'];
+			$arrFilter[] = array( 
+							"LOGIC" => "OR",
+							"=PROPERTY_4" => $_COOKIE['BRAND'],
+							"=PROPERTY_29" => $_COOKIE['BRAND']
+						);
+
 
 		if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMON_SETTINGS_BASKET_POPUP'] == 'Y')
 			$basketAction = (isset($arParams['COMMON_ADD_TO_BASKET_ACTION']) ? $arParams['COMMON_ADD_TO_BASKET_ACTION'] : '');

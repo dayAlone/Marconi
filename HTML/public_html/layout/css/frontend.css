@@ -4919,6 +4919,40 @@ div.pp_default .pp_loaderIcon {
 .brand-select .dropdown {
   position: relative;
 }
+.brand-select .dropdown ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.brand-select .dropdown ul > li {
+  position: relative;
+}
+.brand-select .dropdown ul > li:hover > ul {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.brand-select .dropdown ul > li:hover > .dropdown__item {
+  background: #000;
+}
+.brand-select .dropdown ul > li > ul {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -ms-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  left: 100%;
+}
 .brand-select .dropdown--open .dropdown__trigger {
   background: #d10a32;
 }
@@ -4975,6 +5009,7 @@ div.pp_default .pp_loaderIcon {
   font-size: 12px;
   font-weight: bold;
   padding: 9px 10px 3px;
+  background: #d10a32;
 }
 .brand-select .dropdown__item:hover {
   background: #000;

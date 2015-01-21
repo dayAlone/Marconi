@@ -210,6 +210,23 @@
 	z-index 300
 	.dropdown
 		position relative
+		ul
+			margin 0
+			padding 0
+			list-style none
+			> li 
+				position relative
+				&:hover
+					> ul
+						opacity 1
+					> .dropdown__item
+						background black
+				> ul
+					position absolute
+					top 0
+					opacity 0
+					t opacity
+					left 100%
 		&--open .dropdown__trigger
 			background red
 		&__trigger
@@ -251,5 +268,6 @@
 			font-size 12px
 			font-weight: bold
 			padding 9px 10px 3px
+			background red
 			&:hover
 				background black
