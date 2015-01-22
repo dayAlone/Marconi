@@ -21,7 +21,7 @@ $(document).ready ->
 		getCaptcha()
 		e.preventDefault()
 	
-	$('#login').modal()
+	#$('#login').modal()
 
 	# Contacts
 		
