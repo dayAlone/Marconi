@@ -5461,7 +5461,7 @@ svg g {
   position: absolute;
   right: -60px;
   top: 0;
-  background: transparent;
+  background: transparent !important;
 }
 .modal .close svg {
   width: 40px;
