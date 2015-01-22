@@ -243,7 +243,6 @@
       getCaptcha();
       return e.preventDefault();
     });
-    $('#login').modal();
     $('#feedback form').submit(function(e) {
       var data;
       e.preventDefault();
