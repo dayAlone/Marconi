@@ -1,4 +1,27 @@
 .product
+	&__tradeline
+		position absolute
+		background red
+		left 50%
+		transform translateX(-50%)
+		bottom 120px
+		color white
+		white-space no-wrap
+		padding-top 6px
+		font-size 12px
+		&:after, &:before
+			position absolute
+			top 0
+			left -12px
+			width calc(100% + 24px)
+			height 100%
+			background red
+			content ""
+			z-index -1
+		&:after
+			transform skew(30deg,0)
+		&:before
+			transform skew(-30deg,0)
 	&__sale
 		font-size 8px
 		display inline-block

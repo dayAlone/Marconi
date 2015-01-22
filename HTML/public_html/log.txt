@@ -64,3 +64,68 @@ Module: composite
 	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3298
 	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3244
 ----------
+Host: fm.local
+Date: 2015-01-22 08:51:59
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/highloadblock.list/brands/template.php
+Request URI: /catalog/all/?brand=bb071cbe-8110-11e4-82e4-0025908101de
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/highloadblock.list/component.php:160
+----------
+Host: fm.local
+Date: 2015-01-22 08:52:05
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/highloadblock.list/brands/template.php
+Request URI: /catalog/all/?brand=9011840e-8110-11e4-82e4-0025908101de
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/highloadblock.list/component.php:160
+----------
+Host: fm.local
+Date: 2015-01-22 08:58:04
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/highloadblock.list/brands/template.php
+Request URI: /catalog/all/?brand=9011840e-8110-11e4-82e4-0025908101de
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/highloadblock.list/component.php:160
+----------
+Host: fm.local
+Date: 2015-01-22 08:58:06
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/highloadblock.list/brands/template.php
+Request URI: /catalog/all/?brand=9011840e-8110-11e4-82e4-0025908101de
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/highloadblock.list/component.php:160
+----------
+Host: fm.local
+Date: 2015-01-22 08:58:14
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/highloadblock.list/brands/template.php
+Request URI: /catalog/bitrix/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/highloadblock.list/component.php:160
+----------
