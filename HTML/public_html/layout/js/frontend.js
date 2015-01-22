@@ -41109,7 +41109,7 @@ return PhotoSwipeUI_Default;
         return $("." + id).elem('form').show().removeClass('hidden');
       }
     });
-    $('input[name="REGISTER[PERSONAL_PHONE]"]').mask('+7 (000) 000 00 00');
+    $('input[name="REGISTER[PERSONAL_PHONE]"], input[name="PERSONAL_PHONE"]').mask('+7 0000000000');
     $('#login form, #forget form, #register form, #change form').submit(function(e) {
       var block, data, form, modal;
       e.preventDefault();
@@ -42231,7 +42231,7 @@ return PhotoSwipeUI_Default;
       $(this).block().find('.parsley-errors-list').removeClass('.filled');
       return e.preventDefault();
     });
-    return $('input[name="ORDER_PROP_3"]').mask('+7 (000) 000 00 00');
+    return $('input[name="ORDER_PROP_3"]').mask('+7 0000000000');
   };
 
   $('.bx-ui-sls-clear').click(function() {

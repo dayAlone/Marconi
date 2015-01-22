@@ -7,6 +7,16 @@ define("BX_COMPOSITE_DEBUG", true);
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
 
+AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserUpdateHandler");
+AddEventHandler("main", "OnBeforeUserRegister", "OnBeforeUserUpdateHandler");
+AddEventHandler("main", "OnBeforeUserAdd", "OnBeforeUserUpdateHandler");
+
+function OnBeforeUserUpdateHandler(&$arFields)
+{
+	if(!$GLOBALS['USER']->IsAdmin())
+		$arFields["EMAIL"] = $arFields["LOGIN"];
+}
+
 AddEventHandler('sale', 'OnOrderAdd', Array('CSaleGuestHandlers', 'OnOrderUpdateHandler'));
 AddEventHandler('sale', 'OnSaleComponentOrderOneStepProcess', Array('CSaleGuestHandlers', 'OnSaleComponentOrderOneStepProcessHandler'));
 AddEventHandler('sale', 'OnSaleComponentOrderOneStepComplete', Array('CSaleGuestHandlers', 'OnSaleComponentOrderOneStepCompleteHandler'));
@@ -15,9 +25,6 @@ AddEventHandler('sale', 'OnSaleComponentOrderOneStepFinal', Array('CSaleGuestHan
 class CSaleGuestHandlers {
 
 	private static $bGuestOrder = false;
-
-	
-
 	public static function OnSaleComponentOrderOneStepProcessHandler($arResult, $arUserResult, $arParams) {
 		if ($_REQUEST['delete_user']=="Y" && empty($arResult['ERROR']) && $arUserResult['CONFIRM_ORDER']=='Y' && !$GLOBALS['USER']->IsAuthorized()) {
 			if ($arUser = CUser::GetList($by='id', $order='asc', array('LOGIN' => 'system'))->Fetch()) {

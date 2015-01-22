@@ -14,7 +14,7 @@ $this->setFrameMode(true);
 ?>
 <form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" data-url="<?=$APPLICATION->GetCurDir()?>">
 	<?foreach($arResult["HIDDEN"] as $arItem):
-		if(!in_array($arItem["CONTROL_NAME"], array('range', 'short', 'sort_param', 'sort_value', 'PAGEN_1')) && strlen($arItem["HTML_VALUE"])>0):?>
+		if(!in_array($arItem["CONTROL_NAME"], array('range', 'SHOWALL_1', 'short', 'sort_param', 'sort_value', 'PAGEN_1')) && strlen($arItem["HTML_VALUE"])>0):?>
 		<input
 			type="hidden"
 			name="<?echo $arItem["CONTROL_NAME"]?>"

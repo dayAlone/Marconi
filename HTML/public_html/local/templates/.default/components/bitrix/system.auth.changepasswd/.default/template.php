@@ -1,7 +1,5 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<div class="bx-auth">
-
 <?
 ShowMessage($arParams["~AUTH_RESULT"]);
 ?>
@@ -28,8 +26,3 @@ ShowMessage($arParams["~AUTH_RESULT"]);
 	
 
 </form>
-
-<script type="text/javascript">
-document.bform.USER_LOGIN.focus();
-</script>
-</div>

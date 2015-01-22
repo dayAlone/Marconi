@@ -9,7 +9,7 @@ initOrder = ->
 		console.log $(this).block().find('select')
 		$(this).block().find('.parsley-errors-list').removeClass '.filled'
 		e.preventDefault()
-	$('input[name="ORDER_PROP_3"]').mask '+7 (000) 000 00 00'
+	$('input[name="ORDER_PROP_3"]').mask '+7 0000000000'
 
 $('.bx-ui-sls-clear').click ->
 	getOrderDate()

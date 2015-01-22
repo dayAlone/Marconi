@@ -139,7 +139,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/include/form.php');
   <div id="change" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade forget">
     <div class="modal-dialog feedback__dialog">
       <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
-        <div class="change__success hidden m-margin-top center">
+        <div class="hidden m-margin-top center change__success">
           <p><big>Вы успешно ищмени пароль. <a class="auth__item" href="#login" data-toggle="modal" data-target="#login">Авторизация</a></big></p>
         </div>
         <?$APPLICATION->IncludeComponent(

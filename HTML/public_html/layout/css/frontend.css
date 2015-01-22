@@ -5306,7 +5306,70 @@ svg g {
 .dropdown__select {
   display: none;
 }
-.modal .parsley-errors-list {
+.profile {
+  max-width: 95%;
+}
+.profile label {
+  text-align: left;
+  width: 100%;
+  letter-spacing: 2px;
+  font-size: 11px;
+  text-transform: uppercase;
+  line-height: 35px;
+}
+.profile .row + .row {
+  margin-top: 10px;
+}
+.profile input:focus {
+  outline: 0;
+}
+.profile input + label {
+  margin-top: 10px;
+}
+.profile input[type="text"],
+.profile input[type="email"],
+.profile input[type="password"] {
+  height: 32px;
+  line-height: 35px;
+  width: 100%;
+  border: 1px solid #ccc;
+  -webkit-transition-property: border;
+  -moz-transition-property: border;
+  -o-transition-property: border;
+  -ms-transition-property: border;
+  transition-property: border;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  text-align: left;
+  padding: 0 10px;
+}
+.profile input[type="text"]:focus,
+.profile input[type="email"]:focus,
+.profile input[type="password"]:focus {
+  border-color: #000;
+}
+.profile input[type="text"].parsley-error,
+.profile input[type="email"].parsley-error,
+.profile input[type="password"].parsley-error {
+  border-color: #d10a32;
+}
+.profile input[type="text"].parsley-error:focus,
+.profile input[type="email"].parsley-error:focus,
+.profile input[type="password"].parsley-error:focus {
+  border-color: rgba(209,10,50,0.7);
+}
+.profile input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  margin-bottom: 0;
+  font-size: 13px;
+}
+.parsley-errors-list {
   display: none;
 }
 .modal a {
@@ -5526,6 +5589,9 @@ svg g {
 }
 .page__title:hover {
   text-decoration: none;
+}
+.page__title--full-width {
+  max-width: none;
 }
 .page__title--no-border {
   background: transparent;
