@@ -5260,6 +5260,9 @@ svg g {
   z-index: 300000;
   pointer-events: none;
 }
+.scroll-fix .bx-ie {
+  display: none;
+}
 .scroll-fix--on {
   pointer-events: initial;
 }

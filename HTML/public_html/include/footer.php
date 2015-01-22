@@ -165,7 +165,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/include/form.php');
                 "USE_BACKURL"        => "Y", 
                 "USE_CAPTCHA"        => "Y", 
                 "SUCCESS_PAGE"       => "", 
-                "SET_TITLE"          => "Y", 
+                "SET_TITLE"          => "N", 
                 "USER_PROPERTY"      => Array(), 
                 "SEF_FOLDER"         => "/", 
                 "VARIABLE_ALIASES"   => Array()
