@@ -252,7 +252,7 @@
       }
     });
     $('input[name="REGISTER[PERSONAL_PHONE]"]').mask('+7 (000) 000 00 00');
-    $('#login form, #forget form, #register form').submit(function(e) {
+    $('#login form, #forget form, #register form, #change form').submit(function(e) {
       var block, data, form, modal;
       e.preventDefault();
       form = $(this);

@@ -99,6 +99,13 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/include/form.php');
     })
   </script>
   <?endif;?>
+  <?if($_REQUEST['change_password']=="yes"):?>
+  <script>
+    $(function(){
+      $('#change').modal()
+    })
+  </script>
+  <?endif;?>
   <div id="login" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade">
     <div class="modal-dialog feedback__dialog">
       <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
@@ -129,6 +136,20 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/include/form.php');
       </div>
     </div>
   </div>
+  <div id="change" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade forget">
+    <div class="modal-dialog feedback__dialog">
+      <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
+        <div class="change__success hidden m-margin-top center">
+          <p><big>Вы успешно ищмени пароль. <a class="auth__item" href="#login" data-toggle="modal" data-target="#login">Авторизация</a></big></p>
+        </div>
+        <?$APPLICATION->IncludeComponent(
+        "bitrix:system.auth.changepasswd",
+        ".default",
+        Array()
+        );?>
+      </div>
+    </div>
+  </div>
   <div id="register" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade register">
     <div class="modal-dialog feedback__dialog">
       <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
@@ -139,7 +160,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/include/form.php');
                 "USER_PROPERTY_NAME" => "", 
                 "SEF_MODE"           => "Y", 
                 "SHOW_FIELDS"        => Array("NAME", "LAST_NAME", "PERSONAL_PHONE"), 
-                "REQUIRED_FIELDS"    => Array("NAME", "LAST_NAME"), 
+                "REQUIRED_FIELDS"    => Array("NAME"), 
                 "AUTH"               => "Y", 
                 "USE_BACKURL"        => "Y", 
                 "USE_CAPTCHA"        => "Y", 

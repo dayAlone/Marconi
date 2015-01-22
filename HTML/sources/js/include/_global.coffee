@@ -31,7 +31,7 @@ $(document).ready ->
 
 	$('input[name="REGISTER[PERSONAL_PHONE]"]').mask '+7 (000) 000 00 00'
 
-	$('#login form, #forget form, #register form').submit (e)->
+	$('#login form, #forget form, #register form, #change form').submit (e)->
 		e.preventDefault()
 		
 		form  = $(this)
