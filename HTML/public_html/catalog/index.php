@@ -1,6 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Каталог");
+$APPLICATION->SetPageProperty("keywords", "Купить сумку francesco marconi, сумки francesco marconi, сумки франческо маркони, купить францеско маркони, интернет-магазин франческо маркони");
+$APPLICATION->SetTitle("Интернет-магазин сумок и аксессуаров");
 $APPLICATION->SetPageProperty('body_class', "catalog ".(!isset($_REQUEST['v'])?"catalog--ajax":""));
 $v = getHighloadElements('categories', 'UF_XML_ID', 'ID');
 ?><?$APPLICATION->IncludeComponent(

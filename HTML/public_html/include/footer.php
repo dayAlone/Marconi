@@ -90,6 +90,20 @@
 
 <? require_once($_SERVER['DOCUMENT_ROOT'].'/include/form.php'); ?>
 
+<div id="login" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade feedback">
+  <div class="modal-dialog feedback__dialog">
+    <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
+      <label>Ваш e-mail</label>
+      <input name="email" type="email" required>
+      <label>Пароль</label>
+      <input name="password" type="password" required>
+      <div class="center">
+        <input type="submit" class="product__big-button product__big-button--border m-margin-top" value="Войти">
+         | <a href="#" class="lost">Забыли пароль?</a>
+      </div>
+    </div>
+  </div>
+</div>
 <?$APPLICATION->ShowViewContent('footer');?>
 </body>
 </html>

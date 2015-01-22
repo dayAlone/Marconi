@@ -21,6 +21,8 @@ $(document).ready ->
 		getCaptcha()
 		e.preventDefault()
 	
+	$('#login').modal()
+
 	# Contacts
 		
 	$('#feedback form').submit (e)->
