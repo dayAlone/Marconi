@@ -21,7 +21,47 @@ $(document).ready ->
 		getCaptcha()
 		e.preventDefault()
 	
-	#$('#login').modal()
+	# Login
+	
+	$('.modal').on 'hidden.bs.modal', ->
+		id = $(this).attr 'id'
+		if $(".#{id}").elem('success')
+			$(".#{id}").elem('success').hide().addClass 'hidden'
+			$(".#{id}").elem('form').show().removeClass 'hidden'
+
+	$('input[name="REGISTER[PERSONAL_PHONE]"]').mask '+7 (000) 000 00 00'
+
+	$('#login form, #forget form, #register form').submit (e)->
+		e.preventDefault()
+		
+		form  = $(this)
+		modal = form.parents('.modal')
+		block = modal.attr 'id'
+		if block == 'register'
+			$("input[name='REGISTER[EMAIL]']").val $("input[name='REGISTER[LOGIN]']").val()
+
+		data  = $(this).serialize()
+		if block == 'register'
+			data += "&register_submit_button=Y"
+		
+		$.post form.data('action'), data,
+			(data)->
+				if data == "error"
+					form.find('input[type="text"], input[type="password"]').addClass 'parsley-error'
+				else if data == "success"
+					if $(".#{block}").elem('success').length > 0
+						$(".#{block}").elem('success').show().removeClass 'hidden'
+						$(".#{block}").elem('form').hide().addClass 'hidden'
+					else
+						modal.modal('hide')
+					if block != "forget"
+						$('.auth').mod 'active', true
+				else if  isJson data
+					data = JSON.parse data
+					getCaptcha()
+					$.each data, (key, el)->
+						$("input[name='REGISTER[#{el}]']").addClass 'parsley-error'
+
 	# Contacts
 		
 	$('#feedback form').submit (e)->
@@ -31,8 +71,8 @@ $(document).ready ->
 	        (data) ->
 	        	data = $.parseJSON(data)
 	        	if data.status == "ok"
-	        		$('.feedback').elem('form').hide()
-	        		$('.feedback').elem('success').show()
+	        		$('.feedback').elem('form').hide().addClass 'hidden'
+	        		$('.feedback').elem('success').show().removeClass 'hidden'
 	        	else if data.status == "error"
 	        		$('input[name=captcha_word]').addClass('parsley-error')
 	        		getCaptcha()

@@ -129,3 +129,263 @@ Script: /catalog/index.php
 	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
 	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/highloadblock.list/component.php:160
 ----------
+Host: fm.local
+Date: 2015-01-22 12:52:55
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/ajax/template.php
+Request URI: /catalog/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 12:52:57
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/ajax/template.php
+Request URI: /catalog/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 12:52:58
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/ajax/template.php
+Request URI: /catalog/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 12:53:00
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/ajax/template.php
+Request URI: /catalog/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 12:53:42
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/ajax/template.php
+Request URI: /catalog/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 12:53:43
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/ajax/template.php
+Request URI: /catalog/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 12:54:05
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/ajax/template.php
+Request URI: /?back_url_admin=%2Fbitrix%2Fadmin%2F&clear_cache=Y
+Script: /index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 12:54:08
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/ajax/template.php
+Request URI: /?back_url_admin=%2Fbitrix%2Fadmin%2F&clear_cache=Y
+Script: /index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 12:54:16
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/ajax/template.php
+Request URI: /?back_url_admin=%2Fbitrix%2Fadmin%2F&clear_cache=Y
+Script: /index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 13:04:19
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/.default/template.php
+Request URI: /
+Script: /index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 13:04:31
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/.default/template.php
+Request URI: /
+Script: /index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 13:04:41
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/.default/template.php
+Request URI: /catalog/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 13:04:43
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/.default/template.php
+Request URI: /catalog/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 13:04:44
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/.default/template.php
+Request URI: /catalog/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 13:04:45
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/.default/template.php
+Request URI: /catalog/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 13:04:59
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/.default/template.php
+Request URI: /catalog/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 13:05:22
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/.default/template.php
+Request URI: /catalog/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 13:05:23
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/.default/template.php
+Request URI: /catalog/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 13:06:00
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/.default/template.php
+Request URI: /catalog/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------
+Host: fm.local
+Date: 2015-01-22 13:06:01
+Module: Composite was rejected
+Reason: /local/templates/.default/components/bitrix/system.auth.form/.default/template.php
+Request URI: /catalog/
+Script: /catalog/index.php
+    Bitrix\Main\Data\StaticHtmlCache::applyComponentFrameMode < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:516
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:588
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:593
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:542
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/system.auth.form/component.php:215
+----------

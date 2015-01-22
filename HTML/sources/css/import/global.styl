@@ -90,6 +90,7 @@ svg
 		margin-bottom 10px
 		margin-top -10px
 	.captcha_refresh
+		background transparent !important
 		svg
 			width 30px
 			height 30px
@@ -133,6 +134,8 @@ svg
 				border-color black
 			&.parsley-error
 				border-color red
+				&:focus
+					border-color alpha(red,.7)
 		&[type="submit"]
 			appearance none
 			border 0

@@ -4689,20 +4689,34 @@ div.pp_default .pp_loaderIcon {
   white-space: nowrap;
   text-align: right;
 }
-.toolbar .auth__divider {
-  position: relative;
-  top: 1px;
-  opacity: 0.4;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
-  filter: alpha(opacity=40);
-  margin: 0 5px;
+.toolbar .auth--active .auth__profile {
+  display: block;
 }
-.toolbar .auth__item {
-  font-size: 11px;
-  color: #fff;
+.toolbar .auth--active .auth__login {
+  display: none;
 }
-.toolbar .auth__item:hover {
-  color: #d10a32;
+.toolbar .auth__profile {
+  display: none;
+}
+.toolbar .auth__profile .auth__item:hover {
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, #d10a32 50%);
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, #d10a32 50%);
+  background-image: -o-linear-gradient(top, rgba(0,0,0,0) 50%, #d10a32 50%);
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,0) 50%, #d10a32 50%);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%, #d10a32 50%);
+  background-repeat: repeat-x;
+  -webkit-background-size: 2px 2px;
+  -moz-background-size: 2px 2px;
+  background-size: 2px 2px;
+  background-position: 0 11px;
+}
+.toolbar .auth__profile .auth__item:hover:hover {
+  text-decoration: none;
+}
+.toolbar .auth__login {
+  display: block;
+}
+.toolbar .auth__login .auth__item:hover {
   background-image: -webkit-linear-gradient(left, #d10a32 70%, transparent 70%);
   background-image: -moz-linear-gradient(left, #d10a32 70%, transparent 70%);
   background-image: -o-linear-gradient(left, #d10a32 70%, transparent 70%);
@@ -4714,8 +4728,23 @@ div.pp_default .pp_loaderIcon {
   background-size: 4px 1px;
   background-position: 0 11px;
 }
-.toolbar .auth__item:hover:hover {
+.toolbar .auth__login .auth__item:hover:hover {
   text-decoration: none;
+}
+.toolbar .auth__divider {
+  position: relative;
+  top: 1px;
+  opacity: 0.4;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+  filter: alpha(opacity=40);
+  margin: 0 5px;
+}
+.toolbar .auth .auth__item {
+  font-size: 11px;
+  color: #fff;
+}
+.toolbar .auth .auth__item:hover {
+  color: #d10a32;
 }
 .header {
   float: left;
@@ -5319,6 +5348,9 @@ svg g {
   margin-bottom: 10px;
   margin-top: -10px;
 }
+.modal .captcha_refresh {
+  background: transparent !important;
+}
 .modal .captcha_refresh svg {
   width: 30px;
   height: 30px;
@@ -5384,6 +5416,11 @@ svg g {
 .modal input[type="email"].parsley-error,
 .modal input[type="password"].parsley-error {
   border-color: #d10a32;
+}
+.modal input[type="text"].parsley-error:focus,
+.modal input[type="email"].parsley-error:focus,
+.modal input[type="password"].parsley-error:focus {
+  border-color: rgba(209,10,50,0.7);
 }
 .modal input[type="submit"] {
   -webkit-appearance: none;
