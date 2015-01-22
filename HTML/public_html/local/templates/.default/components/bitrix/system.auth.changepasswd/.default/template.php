@@ -14,8 +14,7 @@ ShowMessage($arParams["~AUTH_RESULT"]);
 	<label><?=GetMessage("AUTH_LOGIN")?></label>
 	<input required type="text" name="USER_LOGIN" maxlength="50" value="<?=$arResult["LAST_LOGIN"]?>" class="bx-auth-input" />
 
-	<label><?=GetMessage("AUTH_CHECKWORD")?></label>
-	<input required type="text" name="USER_CHECKWORD" maxlength="50" value="<?=$arResult["USER_CHECKWORD"]?>" class="bx-auth-input" />
+	<input required type="hidden" name="USER_CHECKWORD" maxlength="50" value="<?=$arResult["USER_CHECKWORD"]?>" class="bx-auth-input" />
 	
 	<label><?=GetMessage("AUTH_NEW_PASSWORD_REQ")?></label>
 	<input required type="password" id="password" name="USER_PASSWORD" maxlength="50" value="<?=$arResult["USER_PASSWORD"]?>" class="bx-auth-input" />

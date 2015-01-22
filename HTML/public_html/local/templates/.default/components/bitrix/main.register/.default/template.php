@@ -91,7 +91,7 @@ foreach ($arResult["SHOW_FIELDS"] as $FIELD):?>
 	  <?
 		include_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/captcha.php");
 		$cpt = new CCaptcha();
-		$cpt->SetCodeLength(4);
+		$cpt->SetCodeLength(5);
 		$cpt->SetCode();
 		$code=$cpt->GetSID();
       ?>
