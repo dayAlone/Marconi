@@ -1,5 +1,6 @@
 <?
-$arResult['BRANDS'] = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
+$arResult['BRANDS']     = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
+$arResult['TRADELINES'] = getHighloadElements('tradeline', 'UF_XML_ID', 'UF_NAME');
 
 $images   = array();
 $sections = array();

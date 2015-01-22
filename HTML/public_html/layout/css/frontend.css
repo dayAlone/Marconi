@@ -7486,6 +7486,46 @@ svg g {
 .pswp__caption__center {
   text-align: center;
 }
+.product__tradeline {
+  position: absolute;
+  background: #d10a32;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  bottom: 105px;
+  color: #fff;
+  white-space: nowrap;
+  padding-top: 6px;
+  font-size: 12px;
+}
+.product__tradeline:after,
+.product__tradeline:before {
+  position: absolute;
+  top: 0;
+  left: -12px;
+  width: calc(100% + 24px);
+  height: 100%;
+  background: #d10a32;
+  content: "";
+  z-index: -1;
+}
+.product__tradeline:after {
+  -webkit-transform: skew(30deg, 0);
+  -moz-transform: skew(30deg, 0);
+  -o-transform: skew(30deg, 0);
+  -ms-transform: skew(30deg, 0);
+  transform: skew(30deg, 0);
+}
+.product__tradeline:before {
+  -webkit-transform: skew(-30deg, 0);
+  -moz-transform: skew(-30deg, 0);
+  -o-transform: skew(-30deg, 0);
+  -ms-transform: skew(-30deg, 0);
+  transform: skew(-30deg, 0);
+}
 .product__sale {
   font-size: 8px;
   display: inline-block;
