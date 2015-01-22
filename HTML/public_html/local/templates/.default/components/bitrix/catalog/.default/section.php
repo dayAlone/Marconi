@@ -105,11 +105,13 @@ $arParams['USE_FILTER'] = (isset($arParams['USE_FILTER']) && $arParams['USE_FILT
 		
 		require_once($_SERVER['DOCUMENT_ROOT'].'/include/fix_filter.php');
 		
-		if(isset($_COOKIE['BRAND'])&& $_COOKIE['BRAND'] != 'null')
+		$brand = (isset($_COOKIE['BRAND'])?$_COOKIE['BRAND']:(isset($_REQUEST['brand'])?$_REQUEST['brand']:""));
+
+		if(strlen($brand)>0)
 			$arrFilter[] = array( 
 							"LOGIC" => "OR",
-							"=PROPERTY_4" => $_COOKIE['BRAND'],
-							"=PROPERTY_35" => $_COOKIE['BRAND']
+							"=PROPERTY_4" => $brand,
+							"=PROPERTY_35" => $brand
 						);
 
 
