@@ -2,28 +2,21 @@
 $aMenuLinks = Array(
 	Array(
 		"facebook", 
-		"#", 
+		"https://www.facebook.com/groups/740275296064207", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"twitter", 
-		"#", 
+		"vk", 
+		"http://vk.com/club80410622", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"google", 
-		"#", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"pinterest", 
-		"#", 
+		"youtube", 
+		"http://www.youtube.com/channel/UCV5buNVv6_uVn225pkX3DFw/videos", 
 		Array(), 
 		Array(), 
 		"" 

@@ -73,10 +73,90 @@ svg
 		display none
 
 .modal
+	.parsley-errors-list
+		display none
+	a
+		color red
+		font-size 13px
+		border-line alpha(@color, .3)
+		&:hover
+			color black
+			border-line alpha(@color, .3)
+		&.lost
+			margin-left 10px
+	&__title
+		font-size 35px
+		text-align: center
+		margin-bottom 10px
+		margin-top -10px
+	.captcha_refresh
+		svg
+			width 30px
+			height 30px
+			position relative
+			left -15px
+			top 24px
+			path
+				fill black
+		&:hover
+			svg
+				path
+					fill red
+	label
+		text-align: center
+		width 100%
+		letter-spacing 2px
+		font-size 11px
+		text-transform: uppercase
+	ul + label
+		margin-top 10px
+	.captcha
+		height 32px
+		background-position center center
+		background-repeat no-repeat
+		width 100%
+		border 1px solid #cccccc
+	input
+		&:focus
+			outline 0
+		+ label
+			margin-top 10px
+		&[type="text"], &[type="email"], &[type="password"]
+			height 32px
+			line-height 35px
+			width 100%
+			border 1px solid #cccccc
+			t border
+			text-align: center
+			padding 0 10px
+			&:focus
+				border-color black
+			&.parsley-error
+				border-color red
+		&[type="submit"]
+			appearance none
+			border 0
+			margin-bottom 0
+			font-size 13px
+	textarea
+		&:focus
+			outline 0
+		min-height 80px
+		resize none
+		width 100%
+		border 1px solid #cccccc
+		t border
+		text-align: center
+		padding 0 10px
+		&.parsley-error
+				border-color red
+		&:focus
+			border-color black
 	.close
 		position absolute
 		right -60px
 		top 0
+		background transparent
 		svg
 			width 40px
 			height 40px
@@ -171,71 +251,5 @@ svg
 .feedback
 	&__dialog
 		max-width 500px
-	&__form
-		.parsley-errors-list
-			display none
-		.captcha_refresh
-			svg
-				width 30px
-				height 30px
-				position relative
-				left -15px
-				top 24px
-				path
-					fill black
-			&:hover
-				svg
-					path
-						fill red
-		label
-			text-align: center
-			width 100%
-			letter-spacing 2px
-			font-size 11px
-			text-transform: uppercase
-		ul + label
-			margin-top 10px
-		.captcha
-			height 32px
-			background-position center center
-			background-repeat no-repeat
-			width 100%
-			border 1px solid #cccccc
-		input
-			&:focus
-				outline 0
-			+ label
-				margin-top 10px
-			&[type="text"], &[type="email"]
-				height 32px
-				line-height 35px
-				width 100%
-				border 1px solid #cccccc
-				t border
-				text-align: center
-				padding 0 10px
-				&:focus
-					border-color black
-				&.parsley-error
-					border-color red
-			&[type="submit"]
-				appearance none
-				border 0
-				margin-bottom 0
-				font-size 13px
-		textarea
-			&:focus
-				outline 0
-			min-height 80px
-			resize none
-			width 100%
-			border 1px solid #cccccc
-			t border
-			text-align: center
-			padding 0 10px
-			&.parsley-error
-					border-color red
-			&:focus
-				border-color black
 	&__success
 		display none
