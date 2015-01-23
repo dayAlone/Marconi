@@ -56,7 +56,7 @@
 										<span class="orders__param-value">
 										<?if(intval($order["ORDER"]["DELIVERY_ID"])):?>
 										
-											<?=$arResult["INFO"]["DELIVERY"][$order["ORDER"]["DELIVERY_ID"]]["NAME"]?> <br />
+											<?=preg_replace('~"(.*?)"~',"",$arResult["INFO"]["DELIVERY"][$order["ORDER"]["DELIVERY_ID"]]["NAME"])?> <br />
 										
 										<?elseif(strpos($order["ORDER"]["DELIVERY_ID"], ":") !== false):?>
 										
@@ -74,7 +74,7 @@
 						?>
 							<div class="row no-gutter orders__product">
 								<div class="col-xs-7">
-									<div class="orders__product-picture" style="background-image: url(<?=$item['PREVIEW_PICTURE']?>)"></div>
+									<a href="<?=$item["DETAIL_PAGE_URL"]?>" class="orders__product-picture" style="background-image: url(<?=$item['PREVIEW_PICTURE']?>)"></a>
 									<a href="<?=$item["DETAIL_PAGE_URL"]?>" target="_blank" class="orders__product-name">
 										<span><?=$item['NAME']?></span>
 									</a> 
