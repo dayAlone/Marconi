@@ -5776,7 +5776,8 @@ svg g {
 .about--white .header .contacts__text {
   color: #fff;
 }
-.about--white .header a {
+.about--white .header a,
+.about--white .header .cart {
   color: #fff;
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(255,255,255,0.3) 50%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(255,255,255,0.3) 50%);
@@ -5789,7 +5790,8 @@ svg g {
   background-size: 2px 2px;
   background-position: 0 calc(100% - 2px);
 }
-.about--white .header a:hover {
+.about--white .header a:hover,
+.about--white .header .cart:hover {
   text-decoration: none;
 }
 .about--white .header .logo {
