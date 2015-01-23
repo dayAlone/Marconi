@@ -44,6 +44,7 @@ foreach($arResult["ITEMS"] as $PID => $arItem)
 }
 if(count($allCHECKED)>0):
 	$arResult['CHECKED'] = "Y";
+	
 	function condition($_CHECK, $ar)
 	{
 		if (isset($_CHECK[$ar["CONTROL_NAME"]])

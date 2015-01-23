@@ -13,8 +13,8 @@
 $this->setFrameMode(true);
 ?>
 <form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" data-url="<?=$APPLICATION->GetCurDir()?>">
-	<?if($arResult['CHEKED']=="Y"):?>
-	<a href="<?echo $arResult["FORM_ACTION"]?>?del_filter=Y" class="catalog__clear">Сбросить фильтр</a>
+	<?if($arResult['CHECKED']=="Y"):?>
+	<a href="<?=$APPLICATION->GetCurDir()?>?del_filter=Y" class="catalog__clear">Сбросить фильтр</a>
 	<?endif;?>
 	<?foreach($arResult["HIDDEN"] as $arItem):
 		if(!in_array($arItem["CONTROL_NAME"], array('range', 'SHOWALL_1', 'short', 'sort_param', 'sort_value', 'PAGEN_1')) && strlen($arItem["HTML_VALUE"])>0):?>
