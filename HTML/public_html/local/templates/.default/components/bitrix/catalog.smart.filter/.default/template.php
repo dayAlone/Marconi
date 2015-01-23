@@ -99,6 +99,7 @@ $this->setFrameMode(true);
 	<div class="catalog__counter">
 		Найдено: <strong class="catalog__counter-value">0</strong>. <a href="<?echo $arResult["FILTER_URL"]?>"><?echo GetMessage("CT_BCSF_FILTER_SHOW")?></a>
 	</div>
+	<a href="<?echo $arResult["FORM_ACTION"]?>?del_filter=Y" class="catalog__clear">Сбросить фильтр</a>
 </form>
 <script>
 	var smartFilter = new JCSmartFilter('<?echo CUtil::JSEscape($arResult["FORM_ACTION"])?>');

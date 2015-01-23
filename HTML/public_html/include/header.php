@@ -56,7 +56,7 @@
         </div>
         <div class="col-xs-2">
           <?
-            $frame = new \Bitrix\Main\Page\FrameHelper("compare");
+            $frame = new \Bitrix\Main\Page\FrameHelper("login");
             $frame->begin();?>
             <div class="auth <?=($GLOBALS['USER']->IsAuthorized()?"auth--active":"")?>">
               <div class="auth__login">
