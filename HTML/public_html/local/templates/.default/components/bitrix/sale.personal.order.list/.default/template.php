@@ -73,10 +73,8 @@
 							$item = array_merge($item, $arResult['ITEMS'][$item['PRODUCT_ID']]);
 						?>
 							<div class="row no-gutter orders__product">
-								<div class="col-xs-2">
+								<div class="col-xs-7">
 									<div class="orders__product-picture" style="background-image: url(<?=$item['PREVIEW_PICTURE']?>)"></div>
-								</div>
-								<div class="col-xs-5">
 									<a href="<?=$item["DETAIL_PAGE_URL"]?>" target="_blank" class="orders__product-name">
 										<span><?=$item['NAME']?></span>
 									</a> 

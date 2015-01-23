@@ -5403,11 +5403,16 @@ svg g {
   padding: 0 10px;
 }
 .orders__product-picture {
-  width: 100%;
+  width: 60px;
+  margin-right: 10px;
   height: 60px;
   -webkit-background-size: contain;
   -moz-background-size: contain;
   background-size: contain;
+  background-repet: no-repeat;
+  background-position: center;
+  display: inline-block;
+  vertical-align: middle;
 }
 .orders__product-name {
   color: #d10a32;
