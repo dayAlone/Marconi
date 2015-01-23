@@ -47,10 +47,10 @@ foreach ($arResult["SHOW_FIELDS"] as $FIELD):?>
 	switch ($FIELD)
 	{
 		case "PASSWORD":
-			?><input size="30" type="password" data-parsley-mincheck="6" id="password" <?=($arResult["REQUIRED_FIELDS_FLAGS"][$FIELD] == "Y"?"required":"")?> name="REGISTER[<?=$FIELD?>]" value="<?=$arResult["VALUES"][$FIELD]?>" autocomplete="off" class="bx-auth-input" /><?
+			?><input size="30" type="password" data-parsley-mincheck="6" id="reg-password" <?=($arResult["REQUIRED_FIELDS_FLAGS"][$FIELD] == "Y"?"required":"")?> name="REGISTER[<?=$FIELD?>]" value="<?=$arResult["VALUES"][$FIELD]?>" autocomplete="off" class="bx-auth-input" /><?
 			break;
 		case "CONFIRM_PASSWORD":
-			?><input size="30" type="password" data-parsley-mincheck="6" data-parsley-equalto="#password" <?=($arResult["REQUIRED_FIELDS_FLAGS"][$FIELD] == "Y"?"required":"")?> name="REGISTER[<?=$FIELD?>]" value="<?=$arResult["VALUES"][$FIELD]?>" autocomplete="off" /><?
+			?><input size="30" type="password" data-parsley-mincheck="6" data-parsley-equalto="#reg-password" <?=($arResult["REQUIRED_FIELDS_FLAGS"][$FIELD] == "Y"?"required":"")?> name="REGISTER[<?=$FIELD?>]" value="<?=$arResult["VALUES"][$FIELD]?>" autocomplete="off" /><?
 			break;
 		case "EMAIL":
 			?><input size="30" type="hidden" <?=($arResult["REQUIRED_FIELDS_FLAGS"][$FIELD] == "Y"?"required":"")?> name="REGISTER[<?=$FIELD?>]" value="<?=$arResult["VALUES"][$FIELD]?>" /><?

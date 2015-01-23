@@ -17,10 +17,10 @@ ShowMessage($arParams["~AUTH_RESULT"]);
 	<input required type="hidden" name="USER_CHECKWORD" maxlength="50" value="<?=$arResult["USER_CHECKWORD"]?>" class="bx-auth-input" />
 	
 	<label><?=GetMessage("AUTH_NEW_PASSWORD_REQ")?></label>
-	<input required type="password" id="password" name="USER_PASSWORD" maxlength="50" value="<?=$arResult["USER_PASSWORD"]?>" class="bx-auth-input" />
+	<input required type="password" id="change-password" name="USER_PASSWORD" maxlength="50" value="<?=$arResult["USER_PASSWORD"]?>" class="bx-auth-input" />
 	
 	<label><?=GetMessage("AUTH_NEW_PASSWORD_CONFIRM")?></label>
-	<input required type="password"  data-parsley-equalto="#password" name="USER_CONFIRM_PASSWORD" maxlength="50" value="<?=$arResult["USER_CONFIRM_PASSWORD"]?>" class="bx-auth-input"  />
+	<input required type="password"  data-parsley-equalto="#change-password" name="USER_CONFIRM_PASSWORD" maxlength="50" value="<?=$arResult["USER_CONFIRM_PASSWORD"]?>" class="bx-auth-input"  />
 	
 	<div class="center">
 		<input type="submit" name="change_pwd" class="product__big-button product__big-button--border m-margin-top" value="<?=GetMessage("AUTH_CHANGE")?>" />	
