@@ -5409,7 +5409,7 @@ svg g {
   -webkit-background-size: contain;
   -moz-background-size: contain;
   background-size: contain;
-  background-repet: no-repeat;
+  background-repeat: no-repeat;
   background-position: center;
   display: inline-block;
   vertical-align: middle;
@@ -5419,6 +5419,7 @@ svg g {
   line-height: 16px;
   display: inline-block;
   vertical-align: middle;
+  max-width: 80%;
 }
 .orders__product-name span {
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.3) 50%);
