@@ -1,4 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+$this->setFrameMode(true);
+?>
 <?if($arResult["FORM_TYPE"] == "login"):?>
 <form data-parsley-validate method="post" target="_top" action="<?=$arResult["AUTH_URL"]?>" data-action="/include/user.php?action=login">
 	<?if($arResult["BACKURL"] <> ''):?>

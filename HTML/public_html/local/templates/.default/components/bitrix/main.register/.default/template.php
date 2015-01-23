@@ -1,4 +1,5 @@
 <?
+$this->setFrameMode(true);
 /**
  * Bitrix Framework
  * @package bitrix
