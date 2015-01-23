@@ -61,7 +61,7 @@
 										<?elseif(strpos($order["ORDER"]["DELIVERY_ID"], ":") !== false):?>
 										
 											<?$arId = explode(":", $order["ORDER"]["DELIVERY_ID"])?>
-											<?=$arResult["INFO"]["DELIVERY_HANDLERS"][$arId[0]]["NAME"]?> (<?=$arResult["INFO"]["DELIVERY_HANDLERS"][$arId[0]]["PROFILES"][$arId[1]]["TITLE"]?>) <br />
+											<?=$arResult["INFO"]["DELIVERY_HANDLERS"][$arId[0]]["NAME"]?><br />
 
 										<?endif?>
 										</span>

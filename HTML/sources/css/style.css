@@ -5419,7 +5419,7 @@ svg g {
   line-height: 16px;
   display: inline-block;
   vertical-align: middle;
-  max-width: 80%;
+  max-width: 70%;
 }
 .orders__product-name span {
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.3) 50%);
