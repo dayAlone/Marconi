@@ -46,25 +46,27 @@ require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
             </div>
             <div class="col-xs-7">
                 <div class="page__title page__title--full-width">История заказов</div>
-                <?$APPLICATION->IncludeComponent("bitrix:sale.personal.order.list","",Array(
-                    "STATUS_COLOR_N" => "green",
-                    "STATUS_COLOR_P" => "yellow",
-                    "STATUS_COLOR_F" => "gray",
+                <?
+                $_REQUEST['show_all'] = "Y";
+                $APPLICATION->IncludeComponent("bitrix:sale.personal.order.list","",Array(
+                    "STATUS_COLOR_N"                => "green",
+                    "STATUS_COLOR_P"                => "yellow",
+                    "STATUS_COLOR_F"                => "gray",
                     "STATUS_COLOR_PSEUDO_CANCELLED" => "red",
-                    "PATH_TO_DETAIL" => "/profile/?ID=#ID#",
-                    "PATH_TO_COPY" => "basket.php",
-                    "PATH_TO_CANCEL" => "/profile/?ID=#ID#&action=cancel",
-                    "PATH_TO_BASKET" => "basket.php",
-                    "ORDERS_PER_PAGE" => 20,
-                    "ID" => $ID,
-                    "SET_TITLE" => "Y",
-                    "SAVE_IN_SESSION" => "Y",
-                    "NAV_TEMPLATE" => "",
-                    "CACHE_TYPE" => "A",
-                    "CACHE_TIME" => "3600",
-                    "CACHE_GROUPS" => "Y",
-                    "HISTORIC_STATUSES" => "F",
-                    "ACTIVE_DATE_FORMAT" => "d.m.Y"
+                    "PATH_TO_DETAIL"                => "/profile/?ID=#ID#",
+                    "PATH_TO_COPY"                  => "basket.php",
+                    "PATH_TO_CANCEL"                => "/profile/?ID=#ID#&action=cancel",
+                    "PATH_TO_BASKET"                => "basket.php",
+                    "ORDERS_PER_PAGE"               => 20,
+                    "ID"                            => $ID,
+                    "SET_TITLE"                     => "Y",
+                    "SAVE_IN_SESSION"               => "Y",
+                    "NAV_TEMPLATE"                  => "",
+                    "CACHE_TYPE"                    => "A",
+                    "CACHE_TIME"                    => "3600",
+                    "CACHE_GROUPS"                  => "Y",
+                    "HISTORIC_STATUSES"             => "F",
+                    "ACTIVE_DATE_FORMAT"            => "d.m.Y"
                 )
             );?>
             </div>

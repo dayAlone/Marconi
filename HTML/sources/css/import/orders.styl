@@ -1,0 +1,85 @@
+.orders
+	position relative
+	.tooltip
+		font-size 11px
+		&-inner
+			max-width none
+			min-width 250px
+			font-family 'Proxima', 'Helvetica Neue', 'Arial', sans-serif
+			padding-top 8px
+			padding-bottom 4px
+			line-height: 13px
+	.orders__product + .orders__product
+		margin-top 15px
+		line-height 60px
+	&__product
+		padding 0 10px
+		&-picture
+			width 100%
+			height 60px
+			background-size contain
+		&-name
+			color red
+			line-height 16px
+			display inline-block
+			vertical-align: middle
+			span
+				border-line(alpha(red, .3))
+			&:hover
+				color black
+				span
+					border-line(alpha(black, .3))
+		[class*='col-']
+			min-height 60px
+			line-height 60px
+	&__content
+		margin-top 18px
+		padding-top 18px
+		border-top 1px solid #ccc
+		font-size 13px
+	&__products
+		margin-top 14px
+	&__param-name
+		color #666666
+	&__param-value
+		font-weight: bold
+	&__number
+		cursor pointer
+		margin-right 3px
+		border-dashed(alpha(black, .3), 20px, 5px)
+		&:hover
+			color red
+			border-dashed(alpha(@color, .3), 20px, 5px)
+	&__number, &__price
+		font-size 20px
+		font-weight: bold
+		color black
+	&__price
+		display inline-block
+		margin-top -2px
+	&__title
+		font-size 12px
+		color #666666
+	&__status
+		font-size 13px
+		color black
+		cursor pointer
+		margin-top 6px
+		display inline-block
+		border-dashed(alpha(black, .3), 14px, 5px)
+		&:hover
+			color red
+			border-dashed(alpha(@color, .3), 14px, 5px)
+	&__item
+		& + .orders__item
+			margin-top 15px
+		width 100%
+		border 1px solid #b2b3b3
+		padding 18px 20px 13px
+		margin-bottom 30px
+		min-height 40px
+		t(all)
+		&:hover
+			border-color black
+		&--open
+			border-color black

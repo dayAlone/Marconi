@@ -243,6 +243,7 @@
       getCaptcha();
       return e.preventDefault();
     });
+    $('[data-toggle="tooltip"]').tooltip();
     $('.modal').on('shown.bs.modal', function() {
       var id;
       id = $(this).attr('id');

@@ -21,6 +21,10 @@ $(document).ready ->
 		getCaptcha()
 		e.preventDefault()
 	
+
+	$('[data-toggle="tooltip"]').tooltip()
+
+	
 	# Login
 	
 	$('.modal').on 'shown.bs.modal', ->

@@ -6,7 +6,6 @@ ini_set('xdebug.var_display_max_data', 1024);
 define("BX_COMPOSITE_DEBUG", true);
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
-
 AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserUpdateHandler");
 AddEventHandler("main", "OnBeforeUserRegister", "OnBeforeUserUpdateHandler");
 AddEventHandler("main", "OnBeforeUserAdd", "OnBeforeUserUpdateHandler");
