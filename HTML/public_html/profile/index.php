@@ -59,7 +59,7 @@ $APPLICATION->SetTitle('Личный кабинет');
                     "PATH_TO_COPY"                  => "basket.php",
                     "PATH_TO_CANCEL"                => "/profile/?ID=#ID#&action=cancel",
                     "PATH_TO_BASKET"                => "basket.php",
-                    "ORDERS_PER_PAGE"               => 20,
+                    "ORDERS_PER_PAGE"               => 10,
                     "ID"                            => $ID,
                     "SET_TITLE"                     => "Y",
                     "SAVE_IN_SESSION"               => "Y",

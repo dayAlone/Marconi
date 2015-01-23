@@ -191,7 +191,7 @@
 
 		<?endforeach?>
 		<?if(strlen($arResult['NAV_STRING'])):?>
-			<?=$arResult['NAV_STRING']?>
+			<div class="center"><?=$arResult['NAV_STRING']?></div>
 		<?endif?>
 
 	<?else:?>
