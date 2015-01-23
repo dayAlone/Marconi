@@ -243,6 +243,13 @@
       getCaptcha();
       return e.preventDefault();
     });
+    $('.modal').on('shown.bs.modal', function() {
+      var id;
+      id = $(this).attr('id');
+      if (id === 'register' || id === 'feedback') {
+        return getCaptcha();
+      }
+    });
     $('.modal').on('hidden.bs.modal', function() {
       var id;
       id = $(this).attr('id');

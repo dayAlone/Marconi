@@ -23,6 +23,11 @@ $(document).ready ->
 	
 	# Login
 	
+	$('.modal').on 'shown.bs.modal', ->
+		id = $(this).attr 'id'
+		if id == 'register' || id == 'feedback' 
+			getCaptcha()
+
 	$('.modal').on 'hidden.bs.modal', ->
 		id = $(this).attr 'id'
 		if $(".#{id}").elem('success')
