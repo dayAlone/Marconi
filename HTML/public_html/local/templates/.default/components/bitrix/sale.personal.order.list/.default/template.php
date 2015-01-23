@@ -17,43 +17,42 @@
 	<?endif?>
 
 	<?if(!empty($arResult['ORDERS'])):?>
-		<div class="orders">
 		<?foreach($arResult["ORDER_BY_STATUS"] as $key => $group):?>
 
 			<?foreach($group as $k => $order):?>
 				
-				<div class="orders__item">
-					<div class="orders__title">
+				<div class="order">
+					<div class="order__title">
 						<div class="row">
 							<div class="col-xs-5">
-								<span class="orders__number">Заказ №<?=$order["ORDER"]["ACCOUNT_NUMBER"]?></span>
-								<span class="orders__date">от <?=r_date($order["ORDER"]["DATE_INSERT_FORMATED"]);?></span>
+								<span class="order__number">Заказ №<?=$order["ORDER"]["ACCOUNT_NUMBER"]?></span>
+								<span class="order__date">от <?=r_date($order["ORDER"]["DATE_INSERT_FORMATED"]);?></span>
 							</div>
 							<div class="col-xs-3 center">
 								Статус:
-								<span class="orders__status" data-toggle="tooltip" data-placement="top" title="<?=$arResult["INFO"]["STATUS"][$key]["DESCRIPTION"] ?>"><?=$arResult["INFO"]["STATUS"][$key]["NAME"] ?></span>
+								<span class="order__status" data-toggle="tooltip" data-placement="top" title="<?=$arResult["INFO"]["STATUS"][$key]["DESCRIPTION"] ?>"><?=$arResult["INFO"]["STATUS"][$key]["NAME"] ?></span>
 							</div>
 							<div class="col-xs-4 right">
-								На сумму: <span class="orders__price"><?=number_format($order["ORDER"]["PRICE"],0," "," ")?> ₷</span>
+								На сумму: <span class="order__price"><?=number_format($order["ORDER"]["PRICE"],0," "," ")?> ₷</span>
 							</div>
 						</div>
 					</div>	
-					<div class="orders__content">
+					<div class="order__content">
 						<div class="row">
 							<div class="col-xs-4">
-								<span class="orders__param-name"><?=GetMessage('SPOL_PAYED')?>:</span> <span class="orders__param-value"><?=GetMessage('SPOL_'.($order["ORDER"]["PAYED"] == "Y" ? 'YES' : 'NO'))?></span> <br />
+								<span class="order__param-name"><?=GetMessage('SPOL_PAYED')?>:</span> <span class="order__param-value"><?=GetMessage('SPOL_'.($order["ORDER"]["PAYED"] == "Y" ? 'YES' : 'NO'))?></span> <br />
 							</div>	
 							<div class="col-xs-4">
 								<?if(intval($order["ORDER"]["PAY_SYSTEM_ID"])):?>
-									<span class="orders__param-name"><?=GetMessage('SPOL_PAYSYSTEM')?>:</span> <span class="orders__param-value"><?=$arResult["INFO"]["PAY_SYSTEM"][$order["ORDER"]["PAY_SYSTEM_ID"]]["NAME"]?></span> <br />
+									<span class="order__param-name"><?=GetMessage('SPOL_PAYSYSTEM')?>:</span> <span class="order__param-value"><?=$arResult["INFO"]["PAY_SYSTEM"][$order["ORDER"]["PAY_SYSTEM_ID"]]["NAME"]?></span> <br />
 								<?endif?>
 							</div>
 							<div class="col-xs-4 right">
 								<? // DELIVERY SYSTEM ?>
 									<?if($order['HAS_DELIVERY']):?>
 
-										<span class="orders__param-name"><?=GetMessage('SPOL_DELIVERY')?>:</span>
-										<span class="orders__param-value">
+										<span class="order__param-name"><?=GetMessage('SPOL_DELIVERY')?>:</span>
+										<span class="order__param-value">
 										<?if(intval($order["ORDER"]["DELIVERY_ID"])):?>
 										
 											<?=preg_replace('~"(.*?)"~',"",$arResult["INFO"]["DELIVERY"][$order["ORDER"]["DELIVERY_ID"]]["NAME"])?> <br />
@@ -68,14 +67,14 @@
 									<?endif?>
 							</div>
 						</div>
-						<div class="orders__products">
+						<div class="order__products">
 						<?foreach ($order["BASKET_ITEMS"] as $item):
 							$item = array_merge($item, $arResult['ITEMS'][$item['PRODUCT_ID']]);
 						?>
-							<div class="row no-gutter orders__product">
+							<div class="row no-gutter order__product">
 								<div class="col-xs-7">
-									<a href="<?=$item["DETAIL_PAGE_URL"]?>" class="orders__product-picture" style="background-image: url(<?=$item['PREVIEW_PICTURE']?>)"></a>
-									<a href="<?=$item["DETAIL_PAGE_URL"]?>" target="_blank" class="orders__product-name">
+									<a href="<?=$item["DETAIL_PAGE_URL"]?>" class="order__product-picture" style="background-image: url(<?=$item['PREVIEW_PICTURE']?>)"></a>
+									<a href="<?=$item["DETAIL_PAGE_URL"]?>" target="_blank" class="order__product-name">
 										<span><?=$item['NAME']?></span>
 									</a> 
 								</div>
@@ -191,7 +190,6 @@
 			<?endforeach?>
 
 		<?endforeach?>
-		</div>
 		<?if(strlen($arResult['NAV_STRING'])):?>
 			<?=$arResult['NAV_STRING']?>
 		<?endif?>

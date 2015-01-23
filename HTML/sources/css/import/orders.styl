@@ -1,10 +1,9 @@
-.orders
+.order
 	position relative
 	.tooltip
 		font-size 11px
 		&-inner
 			max-width none
-			min-width 250px
 			font-family 'Proxima', 'Helvetica Neue', 'Arial', sans-serif
 			padding-top 8px
 			padding-bottom 4px
@@ -40,9 +39,10 @@
 			line-height 60px
 	&__content
 		margin-top 18px
-		padding-top 18px
+		padding 18px 0 10px
 		border-top 1px solid #ccc
 		font-size 13px
+		display none
 	&__products
 		margin-top 14px
 	&__param-name
@@ -76,16 +76,18 @@
 		&:hover
 			color red
 			border-dashed(alpha(@color, .3), 14px, 5px)
-	&__item
-		& + .orders__item
-			margin-top 15px
-		width 100%
-		border 1px solid #b2b3b3
-		padding 18px 20px 13px
-		margin-bottom 30px
-		min-height 40px
-		t(all)
-		&:hover
-			border-color black
-		&--open
-			border-color black
+	& + .order
+		margin-top 15px
+	width 100%
+	border 1px solid #b2b3b3
+	padding 18px 20px 13px
+	margin-bottom 30px
+	min-height 40px
+	t(all)
+	&:hover
+		border-color black
+	&--open
+		border-color black
+	&--disabled
+		overflow hidden
+		pointer-events none

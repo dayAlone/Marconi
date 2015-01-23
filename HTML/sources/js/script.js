@@ -244,6 +244,62 @@
       return e.preventDefault();
     });
     $('[data-toggle="tooltip"]').tooltip();
+    if ($('body').hasClass('cabinet')) {
+      $('.order').each(function() {
+        var h;
+        h = $(this).outerHeight();
+        $(this).data('height', h);
+        return $(this).css({
+          maxHeight: function() {
+            return h;
+          },
+          minHeight: function() {
+            return h;
+          }
+        });
+      });
+      $('.order').elem('number').click(function(e) {
+        var block, content, height, trigger;
+        trigger = $(this);
+        block = $(this).block();
+        content = block.elem('content');
+        block.mod('disabled', true);
+        if (block.hasMod('open')) {
+          height = block.data('height');
+          block.css({
+            minHeight: block.data('height'),
+            maxHeight: block.data('height')
+          });
+          content.velocity({
+            properties: "transition.slideUpOut",
+            options: {
+              duration: 1000,
+              complete: function() {
+                block.mod('open', false);
+                return block.mod('disabled', false);
+              }
+            }
+          });
+        } else {
+          content.show();
+          block.css({
+            minHeight: block.height() + content.height() + 16,
+            maxHeight: block.outerHeight() + content.outerHeight() + 5
+          });
+          content.velocity({
+            properties: "transition.slideDownIn",
+            options: {
+              duration: 1000,
+              complete: function() {
+                block.mod('open', true);
+                return block.mod('disabled', false);
+              }
+            }
+          });
+        }
+        return e.preventDefault();
+      });
+    }
     $('.modal').on('shown.bs.modal', function() {
       var id;
       id = $(this).attr('id');

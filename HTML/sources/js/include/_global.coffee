@@ -24,7 +24,51 @@ $(document).ready ->
 
 	$('[data-toggle="tooltip"]').tooltip()
 
-	
+
+	# Profile
+
+	if $('body').hasClass 'cabinet'
+		$('.order').each ->
+			h = $(this).outerHeight()
+			$(this)
+				.data 'height', h
+			$(this).css
+					maxHeight: ->
+						return h
+					minHeight: ->
+						return h
+		$('.order').elem('number').click (e)->
+			trigger = $(this)
+			block   = $(this).block()
+			content = block.elem('content')
+			block.mod 'disabled', true
+			
+			if block.hasMod 'open'
+				height = block.data 'height'
+				block.css
+					minHeight: block.data('height')
+					maxHeight: block.data('height')
+				content.velocity
+					properties: "transition.slideUpOut"
+					options:
+						duration: 1000
+						complete: ->
+							block.mod 'open', false
+							block.mod 'disabled', false
+			else
+				content.show()
+				block.css
+					minHeight: block.height() + content.height() + 16
+					maxHeight: block.outerHeight() + content.outerHeight() + 5
+				content.velocity
+					properties: "transition.slideDownIn"
+					options:
+						duration: 1000
+						complete: ->
+							block.mod 'open', true
+							block.mod 'disabled', false
+			e.preventDefault()
+
 	# Login
 	
 	$('.modal').on 'shown.bs.modal', ->

@@ -1,5 +1,7 @@
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
+$APPLICATION->SetPageProperty('body_class', "cabinet");
+$APPLICATION->SetTitle('Личный кабинет');
 ?>
 <div class="page">
     <div class="container">
