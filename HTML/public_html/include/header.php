@@ -55,18 +55,31 @@
           ?>
         </div>
         <div class="col-xs-2">
-          <div class="auth <?=($GLOBALS['USER']->IsAuthorized()?"auth--active":"")?>">
-            <div class="auth__login">
-              <a class="auth__item" href="#login" data-toggle="modal" data-target="#login">Авторизация</a>
-              <span class="auth__divider">|</span>
-              <a class="auth__item" href="#register" data-toggle="modal" data-target="#register">Регистрация</a>
+          <?
+            $frame = new \Bitrix\Main\Page\FrameHelper("compare");
+            $frame->begin();?>
+            <div class="auth <?=($GLOBALS['USER']->IsAuthorized()?"auth--active":"")?>">
+              <div class="auth__login">
+                <a class="auth__item" href="#login" data-toggle="modal" data-target="#login">Авторизация</a>
+                <span class="auth__divider">|</span>
+                <a class="auth__item" href="#register" data-toggle="modal" data-target="#register">Регистрация</a>
+              </div>
+              <div class="auth__profile">
+                <a class="auth__item" href="/profile/">Личный кабинет</a>
+                <span class="auth__divider">|</span>
+                <a class="auth__item" href="/?logout=yes">Выход</a>
+              </div>
             </div>
-            <div class="auth__profile">
-              <a class="auth__item" href="/profile/">Личный кабинет</a>
-              <span class="auth__divider">|</span>
-              <a class="auth__item" href="/?logout=yes">Выход</a>
+            <?$frame->beginStub();?>
+            <div class="auth">
+              <div class="auth__login">
+                <a class="auth__item" href="#login" data-toggle="modal" data-target="#login">Авторизация</a>
+                <span class="auth__divider">|</span>
+                <a class="auth__item" href="#register" data-toggle="modal" data-target="#register">Регистрация</a>
+              </div>
             </div>
-          </div>
+            <?$frame->end();?>
+            
         </div>
       </div>
     </div>

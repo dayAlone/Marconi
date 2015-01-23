@@ -201,3 +201,102 @@ Module: composite
 	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3298
 	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3244
 ----------
+Host: fm.local
+Date: 2015-01-23 11:18:16
+Module: composite
+/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/html_pages/fm.local/catalog/women/index@del_filter=Y.html.delete.1421993896.69
+    Bitrix\Main\Data\StaticHtmlCache::writeDebug < Bitrix\Main\Data\StaticHtmlCache::delete < Bitrix\Main\Page\Frame::processPageContent < Bitrix\Main\Page\Frame::endBuffering < CAllMain::EndBufferContent
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/data/statichtmlcache.php:166
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:365
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:315
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3298
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3244
+----------
+Host: fm.local
+Date: 2015-01-23 11:18:18
+Module: composite
+/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/html_pages/fm.local/catalog/women/index@del_filter=Y.html.delete.1421993898.49
+    Bitrix\Main\Data\StaticHtmlCache::writeDebug < Bitrix\Main\Data\StaticHtmlCache::delete < Bitrix\Main\Page\Frame::processPageContent < Bitrix\Main\Page\Frame::endBuffering < CAllMain::EndBufferContent
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/data/statichtmlcache.php:166
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:365
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:315
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3298
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3244
+----------
+Host: fm.local
+Date: 2015-01-23 11:18:20
+Module: composite
+/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/html_pages/fm.local/catalog/women/index@del_filter=Y.html.delete.1421993900.28
+    Bitrix\Main\Data\StaticHtmlCache::writeDebug < Bitrix\Main\Data\StaticHtmlCache::delete < Bitrix\Main\Page\Frame::processPageContent < Bitrix\Main\Page\Frame::endBuffering < CAllMain::EndBufferContent
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/data/statichtmlcache.php:166
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:365
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:315
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3298
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3244
+----------
+Host: fm.local
+Date: 2015-01-23 11:18:30
+Module: composite
+/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/html_pages/fm.local/catalog/women/index@del_filter=Y.html.delete.1421993910.47
+    Bitrix\Main\Data\StaticHtmlCache::writeDebug < Bitrix\Main\Data\StaticHtmlCache::delete < Bitrix\Main\Page\Frame::processPageContent < Bitrix\Main\Page\Frame::endBuffering < CAllMain::EndBufferContent
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/data/statichtmlcache.php:166
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:365
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:315
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3298
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3244
+----------
+Host: fm.local
+Date: 2015-01-23 11:19:03
+Module: composite
+/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/html_pages/fm.local/catalog/women/index@del_filter=Y.html.delete.1421993943.09
+    Bitrix\Main\Data\StaticHtmlCache::writeDebug < Bitrix\Main\Data\StaticHtmlCache::delete < Bitrix\Main\Page\Frame::processPageContent < Bitrix\Main\Page\Frame::endBuffering < CAllMain::EndBufferContent
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/data/statichtmlcache.php:166
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:365
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:315
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3298
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3244
+----------
+Host: fm.local
+Date: 2015-01-23 11:19:06
+Module: composite
+/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/html_pages/fm.local/catalog/women/index@del_filter=Y.html.delete.1421993946.23
+    Bitrix\Main\Data\StaticHtmlCache::writeDebug < Bitrix\Main\Data\StaticHtmlCache::delete < Bitrix\Main\Page\Frame::processPageContent < Bitrix\Main\Page\Frame::endBuffering < CAllMain::EndBufferContent
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/data/statichtmlcache.php:166
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:365
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:315
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3298
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3244
+----------
+Host: fm.local
+Date: 2015-01-23 11:19:09
+Module: composite
+/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/html_pages/fm.local/catalog/women/index@del_filter=Y.html.delete.1421993949.39
+    Bitrix\Main\Data\StaticHtmlCache::writeDebug < Bitrix\Main\Data\StaticHtmlCache::delete < Bitrix\Main\Page\Frame::processPageContent < Bitrix\Main\Page\Frame::endBuffering < CAllMain::EndBufferContent
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/data/statichtmlcache.php:166
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:365
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:315
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3298
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3244
+----------
+Host: fm.local
+Date: 2015-01-23 11:19:39
+Module: composite
+/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/html_pages/fm.local/catalog/women/index@del_filter=Y.html.delete.1421993979.7
+    Bitrix\Main\Data\StaticHtmlCache::writeDebug < Bitrix\Main\Data\StaticHtmlCache::delete < Bitrix\Main\Page\Frame::processPageContent < Bitrix\Main\Page\Frame::endBuffering < CAllMain::EndBufferContent
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/data/statichtmlcache.php:166
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:365
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:315
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3298
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3244
+----------
+Host: fm.local
+Date: 2015-01-23 11:19:42
+Module: composite
+/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/html_pages/fm.local/catalog/women/index@del_filter=Y.html.delete.1421993982.9
+    Bitrix\Main\Data\StaticHtmlCache::writeDebug < Bitrix\Main\Data\StaticHtmlCache::delete < Bitrix\Main\Page\Frame::processPageContent < Bitrix\Main\Page\Frame::endBuffering < CAllMain::EndBufferContent
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/data/statichtmlcache.php:166
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:365
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:315
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3298
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3244
+----------
