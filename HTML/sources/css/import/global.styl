@@ -36,6 +36,8 @@ svg
 	left 0
 	z-index 300000
 	pointer-events none
+	.bx-ie
+		display none
 	&--on
 		pointer-events initial
 
@@ -72,9 +74,44 @@ svg
 	&__frame, &__select
 		display none
 
+.profile
+	max-width 95%
+	label
+		text-align: left
+		width 100%
+		letter-spacing 2px
+		font-size 11px
+		text-transform: uppercase
+		line-height 35px
+	.row + .row
+		margin-top 10px
+	input
+		&:focus
+			outline 0
+		+ label
+			margin-top 10px
+		&[type="text"], &[type="email"], &[type="password"]
+			height 32px
+			line-height 35px
+			width 100%
+			border 1px solid #cccccc
+			t border
+			text-align: left
+			padding 0 10px
+			&:focus
+				border-color black
+			&.parsley-error
+				border-color red
+				&:focus
+					border-color alpha(red,.7)
+		&[type="submit"]
+			appearance none
+			border 0
+			margin-bottom 0
+			font-size 13px
+.parsley-errors-list
+	display none
 .modal
-	.parsley-errors-list
-		display none
 	a
 		color red
 		font-size 13px
@@ -90,6 +127,7 @@ svg
 		margin-bottom 10px
 		margin-top -10px
 	.captcha_refresh
+		background transparent !important
 		svg
 			width 30px
 			height 30px
@@ -133,6 +171,8 @@ svg
 				border-color black
 			&.parsley-error
 				border-color red
+				&:focus
+					border-color alpha(red,.7)
 		&[type="submit"]
 			appearance none
 			border 0
@@ -156,7 +196,7 @@ svg
 		position absolute
 		right -60px
 		top 0
-		background transparent
+		background transparent !important
 		svg
 			width 40px
 			height 40px
@@ -195,6 +235,8 @@ svg
 		border-line alpha(black, .2)
 		margin-bottom 15px
 		max-width 95%
+		&--full-width
+			max-width none
 		&--no-border
 			background transparent
 			max-width 100%

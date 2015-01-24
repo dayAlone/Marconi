@@ -64,17 +64,30 @@
 		color white
 		white-space: nowrap
 		text-align: right
+		&--active
+			.auth__profile
+				display block
+			.auth__login
+				display none
+		&__profile
+			display none
+			.auth__item:hover
+				border-line(red, 11px, 4px)
+		&__login
+			display block
+			.auth__item:hover
+				border-dashed(red, 11px, 4px)
 		&__divider
 			position relative
 			top 1px
 			opacity .4
 			margin 0 5px
-		&__item
+		.auth__item
 			font-size 11px
 			color white
 			&:hover
 				color red
-				border-dashed(red, 11px, 4px)
+				
 .header
 	full-width()
 	margin-top 10px

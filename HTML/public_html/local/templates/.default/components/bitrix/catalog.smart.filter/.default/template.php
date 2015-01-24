@@ -13,6 +13,9 @@
 $this->setFrameMode(true);
 ?>
 <form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" data-url="<?=$APPLICATION->GetCurDir()?>">
+	<?if($arResult['CHECKED']=="Y"):?>
+	<a href="<?=$APPLICATION->GetCurDir()?>?del_filter=Y" class="catalog__clear">Сбросить фильтр</a>
+	<?endif;?>
 	<?foreach($arResult["HIDDEN"] as $arItem):
 		if(!in_array($arItem["CONTROL_NAME"], array('range', 'SHOWALL_1', 'short', 'sort_param', 'sort_value', 'PAGEN_1')) && strlen($arItem["HTML_VALUE"])>0):?>
 		<input
@@ -99,6 +102,7 @@ $this->setFrameMode(true);
 	<div class="catalog__counter">
 		Найдено: <strong class="catalog__counter-value">0</strong>. <a href="<?echo $arResult["FILTER_URL"]?>"><?echo GetMessage("CT_BCSF_FILTER_SHOW")?></a>
 	</div>
+	
 </form>
 <script>
 	var smartFilter = new JCSmartFilter('<?echo CUtil::JSEscape($arResult["FORM_ACTION"])?>');

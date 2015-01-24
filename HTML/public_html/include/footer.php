@@ -88,22 +88,94 @@
 
 </div>
 
-<? require_once($_SERVER['DOCUMENT_ROOT'].'/include/form.php'); ?>
-
-<div id="login" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade feedback">
-  <div class="modal-dialog feedback__dialog">
-    <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
-      <label>Ваш e-mail</label>
-      <input name="email" type="email" required>
-      <label>Пароль</label>
-      <input name="password" type="password" required>
-      <div class="center">
-        <input type="submit" class="product__big-button product__big-button--border m-margin-top" value="Войти">
-         | <a href="#" class="lost">Забыли пароль?</a>
+<?
+require_once($_SERVER['DOCUMENT_ROOT'].'/include/form.php');
+?>
+<?if(!$GLOBALS['USER']->GetID()):?>
+  <?if($_REQUEST['login']=="yes"):?>
+  <script>
+    $(function(){
+      $('#login').modal()
+    })
+  </script>
+  <?endif;?>
+  <?if($_REQUEST['change_password']=="yes"):?>
+  <script>
+    $(function(){
+      $('#change').modal()
+    })
+  </script>
+  <?endif;?>
+  <div id="login" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog feedback__dialog">
+      <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
+        <?
+          $APPLICATION->IncludeComponent("bitrix:system.auth.form", "", 
+          Array(
+            "REGISTER_URL"        => "register.php",
+            "FORGOT_PASSWORD_URL" => "",
+            "PROFILE_URL"         => "/profile/",
+            "SHOW_ERRORS"         => "Y" 
+          )
+        );
+        ?>
       </div>
     </div>
   </div>
-</div>
+  <div id="forget" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade forget">
+    <div class="modal-dialog feedback__dialog">
+      <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
+        <div class="forget__success hidden m-margin-top center">
+          <p><big>Ссылка для востановления пароля<br> отправлена на вашу почту.</big></p>
+        </div>
+        <?$APPLICATION->IncludeComponent(
+        "bitrix:system.auth.forgotpasswd",
+        ".default",
+        Array()
+        );?>
+      </div>
+    </div>
+  </div>
+  <div id="change" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade forget">
+    <div class="modal-dialog feedback__dialog">
+      <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
+        <div class="hidden m-margin-top center change__success">
+          <p><big>Вы успешно ищмени пароль. <a class="auth__item" href="#login" data-toggle="modal" data-target="#login">Авторизация</a></big></p>
+        </div>
+        <?$APPLICATION->IncludeComponent(
+        "bitrix:system.auth.changepasswd",
+        ".default",
+        Array()
+        );?>
+      </div>
+    </div>
+  </div>
+  <div id="register" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade register">
+    <div class="modal-dialog feedback__dialog">
+      <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
+        <div class="register__success hidden m-margin-top center">
+          <p><big>Вы успешно зарегистрированы и авторизованы на сайте.</big></p>
+        </div>
+        <?$APPLICATION->IncludeComponent("bitrix:main.register","",Array(
+                "USER_PROPERTY_NAME" => "", 
+                "SEF_MODE"           => "Y", 
+                "SHOW_FIELDS"        => Array("NAME", "LAST_NAME", "PERSONAL_PHONE"), 
+                "REQUIRED_FIELDS"    => Array("NAME"), 
+                "AUTH"               => "Y", 
+                "USE_BACKURL"        => "Y", 
+                "USE_CAPTCHA"        => "Y", 
+                "SUCCESS_PAGE"       => "", 
+                "SET_TITLE"          => "N", 
+                "USER_PROPERTY"      => Array(), 
+                "SEF_FOLDER"         => "/", 
+                "VARIABLE_ALIASES"   => Array()
+            )
+        );?> 
+      </div>
+    </div>
+  </div>
+<?endif;?>
+
 <!-- Yandex.Metrika counter --> 
 <script type="text/javascript"> 
 var yaParams = {/*Здесь параметры визита*/}; 

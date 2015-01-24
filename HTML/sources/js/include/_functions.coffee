@@ -114,7 +114,7 @@ getCaptcha = ()->
 		setCaptcha data
 
 setCaptcha = (code)->
-	$('input[name=captcha_code]').val(code)
+	$('input[name=captcha_sid]').val(code)
 	$('.captcha').css 'background-image', "url(/include/captcha.php?captcha_sid=#{code})"
 
 timer = false

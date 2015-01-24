@@ -19,6 +19,7 @@
       "js":[
          "/bootstrap/js/transition.js",
          "/bootstrap/js/modal.js",
+         "/bootstrap/js/tooltip.js",
          "/bootstrap/js/tab.js"
       ],
       "css":"/../sources/css/bootstrap.css"
