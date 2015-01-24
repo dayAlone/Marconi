@@ -2045,6 +2045,11 @@ svg g {
   position: absolute;
   right: 0;
   white-space: nowrap;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
   opacity: 0.4;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
   filter: alpha(opacity=40);
@@ -2061,7 +2066,7 @@ svg g {
   transition-duration: 0.3s;
 }
 .index #bx-composite-banner {
-  right: 80%;
+  right: 150px;
 }
 #bx-composite-banner:hover {
   opacity: 1;
@@ -2478,10 +2483,6 @@ svg g {
   position: absolute;
   top: 13px;
   right: 10px;
-}
-.lookbook {
-  float: left;
-  width: 100%;
 }
 .lookbook .page > .container > .row.enter {
   padding: 0;
