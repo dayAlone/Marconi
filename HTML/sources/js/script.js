@@ -260,8 +260,6 @@
     } else {
       $('.scroll-fix').remove();
     }
-<<<<<<< HEAD
-=======
     $('a.captcha_refresh').click(function(e) {
       getCaptcha();
       return e.preventDefault();
@@ -374,7 +372,6 @@
         }
       });
     });
->>>>>>> dev
     $('#feedback form').submit(function(e) {
       var data;
       e.preventDefault();
