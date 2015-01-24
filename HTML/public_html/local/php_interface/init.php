@@ -52,7 +52,7 @@ class CSaleGuestHandlers {
 	
 }
 
-AddEventHandler("main", "OnEndBufferContent", "OnEndBufferContentHandler");
+AddEventHandler("main", "OnEndBufferContent", "OnEndBufferContentHandler", 101);
 function OnEndBufferContentHandler(&$content)
 {
 	$content = str_replace("₷", "<span class='rubl'>&#x20bd;</span>", $content);
