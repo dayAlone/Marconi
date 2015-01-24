@@ -9,17 +9,16 @@ $(document).ready ->
 		x = delay 200, ()->
 			size()
 
-	scrollTimer = false
-	$(window).scroll ->
-		clearTimeout scrollTimer
-		if !$('.scroll-fix').hasMod 'on'
-			$('.scroll-fix').mod 'on', true
-		scrollTimer = delay 400, ()->
-			$('.scroll-fix').mod 'on', false
-	
-	$('a.captcha_refresh').click (e)->
-		getCaptcha()
-		e.preventDefault()
+	if pointerEventsSupported
+		scrollTimer = false
+		$(window).scroll ->
+			clearTimeout scrollTimer
+			if !$('.scroll-fix').hasMod 'on'
+				$('.scroll-fix').mod 'on', true
+			scrollTimer = delay 400, ()->
+				$('.scroll-fix').mod 'on', false
+	else
+		$('.scroll-fix').remove()
 	
 	#$('#login').modal()
 	# Contacts
