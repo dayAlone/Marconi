@@ -3776,7 +3776,7 @@ a:hover {
   text-decoration: none;
 }
 .no-position {
-  position: initial;
+  position: static;
 }
 .full-width {
   float: left;
@@ -4812,6 +4812,7 @@ div.pp_default .pp_loaderIcon {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 11px;
 }
 .toolbar .auth__profile .auth__item:hover:hover {
@@ -4830,6 +4831,7 @@ div.pp_default .pp_loaderIcon {
   -webkit-background-size: 4px 1px;
   -moz-background-size: 4px 1px;
   background-size: 4px 1px;
+  background-position: 0 100%;
   background-position: 0 11px;
 }
 .toolbar .auth__login .auth__item:hover:hover {
@@ -4940,6 +4942,7 @@ div.pp_default .pp_loaderIcon {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 12px;
 }
 .header .cart:hover,
@@ -4970,6 +4973,7 @@ div.pp_default .pp_loaderIcon {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 12px;
 }
 .header .cart:hover:hover,
@@ -5325,6 +5329,7 @@ body.index {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .textpage__content a:hover {
@@ -5488,6 +5493,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .modal a:hover {
@@ -5504,6 +5510,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .modal a:hover:hover {
@@ -5687,6 +5694,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
   margin-bottom: 15px;
   max-width: 95%;
@@ -5741,6 +5749,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .contacts p a:hover {
@@ -5757,6 +5766,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .contacts p a:hover:hover {
@@ -5892,6 +5902,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .about--white .header a:hover,
@@ -5969,6 +5980,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .about__slider-item-content a:hover {
@@ -6078,6 +6090,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
   color: #000;
 }
@@ -6095,6 +6108,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .news-item__content p a:hover:hover {
@@ -6700,6 +6714,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .catalog__counter a:hover {
@@ -7713,6 +7728,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .pages .pages__item--all:hover,
@@ -7730,6 +7746,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
   background: transparent;
 }
@@ -8054,6 +8071,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 6px;
   margin-bottom: 7px;
   color: #606268;
@@ -8129,6 +8147,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 23px;
   min-height: 25px;
   margin-bottom: 20px;
@@ -8152,6 +8171,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .product .tabs__content a:hover {
@@ -8332,6 +8352,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .available__table tbody td a:hover {
@@ -8348,6 +8369,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .available__table tbody td a:hover:hover {
@@ -9011,6 +9033,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .stores__title a:hover {
@@ -9027,6 +9050,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .stores__title a:hover:hover {
@@ -9203,6 +9227,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .order__product-name span:hover {
@@ -9221,6 +9246,7 @@ svg g {
   -webkit-background-size: 2px 2px;
   -moz-background-size: 2px 2px;
   background-size: 2px 2px;
+  background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
 .order__product-name:hover span:hover {
@@ -9258,6 +9284,7 @@ svg g {
   -webkit-background-size: 5px 1px;
   -moz-background-size: 5px 1px;
   background-size: 5px 1px;
+  background-position: 0 100%;
   background-position: 0 20px;
 }
 .order__number:hover {
@@ -9274,6 +9301,7 @@ svg g {
   -webkit-background-size: 5px 1px;
   -moz-background-size: 5px 1px;
   background-size: 5px 1px;
+  background-position: 0 100%;
   background-position: 0 20px;
 }
 .order__number:hover:hover {
@@ -9308,6 +9336,7 @@ svg g {
   -webkit-background-size: 5px 1px;
   -moz-background-size: 5px 1px;
   background-size: 5px 1px;
+  background-position: 0 100%;
   background-position: 0 14px;
 }
 .order__status:hover {
@@ -9324,6 +9353,7 @@ svg g {
   -webkit-background-size: 5px 1px;
   -moz-background-size: 5px 1px;
   background-size: 5px 1px;
+  background-position: 0 100%;
   background-position: 0 14px;
 }
 .order__status:hover:hover {
