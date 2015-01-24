@@ -13,7 +13,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 <?ShowError($arResult["strProfileError"]);?>
 
 <?
-if ($arResult['DATA_SAVED'] == 'Y')
+if ($arResult['DATA_SAVED'] == 'Y' && !isset($_REQUEST['NEW_PASSWORD']))
 	ShowNote(GetMessage('PROFILE_DATA_SAVED'));
 ?>
 <form data-parsley-validate method="post" name="form1" class="profile" action="<?=$arResult["FORM_TARGET"]?>" enctype="multipart/form-data">
@@ -38,7 +38,12 @@ if ($arResult['DATA_SAVED'] == 'Y')
 </div>
 </form>
 <div class="page__title xxl-margin-top xs-padding-top page__title--full-width"><small>Изменение пароля</small></div>
+<?
+if ($arResult['DATA_SAVED'] == 'Y' && isset($_REQUEST['NEW_PASSWORD']))
+	ShowNote(GetMessage('PROFILE_DATA_SAVED'));
+?>
 <form data-parsley-validate method="post" name="form1" class="profile" action="<?=$arResult["FORM_TARGET"]?>" enctype="multipart/form-data">
+<?=$arResult["BX_SESSION_CHECK"]?>
 <input type="hidden" name="lang" value="<?=LANG?>" />
 <input type="hidden" name="ID" value=<?=$arResult["ID"]?> />
 <input type="hidden" name="EMAIL" maxlength="50" value="<?=$arResult["arUser"]["EMAIL"]?>" />
