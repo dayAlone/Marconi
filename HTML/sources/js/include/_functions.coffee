@@ -31,6 +31,24 @@ size = ->
 			$(this).mod 'loaded', true
 	return
 
+pointerEventsSupported = (->
+	element          = document.createElement('x')
+	documentElement  = document.documentElement
+	getComputedStyle = window.getComputedStyle
+
+	if(!('pointerEvents' in element.style))
+		return false;
+
+	element.style.pointerEvents = 'auto';
+	element.style.pointerEvents = 'x';
+	documentElement.appendChild(element);
+	supports = getComputedStyle && 
+	getComputedStyle(element, '').pointerEvents == 'auto';
+	documentElement.removeChild(element);
+	
+	return !!supports;
+)();
+
 Array.prototype.remByVal = (val)->
 	for i in [0...this.length]
         if this[i] == val

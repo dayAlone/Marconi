@@ -1,5 +1,6 @@
 (function() {
-  var addToCart, autoHeight, basketCalc, checkRange, countUpOptions, delay, end, filterRequest, filterTimer, fly, galleryOptions, getCaptcha, getElem, getFilter, getOrderDate, getParameterByName, getSimmilar, initFiltres, initOrder, isJson, rangeTimer, rgb2hex, setCaptcha, size, spinOptions, timer, updateTimer;
+  var addToCart, autoHeight, basketCalc, checkRange, countUpOptions, delay, end, filterRequest, filterTimer, fly, galleryOptions, getCaptcha, getElem, getFilter, getOrderDate, getParameterByName, getSimmilar, initFiltres, initOrder, isJson, pointerEventsSupported, rangeTimer, rgb2hex, setCaptcha, size, spinOptions, timer, updateTimer,
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   delay = function(ms, func) {
     return setTimeout(func, ms);
@@ -38,6 +39,22 @@
       return $(this).mod('loaded', true);
     });
   };
+
+  pointerEventsSupported = (function() {
+    var documentElement, element, getComputedStyle, supports;
+    element = document.createElement('x');
+    documentElement = document.documentElement;
+    getComputedStyle = window.getComputedStyle;
+    if (!(__indexOf.call(element.style, 'pointerEvents') >= 0)) {
+      return false;
+    }
+    element.style.pointerEvents = 'auto';
+    element.style.pointerEvents = 'x';
+    documentElement.appendChild(element);
+    supports = getComputedStyle && getComputedStyle(element, '').pointerEvents === 'auto';
+    documentElement.removeChild(element);
+    return !!supports;
+  })();
 
   Array.prototype.remByVal = function(val) {
     var i, _i, _ref;
@@ -229,16 +246,20 @@
         return size();
       });
     });
-    scrollTimer = false;
-    $(window).scroll(function() {
-      clearTimeout(scrollTimer);
-      if (!$('.scroll-fix').hasMod('on')) {
-        $('.scroll-fix').mod('on', true);
-      }
-      return scrollTimer = delay(400, function() {
-        return $('.scroll-fix').mod('on', false);
+    if (pointerEventsSupported) {
+      scrollTimer = false;
+      $(window).scroll(function() {
+        clearTimeout(scrollTimer);
+        if (!$('.scroll-fix').hasMod('on')) {
+          $('.scroll-fix').mod('on', true);
+        }
+        return scrollTimer = delay(400, function() {
+          return $('.scroll-fix').mod('on', false);
+        });
       });
-    });
+    } else {
+      $('.scroll-fix').remove();
+    }
     $('a.captcha_refresh').click(function(e) {
       getCaptcha();
       return e.preventDefault();

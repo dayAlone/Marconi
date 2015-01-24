@@ -9,13 +9,16 @@ $(document).ready ->
 		x = delay 200, ()->
 			size()
 
-	scrollTimer = false
-	$(window).scroll ->
-		clearTimeout scrollTimer
-		if !$('.scroll-fix').hasMod 'on'
-			$('.scroll-fix').mod 'on', true
-		scrollTimer = delay 400, ()->
-			$('.scroll-fix').mod 'on', false
+	if pointerEventsSupported
+		scrollTimer = false
+		$(window).scroll ->
+			clearTimeout scrollTimer
+			if !$('.scroll-fix').hasMod 'on'
+				$('.scroll-fix').mod 'on', true
+			scrollTimer = delay 400, ()->
+				$('.scroll-fix').mod 'on', false
+	else
+		$('.scroll-fix').remove()
 	
 	$('a.captcha_refresh').click (e)->
 		getCaptcha()
@@ -23,6 +26,7 @@ $(document).ready ->
 	
 
 	$('[data-toggle="tooltip"]').tooltip()
+
 
 
 	# Profile
@@ -42,7 +46,7 @@ $(document).ready ->
 			block   = $(this).block()
 			content = block.elem('content')
 			block.mod 'disabled', true
-			
+
 			if block.hasMod 'open'
 				height = block.data 'height'
 				block.css
