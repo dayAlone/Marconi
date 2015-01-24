@@ -10,8 +10,8 @@
     <?if(isset($item['PREVIEW_PICTURE']['SRC'])):?>
       <img src="<?=$item['PREVIEW_PICTURE']['SRC']?>">
     <?endif;?>
-    <?if(count($item['PROPERTIES']['PICTURES'])>0):
-      foreach ($item['PROPERTIES']['PICTURES'] as $pic):
+    <?if(count($item['PROPERTIES']['PICTURES']['VALUE'])>0):
+      foreach ($item['PROPERTIES']['PICTURES']['VALUE'] as $pic):
       ?>
       <img src="<?=CFile::GetPath($pic)?>">
       <?
