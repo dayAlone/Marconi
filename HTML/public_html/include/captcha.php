@@ -40,7 +40,7 @@ $cpt->SetImageSize(150,35);
 	}
 }
 else {
-    $cpt->SetCodeLength(4);
+    $cpt->SetCodeLength(5);
     $cpt->SetCode();
     $code=$cpt->GetSID();
     echo $code;

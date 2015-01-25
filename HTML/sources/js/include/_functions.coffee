@@ -109,11 +109,12 @@ autoHeight = (el, selector='', height_selector = false, use_padding=false, debug
 
 			i += step
 
-getCaptcha = ()->
+@getCaptcha = ()->
 	$.get '/include/captcha.php', (data)->
+		console.log data
 		setCaptcha data
 
-setCaptcha = (code)->
+@setCaptcha = (code)->
 	$('input[name=captcha_sid]').val(code)
 	$('.captcha').css 'background-image', "url(/include/captcha.php?captcha_sid=#{code})"
 

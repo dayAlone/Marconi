@@ -18,13 +18,7 @@
       <div class="row">
         <div class="col-xs-5">
           <label class="left">введите данный код</label>
-          <?
-            include_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/captcha.php");
-            $cpt = new CCaptcha();
-            $cpt->SetCodeLength(4);
-            $cpt->SetCode();
-            $code=$cpt->GetSID();
-          ?>
+          
           <div class="captcha" style="background-image:url(/include/captcha.php?captcha_sid=<?=$code?>)"></div>
         </div>
         <div class="col-xs-2 no-padding center">

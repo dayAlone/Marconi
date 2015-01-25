@@ -1,5 +1,5 @@
 (function() {
-  var addToCart, autoHeight, basketCalc, checkRange, countUpOptions, delay, end, filterRequest, filterTimer, fly, galleryOptions, getCaptcha, getElem, getFilter, getOrderDate, getParameterByName, getSimmilar, initFiltres, initOrder, isJson, pointerEventsSupported, rangeTimer, rgb2hex, setCaptcha, size, spinOptions, timer, updateTimer,
+  var addToCart, autoHeight, basketCalc, checkRange, countUpOptions, delay, end, filterRequest, filterTimer, fly, galleryOptions, getElem, getFilter, getOrderDate, getParameterByName, getSimmilar, initFiltres, initOrder, isJson, pointerEventsSupported, rangeTimer, rgb2hex, size, spinOptions, timer, updateTimer,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   delay = function(ms, func) {
@@ -144,13 +144,14 @@
     }
   };
 
-  getCaptcha = function() {
+  this.getCaptcha = function() {
     return $.get('/include/captcha.php', function(data) {
+      console.log(data);
       return setCaptcha(data);
     });
   };
 
-  setCaptcha = function(code) {
+  this.setCaptcha = function(code) {
     $('input[name=captcha_sid]').val(code);
     return $('.captcha').css('background-image', "url(/include/captcha.php?captcha_sid=" + code + ")");
   };
@@ -246,6 +247,11 @@
         return size();
       });
     });
+    $('a.captcha_refresh').click(function(e) {
+      getCaptcha();
+      return e.preventDefault();
+    });
+    $('[data-toggle="tooltip"]').tooltip();
     if (pointerEventsSupported) {
       scrollTimer = false;
       $(window).scroll(function() {
@@ -260,11 +266,6 @@
     } else {
       $('.scroll-fix').remove();
     }
-    $('a.captcha_refresh').click(function(e) {
-      getCaptcha();
-      return e.preventDefault();
-    });
-    $('[data-toggle="tooltip"]').tooltip();
     if ($('body').hasClass('cabinet')) {
       $('.order').each(function() {
         var h;

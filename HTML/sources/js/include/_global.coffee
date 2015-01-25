@@ -9,6 +9,14 @@ $(document).ready ->
 		x = delay 200, ()->
 			size()
 
+	$('a.captcha_refresh').click (e)->
+		getCaptcha()
+		e.preventDefault()	
+
+	$('[data-toggle="tooltip"]').tooltip()
+
+	# pointerEvents
+
 	if pointerEventsSupported
 		scrollTimer = false
 		$(window).scroll ->
@@ -19,14 +27,6 @@ $(document).ready ->
 				$('.scroll-fix').mod 'on', false
 	else
 		$('.scroll-fix').remove()
-
-	$('a.captcha_refresh').click (e)->
-		getCaptcha()
-		e.preventDefault()	
-
-	$('[data-toggle="tooltip"]').tooltip()
-
-
 
 	# Profile
 

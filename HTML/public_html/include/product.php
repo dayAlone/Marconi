@@ -1,3 +1,8 @@
+<?
+/*if (!function_exists('getProduct')):
+	function getProduct($item, $arResult, $arParams)
+	{*/
+?>
 <div class="col-xs-4 col-lg-3">
 	<div class="product">
 	  <div class="product__content">
@@ -47,3 +52,7 @@
 	  </div>
 	</div>
 </div>
+<?
+/*	}
+endif;*/
+?>
