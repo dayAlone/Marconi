@@ -13,6 +13,13 @@ AddEventHandler("main", "OnBeforeUserAdd", "OnBeforeUserUpdateHandler");
 function OnBeforeUserUpdateHandler(&$arFields)
 {
 	if(!$GLOBALS['USER']->IsAdmin()):
+		if(isset($_REQUEST['ORDER_PROP_1'])):
+			$arFields["NAME"] = $_REQUEST['ORDER_PROP_1'];
+			$arFields["LAST_NAME"] = "";
+		endif;
+		if(isset($_REQUEST['ORDER_PROP_14'])):
+			$arFields["LAST_NAME"] = $_REQUEST['ORDER_PROP_14'];
+		endif;
 		if(!isset($arFields["EMAIL"])) $arFields["EMAIL"] = $arFields["LOGIN"];
 		else $arFields["LOGIN"] = $arFields["EMAIL"];
 	endif;

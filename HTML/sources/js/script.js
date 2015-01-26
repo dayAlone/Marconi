@@ -1477,7 +1477,6 @@
     data = $('#ORDER_FORM').serialize();
     $('.basket').elem('block').mod('loading', true);
     $('.basket').elem('submit').attr('disabled', 'disabled');
-    console.log(data);
     if (confirm) {
       data += "&confirmorder=Y";
     }
