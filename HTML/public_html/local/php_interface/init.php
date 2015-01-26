@@ -58,6 +58,7 @@ AddEventHandler("main", "OnEndBufferContent", "OnEndBufferContentHandler", 101);
 function OnEndBufferContentHandler(&$content)
 {
 	$content = str_replace("₷", "<span class='rubl'>&#x20bd;</span>", $content);
+	$content = str_replace("<script", "<script async defer ", $content);
 }
 
 use Bitrix\Highloadblock as HL;
