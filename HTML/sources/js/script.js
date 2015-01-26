@@ -956,10 +956,10 @@
         return e.preventDefault();
       }
     });
-    $('.product').elem('picture').lazyLoadXT();
-    return $('.product').hoverIntent({
+    $('.product').hoverIntent({
       sensitivity: 40,
       over: function() {
+        console.log(1);
         $(this).mod('hover', true);
         return $(this).mod('index', true);
       },
@@ -973,6 +973,7 @@
         });
       }
     });
+    return $('.product').elem('picture').lazyLoadXT();
   };
 
   checkRange = function() {
@@ -1379,6 +1380,19 @@
           });
         }).on('fotorama:showend', function(e, fotorama, extra) {
           return delay(100, function() {
+            var slider;
+            slider = $(fotorama.data[fotorama.activeIndex].html).find('.catalog');
+            if (slider) {
+              slider.slick({
+                infinite: true,
+                draggable: false,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                onInit: function() {
+                  return initProducts();
+                }
+              });
+            }
             size();
             return fotorama.resize({
               height: $(fotorama.activeFrame.html).outerHeight()

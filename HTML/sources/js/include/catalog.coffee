@@ -111,19 +111,21 @@ window.initProducts = ->
 					button.data 'size', $(this).data 'size'	
 			addToCart button
 			e.preventDefault()
-	$('.product').elem('picture').lazyLoadXT()
 	
 	$('.product').hoverIntent
-			sensitivity: 40
-			over : ()->
-				$(this).mod 'hover', true
-				$(this).mod 'index', true
-			out : ()->
-				item = $(this)
-				item.mod 'hover', false
-				$(this).block('sizes').mod 'open', false
-				$(this).find('.product__frame').one end, ->
-					item.mod 'index', false
+		sensitivity: 40
+		over : ()->
+			console.log 1
+			$(this).mod 'hover', true
+			$(this).mod 'index', true
+		out : ()->
+			item = $(this)
+			item.mod 'hover', false
+			$(this).block('sizes').mod 'open', false
+			$(this).find('.product__frame').one end, ->
+				item.mod 'index', false
+
+	$('.product').elem('picture').lazyLoadXT()
 
 checkRange = ->
 	slider = $("input[name=range]").data("ionRangeSlider")

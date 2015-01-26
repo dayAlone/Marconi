@@ -271,29 +271,7 @@
 				font-weight bold
 				padding-right 14px
 				top -7px
-	&--without-images
-		.product
-			&__picture-frame
-				position absolute
-				transform translateY(-100%)
-				opacity 0
-				pointer-events none
-				t(opacity)
-				transition-duration .1s
-			&--empty
-				.product__picture-frame
-					display none !important
-			&__frame
-				padding-top 240px
-				margin-top -230px
-			&__icon
-				top -230px
-			&--hover
-				.product__picture-frame
-					pointer-events initial
-					transition-duration .3s
-					transition-delay .1s
-					opacity 1
+	
 	&--full-width
 		@media (min-width scr_lg)
 			.col-lg-3
@@ -501,6 +479,31 @@
 				min-height 453px
 			&__picture
 				min-height 350px
+	&--without-images
+		.product
+			&__content
+				min-height 93px
+			&__picture-frame
+				position absolute
+				transform translateY(-100%)
+				opacity 0
+				pointer-events none
+				t(opacity)
+				transition-duration .1s
+			&--empty
+				.product__picture-frame
+					display none !important
+			&__frame
+				padding-top 240px
+				margin-top -230px
+			&__icon
+				top -230px
+			&--hover
+				.product__picture-frame
+					pointer-events initial
+					transition-duration .3s
+					transition-delay .1s
+					opacity 1
 .filter
 	width 100%
 	border 1px solid #dddddd

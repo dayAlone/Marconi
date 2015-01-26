@@ -4,7 +4,7 @@
 	{*/
 ?>
 <div class="col-xs-4 col-lg-3">
-	<div class="product">
+	<div class="product" data-id="<?=$item["ID"]?>">
 	  <div class="product__content">
 	  	<a href="<?=$item['DETAIL_PAGE_URL']?>" class="product__picture-frame">
 	    	<div data-bg="<?=(isset($item['PREVIEW_PICTURE']['SRC'])?$item['PREVIEW_PICTURE']['SRC']:"/layout/images/no-image.jpg")?>" class="product__picture <?=(!$item['PREVIEW_PICTURE']['SRC']?"product__picture--no":"")?>"></div>
