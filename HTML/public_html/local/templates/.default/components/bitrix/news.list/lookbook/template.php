@@ -1,5 +1,7 @@
 <? $this->setFrameMode(true);?>
+<?if(isset($arResult['SECTION']['PATH'][0]['NAME'])):?>
 <h1 class="lookbook__title"><span><?=$arResult['SECTION']['PATH'][0]['NAME']?></span></h1>
+<?endif;?>
 <div style="background-image: url(<?=$arResult['ITEMS'][count($arResult['ITEMS'])-1]['PREVIEW_PICTURE']['SRC']?>)" data-direction="&lt;" class="lookbook__slider-preview lookbook__slider-preview--prev"><?=svg('slider-arrow-left')?></div>
 <div style="background-image: url(<?=$arResult['ITEMS'][1]['PREVIEW_PICTURE']['SRC']?>)" data-direction="&gt;" class="lookbook__slider-preview lookbook__slider-preview--next"><?=svg('slider-arrow-right')?></div>
 <div data-loop="true" data-width="120%" data-keyboard="true" data-nav="false" data-arrows="false" data-click="false" data-transition="crossfade" class="lookbook__slider">
