@@ -12,8 +12,10 @@ AddEventHandler("main", "OnBeforeUserAdd", "OnBeforeUserUpdateHandler");
 
 function OnBeforeUserUpdateHandler(&$arFields)
 {
-	if(!$GLOBALS['USER']->IsAdmin())
-		$arFields["EMAIL"] = $arFields["LOGIN"];
+	if(!$GLOBALS['USER']->IsAdmin()):
+		if(!isset($arFields["EMAIL"])) $arFields["EMAIL"] = $arFields["LOGIN"];
+		else $arFields["LOGIN"] = $arFields["EMAIL"];
+	endif;
 }
 
 AddEventHandler('sale', 'OnOrderAdd', Array('CSaleGuestHandlers', 'OnOrderUpdateHandler'));
