@@ -118,12 +118,16 @@ window.initProducts = ->
 			console.log 1
 			$(this).mod 'hover', true
 			$(this).mod 'index', true
+			if $('body').hasClass 'lookbook'
+				$('.lookbook').elem('slider-preview').mod 'disabled', true
 		out : ()->
 			item = $(this)
 			item.mod 'hover', false
 			$(this).block('sizes').mod 'open', false
 			$(this).find('.product__frame').one end, ->
 				item.mod 'index', false
+			if $('body').hasClass 'lookbook'
+				$('.lookbook').elem('slider-preview').mod 'disabled', false
 
 	$('.product').elem('picture').lazyLoadXT()
 

@@ -2591,6 +2591,7 @@ svg g {
 .lookbook__slider-preview {
   position: absolute;
   min-height: 750px;
+  z-index: 40;
   top: 0;
   cursor: pointer;
   width: 300px;
@@ -2610,6 +2611,9 @@ svg g {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+}
+.lookbook__slider-preview--disabled {
+  z-index: 0;
 }
 .lookbook__slider-preview svg {
   position: absolute;
@@ -4660,7 +4664,8 @@ svg g {
   font-size: 12px;
   padding: 7px 0 2px;
 }
-#basket_form {
+#basket_form,
+#ORDER_FORM {
   float: left;
   width: 100%;
 }

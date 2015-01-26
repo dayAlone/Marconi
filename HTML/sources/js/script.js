@@ -961,16 +961,22 @@
       over: function() {
         console.log(1);
         $(this).mod('hover', true);
-        return $(this).mod('index', true);
+        $(this).mod('index', true);
+        if ($('body').hasClass('lookbook')) {
+          return $('.lookbook').elem('slider-preview').mod('disabled', true);
+        }
       },
       out: function() {
         var item;
         item = $(this);
         item.mod('hover', false);
         $(this).block('sizes').mod('open', false);
-        return $(this).find('.product__frame').one(end, function() {
+        $(this).find('.product__frame').one(end, function() {
           return item.mod('index', false);
         });
+        if ($('body').hasClass('lookbook')) {
+          return $('.lookbook').elem('slider-preview').mod('disabled', false);
+        }
       }
     });
     return $('.product').elem('picture').lazyLoadXT();
