@@ -1,9 +1,9 @@
 <?
+	$this->setFrameMode(true);
 	$arResult['TRADELINES'] = getHighloadElements('tradeline', 'UF_XML_ID', 'UF_NAME');
 	if(count($arResult['rows'])):
 		$brand = (isset($_COOKIE['BRAND'])?$_COOKIE['BRAND']:(isset($_REQUEST['brand'])?$_REQUEST['brand']:""));
 		if(strlen($brand)>0):
-			$this->setFrameMode(false);
 			$all = $arResult['TRADELINES'];
 			foreach ($arResult['rows'] as $item)
 				$all[$item['UF_XML_ID']] = $item['UF_NAME'];
@@ -13,8 +13,6 @@
 					$this->setFrameMode(false);
 				endif;
 			endforeach;
-		else:
-			$this->setFrameMode(true);
 		endif;
 
 		?>
