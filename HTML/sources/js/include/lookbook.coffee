@@ -22,6 +22,9 @@ $(document).ready ->
 		firstScriptTag = document.getElementsByTagName('script')[0];
 		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+		next = $('.lookbook__slider-preview--next').html()
+		prev = $('.lookbook__slider-preview--prev').html()
+
 		$('.row.enter').isotope
 			itemSelector : "[class*='col-']"
 			masonry:
@@ -78,6 +81,8 @@ $(document).ready ->
 								draggable      : false
 								slidesToShow   : 4
 								slidesToScroll : 1
+								nextArrow      : "<button type=\"button\" class=\"slick-next\">#{next}</button>"
+								prevArrow      : "<button type=\"button\" class=\"slick-prev\">#{prev}</button>"
 								onInit: ()->
 									initProducts()
 						size()

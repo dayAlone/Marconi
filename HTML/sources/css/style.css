@@ -2682,7 +2682,7 @@ svg g {
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
-  padding-bottom: 100px;
+  margin-bottom: 100px;
   position: relative;
   z-index: 3000;
   text-align: center;
@@ -2690,9 +2690,31 @@ svg g {
 .lookbook__slider .catalog .slick-list {
   overflow: visible;
 }
+.lookbook__slider .catalog .slick-next,
+.lookbook__slider .catalog .slick-prev {
+  width: 30px;
+  height: 30px;
+  margin-top: -25px;
+}
+.lookbook__slider .catalog .slick-next:before,
+.lookbook__slider .catalog .slick-prev:before {
+  display: none;
+}
+.lookbook__slider .catalog .slick-next svg,
+.lookbook__slider .catalog .slick-prev svg {
+  width: 30px;
+  height: 30px;
+}
+.lookbook__slider .catalog .slick-next svg path,
+.lookbook__slider .catalog .slick-prev svg path {
+  fill: #000;
+}
 .lookbook__slider .catalog .col-xs-4 {
   display: inline-block;
   float: none;
+}
+.lookbook__slider .catalog .product {
+  margin-bottom: 0;
 }
 .lookbook__slider .catalog .product__frame {
   -webkit-box-sizing: initial !important;

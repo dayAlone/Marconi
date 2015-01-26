@@ -114,17 +114,30 @@
 			full-width()
 		.catalog
 			opacity 0
-			padding-bottom 100px
+			margin-bottom 100px
 			position relative
 			z-index 3000
 			text-align: center
 			.slick-list
 				overflow visible
+			.slick-next, .slick-prev
+				width 30px
+				height 30px
+				margin-top -25px
+				&:before
+					display none
+				svg
+					width 30px
+					height 30px
+					path
+						fill black
 			.col-xs-4
 				display inline-block
 				float none
-			.product__frame
-				box-sizing: initial !important
+			.product
+				margin-bottom 0
+				&__frame
+					box-sizing: initial !important
 		.fotorama__active
 			.catalog, .lookbook__divider
 				t(opacity)

@@ -959,7 +959,9 @@
     $('.product').hoverIntent({
       sensitivity: 40,
       over: function() {
-        console.log(1);
+        if ($(this).parents('.slick-slide').length > 0 && $(this).parents('.slick-active').length === 0) {
+          return false;
+        }
         $(this).mod('hover', true);
         $(this).mod('index', true);
         if ($('body').hasClass('lookbook')) {
@@ -1326,12 +1328,14 @@
   };
 
   $(document).ready(function() {
-    var firstScriptTag, tag;
+    var firstScriptTag, next, prev, tag;
     if ($('body').hasClass('lookbook')) {
       tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
       firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      next = $('.lookbook__slider-preview--next').html();
+      prev = $('.lookbook__slider-preview--prev').html();
       $('.row.enter').isotope({
         itemSelector: "[class*='col-']",
         masonry: {
@@ -1394,6 +1398,8 @@
                 draggable: false,
                 slidesToShow: 4,
                 slidesToScroll: 1,
+                nextArrow: "<button type=\"button\" class=\"slick-next\">" + next + "</button>",
+                prevArrow: "<button type=\"button\" class=\"slick-prev\">" + prev + "</button>",
                 onInit: function() {
                   return initProducts();
                 }
