@@ -2496,10 +2496,6 @@ svg g {
 .lookbook .page > .container > .row.enter .col-md-6 {
   width: 50%;
 }
-.lookbook .nav__item:nth-child(4) {
-  background: #fff;
-  color: #000;
-}
 .lookbook__promo {
   display: block;
   position: relative;
