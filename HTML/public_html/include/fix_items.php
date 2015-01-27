@@ -44,7 +44,7 @@ foreach($arResult["ITEMS"] as $PID => $arItem)
 }
 if(count($allCHECKED)>0):
 	$arResult['CHECKED'] = "Y";
-	$_SESSION['Filter'][$arParams['CODE']] = $_SERVER['REDIRECT_QUERY_STRING'];
+	$_SESSION['Filter'][$arParams['CODE']] = str_replace("&short=Y", "", $_SERVER['REDIRECT_QUERY_STRING']);
 	function condition($_CHECK, $ar)
 	{
 		if (isset($_CHECK[$ar["CONTROL_NAME"]])
