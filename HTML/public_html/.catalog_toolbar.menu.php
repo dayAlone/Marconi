@@ -23,7 +23,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"уникальная цена", 
-		"/catalog/sale/?del_filter=Y", 
+		"/catalog/sale/", 
 		Array("/catalog/sale/"), 
 		Array(), 
 		"" 
