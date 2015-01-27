@@ -112,11 +112,11 @@ if (!function_exists("cmpBySort"))
 					<?
 					elseif($prop['CODE']=="time"):
 						?>
-						<div class="col-xs-6">
+						<div class="col-xs-6 time-select">
 							<small><strong><?=$prop['NAME']?></strong></small>
-							<input type="hidden" name="<?=$prop['FIELD_NAME']?>" value="<?=$prop["VALUE"]?>">
 							<div class="dropdown">
 								<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white">с 9 до 15 часов</span><?=svg('arrow')?></a>
+								<input type="hidden" name="<?=$prop['FIELD_NAME']?>" value="<?=($prop["VALUE"]?$prop["VALUE"]:'с 9 до 15 часов')?>">
 								<span class="dropdown__frame">
 									<a href="#" class="dropdown__item">с 9 до 15 часов</a>
 									<a href="#" class="dropdown__item">с 15 до 18 часов</a>

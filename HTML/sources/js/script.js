@@ -1484,8 +1484,11 @@
     $('.basket input[type="checkbox"]').iCheck();
     $('.stores-list .dropdown__item').off('click').on('click', function(e) {
       $(this).block().find('select').val($(this).data('id'));
-      console.log($(this).block().find('select'));
       $(this).block().find('.parsley-errors-list').removeClass('.filled');
+      return e.preventDefault();
+    });
+    $('.time-select .dropdown__item').off('click').on('click', function(e) {
+      $(this).block().find('input').val($(this).text());
       return e.preventDefault();
     });
     return $('input[name="ORDER_PROP_3"]').mask('+7 0000000000');
