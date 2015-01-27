@@ -40,7 +40,7 @@ $APPLICATION->SetTitle('Корзина');
 			"ONLY_FULL_PAY_FROM_ACCOUNT" => "N",
 			"COUNT_DELIVERY_TAX" => "N",
 			"ALLOW_AUTO_REGISTER" => "Y",
-			"SEND_NEW_USER_NOTIFY" => "N",
+			"SEND_NEW_USER_NOTIFY" => "Y",
 			"DELIVERY_NO_AJAX" => "Y",
 			"DELIVERY_NO_SESSION" => "Y",
 			"TEMPLATE_LOCATION" => "popup",
