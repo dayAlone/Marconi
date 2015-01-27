@@ -190,23 +190,22 @@ if (!function_exists("cmpBySort"))
 			</div>
 			<div class="total__frame">
 				<div class="total">
-					
 					<div class="total__item <?=(intval($arResult['DELIVERY_PRICE'])>0?"":"hidden")?>">
 						<div class="row">
 							<div class="col-xs-7">ВАШ ЗАКАЗ НА СУММУ</div>
-							<div class="col-xs-5 right total__counter"><?=number_format($arResult['ORDER_PRICE'], 0, " ", " ")?> ₷</div>
+							<div class="col-xs-5 right total__counter"><span id="price-1"><?=number_format($arResult['ORDER_PRICE'], 0, " ", " ")?></span> ₷</div>
 						</div>
 					</div>
 					<div class="total__item <?=(intval($arResult['DELIVERY_PRICE'])>0?"":"hidden")?>">
 						<div class="row">
 							<div class="col-xs-7">ДОСТАВКА</div>
-							<div class="col-xs-5 right total__counter"><?=number_format($arResult['DELIVERY_PRICE'], 0, " ", " ")?> ₷</div>
+							<div class="col-xs-5 right total__counter"><span id="price-2"><?=number_format($arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> ₷</div>
 						</div>
 					</div>
 					<div class="total__item total__item--big">
 						<div class="row">
 							<div class="col-xs-7">к оплате</div>
-							<div class="col-xs-5 right total__counter"><?=number_format($arResult['ORDER_PRICE']+$arResult['DELIVERY_PRICE'], 0, " ", " ")?> ₷</div>
+							<div class="col-xs-5 right total__counter"><span id="price-3"><?=number_format($arResult['ORDER_PRICE']+$arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> ₷</div>
 						</div>
 					</div>
 				</div>
@@ -224,45 +223,6 @@ if (!function_exists("cmpBySort"))
 
 	
 </form>
-<?if(CSaleLocation::isLocationProEnabled()):?>
-
-	<div style="display: none">
-		<?// we need to have all styles for sale.location.selector.steps, but RestartBuffer() cuts off document head with styles in it?>
-		<?$APPLICATION->IncludeComponent(
-	"bitrix:sale.location.selector.steps", 
-	".default", 
-	array(
-		"ID" => "",
-		"CODE" => "",
-		"INPUT_NAME" => "LOCATION",
-		"PROVIDE_LINK_BY" => "id",
-		"SEARCH_BY_PRIMARY" => "N",
-		"FILTER_BY_SITE" => "Y",
-		"SHOW_DEFAULT_LOCATIONS" => "Y",
-		"CACHE_TYPE" => "A",
-		"CACHE_TIME" => "36000000"
-	),
-	false
-);?>
-<?$APPLICATION->IncludeComponent(
-	"bitrix:sale.location.selector.search", 
-	".default", 
-	array(
-		"ID" => "",
-		"CODE" => "",
-		"INPUT_NAME" => "LOCATION",
-		"PROVIDE_LINK_BY" => "id",
-		"SEARCH_BY_PRIMARY" => "Y",
-		"EXCLUDE_SUBTREE" => "",
-		"FILTER_BY_SITE" => "Y",
-		"SHOW_DEFAULT_LOCATIONS" => "Y",
-		"CACHE_TYPE" => "A",
-		"CACHE_TIME" => "36000000"
-	),
-	false
-);?>
-</div>
-<?endif?>
 <?
 if($_POST["is_ajax_post"] == "Y")
 	die;

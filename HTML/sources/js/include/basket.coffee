@@ -19,15 +19,15 @@ basketCalc = (el)->
 		if val != last
 			counter = new countUp row.find('.total')[0], last, val, 0, 1, countUpOptions
 			counter.start()
+	if $('.basket__sale-total span:first').length > 0
+		saleVal = parseInt $('.basket__sale-total span:first').text().replace(' ','')
+		if saleVal != sale
+			saleCounter = new countUp $('.basket__sale-total span:first')[0], saleVal, sale, 0, 1, countUpOptions
+			saleCounter.start()
 
-	saleVal = parseInt $('.basket__sale-total span').text().replace(' ','')
-	if saleVal != sale
-		saleCounter = new countUp $('.basket__sale-total span')[0], saleVal, sale, 0, 1, countUpOptions
-		saleCounter.start()
-
-	totalVal = parseInt $('.basket__total span').text().replace(' ','')
+	totalVal = parseInt $('.basket__total span:first').text().replace(' ','')
 	if totalVal != total
-		totalCounter = new countUp $('.basket__total span')[0], totalVal, total, 0, 2, countUpOptions
+		totalCounter = new countUp $('.basket__total span:first')[0], totalVal, total, 0, 2, countUpOptions
 		totalCounter.start()
 
 	#$('basket').elem('total').text total
@@ -50,8 +50,6 @@ $(document).ready ->
 			url = "/include/basket.php?action=delete&id=#{id}"
 			$.get url, (data)->
 				if data == 'success'
-					if bx_cart_block1
-						bx_cart_block1.refreshCart({})
 					getOrderDate()
 			row.on end , ->
 				$(this).remove()

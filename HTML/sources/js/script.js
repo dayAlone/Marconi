@@ -749,14 +749,16 @@
         counter.start();
       }
     }
-    saleVal = parseInt($('.basket__sale-total span').text().replace(' ', ''));
-    if (saleVal !== sale) {
-      saleCounter = new countUp($('.basket__sale-total span')[0], saleVal, sale, 0, 1, countUpOptions);
-      saleCounter.start();
+    if ($('.basket__sale-total span:first').length > 0) {
+      saleVal = parseInt($('.basket__sale-total span:first').text().replace(' ', ''));
+      if (saleVal !== sale) {
+        saleCounter = new countUp($('.basket__sale-total span:first')[0], saleVal, sale, 0, 1, countUpOptions);
+        saleCounter.start();
+      }
     }
-    totalVal = parseInt($('.basket__total span').text().replace(' ', ''));
+    totalVal = parseInt($('.basket__total span:first').text().replace(' ', ''));
     if (totalVal !== total) {
-      totalCounter = new countUp($('.basket__total span')[0], totalVal, total, 0, 2, countUpOptions);
+      totalCounter = new countUp($('.basket__total span:first')[0], totalVal, total, 0, 2, countUpOptions);
       return totalCounter.start();
     }
   };
@@ -782,9 +784,6 @@
         url = "/include/basket.php?action=delete&id=" + id;
         $.get(url, function(data) {
           if (data === 'success') {
-            if (bx_cart_block1) {
-              bx_cart_block1.refreshCart({});
-            }
             return getOrderDate();
           }
         });
@@ -1488,18 +1487,8 @@
     return $('input[name="ORDER_PROP_3"]').mask('+7 0000000000');
   };
 
-  $('.bx-ui-sls-clear').click(function() {
-    return getOrderDate();
-  });
-
-  $('.bx-sls input:hidden:first').change(function() {
-    if (parseInt($(this).val()) > 0) {
-      return getOrderDate();
-    }
-  });
-
   getOrderDate = function(confirm) {
-    var data;
+    var counter, data;
     data = $('#ORDER_FORM').serialize();
     $('.basket').elem('block').mod('loading', true);
     $('.basket').elem('submit').attr('disabled', 'disabled');
@@ -1509,19 +1498,30 @@
     if ($('#register_user:not(:checked)').length > 0) {
       data += "&delete_user=Y";
     }
+    counter = [];
     return $.ajax({
       type: "POST",
       url: $('#ORDER_FORM').attr('action'),
       data: data,
       success: function(data) {
-        console.log(data);
         if (!isJson(data)) {
           $('#ORDER_FORM .props').html($(data).find('.props').html());
           $('#ORDER_FORM .delivery').html($(data).find('.delivery').html());
           $('#ORDER_FORM .payment').html($(data).find('.payment').html());
-          $('#ORDER_FORM .total').html($(data).find('.total').html());
+          $.each($(data).find('.total__counter'), function() {
+            var id, old, val;
+            id = $(this).find('span:first-of-type').attr('id');
+            old = parseInt($("#" + id).text().replace(" ", ""));
+            val = parseInt($(this).text().replace(" ", ""));
+            if (old !== val) {
+              counter[id] = new countUp(id, old, val, 0, 1, countUpOptions);
+              counter[id].start();
+            }
+            return true;
+          });
           initOrder();
           initDropdown();
+          bx_cart_block1.refreshCart({});
           $('.basket').elem('block').mod('loading', false);
           return $('.basket').elem('submit').removeAttr('disabled');
         } else {
@@ -1538,6 +1538,14 @@
     if ($('body').hasClass('basket')) {
       initOrder();
       getOrderDate();
+      $('.bx-sls input:hidden').on('change', function() {
+        if (parseInt($(this).val()) > 0) {
+          return getOrderDate();
+        }
+      });
+      $('.bx-ui-sls-clear').click(function() {
+        return getOrderDate();
+      });
       return $('#ORDER_FORM').submit(function(e) {
         getOrderDate(true);
         return e.preventDefault();
