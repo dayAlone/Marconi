@@ -21,7 +21,7 @@
 			<td width="25%"><a href="/stores/<?=$item['CODE']?>/"><?=preg_replace('@\(.*?\)@', '', $item['NAME'])?></a></td>
 			<?if(isset($arParams['CACHE_NOTES'])):?>
 			<td width="25%">
-				<? if(isset($arResult['COUNTS'][$store]) && $arResult['COUNTS'][$store]>0):?>
+				<? if(isset($arResult['COUNTS'][$store])):?>
 					<span class="available__icon available__icon--true"></span>Есть в наличии
 				<? else: ?>
 					<span class="available__icon available__icon--false"></span>нет в наличии

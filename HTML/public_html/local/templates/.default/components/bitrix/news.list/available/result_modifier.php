@@ -5,7 +5,8 @@
 		while ($item = $raw->Fetch()):
 			if(!isset($arResult['COUNTS'][$item['STORE_ID']]))
 				$arResult['COUNTS'][$item['STORE_ID']] = array();
-			$arResult['COUNTS'][$item['STORE_ID']][$item['PRODUCT_ID']] = $item['AMOUNT'];
+			if($item['AMOUNT']>0)
+				$arResult['COUNTS'][$item['STORE_ID']][$item['PRODUCT_ID']] = $item['AMOUNT'];
 		endwhile;
 	endif;
 ?>
