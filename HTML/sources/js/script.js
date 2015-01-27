@@ -1260,6 +1260,9 @@
         }
       }
     });
+    if (!$.cookie('card')) {
+      $('.catalog__card, .catalog__card-frame').removeClass('hidden');
+    }
     $('a.catalog__card-button').click(function(e) {
       var block, offset;
       block = $('.catalog__card');

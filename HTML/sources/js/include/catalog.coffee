@@ -353,6 +353,9 @@ $(document).ready ->
 				location.href = location.href.replace(getParameterByName('sort_param'), $(this).data('param')).replace(getParameterByName('sort_value'), $(this).data('value'))
 
 	# Card
+	if !$.cookie('card')
+		$('.catalog__card, .catalog__card-frame').removeClass 'hidden'
+		
 	$('a.catalog__card-button').click (e)->
 		block  = $('.catalog__card')
 		offset = block.offset()
@@ -368,8 +371,8 @@ $(document).ready ->
 			options:
 				duration: 300
 				complete: ->
-					$(this).remove()
-					$.cookie('card', 'Y',{path:"/", expires: 7})
+					$(this).remove();
+					$.cookie('card', 'Y', { path:"/", expires: 7 });
 		
 		$('.catalog__card-frame, a.catalog__card-button, .catalog__card-text').css(
 			opacity: 0
