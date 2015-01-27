@@ -461,7 +461,7 @@ $this->SetViewTarget('footer');
 					"SORT_BY1"      => "ID",
 					"SORT_ORDER1"   => "ASC",
 					"DETAIL_URL"    => "/catalog/",
-					"CACHE_TYPE"    => "A",
+					"CACHE_TYPE"    => "N",
 					'PROPERTY_CODE' => array('ADDRESS'),
 					'OFFERS'        => $offers,
 					"SET_TITLE"     => "N"
