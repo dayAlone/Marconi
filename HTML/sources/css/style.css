@@ -4220,7 +4220,7 @@ svg g {
   padding-right: 25px;
 }
 .product .picture__big {
-  min-height: 389px;
+  min-height: 427px;
 }
 .product .picture__big a {
   display: none;
@@ -4231,7 +4231,7 @@ svg g {
   z-index: 500;
 }
 .product .picture .easyzoom-flyout {
-  min-height: 389px;
+  min-height: 427px;
   position: absolute;
   left: 100%;
   width: 100%;
