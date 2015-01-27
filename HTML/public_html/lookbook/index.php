@@ -8,11 +8,6 @@ $APPLICATION->SetTitle('Lookbook');
 <div class="page">
     <div class="container">
         <?
-        	$APPLICATION->IncludeComponent(
-							"bitrix:sale.location.selector.search", 
-							".default"
-							
-						);
         	if(!isset($_REQUEST['ELEMENT_CODE'])):
 	        	$APPLICATION->IncludeComponent("bitrix:catalog.section.list", "lookbook", array(
 				    "IBLOCK_TYPE"  => "content",
