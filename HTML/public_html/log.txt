@@ -1,22 +1,3311 @@
 Host: fm.local
-Date: 2015-01-25 13:32:15
-Module: composite
-/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/html_pages/fm.local/catalog/index@.html.delete.1422174735.67
-    Bitrix\Main\Data\StaticHtmlCache::writeDebug < Bitrix\Main\Data\StaticHtmlCache::delete < Bitrix\Main\Page\Frame::processPageContent < Bitrix\Main\Page\Frame::endBuffering < CAllMain::EndBufferContent
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/data/statichtmlcache.php:166
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:365
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:315
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3298
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3244
+Date: 2015-01-27 11:19:31
+Module: location
+NULL
 ----------
 Host: fm.local
-Date: 2015-01-25 13:32:17
-Module: composite
-/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/html_pages/fm.local/catalog/women/index@.html.delete.1422174737.41
-    Bitrix\Main\Data\StaticHtmlCache::writeDebug < Bitrix\Main\Data\StaticHtmlCache::delete < Bitrix\Main\Page\Frame::processPageContent < Bitrix\Main\Page\Frame::endBuffering < CAllMain::EndBufferContent
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/data/statichtmlcache.php:166
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:365
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/page/frame.php:315
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3298
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/main.php:3244
+Date: 2015-01-27 11:19:44
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:21:15
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:23:00
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:23:06
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:23:21
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:24:07
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:24:23
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:24:25
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:24:27
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:25:01
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:26:04
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:26:49
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:27:50
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:28:10
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:29:02
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:29:29
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:29:33
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:29:35
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:30:01
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:30:25
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:30:59
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:31:02
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:31:22
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:31:25
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:31:41
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:31:44
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:32:59
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:33:44
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:34:44
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:35:05
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:35:27
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:36:20
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:36:50
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:36:52
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:37:51
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:37:54
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:38:08
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:39:28
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:39:30
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:39:53
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:39:55
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:40:24
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:40:25
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:40:26
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:40:26
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:40:28
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:40:28
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:41:06
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:41:07
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:41:22
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:41:24
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:41:58
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:42:43
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:43:03
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:43:25
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:43:25
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:43:27
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:43:28
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:43:29
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:43:29
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:44:05
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:44:38
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:44:58
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:45:12
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:45:12
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:45:34
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:45:34
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:46:25
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:46:25
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:47:35
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:47:35
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:47:59
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:48:18
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:48:18
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:48:58
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:49:19
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:49:19
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:49:38
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:49:38
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:50:06
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:50:06
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:51:50
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '67',
+      'CODE' => '0000028089',
+      'SORT' => '100',
+      'LT_SORT' => '300',
+      'NAME' => 'Челябинская область',
+      'TYPE_ID' => '2',
+      'PATH' => 
+      array (
+        0 => 61,
+        1 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-01-27 11:51:50
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
 ----------

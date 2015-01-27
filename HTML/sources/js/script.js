@@ -1,5 +1,5 @@
 (function() {
-  var addToCart, autoHeight, basketCalc, checkRange, countUpOptions, delay, end, filterRequest, filterTimer, fly, galleryOptions, getElem, getFilter, getOrderDate, getParameterByName, getSimmilar, initFiltres, initOrder, isJson, pointerEventsSupported, rangeTimer, rgb2hex, size, spinOptions, timer, updateTimer,
+  var addToCart, autoHeight, basketCalc, checkRange, countUpOptions, delay, end, filterRequest, filterTimer, fly, galleryOptions, getElem, getFilter, getOrderDate, getParameterByName, getSimmilar, initFiltres, initOrder, isJson, pointerEventsSupported, rangeTimer, remByVal, rgb2hex, size, spinOptions, timer, updateTimer,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   delay = function(ms, func) {
@@ -56,15 +56,15 @@
     return !!supports;
   })();
 
-  Array.prototype.remByVal = function(val) {
+  remByVal = function(val, array) {
     var i, _i, _ref;
-    for (i = _i = 0, _ref = this.length; 0 <= _ref ? _i < _ref : _i > _ref; i = 0 <= _ref ? ++_i : --_i) {
-      if (this[i] === val) {
-        this.splice(i, 1);
+    for (i = _i = 0, _ref = array.length; 0 <= _ref ? _i < _ref : _i > _ref; i = 0 <= _ref ? ++_i : --_i) {
+      if (array[i] === val) {
+        array.splice(i, 1);
         i--;
       }
     }
-    return this;
+    return array;
   };
 
   isJson = function(str) {
@@ -863,7 +863,7 @@
       if ($.inArray(id, simmilar) === -1) {
         simmilar.push(id);
       } else {
-        simmilar.remByVal(id);
+        simmilar = remByVal(id, simmilar);
       }
     }
     if ($.inArray(id, simmilar) !== -1) {

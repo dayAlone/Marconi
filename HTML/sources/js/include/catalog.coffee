@@ -32,7 +32,7 @@ getSimmilar = (el, callbackOn = (-> return), callbackOff = (-> return)) ->
 		if $.inArray(id, simmilar) == -1
 			simmilar.push(id)
 		else
-			simmilar.remByVal id
+			simmilar = remByVal id, simmilar
 
 	if $.inArray(id, simmilar) != -1
 		el.text 'Удалить'

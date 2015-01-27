@@ -49,12 +49,12 @@ pointerEventsSupported = (->
 	return !!supports;
 )();
 
-Array.prototype.remByVal = (val)->
-	for i in [0...this.length]
-        if this[i] == val
-            this.splice(i, 1)
+remByVal = (val, array)->
+	for i in [0...array.length]
+        if array[i] == val
+            array.splice(i, 1)
             i--;
-    return this;
+    return array;
 
 isJson = (str)->
 	try
