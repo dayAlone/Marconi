@@ -73,7 +73,6 @@ $arParams['USE_FILTER'] = (isset($arParams['USE_FILTER']) && $arParams['USE_FILT
 			{
 				$arCurSection = array();
 			}
-			
 			?><?$APPLICATION->IncludeComponent(
 				"bitrix:catalog.smart.filter",
 				"",
@@ -88,6 +87,7 @@ $arParams['USE_FILTER'] = (isset($arParams['USE_FILTER']) && $arParams['USE_FILT
 					"CACHE_GROUPS"        => $arParams["CACHE_GROUPS"],
 					"SAVE_IN_SESSION"     => "Y",
 					"XML_EXPORT"          => "Y",
+					"CODE"                => $arResult['VARIABLES']['SECTION_CODE'],
 					"SECTION_TITLE"       => "NAME",
 					"SECTION_DESCRIPTION" => "DESCRIPTION",
 					'HIDE_NOT_AVAILABLE'  => $arParams["HIDE_NOT_AVAILABLE"],
