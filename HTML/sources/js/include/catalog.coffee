@@ -115,8 +115,11 @@ window.initProducts = ->
 	$('.product').hoverIntent
 		sensitivity: 40
 		over : ()->
-			if $(this).parents('.slick-slide').length > 0 && $(this).parents('.slick-active').length == 0
-				return false
+			if $(this).parents('.slick-slide').length > 0
+				if $(this).parents('.slick-active').length == 0
+					return false
+				else
+					$(this).elem('picture').lazyLoadXT()
 			$(this).mod 'hover', true
 			$(this).mod 'index', true
 			if $('body').hasClass 'lookbook'
