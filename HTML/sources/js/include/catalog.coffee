@@ -135,6 +135,38 @@ filterRequest = false
 
 	$('.product').elem('picture').lazyLoadXT()
 
+	# Card
+	if !$.cookie('card')
+		$('.catalog__card, .catalog__card-frame').removeClass 'hidden'
+		$('body').on 'mousewheel', (e)->
+			if $(e.target).hasClass 'catalog__card-frame'
+				e.preventDefault();
+				e.stopPropagation();
+
+	$('a.catalog__card-button').click (e)->
+		block  = $('.catalog__card')
+		offset = block.offset()
+		offset.top -= $('.header .cart').offset().top - block.height()/2
+		offset.left -= $('.header .cart').offset().left - block.width()/2
+
+		block.velocity
+			properties: 
+				translateX : -offset.left
+				translateY : -offset.top
+				opacity    : .2
+				scale      : 0
+			options:
+				duration: 300
+				complete: ->
+					$(this).remove();
+					$.cookie('card', 'Y', { path:"/", expires: 7 });
+		
+		$('.catalog__card-frame, a.catalog__card-button, .catalog__card-text').css(
+			opacity: 0
+		).on end, ->
+			$(this).remove()
+		e.preventDefault()	
+		
 @checkRange = ->
 	slider = $("input[name=range]").data("ionRangeSlider")
 			
@@ -356,34 +388,3 @@ filterRequest = false
 		e.preventDefault()
 	).scrollToFixed
 		marginTop: 20
-	# Card
-	if !$.cookie('card')
-		$('.catalog__card, .catalog__card-frame').removeClass 'hidden'
-		$('body').on 'mousewheel', (e)->
-		if $(e.target).hasClass 'catalog__card-frame'
-			e.preventDefault();
-			e.stopPropagation();
-
-	$('a.catalog__card-button').click (e)->
-		block  = $('.catalog__card')
-		offset = block.offset()
-		offset.top -= $('.header .cart').offset().top - block.height()/2
-		offset.left -= $('.header .cart').offset().left - block.width()/2
-
-		block.velocity
-			properties: 
-				translateX : -offset.left
-				translateY : -offset.top
-				opacity    : .2
-				scale      : 0
-			options:
-				duration: 300
-				complete: ->
-					$(this).remove();
-					$.cookie('card', 'Y', { path:"/", expires: 7 });
-		
-		$('.catalog__card-frame, a.catalog__card-button, .catalog__card-text').css(
-			opacity: 0
-		).on end, ->
-			$(this).remove()
-		e.preventDefault()	
