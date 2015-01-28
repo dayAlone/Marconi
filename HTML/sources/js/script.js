@@ -1519,14 +1519,18 @@
           $('#ORDER_FORM .delivery').html($(data).find('.delivery').html());
           $('#ORDER_FORM .payment').html($(data).find('.payment').html());
           $.each($(data).find('.total__counter'), function() {
-            var id, old, val;
+            var current, id, old, parent, val;
             id = $(this).find('span:first-of-type').attr('id');
-            if ($(this).parents('.total__item').hasClass('hidden' && !$("#" + id).parents('.total__item').hasClass('hidden'))) {
-              $("#" + id).parents('.total__item').addClass('hidden');
+            parent = $(this).parents('.total__item');
+            current = $("#" + id).parents('.total__item');
+            console.log(parent, current);
+            if (parent.hasClass('hidden') && !current.hasClass('hidden')) {
+              current.addClass('hidden');
             }
-            if (!$(this).parents('.total__item').hasClass('hidden' && $("#" + id).parents('.total__item').hasClass('hidden'))) {
-              $("#" + id).parents('.total__item').removeClass('hidden');
+            if (!parent.hasClass('hidden') && current.hasClass('hidden')) {
+              current.removeClass('hidden');
             }
+            console.log(parent, current);
             old = parseInt($("#" + id).text().replace(" ", ""));
             val = parseInt($(this).text().replace(" ", ""));
             if (old !== val) {

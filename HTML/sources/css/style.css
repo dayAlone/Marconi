@@ -5030,7 +5030,7 @@ svg g {
 .basket #ORDER_FORM {
   margin-bottom: 60px;
 }
-.basket input[type="submit"] {
+.basket .page input[type="submit"] {
   width: 100%;
   margin-top: 5px;
   background: #000;
@@ -5053,10 +5053,10 @@ svg g {
   -ms-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-.basket input[type="submit"]:hover {
+.basket .page input[type="submit"]:hover {
   background: #d10a32;
 }
-.basket input[type="submit"]:disabled {
+.basket .page input[type="submit"]:disabled {
   background: rgba(0,0,0,0.3);
 }
 .basket__block {
