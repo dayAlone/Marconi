@@ -729,7 +729,7 @@
     total = 0;
     sale = 0;
     if ($('.basket').elem('count').length === 0) {
-      location.href = $('.catalog__back').trigger('click');
+      $('.catalog__back').trigger('click');
     }
     $('.basket').elem('count').each(function() {
       var row;

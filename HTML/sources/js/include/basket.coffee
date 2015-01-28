@@ -4,7 +4,7 @@
 	sale   = 0
 	
 	if $('.basket').elem('count').length == 0
-		location.href = $('.catalog__back').trigger('click')
+		$('.catalog__back').trigger('click')
 	$('.basket').elem('count').each ->
 		if parseInt($(this).val()) <= 0 || !$(this).val()
 			$(this).val(1)
