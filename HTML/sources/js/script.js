@@ -1521,6 +1521,12 @@
           $.each($(data).find('.total__counter'), function() {
             var id, old, val;
             id = $(this).find('span:first-of-type').attr('id');
+            if ($(this).parents('.total__item').hasClass('hidden' && !$("#" + id).parents('.total__item').hasClass('hidden'))) {
+              $("#" + id).parents('.total__item').addClass('hidden');
+            }
+            if (!$(this).parents('.total__item').hasClass('hidden' && $("#" + id).parents('.total__item').hasClass('hidden'))) {
+              $("#" + id).parents('.total__item').removeClass('hidden');
+            }
             old = parseInt($("#" + id).text().replace(" ", ""));
             val = parseInt($(this).text().replace(" ", ""));
             if (old !== val) {
