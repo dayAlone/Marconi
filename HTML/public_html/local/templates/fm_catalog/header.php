@@ -32,6 +32,9 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
               }
               if(isset($_SESSION['Filter'][$matches[1]]))
                 $link .= $symbol.$_SESSION['Filter'][$matches[1]];
+              
+              if($link=="/catalog/")
+                $link = $_SERVER['HTTP_REFERER'];
               ?>
               <a class="catalog__back" href="<?=$link?>">
                 Вернуться в каталог
