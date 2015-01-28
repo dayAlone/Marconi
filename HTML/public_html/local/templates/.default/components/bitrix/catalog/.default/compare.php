@@ -99,3 +99,6 @@ $APPLICATION->IncludeComponent(
 );
 endif;
 ?>
+<script>
+	initProducts()
+</script>
