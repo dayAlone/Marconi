@@ -28,3 +28,8 @@
       </div>
 <?endforeach;?>
 </div>
+<script>
+  $(function(){
+    initLookbook()
+  })
+</script>

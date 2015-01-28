@@ -1,6 +1,6 @@
-delay = (ms, func) -> setTimeout func, ms
+@delay = (ms, func) -> setTimeout func, ms
 
-size = ->
+@size = ->
 	if $('.lookbook').elem('slider').length > 0
 		$('.lookbook').elem('slider-preview').css
 			'top': $('.lookbook').elem('slider').offset().top
@@ -49,21 +49,21 @@ pointerEventsSupported = (->
 	return !!supports;
 )();
 
-remByVal = (val, array)->
+@remByVal = (val, array)->
 	for i in [0...array.length]
         if array[i] == val
             array.splice(i, 1)
             i--;
     return array;
 
-isJson = (str)->
+@isJson = (str)->
 	try
 		JSON.parse(str);
 	catch e
 		return false;
 	return true;
 
-autoHeight = (el, selector='', height_selector = false, use_padding=false, debug=false)->
+@autoHeight = (el, selector='', height_selector = false, use_padding=false, debug=false)->
 	if el.length > 0
 		item = el.find(selector)
 
@@ -121,7 +121,7 @@ autoHeight = (el, selector='', height_selector = false, use_padding=false, debug
 timer = false
 
 
-rgb2hex = (rgb)->
+@rgb2hex = (rgb)->
 	rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
 	if (rgb && rgb.length == 4) 
 		return ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) + ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) + ("0" + parseInt(rgb[3],10).toString(16)).slice(-2)

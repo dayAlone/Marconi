@@ -23,3 +23,6 @@
 <div class="center">
   <?=$arResult["NAV_STRING"]?>
 </div>
+<script>
+  initNews()
+</script>

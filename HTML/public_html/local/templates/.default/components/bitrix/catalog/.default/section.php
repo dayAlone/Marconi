@@ -217,4 +217,9 @@ $arParams['USE_FILTER'] = (isset($arParams['USE_FILTER']) && $arParams['USE_FILT
 		?>
 	</div>
 </div>
+<script>
+	$(function(){
+		initCatalog()
+	})
+</script>
 </article>

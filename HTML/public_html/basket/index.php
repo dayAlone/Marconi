@@ -57,6 +57,12 @@ $APPLICATION->SetTitle('Корзина');
 			"PROP_2" => ""
 		),
 		false);
+		?>
+		<script>
+			basketInit()
+			initOrderPage()
+		</script>
+		<?
 	endif;
 
 ?>

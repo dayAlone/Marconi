@@ -47,4 +47,7 @@ elseif(isset($active)):
   </div>
   <?endif;?>
 </div>
+<script>
+  initStores()
+</script>
 <?endif;?>

@@ -2,7 +2,7 @@ rangeTimer    = false
 filterTimer   = false
 filterRequest = false
 
-fly = (block, target)->
+@fly = (block, target)->
 	offset = block.offset()
 	offset.top  -= target.offset().top - block.height()/2
 	offset.left -= target.offset().left - block.width()/2
@@ -17,7 +17,7 @@ fly = (block, target)->
 			complete: ->
 				$(this).remove()
 
-getSimmilar = (el, callbackOn = (-> return), callbackOff = (-> return)) ->
+@getSimmilar = (el, callbackOn = (-> return), callbackOff = (-> return)) ->
 
 	block    = el.block()
 	id       = el.data 'id'
@@ -56,7 +56,7 @@ getSimmilar = (el, callbackOn = (-> return), callbackOff = (-> return)) ->
 	
 	return
 
-addToCart = (el)->
+@addToCart = (el)->
 	id     = el.data 'id'
 	block  = el.block()
 	
@@ -70,7 +70,7 @@ addToCart = (el)->
 		if data == 'success'
 			bx_cart_block1.refreshCart({})
 
-window.initProducts = ->
+@initProducts = ->
 	$('.product').elem('icon').click (e)->
 		if $(this).hasMod 'zoom'
 			pswpElement = document.querySelectorAll('.pswp')[0];
@@ -135,7 +135,7 @@ window.initProducts = ->
 
 	$('.product').elem('picture').lazyLoadXT()
 
-checkRange = ->
+@checkRange = ->
 	slider = $("input[name=range]").data("ionRangeSlider")
 			
 	if parseInt($("input.range__from").val()) < slider.result.min
@@ -148,7 +148,8 @@ checkRange = ->
 		from : parseInt $("input.range__from").val()
 		to   : parseInt $("input.range__to").val()
 	getFilter $("input.range__to")
-initFiltres = ->
+
+@initFiltres = ->
 	# Checkbox
 	$('.filter input.color').off('ifCreated').on 'ifCreated', ()->
 		el = $(this).parents('.icheckbox_color')
@@ -222,7 +223,7 @@ initFiltres = ->
 			$("input.range__from").val(x.from)
 			$("input.range__to").val(x.to)
 
-getFilter = (el)->
+@getFilter = (el)->
 	if !$('.catalog').hasMod 'ajax'
 		if $('.catalog').elem('counter').is ':visible'
 			$('.catalog').elem('counter').velocity
@@ -320,15 +321,24 @@ getFilter = (el)->
 				location.href = symbol+"brand="+getParameterByName('brand')
 				location.href = location.href.replace(symbol+"brand="+getParameterByName('brand'), "")
 
-
-getParameterByName = (name)->
+@getParameterByName = (name)->
 	match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
 	return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 
-$(document).ready ->
+@initCatalog = ->
 	initProducts()
 	initFiltres()
 	initBrandSelect()
+	$('.catalog__toolbar .dropdown .dropdown__item').click (e)->
+		$(this).block().data 'value', $(this).data 'value'
+		$(this).block().data 'param', $(this).data 'param'
+		if $('.page').elem('side').find('form').length > 0
+			getFilter()
+		else
+			if !getParameterByName('sort_param')
+				location.href = location.href + "&sort_param=#{$(this).data('param')}&sort_value=#{$(this).data('value')}"
+			else
+				location.href = location.href.replace(getParameterByName('sort_param'), $(this).data('param')).replace(getParameterByName('sort_value'), $(this).data('value'))
 	$('.catalog').elem('per-page').click (e)->
 		if window.location.search.length == 0 
 			symbol = "?"
@@ -340,22 +350,20 @@ $(document).ready ->
 		else
 			location.href = location.href.replace(getParameterByName('per_page'), $(this).text())
 		e.preventDefault()
-
-	$('.catalog__toolbar .dropdown .dropdown__item').click (e)->
-		$(this).block().data 'value', $(this).data 'value'
-		$(this).block().data 'param', $(this).data 'param'
-		if $('.page').elem('side').find('form').length > 0
-			getFilter()
-		else
-			if !getParameterByName('sort_param')
-				location.href = location.href + "&sort_param=#{$(this).data('param')}&sort_value=#{$(this).data('value')}"
-			else
-				location.href = location.href.replace(getParameterByName('sort_param'), $(this).data('param')).replace(getParameterByName('sort_value'), $(this).data('value'))
-
+	# Top button
+	$('.catalog').elem('top').on('click', (e)->
+		$('html, body').animate({'scrollTop' : 0 },300)
+		e.preventDefault()
+	).scrollToFixed
+		marginTop: 20
 	# Card
 	if !$.cookie('card')
 		$('.catalog__card, .catalog__card-frame').removeClass 'hidden'
-		
+		$('body').on 'mousewheel', (e)->
+		if $(e.target).hasClass 'catalog__card-frame'
+			e.preventDefault();
+			e.stopPropagation();
+
 	$('a.catalog__card-button').click (e)->
 		block  = $('.catalog__card')
 		offset = block.offset()
@@ -378,15 +386,4 @@ $(document).ready ->
 			opacity: 0
 		).on end, ->
 			$(this).remove()
-		e.preventDefault()
-	$('body').on 'mousewheel', (e)->
-		if $(e.target).hasClass 'catalog__card-frame'
-			e.preventDefault();
-			e.stopPropagation();
-	
-	# Top button
-	$('.catalog').elem('top').on('click', (e)->
-		$('html, body').animate({'scrollTop' : 0 },300)
-		e.preventDefault()
-	).scrollToFixed
-		marginTop: 20
+		e.preventDefault()	

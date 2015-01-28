@@ -478,4 +478,7 @@ $this->EndViewTarget();
 ?>
 <script type="text/javascript">
 var <? echo $strObName; ?> = new JCCatalogElement(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
+$(function (){
+	initProduct()
+})
 </script>

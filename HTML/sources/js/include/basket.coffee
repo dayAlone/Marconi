@@ -1,5 +1,5 @@
 # Basket
-basketCalc = (el)->
+@basketCalc = (el)->
 	total  = 0
 	sale   = 0
 	
@@ -32,39 +32,37 @@ basketCalc = (el)->
 
 	#$('basket').elem('total').text total
 updateTimer = false
+@basketInit = ->
+	$('.basket input.date').on 'keydown', (e)->
+		e.preventDefault()
+	$('.basket form .dropdown').elem('item').on 'click', (e)->
+		$(this).block().siblings('input').val $(this).text()
 
-$(document).ready ->
-	if $('body').hasClass 'basket'
-		$('.basket input.date').on 'keydown', (e)->
-			e.preventDefault()
-		$('.basket form .dropdown').elem('item').on 'click', (e)->
-			$(this).block().siblings('input').val $(this).text()
+	$('.basket .bx-ui-sls-fake').attr 'placeholder', 'город *'
 
-		$('.basket .bx-ui-sls-fake').attr 'placeholder', 'город *'
+	$('.basket').elem('delete').click (e)->
+		row  = $(this).parents('.basket__item')
+		id   = $(this).data 'id'
+		row.css
+			maxHeight: 0
+		url = "/include/basket.php?action=delete&id=#{id}"
+		$.get url, (data)->
+			if data == 'success'
+				getOrderDate()
+		row.on end , ->
+			$(this).remove()
+			basketCalc()
+		e.preventDefault()
 
-		$('.basket').elem('delete').click (e)->
-			row  = $(this).parents('.basket__item')
-			id   = $(this).data 'id'
-			row.css
-				maxHeight: 0
-			url = "/include/basket.php?action=delete&id=#{id}"
-			$.get url, (data)->
-				if data == 'success'
-					getOrderDate()
-			row.on end , ->
-				$(this).remove()
-				basketCalc()
-			e.preventDefault()
-
-		$('.basket').elem('count').on 'keydown', (e)->
-			if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
-				return false
-			clearTimeout updateTimer
-			el = $(this)
-			updateTimer = delay 400, ->
-				id    = el.data 'id'
-				count = el.val()
-				url   = "/include/basket.php?action=update&id=#{id}&count=#{count}"
-				basketCalc el
-				$.get url, ->
-					getOrderDate()
+	$('.basket').elem('count').on 'keydown', (e)->
+		if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
+			return false
+		clearTimeout updateTimer
+		el = $(this)
+		updateTimer = delay 400, ->
+			id    = el.data 'id'
+			count = el.val()
+			url   = "/include/basket.php?action=update&id=#{id}&count=#{count}"
+			basketCalc el
+			$.get url, ->
+				getOrderDate()

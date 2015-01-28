@@ -1,4 +1,4 @@
-initOrder = ->
+@initOrder = ->
 	$('.basket .delivery input[type="radio"], .basket .payment input[type="radio"]')
 		.iCheck()
 		.one 'ifChecked', ->
@@ -14,7 +14,7 @@ initOrder = ->
 		
 	$('input[name="ORDER_PROP_3"]').mask '+7 0000000000'
 
-getOrderDate = (confirm)->
+@getOrderDate = (confirm)->
 	data = $('#ORDER_FORM').serialize()
 	$('.basket').elem('block').mod 'loading', true
 	$('.basket').elem('submit').attr 'disabled', 'disabled'
@@ -33,16 +33,13 @@ getOrderDate = (confirm)->
 				$('#ORDER_FORM .delivery').html $(data).find('.delivery').html()
 				$('#ORDER_FORM .payment').html $(data).find('.payment').html()
 				$.each $(data).find('.total__counter'), ->
-					id = $(this).find('span:first-of-type').attr('id')
-					
+					id = $(this).find('span:first-of-type').attr('id')					
 					parent = $(this).parents('.total__item')
 					current = $("##{id}").parents('.total__item')
-					console.log parent, current
 					if parent.hasClass('hidden') && !current.hasClass('hidden')
 						current.addClass 'hidden'
 					if !parent.hasClass('hidden') && current.hasClass('hidden')
 						current.removeClass 'hidden'
-					console.log parent, current
 
 					old = parseInt $("##{id}").text().replace(" ","")
 					val = parseInt $(this).text().replace(" ","")
@@ -61,16 +58,15 @@ getOrderDate = (confirm)->
 				if data.success == 'Y'
 					location.href = data.redirect
 
-$(document).ready ->
-	if $('body').hasClass 'basket'
-		initOrder()
-		getOrderDate()
-		$('.bx-sls input:hidden').on 'change', ->
-			if parseInt($(this).val()) > 0
-				getOrderDate()
-
-		$('.bx-ui-sls-clear').click ->
+@initOrderPage = ->
+	initOrder()
+	getOrderDate()
+	$('.bx-sls input:hidden').on 'change', ->
+		if parseInt($(this).val()) > 0
 			getOrderDate()
-		$('#ORDER_FORM').submit (e)->
-			getOrderDate(true)
-			e.preventDefault()
+
+	$('.bx-ui-sls-clear').click ->
+		getOrderDate()
+	$('#ORDER_FORM').submit (e)->
+		getOrderDate(true)
+		e.preventDefault()
