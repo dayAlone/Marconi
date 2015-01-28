@@ -25,6 +25,12 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
               $link  = "/catalog/";
               if(isset($matches[1]))
                 $link = "/catalog/".$matches[1]."/";
+              else
+                preg_match("/\/catalog\/(.*?)\/(.*?)\//", $_SERVER['HTTP_REFERER'], $matches);
+              
+              if(isset($matches[1]))
+                $link = "/catalog/".$matches[1]."/";
+
               $symbol = "?";
               if($link==$ref['path']&&isset($query['PAGEN_1'])){
                 $link .= "?PAGEN_1=".$query['PAGEN_1'];
