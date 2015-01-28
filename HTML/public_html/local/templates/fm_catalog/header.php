@@ -5,6 +5,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
 <div class="catalog__nav">
     <div class="container">
       <div class="row">
+        <?if($APPLICATION->GetCurDir()!="/catalog/"&&$APPLICATION->GetCurDir()!="/catalog/stylelook/"):?>
         <div class="col-xs-2">
         	<?
           if(!preg_match("/\/catalog\/(.*?)\/(.*?)\/|\/basket\//", $APPLICATION->GetCurDir(), $matches)):
@@ -51,10 +52,12 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
               </a>
             <?$frame->end();?>
           <?
-
           endif;?>
         </div>
         <div class="col-xs-8">
+        <?else:?>
+        <div class="col-xs-10">
+        <?endif;?>
         	<?php
             if(!preg_match("/\/catalog\/(.*?)\/(.*?)\//", $APPLICATION->GetCurDir(), $matches)):
               $APPLICATION->IncludeComponent("bitrix:menu", "catalog", 
