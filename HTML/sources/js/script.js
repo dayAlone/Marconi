@@ -1399,7 +1399,7 @@
             slider.slick({
               infinite: true,
               draggable: false,
-              slidesToShow: 4,
+              slidesToShow: 5,
               slidesToScroll: 1,
               nextArrow: "<button type=\"button\" class=\"slick-next\">" + next + "</button>",
               prevArrow: "<button type=\"button\" class=\"slick-prev\">" + prev + "</button>",
