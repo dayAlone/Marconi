@@ -11,6 +11,8 @@
 				$props = array();
 				if($_REQUEST['size'])
 	    			$props['size'] = array("NAME"=>'Размер', "CODE"=>'SIZE', "VALUE"=>$_REQUEST['size']);
+	    		if($_REQUEST['artnumber'])
+	    			$props['artnumber'] = array("NAME"=>'Артикул', "CODE"=>'ARTNUMBER', "VALUE"=>$_REQUEST['artnumber']);
 				$id = intval($_GET['id']);
 				$result = Add2BasketByProductID($id, 1, false, $props);
 				if(intval($result)>0)

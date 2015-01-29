@@ -897,6 +897,9 @@
     if (el.data('size')) {
       url += "&size=" + (el.data('size'));
     }
+    if (el.data('artnumber')) {
+      url += "&artnumber=" + (el.data('artnumber'));
+    }
     fly(block, $('.header .cart'));
     return $.get(url, function(data) {
       if (data === 'success') {
@@ -947,7 +950,8 @@
         $(this).block('size').each(function() {
           if ($(this).hasMod('active')) {
             button.data('id', $(this).data('id'));
-            return button.data('size', $(this).data('size'));
+            button.data('size', $(this).data('size'));
+            return button.data('artnumber', $(this).block().data('artnumber'));
           }
         });
         addToCart(button);
@@ -1577,6 +1581,7 @@
         if (param_size) {
           url += "&size=" + param_size;
         }
+        url += "&artnumber=" + ($(this).data(artnumber));
         fly($('.picture'), $('.header .cart'));
         $(this).mod('border', true).mod('disabled', true).on(end, function() {
           return $(this).text('Товар в корзине');

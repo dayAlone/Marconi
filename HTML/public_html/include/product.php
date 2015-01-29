@@ -4,7 +4,7 @@
 	{*/
 ?>
 <div class="col-xs-4 col-lg-3">
-	<div class="product" data-id="<?=$item["ID"]?>">
+	<div class="product" data-id="<?=$item["ID"]?>" data-artnumber="<?=$item['PROPERTIES']['ARTNUMBER']['VALUE']?>">
 	  <div class="product__content">
 	  	<a href="<?=$item['DETAIL_PAGE_URL']?>" class="product__picture-frame">
 	    	<div data-bg="<?=(isset($item['PREVIEW_PICTURE']['SRC'])?$item['PREVIEW_PICTURE']['SRC']:"/layout/images/no-image.jpg")?>" class="product__picture <?=(!$item['PREVIEW_PICTURE']['SRC']?"product__picture--no":"")?>"></div>
@@ -31,7 +31,7 @@
 	      <a href="#" class="product__icon product__icon--zoom" data-pictures='<?=json_encode($item['PROPERTIES']['PICTURES']['VALUE'])?>'><?=svg('zoom')?></a>
 	    <?endif;?>
 	    <?if(isset($item['MIN_PRICE']['VALUE'])):?>
-	    <a href="#" class="product__icon product__icon--cart <?=(count($item['OFFERS'])>0?"product__icon--trigger":"")?>" data-id="<?=$item['ID']?>"><?=svg('cart')?></a>
+	    <a href="#" class="product__icon product__icon--cart <?=(count($item['OFFERS'])>0?"product__icon--trigger":"")?>" data-id="<?=$item['ID']?>" data-artnumber="<?=$item['PROPERTIES']['ARTNUMBER']['VALUE']?>"><?=svg('cart')?></a>
 	    <?endif;?>
 	    <a href="<?=$item['DETAIL_PAGE_URL']?>" class="product__button product__button--more">Подробнее</a>
 	    <a href="#" data-id="<?=$item['ID']?>" class="product__button product__button--simmilar"><?=($arParams['COMPARE_TEXT']?$arParams['COMPARE_TEXT']:"Сравнить")?></a><?

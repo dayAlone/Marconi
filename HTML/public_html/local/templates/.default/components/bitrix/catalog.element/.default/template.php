@@ -253,7 +253,7 @@ $this->EndViewTarget();
 				if($inCart):?>
 	      		<a href="#" class="product__big-button product__big-button--border product__big-button--disabled" data-id="<?=$item['ID']?>">Товар в корзине</a>
 	      		<?else:?>
-	      		<a href="#" class="product__big-button product__big-button--buy" data-id="<?=$item['ID']?>">В корзину</a>
+	      		<a href="#" class="product__big-button product__big-button--buy" data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>">В корзину</a>
 	      	<? 
 	      	endif;
 	      	?>

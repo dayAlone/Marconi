@@ -63,6 +63,8 @@ filterRequest = false
 	url    = "/include/basket.php?action=add&id=#{id}"
 	if el.data('size')
 		url += "&size=#{el.data('size')}"
+	if el.data('artnumber')
+		url += "&artnumber=#{el.data('artnumber')}"
 	fly block, $('.header .cart')
 	
 	
@@ -109,6 +111,7 @@ filterRequest = false
 				if $(this).hasMod 'active'
 					button.data 'id', $(this).data 'id'	
 					button.data 'size', $(this).data 'size'	
+					button.data 'artnumber', $(this).block().data 'artnumber'	
 			addToCart button
 			e.preventDefault()
 	
