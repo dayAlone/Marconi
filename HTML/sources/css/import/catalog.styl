@@ -638,6 +638,35 @@
 	.icheckbox_color
 		transition-duration 0s
 		opacity 0
+		position relative
+		
+		&:hover
+			&:nth-child(5n + 1), &:first-of-type
+				&:before
+					left -10px
+					transform none
+			&:nth-child(5n), &:last-of-type
+				&:before
+					left auto
+					right -10px
+					transform none
+			&:before
+				opacity 0
+				t opacity
+				content attr(title)
+				position absolute
+				top -20px
+				left 50%
+				background alpha(black, .7)
+				transform translateX(-50%)
+				font-size 10px
+				color white
+				padding 4px 8px 0 8px
+				border-radius 4px
+				white-space no-wrap
+		&.hover
+			&:before
+				opacity 1
 		&.ready
 			opacity 1
 			transition-duration .3s

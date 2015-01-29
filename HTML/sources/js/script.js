@@ -1042,12 +1042,12 @@
   };
 
   this.initFiltres = function() {
+    $('.icheckbox_color');
     $('.filter input.color').off('ifCreated').on('ifCreated', function() {
       var color, el;
       el = $(this).parents('.icheckbox_color');
-      el.css('color', $(this).data('color'));
       color = $(this).data('color').replace('#', '');
-      el.addClass(color);
+      el.css('color', $(this).data('color')).attr('title', $(this).attr('title')).addClass(color);
       $(this).addClass(color);
       return delay(300, function() {
         return el.addClass('ready');
