@@ -18,6 +18,9 @@ if(!isset($_REQUEST['short'])):
   <?endif;?>
 </script>
 <div id="map"></div>
+<script>
+  initStores()
+</script>
 <?
 elseif(isset($active)):
   $item = $active;
@@ -47,7 +50,4 @@ elseif(isset($active)):
   </div>
   <?endif;?>
 </div>
-<script>
-  initStores()
-</script>
 <?endif;?>
