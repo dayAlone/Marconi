@@ -31,6 +31,7 @@ $(document).ready ->
 	# Profile
 
 	if $('body').hasClass 'cabinet'
+		$('input[type="radio"], input[type="checkbox"]:not(.color)').iCheck()
 		$('.order').each ->
 			h = $(this).outerHeight()
 			$(this)

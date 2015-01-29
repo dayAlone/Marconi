@@ -267,6 +267,7 @@
       $('.scroll-fix').remove();
     }
     if ($('body').hasClass('cabinet')) {
+      $('input[type="radio"], input[type="checkbox"]:not(.color)').iCheck();
       $('.order').each(function() {
         var h;
         h = $(this).outerHeight();
