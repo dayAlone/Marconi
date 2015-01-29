@@ -213,6 +213,15 @@
         return window.location.href = $(this).attr('href');
       }
     });
+    $('.dropdown').elem('trigger').on('click', function(e) {
+      return e.preventDefault();
+    });
+    $('.dropdown').elem('frame').on('mousewheel', function(e) {
+      if ($(this).scrollTop() === 0 && e.originalEvent.wheelDelta >= 0) {
+        e.preventDefault();
+        return e.stopPropagation();
+      }
+    });
     $('.dropdown').elem('select').off('change').on('change', function() {
       var val;
       val = $(this).val();
