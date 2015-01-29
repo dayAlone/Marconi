@@ -1,28 +1,28 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"для нее", 
+		"Для нее", 
 		"/catalog/women/", 
 		Array("/catalog/women/"), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"для него", 
+		"Для него", 
 		"/catalog/men/", 
 		Array("/catalog/men/"), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"для путешествий", 
+		"Для путешествий", 
 		"/catalog/baggage/", 
 		Array("/catalog/baggage/"), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"уникальная цена", 
+		"Уникальная цена", 
 		"/catalog/sale/", 
 		Array("/catalog/sale/"), 
 		Array(), 

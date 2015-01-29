@@ -64,7 +64,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
               array(
                   "ALLOW_MULTI_SELECT" => "Y",
                   "MENU_CACHE_TYPE"    => "A",
-                  "ROOT_MENU_TYPE"     => "catalog_toolbar",
+                  "ROOT_MENU_TYPE"     => "top",
                   "MAX_LEVEL"          => "1",
                   "CLASS"              => "sub",
                   ),

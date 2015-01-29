@@ -10,7 +10,7 @@
         <div class="contacts"><span>Москва,  ул. адмирала макарова, 8 <br></span><a href="mailto:info@fmarconi.ru" class="contacts_link">info@fmarconi.ru</a></div>
       </div>
       <div class="col-sm-2">
-        <div class="map"><a href="#">карта сайта</a></div>
+        <div class="map"><a href="/map/">карта сайта</a></div>
       </div>
       <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
         <?php

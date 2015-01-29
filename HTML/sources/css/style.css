@@ -2039,6 +2039,18 @@ svg g {
   margin-top: 40px;
   border-top: 1px solid #e7e7e7;
 }
+.map-columns {
+  width: 100%;
+}
+.map-columns ul {
+  list-style: none;
+}
+.map-columns .map-level-0 {
+  padding-left: 0;
+}
+.map-columns .map-level-0 > li > a {
+  font-size: 18px;
+}
 #bx-composite-banner {
   text-transform: none;
   top: -7px;
