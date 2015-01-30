@@ -41,6 +41,10 @@ $(document).ready ->
 						return h
 					minHeight: ->
 						return h
+		$('.stores-list .dropdown__frame').on 'mousewheel', (e)->
+			if $(this).scrollTop() == 0 && e.originalEvent.wheelDelta >= 0
+				e.preventDefault();
+				e.stopPropagation();
 		$('.order').elem('number').click (e)->
 			trigger = $(this)
 			block   = $(this).block()

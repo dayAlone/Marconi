@@ -166,11 +166,6 @@ timer = false
 	
 	$('.dropdown').elem('trigger').on 'click', (e)->
 		e.preventDefault()
-	
-	$('.dropdown').elem('frame').on 'mousewheel', (e)->
-		if $(this).scrollTop() == 0 && e.originalEvent.wheelDelta >= 0
-			e.preventDefault();
-			e.stopPropagation();
 
 	$('.dropdown').elem('select').off('change').on 'change', ()->
 		
