@@ -45,7 +45,10 @@
 			onHide: (e)->
 				console.log(e)
 			onShow: (x)->
-				$('.easyzoom-flyout').width $('.product').elem('description').width()
+				width = $('.product').elem('description').width()
+				if $('.picture__small').length == 0
+					width = 40
+				$('.easyzoom-flyout').width width
 				if $('.product').elem('description').height() > $('.easyzoom-flyout').height()
 					$('.easyzoom-flyout')
 						.height $('.product').elem('description').height()
