@@ -11,7 +11,7 @@
 			if param_size
 				url += "&size=#{param_size}"
 			
-			url += "&artnumber=#{$(this).data(artnumber)}"
+			url += "&artnumber=#{$(this).data('artnumber')}"
 
 			fly $('.picture'), $('.header .cart')
 			$(this).mod('border', true).mod('disabled', true).on end, ->
