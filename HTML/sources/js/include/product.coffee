@@ -42,6 +42,7 @@
 	initBigButton()
 
 	initZoom = ->
+		console.log $('.picture').elem('big')
 		$('.picture').elem('big').easyZoom
 			onShow: ->
 				if $('.product').elem('description').height() > $('.easyzoom-flyout').height()

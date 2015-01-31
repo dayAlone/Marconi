@@ -1630,6 +1630,7 @@
     });
     initBigButton();
     initZoom = function() {
+      console.log($('.picture').elem('big'));
       return $('.picture').elem('big').easyZoom({
         onShow: function() {
           if ($('.product').elem('description').height() > $('.easyzoom-flyout').height()) {
