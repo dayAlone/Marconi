@@ -1635,6 +1635,7 @@
           return console.log(e);
         },
         onShow: function(x) {
+          $('.easyzoom-flyout').width($('.product').elem('description').width());
           if ($('.product').elem('description').height() > $('.easyzoom-flyout').height()) {
             return $('.easyzoom-flyout').height($('.product').elem('description').height());
           }
