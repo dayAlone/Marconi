@@ -1629,13 +1629,16 @@
       return e.preventDefault();
     });
     initBigButton();
+    $(window).on('mousemove', function(e) {
+      var elementMouseIsOver, x, y;
+      x = e.clientX;
+      y = e.clientY;
+      elementMouseIsOver = document.elementFromPoint(x, y);
+      return console.log(elementMouseIsOver);
+    });
     initZoom = function() {
       return $('.picture').elem('big').easyZoom({
-        onHide: function() {
-          return console.log('hide');
-        },
         onShow: function(x) {
-          console.log($('.easyzoom-flyout'), x);
           if ($('.product').elem('description').height() > $('.easyzoom-flyout').height()) {
             return $('.easyzoom-flyout').height($('.product').elem('description').height());
           }

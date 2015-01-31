@@ -40,13 +40,14 @@
 		e.preventDefault()
 
 	initBigButton()
-
+	$(window).on 'mousemove', (e)->
+		x = e.clientX
+		y = e.clientY
+		elementMouseIsOver = document.elementFromPoint(x, y)
+		console.log elementMouseIsOver
 	initZoom = ->
 		$('.picture').elem('big').easyZoom
-			onHide: ->
-				console.log('hide')
 			onShow: (x)->
-				console.log $('.easyzoom-flyout'), x
 				if $('.product').elem('description').height() > $('.easyzoom-flyout').height()
 					$('.easyzoom-flyout')
 						.height $('.product').elem('description').height()
