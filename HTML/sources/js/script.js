@@ -1571,9 +1571,11 @@
     $('.bx-ui-sls-clear').click(function() {
       return getOrderDate();
     });
-    return $('#ORDER_FORM').submit(function(e) {
-      getOrderDate(true);
-      return e.preventDefault();
+    return $('#ORDER_FORM').parsley().subscribe('parsley:form:validate', function(formInstance) {
+      if (formInstance.isValid()) {
+        getOrderDate(true);
+      }
+      return formInstance.submitEvent.preventDefault();
     });
   };
 

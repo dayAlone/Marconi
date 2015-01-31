@@ -67,6 +67,8 @@
 
 	$('.bx-ui-sls-clear').click ->
 		getOrderDate()
-	$('#ORDER_FORM').submit (e)->
-		getOrderDate(true)
-		e.preventDefault()
+	
+	$('#ORDER_FORM').parsley().subscribe 'parsley:form:validate', (formInstance)->
+		if formInstance.isValid()
+			getOrderDate(true)
+		formInstance.submitEvent.preventDefault();
