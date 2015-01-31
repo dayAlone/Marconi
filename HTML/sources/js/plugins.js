@@ -14746,11 +14746,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
         var xl = Math.ceil(pl * rw);
 
         // Close if outside
-        if (xl < 0 || xt < 0 || xl > dw || xt > dh) {
-            console.log(xl,xt,dw,dh)
-            this.hide();
-        }
-        else {
+       
             var top = xt * -1;
             var left = xl * -1;
 
@@ -14762,7 +14758,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
             if (this.opts.onMove) {
                 this.opts.onMove.call(this, top, left);
             }
-        }
+        
 
     };
 
