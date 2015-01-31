@@ -1631,8 +1631,8 @@
     initBigButton();
     initZoom = function() {
       return $('.picture').elem('big').easyZoom({
-        onShow: function() {
-          console.log($('.picture').elem('big'));
+        onShow: function(x) {
+          console.log($('.easyzoom-flyout'), x);
           if ($('.product').elem('description').height() > $('.easyzoom-flyout').height()) {
             return $('.easyzoom-flyout').height($('.product').elem('description').height());
           }
