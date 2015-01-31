@@ -14542,12 +14542,322 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
     };
 })(jQuery);
 
-/*!
- * @name        image-zoom
- * @author      Matt Hinchliffe <http://maketea.co.uk>
- * @modified    Monday, October 20th, 2014
- * @version     2.2.1
- */!function(a){"use strict";function b(b,c){return this.$target=a(b),this.opts=a.extend({},i,c),void 0===this.isOpen&&this._init(),this}var c,d,e,f,g,h,i={loadingNotice:"Loading image",errorNotice:"The image could not be loaded",errorDuration:2500,preventClicks:!0,onShow:void 0,onHide:void 0,onMove:void 0};b.prototype._init=function(){var b=this;this.$link=this.$target.find("a"),this.$image=this.$target.find("img"),this.$flyout=a('<div class="easyzoom-flyout" />'),this.$notice=a('<div class="easyzoom-notice" />'),this.$target.on("mouseenter.easyzoom touchstart.easyzoom",function(a){b.isMouseOver=!0,a.originalEvent.touches&&1!==a.originalEvent.touches.length||(a.preventDefault(),b.show(a,!0))}).on("mousemove.easyzoom touchmove.easyzoom",function(a){b.isOpen&&(a.preventDefault(),b._move(a))}).on("mouseleave.easyzoom touchend.easyzoom",function(){b.isMouseOver=!1,b.isOpen&&b.hide()}),this.opts.preventClicks&&this.$target.on("click.easyzoom","a",function(a){a.preventDefault()})},b.prototype.show=function(a,b){var g,h,i,j,k=this;return this.isReady?(this.$target.append(this.$flyout),g=this.$target.width(),h=this.$target.height(),i=this.$flyout.width(),j=this.$flyout.height(),c=this.$zoom.width()-i,d=this.$zoom.height()-j,e=c/g,f=d/h,this.isOpen=!0,this.opts.onShow&&this.opts.onShow.call(this),void(a&&this._move(a))):void this._load(this.$link.attr("href"),function(){(k.isMouseOver||!b)&&k.show(a)})},b.prototype._load=function(b,c){var d=new Image;this.$target.addClass("is-loading").append(this.$notice.text(this.opts.loadingNotice)),this.$zoom=a(d),d.onerror=a.proxy(function(){var a=this;this.$notice.text(this.opts.errorNotice),this.$target.removeClass("is-loading").addClass("is-error"),this.detachNotice=setTimeout(function(){a.$notice.detach(),a.detachNotice=null},this.opts.errorDuration)},this),d.onload=a.proxy(function(){d.width&&(this.isReady=!0,this.$notice.detach(),this.$flyout.html(this.$zoom),this.$target.removeClass("is-loading").addClass("is-ready"),c())},this),d.style.position="absolute",d.src=b},b.prototype._move=function(a){if(0===a.type.indexOf("touch")){var b=a.touches||a.originalEvent.touches;g=b[0].pageX,h=b[0].pageY}else g=a.pageX||g,h=a.pageY||h;var i=this.$target.offset(),j=h-i.top,k=g-i.left,l=Math.ceil(j*f),m=Math.ceil(k*e);if(0>m||0>l||m>c||l>d)this.hide();else{var n,o;n=-1*l,o=-1*m,this.$zoom.css({top:""+n+"px",left:""+o+"px"}),this.opts.onMove&&this.opts.onMove.call(this,n,o)}},b.prototype.hide=function(){this.isOpen&&(this.$flyout.detach(),this.isOpen=!1,this.opts.onHide&&this.opts.onHide.call(this))},b.prototype.swap=function(b,c,d){this.hide(),this.isReady=!1,this.detachNotice&&clearTimeout(this.detachNotice),this.$notice.parent().length&&this.$notice.detach(),a.isArray(d)&&(d=d.join()),this.$target.removeClass("is-loading is-ready is-error"),this.$image.attr({src:b,srcset:d}),this.$link.attr("href",c)},b.prototype.teardown=function(){this.hide(),this.$target.removeClass("is-loading is-ready is-error").off(".easyzoom"),this.detachNotice&&clearTimeout(this.detachNotice),delete this.$link,delete this.$zoom,delete this.$image,delete this.$notice,delete this.$flyout,delete this.isOpen,delete this.isReady},a.fn.easyZoom=function(c){return this.each(function(){var d=a.data(this,"easyZoom");d?void 0===d.isOpen&&d._init():a.data(this,"easyZoom",new b(this,c))})},"function"==typeof define&&define.amd?define(function(){return b}):"undefined"!=typeof module&&module.exports&&(module.exports=b)}(jQuery);
+(function ($) {
+
+    'use strict';
+
+    var dw, dh, rw, rh, lx, ly;
+
+    var defaults = {
+
+        // The text to display within the notice box while loading the zoom image.
+        loadingNotice: 'Loading image',
+
+        // The text to display within the notice box if an error occurs loading the zoom image.
+        errorNotice: 'The image could not be loaded',
+
+        // The time (in milliseconds) to display the error notice.
+        errorDuration: 2500,
+
+        // Prevent clicks on the zoom image link.
+        preventClicks: true,
+
+        // Callback function to execute when the flyout is displayed.
+        onShow: undefined,
+
+        // Callback function to execute when the flyout is removed.
+        onHide: undefined,
+
+        // Callback function to execute when the cursor is moved while over the image.
+        onMove: undefined
+
+    };
+
+    /**
+     * EasyZoom
+     * @constructor
+     * @param {Object} target
+     * @param {Object} options
+     */
+    function EasyZoom(target, options) {
+        this.$target = $(target);
+        this.opts = $.extend({}, defaults, options, this.$target.data());
+
+        if (this.isOpen === undefined) {
+            this._init();
+        }
+
+        return this;
+    }
+
+    /**
+     * Init
+     * @private
+     */
+    EasyZoom.prototype._init = function() {
+        var self = this;
+
+        this.$link   = this.$target.find('a');
+        this.$image  = this.$target.find('img');
+
+        this.$flyout = $('<div class="easyzoom-flyout" />');
+        this.$notice = $('<div class="easyzoom-notice" />');
+
+        this.$target
+            .on('mouseenter.easyzoom touchstart.easyzoom', function(e) {
+                self.isMouseOver = true;
+
+                if (!e.originalEvent.touches || e.originalEvent.touches.length === 1) {
+                    e.preventDefault();
+                    self.show(e, true);
+                }
+            })
+            .on('mousemove.easyzoom touchmove.easyzoom', function(e) {
+                if (self.isOpen) {
+                    e.preventDefault();
+                    self._move(e);
+                }
+            })
+            .on('mouseleave.easyzoom touchend.easyzoom', function() {
+                self.isMouseOver = false;
+
+                if (self.isOpen) {
+                    self.hide();
+                }
+            });
+
+        if (this.opts.preventClicks) {
+            this.$target.on('click.easyzoom', 'a', function(e) {
+                e.preventDefault();
+            });
+        }
+    };
+
+    /**
+     * Show
+     * @param {MouseEvent|TouchEvent} e
+     * @param {Boolean} testMouseOver
+     */
+    EasyZoom.prototype.show = function(e, testMouseOver) {
+        var w1, h1, w2, h2;
+        var self = this;
+
+        if (! this.isReady) {
+            this._load(this.$link.attr('href'), function() {
+                if (self.isMouseOver || !testMouseOver) {
+                    self.show(e);
+                }
+            });
+
+            return;
+        }
+
+        this.$target.append(this.$flyout);
+
+        w1 = this.$target.width();
+        h1 = this.$target.height();
+
+        w2 = this.$flyout.width();
+        h2 = this.$flyout.height();
+
+        dw = this.$zoom.width() - w2;
+        dh = this.$zoom.height() - h2;
+
+        rw = dw / w1;
+        rh = dh / h1;
+
+        this.isOpen = true;
+
+        if (this.opts.onShow) {
+            this.opts.onShow.call(this);
+        }
+
+        if (e) {
+            this._move(e);
+        }
+    };
+
+    /**
+     * Load
+     * @private
+     * @param {String} href
+     * @param {Function} callback
+     */
+    EasyZoom.prototype._load = function(href, callback) {
+        var zoom = new Image();
+
+        this.$target.addClass('is-loading').append(this.$notice.text(this.opts.loadingNotice));
+
+        this.$zoom = $(zoom);
+
+        zoom.onerror = $.proxy(function() {
+            var self = this;
+
+            this.$notice.text(this.opts.errorNotice);
+            this.$target.removeClass('is-loading').addClass('is-error');
+
+            this.detachNotice = setTimeout(function() {
+                self.$notice.detach();
+                self.detachNotice = null;
+            }, this.opts.errorDuration);
+        }, this);
+
+        zoom.onload = $.proxy(function() {
+
+            // IE may fire a load event even on error so check the image has dimensions
+            if (!zoom.width) {
+                return;
+            }
+
+            this.isReady = true;
+
+            this.$notice.detach();
+            this.$flyout.html(this.$zoom);
+            this.$target.removeClass('is-loading').addClass('is-ready');
+
+            callback();
+        }, this);
+
+        zoom.style.position = 'absolute';
+        zoom.src = href;
+    };
+
+    /**
+     * Move
+     * @private
+     * @param {Event} e
+     */
+    EasyZoom.prototype._move = function(e) {
+
+        if (e.type.indexOf('touch') === 0) {
+            var touchlist = e.touches || e.originalEvent.touches;
+            lx = touchlist[0].pageX;
+            ly = touchlist[0].pageY;
+        }
+        else {
+            lx = e.pageX || lx;
+            ly = e.pageY || ly;
+        }
+
+        var offset  = this.$target.offset();
+        var pt = ly - offset.top;
+        var pl = lx - offset.left;
+        var xt = Math.ceil(pt * rh);
+        var xl = Math.ceil(pl * rw);
+
+        // Close if outside
+        if (xl < 0 || xt < 0 || xl > dw || xt > dh) {
+            console.log(xl,xt,dw,dh)
+            this.hide();
+        }
+        else {
+            var top = xt * -1;
+            var left = xl * -1;
+
+            this.$zoom.css({
+                top: top,
+                left: left
+            });
+
+            if (this.opts.onMove) {
+                this.opts.onMove.call(this, top, left);
+            }
+        }
+
+    };
+
+    /**
+     * Hide
+     */
+    EasyZoom.prototype.hide = function() {
+        if (this.isOpen) {
+            this.$flyout.detach();
+            this.isOpen = false;
+
+            if (this.opts.onHide) {
+                this.opts.onHide.call(this);
+            }
+        }
+    };
+
+    /**
+     * Swap
+     * @param {String} standardSrc
+     * @param {String} zoomHref
+     * @param {String|Array} srcsetStringOrArray (Optional)
+     */
+    EasyZoom.prototype.swap = function(standardSrc, zoomHref, srcsetStringOrArray) {
+        this.hide();
+        this.isReady = false;
+
+        if (this.detachNotice) {
+            clearTimeout(this.detachNotice);
+        }
+
+        if (this.$notice.parent().length) {
+            this.$notice.detach();
+        }
+
+        if ($.isArray(srcsetStringOrArray)) {
+            srcsetStringOrArray = srcsetStringOrArray.join();
+        }
+
+        this.$target.removeClass('is-loading is-ready is-error');
+        this.$image.attr({
+            src: standardSrc,
+            srcset: srcsetStringOrArray
+        });
+        this.$link.attr('href', zoomHref);
+    };
+
+    /**
+     * Teardown
+     */
+    EasyZoom.prototype.teardown = function() {
+        this.hide();
+
+        this.$target.removeClass('is-loading is-ready is-error').off('.easyzoom');
+
+        if (this.detachNotice) {
+            clearTimeout(this.detachNotice);
+        }
+
+        delete this.$link;
+        delete this.$zoom;
+        delete this.$image;
+        delete this.$notice;
+        delete this.$flyout;
+
+        delete this.isOpen;
+        delete this.isReady;
+    };
+
+    // jQuery plugin wrapper
+    $.fn.easyZoom = function(options) {
+        return this.each(function() {
+            var api = $.data(this, 'easyZoom');
+
+            if (!api) {
+                $.data(this, 'easyZoom', new EasyZoom(this, options));
+            }
+            else if (api.isOpen === undefined) {
+                api._init();
+            }
+        });
+    };
+
+    // AMD and CommonJS module compatibility
+    if (typeof define === 'function' && define.amd){
+        define(function() {
+            return EasyZoom;
+        });
+    }
+    else if (typeof module !== 'undefined' && module.exports) {
+        module.exports = EasyZoom;
+    }
+
+})(jQuery);
+
 /*
 
     countUp.js

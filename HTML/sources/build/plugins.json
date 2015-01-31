@@ -40,7 +40,7 @@
       "js":"/countUp.js/countUp.js"
    },
    "easyzoom":{
-      "js":"/easyzoom/dist/easyzoom.js"
+      "js":"/easyzoom/src/easyzoom.js"
    },
    "fotorama":{
       "js":"/fotorama/fotorama.js",
