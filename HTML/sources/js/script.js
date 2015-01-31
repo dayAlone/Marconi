@@ -1631,6 +1631,9 @@
     initBigButton();
     initZoom = function() {
       return $('.picture').elem('big').easyZoom({
+        onHide: function() {
+          return console.log('hide');
+        },
         onShow: function(x) {
           console.log($('.easyzoom-flyout'), x);
           if ($('.product').elem('description').height() > $('.easyzoom-flyout').height()) {

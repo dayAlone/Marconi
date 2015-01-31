@@ -43,6 +43,8 @@
 
 	initZoom = ->
 		$('.picture').elem('big').easyZoom
+			onHide: ->
+				console.log('hide')
 			onShow: (x)->
 				console.log $('.easyzoom-flyout'), x
 				if $('.product').elem('description').height() > $('.easyzoom-flyout').height()
