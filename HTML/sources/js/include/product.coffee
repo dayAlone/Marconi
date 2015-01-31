@@ -42,12 +42,10 @@
 	initBigButton()
 	initZoom = ->
 		$('.picture').elem('big').easyZoom
-			onHide: (e)->
-				console.log(e)
 			onShow: (x)->
 				width = $('.product').elem('description').width()
 				if $('.picture__small').length == 0
-					width = 40
+					width += 40
 				$('.easyzoom-flyout').width width
 				if $('.product').elem('description').height() > $('.easyzoom-flyout').height()
 					$('.easyzoom-flyout')

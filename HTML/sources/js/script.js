@@ -1631,14 +1631,11 @@
     initBigButton();
     initZoom = function() {
       return $('.picture').elem('big').easyZoom({
-        onHide: function(e) {
-          return console.log(e);
-        },
         onShow: function(x) {
           var width;
           width = $('.product').elem('description').width();
           if ($('.picture__small').length === 0) {
-            width = 40;
+            width += 40;
           }
           $('.easyzoom-flyout').width(width);
           if ($('.product').elem('description').height() > $('.easyzoom-flyout').height()) {
