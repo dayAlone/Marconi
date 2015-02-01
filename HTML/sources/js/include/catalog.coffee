@@ -40,7 +40,8 @@ filterRequest = false
 	else
 		el.text 'Сравнить'
 		callbackOff()
-		
+	
+	console.log simmilar
 
 	if simmilar.length > 0
 		$('.simmilar').elem('text').text "К сравнению: #{simmilar.length}"
@@ -73,7 +74,7 @@ filterRequest = false
 			bx_cart_block1.refreshCart({})
 
 @initProducts = ->
-	$('.product').elem('icon').click (e)->
+	$('.product').elem('icon').off('click').on 'click', (e)->
 		if $(this).hasMod 'zoom'
 			pswpElement = document.querySelectorAll('.pswp')[0];
 			items = $(this).data('pictures')
@@ -86,12 +87,12 @@ filterRequest = false
 			
 		e.preventDefault()
 	
-	$('.product').elem('size').click (e)->
+	$('.product').elem('size').off('click').on 'click', (e)->
 		$('.product').elem('size').mod 'active', false
 		$(this).mod 'active', true
 		e.preventDefault()
 
-	$('.product').elem('button').click (e)->
+	$('.product').elem('button').off('click').on 'click', (e)->
 		if $(this).hasMod 'cancel'
 			$(this).block('sizes').mod 'open', false
 			e.preventDefault()
@@ -146,7 +147,7 @@ filterRequest = false
 				e.preventDefault();
 				e.stopPropagation();
 
-	$('a.catalog__card-button').click (e)->
+	$('a.catalog__card-button').off('click').on 'click', (e)->
 		block  = $('.catalog__card')
 		offset = block.offset()
 		offset.top -= $('.header .cart').offset().top - block.height()/2

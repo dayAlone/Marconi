@@ -24,16 +24,19 @@
 					<li><a href="#" <?=(!isset($current)?'style="display:none"':'')?> data-id="" class="dropdown__item">Все бренды</a></li>
 					<?
 					foreach ($arResult['rows'] as $item):
-						?><li><a href="#" class="dropdown__item" <?=($current == $item['UF_XML_ID']?'style="display:none"':'')?> data-id="<?=$item['UF_XML_ID']?>"><?=$item['UF_NAME']?></a>
+						?><li><a href="#" class="dropdown__item" <?=($current == $item['UF_XML_ID']?'style="display:none"':'')?> data-id="<?=$item['UF_XML_ID']?>"><?=$item['UF_NAME']?>
 						<?
 							if($item['UF_XML_ID']=="4d20dff1-7fb6-11e4-aec5-0025908101de"):
 								?>
+								<?=svg('arrow')?>
+								</a>
 								<ul>
 									<?foreach ($arResult['TRADELINES'] as $key => $item):?>
 										<li><a href="#" class="dropdown__item" data-id="<?=$key?>"><?=$item?></a>
 									<?endforeach;?>
 								</ul>
 								<?
+							else:?></a><?
 							endif;
 						?></li><?
 					endforeach;

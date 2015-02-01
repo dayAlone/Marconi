@@ -1395,6 +1395,19 @@ div.pp_default .pp_loaderIcon {
   background: #d10a32;
   white-space: nowrap;
 }
+.brand-select .dropdown__item svg {
+  position: absolute;
+  right: 10px;
+  top: 13px;
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+.brand-select .dropdown__item svg path {
+  fill: #fff;
+}
 .brand-select .dropdown__item:hover {
   background: #000;
 }
@@ -3036,7 +3049,7 @@ svg g {
   z-index: 10;
 }
 .catalog__toolbar .dropdown__frame {
-  padding-top: 20px;
+  padding-top: 30px;
   min-width: 110%;
   left: -10px;
   top: -11px;

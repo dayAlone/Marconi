@@ -881,6 +881,7 @@
       el.text('Сравнить');
       callbackOff();
     }
+    console.log(simmilar);
     if (simmilar.length > 0) {
       $('.simmilar').elem('text').text("К сравнению: " + simmilar.length);
       simmilar = JSON.stringify(simmilar);
@@ -918,7 +919,7 @@
   };
 
   this.initProducts = function() {
-    $('.product').elem('icon').click(function(e) {
+    $('.product').elem('icon').off('click').on('click', function(e) {
       var gallery, items, pswpElement;
       if ($(this).hasMod('zoom')) {
         pswpElement = document.querySelectorAll('.pswp')[0];
@@ -932,12 +933,12 @@
       }
       return e.preventDefault();
     });
-    $('.product').elem('size').click(function(e) {
+    $('.product').elem('size').off('click').on('click', function(e) {
       $('.product').elem('size').mod('active', false);
       $(this).mod('active', true);
       return e.preventDefault();
     });
-    $('.product').elem('button').click(function(e) {
+    $('.product').elem('button').off('click').on('click', function(e) {
       var block, button;
       if ($(this).hasMod('cancel')) {
         $(this).block('sizes').mod('open', false);
@@ -1006,7 +1007,7 @@
         }
       });
     }
-    return $('a.catalog__card-button').click(function(e) {
+    return $('a.catalog__card-button').off('click').on('click', function(e) {
       var block, offset;
       block = $('.catalog__card');
       offset = block.offset();
