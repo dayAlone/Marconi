@@ -1,6 +1,7 @@
 <? $this->setFrameMode(true);
 ?>
 <? if(count($arResult['ITEMS'])>0): ?>
+<?$frame = $this->createFrame()->begin();?>
 <table width="100%" valign="middle" class="available__table" cellpadding="10">
 	<thead>
 		<tr>
@@ -15,7 +16,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	<?$frame = $this->createFrame()->begin();?>
+	
 		<?foreach ($arResult['ITEMS'] as $key=>$item):
 			$store = $item['PROPERTIES']['STORE']['VALUE'];
 			?>
@@ -42,10 +43,10 @@
 			
 			</tr>
 		<?endforeach;?>
-	<?
+	</tbody>
+</table>
+<?
 	$frame->beginStub();
 	$frame->end();
 	?>
-	</tbody>
-</table>
 <? endif; ?>
