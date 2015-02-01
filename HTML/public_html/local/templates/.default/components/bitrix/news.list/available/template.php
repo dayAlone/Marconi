@@ -16,7 +16,6 @@
 		</tr>
 	</thead>
 	<tbody>
-	
 		<?foreach ($arResult['ITEMS'] as $key=>$item):
 			$store = $item['PROPERTIES']['STORE']['VALUE'];
 			?>

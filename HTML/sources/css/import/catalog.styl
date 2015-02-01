@@ -276,6 +276,9 @@
 		@media (min-width scr_lg)
 			.col-lg-3
 				width 20%
+				.product
+					.product__picture
+						transform scale(1)
 	&--one-line
 		@media (min-width scr_md)
 			.col-lg-3:nth-child(n+5)
@@ -304,9 +307,9 @@
 		background white
 		&--hover
 			.product__sale
-				transform scale(.85)
+				transform scale(.85) translateZ(0)
 			.product__picture
-				transform scale(1.03)
+				transform scale(1.03) translateZ(0) 
 			.product__icon, .product__button, .product__frame
 				opacity 1
 				pointer-events initial
