@@ -3230,6 +3230,13 @@ svg g {
     -ms-transform: scale(1);
     transform: scale(1);
   }
+  .catalog--full-width .col-lg-3 .product:hover .product__picture {
+    -webkit-transform: scale(1.03);
+    -moz-transform: scale(1.03);
+    -o-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    transform: scale(1.03);
+  }
 }
 @media (min-width: 992px) {
   .catalog--one-line .col-lg-3:nth-child(n+5) {
