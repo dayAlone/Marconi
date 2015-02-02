@@ -56,7 +56,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
         </div>
         <div class="col-xs-8">
         <?else:?>
-        <div class="col-xs-10">
+        <div class="col-xs-10 menu-padding">
         <?endif;?>
         	<?php
             if(!preg_match("/\/catalog\/(.*?)\/(.*?)\//", $APPLICATION->GetCurDir(), $matches)):

@@ -1249,6 +1249,11 @@ div.pp_default .pp_loaderIcon {
   color: #6e6f79;
   letter-spacing: 1px;
 }
+@media (min-width: 1200px) {
+  .menu-padding .sub-nav__item:first-of-type {
+    margin-left: 190px;
+  }
+}
 .sub-nav__item:hover {
   color: #d10a32;
 }
