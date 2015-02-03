@@ -6,7 +6,7 @@
 			'top': $('.lookbook').elem('slider').offset().top
 			'opacity': 1
 			'width': ->
-				width = ($(window).width()-$('.page .container').width())/2+2
+				width = ($(window).width()-$('.page .container').width())/2
 				if $(this).hasMod 'width'
 					f  = $('.lookbook').elem('slider').data 'fotorama'
 					el = $(f.data[f.activeIndex].html).find('.lookbook__picture')

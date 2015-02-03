@@ -13,7 +13,7 @@
         'opacity': 1,
         'width': function() {
           var el, f, h, w, width;
-          width = ($(window).width() - $('.page .container').width()) / 2 + 2;
+          width = ($(window).width() - $('.page .container').width()) / 2;
           if ($(this).hasMod('width')) {
             f = $('.lookbook').elem('slider').data('fotorama');
             el = $(f.data[f.activeIndex].html).find('.lookbook__picture');
