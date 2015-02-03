@@ -1411,16 +1411,15 @@
           var slider;
           slider = $(fotorama.data[fotorama.activeIndex].html).find('.catalog');
           if (slider) {
-            slider.slick({
+            slider.on('init', function(event, slick, direction) {
+              return initProducts();
+            }).slick({
               infinite: true,
               draggable: false,
               slidesToShow: 5,
               slidesToScroll: 1,
               nextArrow: "<button type=\"button\" class=\"slick-next\">" + next + "</button>",
-              prevArrow: "<button type=\"button\" class=\"slick-prev\">" + prev + "</button>",
-              onInit: function() {
-                return initProducts();
-              }
+              prevArrow: "<button type=\"button\" class=\"slick-prev\">" + prev + "</button>"
             });
           }
           size();
