@@ -124,8 +124,8 @@ filterRequest = false
 					return false
 				else
 					block = $(this)
-					delay 300, ->
-						block.elem('picture').removeClass('lazy-hidden').lazyLoadXT()
+					if block.elem('picture').data('bg')
+						block.elem('picture').lazyLoadXT()
 			$(this).mod 'hover', true
 			$(this).mod 'index', true
 			if $('body').hasClass 'lookbook'

@@ -977,9 +977,9 @@
             return false;
           } else {
             block = $(this);
-            delay(300, function() {
-              return block.elem('picture').removeClass('lazy-hidden').lazyLoadXT();
-            });
+            if (block.elem('picture').data('bg')) {
+              block.elem('picture').lazyLoadXT();
+            }
           }
         }
         $(this).mod('hover', true);
