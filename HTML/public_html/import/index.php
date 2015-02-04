@@ -316,6 +316,7 @@
 			if($props["SALE"]==$this->sale):
 				$fields['IBLOCK_SECTION'][] = $this->sections['sale'];
 			endif;
+
 			$name = $note;
 			if($this->brands[$props['BRAND']]['NAME'])
 				$name .= ' '.$this->brands[$props['BRAND']]['NAME'];
@@ -776,8 +777,9 @@
 				$sections[$section['ID']] = $section;
 			endwhile;
 			foreach ($sections as $s):
-				if(!isset($s['XML_ID']))
+				if(strlen($s['XML_ID']) < 36)
 					$s['XML_ID'] = $s['CODE'];
+					
 				switch ($s['DEPTH_LEVEL']):
 					case '1':
 						$data[$s['XML_ID']] = $s['ID'];
