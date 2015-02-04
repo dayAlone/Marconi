@@ -5408,6 +5408,7 @@ svg g {
 .basket__block input[type="email"]::-webkit-input-placeholder,
 .basket__block textarea::-webkit-input-placeholder {
   text-transform: uppercase;
+  font-size: 11px;
 }
 .basket__block .parsley-errors-list + input.small {
   margin-left: 2%;
