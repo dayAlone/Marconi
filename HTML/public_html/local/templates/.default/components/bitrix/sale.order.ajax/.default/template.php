@@ -97,11 +97,7 @@ if (!function_exists("cmpBySort"))
 				endforeach;?>
 				<div class="props">
 				<? foreach ($arResult['ORDER_PROP']['RELATED'] as $prop):
-					if($prop['CODE']=="index"):
-						?>
-						<input type="hidden" name="<?=$prop['FIELD_NAME']?>" value="<?=$prop["VALUE"]?>">
-					<?
-					elseif($prop['CODE']=="date"):
+					if($prop['CODE']=="date"):
 						?>
 					<div class="row xs-margin-top">
 						<div class="col-xs-6">
