@@ -971,12 +971,14 @@
     $('.product').hoverIntent({
       sensitivity: 40,
       over: function() {
+        var block;
         if ($(this).parents('.slick-slide').length > 0) {
           if ($(this).parents('.slick-active').length === 0) {
             return false;
           } else {
+            block = $(this);
             delay(300, function() {
-              return $(this).elem('picture').removeClass('lazy-hidden').lazyLoadXT();
+              return block.elem('picture').removeClass('lazy-hidden').lazyLoadXT();
             });
           }
         }
