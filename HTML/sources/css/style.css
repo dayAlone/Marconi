@@ -2727,10 +2727,26 @@ svg g {
   width: 30px;
   height: 30px;
   margin-top: -25px;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -ms-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 .lookbook__slider .catalog .slick-next:before,
 .lookbook__slider .catalog .slick-prev:before {
   display: none;
+}
+.lookbook__slider .catalog .slick-next.slick-disabled,
+.lookbook__slider .catalog .slick-prev.slick-disabled {
+  opacity: 0.3;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  filter: alpha(opacity=30);
 }
 .lookbook__slider .catalog .slick-next svg,
 .lookbook__slider .catalog .slick-prev svg {
@@ -3640,8 +3656,19 @@ svg g {
   padding-top: 240px;
   margin-top: -230px;
 }
+.catalog--without-images .product__sale {
+  top: -85px;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
 .catalog--without-images .product__icon {
   top: -230px;
+}
+.catalog--without-images .product--hover .product__sale {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
 }
 .catalog--without-images .product--hover .product__picture-frame {
   pointer-events: initial;

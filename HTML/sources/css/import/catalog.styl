@@ -502,14 +502,20 @@
 			&__frame
 				padding-top 240px
 				margin-top -230px
+			&__sale
+				top -85px
+				opacity 0
 			&__icon
 				top -230px
 			&--hover
-				.product__picture-frame
-					pointer-events initial
-					transition-duration .3s
-					transition-delay .1s
-					opacity 1
+				.product
+					&__sale
+						opacity 1
+					&__picture-frame
+						pointer-events initial
+						transition-duration .3s
+						transition-delay .1s
+						opacity 1
 .filter
 	width 100%
 	border 1px solid #dddddd
