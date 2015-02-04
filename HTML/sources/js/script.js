@@ -975,7 +975,9 @@
           if ($(this).parents('.slick-active').length === 0) {
             return false;
           } else {
-            $(this).elem('picture').lazyLoadXT();
+            delay(300, function() {
+              return $(this).elem('picture').removeClass('lazy-hidden').lazyLoadXT();
+            });
           }
         }
         $(this).mod('hover', true);
@@ -1414,7 +1416,7 @@
             slider.on('init', function(event, slick, direction) {
               return initProducts();
             }).slick({
-              infinite: true,
+              infinite: false,
               draggable: false,
               slidesToShow: 5,
               slidesToScroll: 1,

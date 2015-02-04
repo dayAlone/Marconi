@@ -80,7 +80,7 @@
 						.on('init', (event, slick, direction)->
 							initProducts()
 						).slick
-							infinite       : true
+							infinite       : false
 							draggable      : false
 							slidesToShow   : 5
 							slidesToScroll : 1

@@ -123,7 +123,8 @@ filterRequest = false
 				if $(this).parents('.slick-active').length == 0
 					return false
 				else
-					$(this).elem('picture').lazyLoadXT()
+					delay 300,->
+						$(this).elem('picture').removeClass('lazy-hidden').lazyLoadXT()
 			$(this).mod 'hover', true
 			$(this).mod 'index', true
 			if $('body').hasClass 'lookbook'

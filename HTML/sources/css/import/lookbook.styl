@@ -117,6 +117,10 @@
 			text-align: center
 			.slick-list
 				overflow visible
+			.slick-prev
+				left -15px
+			.slick-next
+				right -15px
 			.slick-next, .slick-prev
 				width 30px
 				height 30px
@@ -136,10 +140,12 @@
 				&__frame
 					box-sizing: initial !important
 		.fotorama__active
-			.catalog, .lookbook__divider
+			.lookbook__divider
 				t(opacity)
 				opacity 1
-				
+			.catalog.slick-initialized
+				t(opacity)
+				opacity 1
 	&__title, &__divider
 		width 100%
 		text-transform: uppercase

@@ -2716,6 +2716,12 @@ svg g {
 .lookbook__slider .catalog .slick-list {
   overflow: visible;
 }
+.lookbook__slider .catalog .slick-prev {
+  left: -15px;
+}
+.lookbook__slider .catalog .slick-next {
+  right: -15px;
+}
 .lookbook__slider .catalog .slick-next,
 .lookbook__slider .catalog .slick-prev {
   width: 30px;
@@ -2747,8 +2753,22 @@ svg g {
   -moz-box-sizing: initial !important;
   box-sizing: initial !important;
 }
-.lookbook__slider .fotorama__active .catalog,
 .lookbook__slider .fotorama__active .lookbook__divider {
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -ms-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.lookbook__slider .fotorama__active .catalog.slick-initialized {
   -webkit-transition-property: opacity;
   -moz-transition-property: opacity;
   -o-transition-property: opacity;
