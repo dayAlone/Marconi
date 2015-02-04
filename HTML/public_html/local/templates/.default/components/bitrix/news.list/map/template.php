@@ -47,7 +47,10 @@ elseif(isset($active)):
   </div>
   <?endif;?>
 </div>
-<?endif;?>
+<?endif;
+if(!isset($_REQUEST['short'])):
+  ?>
 <script>
   initStores()
 </script>
+<?endif;?>
