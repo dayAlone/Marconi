@@ -123,7 +123,7 @@ filterRequest = false
 				if $(this).parents('.slick-active').length == 0
 					return false
 				if $(this).elem('picture').data('bg')
-					block.elem('picture').css 'background-image' : "url(#{$(this).elem('picture').data('bg')})"
+					$(this).elem('picture').css 'background-image' : "url(#{$(this).elem('picture').data('bg')})"
 			$(this).mod 'hover', true
 			$(this).mod 'index', true
 			if $('body').hasClass 'lookbook'

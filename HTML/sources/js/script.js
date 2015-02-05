@@ -976,7 +976,7 @@
             return false;
           }
           if ($(this).elem('picture').data('bg')) {
-            block.elem('picture').css({
+            $(this).elem('picture').css({
               'background-image': "url(" + ($(this).elem('picture').data('bg')) + ")"
             });
           }
