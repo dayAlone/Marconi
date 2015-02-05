@@ -78,7 +78,7 @@
 					if slider
 						slider
 						.on('init', (event, slick, direction)->
-							initProducts()
+							initProducts(false)
 						).slick
 							infinite       : false
 							draggable      : false

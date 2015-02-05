@@ -918,7 +918,10 @@
     });
   };
 
-  this.initProducts = function() {
+  this.initProducts = function(images) {
+    if (images == null) {
+      images = true;
+    }
     $('.product').elem('icon').off('click').on('click', function(e) {
       var gallery, items, pswpElement;
       if ($(this).hasMod('zoom')) {
@@ -1000,7 +1003,9 @@
         }
       }
     });
-    $('.product').elem('picture').lazyLoadXT();
+    if (images) {
+      $('.product').elem('picture').lazyLoadXT();
+    }
     if (!$.cookie('card')) {
       $('.catalog__card, .catalog__card-frame').removeClass('hidden');
       $('body').on('mousewheel', function(e) {
@@ -1415,7 +1420,7 @@
           slider = $(fotorama.data[fotorama.activeIndex].html).find('.catalog');
           if (slider) {
             slider.on('init', function(event, slick, direction) {
-              return initProducts();
+              return initProducts(false);
             }).slick({
               infinite: false,
               draggable: false,

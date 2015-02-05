@@ -73,7 +73,7 @@ filterRequest = false
 		if data == 'success'
 			bx_cart_block1.refreshCart({})
 
-@initProducts = ->
+@initProducts = (images = true)->
 	$('.product').elem('icon').off('click').on 'click', (e)->
 		if $(this).hasMod 'zoom'
 			pswpElement = document.querySelectorAll('.pswp')[0];
@@ -136,8 +136,8 @@ filterRequest = false
 				item.mod 'index', false
 			if $('body').hasClass 'lookbook'
 				$('.lookbook').elem('slider-preview').mod 'disabled', false
-
-	$('.product').elem('picture').lazyLoadXT()
+	if images
+		$('.product').elem('picture').lazyLoadXT()
 
 	# Card
 	if !$.cookie('card')
