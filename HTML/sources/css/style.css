@@ -3658,6 +3658,9 @@ svg g {
 }
 .catalog--without-images .product__sale {
   top: -85px;
+}
+.catalog--without-images .product__tradeline,
+.catalog--without-images .product__sale {
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
@@ -3665,6 +3668,7 @@ svg g {
 .catalog--without-images .product__icon {
   top: -230px;
 }
+.catalog--without-images .product--hover .product__tradeline,
 .catalog--without-images .product--hover .product__sale {
   opacity: 1;
   -ms-filter: none;
