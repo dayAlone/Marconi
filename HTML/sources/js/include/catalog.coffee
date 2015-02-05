@@ -122,10 +122,8 @@ filterRequest = false
 			if $(this).parents('.slick-slide').length > 0
 				if $(this).parents('.slick-active').length == 0
 					return false
-				else
-					block = $(this)
-					if block.elem('picture').data('bg')
-						block.elem('picture').lazyLoadXT()
+				if $(this).elem('picture').data('bg')
+					block.elem('picture').css 'background-image' : "url(#{$(this).elem('picture').data('bg')})"
 			$(this).mod 'hover', true
 			$(this).mod 'index', true
 			if $('body').hasClass 'lookbook'
