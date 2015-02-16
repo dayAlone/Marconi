@@ -532,18 +532,28 @@
 
         	foreach ($data['items'] as $item):
 				$product = &$this->products[$item->getAttribute('id')];
-
 				$id      = $product['ID'];
 				$raw     = $item->getElementsByTagName('count');
         		if(intval($id) > 0):
-	        		foreach ($raw as $count):
+        			foreach ($raw as $count):
 						$amount = $count->getAttribute('value');
 						if(!$this->stores[$count->getAttribute('store')]):
 							$this->stores[$count->getAttribute('store')] = CCatalogStore::Add(array('TITLE'=>$count->getAttribute('description'), 'XML_ID'=>$count->getAttribute('store')));
 						endif;
-						$store  = $this->stores[$count->getAttribute('store')];
-						
-						if($this->counts[$id][$store] != $amount):
+						if(intval($amount) > 0 && (isset($product['CML2_LINK']) || $product['ACTIVE'] == 'N')):
+				    		$raw = new CIBlockElement;
+				    		if(isset($product['CML2_LINK'])):
+				    			$raw->Update($product['CML2_LINK'], array('ACTIVE'=>'Y'));
+				    		else:
+				    			$product['ACTIVE'] = "Y";
+				    			$raw->Update($id, array('ACTIVE'=>'Y'));
+				    		endif;
+				    		$this->counter++;
+				    	endif;
+				    	
+				    	if($this->counts[$id][$store] != $amount):
+
+				    		$store  = $this->stores[$count->getAttribute('store')];
 							if(!isset($this->counts[$id]))
 								$this->counts[$id] = array();
 							
@@ -553,17 +563,6 @@
 								"STORE_ID"   => $store,
 								"AMOUNT"     => $amount,
 						    );
-						    
-						    if(intval($amount) > 0 && (isset($product['CML2_LINK']) || $product['ACTIVE'] == 'N')):
-					    		$raw = new CIBlockElement;
-					    		if($product['CML2_LINK']):
-					    			$raw->Update($product['CML2_LINK'], array('ACTIVE'=>'Y'));
-					    		else:
-					    			$product['ACTIVE'] = "Y";
-					    			$raw->Update($id, array('ACTIVE'=>'Y'));
-					    		endif;
-					    		$this->counter++;
-					    	endif;
 						    $ID = CCatalogStoreProduct::UpdateFromForm($arFields);
 						    if($ID > 0) {
 						    	$this->counter++;
