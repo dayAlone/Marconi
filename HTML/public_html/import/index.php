@@ -501,12 +501,23 @@
 
 		public function Action($file, $offset)
 		{
+			$all = Import::getIBlockElements($this->iblocks['products'], array('ACTIVE' => "Y"), array('ID'));
+			if ($offset == 1):
+				if(count($all) > 0):
+					foreach ($all as $item):
+						$raw = new CIBlockElement;
+						$raw->Update($item['ID'], array('ACTIVE'=>'N'));
+					endforeach;
+					return 1;
+				endif;
+			endif;
+
 			$data = Import::getElements($file, array('counts', 'product'), $offset);
 			$ids  = array();
 			foreach ($data['items'] as $item)
 				$ids[] = $item->getAttribute('id');
 
-			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID')));
+			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID', 'ACTIVE')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_CML2_LINK')));
 
 			$ids  = array();
 			foreach ($this->products as $item)
@@ -520,30 +531,48 @@
         	endwhile;
 
         	foreach ($data['items'] as $item):
-        		$id = $this->products[$item->getAttribute('id')]['ID'];
-        		$raw = $item->getElementsByTagName('count');
-        		foreach ($raw as $count):
-					if(!$this->stores[$count->getAttribute('store')]):
-						$this->stores[$count->getAttribute('store')] = CCatalogStore::Add(array('TITLE'=>$count->getAttribute('description'), 'XML_ID'=>$count->getAttribute('store')));
-					endif;
-					$store  = $this->stores[$count->getAttribute('store')];
-					$amount = $count->getAttribute('value');
-					if($this->counts[$id][$store] != $amount):
-						if(!isset($this->counts[$id]))
-							$this->counts[$id] = array();
+				$product = &$this->products[$item->getAttribute('id')];
+
+				$id      = $product['ID'];
+				$raw     = $item->getElementsByTagName('count');
+        		if(intval($id) > 0):
+	        		foreach ($raw as $count):
+						$amount = $count->getAttribute('value');
+						if(!$this->stores[$count->getAttribute('store')]):
+							$this->stores[$count->getAttribute('store')] = CCatalogStore::Add(array('TITLE'=>$count->getAttribute('description'), 'XML_ID'=>$count->getAttribute('store')));
+						endif;
+						$store  = $this->stores[$count->getAttribute('store')];
 						
-						$this->counts[$id][$store] = $amount;
-						$arFields = Array(
-							"PRODUCT_ID" => $id,
-							"STORE_ID"   => $store,
-							"AMOUNT"     => $amount,
-					    );
-					    $ID = CCatalogStoreProduct::UpdateFromForm($arFields);
-					    if($ID > 0)
-					    	$this->counter++;
-					endif;
-        		endforeach;
+						if($this->counts[$id][$store] != $amount):
+							if(!isset($this->counts[$id]))
+								$this->counts[$id] = array();
+							
+							$this->counts[$id][$store] = $amount;
+							$arFields = Array(
+								"PRODUCT_ID" => $id,
+								"STORE_ID"   => $store,
+								"AMOUNT"     => $amount,
+						    );
+						    
+						    if(intval($amount) > 0 && (isset($product['CML2_LINK']) || $product['ACTIVE'] == 'N')):
+					    		$raw = new CIBlockElement;
+					    		if($product['CML2_LINK']):
+					    			$raw->Update($product['CML2_LINK'], array('ACTIVE'=>'Y'));
+					    		else:
+					    			$product['ACTIVE'] = "Y";
+					    			$raw->Update($id, array('ACTIVE'=>'Y'));
+					    		endif;
+					    		$this->counter++;
+					    	endif;
+						    $ID = CCatalogStoreProduct::UpdateFromForm($arFields);
+						    if($ID > 0) {
+						    	$this->counter++;
+						    }
+						endif;
+	        		endforeach;
+	        	endif;
         	endforeach;
+        	
         	fwrite(STDERR, "\033[35m Update: ".$this->counter." \033[37m\r\n");
 
 			if($data['offset'] != 'end')
@@ -810,7 +839,7 @@
 			$data = array();
 			$arSelect = array_merge(Array("ID", "NAME", "XML_ID", "IBLOCK_SECTION_ID"), $fields);
 			
-			$arFilter = array_merge(Array("IBLOCK_ID"=>$id, "ACTIVE"=>"Y", 'CHECK_PERMISSIONS' => 'N'), $filter);
+			$arFilter = array_merge(Array("IBLOCK_ID"=>$id, 'CHECK_PERMISSIONS' => 'N'), $filter);
 			$res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
 			
 			while($el = $res->Fetch()):

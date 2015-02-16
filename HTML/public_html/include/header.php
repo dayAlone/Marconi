@@ -8,7 +8,7 @@
   <?
   $APPLICATION->SetAdditionalCSS("/layout/css/frontend.css", true);
   $APPLICATION->AddHeadScript('/layout/js/frontend.js');
-  $APPLICATION->ShowViewContent('header');?>
+  ?>
   <title><?php 
     $rsSites = CSite::GetByID(SITE_ID);
     $arSite  = $rsSites->Fetch();
