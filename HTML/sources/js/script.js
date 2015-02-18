@@ -1506,11 +1506,10 @@
       $(this).block().find('.parsley-errors-list').removeClass('.filled');
       return e.preventDefault();
     });
-    $('.time-select .dropdown__item').off('click').on('click', function(e) {
+    return $('.time-select .dropdown__item').off('click').on('click', function(e) {
       $(this).block().find('input').val($(this).text());
       return e.preventDefault();
     });
-    return $('input[name="ORDER_PROP_3"]').mask('+7 0000000000');
   };
 
   this.getOrderDate = function(confirm) {

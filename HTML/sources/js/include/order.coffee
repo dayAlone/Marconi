@@ -11,8 +11,6 @@
 	$('.time-select .dropdown__item').off('click').on 'click', (e)->
 		$(this).block().find('input').val $(this).text()
 		e.preventDefault()
-		
-	$('input[name="ORDER_PROP_3"]').mask '+7 0000000000'
 
 @getOrderDate = (confirm)->
 	data = $('#ORDER_FORM').serialize()
