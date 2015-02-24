@@ -9,7 +9,7 @@ if(!isset($_REQUEST['short'])):
 	    		<div class="col-md-5">
 	    			<div class="page__title">Контактная информация</div>
 	    			<p>
-	    				Телефон для справок и приема заказов: +7 495 972-32-65<br>
+	    				Телефон для справок и приема заказов: <nobr>+7 495 972-32-65</nobr><br>
 						E-mail: <a href="mailto:info@fmarconi.ru">info@fmarconi.ru</a> <br>
 						Адрес: 125212, г. Москва, ул. Адмирала Макарова, д. 8
 	    			</p>

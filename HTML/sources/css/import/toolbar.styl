@@ -94,15 +94,19 @@
 	margin-bottom 25px
 	position relative
 	z-index 40
+	white-space no-wrap
 	.logo
 		&__line
-			width 118%
+			
 			background #8797a2
 			opacity .35
 			height 1px
 			display inline-block
 			float left
 			margin 17px 0
+			width 100%
+			@media (min-width scr_lg)
+				width 118%
 			&--left
 				float right
 		svg
@@ -143,8 +147,10 @@
 			height 23px
 			position absolute
 	&__links
-		width 80%
+		width 100%
 		float right
+		@media (min-width scr_lg)
+			width 80%
 	.cart, .simmilar
 		position relative
 		font-size 12px

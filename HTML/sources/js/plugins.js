@@ -9212,7 +9212,7 @@ return jQuery;
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
 
- Version: 1.4.0
+ Version: 1.4.1
   Author: Ken Wheeler
  Website: http://kenwheeler.github.io
     Docs: http://kenwheeler.github.io/slick
@@ -9253,8 +9253,8 @@ return jQuery;
                 appendDots: $(element),
                 arrows: true,
                 asNavFor: null,
-                prevArrow: '<button type="button" data-role="none" class="slick-prev">Previous</button>',
-                nextArrow: '<button type="button" data-role="none" class="slick-next">Next</button>',
+                prevArrow: '<button type="button" data-role="none" class="slick-prev" aria-label="previous">Previous</button>',
+                nextArrow: '<button type="button" data-role="none" class="slick-next" aria-label="next">Next</button>',
                 autoplay: false,
                 autoplaySpeed: 3000,
                 centerMode: false,
@@ -9400,7 +9400,7 @@ return jQuery;
 
             _.init();
 
-            _.checkResponsive();
+            _.checkResponsive(true);
 
         }
 
@@ -9453,19 +9453,19 @@ return jQuery;
 
     };
 
-	Slick.prototype.animateHeight = function(){
-		var _ = this;
-		if(_.options.slidesToShow === 1 && _.options.adaptiveHeight === true && _.options.vertical === false) {
+    Slick.prototype.animateHeight = function(){
+        var _ = this;
+        if(_.options.slidesToShow === 1 && _.options.adaptiveHeight === true && _.options.vertical === false) {
             var targetHeight = _.$slides.eq(_.currentSlide).outerHeight(true);
             _.$list.animate({height: targetHeight},_.options.speed);
         }
-	};
+    };
 
     Slick.prototype.animateSlide = function(targetLeft, callback) {
 
         var animProps = {}, _ = this;
 
-		_.animateHeight();
+        _.animateHeight();
 
         if (_.options.rtl === true && _.options.vertical === false) {
             targetLeft = -targetLeft;
@@ -9666,8 +9666,7 @@ return jQuery;
             _.$dots = $(dotString).appendTo(
                 _.options.appendDots);
 
-            _.$dots.find('li').first().addClass(
-                'slick-active');
+            _.$dots.find('li').first().addClass('slick-active').attr("aria-hidden","false");
 
         }
 
@@ -9695,10 +9694,10 @@ return jQuery;
             _.$slides.wrapAll('<div class="slick-track"/>').parent();
 
         _.$list = _.$slideTrack.wrap(
-            '<div class="slick-list"/>').parent();
+            '<div aria-live="polite" class="slick-list"/>').parent();
         _.$slideTrack.css('opacity', 0);
 
-        if (_.options.centerMode === true) {
+        if (_.options.centerMode === true || _.options.swipeToSlide === true) {
             _.options.slidesToScroll = 1;
         }
 
@@ -9724,7 +9723,7 @@ return jQuery;
 
     };
 
-    Slick.prototype.checkResponsive = function() {
+    Slick.prototype.checkResponsive = function(initial) {
 
         var _ = this,
             breakpoint, targetBreakpoint, respondToWidth;
@@ -9768,6 +9767,8 @@ return jQuery;
                             _.options = $.extend({}, _.originalSettings,
                                 _.breakpointSettings[
                                     targetBreakpoint]);
+                            if(initial === true)
+                                _.currentSlide = _.options.initialSlide;
                             _.refresh();
                         }
                     }
@@ -9779,6 +9780,8 @@ return jQuery;
                         _.options = $.extend({}, _.originalSettings,
                             _.breakpointSettings[
                                 targetBreakpoint]);
+                        if(initial === true)
+                            _.currentSlide = _.options.initialSlide;
                         _.refresh();
                     }
                 }
@@ -9786,6 +9789,8 @@ return jQuery;
                 if (_.activeBreakpoint !== null) {
                     _.activeBreakpoint = null;
                     _.options = _.originalSettings;
+                    if(initial === true)
+                        _.currentSlide = _.options.initialSlide;
                     _.refresh();
                 }
             }
@@ -9887,8 +9892,9 @@ return jQuery;
             _.$nextArrow.remove();
         }
 
-        _.$slides.removeClass(
-            'slick-slide slick-active slick-center slick-visible')
+
+        _.$slides.removeClass('slick-slide slick-active slick-center slick-visible')
+            .attr("aria-hidden","true")
             .removeAttr('data-slick-index')
             .css({
                 position: '',
@@ -10097,13 +10103,16 @@ return jQuery;
 
     Slick.prototype.getNavigableIndexes = function() {
 
-        var _ = this;
+        var _ = this, breakPoint = 0, counter = 0, indexes = [], max;
 
-        var breakPoint = 0;
-        var counter = 0;
-        var indexes = [];
-        var max = _.options.infinite === false ? _.slideCount - _.options.slidesToShow + 1 : _.slideCount;
-        if (_.options.centerMode === true) max = _.slideCount;
+        if(_.options.infinite === false) {
+            max = _.slideCount - _.options.slidesToShow + 1;
+            if (_.options.centerMode === true) max = _.slideCount;
+        } else {
+            breakPoint = _.slideCount * -1;
+            counter = _.slideCount * -1;
+            max = _.slideCount * 2;
+        }
 
         while (breakPoint < max){
             indexes.push(breakPoint);
@@ -10266,7 +10275,7 @@ return jQuery;
         }
 
         if(_.options.focusOnSelect === true) {
-            $(_.options.slide, _.$slideTrack).on('click.slick', _.selectHandler);
+            $(_.$slideTrack).children().on('click.slick', _.selectHandler);
         }
 
         $(window).on('orientationchange.slick.slick-' + _.instanceUid, function() {
@@ -10482,6 +10491,10 @@ return jQuery;
             targetImage.attr('src', targetImage.attr('data-lazy')).removeClass('slick-loading').load(function() {
                 targetImage.removeAttr('data-lazy');
                 _.progressiveLazyLoad();
+                
+                if( _.options.adaptiveHeight === true ) {
+                    _.setPosition();
+                }
             })
          .error(function () {
           targetImage.removeAttr('data-lazy');
@@ -10545,7 +10558,7 @@ return jQuery;
         _.initDotEvents();
 
         if(_.options.focusOnSelect === true) {
-            $(_.options.slide, _.$slideTrack).on('click.slick', _.selectHandler);
+            $(_.$slideTrack).children().on('click.slick', _.selectHandler);
         }
 
         _.setSlideClasses(0);
@@ -10797,7 +10810,7 @@ return jQuery;
         var _ = this,
             centerOffset, allSlides, indexOffset, remainder;
 
-        _.$slider.find('.slick-slide').removeClass('slick-active').removeClass('slick-center');
+        _.$slider.find('.slick-slide').removeClass('slick-active').attr("aria-hidden","true").removeClass('slick-center');
         allSlides = _.$slider.find('.slick-slide');
 
         if (_.options.centerMode === true) {
@@ -10807,10 +10820,10 @@ return jQuery;
             if(_.options.infinite === true) {
 
                 if (index >= centerOffset && index <= (_.slideCount - 1) - centerOffset) {
-                    _.$slides.slice(index - centerOffset, index + centerOffset + 1).addClass('slick-active');
+                    _.$slides.slice(index - centerOffset, index + centerOffset + 1).addClass('slick-active').attr("aria-hidden","false");
                 } else {
                     indexOffset = _.options.slidesToShow + index;
-                    allSlides.slice(indexOffset - centerOffset + 1, indexOffset + centerOffset + 2).addClass('slick-active');
+                    allSlides.slice(indexOffset - centerOffset + 1, indexOffset + centerOffset + 2).addClass('slick-active').attr("aria-hidden","false");
                 }
 
                 if (index === 0) {
@@ -10826,16 +10839,16 @@ return jQuery;
         } else {
 
             if (index >= 0 && index <= (_.slideCount - _.options.slidesToShow)) {
-                _.$slides.slice(index, index + _.options.slidesToShow).addClass('slick-active');
+                _.$slides.slice(index, index + _.options.slidesToShow).addClass('slick-active').attr("aria-hidden","false");
             } else if ( allSlides.length <= _.options.slidesToShow ) {
-                allSlides.addClass('slick-active');
+                allSlides.addClass('slick-active').attr("aria-hidden","false");
             } else {
                 remainder = _.slideCount%_.options.slidesToShow;
                 indexOffset = _.options.infinite === true ? _.options.slidesToShow + index : index;
                 if(_.options.slidesToShow == _.options.slidesToScroll && (_.slideCount - index) < _.options.slidesToShow) {
-                    allSlides.slice(indexOffset-(_.options.slidesToShow-remainder), indexOffset + remainder).addClass('slick-active');
+                    allSlides.slice(indexOffset-(_.options.slidesToShow-remainder), indexOffset + remainder).addClass('slick-active').attr("aria-hidden","false");
                 } else {
-                    allSlides.slice(indexOffset, indexOffset + _.options.slidesToShow).addClass('slick-active');
+                    allSlides.slice(indexOffset, indexOffset + _.options.slidesToShow).addClass('slick-active').attr("aria-hidden","false");
                 }
             }
 
@@ -10898,8 +10911,8 @@ return jQuery;
         if(!index) index = 0;
 
         if(_.slideCount <= _.options.slidesToShow){
-            _.$slider.find('.slick-slide').removeClass('slick-active');
-            _.$slides.eq(index).addClass('slick-active');
+            _.$slider.find('.slick-slide').removeClass('slick-active').attr("aria-hidden","true");
+            _.$slides.eq(index).addClass('slick-active').attr("aria-hidden","false");
             if(_.options.centerMode === true) {
                 _.$slider.find('.slick-slide').removeClass('slick-center');
                 _.$slides.eq(index).addClass('slick-center');
@@ -11006,7 +11019,7 @@ return jQuery;
             } else {
                 _.postSlide(animSlide);
             }
-			_.animateHeight();
+            _.animateHeight();
             return;
         }
 
@@ -11261,8 +11274,7 @@ return jQuery;
         if (_.$nextArrow && (typeof _.options.nextArrow !== 'object')) {
             _.$nextArrow.remove();
         }
-        _.$slides.removeClass(
-            'slick-slide slick-active slick-visible').css('width', '');
+        _.$slides.removeClass('slick-slide slick-active slick-visible').attr("aria-hidden","true").css('width', '');
 
     };
 
@@ -11303,8 +11315,8 @@ return jQuery;
 
         if (_.$dots !== null) {
 
-            _.$dots.find('li').removeClass('slick-active');
-            _.$dots.find('li').eq(Math.floor(_.currentSlide / _.options.slidesToScroll)).addClass('slick-active');
+            _.$dots.find('li').removeClass('slick-active').attr("aria-hidden","true");
+            _.$dots.find('li').eq(Math.floor(_.currentSlide / _.options.slidesToScroll)).addClass('slick-active').attr("aria-hidden","false");
 
         }
 
@@ -14563,13 +14575,13 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
         preventClicks: true,
 
         // Callback function to execute when the flyout is displayed.
-        onShow: undefined,
+        onShow: $.noop,
 
         // Callback function to execute when the flyout is removed.
-        onHide: undefined,
+        onHide: $.noop,
 
         // Callback function to execute when the cursor is moved while over the image.
-        onMove: undefined
+        onMove: $.noop
 
     };
 
@@ -14577,17 +14589,13 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
      * EasyZoom
      * @constructor
      * @param {Object} target
-     * @param {Object} options
+     * @param {Object} options (Optional)
      */
     function EasyZoom(target, options) {
         this.$target = $(target);
         this.opts = $.extend({}, defaults, options, this.$target.data());
 
-        if (this.isOpen === undefined) {
-            this._init();
-        }
-
-        return this;
+        this.isOpen === undefined && this._init();
     }
 
     /**
@@ -14595,8 +14603,6 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
      * @private
      */
     EasyZoom.prototype._init = function() {
-        var self = this;
-
         this.$link   = this.$target.find('a');
         this.$image  = this.$target.find('img');
 
@@ -14604,27 +14610,9 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
         this.$notice = $('<div class="easyzoom-notice" />');
 
         this.$target
-            .on('mouseenter.easyzoom touchstart.easyzoom', function(e) {
-                self.isMouseOver = true;
-
-                if (!e.originalEvent.touches || e.originalEvent.touches.length === 1) {
-                    e.preventDefault();
-                    self.show(e, true);
-                }
-            })
-            .on('mousemove.easyzoom touchmove.easyzoom', function(e) {
-                if (self.isOpen) {
-                    e.preventDefault();
-                    self._move(e);
-                }
-            })
-            .on('mouseleave.easyzoom touchend.easyzoom', function() {
-                self.isMouseOver = false;
-
-                if (self.isOpen) {
-                    self.hide();
-                }
-            });
+            .on('mousemove.easyzoom touchmove.easyzoom', $.proxy(this._onMove, this))
+            .on('mouseleave.easyzoom touchend.easyzoom', $.proxy(this._onLeave, this))
+            .on('mouseenter.easyzoom touchstart.easyzoom', $.proxy(this._onEnter, this));
 
         if (this.opts.preventClicks) {
             this.$target.on('click.easyzoom', 'a', function(e) {
@@ -14636,20 +14624,18 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
     /**
      * Show
      * @param {MouseEvent|TouchEvent} e
-     * @param {Boolean} testMouseOver
+     * @param {Boolean} testMouseOver (Optional)
      */
     EasyZoom.prototype.show = function(e, testMouseOver) {
         var w1, h1, w2, h2;
         var self = this;
 
-        if (! this.isReady) {
-            this._load(this.$link.attr('href'), function() {
+        if (!this.isReady) {
+            return this._loadImage(this.$link.attr('href'), function() {
                 if (self.isMouseOver || !testMouseOver) {
                     self.show(e);
                 }
             });
-
-            return;
         }
 
         this.$target.append(this.$flyout);
@@ -14668,55 +14654,99 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
 
         this.isOpen = true;
 
-        if (this.opts.onShow) {
-            this.opts.onShow.call(this);
-        }
+        this.opts.onShow.call(this);
 
-        if (e) {
-            this._move(e);
+        e && this._move(e);
+    };
+
+    /**
+     * On enter
+     * @private
+     * @param {Event} e
+     */
+    EasyZoom.prototype._onEnter = function(e) {
+        var touches = e.originalEvent.touches;
+
+        this.isMouseOver = true;
+
+        if (touches && touches.length == 1) {
+            e.preventDefault();
+            this.show(e, true);
         }
     };
 
     /**
-     * Load
+     * On move
+     * @private
+     * @param {Event} e
+     */
+    EasyZoom.prototype._onMove = function(e) {
+        if (!this.isOpen) return;
+
+        e.preventDefault();
+        this._move(e);
+    };
+
+    /**
+     * On leave
+     * @private
+     * @param {Event} e
+     */
+    EasyZoom.prototype._onLeave = function(e) {
+        this.isMouseOver = false;
+        this.isOpen && this.hide();
+    };
+
+    /**
+     * On load
+     * @private
+     * @param {Event} e
+     */
+    EasyZoom.prototype._onLoad = function(e) {
+        // IE may fire a load event even on error so test the image dimensions
+        if (!e.target.width) return;
+
+        this.isReady = true;
+
+        this.$notice.detach();
+        this.$flyout.html(this.$zoom);
+        this.$target.removeClass('is-loading').addClass('is-ready');
+
+        e.data.call && e.data();
+    };
+
+    /**
+     * On error
+     * @private
+     */
+    EasyZoom.prototype._onError = function() {
+        var self = this;
+
+        this.$notice.text(this.opts.errorNotice);
+        this.$target.removeClass('is-loading').addClass('is-error');
+
+        this.detachNotice = setTimeout(function() {
+            self.$notice.detach();
+            self.detachNotice = null;
+        }, this.opts.errorDuration);
+    };
+
+    /**
+     * Load image
      * @private
      * @param {String} href
      * @param {Function} callback
      */
-    EasyZoom.prototype._load = function(href, callback) {
+    EasyZoom.prototype._loadImage = function(href, callback) {
         var zoom = new Image();
 
-        this.$target.addClass('is-loading').append(this.$notice.text(this.opts.loadingNotice));
+        this.$target
+            .addClass('is-loading')
+            .append(this.$notice.text(this.opts.loadingNotice));
 
-        this.$zoom = $(zoom);
-
-        zoom.onerror = $.proxy(function() {
-            var self = this;
-
-            this.$notice.text(this.opts.errorNotice);
-            this.$target.removeClass('is-loading').addClass('is-error');
-
-            this.detachNotice = setTimeout(function() {
-                self.$notice.detach();
-                self.detachNotice = null;
-            }, this.opts.errorDuration);
-        }, this);
-
-        zoom.onload = $.proxy(function() {
-
-            // IE may fire a load event even on error so check the image has dimensions
-            if (!zoom.width) {
-                return;
-            }
-
-            this.isReady = true;
-
-            this.$notice.detach();
-            this.$flyout.html(this.$zoom);
-            this.$target.removeClass('is-loading').addClass('is-ready');
-
-            callback();
-        }, this);
+        this.$zoom = $(zoom)
+            .on('error', $.proxy(this._onError, this))
+            .on('load', callback, $.proxy(this._onLoad, this));
 
         zoom.style.position = 'absolute';
         zoom.src = href;
@@ -14746,7 +14776,10 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
         var xl = Math.ceil(pl * rw);
 
         // Close if outside
-       
+        if (xl < 0 || xt < 0 || xl > dw || xt > dh) {
+            this.hide();
+        }
+        else {
             var top = xt * -1;
             var left = xl * -1;
 
@@ -14755,10 +14788,8 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
                 left: left
             });
 
-            if (this.opts.onMove) {
-                this.opts.onMove.call(this, top, left);
-            }
-        
+            this.opts.onMove.call(this, top, left);
+        }
 
     };
 
@@ -14766,43 +14797,35 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
      * Hide
      */
     EasyZoom.prototype.hide = function() {
-        if (this.isOpen) {
-            this.$flyout.detach();
-            this.isOpen = false;
+        if (!this.isOpen) return;
 
-            if (this.opts.onHide) {
-                this.opts.onHide.call(this);
-            }
-        }
+        this.$flyout.detach();
+        this.isOpen = false;
+
+        this.opts.onHide.call(this);
     };
 
     /**
      * Swap
      * @param {String} standardSrc
      * @param {String} zoomHref
-     * @param {String|Array} srcsetStringOrArray (Optional)
+     * @param {String|Array} srcset (Optional)
      */
-    EasyZoom.prototype.swap = function(standardSrc, zoomHref, srcsetStringOrArray) {
+    EasyZoom.prototype.swap = function(standardSrc, zoomHref, srcset) {
         this.hide();
         this.isReady = false;
 
-        if (this.detachNotice) {
-            clearTimeout(this.detachNotice);
-        }
+        this.detachNotice && clearTimeout(this.detachNotice);
 
-        if (this.$notice.parent().length) {
-            this.$notice.detach();
-        }
-
-        if ($.isArray(srcsetStringOrArray)) {
-            srcsetStringOrArray = srcsetStringOrArray.join();
-        }
+        this.$notice.parent().length && this.$notice.detach();
 
         this.$target.removeClass('is-loading is-ready is-error');
+
         this.$image.attr({
             src: standardSrc,
-            srcset: srcsetStringOrArray
+            srcset: $.isArray(srcset) ? srcset.join() : srcset
         });
+
         this.$link.attr('href', zoomHref);
     };
 
@@ -14812,11 +14835,11 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
     EasyZoom.prototype.teardown = function() {
         this.hide();
 
-        this.$target.removeClass('is-loading is-ready is-error').off('.easyzoom');
+        this.$target
+            .off('.easyzoom')
+            .removeClass('is-loading is-ready is-error');
 
-        if (this.detachNotice) {
-            clearTimeout(this.detachNotice);
-        }
+        this.detachNotice && clearTimeout(this.detachNotice);
 
         delete this.$link;
         delete this.$zoom;
@@ -27394,7 +27417,7 @@ $('#el').spin('flower', 'red');
   }
 })(window.jQuery || window.Zepto);
 
-/*! VelocityJS.org (1.2.1). (C) 2014 Julian Shapiro. MIT @license: en.wikipedia.org/wiki/MIT_License */
+/*! VelocityJS.org (1.2.2). (C) 2014 Julian Shapiro. MIT @license: en.wikipedia.org/wiki/MIT_License */
 
 /*************************
    Velocity jQuery Shim
@@ -28047,7 +28070,7 @@ return function (global, window, document, undefined) {
         hook: null, /* Defined below. */
         /* Velocity-wide animation time remapping for testing purposes. */
         mock: false,
-        version: { major: 1, minor: 2, patch: 1 },
+        version: { major: 1, minor: 2, patch: 2 },
         /* Set to 1 or 2 (most verbose) to output debug info to console. */
         debug: false
     };
@@ -31091,7 +31114,7 @@ return function (global, window, document, undefined) {
                Option: Loop (Infinite)
             ****************************/
 
-            if (opts.loop === true && !isStopped) {
+            if (Data(element) && opts.loop === true && !isStopped) {
                 /* If a rotateX/Y/Z property is being animated to 360 deg with loop:true, swap tween start/end values to enable
                    continuous iterative rotation looping. (Otherise, the element would just rotate back and forth.) */
                 $.each(Data(element).tweensContainer, function(propertyName, tweenContainer) {
@@ -31266,7 +31289,7 @@ will produce an inaccurate conversion value. The same issue exists with the cx/c
    Velocity UI Pack
 **********************/
 
-/* VelocityJS.org UI Pack (5.0.2). (C) 2014 Julian Shapiro. MIT @license: en.wikipedia.org/wiki/MIT_License. Portions copyright Daniel Eden, Christian Pucci. */
+/* VelocityJS.org UI Pack (5.0.4). (C) 2014 Julian Shapiro. MIT @license: en.wikipedia.org/wiki/MIT_License. Portions copyright Daniel Eden, Christian Pucci. */
 
 ;(function (factory) {
     /* CommonJS module. */
@@ -31905,7 +31928,8 @@ return function (global, window, document, undefined) {
                 defaultDuration: 800,
                 calls: [
                     [ { opacity: [ 1, 0 ], transformPerspective: [ 800, 800 ], transformOriginX: [ 0, 0 ], transformOriginY: [ "100%", "100%" ], rotateX: [ 0, -180 ] } ]
-                ]
+                ],
+                reset: { transformPerspective: 0, transformOriginX: "50%", transformOriginY: "50%" }
             },
             /* Magic.css */
             /* Support: Loses rotation in IE9/Android 2.3 (fades only). */
@@ -31993,19 +32017,26 @@ return function (global, window, document, undefined) {
                     /* Parallel sequence calls (indicated via sequenceQueue:false) are triggered
                        in the previous call's begin callback. Otherwise, chained calls are normally triggered
                        in the previous call's complete callback. */
-                    var timing = (currentCall.options && currentCall.options.sequenceQueue === false) ? "begin" : "complete",
-                        callbackOriginal = nextCall.options && nextCall.options[timing],
+                    var currentCallOptions = currentCall.o || currentCall.options,
+                        nextCallOptions = nextCall.o || nextCall.options;
+
+                    var timing = (currentCallOptions && currentCallOptions.sequenceQueue === false) ? "begin" : "complete",
+                        callbackOriginal = nextCallOptions && nextCallOptions[timing],
                         options = {};
 
                     options[timing] = function() {
-                        var nextCallElements = nextCall.elements || nextCall.e;
+                        var nextCallElements = nextCall.e || nextCall.elements;
                         var elements = nextCallElements.nodeType ? [ nextCallElements ] : nextCallElements;
 
                         callbackOriginal && callbackOriginal.call(elements, elements);
                         Velocity(currentCall);
                     }
 
-                    nextCall.options = $.extend({}, nextCall.options, options);
+                    if (nextCall.o) {
+                        nextCall.o = $.extend({}, nextCallOptions, options);
+                    } else {
+                        nextCall.options = $.extend({}, nextCallOptions, options);
+                    }
                 }
             });
 
@@ -38708,8 +38739,9 @@ return PhotoSwipeUI_Default;
 })(jQuery);
 
 // Ion.RangeSlider
-// version 2.0.3 Build: 293
-// © Denis Ineshin, 2014    https://github.com/IonDen
+// version 2.0.6 Build: 300
+// © Denis Ineshin, 2015
+// https://github.com/IonDen
 //
 // Project page:    http://ionden.com/a/plugins/ion.rangeSlider/en.html
 // GitHub page:     https://github.com/IonDen/ion.rangeSlider
@@ -38784,6 +38816,34 @@ return PhotoSwipeUI_Default;
             return bound;
         };
     }
+    if (!Array.prototype.indexOf) {
+        Array.prototype.indexOf = function(searchElement, fromIndex) {
+            var k;
+            if (this == null) {
+                throw new TypeError('"this" is null or not defined');
+            }
+            var O = Object(this);
+            var len = O.length >>> 0;
+            if (len === 0) {
+                return -1;
+            }
+            var n = +fromIndex || 0;
+            if (Math.abs(n) === Infinity) {
+                n = 0;
+            }
+            if (n >= len) {
+                return -1;
+            }
+            k = Math.max(n >= 0 ? n : len - Math.abs(n), 0);
+            while (k < len) {
+                if (k in O && O[k] === searchElement) {
+                    return k;
+                }
+                k++;
+            }
+            return -1;
+        };
+    }
 
 
 
@@ -38819,7 +38879,7 @@ return PhotoSwipeUI_Default;
     // Core
 
     var IonRangeSlider = function (input, options, plugin_count) {
-        this.VERSION = "2.0.3";
+        this.VERSION = "2.0.6";
         this.input = input;
         this.plugin_count = plugin_count;
         this.current_plugin = 0;
@@ -38912,6 +38972,27 @@ return PhotoSwipeUI_Default;
         };
         data.values = data.values && data.values.split(",");
         options = $.extend(data, options);
+
+        // get from and to out of input
+        var val = $inp.prop("value");
+        if (val) {
+            val = val.split(";");
+
+            if (val[0] && val[0] == +val[0]) {
+                val[0] = +val[0];
+            }
+            if (val[1] && val[1] == +val[1]) {
+                val[1] = +val[1];
+            }
+
+            if (options.values && options.values.length) {
+                data.from = val[0] && options.values.indexOf(val[0]);
+                data.to = val[1] && options.values.indexOf(val[1]);
+            } else {
+                data.from = val[0] && +val[0];
+                data.to = val[1] && +val[1];
+            }
+        }
 
         // get config from options
         this.options = $.extend({
@@ -39532,7 +39613,7 @@ return PhotoSwipeUI_Default;
                 return;
             }
 
-            if (this.coords.x_pointer < 0) {
+            if (this.coords.x_pointer < 0 || isNaN(this.coords.x_pointer)  ) {
                 this.coords.x_pointer = 0;
             } else if (this.coords.x_pointer > this.coords.w_rs) {
                 this.coords.x_pointer = this.coords.w_rs;
@@ -39836,13 +39917,19 @@ return PhotoSwipeUI_Default;
         drawShadow: function () {
             var o = this.options,
                 c = this.$cache,
+
+                is_from_min = typeof o.from_min === "number" && !isNaN(o.from_min),
+                is_from_max = typeof o.from_max === "number" && !isNaN(o.from_max),
+                is_to_min = typeof o.to_min === "number" && !isNaN(o.to_min),
+                is_to_max = typeof o.to_max === "number" && !isNaN(o.to_max),
+
                 from_min,
                 from_max,
                 to_min,
                 to_max;
 
             if (o.type === "single") {
-                if (o.from_shadow && (o.from_min || o.from_max)) {
+                if (o.from_shadow && (is_from_min || is_from_max)) {
                     from_min = this.calcPercent(o.from_min || o.min);
                     from_max = this.calcPercent(o.from_max || o.max) - from_min;
                     from_min = this.toFixed(from_min - (this.coords.p_handle / 100 * from_min));
@@ -39856,7 +39943,7 @@ return PhotoSwipeUI_Default;
                     c.shad_single[0].style.display = "none";
                 }
             } else {
-                if (o.from_shadow && (o.from_min || o.from_max)) {
+                if (o.from_shadow && (is_from_min || is_from_max)) {
                     from_min = this.calcPercent(o.from_min || o.min);
                     from_max = this.calcPercent(o.from_max || o.max) - from_min;
                     from_min = this.toFixed(from_min - (this.coords.p_handle / 100 * from_min));
@@ -39870,7 +39957,7 @@ return PhotoSwipeUI_Default;
                     c.shad_from[0].style.display = "none";
                 }
 
-                if (o.to_shadow && (o.to_min || o.to_max)) {
+                if (o.to_shadow && (is_to_min || is_to_max)) {
                     to_min = this.calcPercent(o.to_min || o.min);
                     to_max = this.calcPercent(o.to_max || o.max) - to_min;
                     to_min = this.toFixed(to_min - (this.coords.p_handle / 100 * to_min));
@@ -40453,6 +40540,10 @@ return PhotoSwipeUI_Default;
         // Public methods
 
         update: function (options) {
+            if (!this.input) {
+                return;
+            }
+
             this.is_update = true;
 
             this.options.from = this.result.from;
@@ -40468,11 +40559,19 @@ return PhotoSwipeUI_Default;
         },
 
         reset: function () {
+            if (!this.input) {
+                return;
+            }
+
             this.updateResult();
             this.update();
         },
 
         destroy: function () {
+            if (!this.input) {
+                return;
+            }
+
             this.toggleInput();
             this.$cache.input.prop("readonly", false);
             $.data(this.input, "ionRangeSlider", null);
@@ -40625,22 +40724,22 @@ return PhotoSwipeUI_Default;
 			popupHeight: 330
 		},
 		odnoklassniki: {
-			// connect.ok.ru works on mobiles but doesn’t work with HTTPS
-			// www.ok.ru works with HTTPS but redirects to HTML page on mobiles
-			counterUrl: (isHttps ? 'https://www' : 'http://connect') + '.ok.ru/dk?st.cmd=extLike&ref={url}&uid={index}',
+			counterUrl: 'https://share.yandex.net/counter/odnoklassniki/?url={url}',
 			counter: function(jsonUrl, deferred) {
 				var options = services.odnoklassniki;
-				if (!options._) {
-					options._ = [];
-					if (!window.ODKL) window.ODKL = {};
-					window.ODKL.updateCount = function(idx, number) {
-						options._[idx].resolve(number);
-					};
+				if (options._) {
+					// Reject all counters except the first because this counter doesn’t neither return URL nor accept callback
+					deferred.reject();
+					return;
 				}
 
-				var index = options._.length;
-				options._.push(deferred);
-				$.getScript(makeUrl(jsonUrl, {index: index}))
+				if (!window.ODKL) window.ODKL = {};
+				window.ODKL.updateCount = function(idx, number) {
+					deferred.resolve(number);
+				};
+
+				options._ = deferred;
+				$.getScript(makeUrl(jsonUrl))
 					.fail(deferred.reject);
 			},
 			popupUrl: 'http://connect.ok.ru/dk?st.cmd=WidgetSharePreview&service=odnoklassniki&st.shareUrl={url}',
@@ -40648,26 +40747,12 @@ return PhotoSwipeUI_Default;
 			popupHeight: 360
 		},
 		plusone: {
-			// HTTPS not supported yet: http://clubs.ya.ru/share/1499
-			counterUrl: isHttps ? undefined : 'http://share.yandex.ru/gpp.xml?url={url}',
-			counter: function(jsonUrl, deferred) {
-				var options = services.plusone;
-				if (options._) {
-					// Reject all counters except the first because Yandex Share counter doesn’t return URL
-					deferred.reject();
-					return;
+			counterUrl: 'https://share.yandex.net/counter/gpp/?url={url}&callback=?',
+			convertNumber: function(number) {
+				if (typeof number === 'string') {
+					number = number.replace(/\D/g, '');
 				}
-
-				if (!window.services) window.services = {};
-				window.services.gplus = {
-					cb: function(number) {
-						options._.resolve(number);
-					}
-				};
-
-				options._ = deferred;
-				$.getScript(makeUrl(jsonUrl))
-					.fail(deferred.reject);
+				return parseInt(number, 10);
 			},
 			popupUrl: 'https://plus.google.com/share?url={url}',
 			popupWidth: 700,
@@ -41031,9 +41116,6 @@ return PhotoSwipeUI_Default;
 		},
 
 		updateCounter: function(number) {
-			if (typeof number === 'string') {
-				number = number.replace(/\D/g, '');
-			}
 			number = parseInt(number, 10) || 0;
 
 			var params = {

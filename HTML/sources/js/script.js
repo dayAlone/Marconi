@@ -1,6 +1,6 @@
 (function() {
   var countUpOptions, end, filterRequest, filterTimer, galleryOptions, pointerEventsSupported, rangeTimer, spinOptions, timer, updateTimer,
-    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+    indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   this.delay = function(ms, func) {
     return setTimeout(func, ms);
@@ -45,7 +45,7 @@
     element = document.createElement('x');
     documentElement = document.documentElement;
     getComputedStyle = window.getComputedStyle;
-    if (!(__indexOf.call(element.style, 'pointerEvents') >= 0)) {
+    if (!(indexOf.call(element.style, 'pointerEvents') >= 0)) {
       return false;
     }
     element.style.pointerEvents = 'auto';
@@ -57,8 +57,8 @@
   })();
 
   this.remByVal = function(val, array) {
-    var i, _i, _ref;
-    for (i = _i = 0, _ref = array.length; 0 <= _ref ? _i < _ref : _i > _ref; i = 0 <= _ref ? ++_i : --_i) {
+    var i, j, ref;
+    for (i = j = 0, ref = array.length; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
       if (array[i] === val) {
         array.splice(i, 1);
         i--;
@@ -79,7 +79,7 @@
   };
 
   this.autoHeight = function(el, selector, height_selector, use_padding, debug) {
-    var count, heights, i, item, item_padding, items, loops, padding, step, x, _i, _ref, _results;
+    var count, heights, i, item, item_padding, items, j, loops, padding, ref, results1, step, x;
     if (selector == null) {
       selector = '';
     }
@@ -112,10 +112,10 @@
       if (debug) {
         console.log(count, step, item_padding, padding, el.width(), item.width());
       }
-      _results = [];
+      results1 = [];
       while (i < count) {
         items = {};
-        for (x = _i = 0, _ref = step - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; x = 0 <= _ref ? ++_i : --_i) {
+        for (x = j = 0, ref = step - 1; 0 <= ref ? j <= ref : j >= ref; x = 0 <= ref ? ++j : --j) {
           if (item[i + x]) {
             items[x] = item[i + x];
           }
@@ -138,9 +138,9 @@
             return $(this).height(Math.max.apply(Math, heights));
           }
         });
-        _results.push(i += step);
+        results1.push(i += step);
       }
-      return _results;
+      return results1;
     }
   };
 

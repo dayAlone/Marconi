@@ -76,13 +76,15 @@
 		border 2px solid black
 		color black
 		text-transform: uppercase
-		font-size 11px
+		font-size 9px
 		font-weight: bold
 		line-height 33px
 		padding 0 5px
 		position relative
 		text-align: center
 		width 100%
+		@media (min-width scr_lg)
+			font-size 11px
 		&:after
 			content ""
 			position absolute
@@ -146,6 +148,7 @@
 		color #171929
 		position relative
 		z-index 400
+		white-space no-wrap
 		.dropdown
 			position relative
 			z-index 10
@@ -273,15 +276,18 @@
 				top -7px
 	
 	&--full-width
+		@media (min-width scr_md)
+			.col-lg-3
+				width 25%
 		@media (min-width scr_lg)
 			.col-lg-3
 				width 20%
-				.product
-					.product__picture
-						transform scale(1)
-					&:hover
-						.product__picture
-							transform scale(1.03)
+		.product
+			.product__picture
+				transform scale(1)
+			&:hover
+				.product__picture
+					transform scale(1.03)
 	&--one-line
 		@media (min-width scr_md)
 			.col-lg-3:nth-child(n+5)

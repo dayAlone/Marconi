@@ -94,15 +94,15 @@
       </div>
     <?else:?>
       <div class="row">
-        <div class="col-xs-3 col-lg-2">
+        <div class="col-xs-3 col-md-2">
           <div class="contacts"><?=svg('phone')?>+7 495 972-32-65</a>
             <div class="contacts__text">Горячая линия</div>
           </div>
         </div>
-        <div class="col-xs-1 col-lg-2"><span class="logo__line logo__line--left"></span></div>
+        <div class="col-xs-1 col-md-2"><span class="logo__line logo__line--left"></span></div>
         <div class="col-xs-4 center"><a href="/" class="logo"><?=svg('logo')?></a></div>
-        <div class="col-xs-1 col-lg-2"><span class="logo__line logo__line--right"></span></div>
-        <div class="col-xs-3 col-lg-2">
+        <div class="col-xs-1 col-md-2"><span class="logo__line logo__line--right"></span></div>
+        <div class="col-xs-3 col-md-2">
           <div class="header__links">
             <?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line","",Array(
               "PATH_TO_BASKET"      => "/basket/",
