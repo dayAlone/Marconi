@@ -40,7 +40,7 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
         <a href="#" class="catalog__per-page <?=($arParams['PAGE_ELEMENT_COUNT']==$count?"catalog__per-page--active":"")?>"><?=$count?></a>
       <? endforeach; ?>
     </div>
-    <div class="col-xs-5 right">
+    <div class="col-xs-4 right">
       <?=$arResult["NAV_STRING"]?>
     </div>
   </div>
