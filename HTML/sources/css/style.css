@@ -6070,7 +6070,6 @@ svg g {
   position: absolute;
   bottom: 59px;
   left: 50%;
-  margin-left: -480px;
   background: #fff;
   border: 1px solid #000;
   z-index: 600;
@@ -6087,7 +6086,8 @@ svg g {
 }
 @media (min-width: 992px) {
   .stores__modal {
-    width: 960px;
+    width: 860px;
+    margin-left: -430px;
   }
 }
 @media (min-width: 1200px) {
