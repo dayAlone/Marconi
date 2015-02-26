@@ -1925,6 +1925,7 @@ svg g {
 .modal.overlay .modal-dialog .nav__item {
   font-size: 30px;
   width: 100%;
+  color: #fff;
   display: inline-block;
   text-transform: uppercase;
   font-weight: bold;
@@ -2181,6 +2182,9 @@ svg g {
 }
 .page__side-trigger .false {
   display: none;
+}
+.page__side-trigger--open + .filter__form {
+  display: block;
 }
 .page__side-trigger--open .true {
   display: none;

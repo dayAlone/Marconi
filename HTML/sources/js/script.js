@@ -1217,7 +1217,7 @@
             }
             $('.catalog__frame').html($(data).filter('article').find('.catalog__frame').html());
             initProducts();
-            $('.page__side').html($(data).filter('article').find('.page__side').html());
+            $('.filter__form').html($(data).filter('article').find('.filter__form').html());
             initFiltres();
             size();
             return $(window).scrollTop($(window).scrollTop() + 1);

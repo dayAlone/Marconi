@@ -148,12 +148,12 @@ svg
 					top 20px
 					svg path
 						fill white
-						
 				.nav
 					margin-top 40px
 					&__item
 						font-size 30px
 						width 100%
+						color white
 						display inline-block
 						text-transform: uppercase
 						font-weight: bold
@@ -309,6 +309,8 @@ svg
 			.false
 				display none
 			&--open
+				& + .filter__form
+					display block
 				.true
 					display none
 				.false
