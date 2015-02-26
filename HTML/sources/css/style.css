@@ -2813,8 +2813,10 @@ svg g {
   padding-right: 0;
   padding-left: 0;
 }
-.lookbook .page > .container > .row.enter .col-md-6 {
-  width: 50%;
+@media (min-width: 992px) {
+  .lookbook .page > .container > .row.enter .col-md-6 {
+    width: 50%;
+  }
 }
 .lookbook__promo {
   display: block;
