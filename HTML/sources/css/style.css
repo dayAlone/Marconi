@@ -4043,7 +4043,11 @@ svg g {
 }
 @media (min-width: 992px) {
   .filter__form {
-    display: block;
+    display: block !important;
+    opacity: 1 !important;
+    -ms-filter: none !important;
+    filter: none !important;
+    visibility: visible !important;
   }
 }
 .filter--loaded {
