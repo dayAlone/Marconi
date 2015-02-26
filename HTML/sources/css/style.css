@@ -6085,7 +6085,6 @@ svg g {
 @media (min-width: 768px) {
   .stores__modal {
     width: 86%;
-    left: 0;
   }
 }
 @media (min-width: 992px) {
