@@ -82,6 +82,11 @@
 		goToCity $(this).text(), $(this).data('code')
 		e.preventDefault()
 
+	$('.dropdown').elem('select').change (e)->
+		goToCity $(this).text(), $(this).val()
+		e.preventDefault()
+
+
 @initStores = ->
 	$('.stores').elem('content').spin spinOptions
 	$.getScript 'http://maps.googleapis.com/maps/api/js?sensor=true&callback=mapInit'

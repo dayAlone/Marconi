@@ -1829,11 +1829,6 @@ svg g {
   position: absolute;
   z-index: -1;
 }
-@media (min-width: 992px) {
-  .dropdown__select {
-    display: none;
-  }
-}
 .profile {
   max-width: 95%;
 }
@@ -4743,7 +4738,7 @@ svg g {
   text-align: center;
   margin-top: 20px;
 }
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .product .breadcrumbs {
     margin-top: 0;
   }
@@ -4761,7 +4756,11 @@ svg g {
 .product .picture {
   width: 100%;
   margin-bottom: 30px;
-  padding-right: 25px;
+}
+@media (min-width: 992px) {
+  .product .picture {
+    padding-right: 25px;
+  }
 }
 .product .picture__big {
   min-height: 427px;

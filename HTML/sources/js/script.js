@@ -1725,7 +1725,9 @@
         }
       });
     };
-    initZoom();
+    if (!$.browser.mobile) {
+      initZoom();
+    }
     initProducts();
     $('.tabs__trigger:first').addClass('tabs__trigger--active');
     $('.tabs__content:first').addClass('tabs__content--active');
@@ -1888,8 +1890,12 @@
       currentCity = $.parseJSON(window.currentCity);
       goToCity(currentCity.name, currentCity.code);
     }
-    return $('.dropdown').elem('item').click(function(e) {
+    $('.dropdown').elem('item').click(function(e) {
       goToCity($(this).text(), $(this).data('code'));
+      return e.preventDefault();
+    });
+    return $('.dropdown').elem('select').change(function(e) {
+      goToCity($(this).text(), $(this).val());
       return e.preventDefault();
     });
   };
