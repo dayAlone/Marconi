@@ -56,7 +56,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
         </div>
         <div class="col-sm-4 col-sm-offset-4 col-md-offset-0 col-md-2 col-md-push-8">
         <?else:?>
-        <div class="col-sm-4 col-sm-offset-4 col-md-offset-0 col-md-2 col-md-push-10">
+        <div class="col-sm-4 col-sm-offset-8 col-md-offset-0 col-md-2 col-md-push-10">
         <?endif;?>
         
           <div class="search">

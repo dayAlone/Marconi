@@ -1895,7 +1895,7 @@
       return e.preventDefault();
     });
     return $('.dropdown').elem('select').change(function(e) {
-      goToCity($(this).text(), $(this).val());
+      goToCity($(this).find('option:selected').text(), $(this).find('option:selected').val());
       return e.preventDefault();
     });
   };

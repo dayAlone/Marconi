@@ -6118,6 +6118,16 @@ svg g {
   border-top: 1px solid #e7e7e7;
   margin-top: 30px;
 }
+@media (min-width: 992px) {
+  .stores #map {
+    min-height: 550px;
+  }
+}
+@media (min-width: 1200px) {
+  .stores #map {
+    min-height: 700px;
+  }
+}
 .order {
   position: relative;
   width: 100%;

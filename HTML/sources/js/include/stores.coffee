@@ -83,7 +83,7 @@
 		e.preventDefault()
 
 	$('.dropdown').elem('select').change (e)->
-		goToCity $(this).text(), $(this).val()
+		goToCity $(this).find('option:selected').text(), $(this).find('option:selected').val()
 		e.preventDefault()
 
 
