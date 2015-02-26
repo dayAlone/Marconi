@@ -6070,6 +6070,11 @@ svg g {
   position: absolute;
   bottom: 59px;
   left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
   background: #fff;
   border: 1px solid #000;
   z-index: 600;
@@ -6080,20 +6085,17 @@ svg g {
 @media (min-width: 768px) {
   .stores__modal {
     width: 86%;
-    margin-left: 7%;
     left: 0;
   }
 }
 @media (min-width: 992px) {
   .stores__modal {
     width: 860px;
-    margin-left: -430px;
   }
 }
 @media (min-width: 1200px) {
   .stores__modal {
     width: 1170px;
-    margin-left: -585px;
   }
 }
 .stores__close {
