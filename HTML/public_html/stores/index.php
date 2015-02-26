@@ -9,7 +9,7 @@ if(!isset($_REQUEST['short'])):
 	<div class="page">
 	    <div class="container">
 	    	<div class="row">
-	    		<div class="col-xs-3">
+	    		<div class="col-md-3 col-sm-4">
 	    			 <?
 	    			 	$APPLICATION->IncludeComponent("bitrix:catalog.section.list", "cities", array(
 						    "IBLOCK_TYPE"  => "content",
@@ -24,15 +24,15 @@ if(!isset($_REQUEST['short'])):
 					);
 			        ?>
 	    		</div>
-	    		<div class="col-xs-9 right">
+	    		<div class="col-sm-8 col-md-9 right">
 	    			<span class="stores__title">
-	    				<img src="/layout/images/store-3.png" alt=""> <a href="#stores" data-toggle="modal" data-target="#stores" >Фирменные магазины с самовывозом</a>
+	    				<nobr><img src="/layout/images/store-3.png" alt=""> <a href="#stores" data-toggle="modal" data-target="#stores" >Фирменные магазины с самовывозом</a></nobr>
 	    			</span>
 	    			<span class="stores__title">
-	    				<img src="/layout/images/store-2.png" alt=""> фирменные магазины
+	    				<nobr><img src="/layout/images/store-2.png" alt=""> фирменные магазины</nobr>
 	    			</span>
 	    			<span class="stores__title">
-	    				<img src="/layout/images/store-1.png" alt=""> Места продаж
+	    				<nobr><img src="/layout/images/store-1.png" alt=""> Места продаж</nobr>
 	    			</span>
 	    		</div>
 	    	</div>

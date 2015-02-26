@@ -89,7 +89,7 @@ $this->EndViewTarget();
 	<div class="col-md-7 col-lg-6">
 	  <div class="picture">
 	    <div class="row">
-	      <div class="<?=(count($item['IMAGES'])>1?"col-xs-9 col-md-10 no-position":"col-xs-12")?>">
+	      <div class="<?=(count($item['IMAGES'])>1?"col-xs-10 col-md-10 no-position":"col-xs-12")?>">
 	      	<? if(count($item['IMAGES'])>0 || isset($item['PREVIEW_PICTURE']['SRC'])):
 	      		$array = array_values($item['IMAGES']);?>	
 	        	<div style="background-image:url(<?=(isset($array[0]['middle'])?$array[0]['middle']:(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg"))?>)" class="picture__big">
@@ -101,7 +101,7 @@ $this->EndViewTarget();
 	        <? endif;?>
 	      </div>
 	      <? if(count($item['IMAGES'])>1):?>
-	      <div class="col-xs-3 col-md-2">
+	      <div class="col-xs-2 col-md-2">
 	      <? 
 	      $i=0;
 	      foreach ($item['IMAGES'] as $key => $image): ?>
@@ -119,7 +119,7 @@ $this->EndViewTarget();
 	<div class="col-md-5 col-lg-6">
 	  <div class="product__description">
 	    <div class="row">
-	      <div class="col-lg-6">
+	      <div class="col-xs-6 col-md-12 col-lg-6">
 	        <h1 class="product__title"><?=$item['NAME']?></h1>
 	        <?
 	        	global $arFilter;
@@ -177,7 +177,7 @@ $this->EndViewTarget();
 				endif;
 	        ?>
 	      </div>
-	      <div class="col-lg-6">
+	      <div class="col-xs-6 col-md-12 col-lg-6">
 	        <div class="props">
 	        <? 
 	        $values = array(
@@ -435,10 +435,10 @@ $this->SetViewTarget('footer');
     	<a href="#" class="close" data-dismiss="modal" aria-label="Close"><?=svg('close')?></a>
     	<div class="modal-frame" data-title="где купить">
 	    	<div class="row available__row">
-	    		<div class="col-xs-3">
+	    		<div class="col-xs-4 col-md-3">
 	    			<div class="available__picture" style="background-image: url(<?=(isset($array[0]['middle'])?$array[0]['middle']:(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg"))?>)"></div>	
 	    		</div>
-	    		<div class="col-xs-9 no-position">
+	    		<div class="col-xs-8 col-md-9 no-position">
 	    			<div class="available__title">
 	    				<div class="available__product-name"><?=$item['NAME']?></div>
 	    				<div class="available__product-artnumber">Арт. <?=$props['ARTNUMBER']['VALUE']?></div>

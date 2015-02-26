@@ -8,9 +8,6 @@ body
 	&.index
 		overflow hidden
 
-.container
-	min-width 980px
-
 .textpage
 	&__content
 		padding-bottom 50px
@@ -22,7 +19,22 @@ body
 		a
 			color red
 			border-line alpha(@color, .5)
-				
+.order-history
+	margin-top 40px
+	@media (min-width scr_md)
+		margin-top 0
+.password-change
+	.page__title
+		margin-top 0
+		@media (min-width scr_md)
+			margin-top 40px
+
+input[type="text"], input[type="email"], input[type="password"], textarea
+	box-shadow none
+	border-radius 0
+	appearance none
+input[type="submit"]
+	border-radius 0
 svg
 	t fill
 	path, g
@@ -74,7 +86,15 @@ svg
 .dropdown
 	&__frame, &__select
 		display none
-
+	
+	&__select
+		display block
+		opacity 0
+		pointer-events none
+		position absolute
+		z-index -1
+		@media (min-width scr_md)
+			display none
 .profile
 	max-width 95%
 	label
@@ -113,6 +133,42 @@ svg
 .parsley-errors-list
 	display none
 .modal
+	&.overlay
+		.modal
+			&-backdrop
+				background black
+				opacity 1
+			&-dialog
+				padding 40px 0
+				max-width none
+				width 100%
+				margin 0
+				.close
+					right 20px
+					top 20px
+					svg path
+						fill white
+						
+				.nav
+					margin-top 40px
+					&__item
+						font-size 30px
+						width 100%
+						display inline-block
+						text-transform: uppercase
+						font-weight: bold
+						text-align: center
+						line-height 60px
+						padding-top 13px
+						background transparent
+						border-bottom 1px solid alpha(red, .6)
+						&--active
+							background red
+							color white
+						&:focus, &:hover
+							color red
+						&:first-of-type
+							border-top 1px solid alpha(red, .6)
 	a
 		color red
 		font-size 13px
@@ -231,12 +287,54 @@ svg
 
 .page
 	full-width()
+	&__side
+		margin-bottom 30px
+		&-trigger
+			margin-bottom 20px
+			width 100%
+			border 1px solid black
+			text-transform: uppercase
+			color black
+			font-weight: bold
+			display block
+			text-align: center
+			height 30px
+			line-height 33px
+			font-size 11px
+			letter-spacing 2px
+			transition-property color, border, opacity
+			transition-duration .3s
+			position relative
+			z-index 1
+			.false
+				display none
+			&--open
+				.true
+					display none
+				.false
+					display inline
+				svg
+					transform rotate(180deg)
+			svg
+				margin-right 3px
+				
+			&:hover
+				opacity 1
+				color red
+				border-color red
+				svg path
+					fill red
+		@media (min-width scr_md)
+			margin-bottom 0
 	&__title
 		font-weight: bold
-		font-size 30px
+		
 		border-line alpha(black, .2)
 		margin-bottom 15px
 		max-width 95%
+		font-size 27px
+		@media (min-width scr_md)
+			font-size 30px
 		&--full-width
 			max-width none
 		&--no-border
@@ -272,12 +370,27 @@ svg
 			&:hover
 				color black
 				border-line(alpha(@color, .4))
+	&__button
+		text-align: center
+		margin-top 20px
+		margin-bottom -30px
+		@media (min-width scr_md)
+			text-align: right
+			margin 0
 	#contactsMap
-		min-height 550px
+		min-height 450px
+		@media (min-width scr_md)
+			min-height 550px
 		full-width()
 		margin-top 40px
 		border-top 1px solid #e7e7e7
-
+	a[href="#feedback"]
+		max-width 200px
+		min-width 0
+		float: none
+		
+		@media (min-width scr_md)
+			max-width none
 .map-columns
 	width 100%
 	ul

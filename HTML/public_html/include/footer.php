@@ -175,6 +175,21 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/include/form.php');
     </div>
   </div>
 <?endif;?>
+<div id="Nav" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade overlay">
+  <div class="modal-dialog">
+    <a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
+    <?php
+        $APPLICATION->IncludeComponent("bitrix:menu", "toolbar", 
+        array(
+            "ALLOW_MULTI_SELECT" => "Y",
+            "MENU_CACHE_TYPE"    => "A",
+            "ROOT_MENU_TYPE"     => "toolbar",
+            "MAX_LEVEL"          => "1",
+            ),
+        false);
+    ?>
+  </div>
+</div>
 
 <!-- Yandex.Metrika counter --> 
 <script type="text/javascript"> 

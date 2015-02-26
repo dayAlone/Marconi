@@ -1,13 +1,15 @@
 <!DOCTYPE html><html lang='ru'>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=980"> <?/*device-width, user-scalable=no, initial-scale=1, maximum-scale=1">*/?>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <?
   $APPLICATION->SetAdditionalCSS("/layout/css/frontend.css", true);
   $APPLICATION->AddHeadScript('/layout/js/frontend.js');
+  $APPLICATION->AddHeadScript('http://127.0.0.1:35729/livereload.js?ext=Safari&extver=2.0.9');
+  
   ?>
   <title><?php 
     $rsSites = CSite::GetByID(SITE_ID);
@@ -28,7 +30,7 @@
 <div class="wrap">
   <div id="panel"><?$APPLICATION->ShowPanel();?></div>
   <div class="toolbar">
-    <div class="container">
+    <div class="container toolbar__desktop">
       <div class="row">
         <div class="col-lg-2 visible-lg">
           <?php
@@ -79,9 +81,39 @@
               </div>
             </div>
             <?$frame->end();?>
-            
         </div>
       </div>
+    </div>
+    <div class="container toolbar__tablet">
+        <div class="col-xs-8">
+          <a href="#Nav" data-toggle="modal" data-target="#Nav" class="toolbar__nav-trigger"><?=svg('nav')?> Меню</a>
+        </div>
+        <div class="col-xs-4 right">
+          <?
+            $frame = new \Bitrix\Main\Page\FrameHelper("login-tablet");
+            $frame->begin();?>
+            <div class="auth <?=($GLOBALS['USER']->IsAuthorized()?"auth--active":"")?>">
+              <div class="auth__login">
+                <a class="auth__item" href="#login" data-toggle="modal" data-target="#login">Авторизация</a>
+                <span class="auth__divider">|</span>
+                <a class="auth__item" href="#register" data-toggle="modal" data-target="#register">Регистрация</a>
+              </div>
+              <div class="auth__profile">
+                <a class="auth__item" href="/profile/">Личный кабинет</a>
+                <span class="auth__divider">|</span>
+                <a class="auth__item" href="/?logout=yes">Выход</a>
+              </div>
+            </div>
+            <?$frame->beginStub();?>
+            <div class="auth">
+              <div class="auth__login">
+                <a class="auth__item" href="#login" data-toggle="modal" data-target="#login">Авторизация</a>
+                <span class="auth__divider">|</span>
+                <a class="auth__item" href="#register" data-toggle="modal" data-target="#register">Регистрация</a>
+              </div>
+            </div>
+            <?$frame->end();?>
+        </div>
     </div>
   </div>
   <header class="header">

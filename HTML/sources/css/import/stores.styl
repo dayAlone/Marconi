@@ -1,9 +1,16 @@
 .stores
 	&__title
-		line-height 37px
 		text-transform: uppercase
 		font-weight: bold
-		margin-left 45px
+		font-size 13px
+		line-height 25px
+		margin-left 25px
+		@media (min-width scr_md)
+			line-height 37px
+			font-size 14px
+			margin-left 45px
+		&:first-of-type
+			margin-left 0
 		a
 			color black
 			border-line(alpha(@color, .2))
@@ -21,6 +28,9 @@
 		z-index 1000
 		max-width none
 		text-transform: uppercase
+		margin-top 5px
+		@media (min-width scr_md)
+			margin-top 0
 		&__frame
 			max-height 320px
 			overflow scroll
@@ -43,10 +53,15 @@
 		width 100%
 		margin-bottom 40px
 	&__address
-		font-size 28px
+		
 		text-transform: uppercase
 		font-weight: bold
-		line-height 30px
+		
+		font-size 23px
+		line-height 26px
+		@media (min-width scr_md)
+			font-size 28px
+			line-height 30px
 	&__description, &__metro
 		text-transform: uppercase
 		margin-top 35px
@@ -66,9 +81,15 @@
 		background white
 		border 1px solid black
 		z-index 600
-		width 960px
+		
 		img
 			max-width 100%
+		@media (min-width scr_sm)
+			width 86%
+			margin-left 7%
+			left 0
+		@media (min-width scr_md)
+			width 960px
 		@media (min-width: scr_lg)
 			width 1170px
 			margin-left -585px

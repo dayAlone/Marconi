@@ -27,6 +27,7 @@
 		height 100%
 		background white
 		min-height 700px
+		background #eee
 		.fotorama__stage
 			min-height 700px
 		&-item
@@ -35,7 +36,9 @@
 			background-size cover
 			background-position center center
 			&-content
-				width 850px
+				width 600px
+				@media (min-width scr_md)
+					width 850px
 				background alpha(black, .75)
 				box-sizing border-box !important
 				min-height 100px

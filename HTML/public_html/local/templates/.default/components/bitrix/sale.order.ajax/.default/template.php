@@ -25,7 +25,25 @@ if (!function_exists("cmpBySort"))
 				echo ShowError($v);
 	?>
 	<div class="row">
-		<div class="col-xs-4">
+		<div class="col-md-4 order__profile col-md-push-4">
+			<div class="basket__block basket__block--profile">
+				<div class="basket__block-title">контактная информация</div>
+				<div class="row">
+				<? foreach ($arResult['ORDER_PROP']['USER_PROPS_Y'] as $prop):?>
+					<div class="col-xs-<?=($prop['SIZE1']==6?"6":"12")?>">
+						<input type="<?=($prop['FIELD_NAME']=="ORDER_PROP_4"?"email":"text")?>" value="<?=$prop["VALUE"]?>" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=="Y"?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
+					</div>
+				<? endforeach ?>
+				</div>
+				<textarea name="ORDER_DESCRIPTION" id="ORDER_DESCRIPTION" style="max-width:100%;min-height:120px" placeholder="комментарий к заказу"><?=$arResult["USER_VALS"]["ORDER_DESCRIPTION"]?></textarea>
+				<? global $USER;
+					if(!$USER->getID()):
+				?>
+				<input type="checkbox" name="register_user" id="register_user" value="Y" checked="checked"> <label for="register_user">Зарегистрироваться на сайте</label>
+			<? endif;?>
+			</div>
+		</div>
+		<div class="col-sm-6 order__delivery col-md-4 col-md-pull-4">
 			<div class="basket__block">
 				<div class="basket__block-title">доставка</div>
 				<div class="delivery">
@@ -146,25 +164,8 @@ if (!function_exists("cmpBySort"))
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-4">
-			<div class="basket__block basket__block--profile">
-				<div class="basket__block-title">контактная информация</div>
-				<div class="row">
-				<? foreach ($arResult['ORDER_PROP']['USER_PROPS_Y'] as $prop):?>
-					<div class="col-xs-<?=($prop['SIZE1']==6?"6":"12")?>">
-						<input type="<?=($prop['FIELD_NAME']=="ORDER_PROP_4"?"email":"text")?>" value="<?=$prop["VALUE"]?>" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=="Y"?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
-					</div>
-				<? endforeach ?>
-				</div>
-				<textarea name="ORDER_DESCRIPTION" id="ORDER_DESCRIPTION" style="max-width:100%;min-height:120px" placeholder="комментарий к заказу"><?=$arResult["USER_VALS"]["ORDER_DESCRIPTION"]?></textarea>
-				<? global $USER;
-					if(!$USER->getID()):
-				?>
-				<input type="checkbox" name="register_user" id="register_user" value="Y" checked="checked"> <label for="register_user">Зарегистрироваться на сайте</label>
-			<? endif;?>
-			</div>
-		</div>
-		<div class="col-xs-4 no-position">
+		
+		<div class="col-sm-6  order__total col-md-4 no-position">
 			<div class="basket__block">
 				<div class="basket__block-title">способы оплаты</div>
 				<div class="payment">
@@ -189,19 +190,19 @@ if (!function_exists("cmpBySort"))
 					<div class="total__item <?=(intval($arResult['DELIVERY_PRICE'])>0?"":"hidden")?>">
 						<div class="row">
 							<div class="col-xs-7">ВАШ ЗАКАЗ НА СУММУ</div>
-							<div class="col-xs-5 right total__counter"><span id="price-1"><?=number_format($arResult['ORDER_PRICE'], 0, " ", " ")?></span> ₷</div>
+							<div class="col-xs-5 right total__counter"><nobr><span id="price-1"><?=number_format($arResult['ORDER_PRICE'], 0, " ", " ")?></span> ₷</nobr></div>
 						</div>
 					</div>
 					<div class="total__item <?=(intval($arResult['DELIVERY_PRICE'])>0?"":"hidden")?>">
 						<div class="row">
 							<div class="col-xs-7">ДОСТАВКА</div>
-							<div class="col-xs-5 right total__counter"><span id="price-2"><?=number_format($arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> ₷</div>
+							<div class="col-xs-5 right total__counter"><nobr><span id="price-2"><?=number_format($arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> ₷</nobr></div>
 						</div>
 					</div>
 					<div class="total__item total__item--big">
 						<div class="row">
 							<div class="col-xs-7">к оплате</div>
-							<div class="col-xs-5 right total__counter"><span id="price-3"><?=number_format($arResult['ORDER_PRICE']+$arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> ₷</div>
+							<div class="col-xs-5 right total__counter"><nobr><span id="price-3"><?=number_format($arResult['ORDER_PRICE']+$arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> ₷</nobr></div>
 						</div>
 					</div>
 				</div>

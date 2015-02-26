@@ -72,12 +72,19 @@
 						'background-image' : el.find('.lookbook__picture').css 'background-image'
 
 			)
+			.on('fotorama:show', (e, fotorama, extra)->
+				slider = $(fotorama.data[fotorama.activeIndex].html).find('.catalog')
+				if slider.data 'slick'
+					slider.slick('unslick');
+			)
 			.on('fotorama:showend', (e, fotorama, extra)->
 				delay 100, ->
 					slider = $(fotorama.data[fotorama.activeIndex].html).find('.catalog')
+					
 					if slider
 						slider
 						.on('init', (event, slick, direction)->
+							slider.data 'slick', true
 							initProducts(false)
 						).slick
 							infinite       : false
@@ -86,7 +93,17 @@
 							slidesToScroll : 1
 							nextArrow      : "<button type=\"button\" class=\"slick-next\">#{next}</button>"
 							prevArrow      : "<button type=\"button\" class=\"slick-prev\">#{prev}</button>"
-								
+							responsive: [{
+								breakpoint: 992,
+								settings: {
+									slidesToShow: 3
+								}
+							},{
+								breakpoint: 768,
+								settings: {
+									slidesToShow: 3
+								}
+							}]
 					size()
 					fotorama.resize
 						height : $(fotorama.activeFrame.html).outerHeight()

@@ -8,71 +8,75 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 ?>
 
-<div class="bx-auth-profile">
-<div class="page__title">Профиль</div>
-<?ShowError($arResult["strProfileError"]);?>
+<div class="bx-auth-profile row">
+	<div class="col-sm-6 col-md-12">
+		<div class="page__title">Профиль</div>
+		<?ShowError($arResult["strProfileError"]);?>
 
-<?
-if ($arResult['DATA_SAVED'] == 'Y' && !isset($_REQUEST['NEW_PASSWORD']))
-	ShowNote(GetMessage('PROFILE_DATA_SAVED'));
-?>
-<form data-parsley-validate method="post" name="form1" class="profile" action="<?=$arResult["FORM_TARGET"]?>" enctype="multipart/form-data">
+		<?
+		if ($arResult['DATA_SAVED'] == 'Y' && !isset($_REQUEST['NEW_PASSWORD']))
+			ShowNote(GetMessage('PROFILE_DATA_SAVED'));
+		?>
+		<form data-parsley-validate method="post" name="form1" class="profile" action="<?=$arResult["FORM_TARGET"]?>" enctype="multipart/form-data">
 
-<?=$arResult["BX_SESSION_CHECK"]?>
-<input type="hidden" name="lang" value="<?=LANG?>" />
-<input type="hidden" name="ID" value=<?=$arResult["ID"]?> />
-<input type="hidden" name="EMAIL" maxlength="50" value="<?=$arResult["arUser"]["EMAIL"]?>" />
-<? foreach (array("NAME", "LAST_NAME", "LOGIN", "PERSONAL_PHONE") as $item):?>
-	<div class="row">
-		<div class="col-sm-4"><label for="#<?=$item?>"><?=GetMessage($item)?></label></div>
-		<div class="col-sm-8">
-			<input type="text" <?=(in_array($item, array("NAME", "LOGIN"))?"required":"")?>  id="<?=$item?>" name="<?=$item?>" maxlength="50" value="<?=$arResult["arUser"][$item]?>" />
+		<?=$arResult["BX_SESSION_CHECK"]?>
+		<input type="hidden" name="lang" value="<?=LANG?>" />
+		<input type="hidden" name="ID" value=<?=$arResult["ID"]?> />
+		<input type="hidden" name="EMAIL" maxlength="50" value="<?=$arResult["arUser"]["EMAIL"]?>" />
+		<? foreach (array("NAME", "LAST_NAME", "LOGIN", "PERSONAL_PHONE") as $item):?>
+			<div class="row">
+				<div class="col-sm-4"><label for="#<?=$item?>"><?=GetMessage($item)?></label></div>
+				<div class="col-sm-8">
+					<input type="text" <?=(in_array($item, array("NAME", "LOGIN"))?"required":"")?>  id="<?=$item?>" name="<?=$item?>" maxlength="50" value="<?=$arResult["arUser"][$item]?>" />
+				</div>
+			</div>
+		<? endforeach;
+		?>
+		<? foreach (array("UF_SMS") as $item):?>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-4">
+				<?if($arResult['USER_PROPERTIES']['DATA'][$item]['SETTINGS']['CHECKBOX'] == ""):?>
+					<input type="hidden" name="<?=$item?>" value="0"/>
+					<nobr><input type="checkbox" id="<?=$item?>-1" name="<?=$item?>" maxlength="50" value="1" <?=($arResult["arUser"][$item]==1?"checked":"")?>/>
+					<label for="<?=$item?>-1"><?=$arResult['USER_PROPERTIES']['DATA'][$item]['EDIT_FORM_LABEL']?></label></nobr>
+				<?endif;?>
+				</div>
+			</div>
+		<? endforeach;?>
+		<div class="row">
+			<div class="col-md-offset-4 col-md-8">
+				<input type="submit" name="save" class="product__big-button product__big-button--border" value="Сохранить">
+			</div>
 		</div>
+		</form>
 	</div>
-<? endforeach;
-?>
-<? foreach (array("UF_SMS") as $item):?>
-	<div class="row">
-		<div class="col-sm-8 col-sm-offset-4">
-		<?if($arResult['USER_PROPERTIES']['DATA'][$item]['SETTINGS']['CHECKBOX'] == ""):?>
-			<input type="hidden" name="<?=$item?>" value="0"/>
-			<nobr><input type="checkbox" id="<?=$item?>-1" name="<?=$item?>" maxlength="50" value="1" <?=($arResult["arUser"][$item]==1?"checked":"")?>/>
-			<label for="<?=$item?>-1"><?=$arResult['USER_PROPERTIES']['DATA'][$item]['EDIT_FORM_LABEL']?></label></nobr>
-		<?endif;?>
-		</div>
+	<div class="col-sm-6 col-md-12 password-change">
+		<div class="page__title page__title--full-width"><small>Изменение пароля</small></div>
+		<?
+		if ($arResult['DATA_SAVED'] == 'Y' && isset($_REQUEST['NEW_PASSWORD']))
+			ShowNote(GetMessage('PROFILE_DATA_SAVED'));
+		?>
+		<form data-parsley-validate method="post" name="form1" class="profile" action="<?=$arResult["FORM_TARGET"]?>" enctype="multipart/form-data">
+			<?=$arResult["BX_SESSION_CHECK"]?>
+			<input type="hidden" name="lang" value="<?=LANG?>" />
+			<input type="hidden" name="ID" value=<?=$arResult["ID"]?> />
+			<input type="hidden" name="EMAIL" maxlength="50" value="<?=$arResult["arUser"]["EMAIL"]?>" />
+			<input type="hidden" name="LOGIN" maxlength="50" value="<?=$arResult["arUser"]["LOGIN"]?>" />
+			<? foreach (array("NEW_PASSWORD", "NEW_PASSWORD_CONFIRM") as $item):?>
+				<div class="row">
+					<div class="col-md-4"><label for="#<?=$item?>"><?=GetMessage($item)?></label></div>
+					<div class="col-md-8">
+						<input type="password" data-parsley-mincheck="6" required <?=($item=="NEW_PASSWORD_CONFIRM"?'data-parsley-equalto="#password"':"id='password'")?>  id="<?=$item?>" name="<?=$item?>" maxlength="50" value="<?=$arResult["arUser"][$item]?>" />
+					</div>
+				</div>
+			<? endforeach;?>
+			<div class="row xxl-margin-bottom">
+				<div class="col-md-offset-4 col-md-8">
+					<input type="submit" name="save" class="xxl-margin-bottom product__big-button product__big-button--border" value="Изменить пароль">
+				</div>
+			</div>
+		</form>
 	</div>
-<? endforeach;?>
-<div class="row">
-	<div class="col-sm-offset-4 col-sm-8">
-		<input type="submit" name="save" class="product__big-button product__big-button--border" value="Сохранить">
-	</div>
-</div>
-</form>
-<div class="page__title xxl-margin-top xs-padding-top page__title--full-width"><small>Изменение пароля</small></div>
-<?
-if ($arResult['DATA_SAVED'] == 'Y' && isset($_REQUEST['NEW_PASSWORD']))
-	ShowNote(GetMessage('PROFILE_DATA_SAVED'));
-?>
-<form data-parsley-validate method="post" name="form1" class="profile" action="<?=$arResult["FORM_TARGET"]?>" enctype="multipart/form-data">
-<?=$arResult["BX_SESSION_CHECK"]?>
-<input type="hidden" name="lang" value="<?=LANG?>" />
-<input type="hidden" name="ID" value=<?=$arResult["ID"]?> />
-<input type="hidden" name="EMAIL" maxlength="50" value="<?=$arResult["arUser"]["EMAIL"]?>" />
-<input type="hidden" name="LOGIN" maxlength="50" value="<?=$arResult["arUser"]["LOGIN"]?>" />
-<? foreach (array("NEW_PASSWORD", "NEW_PASSWORD_CONFIRM") as $item):?>
-	<div class="row">
-		<div class="col-sm-4"><label for="#<?=$item?>"><?=GetMessage($item)?></label></div>
-		<div class="col-sm-8">
-			<input type="password" data-parsley-mincheck="6" required <?=($item=="NEW_PASSWORD_CONFIRM"?'data-parsley-equalto="#password"':"id='password'")?>  id="<?=$item?>" name="<?=$item?>" maxlength="50" value="<?=$arResult["arUser"][$item]?>" />
-		</div>
-	</div>
-<? endforeach;?>
-<div class="row xxl-margin-bottom">
-	<div class="col-sm-offset-4 col-sm-8">
-		<input type="submit" name="save" class="xxl-margin-bottom product__big-button product__big-button--border" value="Изменить пароль">
-	</div>
-</div>
-</form>
 </div>
 <?
 /*

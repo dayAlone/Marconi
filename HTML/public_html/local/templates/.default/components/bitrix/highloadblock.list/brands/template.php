@@ -14,7 +14,6 @@
 				endif;
 			endforeach;
 		endif;
-
 		?>
 		<div class="brand-select">
 			<div class="dropdown">
@@ -44,10 +43,10 @@
 					</ul>
 				</span>
 				<select class="dropdown__select">
-	                <option value="">Все бренды</option>
+	                <option value="0" data-id="">Все бренды</option>
 	                <?
 					foreach ($arResult['rows'] as $item):
-						?><option value="<?=$item['UF_XML_ID']?>"><?=$item['UF_NAME']?></option><?
+						?><option value="<?=$item['UF_XML_ID']?>" data-id="<?=$item['UF_XML_ID']?>" <?=($current == $item['UF_NAME']?'selected':'')?>><?=$item['UF_NAME']?></option><?
 					endforeach;
 					?>
 	              </select>

@@ -12,9 +12,15 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" data-url="<?=$APPLICATION->GetCurDir()?>">
+<a href="#" class="page__side-trigger visible-xs-block visible-sm-block">
+	<span class="true">Показать фильтр</span>
+	<span class="false">Скрыть фильтр</span>
+	<?=svg('arrow')?>
+</a>
+<form class="filter__form" name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" data-url="<?=$APPLICATION->GetCurDir()?>">
+
 	<?if($arResult['CHECKED']=="Y"):?>
-	<a href="<?=$APPLICATION->GetCurDir()?>?del_filter=Y" class="catalog__clear">Сбросить фильтр</a>
+	<a href="<?=$APPLICATION->GetCurDir()?>?del_filter=Y" class="catalog__clear visible-md-block visible-lg-block">Сбросить фильтр</a>
 	<?endif;?>
 	<?foreach($arResult["HIDDEN"] as $arItem):
 		if(!in_array($arItem["CONTROL_NAME"], array('range', 'SHOWALL_1', 'short', 'sort_param', 'sort_value', 'PAGEN_1')) && strlen($arItem["HTML_VALUE"])>0):?>
@@ -27,79 +33,91 @@ $this->setFrameMode(true);
 	<?
 		endif;
 	endforeach;?>
-
-	<?foreach($arResult["ITEMS"] as $arItem):?>
-	<?if(!empty($arItem["VALUES"])):?>
-		<div class="filter <?=(!isset($_COOKIE[$arItem['CODE']]) || $_COOKIE[$arItem['CODE']] == 'Y' ? "filter--open" :"")?>" data-code="<?=$arItem['CODE']?>">
-			<div class="filter__title <?=(preg_match("/SECTION_(.*)/", $arItem['CODE'])?"filter__title--big":"")?>"><?=($arItem["PROPERTY_TYPE"] == "N" || isset($arItem["PRICE"])?"Цена":$arItem['NAME'])?> <?=svg('arrow')?></div>
-				<div class="filter__content">
-				<?if($arItem["PROPERTY_TYPE"] == "N" || isset($arItem["PRICE"])):?>
-					<div class="row">
-	                  <div class="col-xs-6">
-	                    <input
-							class="min-price range range__from"
-							type="text"
-							name="<?echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"
-							id="<?echo $arItem["VALUES"]["MIN"]["CONTROL_ID"]?>"
-							value="<?=$arItem["VALUES"]["MIN"]["VALUE"]?>"
-							size="5"
-							onkeyup="smartFilter.keyup(this)"
-						/>
-	                  </div>
-	                  <div class="col-xs-6 right">
-	                    <input
-							class="max-price range range__to"
-							type="text"
-							name="<?echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"
-							id="<?echo $arItem["VALUES"]["MAX"]["CONTROL_ID"]?>"
-							value="<?=$arItem["VALUES"]["MAX"]["VALUE"]?>"
-							size="5"
-							onkeyup="smartFilter.keyup(this)"
-						/>
-	                  </div>
-	                </div>
-	                <input type="text" name="range" data-min="<?=$arItem["VALUES"]["MIN"]["VALUE"]?>" data-max="<?=$arItem["VALUES"]["MAX"]["VALUE"]?>" data-from="<?=($arItem["VALUES"]["MIN"]["HTML_VALUE"]?$arItem["VALUES"]["MIN"]["HTML_VALUE"]:$arItem["VALUES"]["MIN"]["VALUE"])?>" data-to="<?=($arItem["VALUES"]["MAX"]["HTML_VALUE"]?$arItem["VALUES"]["MAX"]["HTML_VALUE"]:$arItem["VALUES"]["MAX"]["VALUE"])?>">
-				<?else:?>
-					<?foreach($arItem["VALUES"] as $val => $ar):
-					#var_dump();
-					?>
-					<?/*$ar["DISABLED"]? ' lvl2_disabled': ''*/?>
-					<?if($arItem['CODE']=='COLOR'):
-						?>
-						<input
-							type="checkbox"
-							value="<?echo $ar["HTML_VALUE"]?>"
-							name="<?echo $ar["CONTROL_NAME"]?>"
-							id="<?echo $ar["CONTROL_ID"]?>"
-							<?echo $ar["CHECKED"]? 'checked="checked"': ''?>
-							onclick="smartFilter.click(this)"
-							style="color: <?=$arResult['COLORS'][$ar['VALUE']]?>"
-							data-color="<?=$arResult['COLORS'][$ar['VALUE']]?>"
-							title="<?=$ar['VALUE']?>"
-							class="color"
-							<?=($ar["DISABLED"]&&!preg_match("/SECTION_(.*)/", $arItem['CODE'])&&!$ar['CHECKED']?"disabled":"")?>
-						/>
-					<?else:
-						?>
-						<div class="filter__param">
-							<input
-								type="checkbox"
-								value="<?echo $ar["HTML_VALUE"]?>"
-								name="<?echo $ar["CONTROL_NAME"]?>"
-								id="<?echo $ar["CONTROL_ID"]?>"
-								<?echo $ar["CHECKED"]? 'checked="checked"': ''?>
-								onclick="smartFilter.click(this)"
-								<?=($ar["DISABLED"]&&!preg_match("/SECTION_(.*)/", $arItem['CODE'])&&!$ar['CHECKED']?"disabled":"")?>
-							/>
-							<label for="<?echo $ar["CONTROL_ID"]?>"><?echo $ar["VALUE"];?></label>
+		<div class="row">
+		<?
+		$i = 0;
+		foreach($arResult["ITEMS"] as $key => $arItem):?>
+			<?if(!empty($arItem["VALUES"])):?>
+				<?
+				if($i%2==0):?>
+					<?if($i!=0):?></div><?endif?>
+					<div class="col-sm-4 col-md-12">
+				<?endif;
+				$i++;
+				?>
+				<div class="filter <?=(!isset($_COOKIE[$arItem['CODE']]) || $_COOKIE[$arItem['CODE']] == 'Y' ? "filter--open" :"")?> <?=($arItem['OPEN']=='Y'?"active":"")?>" data-code="<?=$arItem['CODE']?>">
+					<div class="filter__title <?=(preg_match("/SECTION_(.*)/", $arItem['CODE'])?"filter__title--big":"")?>"><?=($arItem["PROPERTY_TYPE"] == "N" || isset($arItem["PRICE"])?"Цена":$arItem['NAME'])?> <?=svg('arrow')?></div>
+						<div class="filter__content">
+						<?if($arItem["PROPERTY_TYPE"] == "N" || isset($arItem["PRICE"])):?>
+							<div class="row">
+			                  <div class="col-xs-6">
+			                    <input
+									class="min-price range range__from"
+									type="text"
+									name="<?echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"
+									id="<?echo $arItem["VALUES"]["MIN"]["CONTROL_ID"]?>"
+									value="<?=$arItem["VALUES"]["MIN"]["VALUE"]?>"
+									size="5"
+									onkeyup="smartFilter.keyup(this)"
+								/>
+			                  </div>
+			                  <div class="col-xs-6 right">
+			                    <input
+									class="max-price range range__to"
+									type="text"
+									name="<?echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"
+									id="<?echo $arItem["VALUES"]["MAX"]["CONTROL_ID"]?>"
+									value="<?=$arItem["VALUES"]["MAX"]["VALUE"]?>"
+									size="5"
+									onkeyup="smartFilter.keyup(this)"
+								/>
+			                  </div>
+			                </div>
+			                <input type="text" name="range" data-min="<?=$arItem["VALUES"]["MIN"]["VALUE"]?>" data-max="<?=$arItem["VALUES"]["MAX"]["VALUE"]?>" data-from="<?=($arItem["VALUES"]["MIN"]["HTML_VALUE"]?$arItem["VALUES"]["MIN"]["HTML_VALUE"]:$arItem["VALUES"]["MIN"]["VALUE"])?>" data-to="<?=($arItem["VALUES"]["MAX"]["HTML_VALUE"]?$arItem["VALUES"]["MAX"]["HTML_VALUE"]:$arItem["VALUES"]["MAX"]["VALUE"])?>">
+						<?else:?>
+							<?foreach($arItem["VALUES"] as $val => $ar):?>
+							<?/*$ar["DISABLED"]? ' lvl2_disabled': ''*/?>
+							<?if($arItem['CODE']=='COLOR'):
+								?>
+								<input
+									type="checkbox"
+									value="<?echo $ar["HTML_VALUE"]?>"
+									name="<?echo $ar["CONTROL_NAME"]?>"
+									id="<?echo $ar["CONTROL_ID"]?>"
+									<?echo $ar["CHECKED"]? 'checked="checked"': ''?>
+									onclick="smartFilter.click(this)"
+									style="color: <?=$arResult['COLORS'][$ar['VALUE']]?>"
+									data-color="<?=$arResult['COLORS'][$ar['VALUE']]?>"
+									title="<?=$ar['VALUE']?>"
+									class="color"
+									<?=($ar["DISABLED"]&&!preg_match("/SECTION_(.*)/", $arItem['CODE'])&&!$ar['CHECKED']?"disabled":"")?>
+								/>
+							<?else:
+								?>
+								<div class="filter__param">
+									<input
+										type="checkbox"
+										value="<?echo $ar["HTML_VALUE"]?>"
+										name="<?echo $ar["CONTROL_NAME"]?>"
+										id="<?echo $ar["CONTROL_ID"]?>"
+										<?echo $ar["CHECKED"]? 'checked="checked"': ''?>
+										onclick="smartFilter.click(this)"
+										<?=($ar["DISABLED"]&&!preg_match("/SECTION_(.*)/", $arItem['CODE'])&&!$ar['CHECKED']?"disabled":"")?>
+									/>
+									<label for="<?echo $ar["CONTROL_ID"]?>"><?echo $ar["VALUE"];?></label>
+								</div>
+							<?endif;?>
+							<?endforeach;?>
+						<?endif;?>
 						</div>
-					<?endif;?>
-					<?endforeach;?>
-				<?endif;?>
 				</div>
+				<?endif;?>
+		<?endforeach;?>
 		</div>
-		<?endif;?>
-	<?endforeach;?>
+	</div>
+	<?if($arResult['CHECKED']=="Y"):?>	
+	<a href="<?=$APPLICATION->GetCurDir()?>?del_filter=Y" class="catalog__clear visible-sm-block visible-xs-block">Сбросить фильтр</a>
+	<?endif;?>
 	<div class="catalog__counter">
 		Найдено: <strong class="catalog__counter-value">0</strong>. <a href="<?echo $arResult["FILTER_URL"]?>"><?echo GetMessage("CT_BCSF_FILTER_SHOW")?></a>
 	</div>

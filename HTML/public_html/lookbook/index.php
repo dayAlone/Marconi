@@ -10,12 +10,12 @@ $APPLICATION->SetTitle('Lookbook');
         <?
         	if(!isset($_REQUEST['ELEMENT_CODE'])):
 	        	$APPLICATION->IncludeComponent("bitrix:catalog.section.list", "lookbook", array(
-				    "IBLOCK_TYPE"  => "content",
-				    "IBLOCK_ID"    => 5,
-				    "TOP_DEPTH"    => "2",
-				    "CACHE_TYPE"   => "A",
-				    "CACHE_TIME"   => "36000",
-				    "SECTION_USER_FIELDS" => array('UF_SIZE'),
+					"IBLOCK_TYPE"         => "content",
+					"IBLOCK_ID"           => 5,
+					"TOP_DEPTH"           => "2",
+					"CACHE_TYPE"          => "A",
+					"CACHE_TIME"          => "36000",
+					"SECTION_USER_FIELDS" => array('UF_SIZE'),
 				),
 				false
 				);

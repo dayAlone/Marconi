@@ -24,8 +24,11 @@
 			position absolute
 			bottom 0
 			right 0
-			width: 33.33333333%;
 			padding 0 10px
+			@media (min-width: scr_sm)
+				width 50%
+			@media (min-width: scr_md)
+				width: 33.33333333%;
 		text-transform: uppercase
 		margin-top 20px
 		&__item
@@ -96,12 +99,15 @@
 		position absolute
 		right 15px
 		top 50%
-		margin-top -13px
+		
 		width 20px
 		height 20px
 		line-height 20px
 		opacity .3
 		t opacity
+		margin-top -15px
+		@media (min-width: scr_md)
+			margin-top -13px
 		&:hover
 			opacity 1
 		svg
@@ -116,19 +122,21 @@
 		margin-bottom 40px
 		&--no-sale
 			.basket__title, .basket__item, .basket__footer
-				.col-xs-4
-					width 34%
+				@media (min-width: scr_md)
+					.col-md-4
+						width 34%
 	&__title, &__item, &__footer
-		.col-xs-offset-7
-			margin-left: 55.3333333340%
-		.col-xs-4
-			width 30%
-		.col-xs-3
-			width 20%
-		.col-xs-2
-			width 13%
-		.col-xs-1
-			width 12.333333333%
+		@media (min-width: scr_md)
+			.col-md-offset-7
+				margin-left: 55.3333333340%
+			.col-md-4
+				width 30%
+			.col-md-3
+				width 20%
+			.col-md-2
+				width 13%
+			.col-md-1
+				width 12.333333333%
 	&__footer
 		text-transform: uppercase
 		border-top 1px solid black
@@ -150,6 +158,9 @@
 		position relative
 		overflow hidden
 		t max-height
+		@media (min-width: scr_sm)
+			line-height: 70px
+			max-height @line-height
 		@media (min-width: scr_md)
 			line-height: 110px
 			max-height @line-height
@@ -159,6 +170,10 @@
 		[class*='col-'] > *
 			display inline-block
 			vertical-align middle
+		.rubl
+			margin-right 20px
+			@media (min-width: scr_md)
+				margin-right 0
 	&__total, &__sale-total
 		font-size 15px
 		display inline-block
@@ -177,8 +192,10 @@
 		line-height 31px
 		text-align: center
 		position relative
-		top -2px
 		border 1px solid #b7c0c8
+		appearance none
+		border-radius 0
+		top -2px
 	&__name
 		line-height 20px
 		text-transform: uppercase
@@ -214,11 +231,13 @@
 			text-transform: uppercase
 			font-weight: bold
 			padding 0 20px
-			font-size 30px
 			left 50%
 			transform translateX(-50%)
 			display: inline-block
 			top -16px
+			font-size 25px
+			@media (min-width: scr_md)
+				font-size 30px
 	.delivery
 		margin-top 13px
 	#ORDER_FORM
@@ -406,6 +425,12 @@
 			font-size 20px
 			text-align: center
 			margin-bottom 10px
+
+.order
+	&__profile
+		margin-bottom 30px
+		@media (min-width: scr_md)
+			margin-bottom 0
 
 .cabinet
 	.icheckbox

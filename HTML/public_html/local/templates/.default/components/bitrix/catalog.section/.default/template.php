@@ -31,8 +31,8 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
           <a href="#" style="<?=($active=="PROPERTY_MIN_PRICE_DESC"?"display:none":'')?>" class="dropdown__item" data-param="PROPERTY_MIN_PRICE" data-value="DESC">Убыванию цены</a>
         </span>
         <select class="dropdown__select">
-          <option data-param="PROPERTY_MIN_PRICE" data-value="ASC">Возрастанию цены</option>
-          <option data-param="PROPERTY_MIN_PRICE" data-value="DESC">Убыванию цены</option>
+          <option data-param="PROPERTY_MIN_PRICE" data-value="ASC"<?=($active=="PROPERTY_MIN_PRICE_ASC"?"selected":'')?>>Возрастанию цены</option>
+          <option data-param="PROPERTY_MIN_PRICE" data-value="DESC"<?=($active=="PROPERTY_MIN_PRICE_DESC"?"selected":'')?>>Убыванию цены</option>
         </select></span></div>
     <div class="col-xs-4 center">
       показывать по:
@@ -40,7 +40,7 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
         <a href="#" class="catalog__per-page <?=($arParams['PAGE_ELEMENT_COUNT']==$count?"catalog__per-page--active":"")?>"><?=$count?></a>
       <? endforeach; ?>
     </div>
-    <div class="col-xs-5 right">
+    <div class="col-xs-4 right">
       <?=$arResult["NAV_STRING"]?>
     </div>
   </div>

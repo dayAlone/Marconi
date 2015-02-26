@@ -28,14 +28,15 @@ $aMenuLinks = Array(
 		Array(), 
 		"" 
 	),
-	/*
 	Array(
-		"коллекции", 
-		"/catalog/collections/", 
+		"Stylelook", 
+		"/catalog/stylelook/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
+	/*
+	
 	Array(
 		"Новости", 
 		"/news/", 

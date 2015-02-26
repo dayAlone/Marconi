@@ -24,11 +24,20 @@
 			border-color red
 			svg path
 				fill red
+	&__top
+		display none
+		@media (min-width scr_md)
+			display block
 	&__clear
-		margin-bottom 15px
 		opacity .5
 		font-size 10px
 		line-height 34px
+		margin 0 auto
+		margin-bottom 15px
+		@media (min-width scr_sm)
+			max-width (100/3)%
+		@media (min-width scr_md)
+			max-width none
 	&__card
 		position fixed
 		top 50%
@@ -76,13 +85,16 @@
 		border 2px solid black
 		color black
 		text-transform: uppercase
-		font-size 9px
+		
 		font-weight: bold
 		line-height 33px
 		padding 0 5px
 		position relative
 		text-align: center
 		width 100%
+		font-size 12px
+		@media (min-width: scr_md)
+			font-size 9px
 		@media (min-width scr_lg)
 			font-size 11px
 		&:after
@@ -276,6 +288,9 @@
 				top -7px
 	
 	&--full-width
+		@media (min-width scr_sm)
+			.col-lg-3
+				width (100/3)%
 		@media (min-width scr_md)
 			.col-lg-3
 				width 25%
@@ -480,7 +495,8 @@
 				position relative
 				display block
 				overflow hidden
-				b('loader.gif', center center no-repeat, transparent, 80px auto)
+				@media (min-width scr_md)
+					b('loader.gif', center center no-repeat, transparent, 80px auto)
 	&--big
 		.product
 			&__sizes
@@ -524,7 +540,6 @@
 						transition-delay .1s
 						opacity 1
 .filter
-	width 100%
 	border 1px solid #dddddd
 	padding 10px 10px 4px 10px
 	margin-bottom 15px
@@ -532,6 +547,13 @@
 	position relative
 	z-index 2
 	min-height 34px
+	display inline-block
+	vertical-align: top
+	width 100%
+	&__form
+		display none
+		@media (min-width: scr_md)
+			display block
 	&--loaded
 		t all, .2s
 	&:after
@@ -596,15 +618,18 @@
 		width 100%
 	.icheckbox, input[type="checkbox"], .icheckbox_color
 		appearance none
-		width 10px
-		height 10px
 		border 1px solid #dadada
 		display inline-block
 		margin-right 5px
 		position relative
-		top -1px
 		t(all)
 		box-shadow inset 0 0 0 1px white
+		width 14px
+		height 14px
+		@media (min-width: scr_md)
+			width 10px
+			height 10px
+			top -1px
 		&.hover
 			border-color black
 		&.checked, &:checked
@@ -614,13 +639,17 @@
 			pointer-events none
 	
 	.icheckbox_color, input.color
-		width 21px
+		
 		margin 3px
-		height 21px
 		box-shadow inset 0 0 0 3.5px
 		border 0
 		cursor pointer
 		top 0
+		width 25px
+		height 25px
+		@media (min-width: scr_md)
+			width 21px
+			height 21px
 		&.ffffff
 			box-shadow inset #dddddd 0 0 0 1px, inset #ffffff 0 0 0 3.5px, inset #dddddd 0 0 0 4px
 		&.f12312
@@ -698,10 +727,12 @@
 		color attr(data-color, color)
 	label
 		font-weight normal
-		font-size 13px
 		display inline-block
 		width 86%
 		vertical-align top
+		font-size 14px
+		@media (min-width: scr_md)
+			font-size 13px
 		&:first-letter
 			text-transform uppercase
 .range

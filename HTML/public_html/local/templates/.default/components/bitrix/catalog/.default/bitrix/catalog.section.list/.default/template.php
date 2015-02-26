@@ -236,7 +236,7 @@ if (0 < $arResult["SECTIONS_COUNT"])
     <div class="catalog__intro-text catalog__intro-text--center">Все товары</div></a></div>
 <div class="col-xs-4"><a class="catalog__intro"  href="/catalog/men/">
     <div style="background-image:url(/layout/images/i-4.jpg)" class="catalog__intro-picture bg-center-left"></div>
-    <div class="catalog__intro-text catalog__intro-text--right catalog__intro-text--black">Для него</div></a><a class="catalog__intro">
+    <div class="catalog__intro-text catalog__intro-text--right catalog__intro-text--black">Для него</div></a><a class="catalog__intro" href="/catalog/stylelook/">
     <div style="background-image:url(/layout/images/i-5.jpg)" class="catalog__intro-picture bg-center-right"></div>
     <div class="catalog__intro-text catalog__intro-text--bottom catalog__intro-text--right">Style look</div></a></div>
 </div>
