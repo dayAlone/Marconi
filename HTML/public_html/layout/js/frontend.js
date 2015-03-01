@@ -43878,7 +43878,7 @@ return PhotoSwipeUI_Default;
   this.size = function() {
     if ($('.lookbook').elem('slider').length > 0) {
       $('.lookbook').elem('slider-preview').css({
-        'top': $('.lookbook').elem('slider').offset().top,
+        'top': $('.lookbook').elem('slider').position().top,
         'opacity': 1,
         'width': function() {
           var el, f, h, w, width;
@@ -44721,23 +44721,25 @@ return PhotoSwipeUI_Default;
 
   this.fly = function(block, target) {
     var offset;
-    offset = block.offset();
-    offset.top -= target.offset().top - block.height() / 2;
-    offset.left -= target.offset().left - block.width() / 2;
-    return block.clone().prependTo(block).mod('absolute', true).velocity({
-      properties: {
-        translateX: -offset.left,
-        translateY: -offset.top,
-        opacity: .2,
-        scale: .3
-      },
-      options: {
-        duration: 500,
-        complete: function() {
-          return $(this).remove();
+    if (!$.browser.mobile) {
+      offset = block.offset();
+      offset.top -= target.offset().top - block.height() / 2;
+      offset.left -= target.offset().left - block.width() / 2;
+      return block.clone().prependTo(block).mod('absolute', true).velocity({
+        properties: {
+          translateX: -offset.left,
+          translateY: -offset.top,
+          opacity: .2,
+          scale: .3
+        },
+        options: {
+          duration: 500,
+          complete: function() {
+            return $(this).remove();
+          }
         }
-      }
-    });
+      });
+    }
   };
 
   this.getSimmilar = function(el, callbackOn, callbackOff) {

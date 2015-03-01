@@ -45,7 +45,7 @@
 		margin-top 0
 		font-size 25px
 	&__big-button
-		min-width 45%
+		min-width 47%
 		margin-right 5%
 		display inline-block
 		background black
@@ -60,6 +60,12 @@
 		t all
 		padding 0 15px
 		margin-bottom 20px
+		@media (min-width: scr_sm)
+			min-width 45%
+		&--simmilar
+			float right
+			@media (min-width: scr_sm)
+				float none
 		&--width
 			min-width 70%
 		&--disabled
@@ -93,28 +99,40 @@
 		full-width()
 		border-top 1px solid #d5dbde
 		border-bottom 1px solid #d5dbde
-		line-height 35px
-		height 32px
 		text-align: center
-		margin-top 20px
+		padding 10px 0 7px
+		@media (min-width: scr_sm)
+			margin-top 20px
+			line-height 35px
+			height 32px
+			padding 0
 		@media (min-width: scr_md)
 			margin-top 0
 		span
 			margin 0 5px
 		a
 			color black
-			font-size 13px
+			font-size 11px
+			@media (min-width: scr_sm)
+				font-size 13px
 			&:hover
 				color red
 	.picture
 		width 100%
-		margin-bottom 30px
-		//border-right 2px solid black
+		margin-bottom 10px
+		
+		@media (min-width: scr_sm)
+			margin-bottom 30px
 		@media (min-width: scr_md)
 			padding-right 25px
 		&__big
-			min-height 427px
-			max-height 460px
+			min-height 280px
+			max-height 280px
+			margin-bottom 10px
+			@media (min-width: scr_sm)
+				margin-bottom 0
+				min-height 427px
+				max-height 460px
 			@media (min-width: scr_md)
 				max-height none
 			a
@@ -160,9 +178,15 @@
 					fill red
 		&__small
 			height 69px
-			display block
+			width 24%
+			margin 0 .5%
+			display inline-block
+			border-collapse: collapse
+			@media (min-width: scr_sm)
+				width 100%
+				display block
+				margin 0 0 15px 0
 			box-shadow 0 0 0 3px rgba(255,255,255,.4)
-			margin-bottom 15px
 			t all
 			transform translateZ(0)
 			&:last-of-type

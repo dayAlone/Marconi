@@ -352,24 +352,38 @@ svg
 			max-width 100%
 
 .side-nav
-	width 100%
-	border 1px solid #dfdfdf
-	padding 28px 20px 20px
+	border-top 1px solid #dfdfdf
+	border-bottom 1px solid #dfdfdf
 	margin-top 0px
-	full-width()
-	max-width 200px
+	display block
+	width 100%
+	margin-bottom 20px
+	padding 13px 0 5px
+	text-align: center
+	@media (min-width scr_sm)
+		max-width 200px
+		border 1px solid #dfdfdf
+		padding 28px 20px 20px
+		text-align: left
 	&__item
-		width 100%
+		vertical-align: middle
 		display inline-block
 		text-transform: uppercase
 		color black
 		font-weight: bold
+		margin 0 10px
+		font-size 12px
+		@media (min-width scr_sm)
+			width 100%
+			margin 0
+			font-size 15px
 		&--active
 			color red
 		&:hover
 			color red
 		& + .side-nav__item
-			margin-top 15px
+			@media (min-width scr_sm)
+				margin-top 15px
 .contacts
 	p
 		font-size 15px

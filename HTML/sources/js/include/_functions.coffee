@@ -3,7 +3,7 @@
 @size = ->
 	if $('.lookbook').elem('slider').length > 0
 		$('.lookbook').elem('slider-preview').css
-			'top': $('.lookbook').elem('slider').offset().top
+			'top': $('.lookbook').elem('slider').position().top
 			'opacity': 1
 			'width': ->
 				width = ($(window).width()-$('.page .container').width())/2

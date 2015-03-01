@@ -71,16 +71,22 @@ $this->SetViewTarget('toolbar');
 ?>
 <div class="breadcrumbs">
 	<a class="breadcrumbs__brand" href="#" data-href="/catalog/<?=$item['SECTIONS'][0]['CODE']?>/" data-value="<?=$props['BRAND']['VALUE']?>"><?=$arResult['BRANDS'][$props['BRAND']['VALUE']]?></a>
+	<nobr>
 	<span>&rsaquo;</span>
 	<a href="/catalog/<?=$item['SECTIONS'][0]['CODE']?>/"><?=$item['SECTIONS'][0]['NAME']?></a>
 	<?
 		$category = $props['SECTION_'.$arResult['CATEGORIES'][$item['SECTIONS'][1]['XML_ID']]];
 		$data = getFilterStringValues($category['ID'], $item['SECTION']['PATH'][0]['ID']);
 	?>
+	</nobr>
+	<nobr>
 	<span>&rsaquo;</span>
 	<a href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/?<?=$data?>&set_filter=Y"><?=$category['NAME']?></a>
+	</nobr>
+	<nobr>
 	<span>&rsaquo;</span>
 	<a href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/?arrFilter_<?=$category['ID']?>_<?=abs(crc32($category['VALUE']))?>=Y&set_filter=Y"><?=$arResult['TYPES'][$category['VALUE']]?></a>
+	</nobr>
 </div>
 <?
 $this->EndViewTarget();
@@ -89,7 +95,7 @@ $this->EndViewTarget();
 	<div class="col-md-7 col-lg-6">
 	  <div class="picture">
 	    <div class="row">
-	      <div class="<?=(count($item['IMAGES'])>1?"col-xs-10 col-md-10 no-position":"col-xs-12")?>">
+	      <div class="<?=(count($item['IMAGES'])>1?"col-sm-10 col-md-10 no-position":"col-sm-12")?>">
 	      	<? if(count($item['IMAGES'])>0 || isset($item['PREVIEW_PICTURE']['SRC'])):
 	      		$array = array_values($item['IMAGES']);?>	
 	        	<div style="background-image:url(<?=(isset($array[0]['middle'])?$array[0]['middle']:(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg"))?>)" class="picture__big">
@@ -101,12 +107,11 @@ $this->EndViewTarget();
 	        <? endif;?>
 	      </div>
 	      <? if(count($item['IMAGES'])>1):?>
-	      <div class="col-xs-2 col-md-2">
+	      <div class="col-sm-2 col-md-2">
 	      <? 
 	      $i=0;
-	      foreach ($item['IMAGES'] as $key => $image): ?>
-	      	<a style="background-image:url(<?=$image['small']?>)" href="<?=$image['src']?>" data-middle="<?=$image['middle']?>" class="picture__small <?=($key==0?"picture__small--active":"")?>"></a>
-	      <? 
+	      foreach ($item['IMAGES'] as $key => $image): 
+	      	?><a style="background-image:url(<?=$image['small']?>)" href="<?=$image['src']?>" data-middle="<?=$image['middle']?>" class="picture__small <?=($key==0?"picture__small--active":"")?>"></a><? 
 	      	$i++;
 	      	if ($i>4)
 	      		break;
@@ -119,7 +124,7 @@ $this->EndViewTarget();
 	<div class="col-md-5 col-lg-6">
 	  <div class="product__description">
 	    <div class="row">
-	      <div class="col-xs-6 col-md-12 col-lg-6">
+	      <div class="col-sm-6 col-md-12 col-lg-6">
 	        <h1 class="product__title"><?=$item['NAME']?></h1>
 	        <?
 	        	global $arFilter;
@@ -177,7 +182,7 @@ $this->EndViewTarget();
 				endif;
 	        ?>
 	      </div>
-	      <div class="col-xs-6 col-md-12 col-lg-6">
+	      <div class="col-sm-6 col-md-12 col-lg-6">
 	        <div class="props">
 	        <? 
 	        $values = array(

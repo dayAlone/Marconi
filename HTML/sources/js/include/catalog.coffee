@@ -3,19 +3,20 @@ filterTimer   = false
 filterRequest = false
 
 @fly = (block, target)->
-	offset = block.offset()
-	offset.top  -= target.offset().top - block.height()/2
-	offset.left -= target.offset().left - block.width()/2
-	block.clone().prependTo(block).mod('absolute', true).velocity
-		properties: 
-			translateX : -offset.left
-			translateY : -offset.top
-			opacity    : .2
-			scale      : .3
-		options:
-			duration: 500
-			complete: ->
-				$(this).remove()
+	if !$.browser.mobile
+		offset = block.offset()
+		offset.top  -= target.offset().top - block.height()/2
+		offset.left -= target.offset().left - block.width()/2
+		block.clone().prependTo(block).mod('absolute', true).velocity
+			properties: 
+				translateX : -offset.left
+				translateY : -offset.top
+				opacity    : .2
+				scale      : .3
+			options:
+				duration: 500
+				complete: ->
+					$(this).remove()
 
 @getSimmilar = (el, callbackOn = (-> return), callbackOff = (-> return)) ->
 
