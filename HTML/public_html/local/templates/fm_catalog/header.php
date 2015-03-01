@@ -6,7 +6,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
     <div class="container">
       <div class="row">
         <?if($APPLICATION->GetCurDir()!="/catalog/"&&$APPLICATION->GetCurDir()!="/catalog/stylelook/"):?>
-        <div class="col-xs-6 col-sm-4 col-md-2">
+        <div class="hidden-xs col-xs-6 col-sm-4 col-md-2">
         	<?
           if(!preg_match("/\/catalog\/(.*?)\/(.*?)\/|\/basket\//", $APPLICATION->GetCurDir(), $matches)):
           $APPLICATION->IncludeComponent(
@@ -54,11 +54,10 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
           <?
           endif;?>
         </div>
-        <div class="col-xs-6 col-sm-4 col-sm-offset-4 col-md-offset-0 col-md-2 col-md-push-8">
+        <div class="hidden-xs col-sm-4 col-sm-offset-4 col-md-offset-0 col-md-2 col-md-push-8">
         <?else:?>
-        <div class="col-sm-4 col-sm-offset-8 col-md-offset-0 col-md-2 col-md-push-10">
+        <div class="hidden-xs col-sm-4 col-sm-offset-8 col-md-offset-0 col-md-2 col-md-push-10">
         <?endif;?>
-        
           <div class="search">
             <form action="/catalog/">
               <input type="text" name="q" value="<?=$_REQUEST['q']?>" placeholder="Введите название товара" class="search__input">
