@@ -4,6 +4,9 @@ body
 	font-family 'Proxima', 'Helvetica Neue', 'Arial', sans-serif
 	min-height 100%
 	color black
+	padding-top 55px
+	@media (min-width scr_md)
+		margin-top 0
 	-webkit-font-smoothing: subpixel-antialiased
 	&.index
 		overflow hidden
@@ -147,19 +150,23 @@ svg
 					svg path
 						fill white
 				.nav
-					margin-top 40px
+					margin-top 25px
 					&__item
-						font-size 30px
 						width 100%
 						color white
 						display inline-block
 						text-transform: uppercase
 						font-weight: bold
 						text-align: center
-						line-height 60px
-						padding-top 13px
 						background transparent
 						border-bottom 1px solid alpha(red, .6)
+						font-size 20px
+						padding-top 10px
+						line-height 35px
+						@media (min-width scr_sm)
+							font-size 30px
+							line-height 60px
+							padding-top 13px
 						&--active
 							background red
 							color white
@@ -253,8 +260,11 @@ svg
 		top 0
 		background transparent !important
 		svg
-			width 40px
-			height 40px
+			width 25px
+			height 25px
+			@media (min-width scr_sm)
+				width 40px
+				height 40px
 			path
 				fill white
 	&-content

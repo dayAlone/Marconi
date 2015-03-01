@@ -1,6 +1,7 @@
 gulp         = require 'gulp'
 
 autoprefixer = require 'gulp-autoprefixer'
+cmq          = require 'gulp-combine-media-queries'
 csscomb      = require 'gulp-csscomb'
 coffee       = require 'gulp-coffee'
 concat       = require 'gulp-concat'
@@ -126,6 +127,8 @@ gulp.task 'css_mini', ->
 	.pipe autoprefixer
         browsers: ['last 2 versions'],
         cascade: false
+    .pipe cmq
+      log: true
 	.pipe cssmin()
 	.pipe gulp.dest path.css.frontend
 

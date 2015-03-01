@@ -114,10 +114,12 @@
 			&:after
 				background-position bottom left
 	&__nav
-		margin-bottom 40px
 		position relative
 		z-index 700
 		full-width()
+		margin-bottom 20px
+		@media (min-width scr_sm)
+			margin-bottom 40px
 	&__counter
 		position absolute
 		left 100%
@@ -164,7 +166,9 @@
 		.dropdown
 			position relative
 			z-index 10
-			
+			margin-bottom 20px
+			@media (min-width scr_sm)
+				margin-bottom 0
 			&__frame
 				padding-top 30px
 				min-width 110%
@@ -236,7 +240,8 @@
 		display block
 		cursor pointer
 		&--big
-			height 640px
+			@media (min-width scr_sm)
+				height 640px
 		&-picture
 			position absolute
 			top 0
@@ -286,7 +291,6 @@
 				font-weight bold
 				padding-right 14px
 				top -7px
-	
 	&--full-width
 		@media (min-width scr_sm)
 			.col-lg-3
@@ -310,7 +314,12 @@
 		@media (min-width scr_lg)
 			.col-lg-3:nth-child(n+5)
 				display block
-
+	&__frame
+		.col-xs-6
+			@media (max-width scr_xs)
+				width 100%
+			@media (min-width scr_xs and max-width scr_sm)
+				width 50%
 	article
 		margin-bottom 50px
 	.search-page
@@ -318,30 +327,38 @@
 	.nav__item:nth-child(6)
 		background white
 		color black
+	
 	.product
 		width 100%
 		position relative
-		text-align center
 		padding-bottom 10px
-		margin-bottom 20px
+		
 		text-transform uppercase
 		font-weight bold
 		font-size 14px
 		z-index 20
 		background white
+		text-align: left
+		margin-bottom 10px
+		@media (min-width scr_xs)
+			margin-bottom 20px
+		@media (min-width scr_sm)
+			width 100%
+			text-align center
 		&--hover
-			.product__sale
-				transform scale(.85) translateZ(0)
-			.product__picture
-				transform scale(1.03) translateZ(0) 
-			.product__icon, .product__button, .product__frame
-				opacity 1
-				pointer-events initial
-				transition-duration .5s
-			.product__frame
-				box-shadow 0 0 10px rgba(116, 132, 149, 0.8)
-				background white
-				transition-duration .2s
+			@media (min-width scr_sm)
+				.product__sale
+					transform scale(.85) translateZ(0)
+				.product__picture
+					transform scale(1.03) translateZ(0) 
+				.product__icon, .product__button, .product__frame
+					opacity 1
+					pointer-events initial
+					transition-duration .5s
+				.product__frame
+					box-shadow 0 0 10px rgba(116, 132, 149, 0.8)
+					background white
+					transition-duration .2s
 		&--index, &--hover
 			z-index 50
 		&--absolute
@@ -349,17 +366,43 @@
 			position absolute
 		&__sale
 			position absolute
-			width 80px
-			height 80px
 			background red
 			color white
-			font-size 9px
 			display inline-block
-			right 10px
-			top 135px
 			border-radius 50%
-			padding-top 34px
 			t transform
+			left 10px
+			top auto
+			bottom 10px
+			text-align center
+			overflow hidden
+			padding-top 14px
+			width 30px
+			height 30px
+			text-indent -1000px
+			&:after
+				content "%"
+				position absolute
+				color white
+				left 50%
+				top 50%
+				text-indent 0
+				z-index 200
+				font-size 18px
+				font-weight: bold
+				transform translateX(-50%)
+				margin-top -1px
+				@media (min-width scr_sm)
+					display none
+			@media (min-width scr_sm)
+				padding-top 34px
+				left auto
+				right 10px
+				top 135px
+				width 80px
+				height 80px
+				text-indent 0
+				font-size 9px
 		&__frame
 			position absolute
 			background white
@@ -370,10 +413,32 @@
 			box-sizing content-box
 			top -10px
 			left -10px
+		&__brand
+			@media (min-width scr_xs)
+				line-height 16px
+			@media (min-width scr_sm)
+				line-height inherit
 		&__content
 			position relative
 			z-index 7
-			min-height 323px
+			&-text
+				position absolute
+				left 40%
+				width 60%
+				padding 0 20px
+				top 50%
+				margin-top 3px
+				transform translateY(-50%)
+				@media (min-width scr_sm)
+					position relative
+					width 100%
+					padding 0
+					margin 0
+					left auto
+					top auto
+					transform none
+			@media (min-width scr_sm)
+				min-height 323px
 		&__icon, &__button, &__frame, &__sizes
 			position absolute
 			z-index 5
@@ -479,22 +544,27 @@
 			font-size 12px
 			margin-top 10px
 		&__picture
-			min-height 220px
-			width 100%
 			background-size contain
 			background-position center center
 			background-repeat no-repeat
 			margin-bottom 10px
 			transform scale(.9) translateZ(0)
 			t transform, .2s
+			&, &-frame
+				min-height 115px
+				width 40%
+			@media (min-width scr_sm)
+				&, &-frame
+					min-height 220px
+					width 100%
+					
 			&--no
 				background-size 150px auto
 			&-frame
-				min-height 220px
-				width 100%
 				position relative
 				display block
 				overflow hidden
+				background alpha(red, .1)
 				@media (min-width scr_md)
 					b('loader.gif', center center no-repeat, transparent, 80px auto)
 	&--big
@@ -507,38 +577,39 @@
 				min-height 453px
 			&__picture
 				min-height 350px
-	&--without-images
-		.product
-			&__content
-				min-height 93px
-			&__picture-frame
-				position absolute
-				transform translateY(-100%)
-				opacity 0
-				pointer-events none
-				t(opacity)
-				transition-duration .1s
-			&--empty
-				.product__picture-frame
-					display none !important
-			&__frame
-				padding-top 240px
-				margin-top -230px
-			&__sale
-				top -85px
-			&__tradeline, &__sale
-				opacity 0
-			&__icon
-				top -230px
-			&--hover
-				.product
-					&__tradeline, &__sale
-						opacity 1
-					&__picture-frame
-						pointer-events initial
-						transition-duration .3s
-						transition-delay .1s
-						opacity 1
+	@media (min-width scr_sm)
+		&--without-images
+			.product
+				&__content
+					min-height 93px
+				&__picture-frame
+					position absolute
+					transform translateY(-100%)
+					opacity 0
+					pointer-events none
+					t(opacity)
+					transition-duration .1s
+				&--empty
+					.product__picture-frame
+						display none !important
+				&__frame
+					padding-top 240px
+					margin-top -230px
+				&__sale
+					top -85px
+				&__tradeline, &__sale
+					opacity 0
+				&__icon
+					top -230px
+				&--hover
+					.product
+						&__tradeline, &__sale
+							opacity 1
+						&__picture-frame
+							pointer-events initial
+							transition-duration .3s
+							transition-delay .1s
+							opacity 1
 .filter
 	border 1px solid #dddddd
 	padding 10px 10px 4px 10px

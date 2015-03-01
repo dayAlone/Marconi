@@ -62,7 +62,7 @@ endif;
 				"IBLOCK_ID"     => 6,
 				"NEWS_COUNT"    => "9999999",
 				"FILTER_NAME"   => "arFilter",
-				"SORT_BY1"      => "ID",
+				"SORT_BY1"      => "SECTION_ID",
 				"SORT_ORDER1"   => "ASC",
 				"DETAIL_URL"    => "/catalog/",
 				"CACHE_TYPE"    => "A",

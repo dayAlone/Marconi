@@ -115,9 +115,23 @@
             <?$frame->end();?>
         </div>
     </div>
+    <div class="container toolbar__mobile">
+      <div class="row">
+        <div class="col-xs-3">
+          <a href="#Nav" data-toggle="modal" data-target="#Nav" class="toolbar__nav-trigger"><?=svg('nav')?> Меню</a>
+        </div>
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6 right">
+          <a href="/basket/" title=""><?=svg('phone')?></a><span class="toolbar__divider"></span><a href="/basket/" title=""><?=svg('cart')?></a>
+        </div>
+      </div>
+    </div>
   </div>
   <header class="header">
-    <div class="container">
+    <div class="container header__mobile center">
+      <a href="/" class="logo"><?=svg('logo')?></a>
+    </div>
+    <div class="container header__desktop">
     <?if($APPLICATION->GetCurDir() == '/'):?>
       <div class="row">
         <div class="col-xs-4"><span class="logo__line"></span></div>

@@ -170,7 +170,14 @@ $(document).ready ->
 			slider = $('.about').elem('slider').data('fotorama')
 			slider.show $(this).data('direction')
 			e.preventDefault()
-	).fotorama()
+	)
+	.on('fotorama:showend', (e, fotorama, extra)->
+		if $.browser.mobile == true
+			h = $(fotorama.data[fotorama.activeIndex].html).find('.about__slider-item-content').height() + 200
+			fotorama.resize
+				height: h
+	)
+	.fotorama()
 	
 	$('.about').elem('slider-title').each ->
 		title = $(this)

@@ -6,7 +6,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
     <div class="container">
       <div class="row">
         <?if($APPLICATION->GetCurDir()!="/catalog/"&&$APPLICATION->GetCurDir()!="/catalog/stylelook/"):?>
-        <div class="col-sm-4 col-md-2">
+        <div class="col-xs-6 col-sm-4 col-md-2">
         	<?
           if(!preg_match("/\/catalog\/(.*?)\/(.*?)\/|\/basket\//", $APPLICATION->GetCurDir(), $matches)):
           $APPLICATION->IncludeComponent(
@@ -44,7 +44,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
                 $link = $_SERVER['HTTP_REFERER'];
               ?>
               <a class="catalog__back" href="<?=$link?>">
-                Вернуться в каталог
+                Вернуться <span class="hidden-xs">в каталог</span>
               </a>
             <?$frame->beginStub();?>
               <a class="catalog__back" href="/catalog/">
@@ -54,7 +54,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
           <?
           endif;?>
         </div>
-        <div class="col-sm-4 col-sm-offset-4 col-md-offset-0 col-md-2 col-md-push-8">
+        <div class="col-xs-6 col-sm-4 col-sm-offset-4 col-md-offset-0 col-md-2 col-md-push-8">
         <?else:?>
         <div class="col-sm-4 col-sm-offset-8 col-md-offset-0 col-md-2 col-md-push-10">
         <?endif;?>

@@ -458,6 +458,14 @@
         slider.show($(this).data('direction'));
         return e.preventDefault();
       });
+    }).on('fotorama:showend', function(e, fotorama, extra) {
+      var h;
+      if ($.browser.mobile === true) {
+        h = $(fotorama.data[fotorama.activeIndex].html).find('.about__slider-item-content').height() + 200;
+        return fotorama.resize({
+          height: h
+        });
+      }
     }).fotorama();
     $('.about').elem('slider-title').each(function() {
       var el, title, w;
@@ -1478,7 +1486,7 @@
         return delay(100, function() {
           var slider;
           slider = $(fotorama.data[fotorama.activeIndex].html).find('.catalog');
-          if (slider) {
+          if (slider && $(window).width() > 480) {
             slider.on('init', function(event, slick, direction) {
               slider.data('slick', true);
               return initProducts(false);
@@ -1823,7 +1831,7 @@
       });
     };
     openModal = function(i) {
-      if (i.code) {
+      if (i.code && !$.browser.mobile) {
         map.setCenter(new google.maps.LatLng(parseFloat(i.coords[0]) - .00245, parseFloat(i.coords[1])));
         map.setZoom(16);
         $.get("/stores/" + i.code + "/?short=y", function(data) {
@@ -1895,7 +1903,10 @@
       return e.preventDefault();
     });
     return $('.dropdown').elem('select').change(function(e) {
-      goToCity($(this).find('option:selected').text(), $(this).find('option:selected').val());
+      var id;
+      id = $(this).find('option:selected').data('id');
+      $('.stores__list section').removeClass('active');
+      $(".stores__list section[data-id='" + id + "']").addClass('active');
       return e.preventDefault();
     });
   };

@@ -43,9 +43,12 @@
 				text-align: center
 				
 		&--height
-			min-height 580px
-	&__slider, &__picture
-		min-height 650px
+			@media (min-width scr_sm)
+				min-height 580px
+	&__slider, &__picture, &__slider-preview
+		min-height 380px
+		@media (min-width scr_sm)
+			min-height 650px
 	&__picture
 		background-size cover
 		background-position center center
@@ -66,7 +69,6 @@
 			overflow hidden
 		&-preview
 			position absolute
-			min-height 650px
 			z-index 40
 			top 0
 			cursor pointer
@@ -75,7 +77,9 @@
 			transition-property opacity, background, transform, width
 			transition-duration .3s
 			background-size cover
-			min-width 100px
+			min-width 30px
+			@media (min-width scr_sm)
+				min-width 100px
 			&--disabled
 				z-index 0
 			svg
@@ -84,6 +88,11 @@
 				top 50%
 				left 50%
 				transform translate(-50%, -50%)
+				width 15px
+				height 40px
+				@media (min-width scr_sm)
+					width auto
+					height auto
 			&:after
 				position absolute
 				top 0
@@ -112,11 +121,13 @@
 				box-sizing: border-box !important
 			full-width()
 		.catalog
-			opacity 0
+			
 			margin-bottom 100px
 			position relative
 			z-index 3000
 			text-align: center
+			@media (min-width scr_sm)
+				opacity 0
 			.slick-list
 				overflow visible
 			.slick-prev

@@ -3,14 +3,20 @@
 	top           0
 	left          0
 	width         100%
-	height        50px
-	margin-bottom -50px
-	position      relative
 	background    black
-	line-height   50px
 	z-index       300
 	white-space   no-wrap
-	margin-bottom 20px
+	height        40px
+	line-height   40px
+	margin-bottom 15px
+	position      fixed
+	z-index 1000
+	@media (min-width scr_sm)
+		height        50px
+		line-height   50px
+		margin-bottom 20px
+	@media (min-width scr_md)
+		position relative
 	&:after
 		display none
 		position absolute
@@ -20,10 +26,29 @@
 		top 50%
 		left 0
 		content ""
+	&__divider
+		display inline-block
+		height 20px
+		width 1px
+		background alpha(white,.3)
+		vertical-align: middle
+		margin 0 15px
 	&__desktop
 		display none
 		@media (min-width scr_md)
 			display block
+	&__mobile
+		svg
+			display inline-block
+			vertical-align: middle
+			position relative
+			top 1px
+			max-height 18px
+			max-width 25px
+			path
+				fill white
+		@media (min-width scr_sm)
+			display none
 	&__tablet
 		display none
 		@media (min-width scr_sm)
@@ -38,6 +63,9 @@
 		vertical-align: middle
 		position relative
 		top 3px
+		font-size 12px
+		@media (min-width scr_sm)
+			font-size 14px
 		&:focus
 			color white
 		svg
@@ -125,11 +153,23 @@
 				
 .header
 	full-width()
-	margin-top 10px
-	margin-bottom 25px
 	position relative
 	z-index 40
 	white-space no-wrap
+	margin-bottom 10px
+	@media (min-width scr_sm)
+		margin-top 10px
+		margin-bottom 25px
+	&__mobile
+		.logo
+			svg
+				max-width 80%
+		@media (min-width scr_sm)
+			display none
+	&__desktop
+		display none
+		@media (min-width scr_sm)
+			display block
 	.logo
 		&__line
 			
@@ -220,22 +260,30 @@
 	width 100%
 	border-top 1px solid #d5dbdf
 	border-bottom 1px solid #d5dbdf
-	height 32px
 	text-align: center
 	margin-top 20px
+	padding 11px 0 8px
+	@media (min-width scr_sm)
+		height 32px
+		padding 0
 	@media (min-width: scr_md)
 		margin-top: 0
 	&__item
-		height 32px
 		display inline-block
 		margin-top -1px
-		line-height 36px
 		text-transform: uppercase
-		font-size 12px
 		font-weight: bold
-		padding 0 12px
 		color #6e6f79
 		letter-spacing: 1px
+		line-height 22px
+		height 18px
+		font-size 11px
+		padding 0 9px
+		@media (min-width scr_sm)
+			line-height 36px
+			height 32px
+			font-size 12px
+			padding 0 12px
 		@media (min-width: scr_md)
 			font-size 11px
 		&:first-of-type
@@ -246,7 +294,8 @@
 			color red
 		&--active
 			color black
-			border-bottom 2px solid black
+			@media (min-width scr_sm)
+				border-bottom 2px solid black
 			&:hover
 				color black
 .search
@@ -316,11 +365,13 @@
 			display inline-block
 			margin-top -1px
 			padding 0 10px
-			font-size 12px
+			font-size 10px
 			text-transform: uppercase
 			color white
 			font-weight: bold
 			t(background)
+			@media (min-width scr_sm)
+				font-size 12px
 			svg 
 				position absolute
 				right 10px
