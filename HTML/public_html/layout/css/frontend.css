@@ -5239,11 +5239,11 @@ div.pp_default .pp_loaderIcon {
   border-top: 1px solid #d5dbdf;
   border-bottom: 1px solid #d5dbdf;
   text-align: center;
-  margin-top: 20px;
   padding: 11px 0 8px;
 }
 @media (min-width: 768px) {
   .sub-nav {
+    margin-top: 20px;
     height: 32px;
     padding: 0;
   }
