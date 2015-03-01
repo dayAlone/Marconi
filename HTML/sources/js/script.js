@@ -597,7 +597,7 @@
       elementType: "labels",
       stylers: [
         {
-          color: "#000000"
+          color: "#757575"
         }
       ]
     }, {
