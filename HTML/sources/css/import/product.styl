@@ -2,13 +2,18 @@
 	&__tradeline
 		position absolute
 		background red
-		left 50%
+		
 		transform translateX(-50%)
-		bottom 105px
+		
 		color white
 		white-space no-wrap
 		padding-top 6px
 		font-size 12px
+		bottom 10px
+		left 25%
+		@media (min-width: scr_sm)
+			left 50%
+			bottom 105px
 		&:after, &:before
 			position absolute
 			top 0

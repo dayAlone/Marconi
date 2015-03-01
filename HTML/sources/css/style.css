@@ -3869,6 +3869,7 @@ svg g {
   background: #fff;
   text-align: left;
   margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
 }
 @media (min-width: 480px) {
   .catalog .product {
@@ -3878,6 +3879,7 @@ svg g {
 @media (min-width: 768px) {
   .catalog .product {
     width: 100%;
+    border-bottom: 0;
     text-align: center;
   }
 }
@@ -4934,17 +4936,23 @@ svg g {
 .product__tradeline {
   position: absolute;
   background: #d10a32;
-  left: 50%;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  bottom: 105px;
   color: #fff;
   white-space: nowrap;
   padding-top: 6px;
   font-size: 12px;
+  bottom: 10px;
+  left: 25%;
+}
+@media (min-width: 768px) {
+  .product__tradeline {
+    left: 50%;
+    bottom: 105px;
+  }
 }
 .product__tradeline:after,
 .product__tradeline:before {
