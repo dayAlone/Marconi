@@ -5472,7 +5472,7 @@ div.pp_default .pp_loaderIcon {
   font-size: 10px;
   min-height: 40px;
   padding: 11px 0 3px;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 @media (min-width: 768px) {
   .footer {

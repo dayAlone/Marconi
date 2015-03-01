@@ -45644,8 +45644,9 @@ return PhotoSwipeUI_Default;
       $('.picture').elem('big').css({
         backgroundImage: "url(" + ($(this).data('middle')) + ")"
       });
-      $('.picture').elem('big').data('easyZoom').swap($(this).data('middle'), $(this).attr('href'));
-      console.log($(this).data('middle'), $(this).attr('href'));
+      if (!$.browser.mobile) {
+        $('.picture').elem('big').data('easyZoom').swap($(this).data('middle'), $(this).attr('href'));
+      }
       return e.preventDefault();
     });
     return $('.picture').elem('zoom').click(function(e) {

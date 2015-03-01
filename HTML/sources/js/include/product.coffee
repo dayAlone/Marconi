@@ -79,8 +79,9 @@
 		$(this).mod 'active', true
 		$('.picture').elem('big').css
 			backgroundImage : "url(#{$(this).data('middle')})"
-		$('.picture').elem('big').data('easyZoom').swap $(this).data('middle'), $(this).attr('href')
-		console.log $(this).data('middle'), $(this).attr('href')
+		if !$.browser.mobile
+			$('.picture').elem('big').data('easyZoom').swap $(this).data('middle'), $(this).attr('href')
+		
 		e.preventDefault()
 	$('.picture').elem('zoom').click (e)->
 			pswpElement = document.querySelectorAll('.pswp')[0];
