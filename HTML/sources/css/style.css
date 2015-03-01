@@ -3077,7 +3077,7 @@ svg g {
 .lookbook__slider,
 .lookbook__picture,
 .lookbook__slider-preview {
-  min-height: 300px;
+  min-height: 400px;
 }
 @media (min-width: 768px) {
   .lookbook__slider,
