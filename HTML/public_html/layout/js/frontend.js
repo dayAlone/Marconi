@@ -44118,6 +44118,11 @@ return PhotoSwipeUI_Default;
 
   $(document).ready(function() {
     var scrollTimer, x;
+    $('.product').elem('content-text').click(function() {
+      if ($.browser.mobile) {
+        return location.href = $(this).block('picture-frame').attr('href');
+      }
+    });
     delay(300, function() {
       return size();
     });

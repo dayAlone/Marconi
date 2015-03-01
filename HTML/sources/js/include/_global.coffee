@@ -1,5 +1,9 @@
 $(document).ready ->
 
+	$('.product').elem('content-text').click ->
+		if $.browser.mobile
+			location.href = $(this).block('picture-frame').attr('href')
+
 	delay 300, ()->
 		size()
 		
