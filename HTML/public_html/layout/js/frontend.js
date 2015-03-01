@@ -44470,7 +44470,7 @@ return PhotoSwipeUI_Default;
         {
           weight: .1
         }, {
-          color: "#ffffff"
+          color: "#000"
         }, {
           visibility: "on"
         }
@@ -44484,13 +44484,11 @@ return PhotoSwipeUI_Default;
         }
       ]
     }, {
-      featureType: "road.local",
+      featureType: "road",
       elementType: "labels",
       stylers: [
         {
-          weight: .1
-        }, {
-          color: "#ffffff"
+          color: "#000000"
         }
       ]
     }, {

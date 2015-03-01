@@ -440,10 +440,10 @@ $this->SetViewTarget('footer');
     	<a href="#" class="close" data-dismiss="modal" aria-label="Close"><?=svg('close')?></a>
     	<div class="modal-frame" data-title="где купить">
 	    	<div class="row available__row">
-	    		<div class="col-xs-4 col-md-3">
+	    		<div class="col-sm-4 col-md-3 hidden-xs">
 	    			<div class="available__picture" style="background-image: url(<?=(isset($array[0]['middle'])?$array[0]['middle']:(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg"))?>)"></div>	
 	    		</div>
-	    		<div class="col-xs-8 col-md-9 no-position">
+	    		<div class="col-sm-8 col-md-9 no-position">
 	    			<div class="available__title">
 	    				<div class="available__product-name"><?=$item['NAME']?></div>
 	    				<div class="available__product-artnumber">Арт. <?=$props['ARTNUMBER']['VALUE']?></div>

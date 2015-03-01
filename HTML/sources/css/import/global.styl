@@ -59,8 +59,11 @@ svg
 .wrap 
 	full-width()
 	min-height 100%
-	padding-bottom 60px
-	margin-bottom -60px
+	padding-bottom 40px
+	margin-bottom -40px
+	@media (min-width scr_sm)
+		padding-bottom 60px
+		margin-bottom -60px
 	position relative
 	&:after
 		content ""
@@ -256,27 +259,38 @@ svg
 			border-color black
 	.close
 		position absolute
-		right -60px
-		top 0
+		right 10px
+		top 10px
 		background transparent !important
+		@media (min-width scr_sm)
+			right -60px
+			top 0
 		svg
-			width 25px
-			height 25px
+			width 20px
+			height 20px
+			path
+				fill black
 			@media (min-width scr_sm)
 				width 40px
 				height 40px
-			path
-				fill white
+				path
+					fill white
 	&-content
 		border-radius 0
 		min-height 100px
-		padding 30px
+		padding 40px 30px 30px
+		@media (min-width scr_sm)
+			padding 30px
 	&-frame
 		width 100%
-		border 2px solid black
+		
 		min-height 100px
 		position relative
-		padding 30px
+		padding 30px 0
+		border-top 2px solid black
+		@media (min-width scr_sm)
+			padding 30px
+			border 2px solid black
 		&:after
 			content attr(data-title)
 			position absolute
@@ -288,6 +302,7 @@ svg
 			left 50%
 			font-size 13px
 			letter-spacing 6px
+			white-space nowrap
 			transform translateX(-50%)
 	&-backdrop
 		&.in
