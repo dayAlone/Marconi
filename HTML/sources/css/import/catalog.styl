@@ -552,7 +552,8 @@
 			t transform, .2s
 			&, &-frame
 				min-height 115px
-				width 40%
+			&-frame
+				width 40%	
 			@media (min-width scr_sm)
 				&, &-frame
 					min-height 220px
@@ -564,7 +565,6 @@
 				position relative
 				display block
 				overflow hidden
-				background alpha(red, .1)
 				@media (min-width scr_md)
 					b('loader.gif', center center no-repeat, transparent, 80px auto)
 	&--big
