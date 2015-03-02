@@ -7665,6 +7665,9 @@ svg g {
   color: #000;
   margin-right: 30px;
 }
+.catalog__footer .footer-nav__item:last-of-type {
+  margin-right: 0;
+}
 .catalog__footer .footer-nav__item:hover {
   color: #d10a32;
 }
@@ -9946,6 +9949,7 @@ svg g {
 .basket__item + .basket__item {
   padding-top: 13px;
   border-top: 1px solid #ccc;
+  max-height: 113px;
 }
 @media (min-width: 480px) {
   .basket__item + .basket__item {
@@ -9957,6 +9961,7 @@ svg g {
   .basket__item {
     line-height: 60px;
     max-height: 60px;
+    min-height: 0;
   }
 }
 @media (min-width: 768px) {

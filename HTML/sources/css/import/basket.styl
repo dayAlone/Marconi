@@ -181,7 +181,6 @@
 		position relative
 		overflow hidden
 		t max-height
-		
 		font-size 12px
 		@media (max-width scr_xs)
 			.col-xs-4
@@ -193,13 +192,14 @@
 		& + .basket__item
 			padding-top 13px
 			border-top 1px solid #ccc
+			max-height 113px
 			@media (min-width scr_xs)
 				border-top 0
 				padding-top 0	
 		@media (min-width scr_xs)
 			line-height: 60px
 			max-height @line-height
-			
+			min-height 0
 		@media (min-width: scr_sm)
 			line-height: 70px
 			font-size 14px
