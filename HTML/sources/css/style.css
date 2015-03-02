@@ -3985,12 +3985,12 @@ svg g {
   padding-bottom: 10px;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 14px;
   z-index: 20;
   background: #fff;
   text-align: left;
   margin-bottom: 10px;
   border-bottom: 1px solid #ccc;
+  font-size: 13px;
 }
 @media (min-width: 480px) {
   .catalog .product {
@@ -3999,6 +3999,7 @@ svg g {
 }
 @media (min-width: 768px) {
   .catalog .product {
+    font-size: 14px;
     width: 100%;
     border-bottom: 0;
     text-align: center;
@@ -4143,7 +4144,7 @@ svg g {
   position: absolute;
   left: 40%;
   width: 60%;
-  padding: 0 20px;
+  padding: 0 0 0 20px;
   top: 50%;
   margin-top: 3px;
   -webkit-transform: translateY(-50%);
@@ -4312,29 +4313,45 @@ svg g {
   right: 0px;
 }
 .catalog .product__name {
-  font-size: 12px;
+  font-size: 11px;
   opacity: 0.6;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
   filter: alpha(opacity=60);
   font-weight: normal;
+}
+@media (min-width: 768px) {
+  .catalog .product__name {
+    font-size: 12px;
+  }
 }
 .catalog .product__type {
   font-weight: normal;
-  font-size: 10px;
   opacity: 0.6;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
   filter: alpha(opacity=60);
-  letter-spacing: 2px;
-  max-height: 14px;
-  overflow: hidden;
+  font-size: 9px;
+  letter-spacing: 0px;
+}
+@media (min-width: 768px) {
+  .catalog .product__type {
+    max-height: 14px;
+    overflow: hidden;
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
 }
 .catalog .product__artnumber {
-  font-size: 10px;
+  font-size: 9px;
   font-weight: normal;
   opacity: 0.6;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
   filter: alpha(opacity=60);
   margin-top: 1px;
+}
+@media (min-width: 768px) {
+  .catalog .product__artnumber {
+    font-size: 10px;
+  }
 }
 .catalog .product__price {
   font-size: 12px;
