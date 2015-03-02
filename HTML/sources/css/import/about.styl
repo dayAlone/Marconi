@@ -109,28 +109,27 @@
 				left auto
 				right 0
 		&-arrow
-			
-			
 			margin-top 5px
-			transform translateY(-50%)
 			cursor pointer
-			position absolute
-			display none
 			@media (min-width scr_sm)
-				display block
+				position absolute
+				top 130px
+				transform translateY(-50%)
 			svg
 				height 40px
 				
 				@media (min-width scr_sm)
 					height auto
-			top 130px
+			
 			@media (min-width scr_sm)
 				top 50%
 			&--prev
-				left -35px
+				float left
 				@media (min-width scr_sm)
 					left -80px
+					float none
 			&--next
-				right -35px
+				float right
 				@media (min-width scr_sm)
 					right -60px
+					float none
