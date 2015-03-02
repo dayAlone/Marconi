@@ -135,6 +135,10 @@ if (!function_exists("cmpBySort"))
 									<a href="#" class="dropdown__item">с 9 до 15 часов</a>
 									<a href="#" class="dropdown__item">с 15 до 18 часов</a>
 								</span>
+								<select class="dropdown__select">
+									<option value="">с 9 до 15 часов</option>
+									<option value="">с 15 до 18 часов</option>
+								</select>
 							</div>
 						</div>
 					</div><?
