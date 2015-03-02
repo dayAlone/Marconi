@@ -13,7 +13,6 @@
           <?if($key!=0):?></section>
           <?endif;?>
           <section data-id="<?=$item['IBLOCK_SECTION_ID']?>" class="<?=($key==0?"active":"")?>">
-            <h3><?=$arResult['SECTIONS'][$item['IBLOCK_SECTION_ID']]['NAME']?></h3>
           <?
           $section = $item['IBLOCK_SECTION_ID'];
         endif;
@@ -34,6 +33,22 @@
             <?=svg('metro')?> <?=$item['PROPERTIES']['METRO']['VALUE']?>
           </div>
         <?endif;?>
+        <?if(intval($item['PROPERTIES']['TYPE']['VALUE_XML_ID'])>0):?>
+          <div class="stores__metro">
+            <img width="17" src="/layout/images/store-<?=$item['PROPERTIES']['TYPE']['VALUE_XML_ID']?>.png" alt="">
+            <?switch ($item['PROPERTIES']['TYPE']['VALUE_XML_ID']):
+              case '1':
+              ?>Места продаж<?
+              break;
+              case '2':
+              ?>Фирменные магазины<?
+              break;
+              case '3':
+              ?>Фирменные магазины с самовывозом<?
+              break;
+            endswitch;?>
+          </div>
+        <? endif; ?>
         </div>
       <?endforeach;
     ?>

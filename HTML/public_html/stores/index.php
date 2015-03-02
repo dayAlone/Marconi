@@ -64,6 +64,8 @@ endif;
 				"FILTER_NAME"   => "arFilter",
 				"SORT_BY1"      => "SECTION_ID",
 				"SORT_ORDER1"   => "ASC",
+				"SORT_BY2"      => "PROPERTY_TYPE",
+				"SORT_ORDER2"   => "ASC",
 				"DETAIL_URL"    => "/catalog/",
 				"CACHE_TYPE"    => "A",
 				'PROPERTY_CODE' => array('ADDRESS'),

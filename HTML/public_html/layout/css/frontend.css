@@ -10646,15 +10646,20 @@ svg g {
     font-size: 14px;
   }
 }
-.stores__metro svg {
+.stores__metro svg,
+.stores__metro img {
   margin-right: 5px;
   position: relative;
   top: 2px;
 }
 @media (min-width: 768px) {
-  .stores__metro svg {
+  .stores__metro svg,
+  .stores__metro img {
     top: 1px;
   }
+}
+.stores__metro img {
+  top: -1px;
 }
 .stores__modal {
   display: none;

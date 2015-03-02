@@ -85,8 +85,14 @@
 
 	$('.dropdown').elem('select').change (e)->
 		id = $(this).find('option:selected').data('id')
-		$('.stores__list section').removeClass 'active'
-		$(".stores__list section[data-id='#{id}']").addClass('active')
+		$('.stores__list section').hide().removeClass 'active'
+		$(this).block().elem('text').text $(this).find('option:selected').text()
+		$(".stores__list section[data-id='#{id}']").velocity
+					properties: "transition.slideDownIn"
+					options:
+						duration: 400
+						complete: ->
+							$(this).addClass('active')
 		e.preventDefault()
 
 
