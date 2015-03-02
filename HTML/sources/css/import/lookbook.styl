@@ -116,17 +116,16 @@
 					&--next
 						transform translateX(calc(-100%-200px))
 		&-item
-			padding 0 1.5% 0px !important
+			padding 0 1.5% 0px !important	
 			*, &
 				box-sizing: border-box !important
 			full-width()
 		.catalog
-			
-			margin-bottom 100px
 			position relative
 			z-index 3000
 			text-align: center
 			@media (min-width scr_sm)
+				margin-bottom 100px
 				opacity 0
 			.slick-list
 				overflow visible
@@ -183,9 +182,16 @@
 			position absolute
 			top 8px
 			left 0
+	.slider-item
+		padding-top 10px
+		@media (min-width scr_sm)
+			padding-top 0
 	&__divider
 		font-size 15px
 		margin-top 30px
+		margin-bottom 0
+		@media (min-width scr_sm)
+			margin-bottom 30px
 		opacity 0
 		t(opacity)
 		span
