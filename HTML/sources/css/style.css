@@ -6180,6 +6180,7 @@ svg g {
   top: -2px;
   height: 25px;
   line-height: 26px;
+  z-index: 300;
 }
 @media (min-width: 768px) {
   .basket__count {
@@ -6286,6 +6287,7 @@ svg g {
 }
 .basket #ORDER_FORM {
   margin-bottom: 60px;
+  overflow: hidden;
 }
 .basket .page input[type="submit"] {
   width: 100%;

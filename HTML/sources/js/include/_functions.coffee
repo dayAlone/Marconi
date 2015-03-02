@@ -175,6 +175,7 @@ timer = false
 		val = $(this).val()
 		$(this).block().find("a[href='#{val}']").trigger 'click'
 		$(this).block().mod 'open', false
+		$(this).block().elem('text').text $(this).find('option:selected').text()
 		
 	$('.dropdown').hoverIntent
 			over : ()->

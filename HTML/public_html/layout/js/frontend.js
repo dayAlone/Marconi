@@ -44098,7 +44098,8 @@ return PhotoSwipeUI_Default;
       var val;
       val = $(this).val();
       $(this).block().find("a[href='" + val + "']").trigger('click');
-      return $(this).block().mod('open', false);
+      $(this).block().mod('open', false);
+      return $(this).block().elem('text').text($(this).find('option:selected').text());
     });
     return $('.dropdown').hoverIntent({
       over: function() {
