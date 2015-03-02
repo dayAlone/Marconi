@@ -501,6 +501,7 @@
 
 		public function Action($file, $offset)
 		{
+
 			$all = Import::getIBlockElements($this->iblocks['products'], array('ACTIVE' => "Y"), array('ID'));
 			if ($offset == 1 && strstr($file, 'retail')):
 				if(count($all) > 0):
@@ -534,12 +535,15 @@
 				$product = &$this->products[$item->getAttribute('id')];
 				$id      = $product['ID'];
 				$raw     = $item->getElementsByTagName('count');
-        		if(intval($id) > 0):
-        			foreach ($raw as $count):
+				if(intval($id) > 0):
+					foreach ($raw as $count):
 						$amount = $count->getAttribute('value');
 						if(!$this->stores[$count->getAttribute('store')]):
 							$this->stores[$count->getAttribute('store')] = CCatalogStore::Add(array('TITLE'=>$count->getAttribute('description'), 'XML_ID'=>$count->getAttribute('store')));
 						endif;
+						
+						$store = $this->stores[$count->getAttribute('store')];
+
 						if(intval($amount) > 0 && (isset($product['CML2_LINK']) || $product['ACTIVE'] == 'N')):
 				    		$raw = new CIBlockElement;
 				    		if(isset($product['CML2_LINK'])):
@@ -548,13 +552,11 @@
 				    			$product['ACTIVE'] = "Y";
 				    			$raw->Update($id, array('ACTIVE'=>'Y'));
 				    		endif;
-				    		$this->counter++;
+				    		#$this->counter++;
 				    	endif;
 				    	
 				    	if($this->counts[$id][$store] != $amount):
-
-				    		$store  = $this->stores[$count->getAttribute('store')];
-							if(!isset($this->counts[$id]))
+				    		if(!isset($this->counts[$id]))
 								$this->counts[$id] = array();
 							
 							$this->counts[$id][$store] = $amount;
