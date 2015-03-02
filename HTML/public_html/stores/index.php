@@ -65,7 +65,7 @@ endif;
 				"SORT_BY1"      => "SECTION_ID",
 				"SORT_ORDER1"   => "ASC",
 				"SORT_BY2"      => "PROPERTY_TYPE",
-				"SORT_ORDER2"   => "ASC",
+				"SORT_ORDER2"   => "DESC",
 				"DETAIL_URL"    => "/catalog/",
 				"CACHE_TYPE"    => "A",
 				'PROPERTY_CODE' => array('ADDRESS'),
