@@ -1,15 +1,14 @@
 <?
 require_once($_SERVER['DOCUMENT_ROOT'].'/include/fix_items.php');
 foreach($arResult['ITEMS'] as &$item):
-	if($arItem["PROPERTY_TYPE"] == "N" || isset($arItem["PRICE"])):
-		if($arItem["VALUES"]["MIN"]["HTML_VALUE"] || $arItem["VALUES"]["MAX"]["HTML_VALUE"]):
+	if($item["PROPERTY_TYPE"] == "N"):
+		if($item["VALUES"]["MIN"]["HTML_VALUE"] || $item["VALUES"]["MAX"]["HTML_VALUE"]):
 			$arResult['CHECKED'] = "Y";
 			$item['OPEN'] = "Y";
-			
 		endif;
 	else:
-		foreach($arItem["VALUES"] as $val => $ar):
-			if($ar["CHECKED"]):
+		foreach($item["VALUES"] as $val => $ar):
+			if(isset($ar["CHECKED"])):
 					$item['OPEN'] = "Y";
 				endif;
 		endforeach;
