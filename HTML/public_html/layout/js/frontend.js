@@ -44255,7 +44255,8 @@ return PhotoSwipeUI_Default;
             modal.modal('hide');
           }
           if (block !== "forget") {
-            return $('.auth').mod('active', true);
+            $('.auth').mod('active', true);
+            return $(".toolbar__mobile a[href='#login']").attr('href', '/profile/');
           }
         } else if (isJson(data)) {
           data = JSON.parse(data);
@@ -44488,7 +44489,7 @@ return PhotoSwipeUI_Default;
       elementType: "labels",
       stylers: [
         {
-          color: "#000000"
+          color: "#757575"
         }
       ]
     }, {

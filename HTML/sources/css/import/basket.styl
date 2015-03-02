@@ -21,11 +21,11 @@
 		position relative
 	.total
 		&__frame
-			position absolute
 			bottom 0
 			right 0
 			padding 0 10px
 			@media (min-width: scr_sm)
+				position absolute
 				width 50%
 			@media (min-width: scr_md)
 				width: 33.33333333%;
@@ -100,19 +100,26 @@
 		right 15px
 		top 50%
 		
-		width 20px
-		height 20px
+		width 12px
+		height 12px
 		line-height 20px
 		opacity .3
 		t opacity
-		margin-top -15px
+		margin-top -10px
+		@media (min-width: scr_sm)
+			width 20px
+			height 20px
+			margin-top -15px
 		@media (min-width: scr_md)
 			margin-top -13px
 		&:hover
 			opacity 1
 		svg
-			width 21px
-			height 21px
+			width 15px
+			height 15px
+			@media (min-width: scr_sm)
+				width 21px
+				height 21px
 			path
 				fill red
 				stroke red
@@ -148,18 +155,24 @@
 		padding 10px 0 5px
 		margin-bottom 15px
 		color #6e6f79
-		font-size 14px
+		font-size 11px
 		text-align: center
 		border-top 1px solid #d5dbdf
 		border-bottom 1px solid #d5dbdf
+		@media (min-width: scr_sm)
+			font-size 14px
 	&__item
 		text-transform: uppercase
 		text-align: center
 		position relative
 		overflow hidden
 		t max-height
+		line-height: 60px
+		max-height @line-height
+		font-size 12px
 		@media (min-width: scr_sm)
 			line-height: 70px
+			font-size 14px
 			max-height @line-height
 		@media (min-width: scr_md)
 			line-height: 110px
@@ -174,11 +187,14 @@
 			margin-right 20px
 			@media (min-width: scr_md)
 				margin-right 0
+	
 	&__total, &__sale-total
 		font-size 15px
 		display inline-block
 		position relative
+		margin-top 20px
 		&:after
+			margin-top 0
 			position absolute
 			content attr(data-text)
 			right 100%
@@ -187,24 +203,33 @@
 			font-weight 300
 			top -2px
 	&__count
-		height 30px
-		width 60px
-		line-height 31px
+		width 40px
 		text-align: center
 		position relative
 		border 1px solid #b7c0c8
 		appearance none
 		border-radius 0
 		top -2px
+		height 25px
+		line-height 26px
+		@media (min-width: scr_sm)
+			height 30px
+			line-height 31px
+			width 60px
 	&__name
-		line-height 20px
+		line-height 15px
 		text-transform: uppercase
-		font-size 12px
+		font-size 10px
 		color alpha(black, .6)
+		@media (min-width: scr_sm)
+			font-size 12px
+			line-height 20px
 	&__brand
 		font-weight: bold
-		font-size 14px
+		font-size 12px
 		color black
+		@media (min-width: scr_sm)
+			font-size 14px
 	&__picture
 		background-size auto 90%
 		background-repeat no-repeat
@@ -234,8 +259,12 @@
 			left 50%
 			transform translateX(-50%)
 			display: inline-block
-			top -16px
-			font-size 25px
+			top -12px
+			font-size 17px
+			white-space no-wrap
+			@media (min-width: scr_sm)
+				font-size 25px
+				top -16px
 			@media (min-width: scr_md)
 				font-size 30px
 	.delivery
@@ -422,11 +451,17 @@
 			text-transform: uppercase
 			width 100%
 			font-weight: bold
-			font-size 20px
 			text-align: center
 			margin-bottom 10px
+			font-size 18px
+			@media (min-width: scr_sm)
+				font-size 20px
 
 .order
+	&__total
+		margin-top 30px
+		@media (min-width: scr_sm)
+			margin-top 0
 	&__profile
 		margin-bottom 30px
 		@media (min-width: scr_md)

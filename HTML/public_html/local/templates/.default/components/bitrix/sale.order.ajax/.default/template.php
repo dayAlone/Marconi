@@ -119,7 +119,7 @@ if (!function_exists("cmpBySort"))
 						?>
 					<div class="row xs-margin-top">
 						<div class="col-xs-6">
-							<small><strong><?=$prop['NAME']?></strong></small>
+							<small><strong><?=str_replace(" доставки", "<span class='hidden-xs'> доставки</span>", $prop['NAME'])?></strong></small>
 							<input class="date" data-provide="datepicker" readonly data-date-format="dd.mm.yyyy" data-date-start-date="<?=date('d.m.Y', strtotime(date('d.m.Y') . "+1 days"))?>" data-date-language="ru" type="text" name="<?=$prop['FIELD_NAME']?>" value="<?=($prop["VALUE"]?$prop["VALUE"]:date('d.m.Y', strtotime(date('d.m.Y') . "+1 days")))?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=='Y'?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
 							<div class="blue-arrow"><?=svg('arrow')?></div>
 						</div>
@@ -127,7 +127,7 @@ if (!function_exists("cmpBySort"))
 					elseif($prop['CODE']=="time"):
 						?>
 						<div class="col-xs-6 time-select">
-							<small><strong><?=$prop['NAME']?></strong></small>
+							<small><strong><?=str_replace(" доставки", "<span class='hidden-xs'> доставки</span>", $prop['NAME'])?></strong></small>
 							<div class="dropdown">
 								<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white">с 9 до 15 часов</span><?=svg('arrow')?></a>
 								<input type="hidden" name="<?=$prop['FIELD_NAME']?>" value="<?=($prop["VALUE"]?$prop["VALUE"]:'с 9 до 15 часов')?>">

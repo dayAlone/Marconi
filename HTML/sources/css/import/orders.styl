@@ -13,6 +13,12 @@
 		line-height 60px
 	&__product
 		padding 0 10px
+		.col-xs-7
+			@media (max-width scr_xs)
+				width 41%
+		.col-xs-2
+			@media (max-width scr_xs)
+				width 25%
 		&-picture
 			width 60px
 			margin-right 10px
@@ -20,14 +26,17 @@
 			background-size contain
 			background-repeat no-repeat
 			background-position center
-			display inline-block
 			vertical-align: middle
+			display none
+			@media (min-width scr_xs)
+				display inline-block	
 		&-name
 			color red
 			line-height 16px
 			display inline-block
 			vertical-align: middle
-			max-width 70%
+			@media (min-width scr_xs)
+				max-width 70%
 			span
 				border-line(alpha(red, .3))
 			&:hover
@@ -41,8 +50,10 @@
 		margin-top 18px
 		padding 18px 0 10px
 		border-top 1px solid #ccc
-		font-size 13px
+		font-size 10px
 		display none
+		@media (min-width scr_xs)
+			font-size 13px
 	&__products
 		margin-top 14px
 	&__param-name
@@ -52,37 +63,59 @@
 	&__number
 		cursor pointer
 		margin-right 3px
-		border-dashed(alpha(black, .3), 20px, 5px)
+		border-dashed(alpha(black, .3), 15px, 5px)
 		&:hover
 			color red
-			border-dashed(alpha(@color, .3), 20px, 5px)
+			border-dashed(alpha(@color, .3), 15px, 5px)
+		@media (min-width scr_xs)
+			border-dashed(alpha(black, .3), 18px, 5px)
+			&:hover
+				color red
+				border-dashed(alpha(@color, .3), 18px, 5px)
+		@media (min-width scr_sm)
+			border-dashed(alpha(black, .3), 20px, 5px)
+			&:hover
+				color red
+				border-dashed(alpha(@color, .3), 20px, 5px)
 	&__number, &__price
-		font-size 20px
+		font-size 15px
 		font-weight: bold
 		color black
+		@media (min-width scr_xs)
+			font-size 18px
+		@media (min-width scr_sm)
+			font-size 20px
 	&__price
 		display inline-block
 		margin-top -2px
 	&__title
-		font-size 12px
+		font-size 11px
 		color #666666
+		@media (min-width scr_xs)
+			font-size 12px
 	&__status
 		font-size 13px
 		color black
 		cursor pointer
-		margin-top 6px
 		display inline-block
 		border-dashed(alpha(black, .3), 14px, 5px)
 		&:hover
 			color red
 			border-dashed(alpha(@color, .3), 14px, 5px)
+		@media (min-width scr_xs)
+			margin-top 6px
 	& + .order
-		margin-top 15px
+		margin-top 10px
+		@media (min-width scr_sm)
+			margin-top 15px
 	width 100%
 	border 1px solid #b2b3b3
 	padding 18px 20px 13px
-	margin-bottom 30px
-	min-height 61px
+	margin-bottom 20px
+	min-height 35px
+	@media (min-width scr_xs)
+		min-height 61px
+		margin-bottom 30px
 	t(all)
 	&:hover
 		border-color black

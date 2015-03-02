@@ -94,6 +94,7 @@ $(document).ready ->
 			$(".#{id}").elem('success').hide().addClass 'hidden'
 			$(".#{id}").elem('form').show().removeClass 'hidden'
 
+
 	$('input[name="REGISTER[PERSONAL_PHONE]"], input[name="PERSONAL_PHONE"]').mask '+7 0000000000'
 
 	$('#login form, #forget form, #register form, #change form').submit (e)->
@@ -117,10 +118,13 @@ $(document).ready ->
 					if $(".#{block}").elem('success').length > 0
 						$(".#{block}").elem('success').show().removeClass 'hidden'
 						$(".#{block}").elem('form').hide().addClass 'hidden'
+
 					else
 						modal.modal('hide')
+
 					if block != "forget"
 						$('.auth').mod 'active', true
+						$(".toolbar__mobile a[href='#login']").attr 'href', '/profile/'
 				else if  isJson data
 					data = JSON.parse data
 					getCaptcha()

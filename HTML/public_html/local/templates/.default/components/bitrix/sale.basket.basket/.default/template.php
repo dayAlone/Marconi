@@ -60,16 +60,18 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			              <div class="basket__name"><?=str_replace($brands[$item['PROPERTY_BRAND_VALUE']], "<br><span class='basket__brand'>".$brands[$item['PROPERTY_BRAND_VALUE']]."</span><br>", $item['NAME'])?></div>
 			            </div>
 			            <div class="col-md-2 visible-md visible-lg"><?=$item['PROPERTY_ARTNUMBER_VALUE']?></div>
-			            <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>"> <strong class="sale" data-value="<?=$item['DISCOUNT_PRICE']?>"><?=number_format($item['FULL_PRICE'], 0, ' ', ' ')?> ₷</strong></div>
+			            <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>"><nobr><strong class="sale" data-value="<?=$item['DISCOUNT_PRICE']?>"><?=number_format($item['FULL_PRICE'], 0, ' ', ' ')?> ₷</strong></nobr></div>
 			            <?=($showSale?'<div class="col-xs-2 col-md-1"> <strong>'.$item["DISCOUNT_PRICE_PERCENT_FORMATED"].'</strong></div>':'')?>
 			            <div class="col-xs-2 col-md-1"> 
 			              <input value="<?=$item['QUANTITY']?>" class="basket__count" data-id="<?=$item['ID']?>" data-price="<?=$item['PRICE']?>">
 			            </div>
 			            <div class="col-md-3">
+			            	<nobr>
 			            	<strong><span class="total"><?=number_format($item['QUANTITY']*$item['PRICE'], 0, ' ', ' ')?></span> ₷</strong>
 							<a href="#" class="basket__delete" data-id="<?=$item['ID']?>">
 								<?=svg('close')?>
 							</a>
+							</nobr>
 			            </div>
 			          </div>
 			        </div>

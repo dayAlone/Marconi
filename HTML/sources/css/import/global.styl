@@ -23,14 +23,23 @@ body
 			color red
 			border-line alpha(@color, .5)
 .order-history
-	margin-top 40px
+	margin-top 0px
+	@media (min-width scr_sm)
+		margin-top 40px
 	@media (min-width scr_md)
 		margin-top 0
 .password-change
 	.page__title
-		margin-top 0
+		margin-top 40px
+		@media (min-width scr_sm)
+			margin-top 0
 		@media (min-width scr_md)
 			margin-top 40px
+
+#panel
+	display none
+	@media (min-width scr_md)
+		display block
 
 input[type="text"], input[type="email"], input[type="password"], textarea
 	box-shadow none
