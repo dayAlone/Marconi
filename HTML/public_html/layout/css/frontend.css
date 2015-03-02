@@ -6356,11 +6356,16 @@ svg g {
   }
 }
 .contacts #contactsMap {
-  min-height: 450px;
+  min-height: 300px;
   float: left;
   width: 100%;
   margin-top: 40px;
   border-top: 1px solid #e7e7e7;
+}
+@media (min-width: 768px) {
+  .contacts #contactsMap {
+    min-height: 450px;
+  }
 }
 @media (min-width: 992px) {
   .contacts #contactsMap {

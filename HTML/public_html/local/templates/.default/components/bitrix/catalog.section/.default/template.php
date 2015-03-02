@@ -78,10 +78,10 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
 </div>
 <div class="catalog__footer">
   <div class="row">
-    <div class="center-xs col-sm-8 col-sm-push-4 right">
+    <div class="col-sm-8 col-sm-push-4 center right-sm">
       <?=$arResult["NAV_STRING"]?>
     </div>
-    <div class="center-xs col-sm-4 col-sull-8">
+    <div class="center left-sm col-sm-4 col-sull-8">
       <?php
           $APPLICATION->IncludeComponent("bitrix:menu", "catalog", 
           array(
