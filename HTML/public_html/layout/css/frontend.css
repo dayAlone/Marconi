@@ -8985,7 +8985,7 @@ svg g {
   line-height: 38px;
   text-align: center;
   color: #fff;
-  font-size: 12px;
+  font-size: 10px;
   white-space: nowrap;
   -webkit-transition-property: all;
   -moz-transition-property: all;
@@ -8999,10 +8999,13 @@ svg g {
   transition-duration: 0.3s;
   padding: 0 15px;
   margin-bottom: 20px;
+  max-width: 45%;
 }
 @media (min-width: 768px) {
   .product__big-button {
     min-width: 45%;
+    max-width: none;
+    font-size: 12px;
   }
 }
 .product__big-button--simmilar {
@@ -9032,11 +9035,16 @@ svg g {
   background: #fff;
   -webkit-box-shadow: inset 0 0 0 1px #000;
   box-shadow: inset 0 0 0 1px #000;
-  font-size: 10px;
+  font-size: 8px;
 }
 .product__big-button--border:focus,
 .product__big-button--border:active {
   color: #000;
+}
+@media (min-width: 768px) {
+  .product__big-button--border {
+    font-size: 10px;
+  }
 }
 @media (min-width: 1200px) {
   .product__big-button--border {
