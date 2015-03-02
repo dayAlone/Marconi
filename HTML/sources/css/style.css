@@ -2710,7 +2710,7 @@ svg g {
   background-position: center center;
 }
 .about__slider-item-content {
-  width: 80%;
+  width: 92%;
   background: rgba(0,0,0,0.75);
   -webkit-box-sizing: border-box !important;
   -moz-box-sizing: border-box !important;
@@ -2720,7 +2720,7 @@ svg g {
   color: #fff;
   padding: 20px 15px;
   position: absolute;
-  left: 10%;
+  left: 4%;
 }
 @media (min-width: 768px) {
   .about__slider-item-content {
@@ -2827,7 +2827,13 @@ svg g {
   transform: translateY(-50%);
   cursor: pointer;
   position: absolute;
+  display: none;
   top: 130px;
+}
+@media (min-width: 768px) {
+  .about__slider-arrow {
+    display: block;
+  }
 }
 .about__slider-arrow svg {
   height: 40px;
@@ -3485,14 +3491,23 @@ svg g {
   position: fixed;
   top: 50%;
   left: 50%;
-  max-width: 700px;
   text-align: center;
-  font-size: 23px;
   color: #fff;
   z-index: 10001;
-  margin-left: -350px;
-  margin-top: -244px;
-  line-height: 28px;
+  max-width: 300px;
+  margin-left: -150px;
+  margin-top: -170px;
+  font-size: 14px;
+  line-height: 20px;
+}
+@media (min-width: 768px) {
+  .catalog__card {
+    max-width: 700px;
+    margin-left: -350px;
+    margin-top: -244px;
+    line-height: 28px;
+    font-size: 23px;
+  }
 }
 .catalog__card-text {
   -webkit-transition-property: opacity;

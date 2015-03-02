@@ -42,14 +42,21 @@
 		position fixed
 		top 50%
 		left 50%
-		max-width 700px
 		text-align: center
-		font-size 23px
+		
 		color white
 		z-index 10001
-		margin-left -350px
-		margin-top -244px
-		line-height 28px
+		max-width 300px
+		margin-left -150px
+		margin-top -170px
+		font-size 14px
+		line-height 20px
+		@media (min-width scr_sm)
+			max-width 700px
+			margin-left -350px
+			margin-top -244px
+			line-height 28px
+			font-size 23px
 		&-text
 			t opacity
 		&-button
