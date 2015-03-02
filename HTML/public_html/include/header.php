@@ -122,7 +122,7 @@
         </div>
         <div class="col-xs-3"></div>
         <div class="col-xs-6 right">
-          <a href="/basket/" title=""><?=svg('phone')?></a><span class="toolbar__divider"></span><a <?=($GLOBALS['USER']->IsAuthorized()?'href="/profile/"':'href="#login" data-toggle="modal"')?> title=""><?=svg('profile')?></a><span class="toolbar__divider"></span><a href="/basket/" title=""><?=svg('cart')?></a>
+          <a href="tel:+74959723265" title=""><?=svg('phone')?></a><span class="toolbar__divider"></span><a <?=($GLOBALS['USER']->IsAuthorized()?'href="/profile/"':'href="#login" data-toggle="modal"')?> title=""><?=svg('profile')?></a><span class="toolbar__divider"></span><a href="/basket/" title=""><?=svg('cart')?></a>
         </div>
       </div>
     </div>
