@@ -458,7 +458,7 @@
       } else if ($('.about').hasMod('white')) {
         $('.about').mod('white', false);
       }
-      return $('.about').elem('slider-arrow').off('click').on('click', function(e) {
+      return $('.about').elem('slider-arrow').off('click touchstart').on('click touchstart', function(e) {
         var slider;
         slider = $('.about').elem('slider').data('fotorama');
         slider.show($(this).data('direction'));

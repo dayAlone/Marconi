@@ -174,7 +174,7 @@ $(document).ready ->
 			$('.about').mod 'white', true
 		else if $('.about').hasMod 'white'
 			$('.about').mod 'white', false
-		$('.about').elem('slider-arrow').off('click').on 'click', (e)->
+		$('.about').elem('slider-arrow').off('click touchstart').on 'click touchstart', (e)->
 			slider = $('.about').elem('slider').data('fotorama')
 			slider.show $(this).data('direction')
 			e.preventDefault()
