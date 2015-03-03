@@ -1523,6 +1523,8 @@
                 }
               ]
             });
+          } else if ($.browser.mobile) {
+            $('.product').elem('picture').lazyLoadXT();
           }
           size();
           return fotorama.resize({

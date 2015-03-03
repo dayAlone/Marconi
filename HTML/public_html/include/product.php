@@ -21,7 +21,7 @@
 		    </div>
 		</div>
 		<? if($item['PROPERTIES']['SALE']['VALUE']=="77ebb501-85d4-11e4-82e4-0025908101de"): ?>
-	    	<div class="product__sale">Уникальная цена</div>
+	    	<div class="product__sale">Уникальная<br>цена</div>
 	    <? endif; ?>
 	    <? if(strlen($item['PROPERTIES']['TRADELINE']['VALUE'])>0): ?>
 	    	<div class="product__tradeline"><?=$arResult['TRADELINES'][$item['PROPERTIES']['TRADELINE']['VALUE']]?></div>

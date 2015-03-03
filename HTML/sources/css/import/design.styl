@@ -65,13 +65,15 @@ for vx in center right left
 	for vz, key in xs sm md lg
 		.{vz}-{vx}
 			@media (min-width: sizes[key])
-				text-align: vx
+				text-align: vx !important
 
 
 
 for vx in line-height
 	for vz, key in xxs xs s m l xl xxl
 		/.{vz}-{vx}
+			{vx}: value_sm[key] !important
+		/.{vx}-{vz}
 			{vx}: value_sm[key] !important
 
 

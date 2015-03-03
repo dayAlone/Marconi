@@ -104,7 +104,8 @@
 									slidesToShow: 3
 								}
 							}]
-					
+					else if $.browser.mobile
+						$('.product').elem('picture').lazyLoadXT()
 					size()
 					fotorama.resize
 						height : $(fotorama.activeFrame.html).outerHeight()

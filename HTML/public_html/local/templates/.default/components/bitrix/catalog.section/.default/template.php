@@ -40,11 +40,8 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
         <a href="#" class="catalog__per-page <?=($arParams['PAGE_ELEMENT_COUNT']==$count?"catalog__per-page--active":"")?>"><?=$count?></a>
       <? endforeach; ?>
     </div>
-<<<<<<< HEAD
-    <div class="col-xs-4 right">
-=======
     <div class="col-xs-6 col-sm-4 right">
->>>>>>> mobile
+
       <?=$arResult["NAV_STRING"]?>
     </div>
   </div>
@@ -85,7 +82,7 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
     <div class="col-sm-8 col-sm-push-4 center right-sm">
       <?=$arResult["NAV_STRING"]?>
     </div>
-    <div class="center left-sm col-sm-4 col-sull-8">
+    <div class="center left-sm col-sm-4 col-sm-pull-8">
       <?php
           $APPLICATION->IncludeComponent("bitrix:menu", "catalog", 
           array(
