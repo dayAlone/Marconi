@@ -79,6 +79,7 @@ $this->setFrameMode(true);
 							<?/*$ar["DISABLED"]? ' lvl2_disabled': ''*/?>
 							<?if($arItem['CODE']=='COLOR'):
 								?>
+								<div class="color-frame">
 								<input
 									type="checkbox"
 									value="<?echo $ar["HTML_VALUE"]?>"
@@ -92,6 +93,8 @@ $this->setFrameMode(true);
 									class="color"
 									<?=($ar["DISABLED"]&&!preg_match("/SECTION_(.*)/", $arItem['CODE'])&&!$ar['CHECKED']?"disabled":"")?>
 								/>
+								<label class="visible-xs color-label" for="<?echo $ar["CONTROL_ID"]?>"><?echo $ar["VALUE"];?></label>
+								</div>
 							<?else:
 								?>
 								<div class="filter__param">

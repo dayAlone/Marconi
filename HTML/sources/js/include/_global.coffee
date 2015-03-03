@@ -1,9 +1,5 @@
 $(document).ready ->
 
-	$('.product').elem('content-text').click ->
-		if $.browser.mobile
-			location.href = $(this).block('picture-frame').attr('href')
-
 	delay 300, ()->
 		size()
 		
@@ -18,6 +14,11 @@ $(document).ready ->
 		e.preventDefault()	
 
 	$('[data-toggle="tooltip"]').tooltip()
+
+	$('.toolbar a.search').click (e)->
+		console.log $('div.search')
+		$('div.search').parent().toggleClass 'hidden-xs'
+		e.preventDefault()
 
 	# pointerEvents
 

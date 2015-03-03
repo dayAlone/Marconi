@@ -250,11 +250,6 @@
 
   $(document).ready(function() {
     var scrollTimer, x;
-    $('.product').elem('content-text').click(function() {
-      if ($.browser.mobile) {
-        return location.href = $(this).block('picture-frame').attr('href');
-      }
-    });
     delay(300, function() {
       return size();
     });
@@ -270,6 +265,11 @@
       return e.preventDefault();
     });
     $('[data-toggle="tooltip"]').tooltip();
+    $('.toolbar a.search').click(function(e) {
+      console.log($('div.search'));
+      $('div.search').parent().toggleClass('hidden-xs');
+      return e.preventDefault();
+    });
     if (pointerEventsSupported) {
       scrollTimer = false;
       $(window).scroll(function() {
@@ -946,6 +946,11 @@
     if (images == null) {
       images = true;
     }
+    $('.product').elem('content-text').click(function() {
+      if ($.browser.mobile) {
+        return location.href = $(this).block('picture-frame').attr('href');
+      }
+    });
     $('.product').elem('icon').off('click').on('click', function(e) {
       var gallery, items, pswpElement;
       if ($(this).hasMod('zoom')) {

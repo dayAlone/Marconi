@@ -4733,8 +4733,17 @@ svg g {
   border: 0;
   cursor: pointer;
   top: 0;
-  width: 25px;
-  height: 25px;
+  width: 21px;
+  height: 21px;
+  float: left;
+}
+@media (min-width: 768px) {
+  .filter .icheckbox_color,
+  .filter input.color {
+    float: none;
+    width: 25px;
+    height: 25px;
+  }
 }
 @media (min-width: 992px) {
   .filter .icheckbox_color,
@@ -4829,6 +4838,32 @@ svg g {
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
+}
+.filter .color-label {
+  margin-left: 5px;
+  line-height: 32px;
+  font-size: 12px;
+  height: 21px;
+  width: auto;
+  float: left;
+}
+.filter .color-frame {
+  float: left;
+  width: 50%;
+  white-space: nowrap;
+  margin-bottom: 5px;
+}
+@media (min-width: 480px) {
+  .filter .color-frame {
+    width: 25%;
+  }
+}
+@media (min-width: 768px) {
+  .filter .color-frame {
+    float: none;
+    display: inline;
+    width: auto;
+  }
 }
 .filter .icheckbox_color {
   -webkit-transition-duration: 0s;
@@ -5186,12 +5221,24 @@ svg g {
   pointer-events: none;
   color: #000;
 }
+@media (max-width: 768px) {
+  .product__big-button--disabled {
+    width: 100%;
+    max-width: none;
+  }
+}
 .product__big-button:focus,
 .product__big-button:active {
   color: #fff;
 }
 .product__big-button--buy {
   max-width: 45%;
+}
+@media (max-width: 768px) {
+  .product__big-button--buy {
+    width: 100%;
+    max-width: none;
+  }
 }
 .product__big-button--border {
   color: #000;
@@ -5426,8 +5473,13 @@ svg g {
 }
 .product .props {
   float: left;
-  width: 95%;
+  width: 100%;
   margin-bottom: 25px;
+}
+@media (min-width: 992px) {
+  .product .props {
+    width: 95%;
+  }
 }
 @media (min-width: 1200px) {
   .product .props {

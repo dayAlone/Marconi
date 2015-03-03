@@ -74,10 +74,16 @@
 		&--disabled
 			pointer-events none
 			color black
+			@media (max-width: scr_sm)
+				width 100%
+				max-width none
 		&:focus, &:active
 			color white
 		&--buy
 			max-width 45%
+			@media (max-width: scr_sm)
+				width 100%
+				max-width none
 		&--border
 			color black
 			background white
@@ -220,8 +226,10 @@
 				border-color black
 	.props
 		float left
-		width 95%
+		width 100%
 		margin-bottom 25px
+		@media (min-width: scr_md)
+			width 95%
 		@media (min-width: scr_lg)
 			width 100%
 		&__item

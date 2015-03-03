@@ -75,6 +75,11 @@ filterRequest = false
 			bx_cart_block1.refreshCart({})
 
 @initProducts = (images = true)->
+	
+	$('.product').elem('content-text').click ->
+		if $.browser.mobile
+			location.href = $(this).block('picture-frame').attr('href')
+
 	$('.product').elem('icon').off('click').on 'click', (e)->
 		if $(this).hasMod 'zoom'
 			pswpElement = document.querySelectorAll('.pswp')[0];

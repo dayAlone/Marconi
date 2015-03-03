@@ -742,8 +742,13 @@
 		border 0
 		cursor pointer
 		top 0
-		width 25px
-		height 25px
+		width 21px
+		height 21px
+		float left
+		@media (min-width: scr_sm)
+			float none
+			width 25px
+			height 25px
 		@media (min-width: scr_md)
 			width 21px
 			height 21px
@@ -780,6 +785,26 @@
 				background linear-gradient( left top, rgba(255, 0, 0, 1) 0%, rgba(255, 255, 0, 1) 25%, rgba(0, 255, 0, 1) 40%, rgba(0, 255, 255, 1) 50%, rgba(0, 0, 255, 1) 65%, rgba(255, 0, 255, 1) 80%, rgba(255, 0, 0, 1) 100%)
 				&:after
 					opacity 0
+	.color
+		&-label
+			margin-left 5px
+			line-height 32px
+			font-size 12px
+			height 21px
+			width auto
+			float left
+		&-frame
+			float left
+			width 50%
+			white-space no-wrap
+			margin-bottom 5px
+			@media (min-width: scr_xs)
+				width (100/4)%
+				
+			@media (min-width: scr_sm)
+				float none
+				display inline
+				width auto
 	.icheckbox_color
 		transition-duration 0s
 		opacity 0
