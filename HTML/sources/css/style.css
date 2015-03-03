@@ -2596,7 +2596,12 @@ svg g {
   transition-duration: 0.3s;
 }
 .index #bx-composite-banner {
-  right: 150px;
+  right: 130px;
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  -o-transform: scale(0.6);
+  -ms-transform: scale(0.6);
+  transform: scale(0.6);
 }
 #bx-composite-banner:hover {
   opacity: 1;
