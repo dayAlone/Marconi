@@ -44,9 +44,7 @@
 					<?=html_entity_decode($item['PROPERTIES']['ADDRESS']['VALUE']['TEXT'])?>
 					<?if(!isset($arParams['CACHE_NOTES'])):?>
 						<?if(strlen($item['PREVIEW_TEXT'])>0):?>
-				          <div class="stores__description">
-				            <?=$item['~PREVIEW_TEXT']?>
-				          </div>
+				            <br><?=$item['~PREVIEW_TEXT']?>
 				        <?endif;?>
 					<?endif;?>
 				</td>
