@@ -25,7 +25,25 @@ if (!function_exists("cmpBySort"))
 				echo ShowError($v);
 	?>
 	<div class="row">
-		<div class="col-xs-4">
+		<div class="col-md-4 order__profile col-md-push-4">
+			<div class="basket__block basket__block--profile">
+				<div class="basket__block-title">контактная информация</div>
+				<div class="row">
+				<? foreach ($arResult['ORDER_PROP']['USER_PROPS_Y'] as $prop):?>
+					<div class="col-xs-<?=($prop['SIZE1']==6?"6":"12")?>">
+						<input type="<?=($prop['FIELD_NAME']=="ORDER_PROP_4"?"email":"text")?>" value="<?=$prop["VALUE"]?>" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=="Y"?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
+					</div>
+				<? endforeach ?>
+				</div>
+				<textarea name="ORDER_DESCRIPTION" id="ORDER_DESCRIPTION" style="max-width:100%;min-height:120px" placeholder="комментарий к заказу"><?=$arResult["USER_VALS"]["ORDER_DESCRIPTION"]?></textarea>
+				<? global $USER;
+					if(!$USER->getID()):
+				?>
+				<input type="checkbox" name="register_user" id="register_user" value="Y" checked="checked"> <label for="register_user">Зарегистрироваться на сайте</label>
+			<? endif;?>
+			</div>
+		</div>
+		<div class="col-sm-6 order__delivery col-md-4 col-md-pull-4">
 			<div class="basket__block">
 				<div class="basket__block-title">доставка</div>
 				<div class="delivery">
@@ -101,7 +119,7 @@ if (!function_exists("cmpBySort"))
 						?>
 					<div class="row xs-margin-top">
 						<div class="col-xs-6">
-							<small><strong><?=$prop['NAME']?></strong></small>
+							<small><strong><?=str_replace(" доставки", "<span class='hidden-xs'> доставки</span>", $prop['NAME'])?></strong></small>
 							<input class="date" data-provide="datepicker" readonly data-date-format="dd.mm.yyyy" data-date-start-date="<?=date('d.m.Y', strtotime(date('d.m.Y') . "+1 days"))?>" data-date-language="ru" type="text" name="<?=$prop['FIELD_NAME']?>" value="<?=($prop["VALUE"]?$prop["VALUE"]:date('d.m.Y', strtotime(date('d.m.Y') . "+1 days")))?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=='Y'?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
 							<div class="blue-arrow"><?=svg('arrow')?></div>
 						</div>
@@ -109,7 +127,7 @@ if (!function_exists("cmpBySort"))
 					elseif($prop['CODE']=="time"):
 						?>
 						<div class="col-xs-6 time-select">
-							<small><strong><?=$prop['NAME']?></strong></small>
+							<small><strong><?=str_replace(" доставки", "<span class='hidden-xs'> доставки</span>", $prop['NAME'])?></strong></small>
 							<div class="dropdown">
 								<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white">с 9 до 15 часов</span><?=svg('arrow')?></a>
 								<input type="hidden" name="<?=$prop['FIELD_NAME']?>" value="<?=($prop["VALUE"]?$prop["VALUE"]:'с 9 до 15 часов')?>">
@@ -117,6 +135,10 @@ if (!function_exists("cmpBySort"))
 									<a href="#" class="dropdown__item">с 9 до 15 часов</a>
 									<a href="#" class="dropdown__item">с 15 до 18 часов</a>
 								</span>
+								<select class="dropdown__select">
+									<option value="">с 9 до 15 часов</option>
+									<option value="">с 15 до 18 часов</option>
+								</select>
 							</div>
 						</div>
 					</div><?
@@ -146,25 +168,8 @@ if (!function_exists("cmpBySort"))
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-4">
-			<div class="basket__block basket__block--profile">
-				<div class="basket__block-title">контактная информация</div>
-				<div class="row">
-				<? foreach ($arResult['ORDER_PROP']['USER_PROPS_Y'] as $prop):?>
-					<div class="col-xs-<?=($prop['SIZE1']==6?"6":"12")?>">
-						<input type="<?=($prop['FIELD_NAME']=="ORDER_PROP_4"?"email":"text")?>" value="<?=$prop["VALUE"]?>" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=="Y"?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
-					</div>
-				<? endforeach ?>
-				</div>
-				<textarea name="ORDER_DESCRIPTION" id="ORDER_DESCRIPTION" style="max-width:100%;min-height:120px" placeholder="комментарий к заказу"><?=$arResult["USER_VALS"]["ORDER_DESCRIPTION"]?></textarea>
-				<? global $USER;
-					if(!$USER->getID()):
-				?>
-				<input type="checkbox" name="register_user" id="register_user" value="Y" checked="checked"> <label for="register_user">Зарегистрироваться на сайте</label>
-			<? endif;?>
-			</div>
-		</div>
-		<div class="col-xs-4 no-position">
+		
+		<div class="col-sm-6  order__total col-md-4 no-position">
 			<div class="basket__block">
 				<div class="basket__block-title">способы оплаты</div>
 				<div class="payment">
@@ -189,19 +194,19 @@ if (!function_exists("cmpBySort"))
 					<div class="total__item <?=(intval($arResult['DELIVERY_PRICE'])>0?"":"hidden")?>">
 						<div class="row">
 							<div class="col-xs-7">ВАШ ЗАКАЗ НА СУММУ</div>
-							<div class="col-xs-5 right total__counter"><span id="price-1"><?=number_format($arResult['ORDER_PRICE'], 0, " ", " ")?></span> ₷</div>
+							<div class="col-xs-5 right total__counter"><nobr><span id="price-1"><?=number_format($arResult['ORDER_PRICE'], 0, " ", " ")?></span> ₷</nobr></div>
 						</div>
 					</div>
 					<div class="total__item <?=(intval($arResult['DELIVERY_PRICE'])>0?"":"hidden")?>">
 						<div class="row">
 							<div class="col-xs-7">ДОСТАВКА</div>
-							<div class="col-xs-5 right total__counter"><span id="price-2"><?=number_format($arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> ₷</div>
+							<div class="col-xs-5 right total__counter"><nobr><span id="price-2"><?=number_format($arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> ₷</nobr></div>
 						</div>
 					</div>
 					<div class="total__item total__item--big">
 						<div class="row">
 							<div class="col-xs-7">к оплате</div>
-							<div class="col-xs-5 right total__counter"><span id="price-3"><?=number_format($arResult['ORDER_PRICE']+$arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> ₷</div>
+							<div class="col-xs-5 right total__counter"><nobr><span id="price-3"><?=number_format($arResult['ORDER_PRICE']+$arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> ₷</nobr></div>
 						</div>
 					</div>
 				</div>

@@ -6,7 +6,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
     <div class="container">
       <div class="row">
         <?if($APPLICATION->GetCurDir()!="/catalog/"&&$APPLICATION->GetCurDir()!="/catalog/stylelook/"):?>
-        <div class="col-xs-2">
+        <div class="hidden-xs col-xs-6 col-sm-4 col-md-2">
         	<?
           if(!preg_match("/\/catalog\/(.*?)\/(.*?)\/|\/basket\//", $APPLICATION->GetCurDir(), $matches)):
           $APPLICATION->IncludeComponent(
@@ -44,7 +44,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
                 $link = $_SERVER['HTTP_REFERER'];
               ?>
               <a class="catalog__back" href="<?=$link?>">
-                Вернуться в каталог
+                Вернуться <span class="hidden-xs">в каталог</span>
               </a>
             <?$frame->beginStub();?>
               <a class="catalog__back" href="/catalog/">
@@ -54,9 +54,22 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
           <?
           endif;?>
         </div>
-        <div class="col-xs-8">
+        <div class="hidden-xs col-sm-4 col-sm-offset-4 col-md-offset-0 col-md-2 col-md-push-8">
         <?else:?>
-        <div class="col-xs-10 menu-padding">
+        <div class="hidden-xs col-sm-4 col-sm-offset-8 col-md-offset-0 col-md-2 col-md-push-10">
+        <?endif;?>
+          <div class="search">
+            <form action="/catalog/">
+              <input type="text" name="q" value="<?=$_REQUEST['q']?>" placeholder="Введите название товара" class="search__input">
+              <button class="search__button" type="submit"><?=svg('search')?>
+              </button>
+            </form>
+          </div>
+        </div>
+        <?if($APPLICATION->GetCurDir()!="/catalog/"&&$APPLICATION->GetCurDir()!="/catalog/stylelook/"):?>
+        <div class="col-xs-12 col-md-8 col-md-pull-2">
+        <?else:?>
+        <div class="col-xs-12 col-md-10 col-md-pull-2 menu-padding">
         <?endif;?>
         	<?php
             if(!preg_match("/\/catalog\/(.*?)\/(.*?)\//", $APPLICATION->GetCurDir(), $matches)):
@@ -74,15 +87,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
             endif;
           ?>
         </div>
-        <div class="col-xs-2">
-          <div class="search">
-            <form action="/catalog/">
-              <input type="text" name="q" value="<?=$_REQUEST['q']?>" placeholder="Введите название товара" class="search__input">
-              <button class="search__button" type="submit"><?=svg('search')?>
-              </button>
-            </form>
-          </div>
-        </div>
+        
       </div>
     </div>
   </div>

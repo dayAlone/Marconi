@@ -1,9 +1,33 @@
 .stores
+	&__list
+		h3
+			margin-top 30px
+			font-size 30px
+		&-item
+			padding 5px 0 15px
+			margin 15px 0 15px
+			border-bottom 1px solid #c3c3c3
+		section
+			display none
+			&.active
+				display block
+		@media (min-width scr_sm)
+			display none
 	&__title
-		line-height 37px
 		text-transform: uppercase
 		font-weight: bold
-		margin-left 45px
+		font-size 13px
+		line-height 25px
+		margin-left 25px
+		display none
+		@media (min-width scr_sm)
+			display inline
+		@media (min-width scr_md)
+			line-height 37px
+			font-size 14px
+			margin-left 45px
+		&:first-of-type
+			margin-left 0
 		a
 			color black
 			border-line(alpha(@color, .2))
@@ -21,6 +45,10 @@
 		z-index 1000
 		max-width none
 		text-transform: uppercase
+		@media (min-width scr_sm)
+			margin-top 5px
+		@media (min-width scr_md)
+			margin-top 0
 		&__frame
 			max-height 320px
 			overflow scroll
@@ -43,18 +71,38 @@
 		width 100%
 		margin-bottom 40px
 	&__address
-		font-size 28px
 		text-transform: uppercase
 		font-weight: bold
-		line-height 30px
+		font-size 16px
+		line-height 20px
+		@media (min-width scr_sm)
+			font-size 23px
+			line-height 26px
+		@media (min-width scr_md)
+			font-size 28px
+			line-height 30px
 	&__description, &__metro
 		text-transform: uppercase
-		margin-top 35px
+		margin-top 10px
+		font-size 12px
+		a
+			color red
+			border-line alpha(@color, .5)
+		@media (min-width scr_sm)
+			font-size 14px
+			margin-top 35px
 	&__metro
-		svg
+		font-size 11px
+		@media (min-width scr_sm)
+			font-size 14px
+		svg, img
 			margin-right 5px
 			position relative
-			top 1px
+			top 2px
+			@media (min-width scr_sm)
+				top 1px
+		img
+			top -1px
 	&__modal
 		display none
 		padding 45px 40px
@@ -62,13 +110,17 @@
 		position absolute
 		bottom 59px
 		left 50%
-		margin-left -480px
 		background white
 		border 1px solid black
 		z-index 600
-		width 960px
 		img
 			max-width 100%
+		@media (min-width scr_sm)
+			width 86%
+			margin-left -43%
+		@media (min-width scr_md)
+			width 860px
+			margin-left -430px
 		@media (min-width: scr_lg)
 			width 1170px
 			margin-left -585px
@@ -86,6 +138,13 @@
 			
 	#map
 		full-width()
-		min-height 700px
+		display none
+		@media (min-width scr_sm)
+			min-height 700px
+			display block
+		@media (min-width scr_md)
+			min-height 550px
+		@media (min-width: scr_lg)
+			min-height 700px
 		border-top 1px solid #e7e7e7
 		margin-top 30px

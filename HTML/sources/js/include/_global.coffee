@@ -15,6 +15,11 @@ $(document).ready ->
 
 	$('[data-toggle="tooltip"]').tooltip()
 
+	$('.toolbar a.search').click (e)->
+		console.log $('div.search')
+		$('div.search').parent().toggleClass 'hidden-xs'
+		e.preventDefault()
+
 	# pointerEvents
 
 	if pointerEventsSupported
@@ -90,6 +95,7 @@ $(document).ready ->
 			$(".#{id}").elem('success').hide().addClass 'hidden'
 			$(".#{id}").elem('form').show().removeClass 'hidden'
 
+
 	$('input[name="REGISTER[PERSONAL_PHONE]"], input[name="PERSONAL_PHONE"]').mask '+7 0000000000'
 
 	$('#login form, #forget form, #register form, #change form').submit (e)->
@@ -113,10 +119,13 @@ $(document).ready ->
 					if $(".#{block}").elem('success').length > 0
 						$(".#{block}").elem('success').show().removeClass 'hidden'
 						$(".#{block}").elem('form').hide().addClass 'hidden'
+
 					else
 						modal.modal('hide')
+
 					if block != "forget"
 						$('.auth').mod 'active', true
+						$(".toolbar__mobile a[href='#login']").attr 'href', '/profile/'
 				else if  isJson data
 					data = JSON.parse data
 					getCaptcha()
@@ -166,11 +175,18 @@ $(document).ready ->
 			$('.about').mod 'white', true
 		else if $('.about').hasMod 'white'
 			$('.about').mod 'white', false
-		$('.about').elem('slider-arrow').off('click').on 'click', (e)->
+		$('.about').elem('slider-arrow').off('click touchstart').on 'click touchstart', (e)->
 			slider = $('.about').elem('slider').data('fotorama')
 			slider.show $(this).data('direction')
 			e.preventDefault()
-	).fotorama()
+	)
+	.on('fotorama:showend', (e, fotorama, extra)->
+		if $.browser.mobile == true
+			h = $(fotorama.data[fotorama.activeIndex].html).find('.about__slider-item-content').height() + 200
+			fotorama.resize
+				height: h
+	)
+	.fotorama()
 	
 	$('.about').elem('slider-title').each ->
 		title = $(this)

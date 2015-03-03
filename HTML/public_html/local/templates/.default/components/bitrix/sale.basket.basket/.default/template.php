@@ -35,12 +35,12 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 				<div data-text="КОРЗИНА покупателя" class="basket__frame <?=($showSale?'':'basket__frame--no-sale')?>">
 			        <div class="basket__title">
 			          <div class="row">
-			            <div class="col-xs-4">Наименование</div>
-			            <div class="col-xs-2">Артикул</div>
-			            <div class="<?=($showSale?'col-xs-1':'col-xs-3')?>">Цена</div>
-			            <?=($showSale?'<div class="col-xs-1">скидка</div>':'')?>
-			            <div class="col-xs-1">Кол-во</div>
-			            <div class="col-xs-3">Сумма <?=($showSale?'СО СКИДКОЙ':'')?></div>
+			            <div class="col-xs-4 col-md-4">Наименование</div>
+			            <div class="col-md-2 visible-md visible-lg">Артикул</div>
+			            <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>">Цена</div>
+			            <?=($showSale?'<div class="col-xs-2 col-md-1">скидка</div>':'')?>
+			            <div class="col-xs-2 col-md-1">Кол-во</div>
+			            <div class="col-xs-2 col-md-3">Сумма <span class="visible-md-inline visible-lg-inline"><?=($showSale?'СО СКИДКОЙ':'')?></span></div>
 			          </div>
 			        </div>
 			        <? 
@@ -59,30 +59,32 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			              <a href="/catalog/<?=$section['CODE']?>/<?=preg_replace($remove, '', $item['CATALOG']['CODE'])?>/"><div style="background-image: url(<?=($item['PREVIEW_PICTURE_SRC']?$item['PREVIEW_PICTURE_SRC']:'/layout/images/no-image.jpg')?>)" class="basket__picture <?=($item['PREVIEW_PICTURE_SRC']?'':'basket__picture--no-image')?>"></div></a>
 			              <div class="basket__name"><?=str_replace($brands[$item['PROPERTY_BRAND_VALUE']], "<br><span class='basket__brand'>".$brands[$item['PROPERTY_BRAND_VALUE']]."</span><br>", $item['NAME'])?></div>
 			            </div>
-			            <div class="col-xs-2"><?=$item['PROPERTY_ARTNUMBER_VALUE']?></div>
-			            <div class="<?=($showSale?'col-xs-1':'col-xs-3')?>"> <strong class="sale" data-value="<?=$item['DISCOUNT_PRICE']?>"><?=number_format($item['FULL_PRICE'], 0, ' ', ' ')?> ₷</strong></div>
-			            <?=($showSale?'<div class="col-xs-1"> <strong>'.$item["DISCOUNT_PRICE_PERCENT_FORMATED"].'</strong></div>':'')?>
-			            <div class="col-xs-1"> 
+			            <div class="col-md-2 visible-md visible-lg"><?=$item['PROPERTY_ARTNUMBER_VALUE']?></div>
+			            <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>"><nobr><strong class="sale" data-value="<?=$item['DISCOUNT_PRICE']?>"><?=number_format($item['FULL_PRICE'], 0, ' ', ' ')?> ₷</strong></nobr></div>
+			            <?=($showSale?'<div class="col-xs-2 col-md-1"> <strong>'.$item["DISCOUNT_PRICE_PERCENT_FORMATED"].'</strong></div>':'')?>
+			            <div class="col-xs-2 col-md-1"> 
 			              <input value="<?=$item['QUANTITY']?>" class="basket__count" data-id="<?=$item['ID']?>" data-price="<?=$item['PRICE']?>">
 			            </div>
-			            <div class="col-xs-3">
+			            <div class="col-md-3">
+			            	<nobr>
 			            	<strong><span class="total"><?=number_format($item['QUANTITY']*$item['PRICE'], 0, ' ', ' ')?></span> ₷</strong>
 							<a href="#" class="basket__delete" data-id="<?=$item['ID']?>">
 								<?=svg('close')?>
 							</a>
+							</nobr>
 			            </div>
 			          </div>
 			        </div>
 			    	<? endforeach;?>
 			        <div class="basket__footer">
 			          <div class="row">
-			            <div class="col-xs-1 col-xs-offset-7 center">
+			            <div class="col-xs-2 col-xs-offset-6 col-md-1 col-md-offset-7 center">
 			            	<? if($arResult['DISCOUNT_PRICE_ALL']): ?>
 			            	<strong data-text="скидка:" class="basket__sale-total"><span><?=number_format($arResult['DISCOUNT_PRICE_ALL'], 0, ' ', ' ')?></span> ₷</strong>
 			            	<? endif;?>
 			            </div>
-			            <div class="col-xs-1"></div>
-			            <div class="col-xs-3 center"><strong data-text="итого:" class="basket__total"><span><?=number_format($arResult['allSum'], 0, ' ', ' ')?></span> ₷</strong></div>
+			            <div class="col-md-1 col-xs-1"></div>
+			            <div class="col-xs-3 col-md-3 xs-right md-center"><strong data-text="итого:" class="basket__total"><span><?=number_format($arResult['allSum'], 0, ' ', ' ')?></span> ₷</strong></div>
 			          </div>
 			        </div>
 			      </div>

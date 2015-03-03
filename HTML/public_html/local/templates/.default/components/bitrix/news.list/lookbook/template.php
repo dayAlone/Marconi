@@ -21,6 +21,7 @@
           <div class="catalog catalog--full-width catalog--without-images">
           <?
             foreach ($item['PROPERTIES']['PRODUCTS']['VALUE'] as $value)
+              if (isset($arResult['PRODUCTS'][$value]))
                 echo "<div class='slider-item'>".$arResult['PRODUCTS'][$value]."</div>";
           ?>
           </div>

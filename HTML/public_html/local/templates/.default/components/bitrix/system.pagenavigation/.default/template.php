@@ -15,7 +15,7 @@ $strNavQueryString = ($arResult["NavQueryString"] != "" ? str_replace('&amp;shor
 		<?if ($arResult["NavShowAll"]):?>
 			<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>SHOWALL_<?=$arResult["NavNum"]?>=0" rel="nofollow"><?=GetMessage("nav_paged")?></a>
 		<?else:?>
-			<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>SHOWALL_<?=$arResult["NavNum"]?>=1" rel="nofollow" class="pages__item pages__item--all <?=($i==$arResult["NavPageNomer"]?'pages__item--active':"")?>">Показать все</a>
+			<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>SHOWALL_<?=$arResult["NavNum"]?>=1" rel="nofollow" class="pages__item pages__item--all <?=($i==$arResult["NavPageNomer"]?'pages__item--active':"")?>"><span class="hidden-xs">Показать </span>все</a>
 		<?endif?>
 	<?endif?>
 	

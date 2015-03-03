@@ -18,7 +18,7 @@ $this->setFrameMode(true);
     <input type="password" name="USER_PASSWORD" class="<?=($arResult['SHOW_ERRORS'] == 'Y' && $arResult['ERROR']?"parsley-error":"")?>" maxlength="50" size="17" required/>
     <div class="center">
       <input type="submit" class="product__big-button product__big-button--border m-margin-top" value="Войти">
-       | <a class="lost" href="#forget" data-dismiss="modal" data-toggle="modal" data-target="#forget" data-dismiss="modal">Забыли пароль?</a>
+       | <a class="lost" href="#forget" data-dismiss="modal" data-toggle="modal" data-target="#forget" data-dismiss="modal">Забыли<span class="hidden-xs"> пароль</span>?</a>
     </div>
 </form>
 <?endif?>

@@ -1,0 +1,53 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Интернет-магазин", 
+		"/catalog/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"О бренде", 
+		"/about/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Партнерам", 
+		"http://italbags.ru/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Магазины", 
+		"/stores/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Lookbook", 
+		"/lookbook/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Новости", 
+		"/news/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Контакты", 
+		"/contacts/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

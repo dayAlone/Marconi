@@ -23,7 +23,7 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
         break;
       endswitch;
     ?>
-    <div class="col-xs-4">сортировать по: <span class="dropdown" data-param="<?=(!isset($_REQUEST['sort_param'])?$_REQUEST['sort_param']:'')?>" data-value="<?=(!isset($_REQUEST['sort_value'])?$_REQUEST['sort_value']:'')?>">
+    <div class="col-xs-6 col-sm-4"> <span class="hidden-xs">сортировать по:</span> <span class="dropdown" data-param="<?=(!isset($_REQUEST['sort_param'])?$_REQUEST['sort_param']:'')?>" data-value="<?=(!isset($_REQUEST['sort_value'])?$_REQUEST['sort_value']:'')?>">
       <a href="#" class="dropdown__trigger"><span class="dropdown__text"><?=($active=="SORT"?'Не выбрано':'')?><?=($text?$text:'')?></span><?=svg('arrow')?></a>
       <span class="dropdown__frame">
           <a href="#" style="<?=($active=="SORT"?"display:none":'')?>" class="dropdown__item" data-param="SORT" data-value="ASC">Не выбрано</a>
@@ -31,16 +31,20 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
           <a href="#" style="<?=($active=="PROPERTY_MIN_PRICE_DESC"?"display:none":'')?>" class="dropdown__item" data-param="PROPERTY_MIN_PRICE" data-value="DESC">Убыванию цены</a>
         </span>
         <select class="dropdown__select">
-          <option data-param="PROPERTY_MIN_PRICE" data-value="ASC">Возрастанию цены</option>
-          <option data-param="PROPERTY_MIN_PRICE" data-value="DESC">Убыванию цены</option>
+          <option data-param="PROPERTY_MIN_PRICE" data-value="ASC"<?=($active=="PROPERTY_MIN_PRICE_ASC"?"selected":'')?>>Возрастанию цены</option>
+          <option data-param="PROPERTY_MIN_PRICE" data-value="DESC"<?=($active=="PROPERTY_MIN_PRICE_DESC"?"selected":'')?>>Убыванию цены</option>
         </select></span></div>
-    <div class="col-xs-4 center">
+    <div class="col-sm-4 center hidden-xs">
       показывать по:
       <? foreach (array(40, 80, 120) as $count):?>
         <a href="#" class="catalog__per-page <?=($arParams['PAGE_ELEMENT_COUNT']==$count?"catalog__per-page--active":"")?>"><?=$count?></a>
       <? endforeach; ?>
     </div>
+<<<<<<< HEAD
     <div class="col-xs-4 right">
+=======
+    <div class="col-xs-6 col-sm-4 right">
+>>>>>>> mobile
       <?=$arResult["NAV_STRING"]?>
     </div>
   </div>
@@ -78,7 +82,10 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
 </div>
 <div class="catalog__footer">
   <div class="row">
-    <div class="col-xs-4">
+    <div class="col-sm-8 col-sm-push-4 center right-sm">
+      <?=$arResult["NAV_STRING"]?>
+    </div>
+    <div class="center left-sm col-sm-4 col-sull-8">
       <?php
           $APPLICATION->IncludeComponent("bitrix:menu", "catalog", 
           array(
@@ -90,9 +97,6 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
               ),
           false);
       ?>
-    </div>
-    <div class="col-xs-8 right">
-      <?=$arResult["NAV_STRING"]?>
     </div>
   </div>
 </div>

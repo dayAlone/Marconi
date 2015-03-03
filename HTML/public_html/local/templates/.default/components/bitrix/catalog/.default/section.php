@@ -21,7 +21,7 @@ $arParams['USE_FILTER'] = (isset($arParams['USE_FILTER']) && $arParams['USE_FILT
 ?>
 <article>
 <div class="row">
-	<div class="col-xs-3 col-lg-2 page__side"><?
+	<div class="col-md-3 col-lg-2 page__side"><?
 		if ($arParams['USE_FILTER'] == 'Y')
 		{
 			$arFilter = array(
@@ -100,7 +100,7 @@ $arParams['USE_FILTER'] = (isset($arParams['USE_FILTER']) && $arParams['USE_FILT
 		?>
 		<a href="#" class="catalog__top"><?=svg('arrow')?> Наверх</a>
 	</div>
-	<div class="col-xs-9 col-lg-10">
+	<div class="col-md-9 col-lg-10">
 		<?
 		
 		require_once($_SERVER['DOCUMENT_ROOT'].'/include/fix_filter.php');

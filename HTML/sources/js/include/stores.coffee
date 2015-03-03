@@ -26,7 +26,7 @@
 					$('.stores').elem('content').html("")
 					$('.stores').elem('content').spin spinOptions
 	openModal  = (i)->
-		if i.code
+		if i.code && !$.browser.mobile
 			map.setCenter new google.maps.LatLng parseFloat(i.coords[0])-.00245, parseFloat(i.coords[1])
 			map.setZoom 16
 			
@@ -78,9 +78,23 @@
 	else if window.currentCity
 		currentCity = $.parseJSON window.currentCity
 		goToCity currentCity.name, currentCity.code
+	
 	$('.dropdown').elem('item').click (e)->
 		goToCity $(this).text(), $(this).data('code')
 		e.preventDefault()
+
+	$('.dropdown').elem('select').change (e)->
+		id = $(this).find('option:selected').data('id')
+		$('.stores__list section').hide().removeClass 'active'
+		$(this).block().elem('text').text $(this).find('option:selected').text()
+		$(".stores__list section[data-id='#{id}']").velocity
+					properties: "transition.slideDownIn"
+					options:
+						duration: 400
+						complete: ->
+							$(this).addClass('active')
+		e.preventDefault()
+
 
 @initStores = ->
 	$('.stores').elem('content').spin spinOptions

@@ -6,7 +6,7 @@ $APPLICATION->SetTitle('Личный кабинет');
 <div class="page">
     <div class="container">
         <div class="row">
-            <div class="col-xs-5">
+            <div class="col-md-5">
                 <?$APPLICATION->IncludeComponent(
                 	"bitrix:main.profile", 
                 	".default", 
@@ -26,7 +26,7 @@ $APPLICATION->SetTitle('Личный кабинет');
                 	false
                 );?> 
             </div>
-            <div class="col-xs-7">
+            <div class="col-md-7 order-history">
                 <div class="page__title page__title--full-width">История заказов</div>
                 <?
                 $_REQUEST['show_all'] = "Y";

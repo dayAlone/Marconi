@@ -224,17 +224,17 @@ if (0 < $arResult["SECTIONS_COUNT"])
 ?></div>
 */?>
 <div class="row">
-<div class="col-xs-4">
+<div class="col-sm-4">
 <a class="catalog__intro" href="/catalog/women/">
     <div style="background-image:url(/layout/images/i-1.jpg)" class="catalog__intro-picture bg-center-center"></div>
     <div class="catalog__intro-text">Для нее</div></a>
 <a class="catalog__intro" href="/catalog/baggage/">
     <div style="background-image:url(/layout/images/i-3.jpg)" class="catalog__intro-picture bg-center-left"></div>
     <div class="catalog__intro-text catalog__intro-text--bottom catalog__intro-text--black">Багаж</div></a></div>
-<div class="col-xs-4"><a class="catalog__intro catalog__intro--big"  href="/catalog/all/">
+<div class="col-sm-4"><a class="catalog__intro catalog__intro--big"  href="/catalog/all/">
     <div style="background-image:url(/layout/images/i-2.jpg)" class="catalog__intro-picture bg-center-center"></div>
     <div class="catalog__intro-text catalog__intro-text--center">Все товары</div></a></div>
-<div class="col-xs-4"><a class="catalog__intro"  href="/catalog/men/">
+<div class="col-sm-4"><a class="catalog__intro"  href="/catalog/men/">
     <div style="background-image:url(/layout/images/i-4.jpg)" class="catalog__intro-picture bg-center-left"></div>
     <div class="catalog__intro-text catalog__intro-text--right catalog__intro-text--black">Для него</div></a><a class="catalog__intro" href="/catalog/stylelook/">
     <div style="background-image:url(/layout/images/i-5.jpg)" class="catalog__intro-picture bg-center-right"></div>

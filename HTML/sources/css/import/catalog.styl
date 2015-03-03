@@ -24,23 +24,39 @@
 			border-color red
 			svg path
 				fill red
+	&__top
+		display none
+		@media (min-width scr_md)
+			display block
 	&__clear
-		margin-bottom 15px
 		opacity .5
 		font-size 10px
 		line-height 34px
+		margin 0 auto
+		margin-bottom 15px
+		@media (min-width scr_sm)
+			max-width (100/3)%
+		@media (min-width scr_md)
+			max-width none
 	&__card
 		position fixed
 		top 50%
 		left 50%
-		max-width 700px
 		text-align: center
-		font-size 23px
+		
 		color white
 		z-index 10001
-		margin-left -350px
-		margin-top -244px
-		line-height 28px
+		max-width 300px
+		margin-left -150px
+		margin-top -170px
+		font-size 14px
+		line-height 20px
+		@media (min-width scr_sm)
+			max-width 700px
+			margin-left -350px
+			margin-top -244px
+			line-height 28px
+			font-size 23px
 		&-text
 			t opacity
 		&-button
@@ -76,13 +92,16 @@
 		border 2px solid black
 		color black
 		text-transform: uppercase
-		font-size 9px
+		
 		font-weight: bold
 		line-height 33px
 		padding 0 5px
 		position relative
 		text-align: center
 		width 100%
+		font-size 12px
+		@media (min-width: scr_md)
+			font-size 9px
 		@media (min-width scr_lg)
 			font-size 11px
 		&:after
@@ -102,10 +121,12 @@
 			&:after
 				background-position bottom left
 	&__nav
-		margin-bottom 40px
 		position relative
 		z-index 700
 		full-width()
+		margin-bottom 20px
+		@media (min-width scr_sm)
+			margin-bottom 40px
 	&__counter
 		position absolute
 		left 100%
@@ -152,7 +173,9 @@
 		.dropdown
 			position relative
 			z-index 10
-			
+			margin-bottom 20px
+			@media (min-width scr_sm)
+				margin-bottom 0
 			&__frame
 				padding-top 30px
 				min-width 110%
@@ -200,18 +223,24 @@
 		line-height 28px
 	&__footer
 		padding 19px 0 14px
-		margin-bottom 40px
 		border-bottom 1px solid #d5dbdf
 		border-top 1px solid #d5dbdf
 		font-size 12px
 		margin-top 30px
+		@media (min-width scr_sm)
+			margin-bottom 40px
 		.footer-nav
+			margin-top 20px
+			@media (min-width scr_sm)
+				margin-top 0
 			&__item
 				font-weight bold
 				font-size 13px
 				text-transform uppercase
 				color black
 				margin-right 30px
+				&:last-of-type
+					margin-right 0
 				&:hover
 					color red
 	&__intro
@@ -224,7 +253,8 @@
 		display block
 		cursor pointer
 		&--big
-			height 640px
+			@media (min-width scr_sm)
+				height 640px
 		&-picture
 			position absolute
 			top 0
@@ -274,8 +304,10 @@
 				font-weight bold
 				padding-right 14px
 				top -7px
-	
 	&--full-width
+		@media (min-width scr_sm)
+			.col-lg-3
+				width (100/3)%
 		@media (min-width scr_md)
 			.col-lg-3
 				width 25%
@@ -295,7 +327,12 @@
 		@media (min-width scr_lg)
 			.col-lg-3:nth-child(n+5)
 				display block
-
+	&__frame, &--full-width
+		.col-xs-6
+			@media (max-width scr_xs)
+				width 100%
+			@media (min-width scr_xs and max-width scr_sm)
+				width 50%
 	article
 		margin-bottom 50px
 	.search-page
@@ -303,30 +340,42 @@
 	.nav__item:nth-child(6)
 		background white
 		color black
+	
 	.product
 		width 100%
 		position relative
-		text-align center
 		padding-bottom 10px
-		margin-bottom 20px
+		
 		text-transform uppercase
 		font-weight bold
-		font-size 14px
+		
 		z-index 20
 		background white
+		text-align: left
+		margin-bottom 10px
+		border-bottom 1px solid #ccc
+		font-size 13px
+		@media (min-width scr_xs)
+			margin-bottom 20px
+		@media (min-width scr_sm)
+			font-size 14px
+			width 100%
+			border-bottom 0
+			text-align center
 		&--hover
-			.product__sale
-				transform scale(.85) translateZ(0)
-			.product__picture
-				transform scale(1.03) translateZ(0) 
-			.product__icon, .product__button, .product__frame
-				opacity 1
-				pointer-events initial
-				transition-duration .5s
-			.product__frame
-				box-shadow 0 0 10px rgba(116, 132, 149, 0.8)
-				background white
-				transition-duration .2s
+			@media (min-width scr_sm)
+				.product__sale
+					transform scale(.85) translateZ(0)
+				.product__picture
+					transform scale(1.03) translateZ(0) 
+				.product__icon, .product__button, .product__frame
+					opacity 1
+					pointer-events initial
+					transition-duration .5s
+				.product__frame
+					box-shadow 0 0 10px rgba(116, 132, 149, 0.8)
+					background white
+					transition-duration .2s
 		&--index, &--hover
 			z-index 50
 		&--absolute
@@ -334,17 +383,43 @@
 			position absolute
 		&__sale
 			position absolute
-			width 80px
-			height 80px
 			background red
 			color white
-			font-size 9px
 			display inline-block
-			right 10px
-			top 135px
 			border-radius 50%
-			padding-top 34px
 			t transform
+			left 10px
+			top auto
+			bottom 10px
+			text-align center
+			overflow hidden
+			padding-top 14px
+			width 30px
+			height 30px
+			text-indent -1000px
+			&:after
+				content "%"
+				position absolute
+				color white
+				left 50%
+				top 50%
+				text-indent 0
+				z-index 200
+				font-size 18px
+				font-weight: bold
+				transform translateX(-50%)
+				margin-top -1px
+				@media (min-width scr_sm)
+					display none
+			@media (min-width scr_sm)
+				padding-top 34px
+				left auto
+				right 10px
+				top 135px
+				width 80px
+				height 80px
+				text-indent 0
+				font-size 9px
 		&__frame
 			position absolute
 			background white
@@ -355,10 +430,32 @@
 			box-sizing content-box
 			top -10px
 			left -10px
+		&__brand
+			@media (min-width scr_xs)
+				line-height 16px
+			@media (min-width scr_sm)
+				line-height inherit
 		&__content
 			position relative
 			z-index 7
-			min-height 323px
+			&-text
+				position absolute
+				left 40%
+				width 60%
+				padding 0 0 0 20px
+				top 50%
+				margin-top 3px
+				transform translateY(-50%)
+				@media (min-width scr_sm)
+					position relative
+					width 100%
+					padding 0
+					margin 0
+					left auto
+					top auto
+					transform none
+			@media (min-width scr_sm)
+				min-height 323px
 		&__icon, &__button, &__frame, &__sizes
 			position absolute
 			z-index 5
@@ -445,42 +542,55 @@
 			&--cart
 				right 0px
 		&__name
-			font-size 12px
+			font-size 11px
 			opacity .6
 			font-weight normal
+			@media (min-width scr_sm)
+				font-size 12px
 		&__type
 			font-weight normal
-			font-size 10px
 			opacity .6
-			letter-spacing 2px
-			max-height: 14px
-			overflow: hidden
+			font-size 9px
+			letter-spacing 0px
+			@media (min-width scr_sm)
+				max-height: 14px
+				overflow: hidden
+				font-size 10px
+				letter-spacing 2px
 		&__artnumber
-			font-size 10px
+			font-size 9px
 			font-weight: normal
 			opacity .6
 			margin-top 1px	
+			@media (min-width scr_sm)
+				font-size 10px
 		&__price
 			font-size 12px
 			margin-top 10px
 		&__picture
-			min-height 220px
-			width 100%
 			background-size contain
 			background-position center center
 			background-repeat no-repeat
 			margin-bottom 10px
 			transform scale(.9) translateZ(0)
 			t transform, .2s
+			&, &-frame
+				min-height 115px
+			&-frame
+				width 40%	
+			@media (min-width scr_sm)
+				&, &-frame
+					min-height 220px
+					width 100%
+					
 			&--no
 				background-size 150px auto
 			&-frame
-				min-height 220px
-				width 100%
 				position relative
 				display block
 				overflow hidden
-				b('loader.gif', center center no-repeat, transparent, 80px auto)
+				@media (min-width scr_md)
+					b('loader.gif', center center no-repeat, transparent, 80px auto)
 	&--big
 		.product
 			&__sizes
@@ -491,40 +601,40 @@
 				min-height 453px
 			&__picture
 				min-height 350px
-	&--without-images
-		.product
-			&__content
-				min-height 93px
-			&__picture-frame
-				position absolute
-				transform translateY(-100%)
-				opacity 0
-				pointer-events none
-				t(opacity)
-				transition-duration .1s
-			&--empty
-				.product__picture-frame
-					display none !important
-			&__frame
-				padding-top 240px
-				margin-top -230px
-			&__sale
-				top -85px
-			&__tradeline, &__sale
-				opacity 0
-			&__icon
-				top -230px
-			&--hover
-				.product
-					&__tradeline, &__sale
-						opacity 1
-					&__picture-frame
-						pointer-events initial
-						transition-duration .3s
-						transition-delay .1s
-						opacity 1
+	@media (min-width scr_sm)
+		&--without-images
+			.product
+				&__content
+					min-height 93px
+				&__picture-frame
+					position absolute
+					transform translateY(-100%)
+					opacity 0
+					pointer-events none
+					t(opacity)
+					transition-duration .1s
+				&--empty
+					.product__picture-frame
+						display none !important
+				&__frame
+					padding-top 240px
+					margin-top -230px
+				&__sale
+					top -85px
+				&__tradeline, &__sale
+					opacity 0
+				&__icon
+					top -230px
+				&--hover
+					.product
+						&__tradeline, &__sale
+							opacity 1
+						&__picture-frame
+							pointer-events initial
+							transition-duration .3s
+							transition-delay .1s
+							opacity 1
 .filter
-	width 100%
 	border 1px solid #dddddd
 	padding 10px 10px 4px 10px
 	margin-bottom 15px
@@ -532,6 +642,15 @@
 	position relative
 	z-index 2
 	min-height 34px
+	display inline-block
+	vertical-align: top
+	width 100%
+	&__form
+		display none
+		@media (min-width: scr_md)
+			display block !important
+			opacity 1 !important
+			visibility visible !important
 	&--loaded
 		t all, .2s
 	&:after
@@ -596,15 +715,18 @@
 		width 100%
 	.icheckbox, input[type="checkbox"], .icheckbox_color
 		appearance none
-		width 10px
-		height 10px
 		border 1px solid #dadada
 		display inline-block
 		margin-right 5px
 		position relative
-		top -1px
 		t(all)
 		box-shadow inset 0 0 0 1px white
+		width 14px
+		height 14px
+		@media (min-width: scr_md)
+			width 10px
+			height 10px
+			top -1px
 		&.hover
 			border-color black
 		&.checked, &:checked
@@ -614,13 +736,22 @@
 			pointer-events none
 	
 	.icheckbox_color, input.color
-		width 21px
+		
 		margin 3px
-		height 21px
 		box-shadow inset 0 0 0 3.5px
 		border 0
 		cursor pointer
 		top 0
+		width 21px
+		height 21px
+		float left
+		@media (min-width: scr_sm)
+			float none
+			width 25px
+			height 25px
+		@media (min-width: scr_md)
+			width 21px
+			height 21px
 		&.ffffff
 			box-shadow inset #dddddd 0 0 0 1px, inset #ffffff 0 0 0 3.5px, inset #dddddd 0 0 0 4px
 		&.f12312
@@ -654,6 +785,26 @@
 				background linear-gradient( left top, rgba(255, 0, 0, 1) 0%, rgba(255, 255, 0, 1) 25%, rgba(0, 255, 0, 1) 40%, rgba(0, 255, 255, 1) 50%, rgba(0, 0, 255, 1) 65%, rgba(255, 0, 255, 1) 80%, rgba(255, 0, 0, 1) 100%)
 				&:after
 					opacity 0
+	.color
+		&-label
+			margin-left 5px
+			line-height 32px
+			font-size 12px
+			height 21px
+			width auto
+			float left
+		&-frame
+			float left
+			width 50%
+			white-space no-wrap
+			margin-bottom 5px
+			@media (min-width: scr_xs)
+				width (100/4)%
+				
+			@media (min-width: scr_sm)
+				float none
+				display inline
+				width auto
 	.icheckbox_color
 		transition-duration 0s
 		opacity 0
@@ -698,10 +849,12 @@
 		color attr(data-color, color)
 	label
 		font-weight normal
-		font-size 13px
 		display inline-block
 		width 86%
 		vertical-align top
+		font-size 14px
+		@media (min-width: scr_md)
+			font-size 13px
 		&:first-letter
 			text-transform uppercase
 .range

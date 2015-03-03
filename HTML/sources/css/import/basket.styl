@@ -21,11 +21,14 @@
 		position relative
 	.total
 		&__frame
-			position absolute
 			bottom 0
 			right 0
-			width: 33.33333333%;
 			padding 0 10px
+			@media (min-width: scr_sm)
+				position absolute
+				width 50%
+			@media (min-width: scr_md)
+				width: 33.33333333%;
 		text-transform: uppercase
 		margin-top 20px
 		&__item
@@ -96,17 +99,28 @@
 		position absolute
 		right 15px
 		top 50%
-		margin-top -13px
-		width 20px
-		height 20px
+		width 12px
+		height 12px
 		line-height 20px
 		opacity .3
 		t opacity
+		margin-top -38px
+		@media (min-width: scr_xs)
+			margin-top -10px
+		@media (min-width: scr_sm)
+			width 20px
+			height 20px
+			margin-top -15px
+		@media (min-width: scr_md)
+			margin-top -13px
 		&:hover
 			opacity 1
 		svg
-			width 21px
-			height 21px
+			width 15px
+			height 15px
+			@media (min-width: scr_sm)
+				width 21px
+				height 21px
 			path
 				fill red
 				stroke red
@@ -116,40 +130,80 @@
 		margin-bottom 40px
 		&--no-sale
 			.basket__title, .basket__item, .basket__footer
-				.col-xs-4
-					width 34%
+				@media (min-width: scr_md)
+					.col-md-4
+						width 34%
 	&__title, &__item, &__footer
-		.col-xs-offset-7
-			margin-left: 55.3333333340%
-		.col-xs-4
-			width 30%
-		.col-xs-3
-			width 20%
-		.col-xs-2
-			width 13%
-		.col-xs-1
-			width 12.333333333%
+		@media (min-width: scr_md)
+			.col-md-offset-7
+				margin-left: 55.3333333340%
+			.col-md-4
+				width 30%
+			.col-md-3
+				width 20%
+			.col-md-2
+				width 13%
+			.col-md-1
+				width 12.333333333%
 	&__footer
 		text-transform: uppercase
 		border-top 1px solid black
-		padding-top 25px
-		margin-top 5px
+		margin-top 10px
+		@media (max-width scr_xs)
+			.col-xs-1
+				display none
+			.col-xs-3, .col-xs-2
+				width 50%
+				text-align: right !important
+			.col-md-offset-7
+				margin-left 0
+		@media (min-width scr_xs)
+			padding-top 25px
+			margin-top 5px
 	&__title
 		text-transform: uppercase
 		font-weight: bold
 		padding 10px 0 5px
 		margin-bottom 15px
 		color #6e6f79
-		font-size 14px
+		font-size 11px
 		text-align: center
 		border-top 1px solid #d5dbdf
 		border-bottom 1px solid #d5dbdf
+		display none
+		@media (min-width: scr_xs)
+			display block
+		@media (min-width: scr_sm)
+			font-size 14px
 	&__item
 		text-transform: uppercase
 		text-align: center
 		position relative
 		overflow hidden
 		t max-height
+		font-size 12px
+		@media (max-width scr_xs)
+			.col-xs-4
+				width 100%
+			.col-xs-2
+				width 23%
+		line-height: 50px
+		max-height 100px
+		& + .basket__item
+			padding-top 13px
+			border-top 1px solid #ccc
+			max-height 113px
+			@media (min-width scr_xs)
+				border-top 0
+				padding-top 0	
+		@media (min-width scr_xs)
+			line-height: 60px
+			max-height @line-height
+			min-height 0
+		@media (min-width: scr_sm)
+			line-height: 70px
+			font-size 14px
+			max-height @line-height
 		@media (min-width: scr_md)
 			line-height: 110px
 			max-height @line-height
@@ -159,11 +213,22 @@
 		[class*='col-'] > *
 			display inline-block
 			vertical-align middle
+		.rubl
+			@media (min-width scr_xs)
+				margin-right 20px
+			@media (min-width: scr_md)
+				margin-right 0
+	
 	&__total, &__sale-total
-		font-size 15px
+		
 		display inline-block
 		position relative
+		margin-top 20px
+		font-size 13px
+		@media (min-width scr_xs)
+			font-size 15px
 		&:after
+			margin-top 0
 			position absolute
 			content attr(data-text)
 			right 100%
@@ -172,28 +237,47 @@
 			font-weight 300
 			top -2px
 	&__count
-		height 30px
-		width 60px
-		line-height 31px
+		width 40px
 		text-align: center
 		position relative
-		top -2px
 		border 1px solid #b7c0c8
+		appearance none
+		border-radius 0
+		top -2px
+		height 25px
+		line-height 26px
+		z-index 300
+		@media (min-width: scr_sm)
+			height 30px
+			line-height 31px
+			width 60px
 	&__name
-		line-height 20px
+		line-height 15px
 		text-transform: uppercase
-		font-size 12px
+		font-size 10px
 		color alpha(black, .6)
+		@media (min-width: scr_sm)
+			font-size 12px
+			line-height 20px
 	&__brand
 		font-weight: bold
-		font-size 14px
+		font-size 12px
 		color black
+		@media (min-width: scr_sm)
+			font-size 14px
 	&__picture
 		background-size auto 90%
 		background-repeat no-repeat
 		background-position center center
 		&--no-image
 			background-size auto 50%
+		width 55px
+		height 50px
+		margin-right 5px
+		@media (min-width scr_xs)
+			width 0
+			height 0
+			margin-right 0
 		@media (min-width: scr_md)
 			height 90px
 			width 90px	
@@ -214,15 +298,22 @@
 			text-transform: uppercase
 			font-weight: bold
 			padding 0 20px
-			font-size 30px
 			left 50%
 			transform translateX(-50%)
 			display: inline-block
-			top -16px
+			top -12px
+			font-size 17px
+			white-space no-wrap
+			@media (min-width: scr_sm)
+				font-size 25px
+				top -16px
+			@media (min-width: scr_md)
+				font-size 30px
 	.delivery
 		margin-top 13px
 	#ORDER_FORM
 		margin-bottom 60px
+		overflow: hidden;
 	.page
 		input[type="submit"]
 			width 100%
@@ -403,9 +494,21 @@
 			text-transform: uppercase
 			width 100%
 			font-weight: bold
-			font-size 20px
 			text-align: center
 			margin-bottom 10px
+			font-size 18px
+			@media (min-width: scr_sm)
+				font-size 20px
+
+.order
+	&__total
+		margin-top 30px
+		@media (min-width: scr_sm)
+			margin-top 0
+	&__profile
+		margin-bottom 30px
+		@media (min-width: scr_md)
+			margin-bottom 0
 
 .cabinet
 	.icheckbox

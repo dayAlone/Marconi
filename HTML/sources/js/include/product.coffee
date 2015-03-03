@@ -50,7 +50,8 @@
 				if $('.product').elem('description').height() > $('.easyzoom-flyout').height()
 					$('.easyzoom-flyout')
 						.height $('.product').elem('description').height()
-	initZoom()
+	if !$.browser.mobile
+		initZoom()
 	initProducts()
 	$('.tabs__trigger:first').addClass 'tabs__trigger--active'
 	$('.tabs__content:first').addClass 'tabs__content--active'
@@ -78,8 +79,9 @@
 		$(this).mod 'active', true
 		$('.picture').elem('big').css
 			backgroundImage : "url(#{$(this).data('middle')})"
-		$('.picture').elem('big').data('easyZoom').swap $(this).data('middle'), $(this).attr('href')
-		console.log $(this).data('middle'), $(this).attr('href')
+		if !$.browser.mobile
+			$('.picture').elem('big').data('easyZoom').swap $(this).data('middle'), $(this).attr('href')
+		
 		e.preventDefault()
 	$('.picture').elem('zoom').click (e)->
 			pswpElement = document.querySelectorAll('.pswp')[0];

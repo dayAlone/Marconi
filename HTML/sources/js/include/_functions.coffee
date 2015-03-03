@@ -3,7 +3,7 @@
 @size = ->
 	if $('.lookbook').elem('slider').length > 0
 		$('.lookbook').elem('slider-preview').css
-			'top': $('.lookbook').elem('slider').offset().top
+			'top': $('.lookbook').elem('slider').position().top
 			'opacity': 1
 			'width': ->
 				width = ($(window).width()-$('.page .container').width())/2
@@ -23,9 +23,9 @@
 		.mod('loaded', false)
 		.css(
 			minHeight: ->
-				$(this).outerHeight()
+				($(this).outerHeight() < 33 ? 33 : $(this).outerHeight())
 			maxHeight: ->
-				$(this).outerHeight()
+				($(this).outerHeight() < 33 ? 33 : $(this).outerHeight())
 		)
 		.on end, ->
 			$(this).mod 'loaded', true
@@ -152,8 +152,7 @@ timer = false
 			duration: 300
 
 @initDropdown = ->
-	$('.dropdown').elem('item').off('change').on 'click', (e)->
-
+	$('.dropdown').elem('item').off('click').on 'click', (e)->
 		if $(this).attr('href')[0] == "#"
 			$(this).block().elem('text').html($(this).text())
 			$(this).block().elem('frame').velocity
@@ -165,21 +164,27 @@ timer = false
 			window.location.href = $(this).attr('href')
 	
 	$('.dropdown').elem('trigger').on 'click', (e)->
+		if $.browser.mobile
+			$(this).block()
+				.elem('select').focus()
+				.trigger('click')
+				.mod 'open', true
 		e.preventDefault()
 
 	$('.dropdown').elem('select').off('change').on 'change', ()->
-		
 		val = $(this).val()
 		$(this).block().find("a[href='#{val}']").trigger 'click'
-		$(this).mod 'open', true
+		$(this).block().mod 'open', false
+		$(this).block().elem('text').text $(this).find('option:selected').text()
 		
 	$('.dropdown').hoverIntent
 			over : ()->
-				if $(window).width() > 970
+				if !$.browser.mobile
 					openDropdown $(this)
 				else
 					$(this)
 						.elem('select').focus()
+						.trigger('click')
 						.mod 'open', true
 			out : ()->
 				if $(window).width() > 970

@@ -3,19 +3,20 @@ filterTimer   = false
 filterRequest = false
 
 @fly = (block, target)->
-	offset = block.offset()
-	offset.top  -= target.offset().top - block.height()/2
-	offset.left -= target.offset().left - block.width()/2
-	block.clone().prependTo(block).mod('absolute', true).velocity
-		properties: 
-			translateX : -offset.left
-			translateY : -offset.top
-			opacity    : .2
-			scale      : .3
-		options:
-			duration: 500
-			complete: ->
-				$(this).remove()
+	if !$.browser.mobile
+		offset = block.offset()
+		offset.top  -= target.offset().top - block.height()/2
+		offset.left -= target.offset().left - block.width()/2
+		block.clone().prependTo(block).mod('absolute', true).velocity
+			properties: 
+				translateX : -offset.left
+				translateY : -offset.top
+				opacity    : .2
+				scale      : .3
+			options:
+				duration: 500
+				complete: ->
+					$(this).remove()
 
 @getSimmilar = (el, callbackOn = (-> return), callbackOff = (-> return)) ->
 
@@ -74,6 +75,11 @@ filterRequest = false
 			bx_cart_block1.refreshCart({})
 
 @initProducts = (images = true)->
+	
+	$('.product').elem('content-text').click ->
+		if $.browser.mobile
+			location.href = $(this).block('picture-frame').attr('href')
+
 	$('.product').elem('icon').off('click').on 'click', (e)->
 		if $(this).hasMod 'zoom'
 			pswpElement = document.querySelectorAll('.pswp')[0];
@@ -186,6 +192,11 @@ filterRequest = false
 	getFilter $("input.range__to")
 
 @initFiltres = ->
+
+	if $(window).width() <= 768
+		$('.filter:not(.active)').each ->
+			$(this).mod 'open', false
+
 	# Checkbox
 	$('.icheckbox_color')
 	$('.filter input.color').off('ifCreated').on 'ifCreated', ()->
@@ -224,13 +235,13 @@ filterRequest = false
 						$.cookie(block.data('code'), 'N')
 						block.css
 							minHeight: 33
-
 		else
 			content.show()
-			height = 
+			minHeight = block.height()
+			maxHeight = block.outerHeight() + content.outerHeight() + 5
 			block.css
-				minHeight: block.height() + content.height() + 16
-				maxHeight: block.outerHeight() + content.outerHeight() + 5
+				minHeight: minHeight
+				maxHeight: maxHeight
 			content.velocity
 				properties: "transition.slideDownIn"
 				options:
@@ -305,7 +316,7 @@ filterRequest = false
 					$('.catalog__frame').html $(data).filter('article').find('.catalog__frame').html()
 					initProducts()
 
-					$('.page__side').html $(data).filter('article').find('.page__side').html()
+					$('.filter__form').html $(data).filter('article').find('.filter__form').html()
 					initFiltres()
 
 					size()
@@ -341,45 +352,75 @@ filterRequest = false
 									options:
 										duration: 300
 
-@initBrandSelect = ->
-	$('.brand-select .dropdown .dropdown__item').click (e)->
-		if window.location.search.length == 0 
+@eventBrandSelect = (el)->
+	if window.location.search.length == 0 
 			symbol = "?"
 		else
 			symbol = "&"
-		if $(this).data('id').length > 0
-			console.log symbol
-			$.cookie('BRAND', $(this).data('id'), { path: "/" } )
+		if el.data('id').length > 0
+			$.cookie('BRAND', el.data('id'), { path: "/" } )
 			if !getParameterByName('brand')
-				location.href = location.href + symbol + "brand=#{$(this).data('id')}"
+				location.href = location.href + symbol + "brand=#{el.data('id')}"
 			else
-				location.href = location.href.replace(getParameterByName('brand'), $(this).data('id'))
+				location.href = location.href.replace(getParameterByName('brand'), el.data('id'))
 		else
 			$.removeCookie('BRAND', { path: "/" })
 			if !getParameterByName('brand')
 				location.href = location.href
 			else
-				location.href = symbol+"brand="+getParameterByName('brand')
-				location.href = location.href.replace(symbol+"brand="+getParameterByName('brand'), "")
+				location.href = location.href.replace("brand="+getParameterByName('brand'), "")
+			
+@initBrandSelect = ->
+	$('.brand-select .dropdown .dropdown__item').click (e)->
+		eventBrandSelect $(this)
+	$('.brand-select .dropdown .dropdown__select').on 'change', (e)->
+		$(this).block().mod 'open', false
+		eventBrandSelect $(this).find('option:selected')
 
 @getParameterByName = (name)->
 	match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
 	return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 
+@checkSort = (el)->
+	$('.catalog__toolbar .dropdown').data 'value', el.data 'value'
+	$('.catalog__toolbar .dropdown').data 'param', el.data 'param'
+	if $('.page').elem('side').find('form').length > 0
+		getFilter()
+	else
+		if !getParameterByName('sort_param')
+			location.href = location.href + "&sort_param=#{el.data('param')}&sort_value=#{el.data('value')}"
+		else
+			location.href = location.href.replace(getParameterByName('sort_param'), $(this).data('param')).replace(getParameterByName('sort_value'), $(this).data('value'))
+
 @initCatalog = ->
 	initProducts()
 	initFiltres()
 	initBrandSelect()
-	$('.catalog__toolbar .dropdown .dropdown__item').click (e)->
-		$(this).block().data 'value', $(this).data 'value'
-		$(this).block().data 'param', $(this).data 'param'
-		if $('.page').elem('side').find('form').length > 0
-			getFilter()
+
+	$('.page').elem('side-trigger').click (e)->
+		if !$('.page').elem('side-trigger').hasMod 'open'
+			$('.page').elem('side').find('form').velocity
+				properties: "transition.slideDownIn"
+				options:
+					duration: 300
+					complete: ->
+						$('.page').elem('side-trigger').mod 'open', true
 		else
-			if !getParameterByName('sort_param')
-				location.href = location.href + "&sort_param=#{$(this).data('param')}&sort_value=#{$(this).data('value')}"
-			else
-				location.href = location.href.replace(getParameterByName('sort_param'), $(this).data('param')).replace(getParameterByName('sort_value'), $(this).data('value'))
+			$('.page').elem('side').find('form').velocity
+				properties: "transition.slideUpOut"
+				options:
+					duration: 300
+					complete: ->
+						$('.page').elem('side-trigger').mod 'open', false
+		e.preventDefault()
+
+	$('.catalog__toolbar .dropdown .dropdown__item').click (e)->
+		checkSort $(this)
+	
+	$('.catalog__toolbar .dropdown .dropdown__select').on 'change', (e)->
+		$(this).block().elem('text').html $(this).find('option:selected').text()
+		checkSort $(this).find('option:selected')
+	
 	$('.catalog').elem('per-page').click (e)->
 		if window.location.search.length == 0 
 			symbol = "?"
