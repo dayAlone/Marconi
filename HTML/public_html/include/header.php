@@ -121,7 +121,7 @@
           <a href="#Nav" data-toggle="modal" data-target="#Nav" class="toolbar__nav-trigger"><?=svg('nav')?> Меню</a>
         </div>
         <div class="col-xs-9 right">
-          <a href="tel:+74959723265" title=""><?=svg('phone')?></a><span class="toolbar__divider"></span><a href="#" class="search"><?=svg('seach')?></a><span class="toolbar__divider"></span><a <?=($GLOBALS['USER']->IsAuthorized()?'href="/profile/"':'href="#login" data-toggle="modal"')?> title=""><?=svg('profile')?></a><span class="toolbar__divider"></span><a href="/basket/" title=""><?=svg('cart')?></a>
+          <a href="tel:+74959723265" title=""><?=svg('phone')?></a><span class="toolbar__divider"></span><span class="search__frame"><a href="#" class="search"><?=svg('seach')?></a><span class="toolbar__divider"></span></span><a <?=($GLOBALS['USER']->IsAuthorized()?'href="/profile/"':'href="#login" data-toggle="modal"')?> title=""><?=svg('profile')?></a><span class="toolbar__divider"></span><a href="/basket/" title=""><?=svg('cart')?></a>
         </div>
       </div>
     </div>

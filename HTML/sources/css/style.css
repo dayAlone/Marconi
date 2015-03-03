@@ -978,6 +978,14 @@ div.pp_default .pp_loaderIcon {
     position: relative;
   }
 }
+.toolbar .search__frame {
+  display: none;
+}
+.catalog .toolbar .search__frame,
+.product .toolbar .search__frame,
+.basket .toolbar .search__frame {
+  display: inline;
+}
 .toolbar:after {
   display: none;
   position: absolute;
