@@ -42,7 +42,7 @@
 				<?endif;?>
 				<td width="25%" class="available__address">
 					<?=html_entity_decode($item['PROPERTIES']['ADDRESS']['VALUE']['TEXT'])?>
-					<?if(count($arParams['OFFERS'])>0):?>
+					<?if(!isset($arParams['CACHE_NOTES'])):?>
 						<?if(strlen($item['PREVIEW_TEXT'])>0):?>
 				          <div class="stores__description">
 				            <?=$item['~PREVIEW_TEXT']?>
