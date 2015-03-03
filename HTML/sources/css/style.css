@@ -753,83 +753,104 @@ a:hover {
 }
 @media (min-width: 480px) {
   .xs-center {
-    text-align: center;
+    text-align: center !important;
   }
 }
 @media (min-width: 768px) {
   .sm-center {
-    text-align: center;
+    text-align: center !important;
   }
 }
 @media (min-width: 992px) {
   .md-center {
-    text-align: center;
+    text-align: center !important;
   }
 }
 @media (min-width: 1200px) {
   .lg-center {
-    text-align: center;
+    text-align: center !important;
   }
 }
 @media (min-width: 480px) {
   .xs-right {
-    text-align: right;
+    text-align: right !important;
   }
 }
 @media (min-width: 768px) {
   .sm-right {
-    text-align: right;
+    text-align: right !important;
   }
 }
 @media (min-width: 992px) {
   .md-right {
-    text-align: right;
+    text-align: right !important;
   }
 }
 @media (min-width: 1200px) {
   .lg-right {
-    text-align: right;
+    text-align: right !important;
   }
 }
 @media (min-width: 480px) {
   .xs-left {
-    text-align: left;
+    text-align: left !important;
   }
 }
 @media (min-width: 768px) {
   .sm-left {
-    text-align: left;
+    text-align: left !important;
   }
 }
 @media (min-width: 992px) {
   .md-left {
-    text-align: left;
+    text-align: left !important;
   }
 }
 @media (min-width: 1200px) {
   .lg-left {
-    text-align: left;
+    text-align: left !important;
   }
 }
 .xxs-line-height {
   line-height: 5px !important;
 }
+.line-height-xxs {
+  line-height: 5px !important;
+}
 .xs-line-height {
+  line-height: 10px !important;
+}
+.line-height-xs {
   line-height: 10px !important;
 }
 .s-line-height {
   line-height: 15px !important;
 }
+.line-height-s {
+  line-height: 15px !important;
+}
 .m-line-height {
+  line-height: 20px !important;
+}
+.line-height-m {
   line-height: 20px !important;
 }
 .l-line-height {
   line-height: 25px !important;
 }
+.line-height-l {
+  line-height: 25px !important;
+}
 .xl-line-height {
   line-height: 30px !important;
 }
+.line-height-xl {
+  line-height: 30px !important;
+}
 .xxl-line-height {
+  line-height: 35px !important;
+}
+.line-height-xxl {
   line-height: 35px !important;
 }
 .no-gutter > [class*='col-'] {
@@ -4085,7 +4106,7 @@ svg g {
   padding-top: 14px;
   width: 30px;
   height: 30px;
-  text-indent: -1000px;
+  color: #d10a32;
 }
 .catalog .product__sale:after {
   content: "%";
@@ -4094,6 +4115,7 @@ svg g {
   left: 50%;
   top: 50%;
   text-indent: 0;
+  color: #fff;
   z-index: 200;
   font-size: 18px;
   font-weight: bold;
@@ -4117,7 +4139,7 @@ svg g {
     top: 135px;
     width: 80px;
     height: 80px;
-    text-indent: 0;
+    color: #fff;
     font-size: 9px;
   }
 }
