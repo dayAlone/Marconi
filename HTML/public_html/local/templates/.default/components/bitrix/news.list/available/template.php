@@ -40,7 +40,14 @@
 					endif; ?>
 				</td>
 				<?endif;?>
-				<td width="25%" class="available__address"><?=html_entity_decode($item['PROPERTIES']['ADDRESS']['VALUE']['TEXT'])?></td>
+				<td width="25%" class="available__address">
+					<?=html_entity_decode($item['PROPERTIES']['ADDRESS']['VALUE']['TEXT'])?>
+					<?if(count($arParams['OFFERS'])>0):?>
+						<?if(strlen($item['PROPERTIES']['ADDRESS']['VALUE']['TEXT'])>0):?>
+				            <br><?=html_entity_decode($item['PROPERTIES']['ADDRESS']['VALUE']['TEXT'])?>
+				        <?endif;?>
+					<?endif;?>
+				</td>
 			
 			</tr>
 		<?endforeach;?>
