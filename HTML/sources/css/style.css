@@ -6109,9 +6109,9 @@ svg g {
   .basket__footer .col-md-offset-7 {
     margin-left: 55.333333334%;
   }
-  .basket__title .col-md-4,
-  .basket__item .col-md-4,
-  .basket__footer .col-md-4 {
+  .basket__title .col-xs-4,
+  .basket__item .col-xs-4,
+  .basket__footer .col-xs-4 {
     width: 30%;
   }
   .basket__title .col-md-3,
