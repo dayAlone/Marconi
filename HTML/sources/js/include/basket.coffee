@@ -59,7 +59,7 @@ updateTimer = false
 			return false
 		clearTimeout updateTimer
 		el = $(this)
-		updateTimer = delay 400, ->
+		updateTimer = delay 1000, ->
 			id    = el.data 'id'
 			count = el.val()
 			url   = "/include/basket.php?action=update&id=#{id}&count=#{count}"

@@ -831,7 +831,7 @@
       }
       clearTimeout(updateTimer);
       el = $(this);
-      return updateTimer = delay(400, function() {
+      return updateTimer = delay(1000, function() {
         var count, id, url;
         id = el.data('id');
         count = el.val();
