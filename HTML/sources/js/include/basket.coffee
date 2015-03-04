@@ -37,6 +37,7 @@ updateTimer = false
 		e.preventDefault()
 	$('.basket form .dropdown').elem('item').on 'click', (e)->
 		$(this).block().siblings('input').val $(this).text()
+		console.log 1
 
 	$('.basket .bx-ui-sls-fake').attr 'placeholder', 'город *'
 

@@ -207,6 +207,7 @@
   this.initDropdown = function() {
     $('.dropdown').elem('item').off('click').on('click', function(e) {
       if ($(this).attr('href')[0] === "#") {
+        $(this).block('select').val($(this).data('id'));
         $(this).block().elem('text').html($(this).text());
         $(this).block().elem('frame').velocity({
           properties: "transition.slideUpOut",
@@ -802,7 +803,8 @@
       return e.preventDefault();
     });
     $('.basket form .dropdown').elem('item').on('click', function(e) {
-      return $(this).block().siblings('input').val($(this).text());
+      $(this).block().siblings('input').val($(this).text());
+      return console.log(1);
     });
     $('.basket .bx-ui-sls-fake').attr('placeholder', 'город *');
     $('.basket').elem('delete').click(function(e) {

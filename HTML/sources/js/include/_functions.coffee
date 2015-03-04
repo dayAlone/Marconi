@@ -154,6 +154,7 @@ timer = false
 @initDropdown = ->
 	$('.dropdown').elem('item').off('click').on 'click', (e)->
 		if $(this).attr('href')[0] == "#"
+			$(this).block('select').val $(this).data 'id'
 			$(this).block().elem('text').html($(this).text())
 			$(this).block().elem('frame').velocity
 					properties: "transition.slideUpOut"
