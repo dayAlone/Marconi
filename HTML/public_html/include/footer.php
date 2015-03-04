@@ -6,13 +6,13 @@
       <div class="col-xs-7 col-sm-3 col-md-2">
         <div class="copyright">© <?=date('Y')?> ООО «Мегатрон» </div>
       </div>
-      <div class="col-sm-3 col-md-2">
+      <div class="col-sm-4 col-md-2">
         <div class="contacts"><span>Москва,  ул. адмирала макарова, 8 <br></span><a href="mailto:info@fmarconi.ru" class="contacts_link">info@fmarconi.ru</a></div>
       </div>
       <div class="col-sm-2">
         <div class="map"><a href="/sitemap/">карта сайта</a></div>
       </div>
-      <div class="col-xs-5 col-sm-4 col-md-3">
+      <div class="col-xs-5 col-sm-3 col-md-3 xs-right">
         <nobr>
         <?php
               $APPLICATION->IncludeComponent("bitrix:menu", "social", 
