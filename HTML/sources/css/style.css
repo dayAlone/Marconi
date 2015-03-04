@@ -6150,7 +6150,7 @@ svg g {
 }
 @media (min-width: 480px) {
   .basket__footer {
-    padding-top: 25px;
+    padding-top: 5px;
     margin-top: 5px;
   }
 }
