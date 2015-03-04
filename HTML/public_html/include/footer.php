@@ -12,7 +12,7 @@
       <div class="col-sm-2 col-md-1">
         <div class="map"><a href="/sitemap/"><nobr>карта сайта</nobr></a></div>
       </div>
-      <div class="col-xs-5 col-sm-3 col-md-3 xs-right md-center">
+      <div class="col-xs-5 col-sm-3 col-md-3 xs-right md-left lg-center">
         <nobr>
         <?php
               $APPLICATION->IncludeComponent("bitrix:menu", "social", 
