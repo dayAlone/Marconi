@@ -3,7 +3,7 @@
 <footer class="footer">
   <div class="container">
     <div class="row">
-      <div class="col-xs-8 col-sm-3 col-sm-4 col-md-3">
+      <div class="col-xs-7 col-sm-3 col-md-2">
         <div class="copyright">© <?=date('Y')?> ООО «Мегатрон» </div>
       </div>
       <div class="col-sm-3 col-md-2">
@@ -12,7 +12,8 @@
       <div class="col-sm-2">
         <div class="map"><a href="/sitemap/">карта сайта</a></div>
       </div>
-      <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
+      <div class="col-xs-5 col-sm-4 col-md-3">
+        <nobr>
         <?php
               $APPLICATION->IncludeComponent("bitrix:menu", "social", 
               array(
@@ -23,6 +24,7 @@
                   ),
               false);
           ?>
+        </nobr>
       </div>
       <div class="col-md-3 col-lg-3 visible-md-block visible-lg-block"><a href="http://radia.ru" target="_blank" class="radia"><?=svg('radia')?>
           <div class="radia__content">разработка сайта <br>radia interactive</div></a>
