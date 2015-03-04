@@ -17,6 +17,8 @@ foreach ($arResult['ITEMS'] as &$item):
 		if(!in_array($data['CODE'], array('all', 'sale')))
 			$item['IBLOCK_SECTION_ID'] = $data['ID'];
 	
+	var_dump($item['IBLOCK_SECTION_ID']);
+
 	if(!isset($paths[$item['IBLOCK_SECTION_ID']])):
 		$rsPath = GetIBlockSectionPath($arResult['ID'], $item['IBLOCK_SECTION_ID']);
 		$arPath = $rsPath->GetNext();
