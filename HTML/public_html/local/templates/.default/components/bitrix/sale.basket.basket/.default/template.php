@@ -61,7 +61,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			            </div>
 			            <div class="col-md-2 visible-md visible-lg"><?=$item['PROPERTY_ARTNUMBER_VALUE']?></div>
 			            <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>"><nobr><strong class="sale" data-value="<?=$item['DISCOUNT_PRICE']?>"><?=number_format($item['FULL_PRICE'], 0, ' ', ' ')?> ₷</strong></nobr></div>
-			            <?=($showSale?'<div class="col-xs-2 col-md-1"> <strong>'.$item["DISCOUNT_PRICE_PERCENT_FORMATED"].'</strong></div>':'')?>
+			            <?=($showSale?'<div class="col-xs-2 col-md-1"> <strong>'.round($item["DISCOUNT_PRICE_PERCENT_FORMATED"]).'</strong></div>':'')?>
 			            <div class="col-xs-2 col-md-1"> 
 			              <input value="<?=$item['QUANTITY']?>" class="basket__count" data-id="<?=$item['ID']?>" data-price="<?=$item['PRICE']?>">
 			            </div>
