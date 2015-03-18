@@ -654,7 +654,7 @@
 	        		if($exist):
 	        			if(isset($exist['CML2_LINK'])):
 	        				if(isset($exist['CML2_LINK_MIN_PRICE'])):
-	        					if($exist['CML2_LINK_MIN_PRICE'] < $price):
+	        					if($exist['CML2_LINK_MIN_PRICE'] != $price):
 									$new = $price;
 								endif;
 							else:
@@ -664,7 +664,7 @@
 	        					$id = $exist['CML2_LINK'];
 	        				endif;
 	        			else:
-	        				if(intval($exist['MIN_PRICE']) < $price):
+	        				if(intval($exist['MIN_PRICE']) != $price):
 								$new = $price;
 								$id = $exist['ID'];
 							endif;
