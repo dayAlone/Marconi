@@ -86,7 +86,8 @@
 	$('.picture').elem('zoom').click (e)->
 			pswpElement = document.querySelectorAll('.pswp')[0];
 			items = $(this).data('pictures')
-			console.log items
-			gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, galleryOptions);
+			options = galleryOptions
+			options.index = $('.picture__small--active').index()
+			gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
 			gallery.init();
 			e.preventDefault()

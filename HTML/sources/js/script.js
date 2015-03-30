@@ -1790,11 +1790,12 @@
       return e.preventDefault();
     });
     return $('.picture').elem('zoom').click(function(e) {
-      var gallery, items, pswpElement;
+      var gallery, items, options, pswpElement;
       pswpElement = document.querySelectorAll('.pswp')[0];
       items = $(this).data('pictures');
-      console.log(items);
-      gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, galleryOptions);
+      options = galleryOptions;
+      options.index = $('.picture__small--active').index();
+      gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
       gallery.init();
       return e.preventDefault();
     });
