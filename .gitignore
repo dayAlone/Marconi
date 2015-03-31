@@ -1,7 +1,7 @@
 HTML/bower_components/
 HTML/node_modules/
 HTML/public_html/upload/
-!HTML/public_html/upload/xml/
+!HTML/public_html/upload/xml/*
 HTML/public_html/import/upload/
 HTML/public_html/bitrix/
 HTML/public_html/import/photos/
