@@ -474,21 +474,21 @@
       var h;
       if ($.browser.mobile === true) {
         h = $(fotorama.data[fotorama.activeIndex].html).find('.about__slider-item-content').height() + 200;
-        return fotorama.resize({
+        fotorama.resize({
           height: h
         });
       }
-    }).fotorama();
-    $('.about').elem('slider-title').each(function() {
-      var el, title, w;
-      title = $(this);
-      w = (title.width() - title.find('span').width() - 40) / 2;
-      el = $(this).find('.about__slider-title-before, .about__slider-title-after');
-      el.css({
-        'width': w
+      return $('.about').elem('slider-title').each(function() {
+        var el, title, w;
+        title = $(this);
+        w = (title.width() - title.find('span').width() - 40) / 2;
+        el = $(this).find('.about__slider-title-before, .about__slider-title-after');
+        el.css({
+          'width': w
+        });
+        return el.show();
       });
-      return el.show();
-    });
+    }).fotorama();
     return window.initDropdown();
   });
 

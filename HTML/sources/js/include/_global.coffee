@@ -187,16 +187,18 @@ $(document).ready ->
 			h = $(fotorama.data[fotorama.activeIndex].html).find('.about__slider-item-content').height() + 200
 			fotorama.resize
 				height: h
+
+		$('.about').elem('slider-title').each ->
+			title = $(this)
+			w = (title.width() - title.find('span').width() - 40) / 2
+			el = $(this).find('.about__slider-title-before, .about__slider-title-after')
+			el.css
+				'width' : w
+			el.show()
 	)
 	.fotorama()
 	
-	$('.about').elem('slider-title').each ->
-		title = $(this)
-		w = (title.width() - title.find('span').width() - 40) / 2
-		el = $(this).find('.about__slider-title-before, .about__slider-title-after')
-		el.css
-			'width' : w
-		el.show()
+	
 
 	window.initDropdown()
 	
