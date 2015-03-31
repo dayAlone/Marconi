@@ -25,7 +25,7 @@
     $APPLICATION->ShowViewContent('header');
   ?>
 </head>
-<body class="<?=$APPLICATION->AddBufferContent("body_class");?>">
+<body class="<?=$APPLICATION->AddBufferContent("body_class");?> <?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"eng":"")?>">
 <div class="wrap">
   <div id="panel"><?$APPLICATION->ShowPanel();?></div>
   <div class="toolbar">
@@ -57,6 +57,7 @@
         </div>
         <div class="col-xs-2">
           <?
+            if(!strstr($APPLICATION->GetCurDir(), "/eng/")):
             $frame = new \Bitrix\Main\Page\FrameHelper("login");
             $frame->begin();?>
             <div class="auth <?=($GLOBALS['USER']->IsAuthorized()?"auth--active":"")?>">
@@ -79,7 +80,8 @@
                 <a class="auth__item" href="#register" data-toggle="modal" data-target="#register">Регистрация</a>
               </div>
             </div>
-            <?$frame->end();?>
+            <?$frame->end();
+            endif;?>
         </div>
       </div>
     </div>
@@ -130,7 +132,7 @@
       <a href="/" class="logo"><?=svg('logo')?></a>
     </div>
     <div class="container header__desktop">
-    <?if($APPLICATION->GetCurDir() == '/'):?>
+    <?if($APPLICATION->GetCurDir() == '/' || strstr($APPLICATION->GetCurDir(), "/eng/")):?>
       <div class="row">
         <div class="col-xs-4"><span class="logo__line"></span></div>
         <div class="col-xs-4 center"><a href="/" class="logo"><?=svg('logo')?></a></div>

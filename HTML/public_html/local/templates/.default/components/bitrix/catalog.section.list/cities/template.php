@@ -11,7 +11,7 @@ if(count($arResult['SECTIONS'])>1):?>
 	endforeach;
 	if(!isset($active)):
 		?>
-		<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white"><span class="hidden-xs">выберите город</span><span class="visible-xs">Москва</span><?=svg('arrow')?></a>
+		<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white"><?=($arParams['LANG']!="EN"?'<span class="hidden-xs">выберите город</span><span class="visible-xs">Москва</span>':'<span class="hidden-xs">Select city</span><span class="visible-xs">Москва</span>')?><?=svg('arrow')?></a>
 		<?
 	endif;
 	?>

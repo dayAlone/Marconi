@@ -98,4 +98,7 @@
 
 @initStores = ->
 	$('.stores').elem('content').spin spinOptions
-	$.getScript 'http://maps.googleapis.com/maps/api/js?sensor=true&callback=mapInit'
+	lang = ""
+	if $('#map').data 'lang'
+		lang = "&language="+$('#map').data 'lang'
+	$.getScript 'http://maps.googleapis.com/maps/api/js?sensor=true&callback=mapInit'+lang

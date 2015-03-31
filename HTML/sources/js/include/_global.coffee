@@ -149,8 +149,10 @@ $(document).ready ->
 		
 
 	if $('body.contacts').length > 0
-		
-		$.getScript 'http://maps.googleapis.com/maps/api/js?sensor=true&callback=contactsInit', ->
+		lang = ""
+		if $('#contactsMap').data 'lang'
+			lang = "&language="+$('#contactsMap').data 'lang'
+		$.getScript 'http://maps.googleapis.com/maps/api/js?sensor=true&callback=contactsInit'+lang, ->
 			window.contactsInit = ->
 				center     = new google.maps.LatLng(55.83666078, 37.48988550);
 				mapElement = document.getElementById('contactsMap');

@@ -250,7 +250,7 @@
   };
 
   $(document).ready(function() {
-    var scrollTimer, x;
+    var lang, scrollTimer, x;
     delay(300, function() {
       return size();
     });
@@ -416,7 +416,11 @@
       });
     });
     if ($('body.contacts').length > 0) {
-      $.getScript('http://maps.googleapis.com/maps/api/js?sensor=true&callback=contactsInit', function() {
+      lang = "";
+      if ($('#contactsMap').data('lang')) {
+        lang = "&language=" + $('#contactsMap').data('lang');
+      }
+      $.getScript('http://maps.googleapis.com/maps/api/js?sensor=true&callback=contactsInit' + lang, function() {
         return window.contactsInit = function() {
           var center, map, mapElement, mapOptions, marker;
           center = new google.maps.LatLng(55.83666078, 37.48988550);
@@ -1101,7 +1105,6 @@
         return $(this).mod('open', false);
       });
     }
-    $('.icheckbox_color');
     $('.filter input.color').off('ifCreated').on('ifCreated', function() {
       var color, el;
       el = $(this).parents('.icheckbox_color');
@@ -1939,8 +1942,13 @@
   };
 
   this.initStores = function() {
+    var lang;
     $('.stores').elem('content').spin(spinOptions);
-    return $.getScript('http://maps.googleapis.com/maps/api/js?sensor=true&callback=mapInit');
+    lang = "";
+    if ($('#map').data('lang')) {
+      lang = "&language=" + $('#map').data('lang');
+    }
+    return $.getScript('http://maps.googleapis.com/maps/api/js?sensor=true&callback=mapInit' + lang);
   };
 
 }).call(this);

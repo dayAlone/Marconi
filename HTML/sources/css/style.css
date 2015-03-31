@@ -1278,6 +1278,9 @@ div.pp_default .pp_loaderIcon {
     width: 118%;
   }
 }
+.eng .header .logo__line {
+  max-width: 100%;
+}
 .header .logo__line--left {
   float: right;
 }

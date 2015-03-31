@@ -198,7 +198,6 @@ filterRequest = false
 			$(this).mod 'open', false
 
 	# Checkbox
-	$('.icheckbox_color')
 	$('.filter input.color').off('ifCreated').on 'ifCreated', ()->
 		el    = $(this).parents('.icheckbox_color')
 		color = $(this).data('color').replace('#','')

@@ -1,0 +1,53 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"The brand", 
+		"/eng/about/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Partnership", 
+		"/eng/partnership/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Store", 
+		"/eng/stores/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Lookbook", 
+		"/eng/lookbook/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Events", 
+		"/eng/news/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Online shop", 
+		"/catalog/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Contacts", 
+		"/eng/contacts/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>
