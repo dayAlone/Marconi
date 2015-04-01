@@ -7,6 +7,12 @@ $arUrlRewrite = array(
 		"PATH" => "/lookbook/index.php",
 	),
 	array(
+		"CONDITION" => "#^/eng/lookbook/([\\w-_]+)/.*#",
+		"RULE" => "&ELEMENT_CODE=\$1&\$2",
+		"ID" => "",
+		"PATH" => "/eng/lookbook/index.php",
+	),
+	array(
 		"CONDITION" => "#^/news/([\\w-_]+)/.*#",
 		"RULE" => "&ELEMENT_CODE=\$1&\$2",
 		"ID" => "",
