@@ -4,13 +4,13 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-7 col-sm-3 col-md-2">
-        <div class="copyright">© <?=date('Y')?> ООО «Мегатрон» </div>
+        <div class="copyright">© <?=date('Y')?> <?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"ООО «Megatron»":"ООО «Мегатрон»")?> </div>
       </div>
       <div class="col-sm-4 col-md-3">
-        <div class="contacts"><span>Москва,  ул. адмирала макарова, 8 <br></span><a href="mailto:info@fmarconi.ru" class="contacts_link">info@fmarconi.ru</a></div>
+        <div class="contacts"><span><?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"Moscow, Admiral Makarov Street 8, str. 1":"Москва,  ул. адмирала макарова, 8")?> <br></span><a href="mailto:info@fmarconi.ru" class="contacts_link">info@fmarconi.ru</a></div>
       </div>
       <div class="col-sm-2 col-md-1">
-        <div class="map"><a href="/sitemap/"><nobr>карта сайта</nobr></a></div>
+        <div class="map"><a href="/sitemap/"><nobr><?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"sitemap":"карта сайта")?></nobr></a></div>
       </div>
       <div class="col-xs-5 col-sm-3 col-md-3 xs-right md-left lg-center">
         <nobr>
@@ -27,7 +27,7 @@
         </nobr>
       </div>
       <div class="col-md-3 col-lg-3 visible-md-block visible-lg-block"><a href="http://radia.ru" target="_blank" class="radia"><?=svg('radia')?>
-          <div class="radia__content">разработка сайта <br>radia interactive</div></a>
+          <div class="radia__content"><?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"developed by":"разработка сайта")?> <br>radia interactive</div></a>
         <div id="bx-composite-banner"></div>
       </div>
 
