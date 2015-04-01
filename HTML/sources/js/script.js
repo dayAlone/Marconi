@@ -1945,8 +1945,8 @@
     var lang;
     $('.stores').elem('content').spin(spinOptions);
     lang = "";
-    if ($('#map').data('lang')) {
-      lang = "&language=" + $('#map').data('lang');
+    if ($('body').hasClass('eng')) {
+      lang = "&language=en";
     }
     return $.getScript('http://maps.googleapis.com/maps/api/js?sensor=true&callback=mapInit' + lang);
   };
