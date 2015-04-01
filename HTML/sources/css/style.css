@@ -1138,12 +1138,12 @@ div.pp_default .pp_loaderIcon {
   line-height: 52px;
 }
 .toolbar .social__item {
-  margin-right: 10px;
+  margin-right: 8px;
 }
 .toolbar .social__item svg {
   vertical-align: middle;
-  max-height: 15px;
-  max-width: 15px;
+  max-height: 14px;
+  max-width: 14px;
 }
 .toolbar .social__item svg path {
   fill: #fff;
