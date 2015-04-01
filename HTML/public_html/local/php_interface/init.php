@@ -182,7 +182,7 @@ function r_date($date = '') {
 		"rd"       => ""
 	);
 	global $APPLICATION;
-	if(strstr($APPLICATION->GetCurDir(), "/eng/")
+	if(strstr($APPLICATION->GetCurDir(), "/eng/"))
 		return date('d F Y', $date);
 	else
    		return strtr(date('d F Y', $date), $treplace);
