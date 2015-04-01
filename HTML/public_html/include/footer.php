@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-7 col-sm-3 col-md-2">
-        <div class="copyright">© <?=date('Y')?> <?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"ООО «Megatron»":"ООО «Мегатрон»")?> </div>
+        <div class="copyright">© <?=date('Y')?> <?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"Megatron LLC":"ООО «Мегатрон»")?> </div>
       </div>
       <div class="col-sm-4 col-md-3">
         <div class="contacts"><span><?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"Moscow, Admiral Makarov Street 8, str. 1":"Москва,  ул. адмирала макарова, 8")?> <br></span><a href="mailto:info@fmarconi.ru" class="contacts_link">info@fmarconi.ru</a></div>
