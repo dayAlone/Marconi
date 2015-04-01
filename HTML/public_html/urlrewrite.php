@@ -13,6 +13,12 @@ $arUrlRewrite = array(
 		"PATH" => "/news/index.php",
 	),
 	array(
+		"CONDITION" => "#^/eng/news/([\\w-_]+)/.*#",
+		"RULE" => "&ELEMENT_CODE=\$1&\$2",
+		"ID" => "",
+		"PATH" => "/eng/news/index.php",
+	),
+	array(
 		"CONDITION" => "#^/stores/([\\w-_]+)/.*#",
 		"RULE" => "&ELEMENT_CODE=\$1&\$2",
 		"ID" => "",
