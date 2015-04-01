@@ -182,10 +182,12 @@ function r_date($date = '') {
 		"rd"       => ""
 	);
 	global $APPLICATION;
+
 	if(strstr($APPLICATION->GetCurDir(), "/eng/"))
-		return date('d F Y', $date);
+		$str = date('d F Y', $date);
 	else
-   		return strtr(date('d F Y', $date), $treplace);
+   		$str = strtr(date('d F Y', $date), $treplace);
+   	return $str;
 }
 class CatalogStore
 {
