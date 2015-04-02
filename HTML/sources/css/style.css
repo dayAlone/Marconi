@@ -1023,7 +1023,7 @@ div.pp_default .pp_loaderIcon {
   width: 1px;
   background: rgba(255,255,255,0.3);
   vertical-align: middle;
-  margin: 0 10px;
+  margin: 0 13px;
 }
 .toolbar__desktop {
   display: none;
@@ -1117,7 +1117,7 @@ div.pp_default .pp_loaderIcon {
   height: 50px;
   padding-top: 1px;
   line-height: 55px;
-  padding: 0 12px;
+  padding: 0 14px;
   font-size: 12px;
   background: #000;
   overflow: hidden;
@@ -1134,7 +1134,7 @@ div.pp_default .pp_loaderIcon {
   color: #000;
 }
 .toolbar .lang {
-  line-height: 55px;
+  line-height: 56px;
 }
 .toolbar .lang__item {
   font-size: 12px;
