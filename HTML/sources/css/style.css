@@ -1023,7 +1023,7 @@ div.pp_default .pp_loaderIcon {
   width: 1px;
   background: rgba(255,255,255,0.3);
   vertical-align: middle;
-  margin: 0 15px;
+  margin: 0 10px;
 }
 .toolbar__desktop {
   display: none;
@@ -1117,8 +1117,8 @@ div.pp_default .pp_loaderIcon {
   height: 50px;
   padding-top: 1px;
   line-height: 55px;
-  padding: 0 13px;
-  font-size: 13px;
+  padding: 0 12px;
+  font-size: 12px;
   background: #000;
   overflow: hidden;
 }
@@ -1134,7 +1134,7 @@ div.pp_default .pp_loaderIcon {
   color: #000;
 }
 .toolbar .lang {
-  line-height: 54px;
+  line-height: 55px;
 }
 .toolbar .lang__item {
   font-size: 12px;
@@ -1156,6 +1156,9 @@ div.pp_default .pp_loaderIcon {
 }
 .toolbar .social__item {
   margin-right: 8px;
+}
+.toolbar .social__item:last-of-type {
+  margin-right: 0;
 }
 .toolbar .social__item svg {
   vertical-align: middle;
