@@ -42,6 +42,11 @@
                   ),
               false);
           ?>
+          <div class="toolbar__divider"></div>
+          <span class="lang">
+            <a href="/" class="lang__item <?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"":"lang__item--active")?>">RU</a>
+            <a href="/eng/" class="lang__item <?=(!strstr($APPLICATION->GetCurDir(), "/eng/")?"":"lang__item--active")?>">EN</a>
+          </span>
         </div>
         <div class="col-xs-10 col-lg-8">
           <?php
