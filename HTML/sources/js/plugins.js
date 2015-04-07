@@ -14609,16 +14609,15 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
         this.$flyout = $('<div class="easyzoom-flyout" />');
         this.$notice = $('<div class="easyzoom-notice" />');
 
-        this.$target
-            .on('mousemove.easyzoom touchmove.easyzoom', $.proxy(this._onMove, this))
-            .on('mouseleave.easyzoom touchend.easyzoom', $.proxy(this._onLeave, this))
-            .on('mouseenter.easyzoom touchstart.easyzoom', $.proxy(this._onEnter, this));
+        this.$target.on({
+            'mousemove.easyzoom touchmove.easyzoom': $.proxy(this._onMove, this),
+            'mouseleave.easyzoom touchend.easyzoom': $.proxy(this._onLeave, this),
+            'mouseenter.easyzoom touchstart.easyzoom': $.proxy(this._onEnter, this)
+        });
 
-        if (this.opts.preventClicks) {
-            this.$target.on('click.easyzoom', 'a', function(e) {
-                e.preventDefault();
-            });
-        }
+        this.opts.preventClicks && this.$target.on('click.easyzoom', function(e) {
+            e.preventDefault();
+        });
     };
 
     /**
@@ -14669,7 +14668,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
 
         this.isMouseOver = true;
 
-        if (touches && touches.length == 1) {
+        if (!touches || touches.length == 1) {
             e.preventDefault();
             this.show(e, true);
         }
@@ -14690,9 +14689,8 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
     /**
      * On leave
      * @private
-     * @param {Event} e
      */
-    EasyZoom.prototype._onLeave = function(e) {
+    EasyZoom.prototype._onLeave = function() {
         this.isMouseOver = false;
         this.isOpen && this.hide();
     };
@@ -14738,7 +14736,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
      * @param {Function} callback
      */
     EasyZoom.prototype._loadImage = function(href, callback) {
-        var zoom = new Image();
+        var zoom = new Image;
 
         this.$target
             .addClass('is-loading')
@@ -14763,8 +14761,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
             var touchlist = e.touches || e.originalEvent.touches;
             lx = touchlist[0].pageX;
             ly = touchlist[0].pageY;
-        }
-        else {
+        } else {
             lx = e.pageX || lx;
             ly = e.pageY || ly;
         }
@@ -14778,8 +14775,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
         // Close if outside
         if (xl < 0 || xt < 0 || xl > dw || xt > dh) {
             this.hide();
-        }
-        else {
+        } else {
             var top = xt * -1;
             var left = xl * -1;
 
@@ -14858,8 +14854,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
 
             if (!api) {
                 $.data(this, 'easyZoom', new EasyZoom(this, options));
-            }
-            else if (api.isOpen === undefined) {
+            } else if (api.isOpen === undefined) {
                 api._init();
             }
         });
@@ -14870,8 +14865,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
         define(function() {
             return EasyZoom;
         });
-    }
-    else if (typeof module !== 'undefined' && module.exports) {
+    } else if (typeof module !== 'undefined' && module.exports) {
         module.exports = EasyZoom;
     }
 

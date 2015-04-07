@@ -1738,7 +1738,7 @@
     });
     initBigButton();
     initZoom = function() {
-      return $('.picture').elem('big').easyZoom({
+      return $('.picture__big').easyZoom({
         onShow: function(x) {
           var width;
           width = $('.product').elem('description').width();
@@ -1752,9 +1752,7 @@
         }
       });
     };
-    if (!$.browser.mobile) {
-      initZoom();
-    }
+    initZoom();
     initProducts();
     $('.tabs__trigger:first').addClass('tabs__trigger--active');
     $('.tabs__content:first').addClass('tabs__content--active');

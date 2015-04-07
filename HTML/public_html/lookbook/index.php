@@ -16,7 +16,6 @@ $APPLICATION->SetTitle('Lookbook');
 					"CACHE_TYPE"          => "A",
 					"CACHE_TIME"          => "36000",
 					"SECTION_URL"         => "/lookbook/",
-
 					"SECTION_USER_FIELDS" => array('UF_SIZE'),
 				),
 				false

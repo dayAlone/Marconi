@@ -41,7 +41,7 @@
 
 	initBigButton()
 	initZoom = ->
-		$('.picture').elem('big').easyZoom
+		$('.picture__big').easyZoom
 			onShow: (x)->
 				width = $('.product').elem('description').width()
 				if $('.picture__small').length == 0
@@ -50,8 +50,7 @@
 				if $('.product').elem('description').height() > $('.easyzoom-flyout').height()
 					$('.easyzoom-flyout')
 						.height $('.product').elem('description').height()
-	if !$.browser.mobile
-		initZoom()
+	initZoom()
 	initProducts()
 	$('.tabs__trigger:first').addClass 'tabs__trigger--active'
 	$('.tabs__content:first').addClass 'tabs__content--active'
