@@ -224,6 +224,22 @@ d.addEventListener("DOMContentLoaded", f, false);
 </script> 
 <noscript><div><img src="//mc.yandex.ru/watch/28060548" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 
 <!-- /Yandex.Metrika counter --> 
+<!-- {literal} -->
+<script type='text/javascript'>
+    window['li'+'ve'+'Te'+'x'] = true,
+    window['liv'+'eT'+'exID'] = 97237,
+    window['l'+'ive'+'Te'+'x'+'_'+'object'] = true;
+    (function() {
+        var t = document['cre'+'ateEl'+'eme'+'nt']('script');
+        t.type ='text/javascript';
+        t.async = true;
+        t.src = '//cs1'+'5.li'+'ve'+'t'+'ex'+'.ru/js/'+'clien'+'t.js';
+        var c = document['get'+'Element'+'sByTagNam'+'e']('script')[0];
+        if ( c ) c['p'+'a'+'ren'+'tNo'+'de']['i'+'nsertB'+'efo'+'re'](t, c);
+        else document['doc'+'ument'+'Ele'+'ment']['fir'+'stChi'+'l'+'d']['ap'+'p'+'end'+'Chil'+'d'](t);
+    })();
+</script>
+<!-- {/literal} -->
 <?$APPLICATION->ShowViewContent('footer');?>
 </body>
 </html>
