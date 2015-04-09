@@ -22,6 +22,8 @@
 
 			$Sections   = array();
 			$arSort     = array("SORT" => "ASC");
+			if(isset($params['SORT']))
+				$arSort = $params['SORT'];
 			$arFilter   = array("IBLOCK_ID" => $params['IBLOCK']);
 			$rsSections = CIBlockSection::GetList($arSort, $arFilter);
 			$First      = false;
