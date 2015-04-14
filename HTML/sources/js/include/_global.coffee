@@ -1,5 +1,6 @@
 $(document).ready ->
 
+	window.ParsleyValidator.setLocale('ru');
 	delay 300, ()->
 		size()
 		

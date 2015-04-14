@@ -251,6 +251,7 @@
 
   $(document).ready(function() {
     var lang, scrollTimer, x;
+    window.ParsleyValidator.setLocale('ru');
     delay(300, function() {
       return size();
     });
