@@ -324,7 +324,7 @@ use Bitrix\Main;
 use Bitrix\Main\Loader;
 
 global $CITY;
-$CITY = json_decode($APPLICATION->get_cookie("CITY"));
+$CITY = json_decode($APPLICATION->get_cookie("CITY"), true);
 if(CModule::IncludeModule("altasib.geoip") && !is_array($CITY)) 
 { 
 	$arData = ALX_GeoIP::GetAddr();
