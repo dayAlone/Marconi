@@ -147,6 +147,20 @@ svg
 			font-size 13px
 .parsley-errors-list
 	display none
+	list-style: none
+	text-align: right
+	font-size 10px
+	text-transform: uppercase
+	color red
+	padding-left 0
+	margin 0
+	padding: 0
+	li
+		padding 5px 0 15px
+		&.parsley-required, &.parsley-type
+			display none
+	#register &.filled
+		display block
 .modal
 	&.overlay
 		.modal

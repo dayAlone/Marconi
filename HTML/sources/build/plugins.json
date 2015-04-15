@@ -82,7 +82,7 @@
       "js":"/jQuery-Mask-Plugin/dist/jquery.mask.js"
    },
    "parsley":{
-      "js":"/parsleyjs/dist/parsley.js"
+      "js":["/parsleyjs/src/i18n/ru.js", "/parsleyjs/dist/parsley.js"]
    },
    "photoswipe":{
       "js": ["/photoswipe/dist/photoswipe.js", "/photoswipe/dist/photoswipe-ui-default.js"],

@@ -1,4 +1,6 @@
 $(document).ready ->
+	
+	window.ParsleyValidator.setLocale('ru');
 
 	delay 300, ()->
 		size()
@@ -170,6 +172,46 @@ $(document).ready ->
 						scaledSize : new google.maps.Size(40, 35)
 					animation : google.maps.Animation.DROP
 	
+	# City selector
+	openCityDropdown = ->
+		$('.city').elem('dropdown').velocity
+			properties: "transition.slideDownIn"
+			options:
+				duration: 400
+	hideCityDropdown = ->
+		$('.city').elem('dropdown').velocity
+			properties: "transition.slideUpOut"
+			options:
+				duration: 400
+
+	if !$.cookie('city')
+		openCityDropdown()
+	
+	$('.city').elem('trigger').click (e)->
+		if $('.city').elem('dropdown').is ':visible'
+			hideCityDropdown()
+		else	
+			openCityDropdown()
+		e.preventDefault()
+	$('.city input[name="place"]').on 'change', ->
+		if $(this).val() > 0
+			val = $('.city').elem('select').find('input[type="text"].bx-ui-sls-fake').val()
+			$('.city').elem('trigger').find('span').text val
+			$('.city').elem('value').text val + "?"
+			$('.city').elem('message').show()
+			$('.city').elem('select').hide()
+			hideCityDropdown()
+
+	$('.city').elem('button').byMod('true').click (e)->
+		$.cookie('city', 'Y', { path:"/", expires: 7 });
+		hideCityDropdown()
+		e.preventDefault()
+	$('.city').elem('button').byMod('false').click (e)->
+		$('.city').elem('message').hide()
+		$('.city').elem('select').show()
+		$('.city').elem('select').find('input[type="text"]:visible').focus()
+		e.preventDefault()
+
 	# About
 	$('.about').elem('slider').on('fotorama:show', (e, fotorama, extra) ->
 		item = $(fotorama.data[fotorama.activeIndex].html)

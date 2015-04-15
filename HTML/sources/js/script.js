@@ -250,7 +250,8 @@
   };
 
   $(document).ready(function() {
-    var lang, scrollTimer, x;
+    var hideCityDropdown, lang, openCityDropdown, scrollTimer, x;
+    window.ParsleyValidator.setLocale('ru');
     delay(300, function() {
       return size();
     });
@@ -456,6 +457,58 @@
         };
       });
     }
+    openCityDropdown = function() {
+      return $('.city').elem('dropdown').velocity({
+        properties: "transition.slideDownIn",
+        options: {
+          duration: 400
+        }
+      });
+    };
+    hideCityDropdown = function() {
+      return $('.city').elem('dropdown').velocity({
+        properties: "transition.slideUpOut",
+        options: {
+          duration: 400
+        }
+      });
+    };
+    if (!$.cookie('city')) {
+      openCityDropdown();
+    }
+    $('.city').elem('trigger').click(function(e) {
+      if ($('.city').elem('dropdown').is(':visible')) {
+        hideCityDropdown();
+      } else {
+        openCityDropdown();
+      }
+      return e.preventDefault();
+    });
+    $('.city input[name="place"]').on('change', function() {
+      var val;
+      if ($(this).val() > 0) {
+        val = $('.city').elem('select').find('input[type="text"].bx-ui-sls-fake').val();
+        $('.city').elem('trigger').find('span').text(val);
+        $('.city').elem('value').text(val + "?");
+        $('.city').elem('message').show();
+        $('.city').elem('select').hide();
+        return hideCityDropdown();
+      }
+    });
+    $('.city').elem('button').byMod('true').click(function(e) {
+      $.cookie('city', 'Y', {
+        path: "/",
+        expires: 7
+      });
+      hideCityDropdown();
+      return e.preventDefault();
+    });
+    $('.city').elem('button').byMod('false').click(function(e) {
+      $('.city').elem('message').hide();
+      $('.city').elem('select').show();
+      $('.city').elem('select').find('input[type="text"]:visible').focus();
+      return e.preventDefault();
+    });
     $('.about').elem('slider').on('fotorama:show', function(e, fotorama, extra) {
       var item;
       item = $(fotorama.data[fotorama.activeIndex].html);

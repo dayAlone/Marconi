@@ -1,11 +1,16 @@
 <?
+
 ini_set('xdebug.var_display_max_depth', 5);
 ini_set('xdebug.var_display_max_children', 256);
 ini_set('xdebug.var_display_max_data', 1024);
 
 define("BX_COMPOSITE_DEBUG", false);
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
-
+if(CModule::IncludeModule("altasib.geoip")) 
+{ 
+	$arData = ALX_GeoIP::GetAddr(); 
+	var_dump($_SESSION);
+}
 AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserUpdateHandler");
 AddEventHandler("main", "OnBeforeUserRegister", "OnBeforeUserUpdateHandler");
 AddEventHandler("main", "OnBeforeUserAdd", "OnBeforeUserUpdateHandler");
