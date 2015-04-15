@@ -324,7 +324,7 @@ use Bitrix\Main;
 use Bitrix\Main\Loader;
 
 global $CITY;
-$CITY = json_encode($APPLICATION->get_cookie("CITY"), JSON_UNESCAPED_UNICODE);
+$CITY = json_decode($APPLICATION->get_cookie("CITY"));
 if(CModule::IncludeModule("altasib.geoip") && !is_array($CITY)) 
 { 
 	$arData = ALX_GeoIP::GetAddr();
@@ -348,10 +348,10 @@ if(CModule::IncludeModule("altasib.geoip") && !is_array($CITY))
 				'NAME' => $data['ITEMS'][0]['NAME'],
 				'ID' => $data['ITEMS'][0]['ID']
 			);
-			$APPLICATION->set_cookie("CITY", json_encode($value), time()+60*60*24*7, "/");
+			$APPLICATION->set_cookie("CITY", json_encode($value, JSON_UNESCAPED_UNICODE), time()+60*60*24*7, "/");
 		endif;
 	endif;
 	if(strlen($APPLICATION->get_cookie("CITY")) == 0)
-		$APPLICATION->set_cookie("CITY", json_encode(array('NAME'=>'Москва', 'ID'=>218)), time()+60*60*24*7, "/");
+		$APPLICATION->set_cookie("CITY", json_encode(array('NAME'=>'Москва', 'ID'=>218), JSON_UNESCAPED_UNICODE), time()+60*60*24*7, "/");
 }
 ?>
