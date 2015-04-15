@@ -6,11 +6,7 @@ ini_set('xdebug.var_display_max_data', 1024);
 
 define("BX_COMPOSITE_DEBUG", false);
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
-if(CModule::IncludeModule("altasib.geoip")) 
-{ 
-	$arData = ALX_GeoIP::GetAddr(); 
-	var_dump($_SESSION);
-}
+
 AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserUpdateHandler");
 AddEventHandler("main", "OnBeforeUserRegister", "OnBeforeUserUpdateHandler");
 AddEventHandler("main", "OnBeforeUserAdd", "OnBeforeUserUpdateHandler");
@@ -322,5 +318,40 @@ function getFilterStringValues($id, $section, $values)
 	elseif(strlen($current)>0):
 		return $current;
 	endif;
+}
+
+use Bitrix\Main;
+use Bitrix\Main\Loader;
+
+global $CITY;
+$CITY = json_encode($APPLICATION->get_cookie("CITY"), JSON_UNESCAPED_UNICODE);
+if(CModule::IncludeModule("altasib.geoip") && !is_array($CITY)) 
+{ 
+	$arData = ALX_GeoIP::GetAddr();
+	if(isset($_SESSION['GEOIP']['city'])):
+		Loader::includeModule('sale');
+		include($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/sale.location.selector.steps/class.php');
+		
+		$_REQUEST['SHOW'] = array(
+			'PATH' => '1',
+			'TYPE_ID' => '1',
+		);
+		$_REQUEST['FILTER'] = array(
+			'QUERY' => 'Челяб',
+			'EXCLUDE_ID' => '0',
+			'SITE_ID' => 's1',
+			'TYPE_ID' => '3',
+		);
+		$data = CBitrixLocationSelectorStepsComponent::processSearchRequest();
+		if(count($data['ITEMS']) > 0):
+			$value = array(
+				'NAME' => $data['ITEMS'][0]['NAME'],
+				'ID' => $data['ITEMS'][0]['ID']
+			);
+			$APPLICATION->set_cookie("CITY", json_encode($value), time()+60*60*24*7, "/");
+		endif;
+	endif;
+	if(strlen($APPLICATION->get_cookie("CITY")) == 0)
+		$APPLICATION->set_cookie("CITY", json_encode(array('NAME'=>'Москва', 'ID'=>218)), time()+60*60*24*7, "/");
 }
 ?>

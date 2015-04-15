@@ -148,11 +148,12 @@
         <div class="col-xs-3 col-md-2">
           <div class="contacts"><a href="tel:+74959723265" class="contacts__number"><?=svg('phone')?>+7 495 972-32-65</a></div>
           <div class="city">
-            <a href="#" class="city__trigger"><span>Москва</span> <?=svg('arrow')?></a>
+            <?global $CITY;?>
+            <a href="#" class="city__trigger"><span><?=$CITY['NAME']?></span> <?=svg('arrow')?></a>
             <div class="city__dropdown">
                 <div class="city__message">
                   Попробуем угадать, ваш город — <br>
-                  <strong class="city__value">Москва?</strong><br>
+                  <strong class="city__value"><?=$CITY['NAME']?>?</strong><br>
                   <a href="#" class="city__button city__button--true">Да</a><a href="#" class="city__button city__button--false">Выбрать другой город</a><br>
                   <div class="city__description">От выбранного города зависит наличие товара <br>и способы доставки</div> 
                 </div>
