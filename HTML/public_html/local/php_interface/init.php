@@ -322,7 +322,7 @@ function getFilterStringValues($id, $section, $values)
 
 use Bitrix\Main;
 use Bitrix\Main\Loader;
-CModule::IncludeModule("altasib.geoip") && !is_array($CITY)
+CModule::IncludeModule("altasib.geoip");
 $arData = ALX_GeoIP::GetAddr();
 var_dump($_SESSION['GEOIP']);
 if(!strstr($_SERVER['SCRIPT_NAME'], 'bitrix/admin')):
