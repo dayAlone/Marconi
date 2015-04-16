@@ -330,7 +330,7 @@ function findCity($name = false)
 	if($name) {
 		CModule::IncludeModule("iblock");
 		$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'NAME'=>$name);
-		$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('NAME', 'UF_PHONE'));
+		$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('NAME', 'UF_PHONE', 'UF_CLOSED'));
 		$item = $raw->Fetch();
 		if($item && isset($item['UF_PHONE'])) { $phone = $item['UF_PHONE']; }
 	}
@@ -341,6 +341,9 @@ function findCity($name = false)
 		$phone = COption::GetOptionString("grain.customsettings","phone");
 	
 	$value = array('NAME'=>$name, 'PHONE'=> $phone);
+
+	if(isset($item) && $item['UF_CLOSED'])
+		$value['CLOSED'] = "Y";
 
 	$CITY = $value;
 	$APPLICATION->set_cookie("CITY", json_encode($value, JSON_UNESCAPED_UNICODE), time()+60*60*24*7);

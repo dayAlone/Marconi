@@ -1,5 +1,5 @@
 <?
-global $arrFilter;
+global $arrFilter, $CITY;
 $elements = array();
 
 foreach ($arrFilter as $key => &$item)
@@ -12,4 +12,6 @@ if(count($elements) > 1):
 	$arrFilter[] = array_merge(array("LOGIC" => "OR"), $elements);
 endif;
 $arrFilter['!PROPERTY_MIN_PRICE'] = false;
+
+if($CITY['CLOSED'] == 'Y') $arrFilter['=PROPERTY_GENERAL'] = "Y";
 ?>
