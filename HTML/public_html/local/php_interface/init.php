@@ -360,7 +360,7 @@ if(!strstr($_SERVER['SCRIPT_NAME'], 'bitrix/admin')):
 		if(strlen($APPLICATION->get_cookie("CITY")) == 0)
 			$value = array('NAME'=>'Москва', 'ID'=>218);
 		
-		$APPLICATION->set_cookie("CITY", json_encode($value), JSON_UNESCAPED_UNICODE), time()+60*60*24*7, "/");
+		$APPLICATION->set_cookie("CITY", json_encode($value, JSON_UNESCAPED_UNICODE), time()+60*60*24*7, "/");
 	}
 endif;
 ?>
