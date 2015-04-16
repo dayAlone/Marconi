@@ -6838,3 +6838,787 @@ array (
   ),
 )
 ----------
+Host: fm.local
+Date: 2015-04-16 11:45:17
+Module: AAA
+array (
+  'PATH' => '1',
+  'TYPE_ID' => '1',
+)
+    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+----------
+Host: fm.local
+Date: 2015-04-16 11:45:18
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '1498',
+      'CODE' => '0000522250',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новоалександровск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 1497,
+        1 => 42,
+        2 => 38,
+        3 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '2751',
+      'CODE' => '0000990310',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новоалтайск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 76,
+        1 => 68,
+        2 => 1,
+      ),
+    ),
+    2 => 
+    array (
+      'ID' => '1253',
+      'CODE' => '0000439531',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новоаннинский',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 1252,
+        1 => 33,
+        2 => 31,
+        3 => 1,
+      ),
+    ),
+    3 => 
+    array (
+      'ID' => '758',
+      'CODE' => '0000296630',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Нововоронеж',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 18,
+        1 => 2,
+        2 => 1,
+      ),
+    ),
+    4 => 
+    array (
+      'ID' => '989',
+      'CODE' => '0000109999',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новодвинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 25,
+        1 => 20,
+        2 => 1,
+      ),
+    ),
+    5 => 
+    array (
+      'ID' => '714',
+      'CODE' => '0000280959',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новозыбков',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 17,
+        1 => 2,
+        2 => 1,
+      ),
+    ),
+    6 => 
+    array (
+      'ID' => '1196',
+      'CODE' => '0000414561',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новокубанск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 1195,
+        1 => 32,
+        2 => 31,
+        3 => 1,
+      ),
+    ),
+    7 => 
+    array (
+      'ID' => '2612',
+      'CODE' => '0000935761',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новокузнецк',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 72,
+        1 => 68,
+        2 => 1,
+      ),
+    ),
+    8 => 
+    array (
+      'ID' => '1858',
+      'CODE' => '0000653526',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новокуйбышевск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 54,
+        1 => 46,
+        2 => 1,
+      ),
+    ),
+    9 => 
+    array (
+      'ID' => '492',
+      'CODE' => '0000202186',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новомичуринск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 491,
+        1 => 11,
+        2 => 2,
+        3 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      1497 => 'Новоалександровский район',
+      42 => 'Ставропольский край',
+      38 => 'Северный Кавказ',
+      1 => 'Россия',
+      76 => 'Алтайский край',
+      68 => 'Сибирь',
+      1252 => 'Новоаннинский район',
+      33 => 'Волгоградская область',
+      31 => 'Юг',
+      18 => 'Воронежская область',
+      2 => 'Центр',
+      25 => 'Архангельская область',
+      20 => 'Северо-Запад',
+      17 => 'Брянская область',
+      1195 => 'Новокубанский район',
+      32 => 'Краснодарский край',
+      72 => 'Кемеровская область',
+      54 => 'Самарская область',
+      46 => 'Поволжье',
+      491 => 'Пронский район',
+      11 => 'Рязанская область',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-04-16 11:45:20
+Module: AAA
+array (
+  'PATH' => '1',
+  'TYPE_ID' => '1',
+)
+    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+----------
+Host: fm.local
+Date: 2015-04-16 11:45:21
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2641',
+      'CODE' => '0000949228',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новосибирск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 73,
+        1 => 68,
+        2 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '465',
+      'CODE' => '0000194352',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новосиль',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 464,
+        1 => 10,
+        2 => 2,
+        3 => 1,
+      ),
+    ),
+    2 => 
+    array (
+      'ID' => '1099',
+      'CODE' => '0000369089',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новосокольники',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 1098,
+        1 => 28,
+        2 => 20,
+        3 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      73 => 'Новосибирская область',
+      68 => 'Сибирь',
+      1 => 'Россия',
+      464 => 'Новосильский район',
+      10 => 'Орловская область',
+      2 => 'Центр',
+      1098 => 'Новосокольнический район',
+      28 => 'Псковская область',
+      20 => 'Северо-Запад',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-04-16 11:45:21
+Module: AAA
+array (
+  'PATH' => '1',
+  'TYPE_ID' => '1',
+)
+    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+----------
+Host: fm.local
+Date: 2015-04-16 11:45:21
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-04-16 11:46:17
+Module: AAA
+array (
+  'PATH' => '1',
+  'TYPE_ID' => '1',
+)
+    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+----------
+Host: fm.local
+Date: 2015-04-16 11:46:17
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '905',
+      'CODE' => '0000326360',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Ухта',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 22,
+        1 => 20,
+        2 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      22 => 'Республика Коми',
+      20 => 'Северо-Запад',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-04-16 11:46:18
+Module: AAA
+array (
+  'PATH' => '1',
+  'TYPE_ID' => '1',
+)
+    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+----------
+Host: fm.local
+Date: 2015-04-16 11:46:18
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-04-16 11:49:33
+Module: AAA
+array (
+  'PATH' => '1',
+  'TYPE_ID' => '1',
+)
+    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+----------
+Host: fm.local
+Date: 2015-04-16 11:49:33
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '1128',
+      'CODE' => '0000379300',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Валдай',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 1127,
+        1 => 29,
+        2 => 20,
+        3 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '230',
+      'CODE' => '0000135999',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Валуйки',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 229,
+        1 => 4,
+        2 => 2,
+        3 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      1127 => 'Валдайский район',
+      29 => 'Новгородская область',
+      20 => 'Северо-Запад',
+      1 => 'Россия',
+      229 => 'Валуйский район',
+      4 => 'Белгородская область',
+      2 => 'Центр',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-04-16 11:49:34
+Module: AAA
+array (
+  'PATH' => '1',
+  'TYPE_ID' => '1',
+)
+    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+----------
+Host: fm.local
+Date: 2015-04-16 11:49:34
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-04-16 11:50:01
+Module: AAA
+array (
+  'PATH' => '1',
+  'TYPE_ID' => '1',
+)
+    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+----------
+Host: fm.local
+Date: 2015-04-16 11:50:01
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '1128',
+      'CODE' => '0000379300',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Валдай',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 1127,
+        1 => 29,
+        2 => 20,
+        3 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '230',
+      'CODE' => '0000135999',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Валуйки',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 229,
+        1 => 4,
+        2 => 2,
+        3 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      1127 => 'Валдайский район',
+      29 => 'Новгородская область',
+      20 => 'Северо-Запад',
+      1 => 'Россия',
+      229 => 'Валуйский район',
+      4 => 'Белгородская область',
+      2 => 'Центр',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-04-16 11:50:02
+Module: AAA
+array (
+  'PATH' => '1',
+  'TYPE_ID' => '1',
+)
+    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+----------
+Host: fm.local
+Date: 2015-04-16 11:50:02
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-04-16 12:06:42
+Module: AAA
+array (
+  'PATH' => '1',
+  'TYPE_ID' => '1',
+)
+    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+----------
+Host: fm.local
+Date: 2015-04-16 12:06:42
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-04-16 12:06:43
+Module: AAA
+array (
+  'PATH' => '1',
+  'TYPE_ID' => '1',
+)
+    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+----------
+Host: fm.local
+Date: 2015-04-16 12:06:43
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '1498',
+      'CODE' => '0000522250',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новоалександровск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 1497,
+        1 => 42,
+        2 => 38,
+        3 => 1,
+      ),
+    ),
+    1 => 
+    array (
+      'ID' => '2751',
+      'CODE' => '0000990310',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новоалтайск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 76,
+        1 => 68,
+        2 => 1,
+      ),
+    ),
+    2 => 
+    array (
+      'ID' => '1253',
+      'CODE' => '0000439531',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новоаннинский',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 1252,
+        1 => 33,
+        2 => 31,
+        3 => 1,
+      ),
+    ),
+    3 => 
+    array (
+      'ID' => '758',
+      'CODE' => '0000296630',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Нововоронеж',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 18,
+        1 => 2,
+        2 => 1,
+      ),
+    ),
+    4 => 
+    array (
+      'ID' => '989',
+      'CODE' => '0000109999',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новодвинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 25,
+        1 => 20,
+        2 => 1,
+      ),
+    ),
+    5 => 
+    array (
+      'ID' => '714',
+      'CODE' => '0000280959',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новозыбков',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 17,
+        1 => 2,
+        2 => 1,
+      ),
+    ),
+    6 => 
+    array (
+      'ID' => '1196',
+      'CODE' => '0000414561',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новокубанск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 1195,
+        1 => 32,
+        2 => 31,
+        3 => 1,
+      ),
+    ),
+    7 => 
+    array (
+      'ID' => '2612',
+      'CODE' => '0000935761',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новокузнецк',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 72,
+        1 => 68,
+        2 => 1,
+      ),
+    ),
+    8 => 
+    array (
+      'ID' => '1858',
+      'CODE' => '0000653526',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новокуйбышевск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 54,
+        1 => 46,
+        2 => 1,
+      ),
+    ),
+    9 => 
+    array (
+      'ID' => '492',
+      'CODE' => '0000202186',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Новомичуринск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 491,
+        1 => 11,
+        2 => 2,
+        3 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      1497 => 'Новоалександровский район',
+      42 => 'Ставропольский край',
+      38 => 'Северный Кавказ',
+      1 => 'Россия',
+      76 => 'Алтайский край',
+      68 => 'Сибирь',
+      1252 => 'Новоаннинский район',
+      33 => 'Волгоградская область',
+      31 => 'Юг',
+      18 => 'Воронежская область',
+      2 => 'Центр',
+      25 => 'Архангельская область',
+      20 => 'Северо-Запад',
+      17 => 'Брянская область',
+      1195 => 'Новокубанский район',
+      32 => 'Краснодарский край',
+      72 => 'Кемеровская область',
+      54 => 'Самарская область',
+      46 => 'Поволжье',
+      491 => 'Пронский район',
+      11 => 'Рязанская область',
+    ),
+  ),
+)
+----------

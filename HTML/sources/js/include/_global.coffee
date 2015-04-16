@@ -186,21 +186,21 @@ $(document).ready ->
 
 	if !$.cookie('city')
 		openCityDropdown()
-	
+	else if	$.cookie('city').length > 1
+		$.cookie('city', 'Y', { path:"/", expires: 7 });
+		
 	$('.city').elem('trigger').click (e)->
 		if $('.city').elem('dropdown').is ':visible'
 			hideCityDropdown()
 		else	
 			openCityDropdown()
 		e.preventDefault()
+
 	$('.city input[name="place"]').on 'change', ->
 		if $(this).val() > 0
 			val = $('.city').elem('select').find('input[type="text"].bx-ui-sls-fake').val()
 			$.cookie('city', val, { path:"/", expires: 7 });
-			$('.city').elem('trigger').find('span').text val
-			$('.city').elem('value').text val + "?"
-			$('.city').elem('message').show()
-			$('.city').elem('select').hide()
+			location.href = location.href
 			hideCityDropdown()
 
 	$('.city').elem('button').byMod('true').click (e)->

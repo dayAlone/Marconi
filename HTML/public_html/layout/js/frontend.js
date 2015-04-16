@@ -44377,6 +44377,11 @@ return PhotoSwipeUI_Default;
     };
     if (!$.cookie('city')) {
       openCityDropdown();
+    } else if ($.cookie('city').length > 1) {
+      $.cookie('city', 'Y', {
+        path: "/",
+        expires: 7
+      });
     }
     $('.city').elem('trigger').click(function(e) {
       if ($('.city').elem('dropdown').is(':visible')) {
@@ -44394,10 +44399,7 @@ return PhotoSwipeUI_Default;
           path: "/",
           expires: 7
         });
-        $('.city').elem('trigger').find('span').text(val);
-        $('.city').elem('value').text(val + "?");
-        $('.city').elem('message').show();
-        $('.city').elem('select').hide();
+        location.href = location.href;
         return hideCityDropdown();
       }
     });

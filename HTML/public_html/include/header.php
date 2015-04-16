@@ -8,7 +8,7 @@
   <?
   $APPLICATION->SetAdditionalCSS("/layout/css/frontend.css", true);
   $APPLICATION->AddHeadScript('/layout/js/frontend.js');
-  
+  global $CITY;
   ?>
   <title><?php 
     $rsSites = CSite::GetByID(SITE_ID);
@@ -127,7 +127,7 @@
           <a href="#Nav" data-toggle="modal" data-target="#Nav" class="toolbar__nav-trigger"><?=svg('nav')?> Меню</a>
         </div>
         <div class="col-xs-9 right">
-          <a href="tel:+74959723265" title=""><?=svg('phone')?></a><span class="toolbar__divider"></span><span class="search__frame"><a href="#" class="search"><?=svg('seach')?></a><span class="toolbar__divider"></span></span><a <?=($GLOBALS['USER']->IsAuthorized()?'href="/profile/"':'href="#login" data-toggle="modal"')?> title=""><?=svg('profile')?></a><span class="toolbar__divider"></span><a href="/basket/" title=""><?=svg('cart')?></a>
+          <a href="tel:<?=preg_replace('/[^\dx+]/i', '', $CITY['PHONE'])?>" title=""><?=svg('phone')?></a><span class="toolbar__divider"></span><span class="search__frame"><a href="#" class="search"><?=svg('seach')?></a><span class="toolbar__divider"></span></span><a <?=($GLOBALS['USER']->IsAuthorized()?'href="/profile/"':'href="#login" data-toggle="modal"')?> title=""><?=svg('profile')?></a><span class="toolbar__divider"></span><a href="/basket/" title=""><?=svg('cart')?></a>
         </div>
       </div>
     </div>
@@ -146,9 +146,9 @@
     <?else:?>
       <div class="row">
         <div class="col-xs-3 col-md-2">
-          <div class="contacts"><a href="tel:+74959723265" class="contacts__number"><?=svg('phone')?>+7 495 972-32-65</a></div>
+          <div class="contacts"><a href="tel:<?=preg_replace('/[^\dx+]/i', '', $CITY['PHONE'])?>" class="contacts__number"><?=svg('phone')?><?=$CITY['PHONE']?></a></div>
           <div class="city">
-            <?global $CITY;?>
+            
             <a href="#" class="city__trigger"><span><?=$CITY['NAME']?></span> <?=svg('arrow')?></a>
             <div class="city__dropdown">
                 <div class="city__message">

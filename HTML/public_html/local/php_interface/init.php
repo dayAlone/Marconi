@@ -325,29 +325,31 @@ use Bitrix\Main\Loader;*/
 
 function findCity($name = false)
 {
-	global $APPLICATION;
-	if($name):
+	global $APPLICATION, $CITY;
+	
+	if($name) {
 		CModule::IncludeModule("iblock");
 		$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'NAME'=>$name);
 		$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('NAME', 'UF_PHONE'));
 		$item = $raw->Fetch();
-		if($item):
-			$value = array(
-				'NAME' => $item['NAME'],
-			);
-			if(isset($item['UF_PHONE'])) $value['PHONE'] = $item['UF_PHONE'];
-		endif;
-	endif;
+		if($item && isset($item['UF_PHONE'])) { $phone = $item['UF_PHONE']; }
+	}
+	else
+		$name = "Москва";
+	
+	if(!isset($phone))
+		$phone = COption::GetOptionString("grain.customsettings","phone");
+	
+	$value = array('NAME'=>$name, 'PHONE'=> $phone);
 
-	if(!isset($value)) $value = array('NAME'=>'Москва', 'PHONE'=>218);
+	$CITY = $value;
 	$APPLICATION->set_cookie("CITY", json_encode($value, JSON_UNESCAPED_UNICODE), time()+60*60*24*7);
 }
 
 if(!strstr($_SERVER['SCRIPT_NAME'], 'bitrix/admin')):
 	global $CITY;
-	if(strlen($_COOKIE['city']) > 1) { findCity($_COOKIE['city']); }
-
 	$CITY = json_decode($APPLICATION->get_cookie("CITY"), true);
+	if(strlen($_COOKIE['city']) > 1) { findCity($_COOKIE['city']); }
 	if(!is_array($CITY) && CModule::IncludeModule("altasib.geoip")) {
 		$arData = ALX_GeoIP::GetAddr();
 		if(isset($_SESSION['GEOIP']['city']) && $_SESSION['GEOIP']['country'] == "RU")
