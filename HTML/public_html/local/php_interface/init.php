@@ -320,47 +320,41 @@ function getFilterStringValues($id, $section, $values)
 	endif;
 }
 
-use Bitrix\Main;
-use Bitrix\Main\Loader;
-CModule::IncludeModule("altasib.geoip");
+/*use Bitrix\Main;
+use Bitrix\Main\Loader;*/
+
+function findCity($name = false)
+{
+	global $APPLICATION;
+	if($name):
+		CModule::IncludeModule("iblock");
+		$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'NAME'=>$name);
+		$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('NAME', 'UF_PHONE'));
+		$item = $raw->Fetch();
+		if($item):
+			$value = array(
+				'NAME' => $item['NAME'],
+			);
+			if(isset($item['UF_PHONE'])) $value['PHONE'] = $item['UF_PHONE'];
+		endif;
+	endif;
+
+	if(!isset($value)) $value = array('NAME'=>'Москва', 'PHONE'=>218);
+	$APPLICATION->set_cookie("CITY", json_encode($value, JSON_UNESCAPED_UNICODE), time()+60*60*24*7);
+}
+
 if(!strstr($_SERVER['SCRIPT_NAME'], 'bitrix/admin')):
 	global $CITY;
+	if(strlen($_COOKIE['city']) > 1) { findCity($_COOKIE['city']); }
+
 	$CITY = json_decode($APPLICATION->get_cookie("CITY"), true);
-	if(CModule::IncludeModule("altasib.geoip") && !is_array($CITY)) 
-	{ 
+	if(!is_array($CITY) && CModule::IncludeModule("altasib.geoip")) {
 		$arData = ALX_GeoIP::GetAddr();
-		if(isset($_SESSION['GEOIP']['city']) && $_SESSION['GEOIP']['country']=="RU"):
-			
-			/*
-			Loader::includeModule('sale');
-			include($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/sale.location.selector.steps/class.php');
-			$_REQUEST['SHOW'] = array(
-				'PATH' => '1',
-				'TYPE_ID' => '1',
-			);
-			$_REQUEST['FILTER'] = array(
-				'QUERY' => 'Челяб',
-				'EXCLUDE_ID' => '0',
-				'SITE_ID' => 's1',
-				'TYPE_ID' => '3',
-			);
-			$data = CBitrixLocationSelectorStepsComponent::processSearchRequest();
-			if(count($data['ITEMS']) > 0):
-				$value = array(
-					'NAME' => $data['ITEMS'][0]['NAME'],
-					'ID' => $data['ITEMS'][0]['ID']
-				);
-			endif;
-			*/
-			$value = array(
-				'NAME' => $data['ITEMS'][0]['NAME'],
-				'ID' => $data['ITEMS'][0]['ID']
-			);
-		endif;
-		if(strlen($APPLICATION->get_cookie("CITY")) == 0)
-			$value = array('NAME'=>'Москва', 'ID'=>218);
-		
-		$APPLICATION->set_cookie("CITY", json_encode($value, JSON_UNESCAPED_UNICODE), time()+60*60*24*7, "/");
+		if(isset($_SESSION['GEOIP']['city']) && $_SESSION['GEOIP']['country'] == "RU")
+			findCity($_SESSION['GEOIP']['city']);
+		else
+			findCity();
 	}
+	
 endif;
 ?>

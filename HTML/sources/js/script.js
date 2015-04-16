@@ -488,6 +488,10 @@
       var val;
       if ($(this).val() > 0) {
         val = $('.city').elem('select').find('input[type="text"].bx-ui-sls-fake').val();
+        $.cookie('city', val, {
+          path: "/",
+          expires: 7
+        });
         $('.city').elem('trigger').find('span').text(val);
         $('.city').elem('value').text(val + "?");
         $('.city').elem('message').show();

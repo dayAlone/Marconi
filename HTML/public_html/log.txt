@@ -6769,3 +6769,72 @@ array (
 	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/include.php:1
 	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/include/prolog_before.php:14
 ----------
+Host: fm.local
+Date: 2015-04-16 11:22:44
+Module: AAA
+array (
+  'PATH' => '1',
+  'TYPE_ID' => '1',
+)
+    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+----------
+Host: fm.local
+Date: 2015-04-16 11:22:44
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '905',
+      'CODE' => '0000326360',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Ухта',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 22,
+        1 => 20,
+        2 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      22 => 'Республика Коми',
+      20 => 'Северо-Запад',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: fm.local
+Date: 2015-04-16 11:22:45
+Module: AAA
+array (
+  'PATH' => '1',
+  'TYPE_ID' => '1',
+)
+    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+----------
+Host: fm.local
+Date: 2015-04-16 11:22:45
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
