@@ -206,6 +206,7 @@ $(document).ready ->
 		$.cookie('city', 'Y', { path:"/", expires: 7 });
 		hideCityDropdown()
 		e.preventDefault()
+	
 	$('.city').elem('button').byMod('false').click (e)->
 		$('.city').elem('message').hide()
 		$('.city').elem('select').show()

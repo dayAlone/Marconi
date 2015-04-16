@@ -322,36 +322,50 @@ function getFilterStringValues($id, $section, $values)
 
 use Bitrix\Main;
 use Bitrix\Main\Loader;
-
-global $CITY;
-$CITY = json_decode($APPLICATION->get_cookie("CITY"), true);
-if(CModule::IncludeModule("altasib.geoip") && !is_array($CITY)) 
-{ 
-	$arData = ALX_GeoIP::GetAddr();
-	if(isset($_SESSION['GEOIP']['city'])):
-		Loader::includeModule('sale');
-		include($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/sale.location.selector.steps/class.php');
-		
-		$_REQUEST['SHOW'] = array(
-			'PATH' => '1',
-			'TYPE_ID' => '1',
-		);
-		$_REQUEST['FILTER'] = array(
-			'QUERY' => 'Челяб',
-			'EXCLUDE_ID' => '0',
-			'SITE_ID' => 's1',
-			'TYPE_ID' => '3',
-		);
-		$data = CBitrixLocationSelectorStepsComponent::processSearchRequest();
-		if(count($data['ITEMS']) > 0):
-			$value = array(
-				'NAME' => $data['ITEMS'][0]['NAME'],
-				'ID' => $data['ITEMS'][0]['ID']
+CModule::IncludeModule("altasib.geoip") && !is_array($CITY)
+$arData = ALX_GeoIP::GetAddr();
+var_dump($_SESSION['GEOIP']);
+if(!strstr($_SERVER['SCRIPT_NAME'], 'bitrix/admin')):
+	global $CITY;
+	$CITY = json_decode($APPLICATION->get_cookie("CITY"), true);
+	/*
+	if(CModule::IncludeModule("altasib.geoip") && !is_array($CITY)) 
+	{ 
+		$arData = ALX_GeoIP::GetAddr();
+		if(isset($_SESSION['GEOIP']['city'])):
+			Loader::includeModule('sale');
+			include($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/sale.location.selector.steps/class.php');
+			$_REQUEST['SHOW'] = array(
+				'PATH' => '1',
+				'TYPE_ID' => '1',
 			);
-			$APPLICATION->set_cookie("CITY", json_encode($value, JSON_UNESCAPED_UNICODE), time()+60*60*24*7, "/");
+			$_REQUEST['FILTER'] = array(
+				'QUERY' => 'Челяб',
+				'EXCLUDE_ID' => '0',
+				'SITE_ID' => 's1',
+				'TYPE_ID' => '3',
+			);
+			$data = CBitrixLocationSelectorStepsComponent::processSearchRequest();
+			if(count($data['ITEMS']) > 0):
+				$value = array(
+					'NAME' => $data['ITEMS'][0]['NAME'],
+					'ID' => $data['ITEMS'][0]['ID']
+				);
+				$APPLICATION->set_cookie("CITY", json_encode($value, JSON_UNESCAPED_UNICODE), time()+60*60*24*7, "/");
+			endif;
 		endif;
-	endif;
-	if(strlen($APPLICATION->get_cookie("CITY")) == 0)
-		$APPLICATION->set_cookie("CITY", json_encode(array('NAME'=>'Москва', 'ID'=>218), JSON_UNESCAPED_UNICODE), time()+60*60*24*7, "/");
-}
+		if(strlen($APPLICATION->get_cookie("CITY")) == 0)
+			$APPLICATION->set_cookie("CITY", json_encode(array('NAME'=>'Москва', 'ID'=>218), JSON_UNESCAPED_UNICODE), time()+60*60*24*7, "/");
+	}*/
+	$_REQUEST['SHOW'] = array(
+		'PATH' => '1',
+		'TYPE_ID' => '1',
+	);
+	$_REQUEST['FILTER'] = array(
+		'QUERY' => 'Челяб',
+		'EXCLUDE_ID' => '0',
+		'SITE_ID' => 's1',
+		'TYPE_ID' => '3',
+	);
+endif;
 ?>
