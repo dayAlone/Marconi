@@ -1,4 +1,5 @@
 <?
+	define("NO_IP", true);
 	$_SERVER["DOCUMENT_ROOT"] = realpath(dirname(__FILE__)."/..");
 	require_once ($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include.php");
 	
@@ -467,8 +468,6 @@
 
 				endif;
 
-
-
 			endforeach;
 
 			fwrite(STDERR, "\033[37mOffers: ".$this->counter['offers']." \033[35m Update: ".$this->counter['update']." \033[32m Add: ".$this->counter['add']." \033[31m Error: ".$this->counter['error']." \033[37m\r\n");
@@ -518,7 +517,7 @@
 			foreach ($data['items'] as $item)
 				$ids[] = $item->getAttribute('id');
 
-			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID', 'ACTIVE')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_CML2_LINK')));
+			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_GENERAL')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_CML2_LINK')));
 
 			$ids  = array();
 			foreach ($this->products as $item)
@@ -544,6 +543,7 @@
 						
 						$store = $this->stores[$count->getAttribute('store')];
 
+						// Активация товаров которые в наличии
 						if(intval($amount) > 0 && (isset($product['CML2_LINK']) || $product['ACTIVE'] == 'N')):
 				    		$raw = new CIBlockElement;
 				    		if(isset($product['CML2_LINK'])):
@@ -555,6 +555,20 @@
 				    		#$this->counter++;
 				    	endif;
 				    	
+				    	// Товары на основном складе
+				    	if($count->getAttribute('store') == 0):
+					    	$updateID = (isset($product['CML2_LINK'])?$product['CML2_LINK']:$id);
+					    	if(intval($amount) > 0 && $product["GENERAL"] != "Y") 
+					    		$updateValue = "Y";
+					    	else if(intval($amount) == 0 && (!isset($product["GENERAL"]) || $product["GENERAL"] == "Y")) 
+					    		$updateValue = "N";
+					    	
+					    	if(isset($updateValue)):
+					    		CIBlockElement::SetPropertyValuesEx($updateID, $this->iblocks['products'], array('GENERAL'=>$updateValue));
+					    		$this->counter++;
+					    	endif;
+					    endif;
+
 				    	if($this->counts[$id][$store] != $amount):
 				    		if(!isset($this->counts[$id]))
 								$this->counts[$id] = array();
@@ -852,6 +866,7 @@
 							&& $item
 						)
 						$array[str_replace(array('PROPERTY_', '_VALUE'), array('',''), $key)] = $item;
+				
 				$raw = CIBlockElement::GetElementGroups($el['ID']);
 
 				while($s = $raw->Fetch())

@@ -486,6 +486,8 @@
         hideCityDropdown();
       } else {
         openCityDropdown();
+        $('.city').elem('message').hide();
+        $('.city').elem('select').show();
       }
       return e.preventDefault();
     });

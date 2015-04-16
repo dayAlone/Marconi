@@ -188,12 +188,14 @@ $(document).ready ->
 		openCityDropdown()
 	else if	$.cookie('city').length > 1
 		$.cookie('city', 'Y', { path:"/", expires: 7 });
-		
+
 	$('.city').elem('trigger').click (e)->
 		if $('.city').elem('dropdown').is ':visible'
 			hideCityDropdown()
 		else	
 			openCityDropdown()
+			$('.city').elem('message').hide()
+			$('.city').elem('select').show()
 		e.preventDefault()
 
 	$('.city input[name="place"]').on 'change', ->

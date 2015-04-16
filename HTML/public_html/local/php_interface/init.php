@@ -345,8 +345,7 @@ function findCity($name = false)
 	$CITY = $value;
 	$APPLICATION->set_cookie("CITY", json_encode($value, JSON_UNESCAPED_UNICODE), time()+60*60*24*7);
 }
-
-if(!strstr($_SERVER['SCRIPT_NAME'], 'bitrix/admin')):
+if(!strstr($_SERVER['SCRIPT_NAME'], 'bitrix/admin') && !defined("NO_IP")):
 	global $CITY;
 	$CITY = json_decode($APPLICATION->get_cookie("CITY"), true);
 	if(strlen($_COOKIE['city']) > 1) { findCity($_COOKIE['city']); }
@@ -359,4 +358,5 @@ if(!strstr($_SERVER['SCRIPT_NAME'], 'bitrix/admin')):
 	}
 	
 endif;
+
 ?>
