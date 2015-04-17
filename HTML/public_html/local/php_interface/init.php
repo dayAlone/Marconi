@@ -7,6 +7,12 @@ ini_set('xdebug.var_display_max_data', 1024);
 define("BX_COMPOSITE_DEBUG", false);
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
+
+AddEventHandler("main", "OnBeforeMailSend", "OnBeforeMailSendHandler");
+function OnBeforeMailSendHandler(&$arFields) {
+	AddMessage2Log(var_export($arFields, true),"OnBeforeMailSend");
+}
+
 AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserUpdateHandler");
 AddEventHandler("main", "OnBeforeUserRegister", "OnBeforeUserUpdateHandler");
 AddEventHandler("main", "OnBeforeUserAdd", "OnBeforeUserUpdateHandler");
