@@ -16,7 +16,6 @@ AddEventHandler("main", "OnOrderNewSendEmail", "OnBeforeMailSendHandler");
 AddEventHandler("main", "OnBeforeEventSend", "OnBeforeMailSendHandler");
 
 function OnBeforeMailSendHandler(&$arFields) {
-	AddMessage2Log(var_export($arFields, true),"OnBeforeMailSend");
 	CModule::IncludeModule("sale");
 	CModule::IncludeModule("iblock");
 	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
@@ -55,7 +54,6 @@ function OnBeforeMailSendHandler(&$arFields) {
 	$str .= '</tbody></table>';
 	$arFields['ORDER_LIST'] = $str;
 	$arFields['BCC'] = "ak@radia.ru";
-	return $arFields;
 }
 
 AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserUpdateHandler");
