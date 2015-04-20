@@ -22,9 +22,9 @@ function OnBeforeMailSendHandler(&$arFields) {
 	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
 	$arItems = array();
 	$str = '<table width="100%" style="text-align:center"><thead>
-		<tr>
+		<tr style="font-size:12px;">
 			<th></th>
-			<th>Название</th>
+			<th style="text-align:left">Название</th>
 			<th>Артикул</th>
 			<th>Цена</th>
 			<th>Количество</th>
@@ -32,7 +32,6 @@ function OnBeforeMailSendHandler(&$arFields) {
 		</tr>
 		</thead>
 		<tbody>';
-
 	while ($arItem = $dbBasketItems->Fetch()) {
 		$res = CIBlockElement::GetByID($arItem['PRODUCT_ID']);
 		if($ar_res = $res->GetNextElement()){
@@ -40,7 +39,6 @@ function OnBeforeMailSendHandler(&$arFields) {
 			$small = CFile::ResizeImageGet(CFile::GetFileArray($arFields['PREVIEW_PICTURE']['ID']), Array("width" => 400, "height" => 400), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 			$arProps = $ar_res->GetProperties();
 		}
-			
 		$str .= '<tr>
 				<td>
 					'.($small?'<img src="http://'.$_SERVER['SERVER_NAME'].'/'.$small['src'].'" width="100" alt="">':'').'
@@ -56,6 +54,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 	}
 	$str .= '</tbody></table>';
 	$arFields['ORDER_LIST'] = $str;
+	$arFields['BCC'] = "ak@radia.ru";
 	return $arFields;
 }
 
