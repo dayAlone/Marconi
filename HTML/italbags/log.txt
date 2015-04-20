@@ -1,0 +1,93 @@
+Host: it.local
+Date: 2015-04-18 14:30:55
+Module: AAA
+array (
+  'PATH' => '1',
+  'TYPE_ID' => '1',
+)
+    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+----------
+Host: it.local
+Date: 2015-04-18 14:30:55
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------
+Host: it.local
+Date: 2015-04-18 14:30:55
+Module: AAA
+array (
+  'PATH' => '1',
+  'TYPE_ID' => '1',
+)
+    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+----------
+Host: it.local
+Date: 2015-04-18 14:30:56
+Module: location
+array (
+  'ITEMS' => 
+  array (
+    0 => 
+    array (
+      'ID' => '2381',
+      'CODE' => '0000854968',
+      'SORT' => '100',
+      'LT_SORT' => '600',
+      'NAME' => 'Челябинск',
+      'TYPE_ID' => '3',
+      'PATH' => 
+      array (
+        0 => 67,
+        1 => 61,
+        2 => 1,
+      ),
+    ),
+  ),
+  'ETC' => 
+  array (
+    'PATH_NAMES' => 
+    array (
+      67 => 'Челябинская область',
+      61 => 'Урал',
+      1 => 'Россия',
+    ),
+  ),
+)
+----------
+Host: it.local
+Date: 2015-04-18 14:30:56
+Module: AAA
+array (
+  'PATH' => '1',
+  'TYPE_ID' => '1',
+)
+    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+----------
+Host: it.local
+Date: 2015-04-18 14:30:56
+Module: location
+array (
+  'ITEMS' => 
+  array (
+  ),
+  'ETC' => 
+  array (
+  ),
+)
+----------

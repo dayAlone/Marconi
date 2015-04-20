@@ -8,9 +8,55 @@ define("BX_COMPOSITE_DEBUG", false);
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
 
-AddEventHandler("main", "OnBeforeMailSend", "OnBeforeMailSendHandler");
+
+
+
+
+AddEventHandler("main", "OnOrderNewSendEmail", "OnBeforeMailSendHandler");
+AddEventHandler("main", "OnBeforeEventSend", "OnBeforeMailSendHandler");
+
 function OnBeforeMailSendHandler(&$arFields) {
 	AddMessage2Log(var_export($arFields, true),"OnBeforeMailSend");
+	CModule::IncludeModule("sale");
+	CModule::IncludeModule("iblock");
+	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
+	$arItems = array();
+	$str = '<table width="100%" style="text-align:center"><thead>
+		<tr>
+			<th></th>
+			<th>Название</th>
+			<th>Артикул</th>
+			<th>Цена</th>
+			<th>Количество</th>
+			<th>Сумма</th>
+		</tr>
+		</thead>
+		<tbody>';
+
+	while ($arItem = $dbBasketItems->Fetch()) {
+		$res = CIBlockElement::GetByID($arItem['PRODUCT_ID']);
+		if($ar_res = $res->GetNextElement()){
+			$arFields = $ar_res->GetFields(); 
+			$small = CFile::ResizeImageGet(CFile::GetFileArray($arFields['PREVIEW_PICTURE']['ID']), Array("width" => 400, "height" => 400), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
+			$arProps = $ar_res->GetProperties();
+		}
+			
+		$str .= '<tr>
+				<td>
+					'.($small?'<img src="http://'.$_SERVER['SERVER_NAME'].'/'.$small['src'].'" width="100" alt="">':'').'
+				</td>
+				<td style="text-align:left">'.$arItem['NAME'].'</td>
+				<td>'.$arProps['ARTNUMBER']['VALUE'].'</td>
+				<td>
+					'.number_format($arItem['PRICE'], 0, '.', ' ').' руб.
+					'.(intval($arItem['DISCOUNT_PRICE'])>0?"<br><small><strike>".number_format($arItem['PRICE']+$arItem['DISCOUNT_PRICE'], 0, '.', ' ')." руб.</strike></small>":"").'
+				</td>
+				<td>'.intval($arItem['QUANTITY']).'</td>
+				<td>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</td></tr>';
+	}
+	$str .= '</tbody></table>';
+	$arFields['ORDER_LIST'] = $str;
+	return $arFields;
 }
 
 AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserUpdateHandler");
