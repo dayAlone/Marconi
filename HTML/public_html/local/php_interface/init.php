@@ -34,8 +34,8 @@ function OnBeforeMailSendHandler(&$arFields) {
 	while ($arItem = $dbBasketItems->Fetch()) {
 		$res = CIBlockElement::GetByID($arItem['PRODUCT_ID']);
 		if($ar_res = $res->GetNextElement()){
-			$arFields = $ar_res->GetFields(); 
-			$small = CFile::ResizeImageGet(CFile::GetFileArray($arFields['PREVIEW_PICTURE']['ID']), Array("width" => 400, "height" => 400), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
+			$fields = $ar_res->GetFields(); 
+			$small = CFile::ResizeImageGet(CFile::GetFileArray($fields['PREVIEW_PICTURE']['ID']), Array("width" => 400, "height" => 400), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 			$arProps = $ar_res->GetProperties();
 		}
 		$str .= '<tr>
