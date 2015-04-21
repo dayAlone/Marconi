@@ -35,7 +35,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 		$res = CIBlockElement::GetByID($arItem['PRODUCT_ID']);
 		if($ar_res = $res->GetNextElement()){
 			$fields = $ar_res->GetFields(); 
-			$small = CFile::ResizeImageGet(CFile::GetFileArray($fields['PREVIEW_PICTURE']['ID']), Array("width" => 400, "height" => 400), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
+			$small = CFile::ResizeImageGet(CFile::GetFileArray($fields['PREVIEW_PICTURE']), Array("width" => 400, "height" => 400), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 			$arProps = $ar_res->GetProperties();
 		}
 		$str .= '<tr>
@@ -54,6 +54,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 	$str .= '</tbody></table>';
 	$arFields['ORDER_LIST'] = $str;
 	$arFields['BCC'] = "ak@radia.ru";
+	return $arFields;
 }
 
 AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserUpdateHandler");
