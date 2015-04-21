@@ -12,6 +12,7 @@ AddEventHandler("main", "OnOrderNewSendEmail", "OnBeforeMailSendHandler");
 AddEventHandler("main", "OnBeforeEventSend", "OnBeforeMailSendHandler");
 
 function getOrderProps($order) {
+	CModule::IncludeModule("sale");
 	$db_vals = CSaleOrderPropsValue::GetList(
 	    array("ORDER_PROPS_ID" => "ASC"),
 	    array(
