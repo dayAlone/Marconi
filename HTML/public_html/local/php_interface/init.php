@@ -21,11 +21,10 @@ function getOrderProps($order) {
 	);
 	$orderProps = array();
 	while ($prop = $db_vals->Fetch()) {
+		var_dump($prop);
 		switch ($prop['CODE']) {
 			case 'address':
-				var_dump($prop['VALUE']);
 				$val = CSaleLocation::GetByID($prop['VALUE']);
-				var_dump($val);
 				if($val)
 					$orderProps[$prop['CODE']] = $val['CITY_NAME_ORIG'].", ".$val['REGION_NAME_ORIG'].", ".$val['COUNTRY_NAME_ORIG'];
 				break;
