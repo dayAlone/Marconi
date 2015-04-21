@@ -20,7 +20,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 	CModule::IncludeModule("iblock");
 	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
 	$arItems = array();
-	$str = '<table width="100%" cellpadding="10" border="1" bordercolor="#c4d5e2" style="text-align:center; border: 1px solid #c4d5e2;"><thead>
+	$str = '<table width="100%" cellpadding="10" border="1" bordercolor="#c2c4c5" style="text-align:center; border: 1px solid #c4d5e2;"><thead>
 		<tr style="font-size:12px;">
 			<th></th>
 			<th style="text-align:left">Название</th>
