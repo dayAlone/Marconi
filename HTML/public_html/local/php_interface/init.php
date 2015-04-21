@@ -20,7 +20,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 	CModule::IncludeModule("iblock");
 	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
 	$arItems = array();
-	$str = '<table width="100%" cellpadding="10" border="1" bordercolor="#c2c4c5" style="text-align:center; border: 1px solid #c4d5e2;"><thead>
+	$str = '<table width="100%" cellpadding="10" cellspacing="0" bordercolor="#c2c4c6" style="border:1px solid #c2c4c6; text-align:center; border-collapse:collapse;"><thead>
 		<tr style="font-size:12px;">
 			<th></th>
 			<th style="text-align:left">Название</th>
@@ -39,17 +39,17 @@ function OnBeforeMailSendHandler(&$arFields) {
 			$arProps = $ar_res->GetProperties();
 		}
 		$str .= '<tr>
-				<td>
+				<td style="border:1px solid #c2c4c6;">
 					'.($small?'<img src="http://'.$_SERVER['SERVER_NAME'].'/'.$small['src'].'" width="40" alt="">':'').'
 				</td>
-				<td style="text-align:left">'.$arItem['NAME'].'</td>
-				<td>'.$arProps['ARTNUMBER']['VALUE'].'</td>
-				<td>
+				<td style="text-align:left;border:1px solid #c2c4c6;">'.$arItem['NAME'].'</td>
+				<td style="border:1px solid #c2c4c6;">'.$arProps['ARTNUMBER']['VALUE'].'</td>
+				<td style="border:1px solid #c2c4c6;">
 					'.number_format($arItem['PRICE'], 0, '.', ' ').' руб.
 					'.(intval($arItem['DISCOUNT_PRICE'])>0?"<br><small><strike>".number_format($arItem['PRICE']+$arItem['DISCOUNT_PRICE'], 0, '.', ' ')." руб.</strike></small>":"").'
 				</td>
-				<td>'.intval($arItem['QUANTITY']).'</td>
-				<td>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</td></tr>';
+				<td style="border:1px solid #c2c4c6;">'.intval($arItem['QUANTITY']).'</td>
+				<td style="border:1px solid #c2c4c6;">'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</td></tr>';
 	}
 	$str .= '</tbody></table>';
 	$arFields['ORDER_LIST'] = $str;
