@@ -11,14 +11,11 @@ define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 AddEventHandler("main", "OnOrderNewSendEmail", "OnBeforeMailSendHandler");
 AddEventHandler("main", "OnBeforeEventSend", "OnBeforeMailSendHandler");
 
-function OnBeforeMailSendHandler(&$arFields) {
-	CModule::IncludeModule("sale");
-	CModule::IncludeModule("iblock");
-	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
+function getOrderProps($order) {
 	$db_vals = CSaleOrderPropsValue::GetList(
 	    array("ORDER_PROPS_ID" => "ASC"),
 	    array(
-	            "ORDER_ID" => $arFields['ORDER_ID']
+	            "ORDER_ID" => $order
 	        )
 	);
 	$orderProps = array();
@@ -33,8 +30,18 @@ function OnBeforeMailSendHandler(&$arFields) {
 				break;
 		}
 	}
+	return $orderProps;
+}
+
+var_dump(getOrderProps(46));
+
+function OnBeforeMailSendHandler(&$arFields) {
+	CModule::IncludeModule("sale");
+	CModule::IncludeModule("iblock");
+	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
+	$orderProps = getOrderProps($arFields['ORDER_ID']);
 	$arItems = array();
-	$str = '<table width="100%" cellpadding="10" cellspacing="0" style="font-size:12px;border-collapse:collapse;border:1px solid #c2c4c6;"><thead>
+	$str = '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;"><thead>
 		<tr style="font-size:12px;">
 			<th></th>
 			<th style="text-align:left">Название</th>
@@ -67,9 +74,9 @@ function OnBeforeMailSendHandler(&$arFields) {
 	}
 	$str .= '</tbody>
 		<tfooter>
-			<td colspan="2" style="font-size:11px">Заказчик: '.$orderProps['NAME'].' '.$orderProps['LAST_NAME'].'
-			'.($orderProps['address']? '<br>Адрес: '.$orderProps['street'].', '.$orderProps['house'].(strlen($orderProps['address'])>0?', '.$orderProps['address']:'').(strlen($orderProps['index'])>0?', '.$orderProps['index']:''):'').'</td>
-			<td colspan="4" style="text-align: right;font-size:11px">Телефон: '.$orderProps['phone'].', <br>эл. почта: '.$orderProps['email'].'</td>
+			<td colspan="2" style="font-size:12px"><strong>Заказчик</strong>: '.$orderProps['NAME'].' '.$orderProps['LAST_NAME'].'
+			'.($orderProps['address']? '<br><strong>Адрес</strong>: '.$orderProps['street'].', '.$orderProps['house'].(strlen($orderProps['address'])>1?', '.$orderProps['address']:'').(strlen($orderProps['index'])>1?', '.$orderProps['index']:''):'').'</td>
+			<td colspan="4" style="text-align: right;font-size:12px"><strong>Телефон</strong>: '.$orderProps['phone'].', <br><strong>Эл. почта</strong>: '.$orderProps['email'].'</td>
 		</tfooter>
 	</table>';
 	$arFields['ORDER_LIST'] = $str;
