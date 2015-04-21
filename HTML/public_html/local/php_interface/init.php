@@ -45,11 +45,11 @@ function OnBeforeMailSendHandler(&$arFields) {
 				<td style="text-align:left;border:1px solid #c2c4c6;">'.$arItem['NAME'].'</td>
 				<td style="border:1px solid #c2c4c6;">'.$arProps['ARTNUMBER']['VALUE'].'</td>
 				<td style="border:1px solid #c2c4c6;">
-					'.number_format($arItem['PRICE'], 0, '.', ' ').' руб.
-					'.(intval($arItem['DISCOUNT_PRICE'])>0?"<br><small><strike>".number_format($arItem['PRICE']+$arItem['DISCOUNT_PRICE'], 0, '.', ' ')." руб.</strike></small>":"").'
+					<nobr>'.number_format($arItem['PRICE'], 0, '.', ' ').' руб.</nobr>
+					'.(intval($arItem['DISCOUNT_PRICE'])>0?"<br><nobr><small><strike>".number_format($arItem['PRICE']+$arItem['DISCOUNT_PRICE'], 0, '.', ' ')." руб.</strike></small></nobr>":"").'
 				</td>
 				<td style="border:1px solid #c2c4c6;">'.intval($arItem['QUANTITY']).'</td>
-				<td style="border:1px solid #c2c4c6;">'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</td></tr>';
+				<td style="border:1px solid #c2c4c6;"><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td></tr>';
 	}
 	$str .= '</tbody></table>';
 	$arFields['ORDER_LIST'] = $str;
