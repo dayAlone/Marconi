@@ -8,10 +8,6 @@ define("BX_COMPOSITE_DEBUG", false);
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
 
-
-
-
-
 AddEventHandler("main", "OnOrderNewSendEmail", "OnBeforeMailSendHandler");
 AddEventHandler("main", "OnBeforeEventSend", "OnBeforeMailSendHandler");
 
@@ -19,6 +15,24 @@ function OnBeforeMailSendHandler(&$arFields) {
 	CModule::IncludeModule("sale");
 	CModule::IncludeModule("iblock");
 	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
+	$db_vals = CSaleOrderPropsValue::GetList(
+	    array("ORDER_PROPS_ID" => "ASC"),
+	    array(
+	            "ORDER_ID" => $arFields['ORDER_ID']
+	        )
+	);
+	$arProps = array();
+	while ($prop = $db_vals->Fetch()) {
+		switch ($prop['CODE']) {
+			case 'address':
+				$val = CSaleLocation::GetByID($prop['VALUE']);
+				$arProps[$prop['CODE']] = $val['CITY_NAME_ORIG'].", ".$val['REGION_NAME_ORIG'].", ".$val['COUNTRY_NAME_ORIG'];
+				break;
+			default:
+				$arProps[$prop['CODE']] = $prop['VALUE'];
+				break;
+		}
+	}
 	$arItems = array();
 	$str = '<table width="100%" cellpadding="10" cellspacing="0" bordercolor="#c2c4c6" style="border:1px solid #c2c4c6; text-align:center; border-collapse:collapse;"><thead>
 		<tr style="font-size:12px;">
@@ -51,7 +65,13 @@ function OnBeforeMailSendHandler(&$arFields) {
 				<td style="border:1px solid #c2c4c6;">'.intval($arItem['QUANTITY']).'</td>
 				<td style="border:1px solid #c2c4c6;"><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td></tr>';
 	}
-	$str .= '</tbody></table>';
+	$str .= '</tbody>
+		<tfooter style="font-size:10px">
+			<td colspan="2">Заказчик: '.$arProps['NAME'].' '.$arProps['LAST_NAME'].'</td>
+			<td colspan="4">Адрес: '.$arProps['street'].', '.$arProps['house'].', '.$arProps['address'].', '.$arProps['index'].'</td>
+			<td colspan="2" style="text-align: right">Телефон: '.$arProps['phone'].', эл. почта: '.$arProps['email'].'</td>
+		</tfooter>
+	</table>';
 	$arFields['ORDER_LIST'] = $str;
 	$arFields['BCC'] = "ak@radia.ru";
 	return $arFields;
