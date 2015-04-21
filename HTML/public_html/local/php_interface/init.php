@@ -24,6 +24,7 @@ function getOrderProps($order) {
 		switch ($prop['CODE']) {
 			case 'address':
 				$val = CSaleLocation::GetByID($prop['VALUE']);
+				var_dump($val);
 				$orderProps[$prop['CODE']] = $val['CITY_NAME_ORIG'].", ".$val['REGION_NAME_ORIG'].", ".$val['COUNTRY_NAME_ORIG'];
 				break;
 			default:
@@ -34,7 +35,7 @@ function getOrderProps($order) {
 	return $orderProps;
 }
 
-var_dump(getOrderProps(46));
+getOrderProps(46);
 
 function OnBeforeMailSendHandler(&$arFields) {
 	CModule::IncludeModule("sale");
