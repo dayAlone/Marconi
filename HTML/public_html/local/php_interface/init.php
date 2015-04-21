@@ -20,7 +20,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 	CModule::IncludeModule("iblock");
 	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
 	$arItems = array();
-	$str = '<table width="100%" style="text-align:center"><thead>
+	$str = '<table width="100%" cellpadding="0" style="text-align:center; border: 1px solid #c4d5e2;"><thead>
 		<tr style="font-size:12px;">
 			<th></th>
 			<th style="text-align:left">Название</th>
@@ -35,12 +35,12 @@ function OnBeforeMailSendHandler(&$arFields) {
 		$res = CIBlockElement::GetByID($arItem['PRODUCT_ID']);
 		if($ar_res = $res->GetNextElement()){
 			$fields = $ar_res->GetFields(); 
-			$small = CFile::ResizeImageGet(CFile::GetFileArray($fields['PREVIEW_PICTURE']), Array("width" => 400, "height" => 400), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
+			$small = CFile::ResizeImageGet(CFile::GetFileArray($fields['PREVIEW_PICTURE']), Array("width" => 150, "height" => 150), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 			$arProps = $ar_res->GetProperties();
 		}
 		$str .= '<tr>
 				<td>
-					'.($small?'<img src="http://'.$_SERVER['SERVER_NAME'].'/'.$small['src'].'" width="100" alt="">':'').'
+					'.($small?'<img src="http://'.$_SERVER['SERVER_NAME'].'/'.$small['src'].'" width="60" alt="">':'').'
 				</td>
 				<td style="text-align:left">'.$arItem['NAME'].'</td>
 				<td>'.$arProps['ARTNUMBER']['VALUE'].'</td>
