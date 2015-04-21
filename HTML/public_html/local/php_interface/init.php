@@ -34,8 +34,8 @@ function OnBeforeMailSendHandler(&$arFields) {
 		}
 	}
 	$arItems = array();
-	$str = '<table width="100%" cellpadding="10" cellspacing="0" bordercolor="#c2c4c6"><thead>
-		<tr style="font-size:12px;border:1px solid #c2c4c6;>
+	$str = '<table width="100%" cellpadding="10" cellspacing="0"><thead>
+		<tr style="font-size:12px;border:1px solid #c2c4c6;">
 			<th></th>
 			<th style="text-align:left">Название</th>
 			<th>Артикул</th>
@@ -67,9 +67,9 @@ function OnBeforeMailSendHandler(&$arFields) {
 	}
 	$str .= '</tbody>
 		<tfooter>
-			<td colspan="2" style="font-size:10px">Заказчик: '.$orderProps['NAME'].' '.$orderProps['LAST_NAME'].'</td>
-			<td colspan="2" style="font-size:10px">'.($orderProps['address']? 'Адрес: '.$orderProps['street'].', '.$orderProps['house'].', '.$orderProps['address'].', '.$orderProps['index']:'').'</td>
-			<td colspan="2" style="text-align: right;font-size:10px">Телефон: '.$orderProps['phone'].', эл. почта: '.$orderProps['email'].'</td>
+			<td colspan="2" style="font-size:11px">Заказчик: '.$orderProps['NAME'].' '.$orderProps['LAST_NAME'].'
+			'.($orderProps['address']? 'Адрес: '.$orderProps['street'].', '.$orderProps['house'].', '.$orderProps['address'].', '.$orderProps['index']:'').'</td>
+			<td colspan="4" style="text-align: right;font-size:11px">Телефон: '.$orderProps['phone'].', эл. почта: '.$orderProps['email'].'</td>
 		</tfooter>
 	</table>';
 	$arFields['ORDER_LIST'] = $str;
