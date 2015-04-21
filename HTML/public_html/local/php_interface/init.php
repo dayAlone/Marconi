@@ -21,21 +21,21 @@ function OnBeforeMailSendHandler(&$arFields) {
 	            "ORDER_ID" => $arFields['ORDER_ID']
 	        )
 	);
-	$arProps = array();
+	$orderProps = array();
 	while ($prop = $db_vals->Fetch()) {
 		switch ($prop['CODE']) {
 			case 'address':
 				$val = CSaleLocation::GetByID($prop['VALUE']);
-				$arProps[$prop['CODE']] = $val['CITY_NAME_ORIG'].", ".$val['REGION_NAME_ORIG'].", ".$val['COUNTRY_NAME_ORIG'];
+				$orderProps[$prop['CODE']] = $val['CITY_NAME_ORIG'].", ".$val['REGION_NAME_ORIG'].", ".$val['COUNTRY_NAME_ORIG'];
 				break;
 			default:
-				$arProps[$prop['CODE']] = $prop['VALUE'];
+				$orderProps[$prop['CODE']] = $prop['VALUE'];
 				break;
 		}
 	}
 	$arItems = array();
-	$str = '<table width="100%" cellpadding="10" cellspacing="0" bordercolor="#c2c4c6" style="border:1px solid #c2c4c6; text-align:center; border-collapse:collapse;"><thead>
-		<tr style="font-size:12px;">
+	$str = '<table width="100%" cellpadding="10" cellspacing="0" bordercolor="#c2c4c6"><thead>
+		<tr style="font-size:12px;border:1px solid #c2c4c6;>
 			<th></th>
 			<th style="text-align:left">Название</th>
 			<th>Артикул</th>
@@ -66,10 +66,10 @@ function OnBeforeMailSendHandler(&$arFields) {
 				<td style="border:1px solid #c2c4c6;"><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td></tr>';
 	}
 	$str .= '</tbody>
-		<tfooter style="font-size:10px">
-			<td colspan="2">Заказчик: '.$arProps['NAME'].' '.$arProps['LAST_NAME'].'</td>
-			<td colspan="4">Адрес: '.$arProps['street'].', '.$arProps['house'].', '.$arProps['address'].', '.$arProps['index'].'</td>
-			<td colspan="2" style="text-align: right">Телефон: '.$arProps['phone'].', эл. почта: '.$arProps['email'].'</td>
+		<tfooter>
+			<td colspan="2" style="font-size:10px">Заказчик: '.$orderProps['NAME'].' '.$orderProps['LAST_NAME'].'</td>
+			<td colspan="2" style="font-size:10px">'.($orderProps['address']? 'Адрес: '.$orderProps['street'].', '.$orderProps['house'].', '.$orderProps['address'].', '.$orderProps['index']:'').'</td>
+			<td colspan="2" style="text-align: right;font-size:10px">Телефон: '.$orderProps['phone'].', эл. почта: '.$orderProps['email'].'</td>
 		</tfooter>
 	</table>';
 	$arFields['ORDER_LIST'] = $str;
