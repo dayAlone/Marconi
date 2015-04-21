@@ -34,8 +34,8 @@ function OnBeforeMailSendHandler(&$arFields) {
 		}
 	}
 	$arItems = array();
-	$str = '<table width="100%" cellpadding="10" cellspacing="0"><thead>
-		<tr style="font-size:12px;border:1px solid #c2c4c6;">
+	$str = '<table width="100%" cellpadding="10" cellspacing="0" style="font-size:12px;border-collapse:collapse;border:1px solid #c2c4c6;"><thead>
+		<tr style="font-size:12px;">
 			<th></th>
 			<th style="text-align:left">Название</th>
 			<th>Артикул</th>
@@ -53,23 +53,23 @@ function OnBeforeMailSendHandler(&$arFields) {
 			$arProps = $ar_res->GetProperties();
 		}
 		$str .= '<tr>
-				<td style="border:1px solid #c2c4c6;">
+				<td style="border:1px solid #c2c4c6;border-collapse:collapse;">
 					'.($small?'<img src="http://'.$_SERVER['SERVER_NAME'].'/'.$small['src'].'" width="40" alt="">':'').'
 				</td>
-				<td style="text-align:left;border:1px solid #c2c4c6;">'.$arItem['NAME'].'</td>
-				<td style="border:1px solid #c2c4c6;">'.$arProps['ARTNUMBER']['VALUE'].'</td>
-				<td style="border:1px solid #c2c4c6;">
+				<td style="text-align:left;border:1px solid #c2c4c6;border-collapse:collapse;">'.$arItem['NAME'].'</td>
+				<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.$arProps['ARTNUMBER']['VALUE'].'</td>
+				<td style="border:1px solid #c2c4c6;border-collapse:collapse;">
 					<nobr>'.number_format($arItem['PRICE'], 0, '.', ' ').' руб.</nobr>
 					'.(intval($arItem['DISCOUNT_PRICE'])>0?"<br><nobr><small><strike>".number_format($arItem['PRICE']+$arItem['DISCOUNT_PRICE'], 0, '.', ' ')." руб.</strike></small></nobr>":"").'
 				</td>
-				<td style="border:1px solid #c2c4c6;">'.intval($arItem['QUANTITY']).'</td>
-				<td style="border:1px solid #c2c4c6;"><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td></tr>';
+				<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.intval($arItem['QUANTITY']).'</td>
+				<td style="border:1px solid #c2c4c6;border-collapse:collapse;"><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td></tr>';
 	}
 	$str .= '</tbody>
 		<tfooter>
 			<td colspan="2" style="font-size:11px">Заказчик: '.$orderProps['NAME'].' '.$orderProps['LAST_NAME'].'
-			'.($orderProps['address']? 'Адрес: '.$orderProps['street'].', '.$orderProps['house'].', '.$orderProps['address'].', '.$orderProps['index']:'').'</td>
-			<td colspan="4" style="text-align: right;font-size:11px">Телефон: '.$orderProps['phone'].', эл. почта: '.$orderProps['email'].'</td>
+			'.($orderProps['address']? '<br>Адрес: '.$orderProps['street'].', '.$orderProps['house'].(strlen($orderProps['address'])>0?', '.$orderProps['address']:'').(strlen($orderProps['index'])>0?', '.$orderProps['index']:''):'').'</td>
+			<td colspan="4" style="text-align: right;font-size:11px">Телефон: '.$orderProps['phone'].', <br>эл. почта: '.$orderProps['email'].'</td>
 		</tfooter>
 	</table>';
 	$arFields['ORDER_LIST'] = $str;
