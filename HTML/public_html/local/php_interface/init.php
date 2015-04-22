@@ -13,6 +13,7 @@ AddEventHandler("main", "OnBeforeEventSend", "OnBeforeMailSendHandler");
 
 function getOrderProps($order) {
 	CModule::IncludeModule("sale");
+	CModule::IncludeModule("iblock");
 	$db_vals = CSaleOrderPropsValue::GetList(
 	    array("ORDER_PROPS_ID" => "ASC"),
 	    array(
@@ -24,8 +25,14 @@ function getOrderProps($order) {
 		switch ($prop['CODE']) {
 			case 'address':
 				$val = CSaleLocation::GetByID($prop['VALUE']);
-				if($val)
+				if($val) {
 					$orderProps[$prop['CODE']] = $val['CITY_NAME_ORIG'].", ".$val['REGION_NAME_ORIG'].", ".$val['COUNTRY_NAME_ORIG'];
+					$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'NAME' => $val['CITY_NAME_ORIG']);
+					$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('NAME', 'UF_EMAIL'));
+					if($item = $raw->Fetch()) {
+						$orderProps['EMAIL'] = $item['UF_EMAIL'];
+					}
+				}
 				break;
 			default:
 				$orderProps[$prop['CODE']] = $prop['VALUE'];
@@ -80,7 +87,8 @@ function OnBeforeMailSendHandler(&$arFields) {
 		</tfooter>
 	</table>';
 	$arFields['ORDER_LIST'] = $str;
-	$arFields['BCC'] = "ak@radia.ru";
+	if($orderProps['EMAIL'])
+		$arFields['BCC'] .= ", ".$orderProps['EMAIL'];
 	return $arFields;
 }
 
