@@ -35,7 +35,7 @@ function getOrderProps($order) {
 	return $orderProps;
 }
 
-getOrderProps(46);
+var_dump(getOrderProps(46));
 
 function OnBeforeMailSendHandler(&$arFields) {
 	CModule::IncludeModule("sale");
