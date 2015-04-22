@@ -3840,7 +3840,7 @@ svg g {
 }
 .catalog__nav {
   position: relative;
-  z-index: 20;
+  z-index: 50;
   float: left;
   width: 100%;
   margin-bottom: 20px;
