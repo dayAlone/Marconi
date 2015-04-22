@@ -35,9 +35,9 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 				<div data-text="КОРЗИНА покупателя" class="basket__frame <?=($showSale?'':'basket__frame--no-sale')?>">
 			        <div class="basket__title">
 			          <div class="row">
-			            <div class="col-xs-4 col-md-4">Наименование</div>
+			            <div class="col-xs-4">Наименование</div>
 			            <div class="col-md-2 visible-md visible-lg">Артикул</div>
-			            <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>">Цена</div>
+			            <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3')?>">Цена</div>
 			            <?=($showSale?'<div class="col-xs-2 col-md-1">скидка</div>':'')?>
 			            <div class="col-xs-2 col-md-1">Кол-во</div>
 			            <div class="col-xs-2 col-md-3">Сумма <span class="visible-md-inline visible-lg-inline"><?=($showSale?'СО СКИДКОЙ':'')?></span></div>
