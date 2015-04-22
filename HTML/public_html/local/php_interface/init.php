@@ -77,7 +77,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 	}
 	$str .= '</tbody>
 		<tfooter>
-			<td colspan="2" style="font-size:12px"><strong>Заказчик</strong>: '.$orderProps['NAME'].' '.$orderProps['LAST_NAME'].'
+			<td colspan="2" style="font-size:12px;text-align:left;"><strong>Заказчик</strong>: '.$orderProps['NAME'].' '.$orderProps['LAST_NAME'].'
 			'.($orderProps['address']? '<br><strong>Адрес</strong>: '.$orderProps['street'].', '.$orderProps['house'].(strlen($orderProps['address'])>1?', '.$orderProps['address']:'').(strlen($orderProps['index'])>1?', '.$orderProps['index']:''):'').'</td>
 			<td colspan="4" style="text-align: right;font-size:12px"><strong>Телефон</strong>: '.$orderProps['phone'].', <br><strong>Эл. почта</strong>: '.$orderProps['email'].'</td>
 		</tfooter>
