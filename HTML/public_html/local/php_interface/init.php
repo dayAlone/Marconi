@@ -21,7 +21,6 @@ function getOrderProps($order) {
 	);
 	$orderProps = array();
 	while ($prop = $db_vals->Fetch()) {
-		var_dump($prop);
 		switch ($prop['CODE']) {
 			case 'address':
 				$val = CSaleLocation::GetByID($prop['VALUE']);
@@ -36,7 +35,7 @@ function getOrderProps($order) {
 	return $orderProps;
 }
 
-//getOrderProps(46);
+getOrderProps(46);
 
 function OnBeforeMailSendHandler(&$arFields) {
 	CModule::IncludeModule("sale");
