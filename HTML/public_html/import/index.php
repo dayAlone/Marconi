@@ -119,7 +119,7 @@
 
 	class Products
 	{
-		private $iblock, $sections, $categories, $types, $brands;
+		private $iblock, $sections, $categories, $types, $brands, $products, $offers, $files;
 
 		private $counter = array('add'=>0, 'update'=>0, 'offers'=>0, 'error'=>0);
 
@@ -345,6 +345,32 @@
 
 			return $fields;
 		}
+		private function getFiles($items)
+		{
+			$ids = array();
+			foreach ($items as $item):
+				$fields = $this->getData($item);
+				$offer  = $this->getOffer($fields);
+				$props  = &$fields["PROPERTY_VALUES"];
+				$exist  = $this->checkExist($fields);
+				if(isset($exist)):
+					if(isset($exist['PICTURES'])) $ids = array_merge($ids, $exist['PICTURES']);
+				endif;
+			endforeach;
+			$res = CFile::GetList(array("FILE_SIZE"=>"desc"), array("@ID"=> implode(',', $ids)));
+			while($file = $res->GetNext())
+				$this->files[$file['ID']] = array('TIME' => strtotime($file['TIMESTAMP_X']), 'SIZE'=>$file['FILE_SIZE']);
+		}
+		private function checkExist($fields)
+		{
+			$exist = false;
+			$exist = $this->products[$fields['XML_ID']];
+			if(!$exist)
+				$exist = $this->products[$this->offers[$fields['XML_ID']]['CML2_LINK_XML_ID']];
+			if(!$exist)
+				$exist = $this->products[$fields['CODE']];
+			return $exist;
+		}
 		public function Action($file, $offset)
 		{
 			$ids     = array();
@@ -355,7 +381,7 @@
 				$ids[] = Translit::UrlTranslit(substr($item->getElementsByTagName('namePrint')->item(0)->nodeValue, 0, strpos($item->getElementsByTagName('namePrint')->item(0)->nodeValue, $item->getElementsByTagName('artnumber')->item(0)->nodeValue)-1)." ".preg_replace($this->remove, '', $item->getElementsByTagName('name')->item(0)->nodeValue));
 			endforeach;
 
-			$offers   = Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('PROPERTY_SIZE', "PROPERTY_CML2_LINK", "PROPERTY_CML2_LINK.XML_ID"));
+			$this->offers = Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('PROPERTY_SIZE', "PROPERTY_CML2_LINK", "PROPERTY_CML2_LINK.XML_ID"));
 			
 			foreach ($offers as $offer):
 				if(in_array($offer['XML_ID'], $xml_ids))
@@ -363,28 +389,37 @@
 				$ids[] = $offer['CML2_LINK_XML_ID'];
 			endforeach;
 
-			$products = Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), $this->properties);
+			$this->products = Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), $this->properties);
+
+			$this->getFiles($data['items']); // Получаем список изображений с датой и размером
 
 			foreach ($data['items'] as $item):
 
 				$fields = $this->getData($item);
 				$offer  = $this->getOffer($fields);
 				$props  = &$fields["PROPERTY_VALUES"];
-				$exist  = $products[$fields['XML_ID']];
-
-				if(!$exist)
-					$exist = $products[$offers[$fields['XML_ID']]['CML2_LINK_XML_ID']];
-				if(!$exist)
-					$exist = $products[$fields['CODE']];
+				
+				$exist  = $this->checkExist($fields);
 
 				if(isset($exist)):
 					$update = false;
 					$diff   = array_diff($props, $exist);
-			
-					if(!isset($exist['PICTURES']) && count($props['PICTURES']) > 0):
-						$diff['PICTURES'] = $props['PICTURES'];
-						$raw = new CIBlockElement;
-						$raw->Update($exist['ID'], array('PREVIEW_PICTURE'=>$props['PICTURES']['n0']['VALUE']));
+
+					// Проверка изображений
+					if(count($props['PICTURES']) > 0):
+						$updateImages = false;
+						if(!isset($exist['PICTURES'])):
+							$updateImages = true;
+						else:
+							foreach($exist['PICTURES'] as $imgKey => $img):
+								if(filemtime($props['PICTURES']['n'.$imgKey]['VALUE']['tmp_name']) > $this->files[$img]['TIME']) $updateImages = true;
+							endforeach;
+						endif;
+						if($updateImages):
+							$diff['PICTURES'] = $props['PICTURES'];
+							$raw = new CIBlockElement;
+							$raw->Update($exist['ID'], array('PREVIEW_PICTURE'=>$fields['PREVIEW_PICTURE']));
+						endif;
 					endif;
 
 					if(!isset($exist['SALE']) && strlen($props['SALE'])>0):
@@ -424,7 +459,7 @@
 					endif;
 
 					if(isset($props['OFFER_SIZE'])):
-						if(!isset($offers[$offer['XML_ID']])):
+						if(!isset($this->offers[$offer['XML_ID']])):
 							$offer['PROPERTY_VALUES']['CML2_LINK'] = $exist['ID'];
 							$id = Import::addIBlockElement($this->iblocks['offers'], $offer);
 							if(intval($id)>0):
@@ -433,10 +468,10 @@
 								$this->counter['error']++;
 							endif;	
 						else:
-							if($offers[$offer['XML_ID']]['SIZE'] != $offer['PROPERTY_VALUES']['SIZE']):
+							if($this->offers[$offer['XML_ID']]['SIZE'] != $offer['PROPERTY_VALUES']['SIZE']):
 								fwrite(STDERR, "Размеры обновлены \n\r");
 								$update = true;
-								CIBlockElement::SetPropertyValuesEx($offers[$offer['XML_ID']]['ID'], $this->iblocks['offers'], array('SIZE'=>$offer['PROPERTY_VALUES']['SIZE']));
+								CIBlockElement::SetPropertyValuesEx($this->offers[$offer['XML_ID']]['ID'], $this->iblocks['offers'], array('SIZE'=>$offer['PROPERTY_VALUES']['SIZE']));
 							endif;
 						endif;		
 					endif;
@@ -451,7 +486,7 @@
 						CCatalogProduct::Add(array('ID'=>$id, 'QUANTITY'=>1));
 						$this->counter['add']++;
 						$fields['ID'] = $id;
-						$products[$fields['XML_ID']] = $this->getExist($fields);
+						$this->products[$fields['XML_ID']] = $this->getExist($fields);
 						if($offer):
 							$offer['PROPERTY_VALUES']['CML2_LINK'] = $id;
 							$id = Import::addIBlockElement($this->iblocks['offers'], $offer);
@@ -476,7 +511,6 @@
 				return $data['offset'];
 			else
 				return 0;
-
 		}
 	}
 
@@ -706,7 +740,7 @@
 
 		private $lock;
 
-		private $checkfile = true;
+		private $checkfile = false;
 
 		const step = 1000;
 

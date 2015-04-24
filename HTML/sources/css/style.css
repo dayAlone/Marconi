@@ -1246,7 +1246,7 @@ div.pp_default .pp_loaderIcon {
   float: left;
   width: 100%;
   position: relative;
-  z-index: 45;
+  z-index: 55;
   white-space: nowrap;
   margin-bottom: 10px;
 }
