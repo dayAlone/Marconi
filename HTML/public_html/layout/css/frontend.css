@@ -5262,6 +5262,7 @@ div.pp_default .pp_loaderIcon {
   border: 0 !important;
   font-size: 17px;
   max-height: none !important;
+  text-transform: capitalize;
 }
 .header .city__select {
   display: none;
