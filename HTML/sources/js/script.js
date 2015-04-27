@@ -488,6 +488,9 @@
         openCityDropdown();
         $('.city').elem('message').hide();
         $('.city').elem('select').show();
+        delay(300, function() {
+          return $('.city').elem('select').find('.bx-ui-sls-fake').focus();
+        });
       }
       return e.preventDefault();
     });

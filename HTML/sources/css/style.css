@@ -5366,9 +5366,16 @@ svg g {
 .product__sale span:first-of-type {
   padding-top: 4px;
 }
+.product__type {
+  text-transform: uppercase;
+  font-size: 16px;
+  opacity: 0.6;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  filter: alpha(opacity=60);
+}
 .product__title {
   text-transform: uppercase;
-  margin-top: 0;
+  margin-top: 10px;
   font-size: 25px;
 }
 .product__big-button {

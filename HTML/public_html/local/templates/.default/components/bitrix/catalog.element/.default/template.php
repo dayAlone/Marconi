@@ -125,7 +125,8 @@ $this->EndViewTarget();
 	  <div class="product__description">
 	    <div class="row">
 	      <div class="col-sm-6 col-md-12 col-lg-6">
-	        <h1 class="product__title"><?=$item['NAME']?></h1>
+	      	<span class="product__type"><?=$arResult['PROPERTIES']['NOTE_SHORT']['VALUE']?></span>
+	        <h1 class="product__title"><?=str_replace($arResult['PROPERTIES']['NOTE_SHORT']['VALUE'], '', $arResult['NAME']) . " " . $arResult['PROPERTIES']['ARTNUMBER']['VALUE']?></h1>
 	        <?
 	        	global $arFilter;
 	        	$arFilter = array('PROPERTY_ARTNUMBER' => $props['ARTNUMBER']['VALUE']);

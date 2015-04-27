@@ -196,6 +196,8 @@ $(document).ready ->
 			openCityDropdown()
 			$('.city').elem('message').hide()
 			$('.city').elem('select').show()
+			delay 300, ->
+				$('.city').elem('select').find('.bx-ui-sls-fake').focus()
 		e.preventDefault()
 
 	$('.city input[name="place"]').on 'change', ->

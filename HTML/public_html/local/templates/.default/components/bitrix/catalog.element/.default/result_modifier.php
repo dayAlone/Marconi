@@ -9,6 +9,8 @@
 	$arResult['CATEGORIES'] = getHighloadElements('categories', 'UF_XML_ID', 'ID');
 	$arResult['SECTIONS']   = array();
 
+	
+
 	$raw = CIBlockElement::GetElementGroups($arResult['ID']);
 	while($data = $raw->GetNext())
 		if(!in_array($data['CODE'], array('all', 'sale')))
