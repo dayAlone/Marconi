@@ -13,8 +13,6 @@
 $this->setFrameMode(false);
 ?>
 <?
-global $searchFilter, $CITY;
-if($CITY['CLOSED'] == 'Y') $searchFilter['=PROPERTY_GENERAL'] = "Y";
 $arElements = $APPLICATION->IncludeComponent(
 	"bitrix:search.page",
 	".default",
@@ -42,10 +40,11 @@ $arElements = $APPLICATION->IncludeComponent(
 );
 if (!empty($arElements) && is_array($arElements))
 {
-		global $searchFilter;
+		global $searchFilter, $CITY;
 		$searchFilter = array(
 			"=ID" => $arElements,
 		);
+		if($CITY['CLOSED'] == 'Y') $searchFilter['=PROPERTY_GENERAL'] = "Y";
 		$APPLICATION->IncludeComponent(
 		"bitrix:catalog.section",
 		".default",
