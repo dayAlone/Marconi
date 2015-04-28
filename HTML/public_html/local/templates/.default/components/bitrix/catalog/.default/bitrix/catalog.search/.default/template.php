@@ -13,7 +13,7 @@
 $this->setFrameMode(false);
 ?>
 <?
-global $searchFilter;
+global $searchFilter, $CITY;
 if($CITY['CLOSED'] == 'Y') $searchFilter['=PROPERTY_GENERAL'] = "Y";
 $arElements = $APPLICATION->IncludeComponent(
 	"bitrix:search.page",
