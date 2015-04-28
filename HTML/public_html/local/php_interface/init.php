@@ -439,7 +439,7 @@ if(!strstr($_SERVER['SCRIPT_NAME'], 'bitrix/admin') && !defined("NO_IP")):
 	if(strlen($_COOKIE['city']) > 1) { findCity($_COOKIE['city']); }
 	if(!is_array($CITY) && CModule::IncludeModule("altasib.geoip")) {
 		$arData = ALX_GeoIP::GetAddr();
-		if(isset($_SESSION['GEOIP']['city']) && $_SESSION['GEOIP']['country'] == "RU")
+		if(isset($_SESSION['GEOIP']['city']))
 			findCity($_SESSION['GEOIP']['city']);
 		else
 			findCity();
