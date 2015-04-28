@@ -13,6 +13,8 @@
 $this->setFrameMode(false);
 ?>
 <?
+global $searchFilter;
+if($CITY['CLOSED'] == 'Y') $searchFilter['=PROPERTY_GENERAL'] = "Y";
 $arElements = $APPLICATION->IncludeComponent(
 	"bitrix:search.page",
 	".default",
@@ -25,7 +27,7 @@ $arElements = $APPLICATION->IncludeComponent(
 		"arrFILTER_iblock_".$arParams["IBLOCK_TYPE"] => array($arParams["IBLOCK_ID"]),
 		"USE_TITLE_RANK"                             => "N",
 		"DEFAULT_SORT"                               => "rank",
-		"FILTER_NAME"                                => "",
+		"FILTER_NAME"                                => "searchFilter",
 		"SHOW_WHERE"                                 => "N",
 		"arrWHERE"                                   => array(),
 		"SHOW_WHEN"                                  => "N",
