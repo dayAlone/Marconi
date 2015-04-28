@@ -3,8 +3,7 @@ $APPLICATION->SetPageProperty('body_class', "product");
 /** @var array $templateData */
 /** @var @global CMain $APPLICATION */
 use Bitrix\Main\Loader;
-global $APPLICATION;
-global $colorFilter;
+global $APPLICATION, $colorFilter, $CITY;
 
 $obCache   = new CPHPCache();
 $cacheLife = 86400; 
@@ -39,7 +38,8 @@ elseif( $obCache->StartDataCache() ):
 
 	$colorFilter['!PROPERTY_PICTURES'] = false;
 	$colorFilter['!ID'] = $arResult['ID'];
-	
+	if($CITY['CLOSED'] == 'Y') $colorFilter['=PROPERTY_GENERAL'] = "Y";
+
 	$obCache->EndDataCache(array('data' => $colorFilter));
 	
 endif;
