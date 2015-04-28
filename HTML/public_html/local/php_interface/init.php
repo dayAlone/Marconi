@@ -431,7 +431,7 @@ function findCity($name = false)
 		$value['CLOSED'] = "Y";
 
 	$CITY = $value;
-	$APPLICATION->set_cookie("CITY", json_encode($value, JSON_UNESCAPED_UNICODE), time()+60*60*24*7);
+	$APPLICATION->set_cookie("CITY", json_encode($value, JSON_UNESCAPED_UNICODE), time()+60*60*24);
 }
 if(!strstr($_SERVER['SCRIPT_NAME'], 'bitrix/admin') && !defined("NO_IP")):
 	global $CITY;

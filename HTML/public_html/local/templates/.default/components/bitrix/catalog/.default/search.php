@@ -23,8 +23,6 @@ else
 {
 	$basketAction = (isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '');
 }
-global $searchFilter;
-if($CITY['CLOSED'] == 'Y') $searchFilter['=PROPERTY_GENERAL'] = "Y";
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.search",
 	"",
