@@ -211,7 +211,7 @@ $this->EndViewTarget();
 	            <div class="props__name">цена</div>
 	            <div class="props__value">
 	            <?
-	            if(isset($arResult['MIN_PRICE']['VALUE'])&&intval($arResult['MIN_PRICE']['VALUE'])!=0): ?>
+	            if(!$arResult['NOT_AVAILABLE']): ?>
 			      <strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?></strong> ₷
 			      <?if($props['SALE']['VALUE']=="77ebb501-85d4-11e4-82e4-0025908101de"):?>
 			      <div class="product__sale">
@@ -231,7 +231,7 @@ $this->EndViewTarget();
 
 		      <?
 		      $frame = $this->createFrame()->begin();
-				if(isset($arResult['MIN_PRICE']['VALUE'])&&intval($arResult['MIN_PRICE']['VALUE'])!=0): 
+				if(!$arResult['NOT_AVAILABLE']): 
 					$arBasketItems = array();
 
 					$dbBasketItems = CSaleBasket::GetList(
