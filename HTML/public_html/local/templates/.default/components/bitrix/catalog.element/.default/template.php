@@ -219,7 +219,7 @@ $this->EndViewTarget();
 			      </div>
 			      <?endif;?>
 			    <? else: ?>
-			      <small>Товара нет в наличии</small>
+			      <small><nobr>Товара нет в наличии</nobr></small>
 			    <? endif; ?>
 	            </div>
 	          </div>
