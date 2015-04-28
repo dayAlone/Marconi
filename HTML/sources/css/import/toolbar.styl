@@ -173,6 +173,7 @@
 	z-index 55
 	white-space no-wrap
 	margin-bottom 10px
+	
 	@media (min-width scr_sm)
 		margin-top 10px
 		margin-bottom 25px
@@ -198,15 +199,22 @@
 			width 100%
 			display none
 			@media (min-width scr_sm)
-				width 140%
+				width 100%
 			@media (min-width scr_md)
 				width 100%
 			@media (min-width scr_lg)
-				width 118%
+				width 115%
 			.eng &
 				max-width 100%
 			&--left
-				float right
+				float left
+				margin-left 50%
+				transform translateX(-50%)
+			&--right
+				float: right
+				margin-right 50%
+				transform translateX(50%)
+			
 		svg
 			width 100%
 			height 30px
@@ -224,6 +232,7 @@
 				max-width 238px
 				path
 					fill white
+
 	.city
 		padding-left 33px
 		position relative
@@ -359,6 +368,19 @@
 			border-line(alpha(red,.2), 12px)
 			svg path
 				fill red
+	&--italbags
+		@media (min-width scr_sm)
+			margin-bottom 4px
+			margin-top 15px
+		.logo
+			&__line
+				display inline-block
+			svg
+				height 74px
+				margin-top -24px
+		.contacts
+			svg
+				margin-top -12px
 .sub-nav
 	width 100%
 	border-top 1px solid #d5dbdf

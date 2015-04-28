@@ -1,29 +1,8 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"О бренде", 
+		"О компании", 
 		"/about/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Партнерам", 
-		"http://italbags.ru/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Магазины", 
-		"/stores/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Lookbook", 
-		"/lookbook/", 
 		Array(), 
 		Array(), 
 		"" 
@@ -36,8 +15,29 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Интернет-магазин", 
+		"Каталог", 
 		"/catalog/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Условия работы", 
+		"/conditions/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Вопросы и ответы", 
+		"/faq/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Франчайзинг", 
+		"/franchising/", 
 		Array(), 
 		Array(), 
 		"" 

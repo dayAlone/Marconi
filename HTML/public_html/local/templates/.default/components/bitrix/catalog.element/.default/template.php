@@ -13,7 +13,7 @@
 $this->setFrameMode(true);
 $templateLibrary = array('popup');
 $currencyList = '';
-
+global $CITY;
 if (!empty($arResult['CURRENCIES']))
 {
 	$templateLibrary[] = 'currency';
@@ -276,7 +276,10 @@ $this->EndViewTarget();
 		      ?>
 	      	
 	      </div>
-	      <div class="col-lg-6"><a href="#available" data-toggle="modal" data-target="#available" class="product__big-button product__big-button--border">наличие в магазинах</a>
+	      <div class="col-lg-6">
+	      <? if(!isset($CITY['CLOSED'])):?>
+	      	<a href="#available" data-toggle="modal" data-target="#available" class="product__big-button product__big-button--border">наличие в магазинах</a>
+	      <?endif;?>
 	        <div class="social-likes social-likes_notext"><div class="facebook"></div><div class="twitter"></div><div class="vkontakte"></div><div class="odnoklassniki"></div></div>
 	      </div>
 	    </div>

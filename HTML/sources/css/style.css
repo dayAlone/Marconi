@@ -1286,7 +1286,7 @@ div.pp_default .pp_loaderIcon {
 }
 @media (min-width: 768px) {
   .header .logo__line {
-    width: 140%;
+    width: 100%;
   }
 }
 @media (min-width: 992px) {
@@ -1296,14 +1296,29 @@ div.pp_default .pp_loaderIcon {
 }
 @media (min-width: 1200px) {
   .header .logo__line {
-    width: 118%;
+    width: 115%;
   }
 }
 .eng .header .logo__line {
   max-width: 100%;
 }
 .header .logo__line--left {
+  float: left;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.header .logo__line--right {
   float: right;
+  margin-right: 50%;
+  -webkit-transform: translateX(50%);
+  -moz-transform: translateX(50%);
+  -o-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  transform: translateX(50%);
 }
 .header .logo svg {
   width: 100%;
@@ -1555,6 +1570,22 @@ div.pp_default .pp_loaderIcon {
 .header .cart:hover svg path,
 .header .simmilar:hover svg path {
   fill: #d10a32;
+}
+@media (min-width: 768px) {
+  .header--italbags {
+    margin-bottom: 4px;
+    margin-top: 15px;
+  }
+}
+.header--italbags .logo__line {
+  display: inline-block;
+}
+.header--italbags .logo svg {
+  height: 74px;
+  margin-top: -24px;
+}
+.header--italbags .contacts svg {
+  margin-top: -12px;
 }
 .sub-nav {
   width: 100%;
@@ -2881,10 +2912,6 @@ svg g {
 .about--white .header .logo__line {
   background: #fff;
 }
-.about .nav__item:nth-child(1) {
-  background: #fff;
-  color: #000;
-}
 @media (min-width: 768px) {
   .about__slider,
   .about__slider.fotorama__stage {
@@ -3071,10 +3098,6 @@ svg g {
     right: -60px;
     float: none;
   }
-}
-.news .nav__item:nth-child(5) {
-  background: #fff;
-  color: #000;
 }
 .news-item {
   width: 100%;
@@ -4172,10 +4195,6 @@ svg g {
 }
 .catalog .search-page {
   display: none;
-}
-.catalog .nav__item:nth-child(6) {
-  background: #fff;
-  color: #000;
 }
 .catalog .product {
   width: 100%;
@@ -5843,10 +5862,6 @@ svg g {
 .product .tabs__trigger.tabs__trigger--active:first-of-type {
   border-left-color: #fff;
 }
-.product .nav__item:nth-child(6) {
-  background: #fff;
-  color: #000;
-}
 .product .sizes {
   width: 100%;
   margin-bottom: 25px;
@@ -6112,10 +6127,6 @@ svg g {
   margin-top: 7px;
   font-weight: bold;
   font-size: 25px;
-}
-.basket .nav__item:nth-child(6) {
-  background: #fff;
-  color: #000;
 }
 .basket .parsley-errors-list {
   display: none;

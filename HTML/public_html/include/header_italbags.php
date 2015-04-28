@@ -1,54 +1,7 @@
-<!DOCTYPE html><html lang='ru'>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <?
-  $APPLICATION->SetAdditionalCSS("/layout/css/frontend.css", true);
-  $APPLICATION->AddHeadScript('/layout/js/frontend.js');
-  global $CITY;
-  ?>
-  <title><?php 
-    $rsSites = CSite::GetByID(SITE_ID);
-    $arSite  = $rsSites->Fetch();
-    if($APPLICATION->GetCurDir() != '/' && $APPLICATION->GetCurDir() != "/eng/") {
-      $APPLICATION->ShowTitle();
-      
-      echo ' | ' . $arSite['NAME'];
-    }
-    else echo $arSite['NAME'];
-    ?></title>
-  <?
-    $APPLICATION->ShowHead();
-    $APPLICATION->ShowViewContent('header');
-  ?>
-</head>
-<body class="<?=$APPLICATION->AddBufferContent("body_class");?> <?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"eng":"")?>">
-<div class="wrap">
-  <div id="panel"><?$APPLICATION->ShowPanel();?></div>
-  <div class="toolbar">
+<div class="toolbar">
     <div class="container toolbar__desktop">
       <div class="row">
-        <div class="col-lg-2 visible-lg">
-          <?php
-              $APPLICATION->IncludeComponent("bitrix:menu", "social", 
-              array(
-                  "ALLOW_MULTI_SELECT" => "Y",
-                  "MENU_CACHE_TYPE"    => "A",
-                  "ROOT_MENU_TYPE"     => "social",
-                  "MAX_LEVEL"          => "1",
-                  ),
-              false);
-          ?>
-          <div class="toolbar__divider"></div>
-          <span class="lang">
-            <a href="/" class="lang__item <?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"":"lang__item--active")?>">RU</a>
-            <a href="/eng/" class="lang__item <?=(!strstr($APPLICATION->GetCurDir(), "/eng/")?"":"lang__item--active")?>">EN</a>
-          </span>
-        </div>
-        <div class="col-xs-10 col-lg-8">
+        <div class="col-xs-12 col-lg-10">
           <?php
               $APPLICATION->IncludeComponent("bitrix:menu", "toolbar", 
               array(
@@ -56,6 +9,7 @@
                   "MENU_CACHE_TYPE"    => "A",
                   "ROOT_MENU_TYPE"     => "toolbar",
                   "MAX_LEVEL"          => "1",
+                  "CLASS"              => "left"
                   ),
               false);
           ?>
@@ -132,59 +86,28 @@
       </div>
     </div>
   </div>
-  <header class="header">
+  <header class="header header--italbags">
     <div class="container header__mobile center">
-      <a href="/" class="logo"><?=svg('logo')?></a>
+      <a href="/" class="logo"><?=svg('italbags')?></a>
     </div>
     <div class="container header__desktop">
     <?if($APPLICATION->GetCurDir() == '/' || strstr($APPLICATION->GetCurDir(), "/eng/")):?>
       <div class="row">
         <div class="col-xs-4"><span class="logo__line"></span></div>
-        <div class="col-xs-4 center"><a href="/" class="logo"><?=svg('logo')?></a></div>
+        <div class="col-xs-4 center"><a href="/" class="logo"><?=svg('italbags')?></a></div>
         <div class="col-xs-4 right"><span class="logo__line logo__line--right"></span></div>
       </div>
     <?else:?>
       <div class="row">
         <div class="col-xs-3 col-md-2">
-          <div class="contacts"><a href="tel:<?=preg_replace('/[^\dx+]/i', '', $CITY['PHONE'])?>" class="contacts__number"><?=svg('phone')?><?=$CITY['PHONE']?></a></div>
-          <div class="city">
-            
-            <a href="#" class="city__trigger"><span><?=$CITY['NAME']?></span> <?=svg('arrow')?></a>
-            <div class="city__dropdown">
-                <div class="city__message">
-                  Попробуем угадать, ваш город — <br>
-                  <strong class="city__value"><?=$CITY['NAME']?>?</strong><br>
-                  <a href="#" class="city__button city__button--true">Да</a><a href="#" class="city__button city__button--false">Выбрать другой город</a><br>
-                  <div class="city__description">От выбранного города зависит наличие товара <br>и способы доставки</div> 
-                </div>
-                <div class="city__select">
-                  <?
-                    $APPLICATION->IncludeComponent(
-                      "bitrix:sale.location.selector.search", 
-                      ".default", 
-                      array(
-                        "ID"                     => "",
-                        "CODE"                   => "",
-                        //"CACHE_NOTE"             => $arResult["BUYER_STORE"],
-                        "INPUT_NAME"             => "place",
-                        "PROVIDE_LINK_BY"        => "id",
-                        "SEARCH_BY_PRIMARY"      => "Y",
-                        "EXCLUDE_SUBTREE"        => "",
-                        "FILTER_BY_SITE"         => "Y",
-                        "SHOW_DEFAULT_LOCATIONS" => "Y",
-                        "CACHE_TYPE"             => "A",
-                        "CACHE_TIME"             => "36000000"
-                      ),
-                      false
-                    );
-                    ?>
-                </div>
-            </div>
+          <div class="contacts">
+            <a href="tel:<?=preg_replace('/[^\dx+]/i', '', $CITY['PHONE'])?>" class="contacts__number"><?=svg('phone')?><?=$CITY['PHONE']?></a>
+            <div class="contacts__text">Горячая линия</div>
           </div>
         </div>
-        <div class="col-xs-1 col-md-2"><span class="logo__line logo__line--left"></span></div>
-        <div class="col-xs-4 center"><a href="/" class="logo"><?=svg('logo')?></a></div>
-        <div class="col-xs-1 col-md-2"><span class="logo__line logo__line--right"></span></div>
+        <div class="col-xs-2 col-md-3"><span class="logo__line logo__line--left"></span></div>
+        <div class="col-xs-2 center"><a href="/" class="logo"><?=svg('italbags')?></a></div>
+        <div class="col-xs-2 col-md-3"><span class="logo__line logo__line--right"></span></div>
         <div class="col-xs-3 col-md-2">
           <div class="header__links">
             <?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line","",Array(
@@ -206,19 +129,6 @@
               "SHOW_PRICE"          => "Y",
               "SHOW_SUMMARY"        => "Y"
           ));?>
-            <?
-            $frame = new \Bitrix\Main\Page\FrameHelper("compare");
-            $frame->begin();
-              if(isset($_COOKIE['simmilar'])&&count(json_decode($_COOKIE['simmilar']))>0):?>
-                <a href="/catalog/compare.php" class="simmilar"><?=svg('simmilar')?><span class="simmilar__text">К сравнению: <?=count(json_decode($_COOKIE['simmilar']))?></span></a>
-              <?else:?>
-                <a href="#" class="simmilar"><?=svg('simmilar')?><span class="simmilar__text">Товары не выбраны</span></a>
-              <?endif;
-            $frame->beginStub();
-              ?><a href="#" class="simmilar"><?=svg('simmilar')?><span class="simmilar__text">Товары не выбраны</span></a><?
-            $frame->end();
-            ?>
-            
           </div>
         </div>
       </div>
