@@ -31,7 +31,7 @@
 			$(this).mod 'loaded', true
 	return
 
-pointerEventsSupported = (->
+@pointerEventsSupported = (->
 	element          = document.createElement('x')
 	documentElement  = document.documentElement
 	getComputedStyle = window.getComputedStyle
