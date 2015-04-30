@@ -54,7 +54,7 @@ function getOrderDelivery($ID, $props) {
 	$order = CSaleOrder::GetByID($ID);
 	$delivery = CSaleDelivery::GetByID($order['DELIVERY_ID']);
 	if(!$delivery) {
-		$order['DELIVERY_ID'] = preg_split("/:/", $order['DELIVERY_ID'])
+		$order['DELIVERY_ID'] = preg_split("/:/", $order['DELIVERY_ID']);
 		$delivery = CSaleDeliveryHandler::GetBySID($order['DELIVERY_ID'][0])->Fetch();
 	}
 	if(isset($order['STORE_ID'])):
