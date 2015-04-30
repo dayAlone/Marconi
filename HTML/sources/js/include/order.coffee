@@ -13,10 +13,6 @@
 		$('.stores-list').elem('item').mod 'active', false
 		$('.stores-list').elem('item').filter("[data-id='#{$(this).data('id')}']").mod 'active', true
 
-	$('.time-select .dropdown__item').off('click').on 'click', (e)->
-		$(this).block().find('input').val $(this).text()
-		e.preventDefault()
-
 @getOrderDate = (confirm)->
 	data = $('#ORDER_FORM').serialize()
 	$('.basket').elem('block').mod 'loading', true

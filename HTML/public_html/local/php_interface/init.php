@@ -53,6 +53,10 @@ function getOrderDelivery($ID, $props) {
 	CModule::IncludeModule("catalog");
 	$order = CSaleOrder::GetByID($ID);
 	$delivery = CSaleDelivery::GetByID($order['DELIVERY_ID']);
+	if(!$delivery) {
+		$order['DELIVERY_ID'] = preg_split("/:/", $order['DELIVERY_ID'])[0];
+		$delivery = CSaleDeliveryHandler::GetBySID($order['DELIVERY_ID'])->Fetch();
+	}
 	if(isset($order['STORE_ID'])):
 		$dbList = CCatalogStore::GetList(
 			array("SORT" => "DESC", "ID" => "DESC"),
@@ -66,7 +70,6 @@ function getOrderDelivery($ID, $props) {
 		endif;
 	endif;
 	$str = "<strong>Способ доставки</strong>: ".$delivery['NAME'];
-	
 	switch ($delivery['ID']) {
 		case 2:
 			if(isset($delivery['ADDRESS'])):
@@ -91,6 +94,7 @@ function getOrderDelivery($ID, $props) {
 	}
 	return $str;
 }
+var_dump(getOrderDelivery(35, getOrderProps(35)));
 function OnBeforeMailSendHandler(&$arFields) {
 	CModule::IncludeModule("sale");
 	CModule::IncludeModule("iblock");
@@ -132,7 +136,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 	$str .= '</tbody>
 		<tfooter>
 			<td colspan="2" style="font-size:12px;text-align:left;"><strong>Заказчик</strong>: '.($orderProps['NAME']?$orderProps['NAME']:$orderProps['FIRST_NAME']).' '.$orderProps['LAST_NAME'].'
-			'.(strlen($delivery)>0?"<br/>".$delivery:"").'
+			'.(strlen($delivery)>0?"<br>".$delivery:"").'
 			<td colspan="4" style="text-align: right;font-size:12px"><strong>Телефон</strong>: '.$orderProps['phone'].', <br><strong>Эл. почта</strong>: '.$orderProps['email'].'</td>
 		</tfooter>
 	</table>';
