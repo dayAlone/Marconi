@@ -80,7 +80,7 @@ function getOrderDelivery($ID, $props) {
 			break;
 		default:
 			$subStr = '';
-			$desc = array('street'=>'ул.', 'house'=>'дом', 'corpus'=>'корпус', 'building'=>'строение', 'flat'=>'кв.', 'stage'=>'этаж');
+			$desc = array('street'=>'ул.', 'house'=>'дом', 'corpus'=>'корпус', 'building'=>'стр.', 'flat'=>'кв./оф.', 'stage'=>'этаж');
 			foreach (array('street', 'house', 'corpus', 'building', 'flat', 'stage') as $value) {
 				if(strlen($props[$value]) > 0) $subStr .=  (strlen($subStr)>0?", ":"") .$desc[$value] ." " . $props[$value];
 			}
