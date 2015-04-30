@@ -1,4 +1,5 @@
 <?
+	global $CITY;
 	require($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/catalog.element/templates/.default/result_modifier.php');
 	$arResult['BRANDS']     = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
 	$arResult['COLORS']     = getHighloadElements('colors', 'UF_XML_ID', 'UF_NAME');
@@ -8,6 +9,11 @@
 	$arResult['TRADELINES'] = getHighloadElements('tradeline', 'UF_XML_ID', 'UF_NAME');
 	$arResult['CATEGORIES'] = getHighloadElements('categories', 'UF_XML_ID', 'ID');
 	$arResult['SECTIONS']   = array();
+
+	if(intval($arResult['MIN_PRICE']['VALUE']) == 0 || (isset($CITY['CLOSED']) && $arResult['PROPERTIES']['GENERAL']['VALUE'] != 'Y'))
+		$arResult['NOT_AVAILABLE'] = true;
+	else
+		$arResult['NOT_AVAILABLE'] = false;
 
 	$raw = CIBlockElement::GetElementGroups($arResult['ID']);
 	while($data = $raw->GetNext())

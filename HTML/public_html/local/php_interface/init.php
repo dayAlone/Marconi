@@ -1,10 +1,149 @@
 <?
+
 ini_set('xdebug.var_display_max_depth', 5);
 ini_set('xdebug.var_display_max_children', 256);
 ini_set('xdebug.var_display_max_data', 1024);
 
 define("BX_COMPOSITE_DEBUG", false);
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
+
+
+AddEventHandler("main", "OnOrderNewSendEmail", "OnBeforeMailSendHandler");
+AddEventHandler("main", "OnBeforeEventSend", "OnBeforeMailSendHandler");
+function findCityByLocation($ID)
+{
+	CModule::IncludeModule("iblock");
+	$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'UF_LOCATION'=>$ID);
+	$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('ID', 'NAME', 'UF_PHONE', 'UF_CLOSED', 'UF_EMAIL'));
+	$item = $raw->Fetch();
+	return $item;
+}
+
+function getOrderProps($ID) {
+	CModule::IncludeModule("sale");
+	CModule::IncludeModule("iblock");
+	$db_vals = CSaleOrderPropsValue::GetList(
+	    array("ORDER_PROPS_ID" => "ASC"),
+	    array(
+	            "ORDER_ID" => $ID
+	        )
+	);
+	$orderProps = array();
+	while ($prop = $db_vals->Fetch()) {
+		switch ($prop['CODE']) {
+			case 'address':
+				$val = CSaleLocation::GetByID($prop['VALUE']);
+				if($val) {
+					$orderProps[$prop['CODE']] = $val['CITY_NAME_ORIG'].", ".$val['REGION_NAME_ORIG'].", ".$val['COUNTRY_NAME_ORIG'];
+					if($item = findCityByLocation($prop['VALUE'])) {
+						$orderProps['EMAIL'] = $item['UF_EMAIL'];
+					}
+				}
+				break;
+			default:
+				$orderProps[$prop['CODE']] = $prop['VALUE'];
+				break;
+		}
+	}
+	return $orderProps;
+}
+
+function getOrderDelivery($ID, $props) {
+	CModule::IncludeModule("sale");
+	CModule::IncludeModule("catalog");
+	$order = CSaleOrder::GetByID($ID);
+	$delivery = CSaleDelivery::GetByID($order['DELIVERY_ID']);
+	if(!$delivery) {
+		$order['DELIVERY_ID'] = preg_split("/:/", $order['DELIVERY_ID'])[0];
+		$delivery = CSaleDeliveryHandler::GetBySID($order['DELIVERY_ID'])->Fetch();
+	}
+	if(isset($order['STORE_ID'])):
+		$dbList = CCatalogStore::GetList(
+			array("SORT" => "DESC", "ID" => "DESC"),
+			array("ACTIVE" => "Y", "ID" => $order["STORE_ID"]),
+			false,
+			false,
+			array("ID", "TITLE", "ADDRESS", "DESCRIPTION", "IMAGE_ID", "PHONE", "SCHEDULE", "LOCATION_ID", "GPS_N", "GPS_S")
+		);
+		if ($arList = $dbList->Fetch()):
+			$delivery['ADDRESS'] = $arList["TITLE"];
+		endif;
+	endif;
+	$str = "<strong>Способ доставки</strong>: ".$delivery['NAME'];
+	switch ($delivery['ID']) {
+		case 2:
+			if(isset($delivery['ADDRESS'])):
+				$str .= " (".$delivery['ADDRESS'].")";
+			elseif($props['pickup']):
+				$str .= " <strong>Адрес</strong>: ".trim(preg_replace('/\s+/', ' ', $props['pickup']));
+				endif;
+			break;
+		default:
+			$subStr = '';
+			foreach (array('street', 'house', 'corpus', 'building', 'flat', 'stage') as $value) {
+				if(strlen($props[$value]) > 0) $subStr .=  (strlen($subStr)>0?", ":""). $props[$value];
+			}
+			if(strlen($subStr) > 0) $str .= " <strong>Адрес</strong>: ".$subStr;
+			
+			$subStr = '';
+			foreach (array('date', 'time') as $value) {
+				if(strlen($props[$value]) > 0) $subStr .=  (strlen($subStr)>0?", ":""). $props[$value];
+			}
+			if(strlen($subStr) > 0) $str .= " <strong>Пожелания к доставке</strong>: ".$subStr;
+			break;
+	}
+	return $str;
+}
+function OnBeforeMailSendHandler(&$arFields) {
+	CModule::IncludeModule("sale");
+	CModule::IncludeModule("iblock");
+	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
+	$orderProps = getOrderProps($arFields['ORDER_ID']);
+	$delivery = getOrderDelivery($arFields['ORDER_ID'], $orderProps);
+	$arItems = array();
+	$str = '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;"><thead>
+		<tr style="font-size:12px;">
+			<th></th>
+			<th style="text-align:left">Название</th>
+			<th>Артикул</th>
+			<th>Цена</th>
+			<th>Количество</th>
+			<th>Сумма</th>
+		</tr>
+		</thead>
+		<tbody>';
+	while ($arItem = $dbBasketItems->Fetch()) {
+		$res = CIBlockElement::GetByID($arItem['PRODUCT_ID']);
+		if($ar_res = $res->GetNextElement()){
+			$fields = $ar_res->GetFields(); 
+			$small = CFile::ResizeImageGet(CFile::GetFileArray($fields['PREVIEW_PICTURE']), Array("width" => 150, "height" => 150), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
+			$arProps = $ar_res->GetProperties();
+		}
+		$str .= '<tr>
+				<td style="border:1px solid #c2c4c6;border-collapse:collapse;">
+					'.($small?'<img src="http://'.$_SERVER['SERVER_NAME'].'/'.$small['src'].'" width="40" alt="">':'').'
+				</td>
+				<td style="text-align:left;border:1px solid #c2c4c6;border-collapse:collapse;">'.$arItem['NAME'].'</td>
+				<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.$arProps['ARTNUMBER']['VALUE'].'</td>
+				<td style="border:1px solid #c2c4c6;border-collapse:collapse;">
+					<nobr>'.number_format($arItem['PRICE'], 0, '.', ' ').' руб.</nobr>
+					'.(intval($arItem['DISCOUNT_PRICE'])>0?"<br><nobr><small><strike>".number_format($arItem['PRICE']+$arItem['DISCOUNT_PRICE'], 0, '.', ' ')." руб.</strike></small></nobr>":"").'
+				</td>
+				<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.intval($arItem['QUANTITY']).'</td>
+				<td style="border:1px solid #c2c4c6;border-collapse:collapse;"><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td></tr>';
+	}
+	$str .= '</tbody>
+		<tfooter>
+			<td colspan="2" style="font-size:12px;text-align:left;"><strong>Заказчик</strong>: '.($orderProps['NAME']?$orderProps['NAME']:$orderProps['FIRST_NAME']).' '.$orderProps['LAST_NAME'].'
+			'.(strlen($delivery)>0?"<br>".$delivery:"").'
+			<td colspan="4" style="text-align: right;font-size:12px"><strong>Телефон</strong>: '.$orderProps['phone'].', <br><strong>Эл. почта</strong>: '.$orderProps['email'].'</td>
+		</tfooter>
+	</table>';
+	$arFields['ORDER_LIST'] = $str;
+	if($orderProps['EMAIL'])
+		$arFields['BCC'] .= ", ".$orderProps['EMAIL'];
+	return $arFields;
+}
 
 AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserUpdateHandler");
 AddEventHandler("main", "OnBeforeUserRegister", "OnBeforeUserUpdateHandler");
@@ -216,6 +355,59 @@ class CatalogStore
 AddEventHandler("iblock", "OnIBlockPropertyBuildList", array("CatalogStore", "GetIBlockPropertyDescription"));
 
 
+class CSectionLocation
+{
+   function GetUserTypeDescription()
+   {
+   		return array(
+			"USER_TYPE_ID" => "section_location",
+			"CLASS_NAME"   => "CSectionLocation",
+			"DESCRIPTION"  => "Привязка местоположения",
+			"BASE_TYPE"    => "int",
+        );
+   }
+   function GetDBColumnType($arUserField) {
+      switch(strtolower($GLOBALS['DB']->type)) {
+         case 'mysql':
+            return 'int(18)';
+         break;
+         case 'oracle':
+            return 'number(18)';
+         break;
+         case 'mssql':
+            return "int";
+         break;
+      }
+   }
+   function GetEditFormHTML($arUserField, $arHtmlControl) {
+   		global $APPLICATION;
+   		ob_start();
+	   		$APPLICATION->IncludeComponent(
+				"bitrix:sale.location.selector.search", 
+				".default", 
+				array(
+					"ID"                     => $arHtmlControl['VALUE'],
+					"CODE"                   => "",
+					"INPUT_NAME"             => $arHtmlControl['NAME'],
+					"PROVIDE_LINK_BY"        => "id",
+					"SEARCH_BY_PRIMARY"      => "Y",
+					"EXCLUDE_SUBTREE"        => "",
+					"FILTER_BY_SITE"         => "Y",
+					"SHOW_DEFAULT_LOCATIONS" => "Y",
+					"CACHE_TYPE"             => "A",
+					"CACHE_TIME"             => "36000000"
+				),
+				false
+			);
+			$str = ob_get_contents();
+		ob_end_clean();
+		return $str;
+   }
+
+}
+AddEventHandler("main", "OnUserTypeBuildList", array("CSectionLocation", "GetUserTypeDescription"), 5000);
+
+
 function getHighloadBlocks()
 {
 	$obCache   = new CPHPCache();
@@ -318,4 +510,48 @@ function getFilterStringValues($id, $section, $values)
 		return $current;
 	endif;
 }
+
+/*use Bitrix\Main;
+use Bitrix\Main\Loader;*/
+
+function findCity($name = false, $setCookie = true)
+{
+	global $APPLICATION, $CITY;
+	
+	if($name) {
+		CModule::IncludeModule("iblock");
+		$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'NAME'=>$name);
+		$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('NAME', 'UF_PHONE', 'UF_CLOSED'));
+		$item = $raw->Fetch();
+		if($item && isset($item['UF_PHONE'])) { $phone = $item['UF_PHONE']; }
+	}
+	else
+		$name = "Москва";
+	
+	if(!isset($phone))
+		$phone = COption::GetOptionString("grain.customsettings","phone");
+	
+	$value = array('NAME'=>$name, 'PHONE'=> $phone);
+
+	if(isset($item) && $item['UF_CLOSED'])
+		$value['CLOSED'] = "Y";
+
+	$CITY = $value;
+	$APPLICATION->set_cookie("CITY", json_encode($value, JSON_UNESCAPED_UNICODE), time()+60*60*24);
+
+}
+if(!strstr($_SERVER['SCRIPT_NAME'], 'bitrix/admin') && !defined("NO_IP")):
+	global $CITY;
+	$CITY = json_decode($APPLICATION->get_cookie("CITY"), true);
+	if(strlen($_COOKIE['city']) > 1) { findCity($_COOKIE['city']); }
+	if(!is_array($CITY) && CModule::IncludeModule("altasib.geoip")) {
+		$arData = ALX_GeoIP::GetAddr();
+		if(isset($_SESSION['GEOIP']['city']))
+			findCity($_SESSION['GEOIP']['city']);
+		else
+			findCity();
+	}
+	
+endif;
+
 ?>

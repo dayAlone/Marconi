@@ -1,4 +1,6 @@
 $(document).ready ->
+	
+	window.ParsleyValidator.setLocale('ru');
 
 	window.ParsleyValidator.setLocale('ru');
 	delay 300, ()->
@@ -171,6 +173,52 @@ $(document).ready ->
 						scaledSize : new google.maps.Size(40, 35)
 					animation : google.maps.Animation.DROP
 	
+	# City selector
+	openCityDropdown = ->
+		$('.city').elem('dropdown').velocity
+			properties: "transition.slideDownIn"
+			options:
+				duration: 400
+	hideCityDropdown = ->
+		$('.city').elem('dropdown').velocity
+			properties: "transition.slideUpOut"
+			options:
+				duration: 400
+
+	if !$.cookie('city')
+		openCityDropdown()
+	else if	$.cookie('city').length > 1
+		$.cookie('city', 'Y', { path:"/", expires: 7 });
+
+	$('.city').elem('trigger').click (e)->
+		if $('.city').elem('dropdown').is ':visible'
+			hideCityDropdown()
+		else	
+			openCityDropdown()
+			$('.city').elem('message').hide()
+			$('.city').elem('select').show()
+			delay 300, ->
+				$('.city').elem('select').find('.bx-ui-sls-fake').focus()
+		e.preventDefault()
+
+	$('.city input[name="place"]').on 'change', ->
+		if $(this).val() > 0
+			val = $('.city').elem('select').find('input[type="text"].bx-ui-sls-fake').val()
+			$.cookie('city', val, { path:"/", expires: 7 });
+			location.href = location.href
+			hideCityDropdown()
+
+	$('.city').elem('button').byMod('true').click (e)->
+		$.cookie('city', 'Y', { path:"/", expires: 7 });
+		hideCityDropdown()
+		e.preventDefault()
+	
+	$('.city').elem('button').byMod('false').click (e)->
+		$('.city').elem('message').hide()
+		$('.city').elem('select').show()
+		$('.city').elem('select').find('input[type="text"]:visible').focus()
+		e.preventDefault()
+
 	# About
 	$('.about').elem('slider').on('fotorama:show', (e, fotorama, extra) ->
 		item = $(fotorama.data[fotorama.activeIndex].html)

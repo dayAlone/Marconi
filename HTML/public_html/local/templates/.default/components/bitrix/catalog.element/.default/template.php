@@ -13,7 +13,7 @@
 $this->setFrameMode(true);
 $templateLibrary = array('popup');
 $currencyList = '';
-
+global $CITY;
 if (!empty($arResult['CURRENCIES']))
 {
 	$templateLibrary[] = 'currency';
@@ -125,7 +125,8 @@ $this->EndViewTarget();
 	  <div class="product__description">
 	    <div class="row">
 	      <div class="col-sm-6 col-md-12 col-lg-6">
-	        <h1 class="product__title"><?=$item['NAME']?></h1>
+	      	<span class="product__type"><?=$arResult['PROPERTIES']['NOTE_SHORT']['VALUE']?></span>
+	        <h1 class="product__title"><?=str_replace($arResult['BRANDS'][$props['BRAND']['VALUE']], $arResult['BRANDS'][$props['BRAND']['VALUE']]. " " . $arResult['PROPERTIES']['ARTNUMBER']['VALUE'], str_replace($arResult['PROPERTIES']['NOTE_SHORT']['VALUE'], '', $arResult['NAME']))?></h1>
 	        <?
 	        	global $arFilter;
 	        	$arFilter = array('PROPERTY_ARTNUMBER' => $props['ARTNUMBER']['VALUE']);
@@ -210,7 +211,7 @@ $this->EndViewTarget();
 	            <div class="props__name">цена</div>
 	            <div class="props__value">
 	            <?
-	            if(isset($arResult['MIN_PRICE']['VALUE'])&&intval($arResult['MIN_PRICE']['VALUE'])!=0): ?>
+	            if(!$arResult['NOT_AVAILABLE']): ?>
 			      <strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?></strong> ₷
 			      <?if($props['SALE']['VALUE']=="77ebb501-85d4-11e4-82e4-0025908101de"):?>
 			      <div class="product__sale">
@@ -218,7 +219,7 @@ $this->EndViewTarget();
 			      </div>
 			      <?endif;?>
 			    <? else: ?>
-			      <small>Товара нет в наличии</small>
+			      <small><nobr>Товара нет в наличии</nobr></small>
 			    <? endif; ?>
 	            </div>
 	          </div>
@@ -230,7 +231,7 @@ $this->EndViewTarget();
 
 		      <?
 		      $frame = $this->createFrame()->begin();
-				if(isset($arResult['MIN_PRICE']['VALUE'])&&intval($arResult['MIN_PRICE']['VALUE'])!=0): 
+				if(!$arResult['NOT_AVAILABLE']): 
 					$arBasketItems = array();
 
 					$dbBasketItems = CSaleBasket::GetList(
@@ -275,7 +276,10 @@ $this->EndViewTarget();
 		      ?>
 	      	
 	      </div>
-	      <div class="col-lg-6"><a href="#available" data-toggle="modal" data-target="#available" class="product__big-button product__big-button--border">наличие в магазинах</a>
+	      <div class="col-lg-6">
+	      <? if(!isset($CITY['CLOSED'])):?>
+	      	<a href="#available" data-toggle="modal" data-target="#available" class="product__big-button product__big-button--border">наличие в магазинах</a>
+	      <?endif;?>
 	        <div class="social-likes social-likes_notext"><div class="facebook"></div><div class="twitter"></div><div class="vkontakte"></div><div class="odnoklassniki"></div></div>
 	      </div>
 	    </div>

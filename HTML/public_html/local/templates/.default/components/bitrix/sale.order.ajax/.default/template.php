@@ -1,4 +1,7 @@
 <?
+global $CITY;
+use Bitrix\Main;
+use Bitrix\Main\Loader;
 	//var_dump($arResult);
 if (!function_exists("cmpBySort"))
 {
@@ -93,11 +96,31 @@ if (!function_exists("cmpBySort"))
 								}
 							}
 						}
+						
+						Loader::includeModule('sale');
+						include($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/sale.location.selector.steps/class.php');
+						$_REQUEST['SHOW'] = array(
+							'PATH' => '1',
+							'TYPE_ID' => '1',
+						);
+						$_REQUEST['FILTER'] = array(
+							'QUERY' => $CITY['NAME'],
+							'EXCLUDE_ID' => '0',
+							'SITE_ID' => 's1',
+							'TYPE_ID' => '3',
+						);
+						$data = CBitrixLocationSelectorStepsComponent::processSearchRequest();
+						
+						if(count($data['ITEMS']) > 0)
+							$value = $data['ITEMS'][0]['ID'];
+						if(!isset($value))
+							$value = $prop['DEFAULT_VALUE'];
+
 						$APPLICATION->IncludeComponent(
 							"bitrix:sale.location.selector.search", 
 							".default", 
 							array(
-								"ID"                     => ($value>0?$value:$prop['DEFAULT_VALUE']),
+								"ID"                     => $value,
 								"CODE"                   => "",
 								"CACHE_NOTE"             => $arResult["BUYER_STORE"],
 								"INPUT_NAME"             => $prop['FIELD_NAME'],
@@ -114,39 +137,70 @@ if (!function_exists("cmpBySort"))
 				 	endif;
 				endforeach;?>
 				<div class="props">
-				<? foreach ($arResult['ORDER_PROP']['RELATED'] as $prop):
-					if($prop['CODE']=="date"):
-						?>
-					<div class="row xs-margin-top">
-						<div class="col-xs-6">
-							<small><strong><?=str_replace(" доставки", "<span class='hidden-xs'> доставки</span>", $prop['NAME'])?></strong></small>
-							<input class="date" data-provide="datepicker" readonly data-date-format="dd.mm.yyyy" data-date-start-date="<?=date('d.m.Y', strtotime(date('d.m.Y') . "+1 days"))?>" data-date-language="ru" type="text" name="<?=$prop['FIELD_NAME']?>" value="<?=($prop["VALUE"]?$prop["VALUE"]:date('d.m.Y', strtotime(date('d.m.Y') . "+1 days")))?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=='Y'?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
-							<div class="blue-arrow"><?=svg('arrow')?></div>
-						</div>
-					<?
-					elseif($prop['CODE']=="time"):
-						?>
-						<div class="col-xs-6 time-select">
-							<small><strong><?=str_replace(" доставки", "<span class='hidden-xs'> доставки</span>", $prop['NAME'])?></strong></small>
-							<div class="dropdown">
-								<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white">с 9 до 15 часов</span><?=svg('arrow')?></a>
-								<input type="hidden" name="<?=$prop['FIELD_NAME']?>" value="<?=($prop["VALUE"]?$prop["VALUE"]:'с 9 до 15 часов')?>">
-								<span class="dropdown__frame">
-									<a href="#" class="dropdown__item">с 9 до 15 часов</a>
-									<a href="#" class="dropdown__item">с 15 до 18 часов</a>
-								</span>
-								<select class="dropdown__select">
-									<option value="">с 9 до 15 часов</option>
-									<option value="">с 15 до 18 часов</option>
-								</select>
+				<?
+
+				 foreach ($arResult['ORDER_PROP']['RELATED'] as $prop):
+				 	switch ($prop['CODE']) {
+				 		case "date":
+				 			?>
+							<div class="row xs-margin-top">
+								<div class="col-xs-6">
+									<small><strong><?=str_replace(" доставки", "<span class='hidden-xs'> доставки</span>", $prop['NAME'])?></strong></small>
+									<input class="date" data-provide="datepicker" readonly data-date-format="dd.mm.yyyy" data-date-start-date="<?=date('d.m.Y', strtotime(date('d.m.Y') . "+1 days"))?>" data-date-language="ru" type="text" name="<?=$prop['FIELD_NAME']?>" value="<?=($prop["VALUE"]?$prop["VALUE"]:date('d.m.Y', strtotime(date('d.m.Y') . "+1 days")))?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=='Y'?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
+									<div class="blue-arrow"><?=svg('arrow')?></div>
+								</div>
+				 			<?
+				 			break;
+				 		case "time":
+				 			?>
+								<div class="col-xs-6 time-select">
+									<small><strong><?=str_replace(" доставки", "<span class='hidden-xs'> доставки</span>", $prop['NAME'])?></strong></small>
+									<div class="dropdown">
+										<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white">с 9 до 15 часов</span><?=svg('arrow')?></a>
+										<input type="hidden" name="<?=$prop['FIELD_NAME']?>" value="<?=($prop["VALUE"]?$prop["VALUE"]:'с 9 до 15 часов')?>">
+										<span class="dropdown__frame">
+											<a href="#" class="dropdown__item">с 9 до 15 часов</a>
+											<a href="#" class="dropdown__item">с 15 до 18 часов</a>
+										</span>
+										<select class="dropdown__select">
+											<option value="">с 9 до 15 часов</option>
+											<option value="">с 15 до 18 часов</option>
+										</select>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div><?
-					else:
-						?><input class="<?=($prop['SIZE1']==2?"small":"")?>" type="text" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=='Y'?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?> value="<?=$prop["VALUE"]?>"><?
-					endif;
+				 			<?
+				 			break;
+				 		case "pickup":
+				 			if(isset($_REQUEST['ORDER_PROP_2'])):
+				 				
+					 			$section = findCityByLocation($_REQUEST['ORDER_PROP_2']);
+					 			if($section):
+						 			$APPLICATION->IncludeComponent("bitrix:news.list", "stores", 
+										array(
+											"IBLOCK_ID"      => 6,
+											"NEWS_COUNT"     => "9999999",
+											"SORT_BY1"       => "ID",
+											"SORT_ORDER1"    => "ASC",
+											"DETAIL_URL"     => "/catalog/",
+											"PARENT_SECTION" => $section['ID'],
+											"CACHE_TYPE"     => "A",
+											"CACHE_NOTE"     => rand(),
+											'PROPERTY_CODE'  => array('STORE', 'ADDRESS'),
+											"SET_TITLE"      => "N",
+											"FIELD_NAME"     => $prop['FIELD_NAME']
+										),
+										$component
+									);
+						 		endif;
+						 	endif;
+				 		break;
+				 		default:
+				 			?><input class="<?=($prop['SIZE1']==2?"small":"")?>" type="text" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=='Y'?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?> value="<?=$prop["VALUE"]?>"><?
+				 			break;
+				 	}
 					endforeach ?>
-				<?if($showStores):
+				<?if($showStores && $_REQUEST['ORDER_PROP_2'] == 218):
 					global $arFilter;
 	        		$arFilter = array('PROPERTY_STORE' => $showStores);
 					$APPLICATION->IncludeComponent("bitrix:news.list", "stores", 
@@ -160,7 +214,8 @@ if (!function_exists("cmpBySort"))
 							"CACHE_TYPE"    => "A",
 							'PROPERTY_CODE' => array('STORE'),
 							'OFFERS'        => $offers,
-							"SET_TITLE"     => "N"
+							"SET_TITLE"     => "N",
+							"FIELD_NAME"    => "BUYER_STORE"
 						),
 						$component
 					);

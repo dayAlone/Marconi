@@ -1,0 +1,1 @@
+<? require($_SERVER['DOCUMENT_ROOT'].'/catalog/.top.menu.php')?>

@@ -9,3 +9,6 @@ PSD/
 HTML/public_html/*.txt
 HTML/public_html/import/log.txt
 .lock
+HTML/public_html/log.txt
+
+HTML/sources/js/script.js

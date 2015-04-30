@@ -25,7 +25,7 @@ $arElements = $APPLICATION->IncludeComponent(
 		"arrFILTER_iblock_".$arParams["IBLOCK_TYPE"] => array($arParams["IBLOCK_ID"]),
 		"USE_TITLE_RANK"                             => "N",
 		"DEFAULT_SORT"                               => "rank",
-		"FILTER_NAME"                                => "",
+		"FILTER_NAME"                                => "searchFilter",
 		"SHOW_WHERE"                                 => "N",
 		"arrWHERE"                                   => array(),
 		"SHOW_WHEN"                                  => "N",
@@ -40,10 +40,11 @@ $arElements = $APPLICATION->IncludeComponent(
 );
 if (!empty($arElements) && is_array($arElements))
 {
-		global $searchFilter;
+		global $searchFilter, $CITY;
 		$searchFilter = array(
 			"=ID" => $arElements,
 		);
+		if($CITY['CLOSED'] == 'Y') $searchFilter['=PROPERTY_GENERAL'] = "Y";
 		$APPLICATION->IncludeComponent(
 		"bitrix:catalog.section",
 		".default",
