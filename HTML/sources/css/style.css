@@ -5733,6 +5733,10 @@ svg g {
 .product .props__item:hover {
   text-decoration: none;
 }
+.product .props__item--medium {
+  font-size: 15px;
+  margin-top: -5px;
+}
 .product .props__item--price {
   margin-top: 30px;
 }

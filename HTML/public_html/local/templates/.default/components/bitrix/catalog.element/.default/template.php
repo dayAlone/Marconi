@@ -195,16 +195,18 @@ $this->EndViewTarget();
 	        	'размер'   => $props['SIZE']['VALUE'],
 	        	
 	        );
+	        $i=0;
 	        foreach ($values as $title => $text):
 	        	if(strlen($text)>0||is_array($text)>0):
 	        		if(is_array($text)) $text = str_replace(array_merge(array_keys($arResult['COLORS']),array_keys($arResult['MATERIALS'])), array_merge(array_values($arResult['COLORS']),array_values($arResult['MATERIALS'])), implode($text, ' / '));
 	        	?>
-	        	<div class="props__item">
+	        	<div class="props__item <?=($i==0?"props__item--medium":"")?>">
 					<div class="props__name"><?=$title?></div>
 					<div class="props__value"><?=$text?></div>
 		        </div>
 	        	<?
 	        	endif;
+	        	$i++;
 	        endforeach;
 	        ?>
 	          <div class="props__item props__item--price">
