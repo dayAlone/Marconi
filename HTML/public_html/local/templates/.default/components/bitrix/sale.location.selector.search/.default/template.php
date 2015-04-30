@@ -98,7 +98,7 @@ Loc::loadMessages(__FILE__);
 					'FILTER' => array(
 						'EXCLUDE_ID' => intval($arParams['EXCLUDE_SUBTREE']),
 						'SITE_ID'    => $arParams['FILTER_BY_SITE'] && !empty($arParams['FILTER_SITE_ID']) ? $arParams['FILTER_SITE_ID'] : '',
-						//'TYPE_ID'    => 3
+						'TYPE_ID'    => 3
 					),
 					'BEHAVIOUR' => array(
 						'SEARCH_BY_PRIMARY' => $arParams['SEARCH_BY_PRIMARY'] ? '1' : '0',
