@@ -94,7 +94,6 @@ function getOrderDelivery($ID, $props) {
 	}
 	return $str;
 }
-var_dump(getOrderDelivery(35, getOrderProps(35)));
 function OnBeforeMailSendHandler(&$arFields) {
 	CModule::IncludeModule("sale");
 	CModule::IncludeModule("iblock");
