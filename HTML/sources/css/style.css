@@ -5733,7 +5733,7 @@ svg g {
 .product .props__item:hover {
   text-decoration: none;
 }
-.product .props__item--medium {
+.product .props__item--medium .props__value {
   font-size: 15px;
   margin-top: -5px;
 }
