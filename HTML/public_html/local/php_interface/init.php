@@ -10,6 +10,14 @@ define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
 AddEventHandler("main", "OnOrderNewSendEmail", "OnBeforeMailSendHandler");
 AddEventHandler("main", "OnBeforeEventSend", "OnBeforeMailSendHandler");
+function findCityByLocation($ID)
+{
+	CModule::IncludeModule("iblock");
+	$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'UF_LOCATION'=>$ID);
+	$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('ID', 'NAME', 'UF_PHONE', 'UF_CLOSED', 'UF_EMAIL'));
+	$item = $raw->Fetch();
+	return $item;
+}
 
 function getOrderProps($ID) {
 	CModule::IncludeModule("sale");
@@ -27,9 +35,7 @@ function getOrderProps($ID) {
 				$val = CSaleLocation::GetByID($prop['VALUE']);
 				if($val) {
 					$orderProps[$prop['CODE']] = $val['CITY_NAME_ORIG'].", ".$val['REGION_NAME_ORIG'].", ".$val['COUNTRY_NAME_ORIG'];
-					$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'NAME' => $val['CITY_NAME_ORIG']);
-					$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('NAME', 'UF_EMAIL'));
-					if($item = $raw->Fetch()) {
+					if($item = findCityByLocation($prop['VALUE'])) {
 						$orderProps['EMAIL'] = $item['UF_EMAIL'];
 					}
 				}
@@ -59,28 +65,38 @@ function getOrderDelivery($ID, $props) {
 			$delivery['ADDRESS'] = $arList["TITLE"];
 		endif;
 	endif;
-	$str = "";
+	$str = "<strong>Способ доставки</strong>: ".$delivery['NAME'];
+	
 	switch ($delivery['ID']) {
 		case 2:
-			$str = $delivery['NAME'];
 			if(isset($delivery['ADDRESS'])):
-				$str .= " ( ".$delivery['ADDRESS'].")";
+				$str .= " (".$delivery['ADDRESS'].")";
+			elseif($props['pickup']):
+				$str .= " <strong>Адрес</strong>: ".trim(preg_replace('/\s+/', ' ', $props['pickup']));
 				endif;
 			break;
-		
 		default:
-			# code...
+			$subStr = '';
+			foreach (array('street', 'house', 'corpus', 'building', 'flat', 'stage') as $value) {
+				if(strlen($props[$value]) > 0) $subStr .=  (strlen($subStr)>0?", ":""). $props[$value];
+			}
+			if(strlen($subStr) > 0) $str .= " <strong>Адрес</strong>: ".$subStr;
+			
+			$subStr = '';
+			foreach (array('date', 'time') as $value) {
+				if(strlen($props[$value]) > 0) $subStr .=  (strlen($subStr)>0?", ":""). $props[$value];
+			}
+			if(strlen($subStr) > 0) $str .= " <strong>Пожелания к доставке</strong>: ".$subStr;
 			break;
 	}
 	return $str;
 }
-
 function OnBeforeMailSendHandler(&$arFields) {
 	CModule::IncludeModule("sale");
 	CModule::IncludeModule("iblock");
 	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
 	$orderProps = getOrderProps($arFields['ORDER_ID']);
-	$delivery = 
+	$delivery = getOrderDelivery($arFields['ORDER_ID'], $orderProps);
 	$arItems = array();
 	$str = '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;"><thead>
 		<tr style="font-size:12px;">
@@ -116,7 +132,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 	$str .= '</tbody>
 		<tfooter>
 			<td colspan="2" style="font-size:12px;text-align:left;"><strong>Заказчик</strong>: '.($orderProps['NAME']?$orderProps['NAME']:$orderProps['FIRST_NAME']).' '.$orderProps['LAST_NAME'].'
-			'.($orderProps['address']? '<br><strong>Адрес</strong>: '.$orderProps['street'].', '.$orderProps['house'].(strlen($orderProps['address'])>1?', '.$orderProps['address']:'').(strlen($orderProps['index'])>1?', '.$orderProps['index']:''):'').'</td>
+			'.(strlen($delivery)>0?$delivery:"").'
 			<td colspan="4" style="text-align: right;font-size:12px"><strong>Телефон</strong>: '.$orderProps['phone'].', <br><strong>Эл. почта</strong>: '.$orderProps['email'].'</td>
 		</tfooter>
 	</table>';
@@ -494,14 +510,7 @@ function getFilterStringValues($id, $section, $values)
 
 /*use Bitrix\Main;
 use Bitrix\Main\Loader;*/
-function findCityByLocation($ID)
-{
-	CModule::IncludeModule("iblock");
-	$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'UF_LOCATION'=>$ID);
-	$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('ID', 'NAME', 'UF_PHONE', 'UF_CLOSED'));
-	$item = $raw->Fetch();
-	return $item;
-}
+
 function findCity($name = false, $setCookie = true)
 {
 	global $APPLICATION, $CITY;
