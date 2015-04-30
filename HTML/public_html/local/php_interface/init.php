@@ -80,8 +80,9 @@ function getOrderDelivery($ID, $props) {
 			break;
 		default:
 			$subStr = '';
+			$desc = array('street'=>'ул.', 'house'=>'дом', 'corpus'=>'корпус', 'building'=>'строение', 'flat'=>'кв.', 'stage'=>'этаж');
 			foreach (array('street', 'house', 'corpus', 'building', 'flat', 'stage') as $value) {
-				if(strlen($props[$value]) > 0) $subStr .=  (strlen($subStr)>0?", ":""). $props[$value];
+				if(strlen($props[$value]) > 0) $subStr .=  (strlen($subStr)>0?", ":"") .$desc[$value] ." " . $props[$value];
 			}
 			if(strlen($subStr) > 0) $str .= " <strong>Адрес</strong>: ".$subStr;
 			
@@ -135,7 +136,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 	$str .= '</tbody>
 		<tfooter>
 			<td colspan="2" style="font-size:12px;text-align:left;"><strong>Заказчик</strong>: '.($orderProps['NAME']?$orderProps['NAME']:$orderProps['FIRST_NAME']).' '.$orderProps['LAST_NAME'].'
-			'.(strlen($delivery)>0?"<br>".$delivery:"").'
+			'.(strlen($delivery)>0?"<br><br>".$delivery:"").'
 			<td colspan="4" style="text-align: right;font-size:12px"><strong>Телефон</strong>: '.$orderProps['phone'].', <br><strong>Эл. почта</strong>: '.$orderProps['email'].'</td>
 		</tfooter>
 	</table>';
