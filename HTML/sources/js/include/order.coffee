@@ -4,10 +4,15 @@
 		.one 'ifChecked', ->
 			getOrderDate()
 	$('.basket input[type="checkbox"]').iCheck()
-	$('.stores-list .dropdown__item').off('click').on 'click', (e)->
-		$(this).block().find('select').val $(this).data 'id'
-		$(this).block().find('.parsley-errors-list').removeClass '.filled'
-		e.preventDefault()
+	
+	$('.stores-list .dropdown__item').on 'click', (e)->
+		$('.stores-list .parsley-errors-list').removeClass 'filled'
+		$(this).block('select').val $(this).block('select').find("option[data-id='#{$(this).data('id')}']").val()#.val $(this).data 'id'
+		
+		$('.stores-list').elem('description').mod 'active', true
+		$('.stores-list').elem('item').mod 'active', false
+		$('.stores-list').elem('item').filter("[data-id='#{$(this).data('id')}']").mod 'active', true
+
 	$('.time-select .dropdown__item').off('click').on 'click', (e)->
 		$(this).block().find('input').val $(this).text()
 		e.preventDefault()
@@ -46,8 +51,9 @@
 						counter[id].start()
 					return true
 				
-				initOrder()
 				initDropdown()
+				initOrder()
+				
 				bx_cart_block1.refreshCart({})
 				$('.basket').elem('block').mod 'loading', false
 				$('.basket').elem('submit').removeAttr 'disabled'

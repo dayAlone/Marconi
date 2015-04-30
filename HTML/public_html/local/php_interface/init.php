@@ -11,13 +11,13 @@ define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 AddEventHandler("main", "OnOrderNewSendEmail", "OnBeforeMailSendHandler");
 AddEventHandler("main", "OnBeforeEventSend", "OnBeforeMailSendHandler");
 
-function getOrderProps($order) {
+function getOrderProps($ID) {
 	CModule::IncludeModule("sale");
 	CModule::IncludeModule("iblock");
 	$db_vals = CSaleOrderPropsValue::GetList(
 	    array("ORDER_PROPS_ID" => "ASC"),
 	    array(
-	            "ORDER_ID" => $order
+	            "ORDER_ID" => $ID
 	        )
 	);
 	$orderProps = array();
@@ -42,11 +42,45 @@ function getOrderProps($order) {
 	return $orderProps;
 }
 
+function getOrderDelivery($ID, $props) {
+	CModule::IncludeModule("sale");
+	CModule::IncludeModule("catalog");
+	$order = CSaleOrder::GetByID($ID);
+	$delivery = CSaleDelivery::GetByID($order['DELIVERY_ID']);
+	if(isset($order['STORE_ID'])):
+		$dbList = CCatalogStore::GetList(
+			array("SORT" => "DESC", "ID" => "DESC"),
+			array("ACTIVE" => "Y", "ID" => $order["STORE_ID"]),
+			false,
+			false,
+			array("ID", "TITLE", "ADDRESS", "DESCRIPTION", "IMAGE_ID", "PHONE", "SCHEDULE", "LOCATION_ID", "GPS_N", "GPS_S")
+		);
+		if ($arList = $dbList->Fetch()):
+			$delivery['ADDRESS'] = $arList["TITLE"];
+		endif;
+	endif;
+	$str = "";
+	switch ($delivery['ID']) {
+		case 2:
+			$str = $delivery['NAME'];
+			if(isset($delivery['ADDRESS'])):
+				$str .= " ( ".$delivery['ADDRESS'].")";
+				endif;
+			break;
+		
+		default:
+			# code...
+			break;
+	}
+	return $str;
+}
+
 function OnBeforeMailSendHandler(&$arFields) {
 	CModule::IncludeModule("sale");
 	CModule::IncludeModule("iblock");
 	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
 	$orderProps = getOrderProps($arFields['ORDER_ID']);
+	$delivery = 
 	$arItems = array();
 	$str = '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;"><thead>
 		<tr style="font-size:12px;">
@@ -302,6 +336,59 @@ class CatalogStore
 AddEventHandler("iblock", "OnIBlockPropertyBuildList", array("CatalogStore", "GetIBlockPropertyDescription"));
 
 
+class CSectionLocation
+{
+   function GetUserTypeDescription()
+   {
+   		return array(
+			"USER_TYPE_ID" => "section_location",
+			"CLASS_NAME"   => "CSectionLocation",
+			"DESCRIPTION"  => "Привязка местоположения",
+			"BASE_TYPE"    => "int",
+        );
+   }
+   function GetDBColumnType($arUserField) {
+      switch(strtolower($GLOBALS['DB']->type)) {
+         case 'mysql':
+            return 'int(18)';
+         break;
+         case 'oracle':
+            return 'number(18)';
+         break;
+         case 'mssql':
+            return "int";
+         break;
+      }
+   }
+   function GetEditFormHTML($arUserField, $arHtmlControl) {
+   		global $APPLICATION;
+   		ob_start();
+	   		$APPLICATION->IncludeComponent(
+				"bitrix:sale.location.selector.search", 
+				".default", 
+				array(
+					"ID"                     => $arHtmlControl['VALUE'],
+					"CODE"                   => "",
+					"INPUT_NAME"             => $arHtmlControl['NAME'],
+					"PROVIDE_LINK_BY"        => "id",
+					"SEARCH_BY_PRIMARY"      => "Y",
+					"EXCLUDE_SUBTREE"        => "",
+					"FILTER_BY_SITE"         => "Y",
+					"SHOW_DEFAULT_LOCATIONS" => "Y",
+					"CACHE_TYPE"             => "A",
+					"CACHE_TIME"             => "36000000"
+				),
+				false
+			);
+			$str = ob_get_contents();
+		ob_end_clean();
+		return $str;
+   }
+
+}
+AddEventHandler("main", "OnUserTypeBuildList", array("CSectionLocation", "GetUserTypeDescription"), 5000);
+
+
 function getHighloadBlocks()
 {
 	$obCache   = new CPHPCache();
@@ -407,8 +494,15 @@ function getFilterStringValues($id, $section, $values)
 
 /*use Bitrix\Main;
 use Bitrix\Main\Loader;*/
-
-function findCity($name = false)
+function findCityByLocation($ID)
+{
+	CModule::IncludeModule("iblock");
+	$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'UF_LOCATION'=>$ID);
+	$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('ID', 'NAME', 'UF_PHONE', 'UF_CLOSED'));
+	$item = $raw->Fetch();
+	return $item;
+}
+function findCity($name = false, $setCookie = true)
 {
 	global $APPLICATION, $CITY;
 	
@@ -432,6 +526,7 @@ function findCity($name = false)
 
 	$CITY = $value;
 	$APPLICATION->set_cookie("CITY", json_encode($value, JSON_UNESCAPED_UNICODE), time()+60*60*24);
+
 }
 if(!strstr($_SERVER['SCRIPT_NAME'], 'bitrix/admin') && !defined("NO_IP")):
 	global $CITY;

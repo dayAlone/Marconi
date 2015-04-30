@@ -9988,6 +9988,21 @@ svg g {
   float: left;
   width: 100%;
 }
+.stores-list {
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+.stores-list__description {
+  margin-top: 10px;
+}
+.stores-list__description,
+.stores-list__item {
+  display: none;
+}
+.stores-list__description--active,
+.stores-list__item--active {
+  display: block;
+}
 .basket {
   float: left;
   width: 100%;
@@ -10485,7 +10500,7 @@ svg g {
   pointer-events: none;
 }
 .basket__block--loading:after {
-  z-index: 10;
+  z-index: 1000;
   position: absolute;
   content: "";
   top: 0;
