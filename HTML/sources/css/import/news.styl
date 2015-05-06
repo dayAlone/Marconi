@@ -1,67 +1,98 @@
 .news
-	&-item
-		width 100%
-		border 1px solid #b2b3b3
-		padding 18px 15px 13px
-		margin-bottom 30px
-		min-height 117px
-		t(all)
-		overflow hidden
-		&:hover
-			border-color black
-		&--open
-			border-color black
-			.news-item__title, .news-item__date
-				color red
-		&__content
-			margin-top 20px
-			border-top 1px solid #e2e5e8
-			padding 25px 20px 25px
-			display none
-			img
-				max-width 100%
-				margin-top 5px
-			p
+	&--index
+		&.news
+			position absolute
+			bottom 130px
+			margin-left 25px
+		.news
+			&-item
+				max-width 40%
+				&__date
+					font-size 12px
+					opacity: .5
+					margin-bottom 10px
+				&__title
+					font-weight: bold
+					color black
+					font-size 17px
+					border-line alpha(@color,.3), 16px
+				&__content
+					margin-top 12px
+					max-height 88px
+					overflow hidden
+					font-size 14px
+					line-height 18px
+					
+					
+	&:not(.news--index)
+		&-item
+			width 100%
+			border 1px solid #b2b3b3
+			padding 18px 15px 13px
+			margin-bottom 30px
+			min-height 117px
+			t(all)
+			overflow hidden
+			&:hover
+				border-color black
+			&--open
+				border-color black
+				.news-item__title, .news-item__date
+					color red
+			&__content
+				margin-top 20px
+				border-top 1px solid #e2e5e8
+				padding 25px 20px 25px
+				display none
+				img
+					max-width 100%
+					margin-top 5px
+				p
+					font-size 16px
+					font-weight 300
+					margin-bottom 18px
+					a
+						cursor pointer
+						font-weight: bold
+						border-line(alpha(black, .2))
+						color black
+						&:hover
+							color red
+							border-line(alpha(red, .5))
+			&__title, &__sub-title, &__date
+				width 100%
+				text-align: center
+			&__title
+				font-size 30px
+				font-weight: bold
+				margin-top 8px
+				cursor pointer
+				color black
+				display block
+				line-height 35px
+				margin-bottom 5px
+				&--disabled
+					pointer-events none
+				&:hover
+					color red
+			&__sub-title
 				font-size 16px
 				font-weight 300
-				margin-bottom 18px
-				a
-					cursor pointer
-					font-weight: bold
-					border-line(alpha(black, .2))
-					color black
-					&:hover
-						color red
-						border-line(alpha(red, .5))
-		&__title, &__sub-title, &__date
-			width 100%
-			text-align: center
-		&__title
-			font-size 30px
-			font-weight: bold
-			margin-top 8px
-			cursor pointer
-			color black
-			display block
-			&--disabled
-				pointer-events none
-			&:hover
-				color red
-		&__sub-title
-			font-size 16px
-			font-weight 300
-			margin-top -3px
-			color #737379
-		&__date
-			text-transform: uppercase
-			letter-spacing 5px
-			font-size 11px
-			color #171929
-			font-weight: bold
+				margin-top -3px
+				color #737379
+			&__date
+				text-transform: uppercase
+				letter-spacing 5px
+				font-size 11px
+				color #171929
+				font-weight: bold
 	.dropdown
 		max-width 95px
 		position relative
-		z-index 400
+		z-index 250
+		margin-bottom 25px
+		@media (min-width scr_md)
+			margin-bottom 0
 		&__frame
 			background red
 			position absolute

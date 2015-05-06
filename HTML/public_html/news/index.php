@@ -33,7 +33,10 @@ $APPLICATION->SetTitle('Новости');
 					"DETAIL_URL"     => "/news/",
 					"CACHE_TYPE"     => "A",
 					'PROPERTY_CODE'  => array('TITLE', 'PICTURES'),
-					"SET_TITLE"      => "N"
+					"SET_TITLE"      => "N",
+					"DISPLAY_PREVIEW_TEXT" => "Y",
+					"DISPLAY_BOTTOM_PAGER" => "Y",
+					"DISPLAY_PICTURE" => "Y"
 				),
 				false
 			);

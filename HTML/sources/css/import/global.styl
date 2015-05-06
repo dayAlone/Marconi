@@ -8,8 +8,46 @@ body
 	@media (min-width scr_md)
 		padding-top 0
 	-webkit-font-smoothing: subpixel-antialiased
-	&.index
+	&.index--fmarconi
 		overflow hidden
+		
+
+.index
+	&--italbags
+		background #e2cebe
+		.wrap
+			position relative
+			min-height 940px
+			background url(/layout/images/italbags.jpg) bottom right no-repeat
+			background-position calc(50% + 300px) calc(100% - 60px) 
+		.index
+			&__block
+				position absolute
+				top 300px
+				border 5px solid black
+				padding 80px 80px 15px 18px
+				text-transform: uppercase
+				
+				
+				span
+					display inline-block
+					line-height 29px
+					font-weight 300
+					text-transform: uppercase
+					font-size 26px
+					letter-spacing 1px
+					opacity .7
+				h1
+					font-weight: bold
+					margin-bottom 0
+					padding-top 0
+					font-size 42px
+					margin-top 18px
+			&__logo
+				margin-top 40px
+				svg
+					width 170px
+					height 93px	
 
 .textpage
 	&__content
@@ -79,7 +117,7 @@ svg
 		display block
 	background-repeat no-repeat
 	background-position center center
-	.index &
+	.index--fmarconi &
 		.background
 			position absolute
 			top -40px

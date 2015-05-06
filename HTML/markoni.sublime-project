@@ -2,6 +2,9 @@
 	"folders":
 	[
 		{
+			"path": "sources/css/import/"
+		},
+		{
 			"path": "public_html/local/templates/.default/components"
 		},
 		{
