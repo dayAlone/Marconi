@@ -1,0 +1,39 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"выставочный зал", 
+		"/info/delivery/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"достижения", 
+		"/info/payment/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"команда", 
+		"/info/return/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"миссия компании", 
+		"/about/mission/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"реквизиты", 
+		"/about/requisites/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

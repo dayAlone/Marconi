@@ -1,132 +1,146 @@
 .about
-	@media (min-width scr_sm)
-		min-height 700px
-	&--white
-		.header
-			color white
-			svg
-				path
-					fill white
-			.contacts__text
-				color white
-			a, .cart
-				color white
-				border-line alpha(@color, .3)
-			.logo
-				background transparent
-				&__line
-					background white
-					
-	&__slider, &__slider.fotorama__stage
+	&--italbags
+		.wrap
+			padding-bottom 650px
+			background url(/layout/images/italbags-about.jpg) bottom center no-repeat
+	&--requisites
+		.wrap
+			padding-bottom 650px
+			background url(/layout/images/italbags-about.jpg) bottom center no-repeat
+	&--mission
+		.wrap
+			padding-bottom 150px
+			background url(/layout/images/italbags-mission.jpg) center 60px no-repeat
+	&--fmarconi
 		@media (min-width scr_sm)
 			min-height 700px
-	&__slider
-		background #eee
-		margin-top -117px
-		float: left
-		width 100%
-		margin-bottom -30px
-		@media (min-width scr_sm)
-			position absolute
-			top 0
-			left 0
-			width 100%
-			height 100%
-			margin-top 0
-			margin-bottom 0
-		&-item
-			width 100%
-			height 100%
-			background-size cover
-			background-position center center
-			&-content
-				width 92%
+		.about	
+			&--white
+				.header
+					color white
+					svg
+						path
+							fill white
+					.contacts__text
+						color white
+					a, .cart
+						color white
+						border-line alpha(@color, .3)
+					.logo
+						background transparent
+						&__line
+							background white
+							
+			&__slider, &__slider.fotorama__stage
 				@media (min-width scr_sm)
-					width 600px
-				@media (min-width scr_md)
-					width 850px
-				background alpha(black, .75)
-				box-sizing border-box !important
-				min-height 100px
-				top 116px
-				color white
-				padding 20px 15px
-				position absolute
-				left 4%
-				@media (min-width scr_sm)
-					padding 35px 50px
-					top 50%
-					top calc(50%+20px)
-					left 50%
-					transform translate(-50%, -50%)
-					
-				h3
-					
-					text-transform: uppercase
-					font-weight: bold
-					font-size 13px
-					margin-bottom 20px
-					@media (min-width scr_sm)
-						margin-bottom 40px
-						margin-top 25px
-						font-size 16px
-				p
-					font-size 13px
-					@media (min-width scr_sm)
-						font-size 16px
-					
-				a
-					color red
-					font-weight: bold
-					border-line(alpha(@color,.4))
-				p+p	
-					margin-top 25px
-					margin-bottom 0
-		&-title
-			text-align center
-			text-transform uppercase
-			font-weight bold
-			font-size 20px
-			margin-bottom 25px
-			margin-top 5px
-			position relative
-			@media (min-width scr_sm)
-				font-size 29px
-				margin-bottom 35px
-			&-after, &-before
-				position absolute
-				content ""
-				height 1px
-				background white
+					min-height 700px
+			&__slider
+				background #eee
+				margin-top -117px
+				float: left
 				width 100%
-				top 9px
-				left 0
-				display none
-			&-before
-				left auto
-				right 0
-		&-arrow
-			margin-top 5px
-			cursor pointer
-			@media (min-width scr_sm)
-				position absolute
-				top 130px
-				transform translateY(-50%)
-			svg
-				height 40px
-				
+				margin-bottom -30px
 				@media (min-width scr_sm)
-					height auto
-			
-			@media (min-width scr_sm)
-				top 50%
-			&--prev
-				float left
-				@media (min-width scr_sm)
-					left -80px
-					float none
-			&--next
-				float right
-				@media (min-width scr_sm)
-					right -60px
-					float none
+					position absolute
+					top 0
+					left 0
+					width 100%
+					height 100%
+					margin-top 0
+					margin-bottom 0
+				&-item
+					width 100%
+					height 100%
+					background-size cover
+					background-position center center
+					&-content
+						width 92%
+						@media (min-width scr_sm)
+							width 600px
+						@media (min-width scr_md)
+							width 850px
+						background alpha(black, .75)
+						box-sizing border-box !important
+						min-height 100px
+						top 116px
+						color white
+						padding 20px 15px
+						position absolute
+						left 4%
+						@media (min-width scr_sm)
+							padding 35px 50px
+							top 50%
+							top calc(50%+20px)
+							left 50%
+							transform translate(-50%, -50%)
+							
+						h3
+							
+							text-transform: uppercase
+							font-weight: bold
+							font-size 13px
+							margin-bottom 20px
+							@media (min-width scr_sm)
+								margin-bottom 40px
+								margin-top 25px
+								font-size 16px
+						p
+							font-size 13px
+							@media (min-width scr_sm)
+								font-size 16px
+							
+						a
+							color red
+							font-weight: bold
+							border-line(alpha(@color,.4))
+						p+p	
+							margin-top 25px
+							margin-bottom 0
+				&-title
+					text-align center
+					text-transform uppercase
+					font-weight bold
+					font-size 20px
+					margin-bottom 25px
+					margin-top 5px
+					position relative
+					@media (min-width scr_sm)
+						font-size 29px
+						margin-bottom 35px
+					&-after, &-before
+						position absolute
+						content ""
+						height 1px
+						background white
+						width 100%
+						top 9px
+						left 0
+						display none
+					&-before
+						left auto
+						right 0
+				&-arrow
+					margin-top 5px
+					cursor pointer
+					@media (min-width scr_sm)
+						position absolute
+						top 130px
+						transform translateY(-50%)
+					svg
+						height 40px
+						
+						@media (min-width scr_sm)
+							height auto
+					
+					@media (min-width scr_sm)
+						top 50%
+					&--prev
+						float left
+						@media (min-width scr_sm)
+							left -80px
+							float none
+					&--next
+						float right
+						@media (min-width scr_sm)
+							right -60px
+							float none

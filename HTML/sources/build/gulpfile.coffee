@@ -164,14 +164,14 @@ gulp.task 'img_mini', ->
 # System functions
 
 gulp.task 'reload', ->
-	livereload.changed()
+	livereload.reload(path.css.frontend)
 
 gulp.task 'ready', ->
 	sequence 'js_plugins', 'js_front', 'js_mini', 'css_bootstrap', 'css_plugins', 'css_front', 'css_mini'
 
 gulp.task 'default', ->
 	
-	livereload.listen()
+	livereload({ start: true })
 
 	gulp.watch "#{path.js.sources}/**/*.coffee", ->
 		sequence 'js_front', 'reload'

@@ -50,16 +50,46 @@ body
 					height 93px	
 
 .textpage
+	&__divider
+		text-align: center
+		margin 30px 0 35px
+		&:after
+			display inline-block
+			width 90px
+			content ""
+			height 3px
+			background #96969d
 	&__content
 		padding-bottom 50px
+		font-size 14px
+		p
+			max-width 85%
+			margin-bottom 15px
+			display inline-block
+			&.highlight
+				font-size 19px
+				display inline-block
+				margin-bottom 50px
+				@media (min-width scr_md)
+					max-width 80%
 		ul, ol
 			padding-left 20px
 			margin-bottom: 25px
+			&.small
+				li
+					margin-top 5px
 			li
 				margin-top 15px
+				font-size 14px
 		a
 			color red
 			border-line alpha(@color, .5)
+		h1
+			text-transform: uppercase
+			font-weight 300
+			font-size 28px
+			margin-top 20px
+
 .order-history
 	margin-top 0px
 	@media (min-width scr_sm)

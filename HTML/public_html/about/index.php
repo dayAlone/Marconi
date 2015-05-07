@@ -1,6 +1,6 @@
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
-$APPLICATION->SetPageProperty('body_class', "about");
+$APPLICATION->SetPageProperty('body_class', "about about--fmarconi");
 $APPLICATION->SetTitle('О бренде');
     $APPLICATION->IncludeComponent("bitrix:news.list", "about", 
     array(

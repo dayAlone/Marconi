@@ -2,7 +2,9 @@
   <div class="container toolbar__desktop">
     <div class="row">
       <div class="visible-lg col-lg-2">
+      <?if($APPLICATION->GetCurDir() == '/'):?>
         <a href="tel:<?=preg_replace('/[^\dx+]/i', '', $CITY['PHONE'])?>" class="toolbar__number"><?=svg('phone')?><?=$CITY['PHONE']?></a>
+      <?endif;?>
       </div>
       <div class="col-xs-10 col-lg-8">
         <?php
@@ -106,7 +108,7 @@
       <div class="col-xs-2 center"><a href="/" class="logo"><?=svg('italbags')?></a></div>
       <div class="col-xs-2 col-md-3"><span class="logo__line logo__line--right"></span></div>
       <div class="col-xs-3 col-md-2">
-        <div class="header__links">
+        <div class="header__links header__links--center">
           <?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line","",Array(
             "PATH_TO_BASKET"      => "/basket/",
             "PATH_TO_PERSONAL"    => "/personal/",
@@ -130,5 +132,16 @@
       </div>
     </div>
   </div>
+  <?php
+    $APPLICATION->IncludeComponent("bitrix:menu", "header", 
+      array(
+          "ALLOW_MULTI_SELECT" => "Y",
+          "MENU_CACHE_TYPE"    => "A",
+          "ROOT_MENU_TYPE"     => "header",
+          "MAX_LEVEL"          => "1",
+          "CLASS"              => "header__nav center"
+          ),
+      false);
+  ?>
 </header>
 <?endif;?>

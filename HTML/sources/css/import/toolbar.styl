@@ -195,6 +195,28 @@
 	@media (min-width scr_sm)
 		margin-top 10px
 		margin-bottom 25px
+	.nav
+		text-transform: uppercase
+		margin 20px 0
+		position relative
+		&:after
+			content ""
+			border-bottom 1px solid #d5dbdf
+			position absolute
+			top 7px
+			left 0
+			z-index -1
+			width 100%
+		&__item
+			padding 0 15px
+			background white
+			font-size 12px
+			color #6e6f79
+			font-weight: bold
+			&:hover
+				color red
+			&--active
+				color black
 	&__mobile
 		.logo
 			svg
@@ -399,6 +421,14 @@
 		.contacts
 			svg
 				margin-top -12px
+		.header
+			&__links
+				margin-top 9px
+				svg
+					width 20px
+					height 20px
+					left -29px
+					top -4px
 .sub-nav
 	width 100%
 	border-top 1px solid #d5dbdf

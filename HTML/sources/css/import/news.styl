@@ -25,6 +25,8 @@
 					
 					
 	&--list
+		.page
+			padding-top 40px
 		.news
 			&-item
 				width 100%
@@ -34,17 +36,31 @@
 				min-height 117px
 				t(all)
 				overflow hidden
-				&:hover
+				&:not(.news-item--detail):hover
 					border-color black
 				&--open
 					border-color black
 					.news-item__title, .news-item__date
 						color red
+				&__back
+					text-transform: uppercase
+					color black
+					font-weight: bold
+					font-size 12px
+					&:hover
+						color red
+						svg path
+							fill red
+					svg
+						margin-right 3px
+						transform rotate(-30deg)
 				&__content
 					margin-top 20px
 					border-top 1px solid #e2e5e8
 					padding 25px 20px 25px
 					display none
+					&--open
+						display block
 					img
 						max-width 100%
 						margin-top 5px
@@ -52,6 +68,10 @@
 						font-size 16px
 						font-weight 300
 						margin-bottom 18px
+						&:last-of-type
+							margin-bottom 0
+						& + img
+							margin-top 23px
 						a
 							cursor pointer
 							font-weight: bold
