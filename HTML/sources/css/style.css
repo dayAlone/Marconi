@@ -3755,12 +3755,15 @@ svg g {
 .lookbook__slider .catalog .slick-next,
 .lookbook__slider .catalog .slick-prev {
   width: 30px;
-  height: 30px;
+  height: 34px;
   margin-top: -25px;
   position: absolute;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  border: 0;
+  background: transparent;
+  top: 50%;
   -webkit-transition-property: opacity;
   -moz-transition-property: opacity;
   -o-transition-property: opacity;
