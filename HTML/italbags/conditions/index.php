@@ -101,6 +101,7 @@ $APPLICATION->SetTitle('Условия работы');
 			</div>
 		</div>
 	</div>
+	
 	<div class="condition">
 		<a href="#" class="condition__trigger">Заказ в офисе компании</a>
 		<div class="condition__content">
