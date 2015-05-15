@@ -4,7 +4,7 @@ $APPLICATION->SetPageProperty('body_class', "about about--fmarconi about--menu")
 $APPLICATION->SetTitle('Франчайзинг');
     $APPLICATION->IncludeComponent("bitrix:news.list", "about", 
     array(
-	    "IBLOCK_ID"           => 3,
+	    "IBLOCK_ID"           => 23,
 	    "NEWS_COUNT"          => "99999",
 	    "SORT_BY1"            => "SORT",
 	    "SORT_ORDER1"         => "ASC",
