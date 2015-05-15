@@ -1,7 +1,7 @@
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 $APPLICATION->SetPageProperty('body_class', "news news--list");
-$IBLOCK = 8;
+$IBLOCK = 21;
 require($_SERVER['DOCUMENT_ROOT'].'/include/section.php');
 $APPLICATION->SetTitle('Вопросы и ответы');
 ?>

@@ -1,7 +1,7 @@
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 $APPLICATION->SetPageProperty('body_class', "news news--list");
-$IBLOCK = 4;
+$IBLOCK = 19;
 $APPLICATION->SetPageProperty('section', array('IBLOCK'=>$IBLOCK, 'CODE'=>'news', "NOEMPTY"=>true, 'SORT'=>array('ID'=>'DESC')));
 require($_SERVER['DOCUMENT_ROOT'].'/include/section.php');
 $APPLICATION->SetTitle('Новости');
@@ -13,7 +13,7 @@ $APPLICATION->SetTitle('Новости');
         <div class="col-md-2">
         <?
         	$APPLICATION->IncludeComponent("bitrix:catalog.section.list", "years", array(
-			    "IBLOCK_TYPE"  => "content",
+			    "IBLOCK_TYPE"  => "content_italbags",
 			    "IBLOCK_ID"    => $IBLOCK,
 			    "TOP_DEPTH"    => "2",
 			    "CACHE_TYPE"   => "A",
@@ -48,7 +48,7 @@ $APPLICATION->SetTitle('Новости');
 		      "IBLOCK_ID"     => $IBLOCK,
 		      "ELEMENT_CODE"  => $_REQUEST['ELEMENT_CODE'],
 		      "CHECK_DATES"   => "N",
-		      "IBLOCK_TYPE"   => "content",
+		      "IBLOCK_TYPE"   => "content_italbags",
 		      "SET_TITLE"     => "Y",
 		      "CACHE_TYPE"    => "A",
 		      "PROPERTY_CODE" => array("GALLERY"),

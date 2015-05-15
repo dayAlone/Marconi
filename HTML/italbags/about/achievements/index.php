@@ -7,7 +7,7 @@ $APPLICATION->SetTitle('Достижения');
 	<?
     	$APPLICATION->IncludeComponent("bitrix:news.list", "achievements", 
 			array(
-				"IBLOCK_ID"            => 9,
+				"IBLOCK_ID"            => 20,
 				"NEWS_COUNT"           => "100",
 				"PARENT_SECTION"       => $_GLOBALS['currentCatalogSection'],
 				"SORT_BY1"             => "ACTIVE_FROM",
