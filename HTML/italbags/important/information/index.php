@@ -2,7 +2,7 @@
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 $APPLICATION->SetPageProperty('body_class', "news news--list");
 $IBLOCK = 26;
-$APPLICATION->SetPageProperty('section', array('IBLOCK'=>$IBLOCK, 'CODE'=>'news', "NOEMPTY"=>true, 'SORT'=>array('ID'=>'DESC')));
+$APPLICATION->SetPageProperty('section', array('IBLOCK'=>$IBLOCK, 'CODE'=>'news', "NOEMPTY"=>false, 'SORT'=>array('ID'=>'DESC')));
 require($_SERVER['DOCUMENT_ROOT'].'/include/section.php');
 $APPLICATION->SetTitle('Полезная информация');
 ?>
@@ -24,12 +24,12 @@ $APPLICATION->SetTitle('Полезная информация');
 			);
 		?>        </div>
         <div class="col-md-8">
-        <?if(!isset($_REQUEST['ELEMENT_CODE'])||intval($_GLOBALS['currentCatalogSection'])>0):
+        <?if(!isset($_REQUEST['ELEMENT_CODE'])):
         	$APPLICATION->IncludeComponent("bitrix:news.list", "news", 
 				array(
 					"IBLOCK_ID"            => $IBLOCK,
 					"NEWS_COUNT"           => "15",
-					"PARENT_SECTION"       => $_GLOBALS['currentCatalogSection'],
+
 					"SORT_BY1"             => "ACTIVE_FROM",
 					"SORT_ORDER1"          => "DESC",
 					"DETAIL_URL"           => "/news/#ELEMENT_CODE#/",
@@ -39,7 +39,7 @@ $APPLICATION->SetTitle('Полезная информация');
 					"DISPLAY_PREVIEW_TEXT" => "Y",
 					"DISPLAY_BOTTOM_PAGER" => "Y",
 					"DISPLAY_PICTURE"      => "Y",
-					"DETAIL"               => "Y"
+					"ARROW"                => "Y"
 				),
 				false
 			);

@@ -106,13 +106,31 @@ body
 		min-height 270px
 		line-height 270px
 		vertical-align: top
+		position relative
 		t border
+		&--with-links
+			padding 30px 40px 40px
 		@media (min-width scr_xs)
 			width calc(50% - 30px)
 		@media (min-width scr_sm)
 			width calc(33.333333333333336% - 30px)
 		@media (min-width scr_md)
 			width calc(25% - 30px)
+		&__footer
+			position absolute
+			line-height 20px
+			width 100%
+			padding 0 25px
+			left 0
+			bottom 10px
+			a
+				background transparent
+				text-transform: uppercase
+				font-weight: bold
+				font-size 12px
+				color alpha(#6e6e73, .7)
+				&:hover
+					color red
 		&:hover
 			border-color red
 		img

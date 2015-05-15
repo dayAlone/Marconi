@@ -2198,6 +2198,7 @@ body.index--fmarconi {
   min-height: 270px;
   line-height: 270px;
   vertical-align: top;
+  position: relative;
   -webkit-transition-property: border;
   -moz-transition-property: border;
   -o-transition-property: border;
@@ -2208,6 +2209,9 @@ body.index--fmarconi {
   -o-transition-duration: 0.3s;
   -ms-transition-duration: 0.3s;
   transition-duration: 0.3s;
+}
+.achievements .achievement--with-links {
+  padding: 30px 40px 40px;
 }
 @media (min-width: 480px) {
   .achievements .achievement {
@@ -2223,6 +2227,24 @@ body.index--fmarconi {
   .achievements .achievement {
     width: calc(25% - 30px);
   }
+}
+.achievements .achievement__footer {
+  position: absolute;
+  line-height: 20px;
+  width: 100%;
+  padding: 0 25px;
+  left: 0;
+  bottom: 10px;
+}
+.achievements .achievement__footer a {
+  background: transparent;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+  color: rgba(110,110,115,0.7);
+}
+.achievements .achievement__footer a:hover {
+  color: #d10a32;
 }
 .achievements .achievement:hover {
   border-color: #d10a32;
