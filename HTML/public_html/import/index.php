@@ -303,7 +303,12 @@
 					case 'sale':
 					case 'tradeline':
 					case 'brand':
+					case 'new':
+					case 'coming':
 						$props[strtoupper($id)] = $value;
+						break;
+					case 'comming':
+						$props[strtoupper('coming')] = $value;
 						break;
 					case 'section':
 					case 'category':
@@ -314,8 +319,19 @@
 
 			$this->getSections($propSections, $fields, $props);
 			
+			// Частные случаи разделов
 			if($props["SALE"]==$this->sale):
 				$fields['IBLOCK_SECTION'][] = $this->sections['sale'];
+			else:
+				$fields['IBLOCK_SECTION'][] = $this->sections['sale30'];
+			endif;
+
+			if($props["COMING"]=='Y'):
+				$fields['IBLOCK_SECTION'][] = $this->sections['coming'];
+			endif;
+
+			if($props["NEW"]=='Y'):
+				$fields['IBLOCK_SECTION'][] = $this->sections['new'];
 			endif;
 
 			$name = $note;
@@ -422,12 +438,15 @@
 						endif;
 					endif;
 
-					if(!isset($exist['SALE']) && strlen($props['SALE'])>0):
-						$diff['SALE'] = $props['SALE'];
-					elseif(isset($exist['SALE']) && !isset($props['SALE'])):
-						$diff['SALE'] = false;
-					endif;
-
+					// Проверка свойств
+					foreach (array('SALE', 'NEW', 'COMING') as $prop) {
+						if(!isset($exist[$prop]) && strlen($props[$prop])>0):
+							$diff[$prop] = $props[$prop];
+						elseif(isset($exist[$prop]) && !isset($props[$prop])):
+							$diff[$prop] = false;
+						endif;
+					}
+					
 					unset($diff['OFFER_SIZE']);
 
 					foreach (array('COLOR', 'MATERIAL') as $el):

@@ -17,6 +17,7 @@ $(document).ready ->
 		e.preventDefault()	
 
 	$('[data-toggle="tooltip"]').tooltip()
+	$('[data-draggable="true"]').backgroundDraggable({ axis: 'x' });
 
 	$('.toolbar a.search').click (e)->
 		console.log $('div.search')
@@ -84,6 +85,13 @@ $(document).ready ->
 							block.mod 'open', true
 							block.mod 'disabled', false
 			e.preventDefault()
+
+	# Achivements
+
+	$('#achievement').on 'show.bs.modal', (e)->
+		$el = $(e.relatedTarget)
+		$('#achievement img').attr 'src', $el.data('image')
+		$('#achievement p').html $.parseHTML($el.data('text'))
 
 	# Login
 	

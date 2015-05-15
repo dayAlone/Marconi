@@ -9,12 +9,16 @@
 	switch ($action):
 		case 'add':
 				$props = array();
+				$count = 1;
 				if($_REQUEST['size'])
 	    			$props['size'] = array("NAME"=>'Размер', "CODE"=>'SIZE', "VALUE"=>$_REQUEST['size']);
 	    		if($_REQUEST['artnumber'])
 	    			$props['artnumber'] = array("NAME"=>'Артикул', "CODE"=>'ARTNUMBER', "VALUE"=>$_REQUEST['artnumber']);
+				if(intval($_REQUEST['count']) > 0)
+	    			$count = intval($_REQUEST['count']);
+
 				$id = intval($_GET['id']);
-				$result = Add2BasketByProductID($id, 1, false, $props);
+				$result = Add2BasketByProductID($id, $count, false, $props);
 				if(intval($result)>0)
 					echo 'success';
 

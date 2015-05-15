@@ -16,7 +16,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Каталог", 
-		"/catalog/", 
+		"/catalog/best-sellers/", 
 		Array(), 
 		Array(), 
 		"" 
@@ -36,8 +36,8 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Франчайзинг", 
-		"/franchising/", 
+		"Важно", 
+		"/important/", 
 		Array(), 
 		Array(), 
 		"" 

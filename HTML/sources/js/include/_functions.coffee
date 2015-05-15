@@ -15,6 +15,8 @@
 					width += ($('.lookbook').elem('picture').width() - ($('.lookbook').elem('picture').height()/h)*w)/2
 				return width
 	
+	$('.header .nav__line').width ($('.header .nav').width() - $('.header .nav__content').width())/2
+
 	$('.picture').elem('big').height ->
 		return $('.product').elem('description').height()
 

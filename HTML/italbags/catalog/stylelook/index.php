@@ -1,6 +1,6 @@
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
-$APPLICATION->SetPageProperty('body_class', "lookbook");
+$APPLICATION->SetPageProperty('body_class', "lookbook catalog--italbags");
 $APPLICATION->SetTitle('Stylelook');
 $APPLICATION->IncludeComponent("bitrix:news.list", "lookbook", 
 	array(

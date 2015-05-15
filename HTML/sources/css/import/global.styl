@@ -66,6 +66,7 @@ body
 			max-width 85%
 			margin-bottom 15px
 			display inline-block
+			
 			&.highlight
 				font-size 19px
 				display inline-block
@@ -81,7 +82,7 @@ body
 			li
 				margin-top 15px
 				font-size 14px
-		a
+		a:not([href^="#"])
 			color red
 			border-line alpha(@color, .5)
 		h1
@@ -89,6 +90,36 @@ body
 			font-weight 300
 			font-size 28px
 			margin-top 20px
+
+.achievements
+	margin-right -15px
+	margin-left -15px
+	.achievement
+		display inline-block
+		border 1px solid #ececec
+		padding 30px 40px
+		text-align: center
+		text-decoration: none
+		width calc(100% - 30px)
+		background transparent
+		margin 0 15px
+		t border
+		@media (min-width scr_xs)
+			width calc(50% - 30px)
+		@media (min-width scr_sm)
+			width calc(33.333333333333336% - 30px)
+		@media (min-width scr_md)
+			width calc(25% - 30px)
+		&:hover
+			border-color red
+		img
+			max-width 100%
+
+.showroom
+	min-height 850px
+	full-width()
+	cursor: ew-resize
+	background url(/layout/images/pano.jpg) top center no-repeat
 
 .order-history
 	margin-top 0px
@@ -229,6 +260,127 @@ svg
 			display none
 	#register &.filled
 		display block
+
+.condition
+	overflow hidden
+	t all
+	min-height 57px
+	
+	& + .condition
+		margin-top 20px
+	border 1px solid #4b4b4b
+	
+	&-theme
+		display none
+		&--short
+			max-width 80%
+			margin 0 auto
+		&__nav
+			width 100%
+			border-top 1px solid black
+			border-bottom 1px solid black
+			height 85px
+			line-height 90px
+			text-align: center
+			margin-top 10px
+			position relative
+			&-item
+				text-transform: uppercase
+				font-weight: bold
+				color #8797a2
+				margin 0 8px
+				white-space no-wrap
+				font-size 12px
+				@media (min-width scr_lg)
+					margin 0 15px
+					font-size 14px
+				&:hover
+					color red
+				&--active
+					color black
+				&:first-of-type
+					margin-left 0
+				&:last-of-type
+					margin-right 0
+		&__arrow
+			position absolute
+			bottom -2px
+			left 0px
+			border-bottom 2px solid white
+			z-index: 2
+			width 48px
+			transform translateX(-50%)
+			t left
+			&:after, &:before
+				width 30px
+				content ""
+				position absolute
+				top -9px
+				left -3px
+				border-bottom 1px solid black
+				transform rotate(-35deg)
+			&:after
+				left 21px
+				transform rotate(35deg)
+		&__content
+			padding 30px 0 0
+			&-item
+				display none
+				min-height 110px
+				p 
+					width 100%
+					max-width none
+				&--active
+					display block
+	&__theme-trigger
+		top -10px
+		position relative
+		font-size 17px
+		font-weight 300
+		color #8797a2
+		border-line alpha(@color, .7)
+		&--disabled
+			pointer-events none
+		&--active
+			color black
+			border-line alpha(@color, .7)
+		&:hover
+			color red
+			border-line alpha(@color, .7)
+	&__content
+		display none
+		position relative
+		z-index: 1
+		padding 20px 30px 10px
+		p.highlight
+			margin-bottom 20px
+		h3
+			font-size 18px
+			text-transform: uppercase
+			font-weight: bold
+	&__trigger
+		position relative
+		z-index: 10
+		background white
+		height 55px
+		display block
+		background transparent !important
+		line-height 67px
+		font-size 26px
+		text-align: center
+		font-weight: bold
+		color black !important
+		text-transform: uppercase
+		&--disabled
+			pointer-events none
+		&:hover
+			color red !important
+	&--open
+		.condition
+			&__content
+				display block
+			&__trigger
+				color red !important
 .modal
 	&.overlay
 		.modal

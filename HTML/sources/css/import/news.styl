@@ -33,7 +33,7 @@
 				border 1px solid #b2b3b3
 				padding 18px 15px 13px
 				margin-bottom 30px
-				min-height 117px
+				min-height 78px
 				t(all)
 				overflow hidden
 				&:not(.news-item--detail):hover
@@ -42,11 +42,20 @@
 					border-color black
 					.news-item__title, .news-item__date
 						color red
+				&__divider
+					border-top 1px solid #e2e5e8
+					margin 30px 0 25px
+					width 100%
+				&__arrow
+					display inline-block
+					&:hover svg path
+						fill red
 				&__back
 					text-transform: uppercase
 					color black
 					font-weight: bold
 					font-size 12px
+					margin-bottom 30px
 					&:hover
 						color red
 						svg path
@@ -56,16 +65,19 @@
 						transform rotate(-30deg)
 				&__content
 					margin-top 20px
+					
 					border-top 1px solid #e2e5e8
 					padding 25px 20px 25px
 					display none
+					&--arrow
+						padding-bottom 12px
 					&--open
 						display block
 					img
 						max-width 100%
 						margin-top 5px
 					p
-						font-size 16px
+						font-size 15px
 						font-weight 300
 						margin-bottom 18px
 						&:last-of-type
@@ -91,7 +103,9 @@
 					color black
 					display block
 					line-height 35px
-					margin-bottom 5px
+					margin-bottom 0px
+					& + .news-item__content
+						margin-top 15px
 					&--disabled
 						pointer-events none
 					&:hover
@@ -99,7 +113,7 @@
 				&__sub-title
 					font-size 16px
 					font-weight 300
-					margin-top -3px
+					margin-top 2px
 					color #737379
 				&__date
 					text-transform: uppercase

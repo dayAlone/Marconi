@@ -4,24 +4,116 @@
 		"selected_items":
 		[
 			[
+				"trns",
+				"transparent"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"le",
+				"left"
+			],
+			[
+				"borde",
+				"border"
+			],
+			[
+				"strip",
+				"strip_tags"
+			],
+			[
+				"orde",
+				"orderProps"
+			],
+			[
+				"defi",
+				"defined"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
 				"max",
 				"max-height"
+			],
+			[
+				"tra",
+				"translateX"
+			],
+			[
+				"trans",
+				"transform"
+			],
+			[
+				"post",
+				"postNum"
+			],
+			[
+				"ge",
+				"genericPost"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"col",
+				"colspan	Attr"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"tran",
+				"translateX"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"fon",
+				"font-family"
 			],
 			[
 				"ov",
 				"overflow"
 			],
 			[
-				"pa",
-				"padding-bottom"
-			],
-			[
 				"di",
 				"display"
-			],
-			[
-				"bor",
-				"border-line"
 			],
 			[
 				"fw",
@@ -32,20 +124,8 @@
 				"background-size"
 			],
 			[
-				"tra",
-				"transparent"
-			],
-			[
 				"xl-",
 				"xl-margin-top"
-			],
-			[
-				"trans",
-				"translateY"
-			],
-			[
-				"ba",
-				"background"
 			],
 			[
 				"sli",
@@ -58,18 +138,6 @@
 			[
 				"poi",
 				"pointer-events"
-			],
-			[
-				"fon",
-				"font-size"
-			],
-			[
-				"tran",
-				"translateZ"
-			],
-			[
-				"min",
-				"min-height"
 			],
 			[
 				"ar",
@@ -100,10 +168,6 @@
 				"loader"
 			],
 			[
-				"no",
-				"no-repeat"
-			],
-			[
 				"back",
 				"background"
 			],
@@ -112,20 +176,12 @@
 				"strtolower"
 			],
 			[
-				"var",
-				"var_dump"
-			],
-			[
 				"sp",
 				"split"
 			],
 			[
 				"prin",
 				"printf"
-			],
-			[
-				"in",
-				"inline-block"
 			],
 			[
 				"fso",
@@ -154,10 +210,6 @@
 			[
 				"mih",
 				"min-height"
-			],
-			[
-				"wi",
-				"width"
 			],
 			[
 				"pro",
@@ -264,14 +316,6 @@
 				"font-size"
 			],
 			[
-				"pad",
-				"padding"
-			],
-			[
-				"mar",
-				"margin"
-			],
-			[
 				"rgb",
 				"rgba	rgba"
 			],
@@ -310,10 +354,6 @@
 			[
 				"li",
 				"line-height"
-			],
-			[
-				"le",
-				"letter-spacing"
 			],
 			[
 				"lh",
@@ -474,46 +514,6 @@
 			[
 				"_SE",
 				"_SESSION  (variable)"
-			],
-			[
-				"even",
-				"events  (variable)"
-			],
-			[
-				"mo",
-				"monday"
-			],
-			[
-				"arrow-",
-				"arrow-right"
-			],
-			[
-				"of",
-				"offset"
-			],
-			[
-				"pat",
-				"padding-top"
-			],
-			[
-				"cal",
-				"cal-day"
-			],
-			[
-				"las",
-				"last-of-type"
-			],
-			[
-				"pt",
-				"padding-top"
-			],
-			[
-				"em",
-				"embedded-opentype"
-			],
-			[
-				"se",
-				"section"
 			]
 		]
 	},
@@ -524,15 +524,16 @@
 	"build_system_choices":
 	[
 	],
+	"build_varint": "",
 	"command_palette":
 	{
 		"height": 400.0,
-		"last_filter": "",
+		"last_filter": "Package Control: ",
 		"selected_items":
 		[
 			[
 				"Package Control: ",
-				"Package Control: Install Package"
+				"Package Control: Upgrade/Overwrite All Packages"
 			],
 			[
 				"Package Control: in",
@@ -559,134 +560,134 @@
 	},
 	"file_history":
 	[
-		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/inc/postformats/gallery.php",
-		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/inc/languages/ru_RU.po",
-		"/Users/slider/Documents/Projects/Loft/wp-content/plugins/js_composer/include/classes/shortcodes/vc-basic-grid.php",
-		"/Users/slider/Downloads/admin_loft28_2015-01-31.sql",
-		"/Users/slider/Documents/Projects/Loft/wp-content/plugins/additional.php",
-		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/woocommerce/single-product/product-image.php",
-		"/Users/slider/Downloads/admin_loft28_2015-02-01.sql",
-		"/Users/slider/Documents/Projects/Loft/wp-includes/default-filters.php",
-		"/Users/slider/Documents/Projects/Loft/wp-includes/class-wp-embed.php",
-		"/Users/slider/Documents/Projects/Loft/wp-content/plugins/js_composer/include/classes/editors/class-vc-frontend-editor.php",
-		"/Users/slider/Documents/Projects/Loft/wp-content/plugins/js_composer/include/classes/core/class-vc-base.php",
-		"/Users/slider/Documents/Projects/Loft/wp-includes/post-template.php",
-		"/Users/slider/Documents/Projects/Loft/wp-includes/formatting.php",
-		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/inc/excerpts.php",
-		"/Users/slider/Documents/Projects/Loft/index.php",
-		"/Users/slider/Documents/Projects/Loft/wp-config.php",
-		"/Users/slider/Library/Caches/Cleanup At Startup/Transmit/D35BC182-E1F6-400D-B023-3897562E8669/wp-config.php",
-		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/woocommerce/cart/mini-cart.php",
-		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/inc/woocommerce.php",
-		"/Users/slider/Documents/Projects/Loft/wp-content/plugins/woocommerce/templates/cart/mini-cart.php",
-		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/woocommerce/myaccount/my-address.php",
-		"/Users/slider/Documents/Projects/Loft/wp-content/plugins/woocommerce/templates/myaccount/my-address.php",
-		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/woocommerce/single-product/price.php",
-		"/Users/slider/Documents/Projects/Loft/assets/style.css",
-		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/inc/aq_resizer.php",
-		"/Users/slider/Library/Caches/Cleanup At Startup/Transmit/1A40B134-2E6D-4F76-BD7A-5FAF7F28E80D/additional.php",
-		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/inc/languages/en_US.po",
-		"/Users/slider/Documents/Projects/Provance/HTML/sources/html/includes/toolbar.jade",
-		"/Users/slider/Documents/Projects/Provance/HTML/sources/build/plugins.json",
-		"/Users/slider/Documents/Projects/Provance/HTML/sources/build/gulpfile.coffee",
-		"/Users/slider/Documents/Projects/Provance/HTML/sources/css/import/global.styl",
-		"/Users/slider/Documents/Projects/Provance/HTML/sources/css/style.styl",
-		"/Users/slider/Documents/Projects/Provance/HTML/sources/css/import/toolbar.styl",
-		"/Users/slider/Documents/Projects/Provance/HTML/bower_components/jquery/jquery.min.js",
-		"/Users/slider/Documents/Projects/Provance/HTML/bower_components/jquery.bem/jquery.bem.js",
-		"/Users/slider/Documents/Projects/Provance/HTML/sources/html/includes/header.jade",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/menu/side/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/fm_text/footer.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/php_interface/init.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/include/footer.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/include/fix_items.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/include/product.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/sources/css/import/catalog.styl",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/sale.basket.basket.line/.default/ajax_template.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/news.list/achievements/result_modifier.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/include/footer.php",
 		"/Users/slider/Documents/Projects/Marconi/HTML/sources/css/import/global.styl",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.element/.default/result_modifier.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/log.txt",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/include/basket.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/menu/toolbar/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/menu/social/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/menu/catalog/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/sale.basket.basket.line/.default/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/news.list/news/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/news.list/map/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/news.list/lookbook/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/news.list/colors/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/news.list/available/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/news.list/about/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.element/.default/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/sources/css/import/product.styl",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/highloadblock.list/brands/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/bitrix/catalog.section.list/.default/result_modifier.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/bitrix/catalog.section.list/.default/.parameters.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/bitrix/catalog.section.list/.default/style.css",
 		"/Users/slider/Documents/Projects/Marconi/HTML/sources/css/import/toolbar.styl",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/sale.basket.basket.line/.default/script.js",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/include/header.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/sale.basket.basket.line/.default/ajax.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/bitrix/catalog.element/.default/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.smart.filter/.default/result_modifier.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/import/index.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/sources/js/script.coffee",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/about/achievements/index.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/news.list/achievements/template.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/sources/js/include/_global.coffee",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/about/.header.menu.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/about/showroom/index.php",
 		"/Users/slider/Documents/Projects/Marconi/HTML/sources/build/gulpfile.coffee",
 		"/Users/slider/Documents/Projects/Marconi/HTML/sources/build/plugins.json",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/news.list/available/result_modifier.php",
-		"/Users/slider/Downloads/rez_v_11/products.xml",
-		"/Users/slider/Downloads/counts_retail_1.xml",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/bitrix/catalog.element/.default/result_modifier.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.section/.default/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/sources/css/import/stores.styl",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.bigdata.products/.default/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/element.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/product.html",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/bitrix/catalog.element/.default/template2.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/bitrix/catalog.element/.default/script.js",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/section.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/catalog.smart.filter/component.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/iblock/lib/propertyindex/storage.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.viewed.products/.default/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/include/product_modifier.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/bitrix/catalog.element/.default/component_epilog.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.viewed.products/.default/script.js",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.element/.default/script.js",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/news.list/colors/result_modifier.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.viewed.products/.default/result_modifier.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/bitrix/catalog.element/.default/functions.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/sources/css/style.styl",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/bitrix/catalog.element/.default/style.css",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/bitrix/catalog.element/.default/.parameters.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/catalog/index.php",
-		"/Users/slider/Documents/Projects/Archive/Horses/HTML/public_html/local/templates/kshve/components/bitrix/news.detail/news/template.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/bower.json",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/showroom/index.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/about/index.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/include/header_italbags.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/.toolbar.menu.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/sources/js/include/news.coffee",
 		"/Users/slider/Documents/Projects/Marconi/HTML/sources/css/import/news.styl",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/catalog.viewed.products/class.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.bigdata.products/.default/result_modifier.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.viewed.products/.default/style.css",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.viewed.products/.default/.parameters.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.bigdata.products/.default/component_epilog.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.bigdata.products/.default/.parameters.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.bigdata.products/.default/style.css",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.section/.default/result_modifier.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/catalog.bigdata.products/templates/.default/template.php",
-		"/Users/slider/Downloads/rez_v_11/prices.xml",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/include/fix_filter.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/import/upload/prices.xml",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.smart.filter/.default/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/lookbook/index.php",
-		"/Users/slider/Library/Caches/Cleanup At Startup/Transmit/83ED3248-81C9-4A1F-BC00-8223CF0D672F/init.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/faq/index.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/news.list/news/template.php",
 		"/Users/slider/Documents/Projects/Marconi/HTML/sources/css/import/lookbook.styl",
-		"/Users/slider/Library/Caches/Cleanup At Startup/Transmit/82E4F51F-2173-4455-B808-24925C09A063/index.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.section/.default/functions.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/stores/index.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/.toolbar.menu.php",
-		"/Users/slider/Library/Caches/Cleanup At Startup/Transmit/72652CA1-4AF7-4B4D-AB24-60BCC72F0041/index.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/bitrix/catalog.section.list/.default/template.php",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.section.list/lookbook/template.php",
-		"/Users/slider/Downloads/rez_v_11/counts_wholesale.xml",
-		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/news.list/map/result_modifier.php",
-		"/Users/slider/Library/Caches/TemporaryItems/shop_1.csv"
+		"/Users/slider/Documents/Projects/Marconi/HTML/sources/css/import/about.styl",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/about/requisites/index.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/news.detail/news/template.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/sources/css/import/design.styl",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/news/index.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/contacts/index.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/about/mission/index.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/news/index.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/about/index.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/package.json",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/menu/header/template.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/index.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/import/upload/products_1.xml",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/import/index.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/index.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/markoni.sublime-project",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/include/header_italbags.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/sources/css/import/product.styl",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/php_interface/init.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/sources/js/include/_functions.coffee",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/sale.location.selector.search/.default/template.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.element/.default/template.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/sale/admin/order_detail.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/sources/css/import/basket.styl",
+		"/Users/slider/Documents/Projects/Marconi/HTML/sources/js/include/order.coffee",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/news.list/stores/result_modifier.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/layout/css/frontend.css",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/layout/js/frontend.js",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/local/php_interface/init.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/news.list/stores/template.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/sale.order.ajax/.default/template.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/catalog/index.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.element/.default/result_modifier.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog.element/.default/component_epilog.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/search.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/catalog/.default/bitrix/catalog.search/.default/template.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/include/header.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/menu/toolbar/template.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/sources/css/import/catalog.styl",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/import/upload/products.xml",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/local/templates/fm/header.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/italbags/include/header_fmarconi.php",
+		"/Users/slider/Downloads/italbags - v3/products.xml",
+		"/Users/slider/Downloads/products.xml",
+		"/Users/slider/Downloads/italbags - v3/properties.xml",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/include/header.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/import/upload/counts_wholesale.xml",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/log.txt",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/include/footer.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/sale.basket.basket/.default/template.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/include/fix_filter.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/altasib.geoip/install/components/altasib/altasib.geoip/component.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/altasib.geoip/classes/general/geoip.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php",
+		"/Users/slider/Downloads/angle.svg",
+		"/Users/slider/Downloads/part.svg",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.steps/get.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/local/templates/.default/components/bitrix/main.register/.default/template.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/sources/js/plugins.js",
+		"/Users/slider/Documents/Projects/Marconi/HTML/sources/js/include/product.coffee",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/include/section.php",
+		"/Users/slider/Library/Caches/Cleanup At Startup/Transmit/FC62D786-6ACD-4C13-BE51-EAE04C6D90EA/index.php",
+		"/Users/slider/Library/Caches/Cleanup At Startup/Transmit/CF14D6D0-AAF7-4001-BC40-B2F89617612A/index.php",
+		"/Users/slider/Documents/Projects/Marconi/HTML/public_html/eng/news/index.php",
+		"/Users/slider/Documents/Projects/Loft/wp-config.php",
+		"/Users/slider/Library/Caches/Cleanup At Startup/Transmit/31B38E94-0EC4-4720-80CF-09F7369BCF84/.htaccess",
+		"/Users/slider/Documents/Projects/Loft/wp-content/plugins/revslider/revslider_front.php",
+		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/single.php",
+		"/Users/slider/Downloads/admin_loft28_2015-04-06.sql",
+		"/Users/slider/Documents/Projects/Loft/wp-content/plugins/revslider/rs-plugin/js/jquery.themepunch.revolution.js",
+		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/header.php",
+		"/Users/slider/Documents/Projects/Loft/wp-content/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php",
+		"/Users/slider/Documents/Projects/Loft/wp-content/plugins/woocommerce/includes/admin/meta-boxes/class-wc-meta-box-order-data.php",
+		"/Users/slider/Documents/Projects/Loft/wp-content/plugins/custom-shipping-method.php",
+		"/Users/slider/Documents/Projects/Loft/wp-content/plugins/woocommerce/includes/admin/class-wc-admin-post-types.php",
+		"/Users/slider/Downloads/cdek_calculator/calc_deliv_cdek_php/action_form.php",
+		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/template-contact.php",
+		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/assets/js/app.min.js",
+		"/Users/slider/Documents/Projects/Loft/wp-content/plugins/woocommerce/includes/wc-template-hooks.php",
+		"/Users/slider/Downloads/cdek_calculator/calc_deliv_cdek_php/form.html",
+		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/woocommerce/single-product/add-to-cart/variable.php",
+		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/woocommerce/single-product/product-image.php",
+		"/Users/slider/Documents/Projects/Loft/wp-content/plugins/additional.php",
+		"/Users/slider/Documents/Projects/Loft/wp-content/plugins/woocommerce/includes/admin/meta-boxes/class-wc-meta-box-product-data.php",
+		"/Users/slider/Downloads/cdek_calculator/calc_deliv_cdek_php/CalculatePriceDeliveryCdek.php",
+		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/woocommerce/loop/add-to-cart.php",
+		"/Users/slider/Downloads/Trotzdem_Ja_Zum_Leben/OEBPS/Text/Section0001.xhtml",
+		"/Users/slider/Downloads/Trotzdem_Ja_Zum_Leben.epub",
+		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/vc_templates/thb_thumbnail_gallery.php",
+		"/Users/slider/Documents/Projects/Loft/assets/style_old.css",
+		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/inc/excerpts.php",
+		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/template-showroom.php",
+		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/footer.php",
+		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/inc/misc.php",
+		"/Users/slider/Documents/Projects/Loft/package.json",
+		"/Users/slider/Documents/Projects/Loft/assets/style.css",
+		"/Users/slider/Documents/Projects/Loft/assets/fonts.css",
+		"/Users/slider/Documents/Projects/Loft/gulpfile.coffee",
+		"/Users/slider/Documents/Projects/Loft/Gulpfile.js",
+		"/Users/slider/Library/Containers/it.bloop.airmail2/Data/Library/Application Support/Airmail/andrey.slider@gmail.com_1/AttachmentsNg/CANuL44sS_Vc1=FTRJczEVkxj3RJ=3Je4=oqvzmm7+KdnWvb6Ew@mail.gmail.com/IMG_11181.jpg",
+		"/Users/slider/Downloads/1.html",
+		"/Users/slider/Library/Caches/Cleanup At Startup/Transmit/B72505C7-4AA6-426D-A885-EF908A3C2BA2/detail.php",
+		"/Users/slider/Downloads/GillSans-UltraBold/styles.css",
+		"/Users/slider/Library/Caches/Cleanup At Startup/Transmit/8DED52D0-4C39-4590-AD43-6F40D47F9FAA/user_admin.php",
+		"/Users/slider/Library/Caches/Cleanup At Startup/Transmit/4CDF0758-B1C1-4179-B9D6-45E03A727682/index.php",
+		"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/inc/loop/style2.php"
 	],
 	"find":
 	{
@@ -697,6 +698,21 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix",
+			"/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/altasib.geoip",
+			"/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/statistic",
+			"/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix",
+			"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp",
+			"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/woocommerce",
+			"/Users/slider/Documents/Projects/Loft/wp-content/plugins/woocommerce",
+			"/Users/slider/Documents/Projects/Loft/wp-content/plugins/revslider",
+			"/Users/slider/Documents/Projects/Loft/wp-content/plugins/woocommerce",
+			"/Users/slider/Documents/Projects/Loft/wp-content/plugins/woocommerce/includes",
+			"/Users/slider/Documents/Projects/Loft/wp-content/plugins/woocommerce",
+			"/Users/slider/Documents/Projects/Loft/wp-content/plugins/woocommerce/includes",
+			"/Users/slider/Documents/Projects/Loft/wp-content/plugins/woocommerce",
+			"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp",
+			"/Users/slider/Documents/Projects/Loft/wp-content/themes/north-wp/inc",
 			"/Users/slider/Documents/Projects/Loft/wp-content/",
 			"/Users/slider/Documents/Projects/Loft/wp-includes/",
 			"/Users/slider/Documents/Projects/Loft/wp-include/",
@@ -719,144 +735,167 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
-			"back",
-			"white",
-			"wp_tit",
-			"carousel owl post-carousel",
-			"vc_grid",
-			"owl",
-			"loft.local",
-			"loft28.s0s0.ru",
-			"ft28.s0s0.ru",
-			"//loft.local",
-			"vc_custom_heading",
-			"wptexturize(",
-			"add_filter( 'the_content',",
-			"187",
-			"convert_chars(",
-			"convert_chars",
-			"run_shortcode",
-			"add_filter( 'the_content',",
-			"editableContent",
-			"fixPContent",
-			"add_filter( 'the_content',",
-			":\\\"http://l",
-			"//loft.local",
-			":\\\"http://l",
-			":\\\"http://",
-			":\\\"h",
-			"//loft.local",
-			" loft28.s0s0.ru",
-			"loft.local",
-			"loft28.local",
-			"the_content",
-			"\"",
-			"apply_filters('the_content'",
-			"the_content",
-			"»",
-			"'",
-			"\"",
-			"_e('View Shopping Bag', THB_THEME_NAME)",
-			"side-cart",
-			" _e",
-			"_e",
-			"Subtotal",
-			"edit-address",
-			"carousel",
-			"attribute_pa_color",
-			"variation_id",
-			"'select",
-			"select'",
-			"variation_",
-			"variation_id",
-			"function aq_resize(",
-			"variations",
-			"thumbs",
-			"carousel",
-			"product-gallery",
-			"Back To",
-			"$src_small",
-			"product-thumbnails",
-			"url(../",
-			"url(./layout",
-			"url(/layout",
+			"\n				• ",
+			"livereload",
+			": \"(.*?)\"",
+			": \"^(.*?)\",",
+			"5235",
+			".index",
+			"item",
+			"pointerEventsSupported",
+			"scroll-fix",
+			"CITY",
+			".city",
+			"SOD_STORE_SEND",
+			"initDr",
+			"dropdown",
+			"block",
+			"stores-list",
+			"-list",
+			"stores",
+			"stores-list",
+			"$showStores",
+			"showStores",
+			"findCity",
+			"SectionLocation",
+			"EMAIL",
+			"$arResult['ORDER_PROP']['RELATED']",
+			"small",
+			"showStores",
+			"getOrderDelivery",
+			"SOD_STORE_SEND",
+			"Пункт выдачи",
+			"Пункт выдачи:",
+			"$arResult['NOT_AVAILABLE']",
+			"isset($arResult['MIN_PRICE']['VALUE'])&&intval($arResult['MIN_PRICE']['VALUE'])!=0",
+			"search",
+			"$_REQUEST[\"q\"]",
+			"search",
+			"searchFilter",
+			"svg('logo')",
+			".news",
+			".nav__item:nth-child",
 			"nav",
-			"page",
-			"$facetIndex",
-			"DISABLED",
-			"$arResult",
-			"$facetIndex[$pp][$row[\"VALUE\"]][\"DISABLED\"]",
-			"arrows",
-			"picture",
-			"buy",
+			"\"Y\"",
+			"messa",
+			"\"Y\"",
+			"comming",
+			"sale",
+			"PREVIEW_PICTURE",
+			"$offers[",
+			"$offers",
+			"$products[",
+			"$(window).width()",
+			"$('body').width()",
+			"windowWidth",
+			"$(window).height()",
+			"Sect",
+			"getHighloadElements",
+			"var_dump",
+			"getIBlockElements",
+			"dep",
+			"GetAddr",
+			"cons",
+			"curl_setopt($ch, CURLOPT_RETURNTRANSFER",
+			"curl",
+			"Update",
+			"CCityLookup",
+			"processSearchGetFilter",
+			"CBitrixLocationSelectorSearchComponent",
+			"processSearchGetFilter",
+			"processSearchGetSelect",
+			"processSearchGetFilter",
+			"processSearchGetSelect",
+			"ajax",
+			"search",
+			"Location\\SiteLocationTable",
+			"Location\\",
+			"GetAddr",
+			"message",
+			"Not found",
+			"COOKIE",
+			"PARENT_ID",
+			"'EXPECT_EXACT' => '0',\n    'PREFORMAT' => '1',\n    'SEARCH_BY_PRIMARY' => '1',\n    'LANGUAGE_ID' => 'ru',",
+			"dropdown-block",
+			"TYPE",
+			"FILTER",
+			"PARAMETERS",
+			"Type",
+			"search",
+			"300px",
+			"regis",
+			"coo",
+			"regi",
+			"\";",
+			"123",
+			"targets",
+			"EasyZoom.prototype._onMove",
+			"initZoom",
+			"140",
+			"thb_product_badge",
+			"100px",
+			"onPlayerStateChange",
+			"get_v",
+			"getv",
+			"shipping-calculator-form",
+			"calc_shipping_state",
+			"woocommerce_countries_base_postcode",
+			"show_admin_bar",
+			"display none",
+			"bar",
+			"wpadminbar",
+			"http://loft28.s0s0.ru",
+			"loft28.s0s0.ru",
+			"home",
+			"font-fa",
+			".masonry",
+			".masonry .post blockquote a p",
+			"tp-videolayer",
+			"videolayer",
+			"tp-videolayer",
+			"play",
+			"50px",
+			".product",
 			"product",
-			"SendToBasket",
-			"Basket()",
-			"bask",
-			"cartElement",
-			"setCartBody",
-			"setCartBodyClosure",
-			"refreshCart",
-			"data.sessid",
-			"fixCart",
-			"cartElement.style",
-			"gif",
-			"$notice",
-			"this.$notice",
-			"loadingNotice",
-			"__big",
-			"big",
-			"sub",
-			"SizeForWeb",
-			"2px solid black",
-			"picture",
-			"$item['OFFERS'][0]",
-			"sizes",
-			"description=\"\"(.*?)\"",
-			"$arResult[\"COMBO\"]",
-			"facetIdToPropertyId",
-			"isPropertyId",
-			"$facetIndex",
-			"facetI",
-			"$arResult[\"COMBO\"]",
-			"$arResult[\"FACET_FILTER\"]",
-			"$facetIndex",
-			"facet",
-			"$facet",
-			"$arResult[\"COMBO\"]",
-			"DISABLED",
-			"$allCHECKED",
-			"$arResult[\"COMBO\"]",
-			"$this->facet",
-			"addDictionaryPropertyFilter",
-			"$PID",
-			"PhpToJSObject($arJSParams",
-			"arJSParams",
-			"PAGE_ELEMENT_COUNT",
-			"20",
-			"arJSParams",
-			"ElementID",
-			"4",
-			"script",
-			"strObName",
-			"view",
-			"\"PAGE_ELEMENT_COUNT\"",
-			"$item['PROPERTIES']['PICTURES']['VALUE']",
-			"$this->categories",
-			"addIBlockSection",
-			"SetUrlTemplates",
-			"DETAIL_URL",
-			"DETAIL_PAGE_URL"
+			"display none",
+			"display",
+			"figu",
+			"ul",
+			"ol",
+			" caretakers recieve"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"</li>\n				<li>",
+			": \"*\"",
+			"!$arResult['NOT_AVAILABLE']",
+			"$arResult['NOT_AVAILABLE']",
+			"svg('italbags')",
+			"$this->offers[",
+			"$this->products[",
+			"$('body').width()",
+			"http://loft28.com",
+			"",
+			"this.goldenEdge",
+			"this.silverStamp",
+			"this.bronzeBanner",
+			"this.circumscribedSquare",
+			"this.innerRing",
+			" = ",
+			"case ",
+			"$city",
+			"	",
+			"",
+			"src=\"/old",
+			"src=\"/old/",
+			"/",
 			"loft28.s0s0.ru",
 			"//loft28.s0s0.ru",
 			"loft28.s0s0.ru",
@@ -1014,6 +1053,7 @@
 	{
 		"height": 98.0
 	},
+	"pinned_build_system": "",
 	"project": "acc.sublime-project",
 	"replace":
 	{

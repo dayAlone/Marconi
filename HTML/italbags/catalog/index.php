@@ -2,12 +2,17 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("keywords", "Купить сумку francesco marconi, сумки francesco marconi, сумки франческо маркони, купить францеско маркони, интернет-магазин франческо маркони");
 $APPLICATION->SetTitle("Интернет-магазин сумок и аксессуаров");
-$APPLICATION->SetPageProperty('body_class', "catalog ".(!isset($_REQUEST['v'])?"catalog--ajax":""));
+$APPLICATION->SetPageProperty('body_class', "catalog catalog--italbags ".(!isset($_REQUEST['v'])?"catalog--ajax":""));
 $v = getHighloadElements('categories', 'UF_XML_ID', 'ID');
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:catalog", 
 	".default", 
 	array(
+		"HIDE_PRICE"          => "Y",
+		"HIDE_SIMMILAR"       => "Y",
+		"HIDE_MORE"           => "Y",
+		"SHOW_COUNT"          => "Y",
+
 		"IBLOCK_TYPE"         => "catalog",
 		"IBLOCK_ID"           => "1",
 		"HIDE_NOT_AVAILABLE"  => "Y",
@@ -27,6 +32,7 @@ $v = getHighloadElements('categories', 'UF_XML_ID', 'ID');
 		"ADD_ELEMENT_CHAIN"   => "N",
 		"USE_ELEMENT_COUNTER" => "Y",
 		"USE_FILTER"          => "Y",
+		
 		"FILTER_NAME"         => "",
 		"FILTER_FIELD_CODE" => array(
 			0 => "CODE",
@@ -37,14 +43,14 @@ $v = getHighloadElements('categories', 'UF_XML_ID', 'ID');
 			1 => "",
 		),
 		"FILTER_PRICE_CODE" => array(
-			0 => "RETAIL",
+			0 => "WHOLESALE",
 		),
 		"FILTER_VIEW_MODE"    => "VERTICAL",
 		"ACTION_VARIABLE"     => "action",
 		"PRODUCT_ID_VARIABLE" => "id",
 		"USE_COMPARE"         => "N",
 		"PRICE_CODE" => array(
-			0 => "RETAIL",
+			0 => "WHOLESALE",
 		),
 		"USE_PRICE_COUNT"                  => "N",
 		"SHOW_PRICE_COUNT"                 => "1",

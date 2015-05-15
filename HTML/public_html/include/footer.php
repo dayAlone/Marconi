@@ -92,6 +92,7 @@
 
 <?
 require_once($_SERVER['DOCUMENT_ROOT'].'/include/form.php');
+$APPLICATION->ShowViewContent('footer');
 ?>
 <?if(!$GLOBALS['USER']->GetID()):?>
   <?if($_REQUEST['login']=="yes"):?>

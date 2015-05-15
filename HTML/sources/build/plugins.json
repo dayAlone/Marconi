@@ -39,6 +39,9 @@
    "count":{
       "js":"/countUp.js/countUp.js"
    },
+   "draggableBg":{
+      "js":"/draggableBg/draggable_background.js"
+   },
    "easyzoom":{
       "js":"/easyzoom/src/easyzoom.js"
    },

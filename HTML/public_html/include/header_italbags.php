@@ -14,7 +14,7 @@
                 "MENU_CACHE_TYPE"    => "A",
                 "ROOT_MENU_TYPE"     => "toolbar",
                 "MAX_LEVEL"          => "1",
-                "CLASS"              => "right"
+                "CLASS"              => "center"
                 ),
             false);
         ?>

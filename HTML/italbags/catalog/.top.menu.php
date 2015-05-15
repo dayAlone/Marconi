@@ -1,23 +1,16 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Для нее", 
-		"/catalog/women/", 
-		Array("/catalog/women/"), 
+		"Лучшие продажи", 
+		"/catalog/best-sellers/", 
+		Array("/catalog/best-sellers/"), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Для него", 
-		"/catalog/men/", 
-		Array("/catalog/men/"), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Для путешествий", 
-		"/catalog/baggage/", 
-		Array("/catalog/baggage/"), 
+		"Последние поступления", 
+		"/catalog/new/", 
+		Array("/catalog/new/"), 
 		Array(), 
 		"" 
 	),
@@ -29,8 +22,22 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Stylelook", 
+		"акция 30%", 
+		"/catalog/sale30/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Готовые решения", 
 		"/catalog/stylelook/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Ожидается", 
+		"/catalog/coming/", 
 		Array(), 
 		Array(), 
 		"" 

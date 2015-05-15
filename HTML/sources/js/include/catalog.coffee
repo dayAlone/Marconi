@@ -69,7 +69,10 @@ filterRequest = false
 		url += "&artnumber=#{el.data('artnumber')}"
 	fly block, $('.header .cart')
 	
-	
+	value = parseInt $(el).block('counter-input').val()
+	if value > 0
+		url += "&count=#{value}"
+		
 	$.get url, (data)->
 		if data == 'success'
 			bx_cart_block1.refreshCart({})
@@ -79,6 +82,18 @@ filterRequest = false
 	$('.product').elem('content-text').click ->
 		if $.browser.mobile
 			location.href = $(this).block('picture-frame').attr('href')
+
+	$('.product').elem('counter-input').keydown (e)->
+		if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
+			return false
+	$('.product').elem('counter-trigger').click (e)->
+		value = parseInt $(this).block('counter-input').val()
+		if $(this).hasMod 'plus'
+			value++
+		else
+			value--
+		$(this).block('counter-input').val value
+		e.preventDefault()
 
 	$('.product').elem('icon').off('click').on 'click', (e)->
 		if $(this).hasMod 'zoom'

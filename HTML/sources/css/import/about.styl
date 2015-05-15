@@ -5,32 +5,38 @@
 			background url(/layout/images/italbags-about.jpg) bottom center no-repeat
 	&--requisites
 		.wrap
-			padding-bottom 650px
-			background url(/layout/images/italbags-about.jpg) bottom center no-repeat
+			padding-bottom 400px
+			background url(/layout/images/italbags-requisites.jpg) bottom center no-repeat
 	&--mission
 		.wrap
 			padding-bottom 150px
 			background url(/layout/images/italbags-mission.jpg) center 60px no-repeat
+	&--white
+		.header
+			color white
+			svg
+				path
+					fill white
+			.contacts__text
+				color white
+			a, .cart
+				color white
+				border-line alpha(@color, .3)
+			.nav
+				&__item
+					color white
+					background transparent
+				&__line
+					border-color white
+			.logo
+				background transparent
+				&__line
+					background white
+					
 	&--fmarconi
 		@media (min-width scr_sm)
 			min-height 700px
 		.about	
-			&--white
-				.header
-					color white
-					svg
-						path
-							fill white
-					.contacts__text
-						color white
-					a, .cart
-						color white
-						border-line alpha(@color, .3)
-					.logo
-						background transparent
-						&__line
-							background white
-							
 			&__slider, &__slider.fotorama__stage
 				@media (min-width scr_sm)
 					min-height 700px
@@ -70,10 +76,11 @@
 						@media (min-width scr_sm)
 							padding 35px 50px
 							top 50%
-							top calc(50%+20px)
+							top calc(50% + 20px)
 							left 50%
 							transform translate(-50%, -50%)
-							
+							.about--menu&
+								top calc(50% + 80px)
 						h3
 							
 							text-transform: uppercase
