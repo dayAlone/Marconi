@@ -6553,6 +6553,9 @@ svg g {
   -ms-transform: translateZ(0);
   transform: translateZ(0);
 }
+.product .picture__small--active {
+  border-color: #000 !important;
+}
 @media (min-width: 768px) {
   .product .picture__small {
     width: 100%;
@@ -6562,9 +6565,6 @@ svg g {
 }
 .product .picture__small:last-of-type {
   margin-bottom: 0;
-}
-.product .picture__small--active {
-  border-color: #000;
 }
 .product .colors {
   width: 100%;

@@ -250,6 +250,8 @@
 			margin 0 .5%
 			display inline-block
 			border-collapse: collapse
+			&--active
+				border-color black !important
 			@media (min-width: scr_sm)
 				width 100%
 				display block
@@ -259,8 +261,7 @@
 			transform translateZ(0)
 			&:last-of-type
 				margin-bottom 0
-			&--active
-				border-color black
+			
 	.colors
 		width 100%
 		margin-top 10px
