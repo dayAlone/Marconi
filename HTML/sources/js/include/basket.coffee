@@ -37,7 +37,6 @@ updateTimer = false
 		e.preventDefault()
 	$('.basket form .dropdown').elem('item').on 'click', (e)->
 		$(this).block().siblings('input').val $(this).text()
-		console.log 1
 
 	$('.basket .bx-ui-sls-fake').attr 'placeholder', 'город *'
 
@@ -46,9 +45,10 @@ updateTimer = false
 		id   = $(this).data 'id'
 		row.css
 			maxHeight: 0
-		url = "/include/basket.php?action=delete&id=#{id}"
+		url = "/include/basket.php?a=delete&id=#{id}"
 		$.get url, (data)->
-			if data == 'success'
+			data = $.parseJSON data
+			if data.result == 'success'
 				getOrderDate()
 		row.on end , ->
 			$(this).remove()
@@ -63,7 +63,21 @@ updateTimer = false
 		updateTimer = delay 1000, ->
 			id    = el.data 'id'
 			count = el.val()
-			url   = "/include/basket.php?action=update&id=#{id}&count=#{count}"
+			url   = "/include/basket.php?a=update&id=#{id}&count=#{count}"
 			basketCalc el
-			$.get url, ->
+			$.get url, (data)->
+				data = $.parseJSON data
+				if data.result == 'success'
+					update = false
+					console.log data.items
+					$.each data.items, (key, elem)->
+						row = $("[data-id='#{elem.id}']")
+						sale = row.find('.sale')
+						if sale.data('value') != elem.discount
+							update = true
+							row.data 'price', elem.price
+							sale.data 'value', elem.discount
+							row.find('.sale-value').html elem.percent
+					if update
+						basketCalc el
 				getOrderDate()

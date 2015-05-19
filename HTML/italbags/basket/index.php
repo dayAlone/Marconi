@@ -11,7 +11,7 @@ $APPLICATION->SetTitle('Корзина');
 	<p>В ближайшее время оператор нашего интернет-магазина свяжется с вами для подтверждения заказа</p>
 	<?
 	else:
-		$APPLICATION->SetPageProperty('body_class', "basket");
+		$APPLICATION->SetPageProperty('body_class', "basket catalog--italbags");
 		$basket = $APPLICATION->IncludeComponent("bitrix:sale.basket.basket","",Array(
 		        "OFFERS_PROPS" => array("COLOR_REF"),
 		        "PATH_TO_ORDER" => "/personal/order.php",

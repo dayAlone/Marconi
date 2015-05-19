@@ -48,10 +48,71 @@
 		text-transform: uppercase
 		margin-top 10px
 		font-size 25px
+	
+	&__counter
 	&__big-button
 		min-width 47%
 		margin-right 5%
 		display inline-block
+		@media (min-width: scr_sm)
+			min-width 45%
+			max-width none
+		&--width
+			min-width 70%
+		&--buy
+			max-width 45%
+			@media (max-width: scr_sm)
+				width 100%
+				max-width none
+		
+		
+	&__counter
+		height 33px
+		overflow: hidden
+		text-align: center
+		position relative
+		max-width 45%
+		float: left
+		t opacity
+		& + .product__big-button
+			margin-right 0
+		@media (max-width: scr_sm)
+			max-width none
+		&--disabled
+			pointer-events none
+			opacity 0
+		&-trigger
+			position absolute
+			top 0
+			left 0
+			height 33px
+			width 33px
+			display: block
+			text-align: center
+			color black
+			border 1px solid black
+			font-weight: normal
+			line-height 35px
+			t all
+			font-size 15px
+			&--plus
+				line-height 37px
+				left auto
+				right 0
+			&:hover
+				color red
+				border-color red
+		&-input
+			text-align: center
+			font-size 14px
+			line-height 35px
+			border 0
+			font-weight: normal
+			width 99%
+			height 33px
+			border-top 1px solid black
+			border-bottom 1px solid black
+	&__big-button
 		background black
 		text-transform: uppercase
 		font-weight bold
@@ -66,15 +127,12 @@
 		margin-bottom 20px
 		max-width: 45%;
 		@media (min-width: scr_sm)
-			min-width 45%
-			max-width none
 			font-size 12px
 		&--simmilar
 			float right
 			@media (min-width: scr_sm)
 				float none
-		&--width
-			min-width 70%
+		
 		&--disabled
 			pointer-events none
 			color black
@@ -83,11 +141,8 @@
 				max-width none
 		&:focus, &:active
 			color white
-		&--buy
-			max-width 45%
-			@media (max-width: scr_sm)
-				width 100%
-				max-width none
+		&--available
+			max-width none
 		&--border
 			color black
 			background white

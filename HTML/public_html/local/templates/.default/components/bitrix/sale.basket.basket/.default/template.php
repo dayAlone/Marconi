@@ -53,7 +53,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			        		$sections[$item['CATALOG']['SECTION_ID'][0]] = $section;
 			        	endif;
 			        ?>
-			        <div class="basket__item" data-id="<?=$item['ID']?>">
+			        <div class="basket__item" data-id="<?=$item['ID']?>" data-discount="<?=$item['DISCOUNT_PRICE_PERCENT']?>">
 			          <div class="row">
 			            <div class="col-xs-4 left">
 			              <a href="/catalog/<?=$section['CODE']?>/<?=preg_replace($remove, '', $item['CATALOG']['CODE'])?>/"><div style="background-image: url(<?=($item['PREVIEW_PICTURE_SRC']?$item['PREVIEW_PICTURE_SRC']:'/layout/images/no-image.jpg')?>)" class="basket__picture <?=($item['PREVIEW_PICTURE_SRC']?'':'basket__picture--no-image')?>"></div></a>
@@ -61,7 +61,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			            </div>
 			            <div class="col-md-2 visible-md visible-lg"><?=$item['PROPERTY_ARTNUMBER_VALUE']?></div>
 			            <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>"><nobr><strong class="sale" data-value="<?=$item['DISCOUNT_PRICE']?>"><?=number_format($item['FULL_PRICE'], 0, ' ', ' ')?> ₷</strong></nobr></div>
-			            <?=($showSale?'<div class="col-xs-2 col-md-1"> <strong>'.round($item["DISCOUNT_PRICE_PERCENT_FORMATED"]).'%</strong></div>':'')?>
+			            <?=($showSale?'<div class="col-xs-2 col-md-1"> <strong class="sale-value">'.round($item["DISCOUNT_PRICE_PERCENT_FORMATED"]).'%</strong></div>':'')?>
 			            <div class="col-xs-2 col-md-1"> 
 			              <input value="<?=$item['QUANTITY']?>" class="basket__count" data-id="<?=$item['ID']?>" data-price="<?=$item['PRICE']?>">
 			            </div>

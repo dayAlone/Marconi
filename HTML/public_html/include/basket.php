@@ -4,8 +4,8 @@
 	CModule::IncludeModule("sale");
 	global $APPLICATION;
 	
-	$action = $_GET['action'];
-	
+	$action = $_GET['a'];
+	$result = 'fail';
 	switch ($action):
 		case 'add':
 				$props = array();
@@ -20,7 +20,7 @@
 				$id = intval($_GET['id']);
 				$result = Add2BasketByProductID($id, $count, false, $props);
 				if(intval($result)>0)
-					echo 'success';
+					$result = 'success';
 
 			break;
 		case 'update':
@@ -29,15 +29,37 @@
 				if( $id > 0 && $count > 0):
 			        $arFields = array("QUANTITY" => $count);
 			        if(CSaleBasket::Update($id, $arFields))
-			            echo 'success';
+			            $result = 'success';
 			    endif;
 			break;
 		case 'delete':
 				$id    = intval($_GET['id']);
 				if( $id > 0):
 			        if(CSaleBasket::Delete($id))
-			            echo 'success';
+			            $result = 'success';
 			    endif;
 			break;
 	endswitch;
+	if(in_array($action, array('update','delete')) && $result == 'success'):
+		ob_start();
+			$basket = $APPLICATION->IncludeComponent("bitrix:sale.basket.basket","json", Array(
+					"OFFERS_PROPS"                  => array("COLOR_REF"),
+					"PATH_TO_ORDER"                 => "/personal/order.php",
+					"HIDE_COUPON"                   => "N",
+					"COLUMNS_LIST"                  => Array("NAME", "PROPERTY_ARTNUMBER", "PROPERTY_BRAND", "PRICE", "DISCOUNT", "QUANTITY", "DELETE"),
+					"PRICE_VAT_SHOW_VALUE"          => "Y",
+					"COUNT_DISCOUNT_4_ALL_QUANTITY" => "N",
+					"USE_PREPAYMENT"                => "N",
+					"QUANTITY_FLOAT"                => "N",
+					"SET_TITLE"                     => "N",
+					"ACTION_VARIABLE"               => "action"
+			    )
+			);
+			$data = ob_get_contents();
+		ob_end_clean();
+		echo $data;
+	else:
+		echo $result;
+		endif;
+
 ?>

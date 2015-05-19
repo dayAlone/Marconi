@@ -62,7 +62,7 @@ filterRequest = false
 	id     = el.data 'id'
 	block  = el.block()
 	
-	url    = "/include/basket.php?action=add&id=#{id}"
+	url    = "/include/basket.php?a=add&id=#{id}"
 	if el.data('size')
 		url += "&size=#{el.data('size')}"
 	if el.data('artnumber')
@@ -83,10 +83,10 @@ filterRequest = false
 		if $.browser.mobile
 			location.href = $(this).block('picture-frame').attr('href')
 
-	$('.product').elem('counter-input').keydown (e)->
+	$('.product').elem('counter-input').off('keydown').on 'keydown', (e)->
 		if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
 			return false
-	$('.product').elem('counter-trigger').click (e)->
+	$('.product').elem('counter-trigger').off('click').on 'click', (e)->
 		value = parseInt $(this).block('counter-input').val()
 		if $(this).hasMod 'plus'
 			value++

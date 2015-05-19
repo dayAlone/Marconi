@@ -15,8 +15,8 @@ global $USER;
 		    <div class="product__artnumber">Арт. <?=$item['PROPERTIES']['ARTNUMBER']['VALUE']?></div>
 		    <? if($arParams['SHOW_PRICE']):?>
 			    <div class="product__price">
-			    <? if(isset($item['MIN_PRICE']['VALUE'])&&intval($item['MIN_PRICE']['VALUE'])!=0): ?>
-			      <?=number_format($item['MIN_PRICE']['VALUE'], 0, '.', ' ')?> ₷
+			    <? if(isset($item['PRICE'])&&intval($item['PRICE'])!=0): ?>
+			      <?=number_format($item['PRICE'], 0, '.', ' ')?> ₷
 			    <? else: ?>
 			      <small>Товара нет в наличии</small>
 			    <? endif; ?>
@@ -37,7 +37,7 @@ global $USER;
 	      <a href="#" class="product__icon product__icon--zoom" data-pictures='<?=json_encode($item['PROPERTIES']['PICTURES']['VALUE'])?>'><?=svg('zoom')?></a>
 	    <?endif;?>
 	    
-	    <?if(isset($item['MIN_PRICE']['VALUE']) && $arParams['SHOW_PRICE']):?>
+	    <?if(isset($item['PRICE']) && $arParams['SHOW_PRICE']):?>
 	    <a href="#" class="product__icon product__icon--cart <?=(count($item['OFFERS'])>0?"product__icon--trigger":"")?>" data-id="<?=$item['ID']?>" data-artnumber="<?=$item['PROPERTIES']['ARTNUMBER']['VALUE']?>"><?=svg('cart')?></a>
 	    <?endif;?>
 	    <?

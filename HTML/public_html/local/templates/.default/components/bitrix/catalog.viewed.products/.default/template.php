@@ -15,7 +15,7 @@ if (!empty($arResult['ITEMS']))
 
 	?>
 	<div data-title="вы уже смотрели" class="catalog__divider catalog__divider--title"></div>
-	<div class="catalog catalog--full-width catalog--one-line">
+	<div class="catalog catalog--full-width catalog--one-line <?=(SITE_ID!='s1'?"catalog--italbags":"")?>">
         <div class="row">
 	<?
 	$i = 0;

@@ -7,7 +7,7 @@
 			if $('.sizes').length > 0
 				id = $('.sizes .dropdown').data 'id'
 				param_size = $('.sizes .dropdown__text').text()
-			url = "/include/basket.php?action=add&id=#{id}"
+			url = "/include/basket.php?a=add&id=#{id}"
 			if param_size
 				url += "&size=#{param_size}"
 			
@@ -16,6 +16,11 @@
 			fly $('.picture'), $('.header .cart')
 			$(this).mod('border', true).mod('disabled', true).on end, ->
 				$(this).text('Товар в корзине')
+
+			value = parseInt $(this).block('counter-input').val()
+			if value > 0
+				$(this).block('counter').mod 'disabled', true
+				url += "&count=#{value}"
 
 			$.get url, (data)->
 				if data == 'success'

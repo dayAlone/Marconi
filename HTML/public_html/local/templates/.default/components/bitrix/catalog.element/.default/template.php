@@ -125,9 +125,14 @@ $this->EndViewTarget();
 	  <div class="product__description">
 	    <div class="row">
 	      <div class="col-sm-6 col-md-12 col-lg-6">
+	      <?if(SITE_ID == 's1'):?>
 	      	<span class="product__type"><?=$arResult['PROPERTIES']['NOTE_SHORT']['VALUE']?></span>
 	        <h1 class="product__title"><?=str_replace($arResult['BRANDS'][$props['BRAND']['VALUE']], $arResult['BRANDS'][$props['BRAND']['VALUE']]. " " . $arResult['PROPERTIES']['ARTNUMBER']['VALUE'], str_replace($arResult['PROPERTIES']['NOTE_SHORT']['VALUE'], '', $arResult['NAME']))?></h1>
-	        <?
+	      <?else:
+	      	?>
+			<h1 class="product__title no-margin-top"><?=$props['NOTE_SHORT']['VALUE']?> <?=$arResult['BRANDS'][$props['BRAND']['VALUE']]?></h1>
+	      <?endif;?>
+	      <?
 	        	global $arFilter;
 	        	$arFilter = array('PROPERTY_ARTNUMBER' => $props['ARTNUMBER']['VALUE']);
 	        	$APPLICATION->IncludeComponent("bitrix:news.list", "colors", 
@@ -185,11 +190,11 @@ $this->EndViewTarget();
 	      </div>
 	      <div class="col-sm-6 col-md-12 col-lg-6">
 	        <div class="props">
-	        <? 
+	        <?
 	        $values = array(
-				'артикул'  => $props['ARTNUMBER']['VALUE'],
+				'артикул'  => (SITE_ID == 's1' ? $props['ARTNUMBER']['VALUE'] : "<strong>".$props['ARTNUMBER']['VALUE'] . " " . str_replace( array($props['NOTE_SHORT']['VALUE'], $arResult['BRANDS'][$props['BRAND']['VALUE']]), '',$item['NAME']))."</strong>",
 				'бренд'    => $arResult['BRANDS'][$props['BRAND']['VALUE']],
-				'линия'    => $arResult['TRANDELINES'][$props['TRANDELINE']['VALUE']],
+				'линия'    => str_replace('Линия ', '', $arResult['TRADELINES'][$props['TRADELINE']['VALUE']]),
 				'цвет'     => $props['COLOR']['VALUE'],
 	        	'материал' => $props['MATERIAL']['VALUE'],
 	        	'размер'   => $props['SIZE']['VALUE'],
@@ -209,6 +214,7 @@ $this->EndViewTarget();
 	        	$i++;
 	        endforeach;
 	        ?>
+	        <?if(SITE_ID == 's1'):?>
 	          <div class="props__item props__item--price">
 	            <div class="props__name">цена</div>
 	            <div class="props__value">
@@ -225,17 +231,16 @@ $this->EndViewTarget();
 			    <? endif; ?>
 	            </div>
 	          </div>
+	        <? endif; ?>
 	        </div>
 	      </div>
 	    </div>
 	    <div class="row">
 	      <div class="col-lg-6 center-lg">
-
-		      <?
+			  <?
 		      $frame = $this->createFrame()->begin();
 				if(!$arResult['NOT_AVAILABLE']): 
 					$arBasketItems = array();
-
 					$dbBasketItems = CSaleBasket::GetList(
 				        array(
 				                "NAME" => "ASC",
@@ -258,6 +263,13 @@ $this->EndViewTarget();
 					foreach ($item['OFFERS'] as $offer)
 						if(in_array($offer['ID'], $arBasketItems))
 							$inCart = true;
+					if(SITE_ID != 's1'):?>
+						<div class="product__counter <?=($inCart?"product__counter--disabled":"")?>">
+				    		<a href="#" class="product__counter-trigger product__counter-trigger--minus">-</a>
+				    		<input type="text" class="product__counter-input" value="1">
+				    		<a href="#" class="product__counter-trigger product__counter-trigger--plus">+</a>
+				    	</div>
+					<?endif;
 					if($inCart):?>
 		      		<a href="#" class="product__big-button product__big-button--border product__big-button--disabled" data-id="<?=$item['ID']?>">Товар в корзине</a>
 		      		<?else:?>
@@ -265,13 +277,13 @@ $this->EndViewTarget();
 		      	<? 
 		      	endif;
 		      	?>
-		      	<a href="#"  data-id="<?=$item['ID']?>" class="hidden-xs product__big-button product__big-button--simmilar no-margin-right"><?=(in_array($item['ID'],json_decode($_COOKIE['simmilar']))?"удалить":"сравнить")?></a>
+		      	<?if(SITE_ID == 's1'):?><a href="#"  data-id="<?=$item['ID']?>" class="hidden-xs product__big-button product__big-button--simmilar no-margin-right"><?=(in_array($item['ID'],json_decode($_COOKIE['simmilar']))?"удалить":"сравнить")?></a><?endif;?>
 		      	<script>initBigButton()</script>
 		      	<?
 		      $frame->beginStub();
 		      	if(isset($item['MIN_PRICE']['VALUE'])&&intval($item['MIN_PRICE']['VALUE'])!=0): ?>
 		      		<a href="#" class="product__big-button product__big-button--buy" data-id="<?=$item['ID']?>">В корзину</a>
-		      		<a href="#"  data-id="<?=$item['ID']?>" class="hidden-xs product__big-button product__big-button--simmilar no-margin-right">сравнить</a>
+		      		<?if(SITE_ID == 's1'):?><a href="#"  data-id="<?=$item['ID']?>" class="hidden-xs product__big-button product__big-button--simmilar no-margin-right">сравнить</a><?endif;?>
 		      	<? endif; 
 		      	endif; 
 		      $frame->end();
@@ -279,10 +291,12 @@ $this->EndViewTarget();
 	      	
 	      </div>
 	      <div class="col-lg-6">
-	      <? if(!isset($CITY['CLOSED'])):?>
-	      	<a href="#available" data-toggle="modal" data-target="#available" class="product__big-button product__big-button--border">наличие в магазинах</a>
-	      <?endif;?>
+	      <?if(SITE_ID == 's1'):?>
+			<? if(!isset($CITY['CLOSED'])):?>
+				<a href="#available" data-toggle="modal" data-target="#available" class="product__big-button product__big-button--border product__big-button--available">наличие в магазинах</a>
+			<?endif;?>
 	        <div class="social-likes social-likes_notext"><div class="facebook"></div><div class="twitter"></div><div class="vkontakte"></div><div class="odnoklassniki"></div></div>
+	      <?endif;?>
 	      </div>
 	    </div>
 	    <div class="tabs">

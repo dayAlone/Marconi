@@ -123,6 +123,11 @@ if ($ElementID > 0)
 	"bitrix:catalog.viewed.products", 
 	".default", 
 	array(
+		"HIDE_PRICE"                      => $arParams['HIDE_PRICE'],
+		"HIDE_SIMMILAR"                   => $arParams['HIDE_SIMMILAR'],
+		"HIDE_MORE"                       => $arParams['HIDE_MORE'],
+		"SHOW_COUNT"                      => $arParams['SHOW_COUNT'],
+		
 		"LINE_ELEMENT_COUNT" => "5",
 		"TEMPLATE_THEME" => "blue",
 		"DETAIL_URL" => "/catalog/#SECTION_CODE#/#ELEMENT_CODE#/",
@@ -201,13 +206,17 @@ if ($ElementID > 0)
 );
 	?>
 	<div data-title="francesco marconi рекомендует" class="catalog__divider catalog__divider--title"></div>
-	<div class="catalog catalog--full-width catalog--one-line">
+	<div class="catalog catalog--full-width catalog--one-line <?=(SITE_ID!='s1'?"catalog--italbags":"")?>">
 	<?
 	global $colorFilter;
 	$APPLICATION->IncludeComponent(
 		"bitrix:catalog.section",
 		"",
 		array(
+			"HIDE_PRICE"                      => $arParams['HIDE_PRICE'],
+			"HIDE_SIMMILAR"                   => $arParams['HIDE_SIMMILAR'],
+			"HIDE_MORE"                       => $arParams['HIDE_MORE'],
+			"SHOW_COUNT"                      => $arParams['SHOW_COUNT'],
 			'HIDE_TOOLBAR' => "Y",
 			"IBLOCK_TYPE"                     => $arParams["IBLOCK_TYPE"],
 			"IBLOCK_ID"                       => $arParams["IBLOCK_ID"],

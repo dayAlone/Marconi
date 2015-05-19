@@ -42,6 +42,15 @@ foreach ($arResult['ITEMS'] as &$item):
 	$small = CFile::ResizeImageGet(CFile::GetFileArray($item['PREVIEW_PICTURE']['ID']), Array("width" => 400, "height" => 400), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 	$item['PREVIEW_PICTURE']['SRC'] = $small['src'];
 
+	// Цена
+	if(intval($item['MIN_PRICE']['VALUE']) > 0):
+		if(SITE_ID == 's1'):
+			$item['PRICE'] = $item['MIN_PRICE']['VALUE'];
+		else:
+			$item['PRICE'] = $item['MIN_PRICE']['DISCOUNT_VALUE'];
+			endif;
+		endif;
+
 endforeach;
 
 $raw = CFile::GetList(array(), array('@ID'=>implode($images,',')));
