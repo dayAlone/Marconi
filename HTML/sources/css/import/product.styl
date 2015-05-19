@@ -48,36 +48,22 @@
 		text-transform: uppercase
 		margin-top 10px
 		font-size 25px
-	
-	&__counter
-	&__big-button
-		min-width 47%
-		margin-right 5%
-		display inline-block
-		@media (min-width: scr_sm)
-			min-width 45%
-			max-width none
-		&--width
-			min-width 70%
-		&--buy
-			max-width 45%
-			@media (max-width: scr_sm)
-				width 100%
-				max-width none
-		
-		
 	&__counter
 		height 33px
 		overflow: hidden
 		text-align: center
 		position relative
-		max-width 45%
 		float: left
 		t opacity
+		min-width 47%
+		margin-right 5%
+		display inline-block
+		@media (min-width: scr_sm)
+			min-width 45%
+		@media (min-width: scr_md)
+			max-width 45%
 		& + .product__big-button
 			margin-right 0
-		@media (max-width: scr_sm)
-			max-width none
 		&--disabled
 			pointer-events none
 			opacity 0
@@ -126,8 +112,20 @@
 		padding 0 15px
 		margin-bottom 20px
 		max-width: 45%;
+		min-width 47%
+		margin-right 5%
+		display inline-block
 		@media (min-width: scr_sm)
+			min-width 45%
+			max-width none
 			font-size 12px
+		&--width
+			min-width 70%
+		&--buy
+			max-width 45%
+			@media (max-width: scr_sm)
+				width 100%
+				max-width none
 		&--simmilar
 			float right
 			@media (min-width: scr_sm)
