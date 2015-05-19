@@ -239,7 +239,7 @@ $this->EndViewTarget();
 	      <div class="col-lg-6 center-lg">
 			  <?
 			  global $USER;
-			  if(SITE_ID == 's1' || $USER->IsAuthorized())
+			  if(SITE_ID == 's1' || $USER->IsAuthorized()):
 			      $frame = $this->createFrame()->begin();
 					if(!$arResult['NOT_AVAILABLE']): 
 						$arBasketItems = array();
