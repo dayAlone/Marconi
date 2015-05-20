@@ -27,6 +27,7 @@ $APPLICATION->SetTitle('Новости');
 				array(
 					"IBLOCK_ID"      => 4,
 					"NEWS_COUNT"     => "15",
+					"CACHE_NOTES"    => "fmarconi",
 					"PARENT_SECTION" => $_GLOBALS['currentCatalogSection'],
 					"SORT_BY1"       => "ACTIVE_FROM",
 					"SORT_ORDER1"    => "DESC",
