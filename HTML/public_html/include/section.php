@@ -4,7 +4,7 @@
 	if(isset($_REQUEST['ELEMENT_CODE'])||isset($params['NOEMPTY'])):
 		$obCache       = new CPHPCache();
 		$cacheLifetime = 86400; 
-		$cacheID       = $params['CODE'].'_'.$_REQUEST['ELEMENT_CODE']; 
+		$cacheID       = $params['CODE'].'_'.$_REQUEST['ELEMENT_CODE']."_".SITE_ID; 
 		$cachePath     = '/'.$cacheID;
 
 		if( $obCache->InitCache($cacheLifetime, $cacheID, $cachePath) ):
