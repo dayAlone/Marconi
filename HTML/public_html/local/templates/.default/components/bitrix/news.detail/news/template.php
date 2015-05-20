@@ -21,8 +21,8 @@ $item = $arResult;
         ?>
         <img src="<?=CFile::GetPath($pic)?>">
         <?
-        if(isset($item['PROPERTIES']['PICTURES']['VALUE']['DESCRIPTION'][$k])):?>
-        <p><?=$item['PROPERTIES']['PICTURES']['VALUE']['DESCRIPTION'][$k]?></p>
+        if(isset($item['PROPERTIES']['PICTURES']['DESCRIPTION'][$k])):?>
+        <p class="s-margin-top"><?=$item['PROPERTIES']['PICTURES']['DESCRIPTION'][$k]?></p>
         <?
         endif;
         endforeach;
