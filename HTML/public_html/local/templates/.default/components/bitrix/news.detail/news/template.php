@@ -22,7 +22,7 @@ $item = $arResult;
         <img src="<?=CFile::GetPath($pic)?>">
         <?
         if(isset($item['PROPERTIES']['PICTURES']['DESCRIPTION'][$k])):?>
-        <p class="s-margin-top"><?=$item['PROPERTIES']['PICTURES']['DESCRIPTION'][$k]?></p>
+        <p class="s-margin-top no-margin-bottom"><?=htmlentities($item['PROPERTIES']['PICTURES']['DESCRIPTION'][$k])?></p>
         <?
         endif;
         endforeach;
