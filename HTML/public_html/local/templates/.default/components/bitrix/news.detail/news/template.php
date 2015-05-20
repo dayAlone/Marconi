@@ -30,6 +30,6 @@ $item = $arResult;
     </div>
   </div>
 </div>
-<div class="center">
+<div class="center xl-margin-bottom">
   <a href="/news/" class="news-item__back"><?=svg('arrow')?> вернуться к новостям</a>
 </div>
