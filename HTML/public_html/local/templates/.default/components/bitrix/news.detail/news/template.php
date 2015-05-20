@@ -12,16 +12,21 @@ $item = $arResult;
   <?endif;?>
   <div class="news-item__content news-item__content--open">
     <?=$item['PREVIEW_TEXT']?>
-    <?if(isset($item['PREVIEW_PICTURE']['SRC'])):?>
-      <img src="<?=$item['PREVIEW_PICTURE']['SRC']?>">
-    <?endif;?>
-    <?if(count($item['PROPERTIES']['PICTURES']['VALUE'])>0):
-      foreach ($item['PROPERTIES']['PICTURES']['VALUE'] as $pic):
-      ?>
-      <img src="<?=CFile::GetPath($pic)?>">
-      <?
-      endforeach;
-    endif;?>
+    <div class="center">
+      <?if(isset($item['PREVIEW_PICTURE']['SRC'])):?>
+        <img src="<?=$item['PREVIEW_PICTURE']['SRC']?>">
+      <?endif;?>
+      <?if(count($item['PROPERTIES']['PICTURES']['VALUE'])>0):
+        foreach ($item['PROPERTIES']['PICTURES']['VALUE'] as $k => $pic):
+        ?>
+        <img src="<?=CFile::GetPath($pic)?>">
+        <?
+        if(isset($item['PROPERTIES']['PICTURES']['VALUE']['DESCRIPTION'][$k])):?>
+        <p><?=$item['PROPERTIES']['PICTURES']['VALUE']['DESCRIPTION'][$k]?></p>
+        <?
+        endforeach;
+      endif;?>
+    </div>
   </div>
 </div>
 <div class="center">
