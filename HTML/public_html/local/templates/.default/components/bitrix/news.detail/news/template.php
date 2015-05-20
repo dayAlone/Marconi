@@ -24,6 +24,7 @@ $item = $arResult;
         if(isset($item['PROPERTIES']['PICTURES']['VALUE']['DESCRIPTION'][$k])):?>
         <p><?=$item['PROPERTIES']['PICTURES']['VALUE']['DESCRIPTION'][$k]?></p>
         <?
+        endif;
         endforeach;
       endif;?>
     </div>
