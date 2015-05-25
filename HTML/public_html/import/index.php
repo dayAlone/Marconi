@@ -602,10 +602,12 @@
 				    		$raw = new CIBlockElement;
 				    		if(isset($product['CML2_LINK'])):
 				    			$raw->Update($product['CML2_LINK'], array('ACTIVE'=>'Y'));
+				    			CCatalogProduct::Add(array('ID'=>$id, 'QUANTITY'=>1));
 				    		else:
 				    			$product['ACTIVE'] = "Y";
 				    			$raw->Update($id, array('ACTIVE'=>'Y'));
 				    		endif;
+
 				    		#$this->counter++;
 				    	endif;
 				    	
@@ -621,7 +623,6 @@
 					    		CIBlockElement::SetPropertyValuesEx($updateID, $this->iblocks['products'], array('GENERAL'=>$updateValue));
 					    		$this->counter++;
 					    	endif;
-					    	CCatalogProduct::Update($id, array('QUANTITY'=>1));
 					    endif;
 
 				    	if($this->counts[$id][$store] != $amount):
