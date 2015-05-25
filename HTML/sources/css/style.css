@@ -6663,6 +6663,14 @@ svg g {
   font-size: 15px;
   margin-top: 0;
 }
+.product .props__item--price .props__value del {
+  font-size: 19px;
+  opacity: 0.4;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+  filter: alpha(opacity=40);
+  font-weight: 300;
+  margin-left: 5px;
+}
 .product .props__name {
   background: #fff;
 }

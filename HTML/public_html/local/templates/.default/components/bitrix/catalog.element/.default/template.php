@@ -220,11 +220,25 @@ $this->EndViewTarget();
 					<span>
 						<?
 						if(!$arResult['NOT_AVAILABLE']): ?>
-						  <strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?></strong> ₷
+						  <? if(SITE_ID == 's1'): ?>
+						  	<strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?></strong> ₷
+						  <? else: ?>
+						  	<? if($arResult['MIN_PRICE']['DISCOUNT_VALUE'] > 0 || $props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de"): ?>
+						  		<?if($props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de"):?>
+						  			<strong><?=number_format($arResult['MIN_PRICE']['VALUE']*.7, 0, '.', ' ')?></strong> ₷
+						  		<?else:?>
+						  			<strong><?=number_format($arResult['MIN_PRICE']['DISCOUNT_VALUE'], 0, '.', ' ')?></strong> ₷
+						  		<? endif;?>
+						  		<del><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?> ₷</del>
+							<? else: ?>
+							<strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?></strong> ₷
+							<? endif;?>
+						  <? endif;?>
+						  
 						  <?if($props['SALE']['VALUE']=="77ebb501-85d4-11e4-82e4-0025908101de"):?>
-						  <div class="product__sale">
-						  	<span>Уникальная</span><br><span>цена</span>
-						  </div>
+							  <div class="product__sale">
+							  	<span>Уникальная</span><br><span>цена</span>
+							  </div>
 						  <?endif;?>
 						<? else: ?>
 						  <small><nobr>Товара нет в наличии</nobr></small>
@@ -232,7 +246,25 @@ $this->EndViewTarget();
 					</span>
 					</div>
 				</div>
+				<? if(($arResult['MIN_PRICE']['DISCOUNT_VALUE'] > 0 || $props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de") && SITE_ID != 's1'): ?>
+					<div class="props__item props__item--medium">
+						<div class="props__name">ваша скидка</div>
+						<div class="props__value">
+							<span>
+							<strong>
+								<?if($props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de"):?>
+									30%
+								<?else:?>
+									<?=$arResult['MIN_PRICE']['DISCOUNT_DIFF_PERCENT']?>%
+								<?endif;?>
+							</strong>
+							</span>
+						</div>
+					</div>
+					
+		    	<? endif;?>
 	        </div>
+	        
 	      </div>
 	    </div>
 	    <div class="row">

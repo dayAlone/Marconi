@@ -16,7 +16,7 @@ global $USER;
 		    <? if($arParams['SHOW_PRICE']):?>
 			    <div class="product__price">
 			    <? if(isset($item['PRICE'])&&intval($item['PRICE'])!=0): ?>
-			    	<? if((strlen($item['PROPERTIES']['SALE']['VALUE']) > 0 && $item['PROPERTIES']['SALE']['VALUE'] != "77ebb501-85d4-11e4-82e4-0025908101de") && SITE_ID != 's1'):?>
+			    	<? if($item['PROPERTIES']['SALE']['VALUE'] == "77ebb502-85d4-11e4-82e4-0025908101de" && SITE_ID != 's1'):?>
 						<?=number_format($item['PRICE']*.7, 0, '.', ' ')?> ₷
 						<del><?=number_format($item['PRICE'], 0, '.', ' ')?> ₷</del>
 					<?else:?>
