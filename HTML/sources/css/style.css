@@ -5392,6 +5392,13 @@ svg g {
   font-size: 12px;
   margin-top: 10px;
 }
+.catalog .product__price del {
+  opacity: 0.4;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+  filter: alpha(opacity=40);
+  margin-left: 5px;
+  font-size: 11px;
+}
 .catalog .product__picture {
   -webkit-background-size: contain;
   -moz-background-size: contain;
@@ -6656,8 +6663,7 @@ svg g {
   font-size: 15px;
   margin-top: 0;
 }
-.product .props__name,
-.product .props__value {
+.product .props__name {
   background: #fff;
 }
 .product .props__name {
@@ -6666,8 +6672,12 @@ svg g {
 }
 .product .props__value {
   float: right;
-  padding-left: 5px;
   max-width: 70%;
+  text-align: right;
+}
+.product .props__value > span {
+  background: #fff;
+  padding-left: 5px;
 }
 .product .social-likes {
   display: inline-block;

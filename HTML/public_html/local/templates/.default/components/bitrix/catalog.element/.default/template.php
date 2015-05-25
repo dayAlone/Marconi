@@ -207,31 +207,31 @@ $this->EndViewTarget();
 	        	?>
 	        	<div class="props__item <?=($i==0?"props__item--medium":"")?>">
 					<div class="props__name"><?=$title?></div>
-					<div class="props__value"><?=$text?></div>
+					<div class="props__value"><span><?=$text?></span></div>
 		        </div>
 	        	<?
 	        	endif;
 	        	$i++;
 	        endforeach;
 	        ?>
-	        <?if(SITE_ID == 's1'):?>
-	          <div class="props__item props__item--price">
-	            <div class="props__name">цена</div>
-	            <div class="props__value">
-	            <?
-	            if(!$arResult['NOT_AVAILABLE']): ?>
-			      <strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?></strong> ₷
-			      <?if($props['SALE']['VALUE']=="77ebb501-85d4-11e4-82e4-0025908101de"):?>
-			      <div class="product__sale">
-			      	<span>Уникальная</span><br><span>цена</span>
-			      </div>
-			      <?endif;?>
-			    <? else: ?>
-			      <small><nobr>Товара нет в наличии</nobr></small>
-			    <? endif; ?>
-	            </div>
-	          </div>
-	        <? endif; ?>
+			<div class="props__item props__item--price">
+				<div class="props__name">цена</div>
+					<div class="props__value">
+					<span>
+						<?
+						if(!$arResult['NOT_AVAILABLE']): ?>
+						  <strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?></strong> ₷
+						  <?if($props['SALE']['VALUE']=="77ebb501-85d4-11e4-82e4-0025908101de"):?>
+						  <div class="product__sale">
+						  	<span>Уникальная</span><br><span>цена</span>
+						  </div>
+						  <?endif;?>
+						<? else: ?>
+						  <small><nobr>Товара нет в наличии</nobr></small>
+						<? endif; ?>
+					</span>
+					</div>
+				</div>
 	        </div>
 	      </div>
 	    </div>

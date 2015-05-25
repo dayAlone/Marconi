@@ -482,6 +482,7 @@
 							$offer['PROPERTY_VALUES']['CML2_LINK'] = $exist['ID'];
 							$id = Import::addIBlockElement($this->iblocks['offers'], $offer);
 							if(intval($id)>0):
+								CCatalogProduct::Add(array('ID'=>$id, 'QUANTITY'=>1));
 								$this->counter['offers']++;
 							else:
 								$this->counter['error']++;
@@ -620,6 +621,7 @@
 					    		CIBlockElement::SetPropertyValuesEx($updateID, $this->iblocks['products'], array('GENERAL'=>$updateValue));
 					    		$this->counter++;
 					    	endif;
+					    	CCatalogProduct::Update(array($id, array('QUANTITY'=>1)));
 					    endif;
 
 				    	if($this->counts[$id][$store] != $amount):
