@@ -1731,7 +1731,8 @@ div.pp_default .pp_loaderIcon {
     margin-left: 190px;
   }
 }
-.catalog--italbags .catalog__nav .sub-nav__item {
+.catalog--italbags .catalog__nav .sub-nav__item,
+.s2 .catalog__nav .sub-nav__item {
   font-size: 10px;
   padding: 1px 8px 0;
 }

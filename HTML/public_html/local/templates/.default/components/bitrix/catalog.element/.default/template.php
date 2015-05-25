@@ -67,29 +67,31 @@ $strObName = 'ob'.preg_replace("/[^a-zA-Z0-9_]/", "x", $strMainID);
 $templateData['JS_OBJ'] = $strObName;
 $item = &$arResult;
 $props = &$arResult['PROPERTIES'];
-$this->SetViewTarget('toolbar');
-?>
-<div class="breadcrumbs">
-	<a class="breadcrumbs__brand" href="#" data-href="/catalog/<?=$item['SECTIONS'][0]['CODE']?>/" data-value="<?=$props['BRAND']['VALUE']?>"><?=$arResult['BRANDS'][$props['BRAND']['VALUE']]?></a>
-	<nobr>
-	<span>&rsaquo;</span>
-	<a href="/catalog/<?=$item['SECTIONS'][0]['CODE']?>/"><?=$item['SECTIONS'][0]['NAME']?></a>
-	<?
-		$category = $props['SECTION_'.$arResult['CATEGORIES'][$item['SECTIONS'][1]['XML_ID']]];
-		$data = getFilterStringValues($category['ID'], $item['SECTION']['PATH'][0]['ID']);
+if(SITE_ID == 's1'):
+	$this->SetViewTarget('toolbar');
 	?>
-	</nobr>
-	<nobr>
-	<span>&rsaquo;</span>
-	<a href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/?<?=$data?>&set_filter=Y"><?=$category['NAME']?></a>
-	</nobr>
-	<nobr>
-	<span>&rsaquo;</span>
-	<a href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/?arrFilter_<?=$category['ID']?>_<?=abs(crc32($category['VALUE']))?>=Y&set_filter=Y"><?=$arResult['TYPES'][$category['VALUE']]?></a>
-	</nobr>
-</div>
-<?
-$this->EndViewTarget();
+	<div class="breadcrumbs">
+		<a class="breadcrumbs__brand" href="#" data-href="/catalog/<?=$item['SECTIONS'][0]['CODE']?>/" data-value="<?=$props['BRAND']['VALUE']?>"><?=$arResult['BRANDS'][$props['BRAND']['VALUE']]?></a>
+		<nobr>
+		<span>&rsaquo;</span>
+		<a href="/catalog/<?=$item['SECTIONS'][0]['CODE']?>/"><?=$item['SECTIONS'][0]['NAME']?></a>
+		<?
+			$category = $props['SECTION_'.$arResult['CATEGORIES'][$item['SECTIONS'][1]['XML_ID']]];
+			$data = getFilterStringValues($category['ID'], $item['SECTION']['PATH'][0]['ID']);
+		?>
+		</nobr>
+		<nobr>
+		<span>&rsaquo;</span>
+		<a href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/?<?=$data?>&set_filter=Y"><?=$category['NAME']?></a>
+		</nobr>
+		<nobr>
+		<span>&rsaquo;</span>
+		<a href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/?arrFilter_<?=$category['ID']?>_<?=abs(crc32($category['VALUE']))?>=Y&set_filter=Y"><?=$arResult['TYPES'][$category['VALUE']]?></a>
+		</nobr>
+	</div>
+	<?
+	$this->EndViewTarget();
+endif;
 ?>
 <div class="row">
 	<div class="col-md-7 col-lg-6">

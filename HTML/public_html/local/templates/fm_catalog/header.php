@@ -66,13 +66,13 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
             </form>
           </div>
         </div>
-        <?if($APPLICATION->GetCurDir()!="/catalog/"&&$APPLICATION->GetCurDir()!="/catalog/stylelook/"):?>
+        <?if($APPLICATION->GetCurDir()!="/catalog/" && $APPLICATION->GetCurDir()!="/catalog/stylelook/"):?>
         <div class="col-xs-12 col-md-8 col-md-pull-2">
         <?else:?>
         <div class="col-xs-12 col-md-10 col-md-pull-2 menu-padding">
         <?endif;?>
         	<?php
-            if(!preg_match("/\/catalog\/(.*?)\/(.*?)\//", $APPLICATION->GetCurDir(), $matches)):
+            if(!preg_match("/\/catalog\/(.*?)\/(.*?)\//", $APPLICATION->GetCurDir(), $matches) || SITE_ID != 's1'):
               $APPLICATION->IncludeComponent("bitrix:menu", "catalog", 
               array(
                   "ALLOW_MULTI_SELECT" => "Y",

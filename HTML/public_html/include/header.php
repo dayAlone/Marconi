@@ -25,7 +25,7 @@
     $APPLICATION->ShowViewContent('header');
   ?>
 </head>
-<body class="<?=$APPLICATION->AddBufferContent("body_class");?> <?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"eng":"")?>">
+<body class="<?=$APPLICATION->AddBufferContent("body_class");?> <?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"eng":"")?> <?=SITE_ID?>">
 <div class="wrap">
   <div id="panel"><?$APPLICATION->ShowPanel();?></div>
   <?if(SITE_ID == 's1'):
