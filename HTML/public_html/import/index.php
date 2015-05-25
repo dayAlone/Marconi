@@ -621,7 +621,7 @@
 					    		CIBlockElement::SetPropertyValuesEx($updateID, $this->iblocks['products'], array('GENERAL'=>$updateValue));
 					    		$this->counter++;
 					    	endif;
-					    	CCatalogProduct::Update(array($id, array('QUANTITY'=>1)));
+					    	CCatalogProduct::Update($id, array('QUANTITY'=>1));
 					    endif;
 
 				    	if($this->counts[$id][$store] != $amount):
