@@ -30,6 +30,7 @@ $v = getHighloadElements('categories', 'UF_XML_ID', 'ID');
 				"SET_TITLE"            => "N",
 				"DISPLAY_PREVIEW_TEXT" => "N",
 				"DISPLAY_BOTTOM_PAGER" => "N",
+				"DETAIL"               => "Y",
 				"CLASS"                =>"news--index"
 			),
 			false
