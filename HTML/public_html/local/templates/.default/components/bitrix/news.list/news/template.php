@@ -21,11 +21,11 @@
         <img src="<?=$item['PREVIEW_PICTURE']['SRC']?>">
       <?endif;?>
     
-    <?if(count($item['PROPERTIES']['PICTURES']['VALUE'])>0):
-      foreach ($item['PROPERTIES']['PICTURES']['VALUE'] as $pic):?>
-      <img src="<?=CFile::GetPath($pic)?>">
-      <?endforeach;
-    endif;?>
+      <?if(count($item['PROPERTIES']['PICTURES']['VALUE'])>0):
+        foreach ($item['PROPERTIES']['PICTURES']['VALUE'] as $pic):?>
+        <img src="<?=CFile::GetPath($pic)?>">
+        <?endforeach;
+      endif;?>
     <?endif;?>
     <? if($arParams['ARROW'] == "Y"):?>
     <div class="news-item__divider"></div>

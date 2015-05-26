@@ -20,17 +20,17 @@ $v = getHighloadElements('categories', 'UF_XML_ID', 'ID');
 	<?
 		$APPLICATION->IncludeComponent("bitrix:news.list", "news", 
 			array(
-				"IBLOCK_ID"      => 19,
-				"NEWS_COUNT"     => "1",
-				"SORT_BY1"       => "ACTIVE_FROM",
-				"SORT_ORDER1"    => "DESC",
-				"DETAIL_URL"     => "/news/",
-				"CACHE_TYPE"     => "A",
-				'PROPERTY_CODE'  => array('TITLE', 'PICTURES'),
-				"SET_TITLE"      => "N",
+				"IBLOCK_ID"            => 19,
+				"NEWS_COUNT"           => "1",
+				"SORT_BY1"             => "ACTIVE_FROM",
+				"SORT_ORDER1"          => "DESC",
+				"DETAIL_URL"           => "/news/",
+				"CACHE_TYPE"           => "A",
+				'PROPERTY_CODE'        => array('TITLE', 'PICTURES'),
+				"SET_TITLE"            => "N",
 				"DISPLAY_PREVIEW_TEXT" => "N",
 				"DISPLAY_BOTTOM_PAGER" => "N",
-				"CLASS"=>"news--index"
+				"CLASS"                =>"news--index"
 			),
 			false
 		);
