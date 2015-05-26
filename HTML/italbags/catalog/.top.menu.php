@@ -41,22 +41,6 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
-	),
-	/*
-	
-	Array(
-		"Новости", 
-		"/news/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Интернет-магазин", 
-		"/catalog/", 
-		Array(), 
-		Array(), 
-		"" 
-	)*/
+	)
 );
 ?>
