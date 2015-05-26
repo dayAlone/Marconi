@@ -38,7 +38,7 @@
 <?endforeach;?>
 
 <? if($arParams['DISPLAY_BOTTOM_PAGER'] == "Y"):?>
-<div class="center">
+<div class="center xl-margin-bottom">
   <?=$arResult["NAV_STRING"]?>
 </div>
 <?endif;?>
