@@ -196,7 +196,7 @@ if (!function_exists("cmpBySort"))
 						 	endif;
 				 		break;
 				 		default:
-				 			?><input class="<?=($prop['SIZE1']==2?"small":"")?>" type="text" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=='Y'?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?> value="<?=$prop["VALUE"]?>"><?
+				 			?><input data-sort="<?=$prop['SORT']?>" class="<?=($prop['SIZE1']==2?"small":"")?>" type="text" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=='Y'?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?> value="<?=$prop["VALUE"]?>"><?
 				 			break;
 				 	}
 					endforeach ?>
