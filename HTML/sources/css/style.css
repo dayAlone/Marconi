@@ -3534,11 +3534,19 @@ svg g {
     font-size: 16px;
   }
 }
-.about--fmarconi .about__slider-item-content p {
+.about--fmarconi .about__slider-item-content p,
+.about--fmarconi .about__slider-item-content li {
   font-size: 13px;
 }
-@media (min-width: 768px) {
-  .about--fmarconi .about__slider-item-content p {
+@media (min-width: 768px) and (min-height: 850px) {
+  .about--fmarconi .about__slider-item-content p,
+  .about--fmarconi .about__slider-item-content li {
+    font-size: 14px;
+  }
+}
+@media (min-width: 768px) and (min-height: 850px) {
+  .about--fmarconi .about__slider-item-content p,
+  .about--fmarconi .about__slider-item-content li {
     font-size: 16px;
   }
 }
