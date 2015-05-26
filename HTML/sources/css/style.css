@@ -1184,6 +1184,12 @@ div.pp_default .pp_loaderIcon {
   height: 30px;
   width: 100%;
   text-align: left;
+  background: #d10a32;
+  color: #fff;
+}
+.toolbar .nav > li > ul li > .nav__item:hover,
+.toolbar .nav > li > ul li > .nav__item--active {
+  background: #000;
 }
 .toolbar .nav__item {
   -webkit-transition-property: background;
