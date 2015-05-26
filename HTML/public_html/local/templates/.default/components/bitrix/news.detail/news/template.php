@@ -21,7 +21,7 @@ $item = $arResult;
         ?>
         <img src="<?=CFile::GetPath($pic)?>">
         <?
-        if(isset($item['PROPERTIES']['PICTURES']['DESCRIPTION'][$k])):?>
+        if(strlen($item['PROPERTIES']['PICTURES']['DESCRIPTION'][$k])>0):?>
         <p class="s-margin-top no-margin-bottom"><?=htmlentities($item['PROPERTIES']['PICTURES']['DESCRIPTION'][$k])?></p>
         <?
         endif;
