@@ -14,7 +14,16 @@
 					h  = el.data 'height'
 					width += ($('.lookbook').elem('picture').width() - ($('.lookbook').elem('picture').height()/h)*w)/2
 				return width
-	
+
+	if $('[data-draggable="true"]').length > 0
+		$('[data-draggable="true"]').css
+			'background-position-y': 0
+			'background-position-x': ->
+				return -(3500-$(window).width())/2
+				
+			
+
+
 	$('.header .nav__line').width ($('.header .nav').width() - $('.header .nav__content').width())/2
 
 	$('.picture').elem('big').height ->

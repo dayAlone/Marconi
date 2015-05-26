@@ -48,7 +48,9 @@ $this->setFrameMode(true);
 				<div class="filter <?=(!isset($_COOKIE[$arItem['CODE']]) || $_COOKIE[$arItem['CODE']] == 'Y' ? "filter--open" :"")?> <?=($arItem['OPEN']=='Y'?"active":"")?>" data-code="<?=$arItem['CODE']?>">
 					<div class="filter__title <?=(preg_match("/SECTION_(.*)/", $arItem['CODE'])?"filter__title--big":"")?>"><?=($arItem["PROPERTY_TYPE"] == "N" || isset($arItem["PRICE"])?"Цена":$arItem['NAME'])?> <?=svg('arrow')?></div>
 						<div class="filter__content">
-						<?if($arItem["PROPERTY_TYPE"] == "N" || isset($arItem["PRICE"])):?>
+						<?if($arItem["PROPERTY_TYPE"] == "N" || isset($arItem["PRICE"])):
+							if($arItem["VALUES"]["MIN"]["VALUE"] !=$arItem["VALUES"]["MAX"]["VALUE"]):
+							?>
 							<div class="row">
 			                  <div class="col-xs-6">
 			                    <input
@@ -74,6 +76,9 @@ $this->setFrameMode(true);
 			                  </div>
 			                </div>
 			                <input type="text" name="range" data-min="<?=$arItem["VALUES"]["MIN"]["VALUE"]?>" data-max="<?=$arItem["VALUES"]["MAX"]["VALUE"]?>" data-from="<?=($arItem["VALUES"]["MIN"]["HTML_VALUE"]?$arItem["VALUES"]["MIN"]["HTML_VALUE"]:$arItem["VALUES"]["MIN"]["VALUE"])?>" data-to="<?=($arItem["VALUES"]["MAX"]["HTML_VALUE"]?$arItem["VALUES"]["MAX"]["HTML_VALUE"]:$arItem["VALUES"]["MAX"]["VALUE"])?>">
+			               	<?else:?>
+			               	<div class="center s-line-height xxs-margin-bottom"><small>Фильтр по ценам не доступен</small></div>
+			                <?endif;?>
 						<?else:?>
 							<?foreach($arItem["VALUES"] as $val => $ar):?>
 							<?/*$ar["DISABLED"]? ' lvl2_disabled': ''*/?>
@@ -116,7 +121,7 @@ $this->setFrameMode(true);
 				</div>
 				<?endif;?>
 		<?endforeach;?>
-		</div>
+		<?if($i!=0):?></div><?endif?>
 	</div>
 	<?if($arResult['CHECKED']=="Y"):?>	
 	<a href="<?=$APPLICATION->GetCurDir()?>?del_filter=Y" class="catalog__clear visible-sm-block visible-xs-block">Сбросить фильтр</a>
