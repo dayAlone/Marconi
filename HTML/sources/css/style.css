@@ -3538,7 +3538,7 @@ svg g {
 .about--fmarconi .about__slider-item-content li {
   font-size: 13px;
 }
-@media (min-width: 768px) and (min-height: 850px) {
+@media (min-width: 768px) and (min-height: 550px) {
   .about--fmarconi .about__slider-item-content p,
   .about--fmarconi .about__slider-item-content li {
     font-size: 14px;
