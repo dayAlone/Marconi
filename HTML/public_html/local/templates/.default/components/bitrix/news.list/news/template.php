@@ -20,13 +20,13 @@
       <?if(isset($item['PREVIEW_PICTURE']['SRC'])):?>
         <img src="<?=$item['PREVIEW_PICTURE']['SRC']?>">
       <?endif;?>
-    <?endif;?>
-  
+    
     <?if(count($item['PROPERTIES']['PICTURES']['VALUE'])>0):
       foreach ($item['PROPERTIES']['PICTURES']['VALUE'] as $pic):?>
       <img src="<?=CFile::GetPath($pic)?>">
       <?endforeach;
     endif;?>
+    <?endif;?>
     <? if($arParams['ARROW'] == "Y"):?>
     <div class="news-item__divider"></div>
     <div class="center">
