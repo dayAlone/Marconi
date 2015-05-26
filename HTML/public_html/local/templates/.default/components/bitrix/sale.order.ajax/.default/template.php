@@ -57,7 +57,7 @@ if (!function_exists("cmpBySort"))
 					$showStores = false;
 					$checked    = false;
 					foreach ($arResult["DELIVERY"] as $delivery_id => $delivery):
-						if($delivery['SID'] == 'simple' && SITE_ID != 's1' && $arResult['QUANTITY'] < 30)
+						if($delivery['ID'] == 6 && SITE_ID != 's1' && $arResult['QUANTITY'] < 30)
 							continue;
 						if(isset($delivery['PROFILES'])):
 							foreach ($delivery['PROFILES'] as $profile_id => $arDelivery):
