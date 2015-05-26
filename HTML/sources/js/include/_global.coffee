@@ -167,7 +167,7 @@ $(document).ready ->
 			window.contactsInit = ->
 				center     = new google.maps.LatLng(55.83666078, 37.48988550);
 				mapElement = document.getElementById('contactsMap');
-				mapOptions = {zoom:14,draggable:true,minZoom: 3, zoomControl:true,zoomControlOptions: {style: google.maps.ZoomControlStyle.LARGE,position: google.maps.ControlPosition.LEFT_CENTER},scrollwheel:true,disableDoubleClickZoom:false,disableDefaultUI:true,center:center,styles:window.styles}
+				mapOptions = {zoom:14,draggable:true,scrollwheel: false,minZoom: 3, zoomControl:true,zoomControlOptions: {style: google.maps.ZoomControlStyle.LARGE,position: google.maps.ControlPosition.LEFT_CENTER},scrollwheel:true,disableDoubleClickZoom:false,disableDefaultUI:true,center:center,styles:window.styles}
 				map        = new google.maps.Map(mapElement, mapOptions);
 
 				marker = new google.maps.Marker
