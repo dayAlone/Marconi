@@ -4860,7 +4860,7 @@ svg g {
   text-align: center;
   vertical-align: top;
   margin-left: 5px;
-  margin-top: -3px;
+  margin-top: -4px;
 }
 .catalog__title-description:after {
   content: attr('data-text');
@@ -7825,7 +7825,10 @@ svg g {
 }
 .basket__block input[type="text"].small[name="ORDER_PROP_6"],
 .basket__block input[type="email"].small[name="ORDER_PROP_6"],
-.basket__block textarea.small[name="ORDER_PROP_6"] {
+.basket__block textarea.small[name="ORDER_PROP_6"],
+.basket__block input[type="text"].small[name="ORDER_PROP_24"],
+.basket__block input[type="email"].small[name="ORDER_PROP_24"],
+.basket__block textarea.small[name="ORDER_PROP_24"] {
   margin-left: 0 !important;
 }
 .basket__block input[type="text"].small + .small,

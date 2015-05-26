@@ -138,7 +138,7 @@ if (!function_exists("cmpBySort"))
 				endforeach;?>
 				<div class="props">
 				<?
-
+				uasort($arResult['ORDER_PROP']['RELATED'], "cmpBySort");
 				 foreach ($arResult['ORDER_PROP']['RELATED'] as $prop):
 				 	switch ($prop['CODE']) {
 				 		case "date":
