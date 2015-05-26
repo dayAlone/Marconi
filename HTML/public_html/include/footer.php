@@ -15,6 +15,7 @@
       <div class="col-xs-5 col-sm-3 col-md-3 xs-right md-left lg-center">
         <nobr>
         <?php
+            if(SITE_ID == 's1'):
               $APPLICATION->IncludeComponent("bitrix:menu", "social", 
               array(
                   "ALLOW_MULTI_SELECT" => "Y",
@@ -23,6 +24,7 @@
                   "MAX_LEVEL"          => "1",
                   ),
               false);
+            endif;
           ?>
         </nobr>
       </div>

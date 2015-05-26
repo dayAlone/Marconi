@@ -232,7 +232,6 @@
 			display block
 	.logo
 		&__line
-			
 			background #8797a2
 			opacity .35
 			height 1px
@@ -247,6 +246,9 @@
 				width 100%
 			@media (min-width scr_lg)
 				width 115%
+				&--short
+					width 104%
+					
 			.eng &
 				max-width 100%
 			&--left
@@ -257,7 +259,10 @@
 				float: right
 				margin-right 50%
 				transform translateX(50%)
-			
+			&--short
+				margin-left 0
+				margin-right 0
+				transform none
 		svg
 			width 100%
 			height 30px

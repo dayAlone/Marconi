@@ -272,8 +272,7 @@ endif;
 	    <div class="row">
 	      <div class="col-lg-6 center-lg">
 			  <?
-			  global $USER;
-			  if(SITE_ID == 's1' || $USER->IsAuthorized()):
+			  if(SITE_ID == 's1' || isUserAccept()):
 			      $frame = $this->createFrame()->begin();
 					if(!$arResult['NOT_AVAILABLE']): 
 						$arBasketItems = array();

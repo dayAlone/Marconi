@@ -2,7 +2,6 @@
 /*if (!function_exists('getProduct')):
 	function getProduct($item, $arResult, $arParams)
 	{*/
-global $USER;
 ?>
 <div class="col-xs-6 col-sm-4 col-lg-3">
 	<div class="product <?=(!$arParams['SHOW_PRICE']?"product--without-price":"")?>" data-id="<?=$item["ID"]?>" data-artnumber="<?=$item['PROPERTIES']['ARTNUMBER']['VALUE']?>">

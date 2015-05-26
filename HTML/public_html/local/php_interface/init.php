@@ -18,7 +18,15 @@ function findCityByLocation($ID)
 	$item = $raw->Fetch();
 	return $item;
 }
-
+function isUserAccept() {
+	global $USER;
+	$groups = array(1,5);
+	foreach ($groups as $value) {
+		if(in_array($value, $USER->GetUserGroupArray()))
+			return true;
+	}
+	return false;
+}
 function getOrderProps($ID) {
 	CModule::IncludeModule("sale");
 	CModule::IncludeModule("iblock");

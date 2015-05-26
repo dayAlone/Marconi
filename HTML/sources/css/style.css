@@ -1364,6 +1364,9 @@ div.pp_default .pp_loaderIcon {
   .header .logo__line {
     width: 115%;
   }
+  .header .logo__line--short {
+    width: 104%;
+  }
 }
 .eng .header .logo__line {
   max-width: 100%;
@@ -1385,6 +1388,15 @@ div.pp_default .pp_loaderIcon {
   -o-transform: translateX(50%);
   -ms-transform: translateX(50%);
   transform: translateX(50%);
+}
+.header .logo__line--short {
+  margin-left: 0;
+  margin-right: 0;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -o-transform: none;
+  -ms-transform: none;
+  transform: none;
 }
 .header .logo svg {
   width: 100%;
@@ -4764,6 +4776,30 @@ svg g {
   padding-bottom: 0;
   line-height: 28px;
 }
+.catalog__title .tooltip {
+  text-transform: none;
+}
+.catalog__title-description {
+  display: inline-block;
+  background: #d10a32;
+  height: 25px;
+  width: 25px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 13px;
+  line-height: 31px;
+  color: #fff;
+  text-align: center;
+  vertical-align: top;
+  margin-left: 5px;
+  margin-top: -3px;
+}
+.catalog__title-description:after {
+  content: attr('data-text');
+}
+.catalog__title-description:hover {
+  color: #fff;
+}
 .catalog__footer {
   padding: 19px 0 14px;
   border-bottom: 1px solid #d5dbdf;
@@ -7771,6 +7807,9 @@ svg g {
   .order__total {
     margin-top: 0;
   }
+}
+.s2 .order__total .basket__block {
+  display: none;
 }
 .order__profile {
   margin-bottom: 30px;

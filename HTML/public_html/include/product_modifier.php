@@ -4,7 +4,7 @@ $arResult['TRADELINES'] = getHighloadElements('tradeline', 'UF_XML_ID', 'UF_NAME
 
 $arParams['SHOW_PRICE'] = false;
 
-if(($arParams['HIDE_PRICE'] == "Y" && $USER->IsAuthorized()) || $arParams['HIDE_PRICE'] != "Y")
+if(($arParams['HIDE_PRICE'] == "Y" && isUserAccept()) || $arParams['HIDE_PRICE'] != "Y")
 	$arParams['SHOW_PRICE'] = true;
 
 $images   = array();

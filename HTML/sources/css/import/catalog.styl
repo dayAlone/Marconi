@@ -221,6 +221,25 @@
 		margin-bottom 15px
 		padding-bottom 0
 		line-height 28px
+		.tooltip
+			text-transform: none
+		&-description
+			display inline-block
+			background red
+			height 25px
+			width 25px
+			border-radius 50%
+			font-size 13px
+			line-height 31px
+			color white
+			text-align: center
+			vertical-align: top
+			margin-left 5px
+			margin-top -3px
+			&:after
+				content: attr('data-text')
+			&:hover
+				color white
 	&__footer
 		padding 19px 0 14px
 		border-bottom 1px solid #d5dbdf

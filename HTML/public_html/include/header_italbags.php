@@ -2,9 +2,7 @@
   <div class="container toolbar__desktop">
     <div class="row">
       <div class="visible-lg col-lg-2">
-      <?if($APPLICATION->GetCurDir() == '/'):?>
         <a href="tel:<?=preg_replace('/[^\dx+]/i', '', $CITY['PHONE'])?>" class="toolbar__number"><?=svg('phone')?><?=$CITY['PHONE']?></a>
-      <?endif;?>
       </div>
       <div class="col-xs-10 col-lg-8">
         <?php
@@ -86,7 +84,7 @@
         <a href="#Nav" data-toggle="modal" data-target="#Nav" class="toolbar__nav-trigger"><?=svg('nav')?> Меню</a>
       </div>
       <div class="col-xs-9 right">
-        <a href="tel:<?=preg_replace('/[^\dx+]/i', '', $CITY['PHONE'])?>" title=""><?=svg('phone')?></a><span class="toolbar__divider"></span><span class="search__frame"><a href="#" class="search"><?=svg('seach')?></a><span class="toolbar__divider"></span></span><a <?=($GLOBALS['USER']->IsAuthorized()?'href="/profile/"':'href="#login" data-toggle="modal"')?> title=""><?=svg('profile')?></a><span class="toolbar__divider"></span><a href="/basket/" title=""><?=svg('cart')?></a>
+        <a href="tel:<?=preg_replace('/[^\dx+]/i', '', $CITY['PHONE'])?>" title=""><?=svg('phone')?></a><span class="toolbar__divider"></span><span class="search__frame"><a href="#" class="search"><?=svg('seach')?></a><span class="toolbar__divider"></span></span><a <?=($GLOBALS['USER']->IsAuthorized()?'href="/profile/"':'href="#login" data-toggle="modal"')?> title=""><?=svg('profile')?></a><?if(isUserAccept()):?><span class="toolbar__divider"></span><a href="/basket/" title=""><?=svg('cart')?></a><?endif;?>
       </div>
     </div>
   </div>
@@ -98,14 +96,9 @@
   </div>
   <div class="container header__desktop">
     <div class="row">
-      <div class="col-xs-3 col-md-2">
-        <div class="contacts">
-          <a href="tel:<?=preg_replace('/[^\dx+]/i', '', $CITY['PHONE'])?>" class="contacts__number"><?=svg('phone')?><?=$CITY['PHONE']?></a>
-          <div class="contacts__text">Горячая линия</div>
-        </div>
-      </div>
-      <div class="col-xs-2 col-md-3"><span class="logo__line logo__line--left"></span></div>
+      <div class="col-xs-5 col-md-5"><span class="logo__line logo__line--short logo__line--left"></span></div>
       <div class="col-xs-2 center"><a href="/" class="logo"><?=svg('italbags')?></a></div>
+      <?if(isUserAccept()):?>
       <div class="col-xs-2 col-md-3"><span class="logo__line logo__line--right"></span></div>
       <div class="col-xs-3 col-md-2">
         <div class="header__links header__links--center">
@@ -130,6 +123,9 @@
         ));?>
         </div>
       </div>
+      <?else:?>
+      <div class="col-xs-5 col-md-5"><span class="logo__line logo__line--short logo__line--right"></span></div>
+      <?endif;?>
     </div>
   </div>
   <?php

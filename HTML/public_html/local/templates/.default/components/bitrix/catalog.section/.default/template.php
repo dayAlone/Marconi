@@ -46,7 +46,10 @@ if(!isset($arParams['HIDE_TOOLBAR'])):
     </div>
   </div>
 </div>
-<h1 class="catalog__title"><?=($arParams['NAME']?$arParams['NAME']:$arResult['NAME'])?></h1>
+<h1 class="catalog__title">
+  <?=($arParams['NAME']?$arParams['NAME']:$arResult['NAME'])?>
+  <?if(strlen($arResult['DESCRIPTION']) > 0):?><a href="" class="catalog__title-description" data-toggle="tooltip" data-placement="right" title="<?=$arResult['DESCRIPTION']?>">?</a><?endif;?>
+</h1>
 <div class="row catalog__frame <?=$arParams['CLASS']?>">
 <?
 endif;
