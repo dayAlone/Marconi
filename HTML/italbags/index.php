@@ -20,7 +20,7 @@ $v = getHighloadElements('categories', 'UF_XML_ID', 'ID');
 	<?
 		$APPLICATION->IncludeComponent("bitrix:news.list", "news", 
 			array(
-				"IBLOCK_ID"      => 4,
+				"IBLOCK_ID"      => 19,
 				"NEWS_COUNT"     => "1",
 				"SORT_BY1"       => "ACTIVE_FROM",
 				"SORT_ORDER1"    => "DESC",
