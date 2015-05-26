@@ -102,8 +102,10 @@
 							font-weight: bold
 							border-line(alpha(@color,.4))
 						p+p	
-							margin-top 25px
+							margin-top 15px
 							margin-bottom 0
+							@media (min-width scr_sm) and (min-height 850px)
+								margin-top 25px
 				&-title
 					text-align center
 					text-transform uppercase

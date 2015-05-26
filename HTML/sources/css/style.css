@@ -3569,8 +3569,13 @@ svg g {
   text-decoration: none;
 }
 .about--fmarconi .about__slider-item-content p+p {
-  margin-top: 25px;
+  margin-top: 15px;
   margin-bottom: 0;
+}
+@media (min-width: 768px) and (min-height: 850px) {
+  .about--fmarconi .about__slider-item-content p+p {
+    margin-top: 25px;
+  }
 }
 .about--fmarconi .about__slider-title {
   text-align: center;
