@@ -25,7 +25,7 @@ $aMenuLinks = Array(
 		"Поддержка продаж", 
 		"/important/sales/", 
 		Array(), 
-		Array(), 
+		Array('GROUPS'=>array(1,9,5)), 
 		"" 
 	)
 );

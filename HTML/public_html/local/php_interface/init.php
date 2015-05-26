@@ -18,9 +18,10 @@ function findCityByLocation($ID)
 	$item = $raw->Fetch();
 	return $item;
 }
-function isUserAccept() {
+function isUserAccept($groups) {
 	global $USER;
-	$groups = array(1,5);
+	if(!isset($groups))
+		$groups = array(1,9,5);
 	foreach ($groups as $value) {
 		if(in_array($value, $USER->GetUserGroupArray()))
 			return true;

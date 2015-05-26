@@ -39,7 +39,7 @@ $aMenuLinks = Array(
 		"Ожидается", 
 		"/catalog/coming/", 
 		Array(), 
-		Array(), 
+		Array('GROUPS'=>array(1,9,5)), 
 		"" 
 	)
 );
