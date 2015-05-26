@@ -2,26 +2,34 @@
 	&--index
 		&.news
 			position absolute
-			bottom 60px
+			bottom 80px
 			margin-left 25px
 		.news
 			&-item
-				max-width 40%
+				max-width 65%
+				@media (min-height: 700px)
+					max-width 40%
 				&__date
-					font-size 12px
+					font-size 11px
+					@media (min-height: 700px)
+						font-size 12px
 					opacity: .5
 					margin-bottom 10px
 				&__title
 					font-weight: bold
 					color black
-					font-size 17px
+					font-size 16px
 					border-line alpha(@color,.3), 16px
+					@media (min-height: 700px)
+						font-size 17px
 				&__content
 					margin-top 12px
 					max-height 88px
 					overflow hidden
-					font-size 14px
+					font-size 13px
 					line-height 18px
+					@media (min-height: 700px)
+						font-size 14px
 					
 					
 	&--list

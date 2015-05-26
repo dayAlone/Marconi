@@ -2109,7 +2109,7 @@ body.index--fmarconi {
   -ms-transform: translateY(calc(-50% - 20px));
   transform: translateY(calc(-50% - 20px));
   border: 5px solid #000;
-  padding: 50px 50px 15px 18px;
+  padding: 30px 50px 15px 18px;
   text-transform: uppercase;
 }
 @media (min-height: 700px) {
@@ -2121,8 +2121,8 @@ body.index--fmarconi {
   display: inline-block;
   font-weight: 300;
   text-transform: uppercase;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 19px;
   letter-spacing: 1px;
   opacity: 0.7;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
@@ -3640,23 +3640,33 @@ svg g {
 }
 .news--index.news {
   position: absolute;
-  bottom: 60px;
+  bottom: 80px;
   margin-left: 25px;
 }
 .news--index .news-item {
-  max-width: 40%;
+  max-width: 65%;
+}
+@media (min-height: 700px) {
+  .news--index .news-item {
+    max-width: 40%;
+  }
 }
 .news--index .news-item__date {
-  font-size: 12px;
+  font-size: 11px;
   opacity: 0.5;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
   margin-bottom: 10px;
 }
+@media (min-height: 700px) {
+  .news--index .news-item__date {
+    font-size: 12px;
+  }
+}
 .news--index .news-item__title {
   font-weight: bold;
   color: #000;
-  font-size: 17px;
+  font-size: 16px;
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(0,0,0,0.3) 50%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(0,0,0,0.3) 50%);
   background-image: -o-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(0,0,0,0.3) 50%);
@@ -3672,12 +3682,22 @@ svg g {
 .news--index .news-item__title:hover {
   text-decoration: none;
 }
+@media (min-height: 700px) {
+  .news--index .news-item__title {
+    font-size: 17px;
+  }
+}
 .news--index .news-item__content {
   margin-top: 12px;
   max-height: 88px;
   overflow: hidden;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 18px;
+}
+@media (min-height: 700px) {
+  .news--index .news-item__content {
+    font-size: 14px;
+  }
 }
 .news--list .page {
   padding-top: 40px;
