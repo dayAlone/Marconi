@@ -2,7 +2,10 @@
 global $CITY;
 use Bitrix\Main;
 use Bitrix\Main\Loader;
-	//var_dump($arResult);
+$arResult['QUANTITY'] = 0;
+foreach ($arResult['BASKET_ITEMS'] as $item) {
+	$arResult['QUANTITY'] += $item['QUANTITY'];
+}
 if (!function_exists("cmpBySort"))
 {
 	function cmpBySort($array1, $array2)
@@ -54,6 +57,8 @@ if (!function_exists("cmpBySort"))
 					$showStores = false;
 					$checked    = false;
 					foreach ($arResult["DELIVERY"] as $delivery_id => $delivery):
+						if($delivery['SID'] == 'simple' && SITE_ID != 's1' && $arResult['QUANTITY'] < 30)
+							continue;
 						if(isset($delivery['PROFILES'])):
 							foreach ($delivery['PROFILES'] as $profile_id => $arDelivery):
 								if($arDelivery["CHECKED"]=="Y")
