@@ -225,7 +225,7 @@ endif;
 						  <? if(SITE_ID == 's1'): ?>
 						  	<strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?></strong> ₷
 						  <? else: ?>
-						  	<? if($arResult['MIN_PRICE']['DISCOUNT_VALUE'] > 0 || $props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de"): ?>
+						  	<? if($arResult['MIN_PRICE']['DISCOUNT_VALUE'] < $arResult['MIN_PRICE']['VALUE'] || $props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de"): ?>
 						  		<?if($props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de"):?>
 						  			<strong><?=number_format($arResult['MIN_PRICE']['VALUE']*.7, 0, '.', ' ')?></strong> ₷
 						  		<?else:?>
@@ -248,7 +248,7 @@ endif;
 					</span>
 					</div>
 				</div>
-				<? if(($arResult['MIN_PRICE']['DISCOUNT_VALUE'] > 0 || $props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de") && SITE_ID != 's1'): ?>
+				<? if(($arResult['MIN_PRICE']['DISCOUNT_VALUE'] < $arResult['MIN_PRICE']['VALUE'] || $props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de") && SITE_ID != 's1'): ?>
 					<div class="props__item props__item--medium">
 						<div class="props__name">ваша скидка</div>
 						<div class="props__value">
