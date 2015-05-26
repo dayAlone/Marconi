@@ -10,7 +10,7 @@
               <a href="#achievement" data-toggle="modal" data-image="<?=$item['PREVIEW_PICTURE']['SRC']?>" data-text='<?=htmlspecialcharsEx($item['NAME']."<br>".$item['~PREVIEW_TEXT'])?>'>Увеличить</a>
             </div>
             <div class="col-xs-6 right">
-              <a href="<?=CFile::GetPath($item['PROPERTIES']['FILE']['VALUE'])?>" target="_blank">Скачать</a>
+              <a href="<?=$item['PROPERTIES']['FILE']['VALUE']?>" target="_blank">Скачать</a>
             </div>
           </div>
         </div>
