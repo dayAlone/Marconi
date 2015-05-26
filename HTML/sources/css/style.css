@@ -2092,9 +2092,12 @@ body.index--fmarconi {
 }
 .index--italbags .wrap {
   position: relative;
-  min-height: 640px;
+  min-height: 600px;
   height: 100vh;
   background: url("/layout/images/italbags.jpg") bottom right no-repeat;
+  -webkit-background-size: auto 85%;
+  -moz-background-size: auto 85%;
+  background-size: auto 85%;
   background-position: calc(50% + 300px) calc(100% - 60px);
 }
 .index--italbags .index__block {
@@ -2106,33 +2109,55 @@ body.index--fmarconi {
   -ms-transform: translateY(calc(-50% - 20px));
   transform: translateY(calc(-50% - 20px));
   border: 5px solid #000;
-  padding: 80px 80px 15px 18px;
+  padding: 50px 50px 15px 18px;
   text-transform: uppercase;
+}
+@media (min-height: 700px) {
+  .index--italbags .index__block {
+    padding: 80px 80px 15px 18px;
+  }
 }
 .index--italbags .index__block span {
   display: inline-block;
-  line-height: 29px;
   font-weight: 300;
   text-transform: uppercase;
-  font-size: 26px;
+  font-size: 18px;
+  line-height: 22px;
   letter-spacing: 1px;
   opacity: 0.7;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
   filter: alpha(opacity=70);
 }
+@media (min-height: 700px) {
+  .index--italbags .index__block span {
+    font-size: 26px;
+    line-height: 29px;
+  }
+}
 .index--italbags .index__block h1 {
   font-weight: bold;
   margin-bottom: 0;
   padding-top: 0;
-  font-size: 42px;
+  font-size: 32px;
   margin-top: 18px;
+}
+@media (min-height: 700px) {
+  .index--italbags .index__block h1 {
+    font-size: 42px;
+  }
 }
 .index--italbags .index__logo {
   margin-top: 40px;
 }
 .index--italbags .index__logo svg {
-  width: 170px;
-  height: 93px;
+  width: 140px;
+  height: 73px;
+}
+@media (min-height: 700px) {
+  .index--italbags .index__logo svg {
+    width: 170px;
+    height: 93px;
+  }
 }
 .textpage__divider {
   text-align: center;

@@ -17,9 +17,10 @@ body
 		background #e2cebe
 		.wrap
 			position relative
-			min-height 640px
+			min-height 600px
 			height 100vh
 			background url(/layout/images/italbags.jpg) bottom right no-repeat
+			background-size auto 85%
 			background-position calc(50% + 300px) calc(100% - 60px) 
 		.index
 			&__block
@@ -27,29 +28,38 @@ body
 				top 50%
 				transform translateY(calc(-50% - 20px))
 				border 5px solid black
-				padding 80px 80px 15px 18px
+				padding 50px 50px 15px 18px
 				text-transform: uppercase
-				
-				
+				@media (min-height: 700px)
+					padding 80px 80px 15px 18px
 				span
 					display inline-block
-					line-height 29px
+					
 					font-weight 300
 					text-transform: uppercase
-					font-size 26px
+					font-size 18px
+					line-height 22px
 					letter-spacing 1px
 					opacity .7
+					@media (min-height: 700px)
+						font-size 26px
+						line-height 29px
 				h1
 					font-weight: bold
 					margin-bottom 0
 					padding-top 0
-					font-size 42px
+					font-size 32px
 					margin-top 18px
+					@media (min-height: 700px)
+						font-size 42px
 			&__logo
 				margin-top 40px
 				svg
-					width 170px
-					height 93px	
+					width 140px
+					height 73px	
+					@media (min-height: 700px)
+						width 170px
+						height 93px	
 
 .textpage
 	&__divider
