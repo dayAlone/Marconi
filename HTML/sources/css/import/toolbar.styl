@@ -106,6 +106,45 @@
 	.nav
 		width 100%
 		text-align: center
+		list-style: none
+		padding 0
+		margin 0
+		> li
+			display inline-block
+			max-height 50px
+			position relative
+			
+			&:hover
+				> ul
+					opacity 1
+					display block
+					top 100%
+					pointer-events all
+				> .nav__item
+					background red
+					color white
+			> ul
+				position absolute
+				top 70%
+				left 0
+				pointer-events none
+				t all
+				transition-delay .3s !important
+				z-index: 2
+				opacity 0
+				padding 0
+				list-style: none
+				li
+					float: left
+					clear both
+					height 30px
+					width 100%
+					> .nav__item
+						line-height 35px
+						display block
+						height 30px
+						width 100%
+						text-align: left
 		&__item
 			t(background)
 			display inline-block
@@ -113,6 +152,8 @@
 			color white
 			font-weight bold
 			height 50px
+			position relative
+			z-index: 3
 			padding-top 1px
 			line-height 55px
 			padding 0 14px

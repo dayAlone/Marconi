@@ -1124,6 +1124,66 @@ div.pp_default .pp_loaderIcon {
 .toolbar .nav {
   width: 100%;
   text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.toolbar .nav > li {
+  display: inline-block;
+  max-height: 50px;
+  position: relative;
+}
+.toolbar .nav > li:hover > ul {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  display: block;
+  top: 100%;
+  pointer-events: all;
+}
+.toolbar .nav > li:hover > .nav__item {
+  background: #d10a32;
+  color: #fff;
+}
+.toolbar .nav > li > ul {
+  position: absolute;
+  top: 70%;
+  left: 0;
+  pointer-events: none;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -ms-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-delay: 0.3s !important;
+  -moz-transition-delay: 0.3s !important;
+  -o-transition-delay: 0.3s !important;
+  -ms-transition-delay: 0.3s !important;
+  transition-delay: 0.3s !important;
+  z-index: 2;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  padding: 0;
+  list-style: none;
+}
+.toolbar .nav > li > ul li {
+  float: left;
+  clear: both;
+  height: 30px;
+  width: 100%;
+}
+.toolbar .nav > li > ul li > .nav__item {
+  line-height: 35px;
+  display: block;
+  height: 30px;
+  width: 100%;
+  text-align: left;
 }
 .toolbar .nav__item {
   -webkit-transition-property: background;
@@ -1141,6 +1201,8 @@ div.pp_default .pp_loaderIcon {
   color: #fff;
   font-weight: bold;
   height: 50px;
+  position: relative;
+  z-index: 3;
   padding-top: 1px;
   line-height: 55px;
   padding: 0 14px;

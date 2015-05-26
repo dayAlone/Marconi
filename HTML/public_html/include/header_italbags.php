@@ -11,7 +11,8 @@
                 "ALLOW_MULTI_SELECT" => "Y",
                 "MENU_CACHE_TYPE"    => "A",
                 "ROOT_MENU_TYPE"     => "toolbar",
-                "MAX_LEVEL"          => "1",
+                "CHILD_MENU_TYPE"    => "header", 
+                "MAX_LEVEL"          => "2",
                 "CLASS"              => "center"
                 ),
             false);

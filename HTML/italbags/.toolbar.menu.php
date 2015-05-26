@@ -39,7 +39,7 @@ $aMenuLinks = Array(
 		"Важно", 
 		"/important/", 
 		Array(), 
-		Array(), 
+		Array("URL" => "#"), 
 		"" 
 	),
 	Array(
