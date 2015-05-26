@@ -2,7 +2,7 @@
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 $APPLICATION->SetPageProperty('body_class', "news news--list");
 $IBLOCK = 19;
-$APPLICATION->SetPageProperty('section', array('IBLOCK'=>$IBLOCK, 'CODE'=>'news', "NOEMPTY"=>true, 'SORT'=>array('ID'=>'DESC')));
+$APPLICATION->SetPageProperty('section', array('IBLOCK'=>$IBLOCK, 'CODE'=>'news', "NOEMPTY"=>true, 'SORT'=>array('CODE'=>'DESC')));
 require($_SERVER['DOCUMENT_ROOT'].'/include/section.php');
 $APPLICATION->SetTitle('Новости');
 ?>
