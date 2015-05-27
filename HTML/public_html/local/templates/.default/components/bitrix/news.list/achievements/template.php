@@ -1,7 +1,7 @@
 <? $this->setFrameMode(true);?>
 <div class="achievements">
 <?foreach ($arResult['ITEMS'] as $key=>$item):
-    if(intval($item['PROPERTIES']['FILE']['VALUE']) > 0):
+    if(strlen($item['PROPERTIES']['FILE']['VALUE']) > 0):
       ?><div class="achievement achievement--with-links">
         <img src="<?=$item['PREVIEW_PICTURE']['SMALL']?>" alt="">
         <div class="achievement__footer">

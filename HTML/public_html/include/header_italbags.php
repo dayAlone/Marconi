@@ -27,7 +27,7 @@
             <div class="auth__login">
               <a class="auth__item" href="#login" data-toggle="modal" data-target="#login">Авторизация</a>
               <span class="auth__divider">|</span>
-              <a class="auth__item" href="#register" data-toggle="modal" data-target="#register">Регистрация</a>
+              <a class="auth__item" href="/signup/">Регистрация</a>
             </div>
             <div class="auth__profile">
               <a class="auth__item" href="/profile/">Личный кабинет</a>
@@ -40,7 +40,7 @@
             <div class="auth__login">
               <a class="auth__item" href="#login" data-toggle="modal" data-target="#login">Авторизация</a>
               <span class="auth__divider">|</span>
-              <a class="auth__item" href="#register" data-toggle="modal" data-target="#register">Регистрация</a>
+              <a class="auth__item" href="/signup/">Регистрация</a>
             </div>
           </div>
           <?$frame->end();
@@ -60,7 +60,7 @@
             <div class="auth__login">
               <a class="auth__item" href="#login" data-toggle="modal" data-target="#login">Авторизация</a>
               <span class="auth__divider">|</span>
-              <a class="auth__item" href="#register" data-toggle="modal" data-target="#register">Регистрация</a>
+              <a class="auth__item" href="/signup/">Регистрация</a>
             </div>
             <div class="auth__profile">
               <a class="auth__item" href="/profile/">Личный кабинет</a>
@@ -73,7 +73,7 @@
             <div class="auth__login">
               <a class="auth__item" href="#login" data-toggle="modal" data-target="#login">Авторизация</a>
               <span class="auth__divider">|</span>
-              <a class="auth__item" href="#register" data-toggle="modal" data-target="#register">Регистрация</a>
+              <a class="auth__item" href="/signup/">Регистрация</a>
             </div>
           </div>
           <?$frame->end();?>
