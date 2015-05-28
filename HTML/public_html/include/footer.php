@@ -102,6 +102,27 @@
 require_once($_SERVER['DOCUMENT_ROOT'].'/include/form.php');
 $APPLICATION->ShowViewContent('footer');
 ?>
+<?if($_REQUEST['change_password']=="yes"):?>
+  <script>
+    $(function(){
+      $('#change').modal()
+    })
+  </script>
+<?endif;?>
+<div id="change" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade forget">
+  <div class="modal-dialog feedback__dialog">
+    <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
+      <div class="hidden m-margin-top center change__success">
+        <p><big>Вы успешно ищмени пароль. <a class="auth__item" href="#login" data-toggle="modal" data-target="#login">Авторизация</a></big></p>
+      </div>
+      <?$APPLICATION->IncludeComponent(
+      "bitrix:system.auth.changepasswd",
+      ".default",
+      Array()
+      );?>
+    </div>
+  </div>
+</div>
 <?if(!$GLOBALS['USER']->GetID()):?>
   <?if($_REQUEST['login']=="yes"):?>
   <script>
@@ -110,13 +131,7 @@ $APPLICATION->ShowViewContent('footer');
     })
   </script>
   <?endif;?>
-  <?if($_REQUEST['change_password']=="yes"):?>
-  <script>
-    $(function(){
-      $('#change').modal()
-    })
-  </script>
-  <?endif;?>
+  
   <div id="login" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade">
     <div class="modal-dialog feedback__dialog">
       <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
@@ -147,20 +162,7 @@ $APPLICATION->ShowViewContent('footer');
       </div>
     </div>
   </div>
-  <div id="change" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade forget">
-    <div class="modal-dialog feedback__dialog">
-      <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
-        <div class="hidden m-margin-top center change__success">
-          <p><big>Вы успешно ищмени пароль. <a class="auth__item" href="#login" data-toggle="modal" data-target="#login">Авторизация</a></big></p>
-        </div>
-        <?$APPLICATION->IncludeComponent(
-        "bitrix:system.auth.changepasswd",
-        ".default",
-        Array()
-        );?>
-      </div>
-    </div>
-  </div>
+  
   <? if(SITE_ID == 's1'):?>
   <div id="register" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade register">
     <div class="modal-dialog feedback__dialog">
