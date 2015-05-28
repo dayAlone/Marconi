@@ -182,6 +182,8 @@ function OnBeforeUserUpdateHandler(&$arFields)
 			if(isset($_REQUEST['ORDER_PROP_18'])):
 				$arFields["LAST_NAME"] = $_REQUEST['ORDER_PROP_18'];
 			endif;
+			if(isset($arFields['PERSONAL_BIRTHDAY']))
+				$arFields['PERSONAL_BIRTHDAY'] = date('m/d/Y', strtotime($arFields['PERSONAL_BIRTHDAY']));
 			$arFields["ACTIVE"] = "N";
 		endif;
 		
