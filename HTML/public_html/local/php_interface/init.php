@@ -209,6 +209,23 @@ function OnAfterUsedAdd (&$arFields)
 			$subscr = new CSubscription;
 			$subscr->Add($data);
 		endif;
+		$arUsers = CUser::GetList(
+			($by = 'name'),
+			($order = 'asc'),
+			array(
+				'GROUPS_ID' => array(15)
+			)
+		);
+		$data = array(
+			"USER_ID"   => $arFields['ID'],
+			"LOGIN"     => $arFields['LOGIN'],
+			"NAME"      => $arFields['NAME'],
+			"LAST_NAME" => $arFields['LAST_NAME']
+		);
+		while($ar_user = $rs_user->GetNext()) {
+			$data = array_merge($data, array('EMAIL_TO'=>$ar_user['EMAIL']));
+			CEvent::Send("ITALBAGS_NEW_USER", SITE_ID, $data, "N", 68);
+		}
 	endif;
 }
 
