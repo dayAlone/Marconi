@@ -117,3 +117,273 @@ array (
 	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
 	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
 ----------
+Host: it.local
+Date: 2015-05-28 19:39:44
+Module: my_module_id
+array (
+  'LAST_NAME' => '',
+  'NAME' => '',
+  'PERSONAL_GENDER' => 'M',
+  'PERSONAL_BIRTHDAY' => '',
+  'PERSONAL_PHONE' => '',
+  'WORK_PHONE' => '',
+  'LOGIN' => '',
+  'WORK_COMPANY' => '',
+  'WORK_NOTES' => '',
+  'PERSONAL_NOTES' => '',
+  'ADMIN_NOTES' => '',
+  'PERSONAL_MOBILE' => '',
+  'EMAIL' => '',
+  'PASSWORD' => '24c65761ed07aab073fe543b16a7802d',
+  'CONFIRM_PASSWORD' => '24c65761ed07aab073fe543b16a7802d',
+)
+    include < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:535
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:618
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:657
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
+----------
+Host: it.local
+Date: 2015-05-28 19:40:01
+Module: my_module_id
+array (
+  'LAST_NAME' => '',
+  'NAME' => '',
+  'PERSONAL_GENDER' => 'M',
+  'PERSONAL_BIRTHDAY' => '22/05/2015',
+  'PERSONAL_PHONE' => '',
+  'WORK_PHONE' => '',
+  'LOGIN' => '',
+  'WORK_COMPANY' => '',
+  'WORK_NOTES' => '',
+  'PERSONAL_NOTES' => '',
+  'ADMIN_NOTES' => '',
+  'PERSONAL_MOBILE' => '',
+  'EMAIL' => '',
+  'PASSWORD' => '24c65761ed07aab073fe543b16a7802d',
+  'CONFIRM_PASSWORD' => '24c65761ed07aab073fe543b16a7802d',
+)
+    include < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:535
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:618
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:657
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
+----------
+Host: it.local
+Date: 2015-05-28 19:40:09
+Module: my_module_id
+array (
+  'LAST_NAME' => '',
+  'NAME' => '',
+  'PERSONAL_GENDER' => 'M',
+  'PERSONAL_BIRTHDAY' => '22/05/2015',
+  'PERSONAL_PHONE' => '',
+  'WORK_PHONE' => '',
+  'LOGIN' => '',
+  'WORK_COMPANY' => '',
+  'WORK_NOTES' => '',
+  'PERSONAL_NOTES' => '',
+  'ADMIN_NOTES' => '',
+  'PERSONAL_MOBILE' => '',
+  'EMAIL' => '',
+  'PASSWORD' => '24c65761ed07aab073fe543b16a7802d',
+  'CONFIRM_PASSWORD' => '24c65761ed07aab073fe543b16a7802d',
+)
+    include < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:535
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:618
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:657
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
+----------
+Host: it.local
+Date: 2015-05-28 19:40:14
+Module: my_module_id
+array (
+  'LAST_NAME' => '',
+  'NAME' => '',
+  'PERSONAL_GENDER' => 'M',
+  'PERSONAL_BIRTHDAY' => '22/05/2015',
+  'PERSONAL_PHONE' => '',
+  'WORK_PHONE' => '',
+  'LOGIN' => '',
+  'WORK_COMPANY' => '',
+  'WORK_NOTES' => '',
+  'PERSONAL_NOTES' => '',
+  'ADMIN_NOTES' => '',
+  'PERSONAL_MOBILE' => '',
+  'EMAIL' => '',
+  'PASSWORD' => '24c65761ed07aab073fe543b16a7802d',
+  'CONFIRM_PASSWORD' => '24c65761ed07aab073fe543b16a7802d',
+)
+    include < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:535
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:618
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:657
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
+----------
+Host: it.local
+Date: 2015-05-28 19:41:24
+Module: my_module_id
+array (
+  'LAST_NAME' => '',
+  'NAME' => '',
+  'PERSONAL_GENDER' => 'M',
+  'PERSONAL_BIRTHDAY' => '22/05/2015',
+  'PERSONAL_PHONE' => '',
+  'WORK_PHONE' => '',
+  'LOGIN' => '',
+  'WORK_COMPANY' => '',
+  'WORK_NOTES' => '',
+  'PERSONAL_NOTES' => '',
+  'ADMIN_NOTES' => '',
+  'PERSONAL_MOBILE' => '',
+  'EMAIL' => '',
+  'PASSWORD' => '24c65761ed07aab073fe543b16a7802d',
+  'CONFIRM_PASSWORD' => '24c65761ed07aab073fe543b16a7802d',
+)
+    include < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:535
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:618
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:657
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
+----------
+Host: it.local
+Date: 2015-05-28 19:41:45
+Module: my_module_id
+array (
+  'LAST_NAME' => '',
+  'NAME' => '',
+  'PERSONAL_GENDER' => 'M',
+  'PERSONAL_BIRTHDAY' => '',
+  'PERSONAL_PHONE' => '',
+  'WORK_PHONE' => '',
+  'LOGIN' => '',
+  'WORK_COMPANY' => '',
+  'WORK_NOTES' => '',
+  'PERSONAL_NOTES' => '',
+  'ADMIN_NOTES' => '',
+  'PERSONAL_MOBILE' => '',
+  'EMAIL' => '',
+  'PASSWORD' => '1473dc449edc2624b5784eba300715d7',
+  'CONFIRM_PASSWORD' => '1473dc449edc2624b5784eba300715d7',
+)
+    include < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:535
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:618
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:657
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
+----------
+Host: it.local
+Date: 2015-05-28 19:41:54
+Module: my_module_id
+array (
+  'LAST_NAME' => '',
+  'NAME' => '',
+  'PERSONAL_GENDER' => 'M',
+  'PERSONAL_BIRTHDAY' => '07/05/2015',
+  'PERSONAL_PHONE' => '',
+  'WORK_PHONE' => '',
+  'LOGIN' => '',
+  'WORK_COMPANY' => '',
+  'WORK_NOTES' => '',
+  'PERSONAL_NOTES' => '',
+  'ADMIN_NOTES' => '',
+  'PERSONAL_MOBILE' => '',
+  'EMAIL' => '',
+  'PASSWORD' => '1473dc449edc2624b5784eba300715d7',
+  'CONFIRM_PASSWORD' => '1473dc449edc2624b5784eba300715d7',
+)
+    include < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:535
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:618
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:657
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
+----------
+Host: it.local
+Date: 2015-05-28 19:42:02
+Module: my_module_id
+array (
+  'LAST_NAME' => '',
+  'NAME' => '',
+  'PERSONAL_GENDER' => 'M',
+  'PERSONAL_BIRTHDAY' => '07/05/2015',
+  'PERSONAL_PHONE' => '',
+  'WORK_PHONE' => '',
+  'LOGIN' => '',
+  'WORK_COMPANY' => '',
+  'WORK_NOTES' => '',
+  'PERSONAL_NOTES' => '',
+  'ADMIN_NOTES' => '',
+  'PERSONAL_MOBILE' => '',
+  'EMAIL' => '',
+  'PASSWORD' => '1473dc449edc2624b5784eba300715d7',
+  'CONFIRM_PASSWORD' => '1473dc449edc2624b5784eba300715d7',
+)
+    include < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:535
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:618
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:657
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
+----------
+Host: it.local
+Date: 2015-05-28 19:42:19
+Module: my_module_id
+array (
+  'LAST_NAME' => 'Колмаков',
+  'NAME' => 'Андрей',
+  'PERSONAL_GENDER' => 'M',
+  'PERSONAL_BIRTHDAY' => '07/05/2015',
+  'PERSONAL_PHONE' => '',
+  'WORK_PHONE' => '',
+  'LOGIN' => 'as@asd.ru',
+  'WORK_COMPANY' => '',
+  'WORK_NOTES' => '',
+  'PERSONAL_NOTES' => '',
+  'ADMIN_NOTES' => '',
+  'PERSONAL_MOBILE' => '',
+  'EMAIL' => 'as@asd.ru',
+  'PASSWORD' => '1473dc449edc2624b5784eba300715d7',
+  'CONFIRM_PASSWORD' => '1473dc449edc2624b5784eba300715d7',
+)
+    include < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:535
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:618
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:657
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
+----------
+Host: it.local
+Date: 2015-05-28 19:42:26
+Module: my_module_id
+array (
+  'LAST_NAME' => 'Колмаков',
+  'NAME' => 'Андрей',
+  'PERSONAL_GENDER' => 'M',
+  'PERSONAL_BIRTHDAY' => '07/05/2015',
+  'PERSONAL_PHONE' => '',
+  'WORK_PHONE' => '',
+  'LOGIN' => 'as@asd.ru',
+  'WORK_COMPANY' => '',
+  'WORK_NOTES' => '',
+  'PERSONAL_NOTES' => '',
+  'ADMIN_NOTES' => '',
+  'PERSONAL_MOBILE' => '',
+  'EMAIL' => 'as@asd.ru',
+  'PASSWORD' => '1473dc449edc2624b5784eba300715d7',
+  'CONFIRM_PASSWORD' => '1473dc449edc2624b5784eba300715d7',
+)
+    include < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:535
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:618
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:657
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
+----------

@@ -36,7 +36,7 @@ elseif($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):
 <p><?echo GetMessage("REGISTER_EMAIL_WILL_BE_SENT")?></p>
 <?endif?>
 <div id="register">
-<form data-no-auth="true" class="signup" method="POST" action="/signup/" action="<?=POST_FORM_ACTION_URI?>" name="regform" class="register__form" enctype="multipart/form-data" data-action="/include/user.php?action=register">
+<form data-no-auth="true" data-parsley-validate class="signup" method="POST" action="/signup/" action="<?=POST_FORM_ACTION_URI?>" name="regform" class="register__form" enctype="multipart/form-data" data-action="/include/user.php?action=register">
 	<div class="row">
 		<div class="col-sm-6 col-md-4">
 			<label for="REGISTER[LAST_NAME]" class="signup__label">Фамилия *</label>
@@ -57,7 +57,7 @@ elseif($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):
 				</div>
 				<div class="col-xs-8">
 					<label for="REGISTER[PERSONAL_BIRTHDAY]" class="signup__label">дата рождения *</label>
-					<input data-provide="datepicker" data-date-format="dd.mm.yyyy" data-date-language="ru" type="text" name="REGISTER[PERSONAL_BIRTHDAY]" id="REGISTER[PERSONAL_BIRTHDAY]" required class="signup__input">		
+					<input data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-language="ru" type="text" name="REGISTER[PERSONAL_BIRTHDAY]" id="REGISTER[PERSONAL_BIRTHDAY]" required class="signup__input">		
 				</div>
 			</div>
 		</div>
