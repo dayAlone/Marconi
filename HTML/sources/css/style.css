@@ -2307,7 +2307,7 @@ body.index--fmarconi {
   text-decoration: none;
   width: calc(100% - 30px);
   background: transparent;
-  margin: 0 15px;
+  margin: 0 15px 30px;
   min-height: 270px;
   line-height: 270px;
   vertical-align: top;
