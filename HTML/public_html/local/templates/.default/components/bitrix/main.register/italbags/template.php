@@ -15,6 +15,7 @@ $this->setFrameMode(true);
  * @param array $arResult
  * @param CBitrixComponentTemplate $this
  */
+CJSCore::Init(array('date'));
 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 	die();
