@@ -2,12 +2,6 @@
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 $APPLICATION->SetTitle("Регистрация");
 $APPLICATION->SetPageProperty('body_class', "about textpage");
-/*if (isset($_REQUEST["captcha_word"]) && isset($_REQUEST["captcha_code"])) {
-	if(!$GLOBALS['APPLICATION']->CaptchaCheckCode($_REQUEST["captcha_word"], $_REQUEST["captcha_code"])){
-		echo 'captcha_error';
-		die();
-	}
-}*/
 ?>
 <div class="container textpage__content">
 	<h1 class="center xxl-margin-top">Регистрация оптового покупателя</h1>
