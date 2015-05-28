@@ -2,6 +2,8 @@
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 $APPLICATION->SetTitle("Регистрация");
 $APPLICATION->SetPageProperty('body_class', "about textpage");
+var_dump(CheckDateTime("08.24.1989"), FORMAT_DATETIME);
+
 ?>
 <div class="container textpage__content">
 	<h1 class="center xxl-margin-top">Регистрация оптового покупателя</h1>
