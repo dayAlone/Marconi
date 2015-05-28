@@ -106,14 +106,18 @@ $(document).ready ->
 			$(".#{id}").elem('form').show().removeClass 'hidden'
 
 
-	$('input[name="REGISTER[PERSONAL_PHONE]"], input[name="PERSONAL_PHONE"]').mask '+7 0000000000'
+	$('input[name="REGISTER[WORK_PHONE]"], input[name="REGISTER[PERSONAL_MOBILE]"], input[name="REGISTER[PERSONAL_PHONE]"], input[name="PERSONAL_PHONE"]').mask '+7 0000000000'
 
 	$('#login form, #forget form, #register form, #change form').submit (e)->
 		e.preventDefault()
 		
 		form  = $(this)
 		modal = form.parents('.modal')
+		if modal.length == 0
+			modal = form.parent() 
+		
 		block = modal.attr 'id'
+
 		if block == 'register'
 			$("input[name='REGISTER[EMAIL]']").val $("input[name='REGISTER[LOGIN]']").val()
 
@@ -123,24 +127,24 @@ $(document).ready ->
 		
 		$.post form.data('action'), data,
 			(data)->
+				console.log data
 				if data == "error"
 					form.find('input[type="text"], input[type="password"]').addClass 'parsley-error'
-				else if data == "success"
+				else if isJson data
+					data = JSON.parse data
+					getCaptcha()
+					$.each data, (key, el)->
+						$("input[name*='#{key}']").addClass 'parsley-error'
+				else
 					if $(".#{block}").elem('success').length > 0
 						$(".#{block}").elem('success').show().removeClass 'hidden'
 						$(".#{block}").elem('form').hide().addClass 'hidden'
-
 					else
 						modal.modal('hide')
 
 					if block != "forget"
 						$('.auth').mod 'active', true
 						$(".toolbar__mobile a[href='#login']").attr 'href', '/profile/'
-				else if  isJson data
-					data = JSON.parse data
-					getCaptcha()
-					$.each data, (key, el)->
-						$("input[name='REGISTER[#{el}]']").addClass 'parsley-error'
 
 	# Contacts
 		

@@ -2615,6 +2615,7 @@ svg g {
 }
 #register .parsley-errors-list.filled {
   display: block;
+  margin-bottom: 0 !important;
 }
 .condition {
   overflow: hidden;
@@ -8682,9 +8683,11 @@ svg g {
   fill: #d10a32;
 }
 .signup__captcha {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 .signup__captcha,
 .signup__input,

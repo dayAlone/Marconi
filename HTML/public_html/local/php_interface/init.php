@@ -155,20 +155,32 @@ function OnBeforeMailSendHandler(&$arFields) {
 	return $arFields;
 }
 
-AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserUpdateHandler");
+//AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserUpdateHandler");
 AddEventHandler("main", "OnBeforeUserRegister", "OnBeforeUserUpdateHandler");
 AddEventHandler("main", "OnBeforeUserAdd", "OnBeforeUserUpdateHandler");
 
 function OnBeforeUserUpdateHandler(&$arFields)
 {
 	if(!$GLOBALS['USER']->IsAdmin()):
-		if(isset($_REQUEST['ORDER_PROP_1'])):
-			$arFields["NAME"] = $_REQUEST['ORDER_PROP_1'];
-			$arFields["LAST_NAME"] = "";
+		if(SITE_ID == 's1'):
+			if(isset($_REQUEST['ORDER_PROP_1'])):
+				$arFields["NAME"] = $_REQUEST['ORDER_PROP_1'];
+				$arFields["LAST_NAME"] = "";
+			endif;
+			if(isset($_REQUEST['ORDER_PROP_14'])):
+				$arFields["LAST_NAME"] = $_REQUEST['ORDER_PROP_14'];
+			endif;
+		else:
+			if(isset($_REQUEST['ORDER_PROP_16'])):
+				$arFields["NAME"] = $_REQUEST['ORDER_PROP_16'];
+				$arFields["LAST_NAME"] = "";
+			endif;
+			if(isset($_REQUEST['ORDER_PROP_18'])):
+				$arFields["LAST_NAME"] = $_REQUEST['ORDER_PROP_18'];
+			endif;
+			$arFields["ACTIVE"] = "N";
 		endif;
-		if(isset($_REQUEST['ORDER_PROP_14'])):
-			$arFields["LAST_NAME"] = $_REQUEST['ORDER_PROP_14'];
-		endif;
+		
 		if(!isset($arFields["EMAIL"])) $arFields["EMAIL"] = $arFields["LOGIN"];
 		else $arFields["LOGIN"] = $arFields["EMAIL"];
 	endif;

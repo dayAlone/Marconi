@@ -19,20 +19,21 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 	die();
 ?>
 <?
+	AddMessage2Log(var_export($_REQUEST['REGISTER'], true), "my_module_id");
 	if($USER->IsAuthorized()):
 		echo 'success';
 	else:
 		foreach ($arResult["ERRORS"] as $key => $value):
-			if(intval($key)>0):
+			if(intval($key) == $key):
 				$code = false;
-				switch (strip_tags($value)) {
-					case "Пользователь с таким e-mail (ak@radia.ru) уже существует.":
-						$code = "EMAIL";
-						break;
+				$value = strip_tags(html_entity_decode($value));
+				switch ($value) {
 					case "Неверно введено слово с картинки":
 						$code = "captcha_word";
 						break;
 				}
+				if(strstr($value,'e-mail'))
+					$code = "LOGIN";
 				if(strlen($code)>0):
 					unset($arResult["ERRORS"][$key]);
 					$arResult["ERRORS"][$code] = $value;

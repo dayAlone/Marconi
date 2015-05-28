@@ -1,93 +1,65 @@
 Host: it.local
-Date: 2015-04-18 14:30:55
-Module: AAA
-array (
-  'PATH' => '1',
-  'TYPE_ID' => '1',
-)
-    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
+Date: 2015-05-28 16:23:59
+Module: my_module_id
+NULL
+    include < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:535
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:618
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:657
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
 ----------
 Host: it.local
-Date: 2015-04-18 14:30:55
-Module: location
+Date: 2015-05-28 16:24:22
+Module: my_module_id
 array (
-  'ITEMS' => 
-  array (
-  ),
-  'ETC' => 
-  array (
-  ),
+  'LAST_NAME' => 'Колмаков',
+  'NAME' => 'Андрей',
+  'PERSONAL_GENDER' => 'M',
+  'PERSONAL_BIRTHDAY' => '24.08.1989',
+  'PERSONAL_PHONE' => '+7 2342342342',
+  'WORK_PHONE' => '+7 2342342342',
+  'LOGIN' => 'ak2@radia.ru',
+  'WORK_COMPANY' => '123123',
+  'WORK_NOTES' => '123',
+  'PERSONAL_NOTES' => '123',
+  'ADMIN_NOTES' => '123',
+  'PERSONAL_MOBILE' => '+7 1231231231',
+  'EMAIL' => 'ak2@radia.ru',
+  'PASSWORD' => '2f9d29ce195c54e8ebe3bd7c4deeff1f',
+  'CONFIRM_PASSWORD' => '2f9d29ce195c54e8ebe3bd7c4deeff1f',
 )
+    include < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:535
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:618
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:657
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
 ----------
 Host: it.local
-Date: 2015-04-18 14:30:55
-Module: AAA
+Date: 2015-05-28 16:24:28
+Module: my_module_id
 array (
-  'PATH' => '1',
-  'TYPE_ID' => '1',
+  'LAST_NAME' => 'Колмаков',
+  'NAME' => 'Андрей',
+  'PERSONAL_GENDER' => 'M',
+  'PERSONAL_BIRTHDAY' => '24.08.1989',
+  'PERSONAL_PHONE' => '+7 2342342342',
+  'WORK_PHONE' => '+7 2342342342',
+  'LOGIN' => 'ak2@radia.ru',
+  'WORK_COMPANY' => '123123',
+  'WORK_NOTES' => '123',
+  'PERSONAL_NOTES' => '123',
+  'ADMIN_NOTES' => '123',
+  'PERSONAL_MOBILE' => '+7 1231231231',
+  'EMAIL' => 'ak2@radia.ru',
+  'PASSWORD' => '2f9d29ce195c54e8ebe3bd7c4deeff1f',
+  'CONFIRM_PASSWORD' => '2f9d29ce195c54e8ebe3bd7c4deeff1f',
 )
-    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
-----------
-Host: it.local
-Date: 2015-04-18 14:30:56
-Module: location
-array (
-  'ITEMS' => 
-  array (
-    0 => 
-    array (
-      'ID' => '2381',
-      'CODE' => '0000854968',
-      'SORT' => '100',
-      'LT_SORT' => '600',
-      'NAME' => 'Челябинск',
-      'TYPE_ID' => '3',
-      'PATH' => 
-      array (
-        0 => 67,
-        1 => 61,
-        2 => 1,
-      ),
-    ),
-  ),
-  'ETC' => 
-  array (
-    'PATH_NAMES' => 
-    array (
-      67 => 'Челябинская область',
-      61 => 'Урал',
-      1 => 'Россия',
-    ),
-  ),
-)
-----------
-Host: it.local
-Date: 2015-04-18 14:30:56
-Module: AAA
-array (
-  'PATH' => '1',
-  'TYPE_ID' => '1',
-)
-    CBitrixLocationSelectorSearchComponent::processSearchGetFilter < CBitrixLocationSelectorSearchComponent::processSearchGetParameters < CBitrixLocationSelectorSearchComponent::processSearchRequest
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:629
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/class.php:610
-	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/sale.location.selector.search/get.php:21
-----------
-Host: it.local
-Date: 2015-04-18 14:30:56
-Module: location
-array (
-  'ITEMS' => 
-  array (
-  ),
-  'ETC' => 
-  array (
-  ),
-)
+    include < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:535
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:618
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:657
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
 ----------

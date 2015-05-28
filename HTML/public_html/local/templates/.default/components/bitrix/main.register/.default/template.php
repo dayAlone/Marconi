@@ -89,9 +89,6 @@ foreach ($arResult["SHOW_FIELDS"] as $FIELD):?>
 <div class="row xs-margin-top">
 	<div class="col-xs-5">
 	  <label class="left">введите данный код</label>
-	  <?
-		
-      ?>
 	  <input type="hidden" name="captcha_sid" value="<?=$code?>" />
 	  <div class="captcha" style="background-image:url(/include/captcha.php?captcha_sid=<?=$code?>)"></div>
 	</div>

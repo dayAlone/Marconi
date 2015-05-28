@@ -161,6 +161,7 @@ $APPLICATION->ShowViewContent('footer');
       </div>
     </div>
   </div>
+  <? if(SITE_ID == 's1'):?>
   <div id="register" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade register">
     <div class="modal-dialog feedback__dialog">
       <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
@@ -185,6 +186,7 @@ $APPLICATION->ShowViewContent('footer');
       </div>
     </div>
   </div>
+  <?endif;?>
 <?endif;?>
 <div id="Nav" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade overlay">
   <div class="modal-dialog">

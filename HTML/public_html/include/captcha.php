@@ -9,7 +9,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.ph
 include_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/captcha.php");
 $cpt = new CCaptcha();
 if($_REQUEST['captcha_sid']) {
-$cpt->SetImageSize(150,35);
+	$cpt->SetImageSize(150,35);
 	
 	$cpt->SetLinesNumber(0);
 	$cpt->SetEllipsesNumber(0);
