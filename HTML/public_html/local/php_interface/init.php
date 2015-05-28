@@ -170,6 +170,10 @@ function OnBeforeUserUpdateHandler(&$arFields)
 			if(isset($_REQUEST['ORDER_PROP_14'])):
 				$arFields["LAST_NAME"] = $_REQUEST['ORDER_PROP_14'];
 			endif;
+			if(isset($_REQUEST['ORDER_PROP_3'])):
+				$arFields["PERSONAL_PHONE"] = $_REQUEST['ORDER_PROP_3'];
+			endif;
+			
 		else:
 			if(isset($_REQUEST['ORDER_PROP_16'])):
 				$arFields["NAME"] = $_REQUEST['ORDER_PROP_16'];
