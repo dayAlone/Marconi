@@ -63,3 +63,57 @@ array (
 	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
 	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
 ----------
+Host: it.local
+Date: 2015-05-28 17:27:38
+Module: my_module_id
+array (
+  'LAST_NAME' => '',
+  'NAME' => '',
+  'PERSONAL_GENDER' => 'M',
+  'PERSONAL_BIRTHDAY' => '',
+  'PERSONAL_PHONE' => '',
+  'WORK_PHONE' => '',
+  'LOGIN' => '',
+  'WORK_COMPANY' => '',
+  'WORK_NOTES' => '',
+  'PERSONAL_NOTES' => '',
+  'ADMIN_NOTES' => '',
+  'PERSONAL_MOBILE' => '',
+  'EMAIL' => '',
+  'PASSWORD' => '4deec0ec6bc1f60a8b8b8537aa9cbb68',
+  'CONFIRM_PASSWORD' => '4deec0ec6bc1f60a8b8b8537aa9cbb68',
+)
+    include < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:535
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:618
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:657
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
+----------
+Host: it.local
+Date: 2015-05-28 17:31:17
+Module: my_module_id
+array (
+  'LAST_NAME' => 'Колмаков',
+  'NAME' => 'Андрей',
+  'PERSONAL_GENDER' => 'M',
+  'PERSONAL_BIRTHDAY' => '13.05.2015',
+  'PERSONAL_PHONE' => '+7 9234928349',
+  'WORK_PHONE' => '+7 9238492938',
+  'LOGIN' => 'dp@radia.ru',
+  'WORK_COMPANY' => 'werjnkjrnfek',
+  'WORK_NOTES' => 'kjsndfkj',
+  'PERSONAL_NOTES' => 'kjnsdfjk',
+  'ADMIN_NOTES' => 'kjnsdkjf',
+  'PERSONAL_MOBILE' => '+7 2342342342',
+  'EMAIL' => 'dp@radia.ru',
+  'PASSWORD' => 'c4bb90c53bc2e30231f1ddd08d4958c3',
+  'CONFIRM_PASSWORD' => 'c4bb90c53bc2e30231f1ddd08d4958c3',
+)
+    include < CBitrixComponentTemplate::__IncludePHPTemplate < CBitrixComponentTemplate::IncludeTemplate < CBitrixComponent::showComponentTemplate < CBitrixComponent::includeComponentTemplate
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:535
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component_template.php:618
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:657
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
+----------

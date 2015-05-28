@@ -56,7 +56,7 @@ elseif($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):
 				</div>
 				<div class="col-xs-8">
 					<label for="REGISTER[PERSONAL_BIRTHDAY]" class="signup__label">дата рождения *</label>
-					<input type="text" name="REGISTER[PERSONAL_BIRTHDAY]" id="REGISTER[PERSONAL_BIRTHDAY]" required class="signup__input">		
+					<input data-provide="datepicker" data-date-format="dd.mm.yyyy" data-date-language="ru" type="text" name="REGISTER[PERSONAL_BIRTHDAY]" id="REGISTER[PERSONAL_BIRTHDAY]" required class="signup__input">		
 				</div>
 			</div>
 		</div>
