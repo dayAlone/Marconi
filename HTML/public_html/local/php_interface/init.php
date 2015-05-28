@@ -209,7 +209,7 @@ function OnAfterUsedAddHandler(&$arFields)
 			$subscr = new CSubscription;
 			$subscr->Add($data);
 		endif;
-		$arUsers = CUser::GetList(
+		$rsUsers = CUser::GetList(
 			($by = 'name'),
 			($order = 'asc'),
 			array(
@@ -222,7 +222,7 @@ function OnAfterUsedAddHandler(&$arFields)
 			"NAME"      => $arFields['NAME'],
 			"LAST_NAME" => $arFields['LAST_NAME']
 		);
-		while($ar_user = $rs_user->GetNext()) {
+		while($ar_user = $rsUsers->GetNext()) {
 			$data = array_merge($data, array('EMAIL_TO'=>$ar_user['EMAIL']));
 			CEvent::Send("ITALBAGS_NEW_USER", SITE_ID, $data, "N", 68);
 		}
