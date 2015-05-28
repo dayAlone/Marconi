@@ -155,7 +155,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 	return $arFields;
 }
 
-//AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserUpdateHandler");
+AddEventHandler("main", "OnAfterUserAdd", "OnAfterUsedAddHandler");
 AddEventHandler("main", "OnBeforeUserRegister", "OnBeforeUserUpdateHandler");
 AddEventHandler("main", "OnBeforeUserAdd", "OnBeforeUserUpdateHandler");
 
@@ -192,7 +192,7 @@ function OnBeforeUserUpdateHandler(&$arFields)
 	endif;
 }
 
-function OnAfterUsedAdd (&$arFields)
+function OnAfterUsedAddHandler(&$arFields)
 {
 	if(SITE_ID == 's2'):
 		if($_REQUEST['maillist'] == 1):
