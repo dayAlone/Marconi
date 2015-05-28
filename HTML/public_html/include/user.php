@@ -5,7 +5,8 @@ switch ($_REQUEST['action']):
 		$APPLICATION->IncludeComponent("bitrix:main.register","ajax",Array(
                 "USER_PROPERTY_NAME" => "", 
                 "SEF_MODE"           => "Y", 
-                "SHOW_FIELDS"        => Array("NAME", "LAST_NAME", "PERSONAL_PHONE"), 
+                "SHOW_FIELDS"        => Array("NAME", "LAST_NAME", 'PERSONAL_GENDER', 'PERSONAL_BIRTHDAY', 'PERSONAL_PHONE', 
+                								'WORK_PHONE', 'LOGIN', 'WORK_COMPANY', 'WORK_NOTES', 'PERSONAL_NOTES', 'ADMIN_NOTES', 'PERSONAL_MOBILE'),
                 "REQUIRED_FIELDS"    => Array("NAME", "LAST_NAME"), 
                 "AUTH"               => "Y", 
                 "USE_BACKURL"        => "Y", 

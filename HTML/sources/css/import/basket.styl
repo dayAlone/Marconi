@@ -520,11 +520,13 @@
 			font-family 'Proxima', 'Helvetica Neue', 'Arial', sans-serif
 .datepicker
 	z-index 1000 !important
+	table tr td span
+		border-radius 0
+	table tr td span.active.active, table tr td span.active.disabled.active, table tr td span.active.disabled:active, table tr td span.active.disabled:hover.active, table tr td span.active.disabled:hover:active, table tr td span.active:active, table tr td span.active:hover.active, table tr td span.active:hover:active
+		background red
 	&.dropdown-menu
 		font-family 'Proxima', 'Helvetica Neue', 'Arial', sans-serif
 		border-radius 0
-		table tr td.active, table tr td.active:hover, table tr td.active.disabled, table tr td.active.disabled:hover
-			background red
 		td, th
 			border-radius 0
 			padding: 5px 2px 0px

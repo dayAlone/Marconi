@@ -8005,16 +8005,24 @@ svg g {
 .datepicker {
   z-index: 1000 !important;
 }
+.datepicker table tr td span {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+.datepicker table tr td span.active.active,
+.datepicker table tr td span.active.disabled.active,
+.datepicker table tr td span.active.disabled:active,
+.datepicker table tr td span.active.disabled:hover.active,
+.datepicker table tr td span.active.disabled:hover:active,
+.datepicker table tr td span.active:active,
+.datepicker table tr td span.active:hover.active,
+.datepicker table tr td span.active:hover:active {
+  background: #d10a32;
+}
 .datepicker.dropdown-menu {
   font-family: 'Proxima', 'Helvetica Neue', 'Arial', sans-serif;
   -webkit-border-radius: 0;
   border-radius: 0;
-}
-.datepicker.dropdown-menu table tr td.active,
-.datepicker.dropdown-menu table tr td.active:hover,
-.datepicker.dropdown-menu table tr td.active.disabled,
-.datepicker.dropdown-menu table tr td.active.disabled:hover {
-  background: #d10a32;
 }
 .datepicker.dropdown-menu td,
 .datepicker.dropdown-menu th {
