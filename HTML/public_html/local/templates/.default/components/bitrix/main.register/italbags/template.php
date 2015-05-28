@@ -35,7 +35,7 @@ elseif($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):
 <p><?echo GetMessage("REGISTER_EMAIL_WILL_BE_SENT")?></p>
 <?endif?>
 <div id="register">
-<form class="signup" method="POST" action="/signup/" action="<?=POST_FORM_ACTION_URI?>" name="regform" class="register__form" enctype="multipart/form-data" data-action="/include/user.php?action=register">
+<form data-no-auth="true" class="signup" method="POST" action="/signup/" action="<?=POST_FORM_ACTION_URI?>" name="regform" class="register__form" enctype="multipart/form-data" data-action="/include/user.php?action=register">
 	<div class="row">
 		<div class="col-sm-6 col-md-4">
 			<label for="REGISTER[LAST_NAME]" class="signup__label">Фамилия *</label>
