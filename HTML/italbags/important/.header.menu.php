@@ -1,13 +1,6 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Франчайзинг", 
-		"/important/franchising/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
 		"Полезная информация", 
 		"/important/information/", 
 		Array(), 

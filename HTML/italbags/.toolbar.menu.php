@@ -25,7 +25,7 @@ $aMenuLinks = Array(
 		"Условия работы", 
 		"/conditions/", 
 		Array(), 
-		Array(), 
+		Array("URL" => "#"),
 		"" 
 	),
 	Array(
