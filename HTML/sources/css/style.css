@@ -7854,11 +7854,6 @@ svg g {
   -ms-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-.basket__block input[type="text"]:focus,
-.basket__block input[type="email"]:focus,
-.basket__block textarea:focus {
-  line-height: 33px;
-}
 .basket__block input[type="text"].date,
 .basket__block input[type="email"].date,
 .basket__block textarea.date {
