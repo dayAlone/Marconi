@@ -141,6 +141,8 @@ $(document).ready ->
 						$(".#{block}").elem('form').hide().addClass 'hidden'
 					else
 						modal.modal('hide')
+					
+					console.log form, form.data('no-auth')
 
 					if block != "forget" && form.data('no-auth') != 'true'
 						$('.auth').mod 'active', true
