@@ -7838,10 +7838,10 @@ svg g {
 .basket__block textarea {
   width: 100%;
   border: 1px solid #d5dbdf;
-  padding: 0 8px;
+  padding: 6px 8px 0;
   height: 30px;
   margin-bottom: 10px;
-  line-height: 33px;
+  line-height: 100%;
   font-size: 12px;
   -webkit-transition-property: border;
   -moz-transition-property: border;
@@ -8003,8 +8003,8 @@ svg g {
   display: none;
 }
 .bx-sls .dropdown-block input {
-  max-height: 30px;
-  line-height: 34px;
+  height: 30px;
+  line-height: 100%;
   font-family: 'Proxima', 'Helvetica Neue', 'Arial', sans-serif;
 }
 .datepicker {
