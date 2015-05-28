@@ -192,6 +192,26 @@ function OnBeforeUserUpdateHandler(&$arFields)
 	endif;
 }
 
+function OnAfterUsedAdd (&$arFields)
+{
+	if(SITE_ID == 's2'):
+		if($_REQUEST['maillist'] == 1):
+			CModule::IncludeModule("subscribe");
+			$data = Array(
+				"USER_ID"      => $arFields['ID'],
+				"FORMAT"       => "html",
+				"EMAIL"        => $arFields["EMAIL"],
+				"ACTIVE"       => "Y",
+				"SEND_CONFIRM" => "N",
+				"CONFIRMED"    => "Y",
+				"RUB_ID"       => 1
+			);
+			$subscr = new CSubscription;
+			$subscr->Add($data);
+		endif;
+	endif;
+}
+
 AddEventHandler('sale', 'OnOrderAdd', Array('CSaleGuestHandlers', 'OnOrderUpdateHandler'));
 AddEventHandler('sale', 'OnSaleComponentOrderOneStepProcess', Array('CSaleGuestHandlers', 'OnSaleComponentOrderOneStepProcessHandler'));
 AddEventHandler('sale', 'OnSaleComponentOrderOneStepComplete', Array('CSaleGuestHandlers', 'OnSaleComponentOrderOneStepCompleteHandler'));

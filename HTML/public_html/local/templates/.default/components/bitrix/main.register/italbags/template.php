@@ -100,7 +100,7 @@ elseif($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):
 					<input type="text" name="REGISTER[PERSONAL_MOBILE]" id="REGISTER[PERSONAL_MOBILE]" class="signup__input">		
 				</div>
 				<div class="col-xs-4">
-					<input type="checkbox" id="email" class="signup__checkbox">
+					<input type="checkbox" id="email" name="maillist" value="1" class="signup__checkbox">
 					<label for="email" class="signup__notice">Получать новости по электронной почте</label>
 				</div>
 			</div>
