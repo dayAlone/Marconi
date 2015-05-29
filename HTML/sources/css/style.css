@@ -2535,16 +2535,78 @@ svg g {
 .profile {
   max-width: 95%;
 }
+.profile a {
+  color: #d10a32;
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.5) 50%);
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.5) 50%);
+  background-image: -o-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.5) 50%);
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.5) 50%);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(209,10,50,0.5) 50%);
+  background-repeat: repeat-x;
+  -webkit-background-size: 2px 2px;
+  -moz-background-size: 2px 2px;
+  background-size: 2px 2px;
+  background-position: 0 100%;
+  background-position: 0 calc(100% - 2px);
+}
+.profile a:hover {
+  text-decoration: none;
+}
 .profile label {
+  font-weight: normal;
+  font-size: 13px;
+}
+.profile label.disabled {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+}
+.profile label + .iradio {
+  margin-left: 15px;
+}
+.profile__gender {
+  margin-top: 6px;
+}
+.profile__label {
   text-align: left;
   width: 100%;
   letter-spacing: 2px;
-  font-size: 11px;
   text-transform: uppercase;
   line-height: 35px;
 }
+label.profile__label {
+  font-size: 11px;
+  font-weight: bold;
+}
+.profile__label span {
+  display: inline-block;
+  line-height: 1.2;
+  vertical-align: middle;
+}
 .profile .row + .row {
   margin-top: 10px;
+}
+.profile .iradio {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: 1px solid #000;
+  -webkit-box-shadow: inset 0 0 0 2px #fff;
+  box-shadow: inset 0 0 0 2px #fff;
+  vertical-align: middle;
+  top: -2px;
+  margin-right: 3px;
+  position: relative;
+}
+.profile .iradio.disabled {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+}
+.profile .iradio.checked {
+  background: #000;
 }
 .profile input:focus {
   outline: 0;
@@ -7938,6 +8000,9 @@ svg g {
   .order__profile {
     margin-bottom: 0;
   }
+}
+.cabinet .icheckbox {
+  top: 2.5px;
 }
 .cabinet .icheckbox + label {
   width: auto;

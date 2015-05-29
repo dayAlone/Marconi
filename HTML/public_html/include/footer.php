@@ -13,7 +13,8 @@
         </div>
       </div>
       <div class="col-sm-4 col-md-3">
-        <div class="contacts"><span><?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"Moscow, Admiral Makarov Street 8, str. 1":"Москва,  ул. адмирала макарова, 8")?> <br></span><a href="mailto:info@fmarconi.ru" class="contacts_link">info@fmarconi.ru</a></div>
+        <div class="contacts"><span><?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"Moscow, Admiral Makarov Street 8, str. 1":"Москва,  ул. адмирала макарова, 8")?> <br></span>
+        <a href="mailto:info@<?=(SITE_ID=='s1'?"fmarconi.ru":"italbags.ru")?>" class="contacts_link">info@<?=(SITE_ID=='s1'?"fmarconi.ru":"italbags.ru")?></a></div>
       </div>
       <div class="col-sm-2 col-md-1">
         <div class="map"><?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"":'<a href="/sitemap/"><nobr>карта сайта</nobr></a>')?></div>

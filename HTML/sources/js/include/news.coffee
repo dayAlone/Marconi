@@ -100,13 +100,27 @@
 		e.preventDefault()
 	
 	$('.condition-theme').elem('nav-item').click (e)->
-		$(this).block('nav-item').mod 'active', false
-		$(this).mod 'active', true
+		$self = $(this)
+		
+		$self.block('nav-item').mod 'active', false
+		$self.mod 'active', true
 		positionArrow()
 		
-		$(this).block('content-item').mod 'active', false
-		$("#{$(this).attr('href')}").mod 'active', true
+		$self.block('content-item').mod 'active', false
 		
+		el = $("#{$self.attr('href')}")
+		parent = el.parents('.condition')
+		el.mod 'active', true
+		
+		delay 300, ->
+			console.log el.position().top
+			h = el.position().top + el.height() + 60
+			if h != parent.height()
+				parent.css
+					maxHeight: ->
+						return h
+					minHeight: ->
+						return h
 		e.preventDefault()
 
 	$('.condition').elem('trigger').click (e)->
