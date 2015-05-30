@@ -23,7 +23,9 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 		<input type="hidden" name="lang" value="<?=LANG?>" />
 		<input type="hidden" name="ID" value=<?=$arResult["ID"]?> />
 		<input type="hidden" name="EMAIL" maxlength="50" value="<?=$arResult["arUser"]["EMAIL"]?>" />
-		<? foreach (array("NAME", "LAST_NAME", "PERSONAL_GENDER", "USER_COMPANY", "DIVIDER", "LOGIN", "PERSONAL_PHONE", "WORK_PHONE", "PERSONAL_MOBILE") as $item):
+		<? 
+		$arDisabled = array("NAME", "LAST_NAME", "PERSONAL_GENDER", "USER_COMPANY");
+		foreach (array("NAME", "LAST_NAME", "PERSONAL_GENDER", "USER_COMPANY", "DIVIDER", "LOGIN", "PERSONAL_PHONE", "UF_SMS", "WORK_PHONE", "PERSONAL_MOBILE") as $item):
 			switch ($item):
 				case 'DIVIDER':
 					?><div class="m-margin-top xxl-margin-bottom"><p>Для того, чтобы изменить имя, фамилию, пол и наименование организации, необходимо отправить запрос администратору сайта <a href="mailto:admin@italbags.ru">admin@italbags.ru</a> со всеми необходимыми данными.</p></div><?
@@ -32,10 +34,23 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 					<div class="row">
 						<div class="col-sm-4"><label class="profile__label" for="#<?=$item?>"><span><?=GetMessage($item)?></span></label></div>
 						<div class="col-sm-8 profile__gender">
-							<input type="radio" id="<?=$item?>-1" value="M" <?=($arResult["arUser"][$item]=="M"?"checked":"")?> name="<?=$item?>">
-							<label for="<?=$item?>-1" class="">Мужской</label>
-							<input type="radio" id="<?=$item?>-2" value="F" <?=($arResult["arUser"][$item]=="F"?"checked":"")?> name="<?=$item?>">
-							<label for="<?=$item?>-2" class="">Женский</label>
+							<input type="radio"  <?=(in_array($item, $arDisabled)?"disabled":"")?> id="<?=$item?>-1" value="M" <?=($arResult["arUser"][$item]=="M"?"checked":"")?> name="<?=$item?>">
+							<label for="<?=$item?>-1" class=" <?=(in_array($item, $arDisabled)?"disabled":"")?>">Мужской</label>
+							<input type="radio" <?=(in_array($item, $arDisabled)?"disabled":"")?> id="<?=$item?>-2" value="F" <?=($arResult["arUser"][$item]=="F"?"checked":"")?> name="<?=$item?>">
+							<label for="<?=$item?>-2" class=" <?=(in_array($item, $arDisabled)?"disabled":"")?>">Женский</label>
+						</div>
+					</div>
+				<?
+				break;
+				case "UF_SMS":
+				?>
+					<div class="row">
+						<div class="col-md-8 col-md-offset-4">
+						<?if($arResult['USER_PROPERTIES']['DATA'][$item]['SETTINGS']['CHECKBOX'] == ""):?>
+							<input type="hidden" name="<?=$item?>" value="0"/>
+							<nobr><input type="checkbox" id="<?=$item?>-1" name="<?=$item?>" maxlength="50" value="1" <?=($arResult["arUser"][$item]==1?"checked":"")?>/>
+							<label class="profile__label profile__label--consedered" for="<?=$item?>-1"><?=$arResult['USER_PROPERTIES']['DATA'][$item]['EDIT_FORM_LABEL']?></label></nobr>
+						<?endif;?>
 						</div>
 					</div>
 				<?
@@ -52,7 +67,19 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 					<?endif;?>
 					</div>
 					<div class="col-sm-8">
-						<input type="text" <?=(in_array($item, array("NAME", "LOGIN"))?"required":"")?>  id="<?=$item?>" name="<?=$item?>" maxlength="50" value="<?=$arResult["arUser"][$item]?>" />
+						<input type="text" <?=(in_array($item, $arDisabled)?"disabled":"")?> <?=(in_array($item, array("NAME", "LOGIN"))?"required":"")?>  id="<?=$item?>" name="<?=$item?>" maxlength="50" value="<?=$arResult["arUser"][$item]?>" />
+						<?if($item == 'LOGIN'):
+							CModule::IncludeModule("subscribe");
+							$aSubscr = CSubscription::GetUserSubscription();
+							
+							?>
+							<div class="s-margin-top">
+							<nobr>
+								<input type="checkbox" id="maillist" <?=($aSubscr['ID'] > 0?"checked":"")?> name="maillist" maxlength="50" value="1" />
+								<label class="profile__label profile__label--consedered" for="maillist">Подписаться на рассылку новостей</label>
+							</nobr>
+							</div>
+						<?endif;?>
 					</div>
 				</div>
 				<?
@@ -60,17 +87,6 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 			endswitch;
 		endforeach;
 		?>
-		<? foreach (array("UF_SMS") as $item):?>
-			<div class="row">
-				<div class="col-md-8 col-md-offset-4">
-				<?if($arResult['USER_PROPERTIES']['DATA'][$item]['SETTINGS']['CHECKBOX'] == ""):?>
-					<input type="hidden" name="<?=$item?>" value="0"/>
-					<nobr><input type="checkbox" id="<?=$item?>-1" name="<?=$item?>" maxlength="50" value="1" <?=($arResult["arUser"][$item]==1?"checked":"")?>/>
-					<label class="profile__label" for="<?=$item?>-1"><?=$arResult['USER_PROPERTIES']['DATA'][$item]['EDIT_FORM_LABEL']?></label></nobr>
-				<?endif;?>
-				</div>
-			</div>
-		<? endforeach;?>
 		<div class="row">
 			<div class="col-md-offset-4 col-md-8">
 				<input type="submit" name="save" class="product__big-button product__big-button--border" value="Сохранить">

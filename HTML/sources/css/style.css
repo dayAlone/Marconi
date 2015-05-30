@@ -2569,10 +2569,14 @@ svg g {
 }
 .profile__label {
   text-align: left;
-  width: 100%;
+  width: 110%;
+  max-width: 110%;
   letter-spacing: 2px;
   text-transform: uppercase;
   line-height: 35px;
+}
+.profile__label--consedered {
+  letter-spacing: 0px;
 }
 label.profile__label {
   font-size: 11px;
@@ -2607,6 +2611,10 @@ label.profile__label {
 }
 .profile .iradio.checked {
   background: #000;
+}
+.profile input:disabled {
+  pointer-events: none;
+  background: #f5f5f5;
 }
 .profile input:focus {
   outline: 0;
@@ -8002,7 +8010,7 @@ label.profile__label {
   }
 }
 .cabinet .icheckbox {
-  top: 2.5px;
+  top: 1px !important;
 }
 .cabinet .icheckbox + label {
   width: auto;

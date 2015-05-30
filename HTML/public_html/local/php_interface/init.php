@@ -156,10 +156,37 @@ function OnBeforeMailSendHandler(&$arFields) {
 }
 
 AddEventHandler("main", "OnAfterUserAdd", "OnAfterUsedAddHandler");
-AddEventHandler("main", "OnBeforeUserRegister", "OnBeforeUserUpdateHandler");
-AddEventHandler("main", "OnBeforeUserAdd", "OnBeforeUserUpdateHandler");
+AddEventHandler("main", "OnBeforeUserRegister", "OnBeforeUserAddHandler");
+AddEventHandler("main", "OnBeforeUserAdd", "OnBeforeUserAddHandler");
+
+AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserUpdateHandler");
 
 function OnBeforeUserUpdateHandler(&$arFields)
+{
+	if(!isset($arFields["EMAIL"])) $arFields["EMAIL"] = $arFields["LOGIN"];
+	else $arFields["LOGIN"] = $arFields["EMAIL"];
+	
+	if($_SERVER['SCRIPT_NAME'] == '/profile/index.php' && SITE_ID == 's2' && !isset($_REQUEST['NEW_PASSWORD"'])):
+		CModule::IncludeModule("subscribe");
+		$aSubscr = CSubscription::GetUserSubscription();
+		if($_REQUEST['maillist'] == 1 && $aSubscr['ID'] == 0):
+			$data = Array(
+				"USER_ID"      => $arFields['ID'],
+				"FORMAT"       => "html",
+				"EMAIL"        => $arFields["EMAIL"],
+				"ACTIVE"       => "Y",
+				"SEND_CONFIRM" => "N",
+				"CONFIRMED"    => "Y",
+				"RUB_ID"       => 1
+			);
+			$subscr = new CSubscription;
+			$subscr->Add($data);
+		elseif(!isset($_REQUEST['maillist']) && $aSubscr['ID'] > 0):
+			CSubscription::Delete($aSubscr['ID']);
+		endif;
+	endif;
+}
+function OnBeforeUserAddHandler(&$arFields)
 {
 	if(!$GLOBALS['USER']->IsAdmin()):
 		if(SITE_ID == 's1'):
@@ -186,10 +213,9 @@ function OnBeforeUserUpdateHandler(&$arFields)
 				$arFields['PERSONAL_BIRTHDAY'] = date('d.m.Y', strtotime($arFields['PERSONAL_BIRTHDAY']));
 			$arFields["ACTIVE"] = "N";
 		endif;
-		
-		if(!isset($arFields["EMAIL"])) $arFields["EMAIL"] = $arFields["LOGIN"];
-		else $arFields["LOGIN"] = $arFields["EMAIL"];
 	endif;
+	if(!isset($arFields["EMAIL"])) $arFields["EMAIL"] = $arFields["LOGIN"];
+	else $arFields["LOGIN"] = $arFields["EMAIL"];
 }
 
 function OnAfterUsedAddHandler(&$arFields)

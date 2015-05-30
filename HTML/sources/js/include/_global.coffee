@@ -106,7 +106,7 @@ $(document).ready ->
 			$(".#{id}").elem('form').show().removeClass 'hidden'
 
 
-	$('input[name="REGISTER[WORK_PHONE]"], input[name="REGISTER[PERSONAL_MOBILE]"], input[name="REGISTER[PERSONAL_PHONE]"], input[name="PERSONAL_PHONE"]').mask '+7 0000000000'
+	$('input[name*="WORK_PHONE"], input[name*="PERSONAL_MOBILE"], input[name*="PERSONAL_PHONE"], input[name="PERSONAL_PHONE"]').mask '+7 0000000000'
 
 	$('#login form, #forget form, #register form, #change form').submit (e)->
 		e.preventDefault()
