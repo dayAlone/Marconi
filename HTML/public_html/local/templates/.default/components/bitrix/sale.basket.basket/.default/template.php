@@ -79,9 +79,16 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			        <div class="basket__footer">
 			          <div class="row">
 			          	<div class="col-xs-6 col-md-7">
-			          		<?if(SITE_ID == 's1'):?>
+			          		<?if(SITE_ID == 's1'):
+			          		$coupon = $arResult['COUPON_LIST'][0]['COUPON'];
+							if(strlen($coupon) == 0):
+								$rsUser = CUser::GetByID($USER->GetByID());
+								$arUser = $rsUser->Fetch();
+								$coupon = $arUser['UF_VIP'];
+							endif;
+			          		?>
 			          		<label class="basket__coupon-label"><span>VIP-карта:</span></label>
-			          		<input type="text" <?=(strlen($arResult['COUPON_LIST'][0]['COUPON'])>0?"disabled value='".$arResult['COUPON_LIST'][0]['COUPON']."'":"") ?> class="basket__coupon" name="COUPON">
+			          		<input type="text" <?=(strlen($coupon)>0?"disabled value='".$coupon."'":"") ?> class="basket__coupon" name="COUPON">
 			          		<?endif;?>
 			          	</div>
 			            <div class="col-xs-2 col-md-1 center">
