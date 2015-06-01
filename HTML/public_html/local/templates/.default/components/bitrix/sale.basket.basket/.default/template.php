@@ -78,7 +78,13 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			    	<? endforeach;?>
 			        <div class="basket__footer">
 			          <div class="row">
-			            <div class="col-xs-2 col-xs-offset-6 col-md-1 col-md-offset-7 center">
+			          	<div class="col-xs-6 col-md-7">
+			          		<?if(SITE_ID == 's1'):?>
+			          		<label class="basket__coupon-label"><span>VIP-карта:</span></label>
+			          		<input type="text" <?=(strlen($arResult['COUPON_LIST'][0]['COUPON'])>0?"disabled value='".$arResult['COUPON_LIST'][0]['COUPON']."'":"") ?> class="basket__coupon" name="COUPON">
+			          		<?endif;?>
+			          	</div>
+			            <div class="col-xs-2 col-md-1 center">
 			            	<? if($arResult['DISCOUNT_PRICE_ALL']): ?>
 			            	<strong data-text="скидка:" class="basket__sale-total"><span><?=number_format($arResult['DISCOUNT_PRICE_ALL'], 0, ' ', ' ')?></span> ₷</strong>
 			            	<? endif;?>

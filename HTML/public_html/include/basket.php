@@ -2,7 +2,7 @@
 	require_once ($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include.php");
 	CModule::IncludeModule("catalog");
 	CModule::IncludeModule("sale");
-	global $APPLICATION;
+	global $APPLICATION, $USER;
 	
 	$action = $_GET['a'];
 	$result = 'fail';
@@ -21,7 +21,24 @@
 				$result = Add2BasketByProductID($id, $count, false, $props);
 				if(intval($result)>0)
 					$result = 'success';
-
+			break;
+		case 'check':
+			if(CCatalogDiscountCoupon::IsExistCoupon($_REQUEST['code'])):
+				CCatalogDiscountCoupon::SetCoupon($_REQUEST['code']);
+				if($USER->IsAuthorized()):
+					$ID = $USER->GetID();
+					$arGroups = CUser::GetUserGroup($ID);
+					if(!in_array(VIP,$arGroups)):
+						$arGroups[] = VIP;
+						CUser::SetUserGroup($ID, $arGroups);
+						$u = new CUser;
+						$u->Update($ID, array('UF_VIP' => $_REQUEST['code']));
+					endif;
+				else:
+					$_SESSION['COUPON'] = $_REQUEST['code'];
+				endif;
+				$result = 'success';
+				endif;
 			break;
 		case 'update':
 				$id    = intval($_GET['id']);
@@ -40,7 +57,7 @@
 			    endif;
 			break;
 	endswitch;
-	if(in_array($action, array('update','delete')) && $result == 'success'):
+	if($action != 'add' && $result == 'success'):
 		ob_start();
 			$basket = $APPLICATION->IncludeComponent("bitrix:sale.basket.basket","json", Array(
 					"OFFERS_PROPS"                  => array("COLOR_REF"),

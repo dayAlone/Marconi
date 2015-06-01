@@ -3,7 +3,7 @@
 ini_set('xdebug.var_display_max_depth', 5);
 ini_set('xdebug.var_display_max_children', 256);
 ini_set('xdebug.var_display_max_data', 1024);
-
+define("VIP", 16);
 define("BX_COMPOSITE_DEBUG", false);
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
@@ -217,7 +217,23 @@ function OnBeforeUserAddHandler(&$arFields)
 	if(!isset($arFields["EMAIL"])) $arFields["EMAIL"] = $arFields["LOGIN"];
 	else $arFields["LOGIN"] = $arFields["EMAIL"];
 }
-
+function checkUserCoupon(&$arFields)
+{
+	if(intval($arFields['ID'])>0):
+		$coupon   = $_SESSION['COUPON'];
+		if(strlen($coupon)>0):
+			$ID       = $arFields['ID'];
+			$arGroups = CUser::GetUserGroup($ID);
+			
+			if(!in_array(VIP,$arGroups)):
+				$arGroups[] = VIP;
+				CUser::SetUserGroup($ID, $arGroups);
+				$u = new CUser;
+				$u->Update($ID, array('UF_VIP' => $coupon));
+			endif;
+		endif;
+	endif;
+}
 function OnAfterUsedAddHandler(&$arFields)
 {
 	if(SITE_ID == 's2'):
@@ -252,6 +268,8 @@ function OnAfterUsedAddHandler(&$arFields)
 			$data = array_merge($data, array('EMAIL_TO'=>$ar_user['EMAIL']));
 			CEvent::Send("ITALBAGS_NEW_USER", SITE_ID, $data, "N", 68);
 		}
+	else:
+		checkUserCoupon($arFields);
 	endif;
 }
 

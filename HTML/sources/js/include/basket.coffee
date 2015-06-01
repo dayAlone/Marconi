@@ -1,4 +1,6 @@
 # Basket
+updateTimer = false
+
 @basketCalc = (el)->
 	total  = 0
 	sale   = 0
@@ -14,11 +16,13 @@
 	
 	if el
 		row  = el.parents('.basket__item')
-		val  = parseInt(row.find('.basket__count').data('price')) * row.find('.basket__count').val()
-		last = parseInt row.find('.total').text().replace(' ','')
-		if val != last
-			counter = new countUp row.find('.total')[0], last, val, 0, 1, countUpOptions
-			counter.start()
+
+		if row.length > 0
+			val  = parseInt(row.find('.basket__count').data('price')) * row.find('.basket__count').val()
+			last = parseInt row.find('.total').text().replace(' ','')
+			if val != last
+				counter = new countUp row.find('.total')[0], last, val, 0, 1, countUpOptions
+				counter.start()
 	if $('.basket__sale-total span:first').length > 0
 		saleVal = parseInt $('.basket__sale-total span:first').text().replace(' ','')
 		if saleVal != sale
@@ -31,7 +35,29 @@
 		totalCounter.start()
 
 	#$('basket').elem('total').text total
-updateTimer = false
+
+@basketUpdate = (url, callback = false)->
+		$.get url, (data)->
+			if callback
+				callback data
+			
+			if isJson data
+				data = $.parseJSON data
+				if data.result == 'success'
+					update = false
+					$.each data.items, (key, elem)->
+						row = $("[data-id='#{elem.id}']")
+						sale = row.find('.sale')
+						if sale.data('value') != elem.discount
+							update = true
+							row.data 'price', elem.price
+							sale.data 'value', elem.discount
+							row.find('.sale-value').html elem.percent
+					if update
+						basketCalc()
+				getOrderDate()
+
+
 @basketInit = ->
 	$('.basket input.date').on 'keydown', (e)->
 		e.preventDefault()
@@ -55,29 +81,35 @@ updateTimer = false
 			basketCalc()
 		e.preventDefault()
 
-	$('.basket').elem('count').on 'keydown', (e)->
+	$('.basket').elem('coupon').on 'keydown', (e)->
+		el  = $(this)
 		if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
 			return false
 		clearTimeout updateTimer
-		el = $(this)
+
 		updateTimer = delay 1000, ->
+			val = el.val()
+			url = "/include/basket.php?a=check&code=#{val}"
+			
+			basketUpdate url, (data)->
+				el.mod 'true', false
+				el.mod 'fail', false
+				if data != 'fail'
+					el.mod 'true', true
+					el.attr 'disabled', 'disabled'
+				else
+					el.mod 'fail', true
+
+	$('.basket').elem('count').on 'keydown', (e)->
+		el    = $(this)
+		if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
+			return false
+		clearTimeout updateTimer
+		updateTimer = delay 1000, ->
+			
 			id    = el.data 'id'
 			count = el.val()
 			url   = "/include/basket.php?a=update&id=#{id}&count=#{count}"
 			basketCalc el
-			$.get url, (data)->
-				data = $.parseJSON data
-				if data.result == 'success'
-					update = false
-					console.log data.items
-					$.each data.items, (key, elem)->
-						row = $("[data-id='#{elem.id}']")
-						sale = row.find('.sale')
-						if sale.data('value') != elem.discount
-							update = true
-							row.data 'price', elem.price
-							sale.data 'value', elem.discount
-							row.find('.sale-value').html elem.percent
-					if update
-						basketCalc el
-				getOrderDate()
+			basketUpdate url
+		

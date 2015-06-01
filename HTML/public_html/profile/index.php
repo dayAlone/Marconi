@@ -14,8 +14,7 @@ $APPLICATION->SetTitle('Личный кабинет');
                 		"USER_PROPERTY_NAME" => "",
                 		"SET_TITLE" => "N",
                 		"AJAX_MODE" => "N",
-                		"USER_PROPERTY" => array("UF_SMS"
-                		),
+                		"USER_PROPERTY" => array("UF_SMS", "UF_VIP"),
                 		"SEND_INFO" => "N",
                 		"CHECK_RIGHTS" => "Y",
                 		"AJAX_OPTION_JUMP" => "N",

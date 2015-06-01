@@ -23,26 +23,40 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 		<input type="hidden" name="lang" value="<?=LANG?>" />
 		<input type="hidden" name="ID" value=<?=$arResult["ID"]?> />
 		<input type="hidden" name="EMAIL" maxlength="50" value="<?=$arResult["arUser"]["EMAIL"]?>" />
-		<? foreach (array("NAME", "LAST_NAME", "LOGIN", "PERSONAL_PHONE") as $item):?>
-			<div class="row">
-				<div class="col-sm-4"><label for="#<?=$item?>"><?=GetMessage($item)?></label></div>
-				<div class="col-sm-8">
-					<input type="text" <?=(in_array($item, array("NAME", "LOGIN"))?"required":"")?>  id="<?=$item?>" name="<?=$item?>" maxlength="50" value="<?=$arResult["arUser"][$item]?>" />
-				</div>
-			</div>
-		<? endforeach;
+		<? foreach (array("NAME", "LAST_NAME", "LOGIN", "PERSONAL_PHONE","UF_SMS", "UF_VIP") as $item):
+			switch ($item):
+				case "UF_SMS":
+					?>
+						<div class="row">
+							<div class="col-md-8 col-md-offset-4">
+							<?if($arResult['USER_PROPERTIES']['DATA'][$item]['SETTINGS']['CHECKBOX'] == ""):?>
+								<input type="hidden" name="<?=$item?>" value="0"/>
+								<nobr><input type="checkbox" id="<?=$item?>-1" name="<?=$item?>" maxlength="50" value="1" <?=($arResult["arUser"][$item]==1?"checked":"")?>/>
+								<label for="<?=$item?>-1" class="profile__label"><?=$arResult['USER_PROPERTIES']['DATA'][$item]['EDIT_FORM_LABEL']?></label></nobr>
+							<?endif;?>
+							</div>
+						</div>
+					<?
+					break;
+				default:
+					?>
+						<div class="row">
+							<div class="col-sm-4"><label class="profile__label" for="#<?=$item?>">
+							<?if($item == "UF_VIP"):?>
+								<?=$arResult['USER_PROPERTIES']['DATA'][$item]['EDIT_FORM_LABEL']?>
+							<?else:?>
+								<?=GetMessage($item)?>
+							<?endif;?>
+							</label></div>
+							<div class="col-sm-8">
+								<input type="text" <?=(in_array($item, array("NAME", "LOGIN"))?"required":"")?>  id="<?=$item?>" name="<?=$item?>" maxlength="50" value="<?=$arResult["arUser"][$item]?>" />
+							</div>
+						</div>
+					<?
+					break;
+			endswitch;
+		endforeach;
 		?>
-		<? foreach (array("UF_SMS") as $item):?>
-			<div class="row">
-				<div class="col-md-8 col-md-offset-4">
-				<?if($arResult['USER_PROPERTIES']['DATA'][$item]['SETTINGS']['CHECKBOX'] == ""):?>
-					<input type="hidden" name="<?=$item?>" value="0"/>
-					<nobr><input type="checkbox" id="<?=$item?>-1" name="<?=$item?>" maxlength="50" value="1" <?=($arResult["arUser"][$item]==1?"checked":"")?>/>
-					<label for="<?=$item?>-1"><?=$arResult['USER_PROPERTIES']['DATA'][$item]['EDIT_FORM_LABEL']?></label></nobr>
-				<?endif;?>
-				</div>
-			</div>
-		<? endforeach;?>
 		<div class="row">
 			<div class="col-md-offset-4 col-md-8">
 				<input type="submit" name="save" class="product__big-button product__big-button--border" value="Сохранить">
