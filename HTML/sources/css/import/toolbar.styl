@@ -236,7 +236,6 @@
 	z-index 500
 	white-space no-wrap
 	margin-bottom 10px
-	
 	@media (min-width scr_sm)
 		margin-top 10px
 		margin-bottom 25px
@@ -244,6 +243,9 @@
 		text-transform: uppercase
 		margin 20px 0 35px
 		position relative
+		display none
+		@media (min-width scr_sm)
+			display block
 		&__line
 			content ""
 			border-bottom 1px solid #d5dbdf
@@ -471,8 +473,10 @@
 			&__line
 				display inline-block
 			svg
-				height 74px
-				margin-top -24px
+				height 64px
+				@media (min-width scr_md)
+					height 74px
+					margin-top -24px
 		.contacts
 			svg
 				margin-top -12px

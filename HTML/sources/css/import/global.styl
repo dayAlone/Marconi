@@ -17,20 +17,26 @@ body
 		background #e2cebe
 		.wrap
 			position relative
-			min-height 600px
+			min-height 450px
 			height 100vh
 			max-height 100vh
 			background url(/layout/images/italbags.jpg) bottom right no-repeat
 			background-size auto 85%
-			background-position calc(50% + 300px) calc(100% - 60px) 
+			background-position calc(50% + 200px) 100%
+			@media (min-width scr_sm)
+				min-height 600px
+				background-position calc(50% + 300px) calc(100% - 60px) 
 		.index
 			&__block
 				position absolute
 				top 50%
 				transform translateY(calc(-50% - 10px))
 				border 5px solid black
-				padding 30px 50px 15px 18px
+				max-width 90%
+				padding 20px 30px 15px 18px
 				text-transform: uppercase
+				@media (min-width scr_sm)
+					padding 30px 50px 15px 18px
 				@media (min-height: 700px)
 					padding 65px 80px 15px 18px
 				span
@@ -38,19 +44,27 @@ body
 					
 					font-weight 300
 					text-transform: uppercase
-					font-size 16px
-					line-height 19px
+					font-size 13px
+					line-height 17px
 					letter-spacing 1px
 					opacity .7
+					@media (min-width scr_sm)
+						font-size 16px
+						line-height 19px
 					@media (min-height: 700px)
 						font-size 26px
 						line-height 29px
+					
+					
 				h1
 					font-weight: bold
 					margin-bottom 0
 					padding-top 0
-					font-size 32px
-					margin-top 18px
+					font-size 27px
+					margin-top 10px
+					@media (min-width scr_sm)
+						font-size 32px
+						margin-top 18px
 					@media (min-height: 700px)
 						font-size 42px
 			&__logo
@@ -81,11 +95,12 @@ body
 			display inline-block
 			
 			&.highlight
-				font-size 19px
+				font-size 16px
 				display inline-block
 				margin-bottom 50px
 				@media (min-width scr_md)
 					max-width 80%
+					font-size 19px
 		ul, ol
 			padding-left 20px
 			margin-bottom: 25px
@@ -476,8 +491,21 @@ svg
 					svg path
 						fill white
 				.nav
-					margin-top 25px
-					margin-left 0
+					margin-top 20px
+					padding-left 0
+					ul
+						padding-left 0
+						li
+							.nav__item
+								opacity .9
+								font-size 15px
+								padding-bottom 3px
+						li:last-of-type
+							border-bottom 0			
+					li
+						border-bottom 1px solid alpha(red, .6)
+						&:first-of-type
+							border-top 1px solid alpha(red, .6)
 					&__item
 						width 100%
 						color white
@@ -486,9 +514,9 @@ svg
 						font-weight: bold
 						text-align: center
 						background transparent
-						border-bottom 1px solid alpha(red, .6)
+						
 						font-size 20px
-						padding-top 10px
+						padding-top 8px
 						line-height 35px
 						@media (min-width scr_sm)
 							font-size 30px
@@ -499,8 +527,7 @@ svg
 							color white
 						&:focus, &:hover
 							color red
-						&:first-of-type
-							border-top 1px solid alpha(red, .6)
+						
 	a
 		color red
 		font-size 13px

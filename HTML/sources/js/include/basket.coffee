@@ -81,12 +81,10 @@ updateTimer = false
 			basketCalc()
 		e.preventDefault()
 
-	$('.basket').elem('coupon').on 'keydown', (e)->
-		el  = $(this)
-		if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
-			return false
+	$('.basket').elem('coupon-trigger').on 'click', (e)->
+		el  = $(this).block('coupon')
+		
 		clearTimeout updateTimer
-
 		updateTimer = delay 1000, ->
 			val = el.val()
 			url = "/include/basket.php?a=check&code=#{val}"
@@ -95,10 +93,16 @@ updateTimer = false
 				el.mod 'true', false
 				el.mod 'fail', false
 				if data != 'fail'
+					el.block('coupon-trigger').attr 'disabled', 'disabled'
 					el.mod 'true', true
 					el.attr 'disabled', 'disabled'
 				else
 					el.mod 'fail', true
+		e.preventDefault()
+		
+	$('.basket').elem('coupon').on 'keydown', (e)->
+		if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
+			return false
 
 	$('.basket').elem('count').on 'keydown', (e)->
 		el    = $(this)

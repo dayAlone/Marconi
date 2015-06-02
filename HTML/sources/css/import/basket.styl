@@ -199,6 +199,7 @@
 			font-weight: normal
 			font-weight 300
 			top -2px
+	&__coupon-trigger,
 	&__coupon,
 	&__count
 		width 40px
@@ -216,6 +217,24 @@
 			height 30px
 			line-height 31px
 			width 60px
+	&__coupon-trigger
+		display inline-block
+		font-size 10px
+		color black
+		margin-left 5px
+		position relative
+		width auto
+		max-height 30px
+		top -3px
+		padding 1px 10px 0
+		border-color black
+		t all
+		&--disabled
+			opacity 0
+			pointer-events none
+		&:hover
+			color red
+			border-color red
 	&__coupon
 		width 55px
 		padding 2px 10px 0
@@ -227,9 +246,9 @@
 			background #f5f5f5
 		&:focus
 			border-color black
-		&--fail:focus
+		&--fail
 			border-color red
-		&--true:focus
+		&--true
 			border-color #249f2b
 		&-label
 			font-weight: normal

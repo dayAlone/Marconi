@@ -198,9 +198,10 @@ $APPLICATION->ShowViewContent('footer');
         $APPLICATION->IncludeComponent("bitrix:menu", "toolbar", 
         array(
             "ALLOW_MULTI_SELECT" => "Y",
-            "MENU_CACHE_TYPE"    => "A",
-            "ROOT_MENU_TYPE"     => "toolbar",
-            "MAX_LEVEL"          => "1",
+              "MENU_CACHE_TYPE"    => "A",
+              "ROOT_MENU_TYPE"     => "toolbar",
+              "CHILD_MENU_TYPE"    => "header", 
+              "MAX_LEVEL"          => "2"
             ),
         false);
     ?>

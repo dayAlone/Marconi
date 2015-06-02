@@ -89,6 +89,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			          		?>
 			          		<label class="basket__coupon-label"><span>VIP-карта:</span></label>
 			          		<input type="text" <?=(strlen($coupon)>0?"disabled value='".$coupon."'":"") ?> class="basket__coupon" name="COUPON">
+			          		<a href="#" class="basket__coupon-trigger <?=(strlen($coupon)>0?"basket__coupon-trigger--disabled value='".$coupon."'":"") ?>">Пересчитать</a>
 			          		<?endif;?>
 			          	</div>
 			            <div class="col-xs-2 col-md-1 center">
