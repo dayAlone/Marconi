@@ -163,8 +163,12 @@ AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserUpdateHandler");
 
 function OnBeforeUserUpdateHandler(&$arFields)
 {
-	if(!isset($arFields["EMAIL"])) $arFields["EMAIL"] = $arFields["LOGIN"];
-	else $arFields["LOGIN"] = $arFields["EMAIL"];
+	global $USER;
+	if(!$USER->isAdmin())
+	{
+		if(!isset($arFields["EMAIL"])) $arFields["EMAIL"] = $arFields["LOGIN"];
+		else $arFields["LOGIN"] = $arFields["EMAIL"];
+	}
 	
 	if($_SERVER['SCRIPT_NAME'] == '/profile/index.php' && SITE_ID == 's2' && !isset($_REQUEST['NEW_PASSWORD"'])):
 		CModule::IncludeModule("subscribe");
