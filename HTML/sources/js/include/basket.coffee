@@ -82,23 +82,20 @@ updateTimer = false
 		e.preventDefault()
 
 	$('.basket').elem('coupon-trigger').on 'click', (e)->
-		el  = $(this).block('coupon')
+		el  = $(this).block('coupon')	
+		val = el.val()
+		url = "/include/basket.php?a=check&code=#{val}"
 		
-		clearTimeout updateTimer
-		updateTimer = delay 1000, ->
-			val = el.val()
-			url = "/include/basket.php?a=check&code=#{val}"
-			
-			basketUpdate url, (data)->
-				el.mod 'true', false
-				el.mod 'fail', false
-				if data != 'fail'
-					el.block('coupon-trigger').attr 'disabled', 'disabled'
-					el.mod 'true', true
-					el.attr 'disabled', 'disabled'
-				else
-					el.mod 'fail', true
-		e.preventDefault()
+		basketUpdate url, (data)->
+			el.mod 'true', false
+			el.mod 'fail', false
+			if data != 'fail'
+				el.block('coupon-trigger').attr 'disabled', 'disabled'
+				el.mod 'true', true
+				el.attr 'disabled', 'disabled'
+			else
+				el.mod 'fail', true
+
 
 	$('.basket').elem('coupon').on 'keydown', (e)->
 		if $.inArray(e.keyCode, [

@@ -7674,7 +7674,8 @@ label.profile__label {
   -ms-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-.basket__coupon-trigger--disabled {
+.basket__coupon-trigger--disabled,
+.basket__coupon-trigger:disabled {
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
