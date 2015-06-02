@@ -37,8 +37,16 @@ if (!function_exists("cmpBySort"))
 				<div class="row">
 				<? foreach ($arResult['ORDER_PROP']['USER_PROPS_Y'] as $prop):?>
 					<div class="col-xs-<?=($prop['SIZE1']==6?"6":"12")?>">
-						<input type="<?=($prop['FIELD_NAME']=="ORDER_PROP_4"?"email":"text")?>" value="<?=$prop["VALUE"]?>" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=="Y"?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
+						<input type="<?=(in_array($prop['FIELD_NAME'], array("ORDER_PROP_4", "ORDER_PROP_20"))?"email":"text")?>" value="<?=$prop["VALUE"]?>" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=="Y"?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
 					</div>
+					<?if(in_array($prop['FIELD_NAME'], array("ORDER_PROP_4", "ORDER_PROP_20"))):?>
+					<div class="col-xs-12">
+						<p class="order__login-error">
+							<strong>Ваш e-mail уже зарегистрирован на нашем сайте. </strong><br>
+							Чтобы оформить заказ, пожалуйста, <a href="#" class="order__change">снимите флаг</a> «Зарегистрироваться на сайте» или <a href="#login" data-toggle="modal" data-target="#login">авторизуйтесь</a>. В случае оформления покупки без авторизации, данный заказ не будет отражен в истории заказов.
+						</p>
+					</div>
+					<?endif;?>
 				<? endforeach ?>
 				</div>
 				<textarea name="ORDER_DESCRIPTION" id="ORDER_DESCRIPTION" style="max-width:100%;min-height:120px" placeholder="комментарий к заказу"><?=$arResult["USER_VALS"]["ORDER_DESCRIPTION"]?></textarea>

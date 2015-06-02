@@ -8113,6 +8113,40 @@ label.profile__label {
     font-size: 20px;
   }
 }
+.order__login-error {
+  font-size: 12px;
+  display: inline-block;
+  line-height: 1.3;
+  display: none;
+}
+.order__login-error--active {
+  display: block;
+}
+.order__login-error strong {
+  font-size: 13px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.order__login-error strong,
+.order__login-error a {
+  color: #d10a32;
+}
+.order__login-error a {
+  background-image: -webkit-linear-gradient(left, rgba(209,10,50,0.3) 70%, transparent 70%);
+  background-image: -moz-linear-gradient(left, rgba(209,10,50,0.3) 70%, transparent 70%);
+  background-image: -o-linear-gradient(left, rgba(209,10,50,0.3) 70%, transparent 70%);
+  background-image: -ms-linear-gradient(left, rgba(209,10,50,0.3) 70%, transparent 70%);
+  background-image: linear-gradient(to right, rgba(209,10,50,0.3) 70%, transparent 70%);
+  background-repeat: repeat-x;
+  -webkit-background-size: 5px 1px;
+  -moz-background-size: 5px 1px;
+  background-size: 5px 1px;
+  background-position: 0 100%;
+  background-position: 0 calc(100% - 3px);
+}
+.order__login-error a:hover {
+  text-decoration: none;
+}
 .order__total {
   margin-top: 30px;
 }

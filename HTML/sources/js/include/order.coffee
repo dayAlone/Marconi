@@ -5,6 +5,10 @@
 			getOrderDate()
 	$('.basket input[type="checkbox"]').iCheck()
 	
+	$('.order__change').on 'click', (e)->
+		$('#register_user').iCheck('uncheck')
+		e.preventDefault()
+
 	$('.stores-list .dropdown__item').on 'click', (e)->
 		$('.stores-list .parsley-errors-list').removeClass 'filled'
 		$(this).block('select').val $(this).block('select').find("option[data-id='#{$(this).data('id')}']").val()#.val $(this).data 'id'
@@ -28,6 +32,9 @@
 		data     : data
 		success  : (data)->
 			if !isJson data
+				if $(data).find('.errortext').text().indexOf('с таким e-mail') > 0
+					$("input[type='email']").removeClass().addClass 'parsley-error'
+					$('.order__login-error').mod 'active', true
 				$('#ORDER_FORM .props').html $(data).find('.props').html()
 				$('#ORDER_FORM .delivery').html $(data).find('.delivery').html()
 				$('#ORDER_FORM .payment').html $(data).find('.payment').html()
