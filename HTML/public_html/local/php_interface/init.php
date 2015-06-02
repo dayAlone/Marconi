@@ -164,7 +164,7 @@ AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserUpdateHandler");
 function OnBeforeUserUpdateHandler(&$arFields)
 {
 	global $USER;
-	if(!$USER->isAdmin())
+	if(!$USER->IsAdmin())
 	{
 		if(!isset($arFields["EMAIL"])) $arFields["EMAIL"] = $arFields["LOGIN"];
 		else $arFields["LOGIN"] = $arFields["EMAIL"];
