@@ -1,21 +1,21 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Лучшие продажи", 
+		"Хиты продаж", 
 		"/catalog/best-sellers/", 
 		Array("/catalog/best-sellers/"), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Последние поступления", 
+		"Премьера", 
 		"/catalog/new/", 
 		Array("/catalog/new/"), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Уникальная цена", 
+		"Sale", 
 		"/catalog/sale/", 
 		Array("/catalog/sale/"), 
 		Array(), 
@@ -29,14 +29,14 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Готовые решения", 
+		"Lookbook", 
 		"/catalog/stylelook/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Ожидается", 
+		"Новый груз", 
 		"/catalog/coming/", 
 		Array(), 
 		Array('GROUPS'=>array(1,9,5)), 
