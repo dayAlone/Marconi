@@ -32,6 +32,7 @@
 		data     : data
 		success  : (data)->
 			if !isJson data
+				console.log $(data).find('.errortext')
 				if $(data).find('.errortext').text().indexOf('с таким e-mail') > 0
 					$("input[type='email']").removeClass().addClass 'parsley-error'
 					$('.order__login-error').mod 'active', true

@@ -224,6 +224,7 @@ if (!function_exists("cmpBySort"))
 							"SORT_BY1"      => "ID",
 							"SORT_ORDER1"   => "ASC",
 							"DETAIL_URL"    => "/catalog/",
+							"CACHE_CODE"    => $_REQUEST['BUYER_STORE'],
 							"CACHE_TYPE"    => "A",
 							'PROPERTY_CODE' => array('STORE'),
 							'OFFERS'        => $offers,

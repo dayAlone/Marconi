@@ -1,9 +1,16 @@
 <? $this->setFrameMode(true);?>
-<? if(count($arResult['ITEMS'])>0): ?>
+<? if(count($arResult['ITEMS'])>0): 
+	if(isset($_REQUEST[$arParams["FIELD_NAME"]])):
+		foreach ($arResult['ITEMS'] as $item):
+			if($item['VALUE']==$_REQUEST[$arParams["FIELD_NAME"]])
+				$name = $item['NAME'];
+		endforeach;
+	endif;
+?>
 <div class="stores-list">
 	<? if(count($arResult['ITEMS'])>1): ?>
 	<div class="dropdown">
-		<a href="#" class="dropdown__trigger"><span class="dropdown__text">Выберите пункт самовывоза</span><?=svg('arrow')?></a>
+		<a href="#" class="dropdown__trigger"><span class="dropdown__text"><?=(strlen($name)>0?$name:"Выберите пункт самовывоза")?></span><?=svg('arrow')?></a>
 		<span class="dropdown__frame">
 			<a href="#" data-id="" class="dropdown__item">Выберите пункт самовывоза</a>				
 			<?
