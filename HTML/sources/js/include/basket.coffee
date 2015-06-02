@@ -99,15 +99,35 @@ updateTimer = false
 				else
 					el.mod 'fail', true
 		e.preventDefault()
-		
+
 	$('.basket').elem('coupon').on 'keydown', (e)->
-		if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
-			return false
+		if $.inArray(e.keyCode, [
+			46
+			8
+			9
+			27
+			13
+			110
+			190
+		]) != -1 or e.keyCode == 65 and (e.ctrlKey == true or e.metaKey == true) or e.keyCode >= 35 and e.keyCode <= 40
+			return
+		if (e.shiftKey or e.keyCode < 48 or e.keyCode > 57) and (e.keyCode < 96 or e.keyCode > 105)
+			e.preventDefault()
 
 	$('.basket').elem('count').on 'keydown', (e)->
 		el    = $(this)
-		if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
-			return false
+		if $.inArray(e.keyCode, [
+			46
+			8
+			9
+			27
+			13
+			110
+			190
+		]) != -1 or e.keyCode == 65 and (e.ctrlKey == true or e.metaKey == true) or e.keyCode >= 35 and e.keyCode <= 40
+			return
+		if (e.shiftKey or e.keyCode < 48 or e.keyCode > 57) and (e.keyCode < 96 or e.keyCode > 105)
+			e.preventDefault()
 		clearTimeout updateTimer
 		updateTimer = delay 1000, ->
 			

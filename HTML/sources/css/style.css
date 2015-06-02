@@ -2188,7 +2188,7 @@ body.index--fmarconi {
 }
 .index--italbags .index__block {
   position: absolute;
-  top: 50%;
+  top: 30%;
   -webkit-transform: translateY(calc(-50% - 10px));
   -moz-transform: translateY(calc(-50% - 10px));
   -o-transform: translateY(calc(-50% - 10px));
@@ -2201,6 +2201,7 @@ body.index--fmarconi {
 }
 @media (min-width: 768px) {
   .index--italbags .index__block {
+    top: 50%;
     padding: 30px 50px 15px 18px;
   }
 }
@@ -7657,7 +7658,7 @@ label.profile__label {
   color: #000;
   margin-left: 5px;
   position: relative;
-  width: auto;
+  width: auto !important;
   max-height: 30px;
   top: -3px;
   padding: 1px 10px 0;
