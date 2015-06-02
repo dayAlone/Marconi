@@ -91,6 +91,7 @@ updateTimer = false
 			el.mod 'fail', false
 			if data != 'fail'
 				el.block('coupon-trigger').attr 'disabled', 'disabled'
+				el.block('coupon-trigger').mod 'disabled', true
 				el.mod 'true', true
 				el.attr 'disabled', 'disabled'
 			else

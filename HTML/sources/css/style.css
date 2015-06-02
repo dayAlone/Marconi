@@ -2188,7 +2188,7 @@ body.index--fmarconi {
 }
 .index--italbags .index__block {
   position: absolute;
-  top: 30%;
+  top: 40%;
   -webkit-transform: translateY(calc(-50% - 10px));
   -moz-transform: translateY(calc(-50% - 10px));
   -o-transform: translateY(calc(-50% - 10px));
