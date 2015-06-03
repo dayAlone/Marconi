@@ -43,6 +43,13 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
+		"Промоушен", 
+		"/catalog/promotion/", 
+		Array(), 
+		Array('GROUPS'=>array(1,9,5)), 
+		"" 
+	),
+	Array(
 		"Новый груз", 
 		"/catalog/coming/", 
 		Array(), 

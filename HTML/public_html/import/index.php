@@ -149,7 +149,7 @@
 			$this->categories = Import::getHighloadElements($this->iblocks['categories'], true);
 			$this->types      = Import::getHighloadElements($this->iblocks['types'], true);
 			$this->brands     = Import::getHighloadElements($this->iblocks['brands'], true);
-			$this->properties = Array("SORT", "PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_TRADELINE", "PROPERTY_MATERIAL", "PROPERTY_SALE", "PROPERTY_PICTURES", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "PROPERTY_SECTION_4", "IBLOCK_SECTION", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL" );
+			$this->properties = Array("SORT", "PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_TRADELINE", "PROPERTY_MATERIAL", "PROPERTY_SALE", "PROPERTY_PICTURES", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "PROPERTY_SECTION_4", "IBLOCK_SECTION", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL", "PROPERTY_NEW", "PROPERTY_COMING" );
 		}
 		private function addParentCatagory(&$parent, $array)
 		{
@@ -234,6 +234,9 @@
 				endforeach;
 				$sections['id']     = $this->categories[$value]['ID'];
 				$sections['second'] = $value;
+			elseif(isset($sections['first'][0])):
+				$fields['IBLOCK_SECTION'][] = $this->sections[$sections['first'][0]];
+				$fields['IBLOCK_SECTION'][] = $this->sections['all'];
 			endif;
 			if($propSections['type']):
 				$value  = $propSections['type'];
@@ -335,12 +338,16 @@
 			endif;
 
 			$name = $note;
-			if($this->brands[$props['BRAND']]['NAME'])
+
+			if($this->brands[$props['BRAND']]['NAME']):
 				$name .= ' '.$this->brands[$props['BRAND']]['NAME'];
-			$name .= ' '.str_replace($artnumber.' ','', $item->getElementsByTagName('name')->item(0)->nodeValue);
+				$name .= ' '.str_replace($artnumber.' ','', $item->getElementsByTagName('name')->item(0)->nodeValue);
+			endif;
+			
+			if(strlen($name) == 0) $name = $item->getElementsByTagName('name')->item(0)->nodeValue;
 
 			$fields["NAME"] = $name;
-			$fields["CODE"] = Translit::UrlTranslit($note." ". $item->getElementsByTagName('name')->item(0)->nodeValue);
+			$fields["CODE"] = Translit::UrlTranslit((strlen($note)>0?$note." ":""). $item->getElementsByTagName('name')->item(0)->nodeValue);
 
 			
 			$images = array_merge(glob($_SERVER['DOCUMENT_ROOT']."/import/photos/".$slug.".jpg"), glob($_SERVER['DOCUMENT_ROOT']."/import/photos/".$slug."_[0-9].jpg"));
