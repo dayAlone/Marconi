@@ -67,7 +67,7 @@ $APPLICATION->SetPageProperty('body_class', "catalog ".(!isset($_REQUEST['v'])?"
 		"TOP_ELEMENT_SORT_FIELD"           => "id",
 		"TOP_ELEMENT_SORT_ORDER"           => "desc",
 		"TOP_ELEMENT_SORT_FIELD2"          => "sort",
-		"TOP_ELEMENT_SORT_ORDER2"          => "asc",
+		"TOP_ELEMENT_SORT_ORDER2"          => "desc",
 		"TOP_PROPERTY_CODE" => array(
 			0 => "",
 			1 => "",
@@ -79,10 +79,10 @@ $APPLICATION->SetPageProperty('body_class', "catalog ".(!isset($_REQUEST['v'])?"
 		"SECTIONS_SHOW_PARENT_NAME" => "Y",
 		"PAGE_ELEMENT_COUNT"        => (isset($_COOKIE['PER_PAGE'])?$_COOKIE['PER_PAGE']:40),
 		"LINE_ELEMENT_COUNT"        => "3",
-		"ELEMENT_SORT_FIELD2"        => ($_REQUEST['sort_param']?$_REQUEST['sort_param']:"SORT"),
-		"ELEMENT_SORT_ORDER2"        => ($_REQUEST['sort_value']?$_REQUEST['sort_value']:"asc"),
-		"ELEMENT_SORT_FIELD"       => "ID",
-		"ELEMENT_SORT_ORDER"       => "DESC",
+		"ELEMENT_SORT_FIELD"        => ($_REQUEST['sort_param']?$_REQUEST['sort_param']:"ID"),
+		"ELEMENT_SORT_ORDER"        => ($_REQUEST['sort_value']?$_REQUEST['sort_value']:"desc"),
+		"ELEMENT_SORT_FIELD2"       => "SORT",
+		"ELEMENT_SORT_ORDER2"       => "asc",
 		"LIST_PROPERTY_CODE" => array(
 			0 => "BRAND",
 			1 => "PICTURES",
