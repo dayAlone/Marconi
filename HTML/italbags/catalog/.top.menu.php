@@ -1,6 +1,13 @@
 <?
 $aMenuLinks = Array(
 	Array(
+		"Все товары", 
+		"/catalog/all/", 
+		Array("/catalog/best-sellers/"), 
+		Array(), 
+		"" 
+	),
+	Array(
 		"Хиты продаж", 
 		"/catalog/best-sellers/", 
 		Array("/catalog/best-sellers/"), 

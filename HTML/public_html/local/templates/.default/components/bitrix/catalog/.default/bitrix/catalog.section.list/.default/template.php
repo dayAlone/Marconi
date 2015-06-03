@@ -244,5 +244,5 @@ if(SITE_ID == 's1'):
     <div class="catalog__intro-text catalog__intro-text--bottom catalog__intro-text--right">Style look</div></a></div>
 </div>
 <? else:
-	LocalRedirect('/catalog/best-sellers/');
+	LocalRedirect('/catalog/all/');
 endif;?>
