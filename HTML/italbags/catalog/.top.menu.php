@@ -3,7 +3,7 @@ $aMenuLinks = Array(
 	Array(
 		"Все товары", 
 		"/catalog/all/", 
-		Array("/catalog/best-sellers/"), 
+		Array("/catalog/all/"), 
 		Array(), 
 		"" 
 	),
