@@ -119,7 +119,7 @@
 
 	class Products
 	{
-		private $iblock, $sections, $categories, $types, $brands, $products, $offers, $files;
+		private $iblock, $sections, $categories, $types, $brands, $products, $offers, $files, $artnumbers;
 
 		private $counter = array('add'=>0, 'update'=>0, 'offers'=>0, 'error'=>0);
 
@@ -145,6 +145,7 @@
 			foreach ($this->remove as $i)
 				$remove[] = "/(\s(".$i['NAME'].")|_".strtolower(str_replace(array(',', '.'), '_', $i['NAME'])).")$/";
 			$this->remove = $remove;
+			$this->artnumbers = Import::getAllArtnumbers($this->iblocks['products']);
 			$this->sections   = Import::getIBlockSections($this->iblocks['products'], 3);
 			$this->categories = Import::getHighloadElements($this->iblocks['categories'], true);
 			$this->types      = Import::getHighloadElements($this->iblocks['types'], true);
@@ -254,6 +255,21 @@
 					$props['SECTION_'.$sections['id']] = $value;
 				$fields['IBLOCK_SECTION'][] = $this->sections['all'];
 			endif;
+
+			// Частные случаи разделов
+			if($props["SALE"]==$this->sale):
+				$fields['IBLOCK_SECTION'][] = $this->sections['sale'];
+			else:
+				$fields['IBLOCK_SECTION'][] = $this->sections['sale30'];
+			endif;
+
+			if($props["COMING"]=='Y'):
+				$fields['IBLOCK_SECTION'][] = $this->sections['coming'];
+			endif;
+
+			if($props["NEW"]=='Y' || !in_array($props["ARTNUMBER"], $this->artnumbers)):
+				$fields['IBLOCK_SECTION'][] = $this->sections['new'];
+			endif;
 		}
 		private function getData($item)
 		{
@@ -321,21 +337,7 @@
 			endforeach;
 
 			$this->getSections($propSections, $fields, $props);
-			
-			// Частные случаи разделов
-			if($props["SALE"]==$this->sale):
-				$fields['IBLOCK_SECTION'][] = $this->sections['sale'];
-			else:
-				$fields['IBLOCK_SECTION'][] = $this->sections['sale30'];
-			endif;
 
-			if($props["COMING"]=='Y'):
-				$fields['IBLOCK_SECTION'][] = $this->sections['coming'];
-			endif;
-
-			if($props["NEW"]=='Y'):
-				$fields['IBLOCK_SECTION'][] = $this->sections['new'];
-			endif;
 
 			$name = $note;
 
@@ -344,10 +346,12 @@
 				$name .= ' '.str_replace($artnumber.' ','', $item->getElementsByTagName('name')->item(0)->nodeValue);
 			endif;
 			
-			if(strlen($name) == 0) $name = $item->getElementsByTagName('name')->item(0)->nodeValue;
+			if(strlen($name) == 0):
+				$name = $item->getElementsByTagName('name')->item(0)->nodeValue;
+			endif;
 
-			$fields["NAME"] = $name;
-			$fields["CODE"] = Translit::UrlTranslit((strlen($note)>0?$note." ":""). $item->getElementsByTagName('name')->item(0)->nodeValue);
+			$fields["NAME"] = str_replace(array("Оо","Уу", "Ee"), array("То","Бу", "Рe"), $name);
+			$fields["CODE"] = Translit::UrlTranslit((strlen($note)>0?$note." ":""). str_replace(array("Оо","Уу", "Ee"), array("То","Бу", "Рe"),$item->getElementsByTagName('name')->item(0)->nodeValue));
 
 			
 			$images = array_merge(glob($_SERVER['DOCUMENT_ROOT']."/import/photos/".$slug.".jpg"), glob($_SERVER['DOCUMENT_ROOT']."/import/photos/".$slug."_[0-9].jpg"));
@@ -971,6 +975,31 @@
 			else
 				fwrite(STDERR, "\033[31m\033[4maddIBlockElement ".strip_tags($raw->LAST_ERROR)." — ".$data['CODE']."\033[0m\n\r");
 				return;
+		}
+
+		public function getAllArtnumbers($id)
+		{
+			$obCache   = new CPHPCache();
+			$cacheLife = 60*60; 
+			$cacheID   = 'getAllArtnumbers'; 
+			$cachePath = '/'.$cacheID;
+			if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):
+				$vars = $obCache->GetVars();
+				var_dump('from cache');
+				$data = $vars['data'];
+			elseif( $obCache->StartDataCache() ):
+				$data = array();
+				$arSelect = Array("ID", "PROPERTY_ARTNUMBER");
+				$arFilter = Array("IBLOCK_ID"=>$id, 'CHECK_PERMISSIONS' => 'N', '<=DATE_CREATE' => ConvertTimeStamp(time()-60*60*24*60, "FULL"));
+				$res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
+				while($el = $res->Fetch()):
+					$art = $el['PROPERTY_ARTNUMBER_VALUE'];
+					if(!in_array($art, $data))
+						$data[] = $art;
+					endwhile;
+				$obCache->EndDataCache(array('data' => $data));
+			endif;
+			return $data;
 		}
 
 		public function getHighloadElements($id, $remove=false, $clear=false)

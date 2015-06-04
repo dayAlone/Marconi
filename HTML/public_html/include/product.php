@@ -19,8 +19,9 @@
 		    <? else: ?>
 				<div class="product__brand"><?=$item['NAME']?></div>
 		    <?endif;?>
-		    
-		    <div class="product__artnumber">Арт. <?=$item['PROPERTIES']['ARTNUMBER']['VALUE']?></div>
+		    <?if(strlen($item['PROPERTIES']['ARTNUMBER']['VALUE'])>0):?>
+		    	<div class="product__artnumber">Арт. <?=$item['PROPERTIES']['ARTNUMBER']['VALUE']?></div>
+		    <?endif;?>
 		    <? if($arParams['SHOW_PRICE']):?>
 			    <div class="product__price">
 			    <? if(isset($item['PRICE'])&&intval($item['PRICE'])!=0): ?>
