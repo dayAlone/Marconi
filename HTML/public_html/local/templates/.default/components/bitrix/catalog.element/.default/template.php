@@ -137,22 +137,24 @@ endif;
 	      <?
 	        	global $arFilter;
 	        	$arFilter = array('PROPERTY_ARTNUMBER' => $props['ARTNUMBER']['VALUE']);
-	        	$APPLICATION->IncludeComponent("bitrix:news.list", "colors", 
-					array(
-						"IBLOCK_ID"     => 1,
-						"NEWS_COUNT"    => "9999999",
-						"CACHE_NOTES"   => $item['ID'],
-						"FILTER_NAME"   => "arFilter",
-						"CACHE_FILTER"  => "Y",
-						"SORT_BY1"      => "ID",
-						"SORT_ORDER1"   => "ASC",
-						"DETAIL_URL"    => "/catalog/",
-						"CACHE_TYPE"    => "A",
-						'PROPERTY_CODE' => array('PICTURES'),
-						"SET_TITLE"     => "N"
-					),
-					$component
-				);
+	        	if(strlen($props['ARTNUMBER']['VALUE'])>0):
+		        	$APPLICATION->IncludeComponent("bitrix:news.list", "colors", 
+						array(
+							"IBLOCK_ID"     => 1,
+							"NEWS_COUNT"    => "9999999",
+							"CACHE_NOTES"   => $item['ID'],
+							"FILTER_NAME"   => "arFilter",
+							"CACHE_FILTER"  => "Y",
+							"SORT_BY1"      => "ID",
+							"SORT_ORDER1"   => "ASC",
+							"DETAIL_URL"    => "/catalog/",
+							"CACHE_TYPE"    => "A",
+							'PROPERTY_CODE' => array('PICTURES'),
+							"SET_TITLE"     => "N"
+						),
+						$component
+					);
+	        	endif;
 				if(isset($arResult['MIN_PRICE']['VALUE'])):
 					if(count($item['OFFERS'])>1):
 						?>
