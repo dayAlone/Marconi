@@ -369,7 +369,8 @@
 			endif;
 
 			$fields["PROPERTY_VALUES"] = $props;
-
+			var_dump($fields);
+			die();
 			return $fields;
 		}
 		private function getFiles($items)
