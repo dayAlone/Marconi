@@ -263,11 +263,15 @@
 				$fields['IBLOCK_SECTION'][] = $this->sections['sale30'];
 			endif;
 
+			if($props["BEST"]=='Y'):
+				$fields['IBLOCK_SECTION'][] = $this->sections['best-sellers'];
+			endif;
+
 			if($props["COMING"]=='Y'):
 				$fields['IBLOCK_SECTION'][] = $this->sections['coming'];
 			endif;
 
-			if($props["NEW"]=='Y' || !in_array($props["ARTNUMBER"], $this->artnumbers)):
+			if(($props["NEW"]=='Y' || !in_array($props["ARTNUMBER"], $this->artnumbers)) && $props["COMING"]!='Y'):
 				$fields['IBLOCK_SECTION'][] = $this->sections['new'];
 			endif;
 		}
@@ -324,6 +328,7 @@
 					case 'brand':
 					case 'new':
 					case 'coming':
+					case 'best-sellers':
 						$props[strtoupper($id)] = $value;
 						break;
 					case 'comming':
@@ -449,7 +454,7 @@
 					endif;
 
 					// Проверка свойств
-					foreach (array('SALE', 'NEW', 'COMING') as $prop) {
+					foreach (array('SALE', 'NEW', 'COMING', 'BEST') as $prop) {
 						if(!isset($exist[$prop]) && strlen($props[$prop])>0):
 							$diff[$prop] = $props[$prop];
 						elseif(isset($exist[$prop]) && !isset($props[$prop])):
