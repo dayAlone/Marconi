@@ -17,7 +17,7 @@
 
 	$raw = CIBlockElement::GetElementGroups($arResult['ID']);
 	while($data = $raw->GetNext())
-		if(!in_array($data['CODE'], array('all', 'sale', 'sale30', 'new', 'best-sellers')))
+		if(!in_array($data['CODE'], array('all', 'sale', 'sale30', 'new', 'best-sellers', 'coming')))
 			$arResult['IBLOCK_SECTION_ID'] = $data['ID'];
 
 	$rsPath = GetIBlockSectionPath($arResult['IBLOCK_ID'], $arResult['IBLOCK_SECTION_ID']);
