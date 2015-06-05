@@ -328,8 +328,10 @@
 					case 'brand':
 					case 'new':
 					case 'coming':
-					case 'best-sellers':
 						$props[strtoupper($id)] = $value;
+						break;
+					case 'best-sellers':
+						$props["BEST"] = $value;
 						break;
 					case 'comming':
 						$props[strtoupper('coming')] = $value;
