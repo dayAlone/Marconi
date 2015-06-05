@@ -278,7 +278,7 @@
 			$tmp       = $item->getElementsByTagName('namePrint')->item(0)->nodeValue;
 			if(strpos($tmp, $artnumber) == 0):
 				$note  = str_replace($item->getElementsByTagName('name')->item(0)->nodeValue, "", $tmp);
-				$note  = mb_strtoupper(mb_substr($note, 1, 1)) . substr($note, 2, strlen($note));
+				$note  = mb_strtoupper(mb_substr($note, 0, 1)) . substr($note, 2, strlen($note));
 			else:
 				$note  = substr($tmp, 0, strpos($tmp, $artnumber)-1);
 			endif;
