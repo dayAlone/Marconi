@@ -43,6 +43,7 @@ if(count($IDs)>0):
 	        "FILTER_NAME"        => "arrFilter",
 	        "CACHE_TYPE"         => "A",
 	        "CACHE_TIME"         => "360000",
+	        "CACHE_NOTES"        => SITE_ID,
 	        "CACHE_FILTER"       => "Y",
 	        "CACHE_GROUPS"       => "Y",
 	        "SET_TITLE"          => "N",
