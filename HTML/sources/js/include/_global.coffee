@@ -143,9 +143,12 @@ $(document).ready ->
 					else
 						modal.modal('hide')
 
-					if block != "forget" && (form.data('no-auth') && form.data('no-auth').length == 0)
+					if block != "forget"
 						$('.auth').mod 'active', true
 						$(".toolbar__mobile a[href='#login']").attr 'href', '/profile/'
+
+					if block == 'login' && $('body').hasClass 's2'
+						location.href = location.href
 
 	# Contacts
 		

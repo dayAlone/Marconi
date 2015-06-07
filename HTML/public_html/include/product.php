@@ -22,7 +22,9 @@
 		    <?if(strlen($item['PROPERTIES']['ARTNUMBER']['VALUE'])>0):?>
 		    	<div class="product__artnumber">Арт. <?=$item['PROPERTIES']['ARTNUMBER']['VALUE']?></div>
 		    <?endif;?>
-		    <? if($arParams['SHOW_PRICE']):?>
+		    <?
+		    var_dump($arParams['SHOW_PRICE']);
+		    if($arParams['SHOW_PRICE']):?>
 			    <div class="product__price">
 			    <? if(isset($item['PRICE'])&&intval($item['PRICE'])!=0): ?>
 			    	<? if($item['PROPERTIES']['SALE']['VALUE'] == "77ebb502-85d4-11e4-82e4-0025908101de" && SITE_ID != 's1'):?>
