@@ -5838,13 +5838,14 @@ label.profile__label {
     filter: none;
   }
   .catalog.catalog--without-images .product--without-price .product__icon {
+    top: auto;
     bottom: -30px;
   }
   .catalog.catalog--without-images .product--without-price .product__content {
     min-height: 73px;
   }
   .catalog.catalog--without-images .product--without-price .product__frame {
-    padding-top: 200px;
+    padding-top: 220px;
   }
   .catalog.catalog--without-images .product--without-price .product__counter {
     display: none;
