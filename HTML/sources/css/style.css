@@ -5837,16 +5837,16 @@ label.profile__label {
     -ms-filter: none;
     filter: none;
   }
-  .catalog.catalog--without-images .product--without-price.product__icon {
+  .catalog.catalog--without-images .product--without-price .product__icon {
     bottom: -30px;
   }
-  .catalog.catalog--without-images .product--without-price.product__content {
+  .catalog.catalog--without-images .product--without-price .product__content {
     min-height: 73px;
   }
-  .catalog.catalog--without-images .product--without-price.product__frame {
+  .catalog.catalog--without-images .product--without-price .product__frame {
     padding-top: 200px;
   }
-  .catalog.catalog--without-images .product--without-price.product__counter {
+  .catalog.catalog--without-images .product--without-price .product__counter {
     display: none;
   }
 }
