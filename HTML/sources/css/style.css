@@ -5766,10 +5766,10 @@ label.profile__label {
   .catalog .product--without-price .product__content {
     min-height: 232px;
   }
-  .catalog--without-images .product__content {
+  .catalog.catalog--without-images .product__content {
     min-height: 93px;
   }
-  .catalog--without-images .product__picture-frame {
+  .catalog.catalog--without-images .product__picture-frame {
     position: absolute;
     -webkit-transform: translateY(-100%);
     -moz-transform: translateY(-100%);
@@ -5796,32 +5796,32 @@ label.profile__label {
     -ms-transition-duration: 0.1s;
     transition-duration: 0.1s;
   }
-  .catalog--without-images .product--empty .product__picture-frame {
+  .catalog.catalog--without-images .product--empty .product__picture-frame {
     display: none !important;
   }
-  .catalog--without-images .product__frame {
+  .catalog.catalog--without-images .product__frame {
     padding-top: 240px;
     margin-top: -230px;
   }
-  .catalog--without-images .product__sale {
+  .catalog.catalog--without-images .product__sale {
     top: -85px;
   }
-  .catalog--without-images .product__tradeline,
-  .catalog--without-images .product__sale {
+  .catalog.catalog--without-images .product__tradeline,
+  .catalog.catalog--without-images .product__sale {
     opacity: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
   }
-  .catalog--without-images .product__icon {
+  .catalog.catalog--without-images .product__icon {
     top: -230px;
   }
-  .catalog--without-images .product--hover .product__tradeline,
-  .catalog--without-images .product--hover .product__sale {
+  .catalog.catalog--without-images .product--hover .product__tradeline,
+  .catalog.catalog--without-images .product--hover .product__sale {
     opacity: 1;
     -ms-filter: none;
     filter: none;
   }
-  .catalog--without-images .product--hover .product__picture-frame {
+  .catalog.catalog--without-images .product--hover .product__picture-frame {
     pointer-events: initial;
     -webkit-transition-duration: 0.3s;
     -moz-transition-duration: 0.3s;
