@@ -23,7 +23,6 @@
 		    	<div class="product__artnumber">Арт. <?=$item['PROPERTIES']['ARTNUMBER']['VALUE']?></div>
 		    <?endif;?>
 		    <?
-		    var_dump($arParams['SHOW_PRICE']);
 		    if($arParams['SHOW_PRICE']):?>
 			    <div class="product__price">
 			    <? if(isset($item['PRICE'])&&intval($item['PRICE'])!=0): ?>
