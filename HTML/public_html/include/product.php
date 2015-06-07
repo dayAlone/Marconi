@@ -66,7 +66,7 @@
 	    <?if($arParams['HIDE_SIMMILAR'] != "Y"):?>
 	    	<a href="#" data-id="<?=$item['ID']?>" class="product__button product__button--simmilar"><?=($arParams['COMPARE_TEXT']?$arParams['COMPARE_TEXT']:"Сравнить")?></a>
 	    <?endif;?>
-	    <?if($arParams['SHOW_COUNT'] == "Y"):?>
+	    <?if($arParams['SHOW_COUNT'] == "Y" && $arParams['SHOW_PRICE']):?>
 	    	<div class="product__counter">
 	    		<a href="#" class="product__counter-trigger product__counter-trigger--minus">-</a>
 	    		<input type="text" class="product__counter-input" value="1">
