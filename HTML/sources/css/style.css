@@ -5815,6 +5815,9 @@ label.profile__label {
   .s1 .catalog.catalog--without-images .product__icon {
     top: -230px;
   }
+  .s2 .catalog.catalog--without-images .product__icon {
+    top: 105px;
+  }
   .catalog.catalog--without-images .product--hover .product__tradeline,
   .catalog.catalog--without-images .product--hover .product__sale {
     opacity: 1;
@@ -5845,7 +5848,7 @@ label.profile__label {
     min-height: 73px;
   }
   .catalog.catalog--without-images .product--without-price .product__frame {
-    padding-top: 220px;
+    padding-top: 210px;
   }
   .catalog.catalog--without-images .product--without-price .product__counter {
     display: none;
