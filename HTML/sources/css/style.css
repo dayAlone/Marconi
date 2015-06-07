@@ -5812,7 +5812,7 @@ label.profile__label {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
   }
-  .catalog.catalog--without-images .product__icon {
+  .s1 .catalog.catalog--without-images .product__icon {
     top: -230px;
   }
   .catalog.catalog--without-images .product--hover .product__tradeline,
@@ -5839,7 +5839,7 @@ label.profile__label {
   }
   .catalog.catalog--without-images .product--without-price .product__icon {
     top: auto;
-    bottom: -30px;
+    bottom: -15px;
   }
   .catalog.catalog--without-images .product--without-price .product__content {
     min-height: 73px;
