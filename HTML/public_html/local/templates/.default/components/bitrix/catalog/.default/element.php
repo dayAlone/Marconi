@@ -205,7 +205,7 @@ if ($ElementID > 0)
 	$component
 );
 	?>
-	<div data-title="<?=(SITE_ID=='s1'?"francesco marconi рекомендует":"Новый Стиль Студио")?>" class="catalog__divider catalog__divider--title"></div>
+	<div data-title="<?=(SITE_ID=='s1'?"francesco marconi":"Новый Стиль Студио")?> рекомендует" class="catalog__divider catalog__divider--title"></div>
 	<div class="catalog catalog--full-width catalog--one-line <?=(SITE_ID!='s1'?"catalog--italbags":"")?>">
 	<?
 	global $colorFilter;
