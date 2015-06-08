@@ -259,7 +259,7 @@
 			// Частные случаи разделов
 			if($props["SALE"]==$this->sale):
 				$fields['IBLOCK_SECTION'][] = $this->sections['sale'];
-			else:
+			elseif(strlen($props["SALE"]) > 0):
 				$fields['IBLOCK_SECTION'][] = $this->sections['sale30'];
 			endif;
 
