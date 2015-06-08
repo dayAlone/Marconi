@@ -150,7 +150,7 @@
 			$this->categories = Import::getHighloadElements($this->iblocks['categories'], true);
 			$this->types      = Import::getHighloadElements($this->iblocks['types'], true);
 			$this->brands     = Import::getHighloadElements($this->iblocks['brands'], true);
-			$this->properties = Array("SORT", "PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_TRADELINE", "PROPERTY_MATERIAL", "PROPERTY_SALE", "PROPERTY_PICTURES", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "PROPERTY_SECTION_4", "IBLOCK_SECTION", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL", "PROPERTY_NEW", "PROPERTY_COMING" );
+			$this->properties = Array("SORT", "PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_TRADELINE", "PROPERTY_MATERIAL", "PROPERTY_SALE", "PROPERTY_PICTURES", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "PROPERTY_SECTION_4", "IBLOCK_SECTION", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL", "PROPERTY_NEW", "PROPERTY_COMING", "PROPERTY_PROMOTION" );
 		}
 		private function addParentCatagory(&$parent, $array)
 		{
@@ -238,6 +238,10 @@
 			elseif(isset($sections['first'][0])):
 				$fields['IBLOCK_SECTION'][] = $this->sections[$sections['first'][0]];
 				$fields['IBLOCK_SECTION'][] = $this->sections['all'];
+				// Пометка промо-товаров
+				if($sections['first'][0] == "d09c1ec1-09f9-11e5-a563-0025901865a2"):
+					$props["PROMOTION"] = "Y";
+					endif;
 			endif;
 			if($propSections['type']):
 				$value  = $propSections['type'];
@@ -456,7 +460,7 @@
 					endif;
 
 					// Проверка свойств
-					foreach (array('SALE', 'NEW', 'COMING', 'BEST') as $prop) {
+					foreach (array('SALE', 'NEW', 'COMING', 'BEST', 'PROMOTION') as $prop) {
 						if(!isset($exist[$prop]) && strlen($props[$prop])>0):
 							$diff[$prop] = $props[$prop];
 						elseif(isset($exist[$prop]) && !isset($props[$prop])):
