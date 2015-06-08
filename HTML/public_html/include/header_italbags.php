@@ -2,7 +2,7 @@
   <div class="container toolbar__desktop">
     <div class="row">
       <div class="visible-lg col-lg-2">
-        <a href="tel:<?=preg_replace('/[^\dx+]/i', '', $CITY['PHONE'])?>" class="toolbar__number"><?=svg('phone')?><?=$CITY['PHONE']?></a>
+        <a href="tel:<?=preg_replace('/[^\dx+]/i', '', COption::GetOptionString("grain.customsettings","phone_it"))?>" class="toolbar__number"><?=svg('phone')?><?=COption::GetOptionString("grain.customsettings","phone_it")?></a>
       </div>
       <div class="col-xs-10 col-lg-8">
         <?php
