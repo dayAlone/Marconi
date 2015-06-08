@@ -18,6 +18,10 @@ $this->setFrameMode(true);
 if (!isset($arParams['FILTER_VIEW_MODE']) || (string)$arParams['FILTER_VIEW_MODE'] == '')
 	$arParams['FILTER_VIEW_MODE'] = 'VERTICAL';
 $arParams['USE_FILTER'] = (isset($arParams['USE_FILTER']) && $arParams['USE_FILTER'] == 'Y' ? 'Y' : 'N');
+if(SITE_ID == 's1' && in_array($arResult['VARIABLES']['SECTION_CODE'], array('sale30', 'promotion', 'best-sellers', 'new', 'coming'))):
+	LocalRedirect('/catalog/all/');
+	endif;
+
 ?>
 <article>
 <div class="row">
