@@ -5394,6 +5394,11 @@ label.profile__label {
     display: inline-block;
   }
 }
+@media (min-width: 768px) {
+  .catalog .product__sale--big {
+    font-size: 12px;
+  }
+}
 .catalog .product__frame {
   position: absolute;
   background: #fff;

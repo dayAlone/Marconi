@@ -354,13 +354,13 @@ endif;
 	      	<?if(strlen($item['DETAIL_TEXT'])>0):?>
 	      		<a href="#description" class="tabs__trigger">описание</a>
 	      	<?endif;?>
-	      	<?if(strlen(COption::GetOptionString("grain.customsettings","payment"))>0):?>
+	      	<?if(strlen(COption::GetOptionString("grain.customsettings","payment".(SITE_ID!='s1'?"_it":"")))>0):?>
 	      		<a href="#payment" class="tabs__trigger">оплата</a>
 	      	<?endif;?>
-	      	<?if(strlen(COption::GetOptionString("grain.customsettings","delivery"))>0):?>
+	      	<?if(strlen(COption::GetOptionString("grain.customsettings","delivery".(SITE_ID!='s1'?"_it":"")))>0):?>
 	      		<a href="#delivery" class="tabs__trigger">доставка</a>
 	      	<?endif;?>
-	      	<?if(strlen(COption::GetOptionString("grain.customsettings","refund"))>0):?>
+	      	<?if(strlen(COption::GetOptionString("grain.customsettings","refund".(SITE_ID!='s1'?"_it":"")))>0):?>
 	      		<a href="#refund" class="tabs__trigger">возврат</a>
 	      	<?endif;?>
 	      	
@@ -372,19 +372,19 @@ endif;
 	        <p><?=$item['DETAIL_TEXT']?></p>
 	      </div>
 	      <?endif;?>
-	      <?if(strlen(COption::GetOptionString("grain.customsettings","payment"))>0):?>
+	      <?if(strlen(COption::GetOptionString("grain.customsettings","payment".(SITE_ID!='s1'?"_it":"")))>0):?>
 	      <div id="payment" class="tabs__content">
-	        <?=COption::GetOptionString("grain.customsettings","payment")?>
+	        <?=COption::GetOptionString("grain.customsettings","payment".(SITE_ID!='s1'?"_it":""))?>
 	      </div>
 	      <?endif;?>
-	      <?if(strlen(COption::GetOptionString("grain.customsettings","delivery"))>0):?>
+	      <?if(strlen(COption::GetOptionString("grain.customsettings","delivery".(SITE_ID!='s1'?"_it":"")))>0):?>
 	      <div id="delivery" class="tabs__content">
-	        <?=COption::GetOptionString("grain.customsettings","delivery")?>
+	        <?=COption::GetOptionString("grain.customsettings","delivery".(SITE_ID!='s1'?"_it":""))?>
 	      </div>
 	      <?endif;?>
-	      <?if(strlen(COption::GetOptionString("grain.customsettings","refund"))>0):?>
+	      <?if(strlen(COption::GetOptionString("grain.customsettings","refund".(SITE_ID!='s1'?"_it":"")))>0):?>
 	      <div id="refund" class="tabs__content">
-	        <?=COption::GetOptionString("grain.customsettings","refund")?>
+	        <?=COption::GetOptionString("grain.customsettings","refund".(SITE_ID!='s1'?"_it":""))?>
 	      </div>
 	      <?endif;?>
 	    </div>
