@@ -5352,7 +5352,6 @@ label.profile__label {
   color: #d10a32;
 }
 .catalog .product__sale span {
-  display: inline-block;
   vertical-align: middle;
   line-height: 10px;
   display: none;
@@ -5392,7 +5391,7 @@ label.profile__label {
     font-size: 9px;
   }
   .catalog .product__sale span {
-    display: block;
+    display: inline-block;
   }
 }
 .catalog .product__frame {
