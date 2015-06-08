@@ -628,7 +628,7 @@
 				    	endif;
 				    	
 				    	// Товары на основном складе
-				    	if($count->getAttribute('store') == 0):
+				    	if(in_array($count->getAttribute('store'), attay(0,1)):
 					    	$updateID = (isset($product['CML2_LINK'])?$product['CML2_LINK']:$id);
 					    	if(intval($amount) > 0 && $product["GENERAL"] != "Y") 
 					    		$updateValue = "Y";
