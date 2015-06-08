@@ -220,6 +220,7 @@ endif;
 	        	$i++;
 	        endforeach;
 	        ?>
+	        <?if(SITE_ID == 's1' || isUserAccept()):?>
 			<div class="props__item props__item--price">
 				<div class="props__name">цена</div>
 					<div class="props__value">
@@ -269,7 +270,9 @@ endif;
 					</div>
 					
 		    	<? endif;?>
+		    <?endif;?>
 	        </div>
+
 	        
 	      </div>
 	    </div>
