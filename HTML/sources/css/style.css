@@ -3593,7 +3593,7 @@ label.profile__label {
 }
 .about--mission .wrap {
   padding-bottom: 150px;
-  background: url("/layout/images/italbags-mission.jpg") center 60px no-repeat;
+  background: url("/layout/images/italbags-mission.jpg") center top no-repeat;
 }
 .about--white .header {
   color: #fff;

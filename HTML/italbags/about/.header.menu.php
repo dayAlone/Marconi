@@ -14,6 +14,7 @@ $aMenuLinks = Array(
 		Array(), 
 		"" 
 	),
+	/*
 	Array(
 		"команда", 
 		"/about/team/", 
@@ -21,6 +22,7 @@ $aMenuLinks = Array(
 		Array(), 
 		"" 
 	),
+	*/
 	Array(
 		"миссия компании", 
 		"/about/mission/", 
