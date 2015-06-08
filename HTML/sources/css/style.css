@@ -5354,6 +5354,8 @@ label.profile__label {
 .catalog .product__sale span {
   display: inline-block;
   vertical-align: middle;
+  line-height: 10px;
+  display: none;
 }
 .catalog .product__sale:after {
   content: "%";
@@ -5380,7 +5382,6 @@ label.profile__label {
 }
 @media (min-width: 768px) {
   .catalog .product__sale {
-    padding-top: 34px;
     left: auto;
     right: 10px;
     top: 135px;
@@ -5389,6 +5390,9 @@ label.profile__label {
     line-height: 83px;
     color: #fff;
     font-size: 9px;
+  }
+  .catalog .product__sale span {
+    display: block;
   }
 }
 .catalog .product__frame {
