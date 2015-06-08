@@ -1511,7 +1511,7 @@ div.pp_default .pp_loaderIcon {
 .header .city input[type="text"] {
   width: 100%;
   height: 37px;
-  padding: 2px 15px 0;
+  padding: 11px 15px 0 !important;
   line-height: 37px;
   border: 0 !important;
   font-size: 17px;
@@ -5346,10 +5346,14 @@ label.profile__label {
   bottom: 10px;
   text-align: center;
   overflow: hidden;
-  padding-top: 14px;
   width: 30px;
   height: 30px;
+  line-height: 33px;
   color: #d10a32;
+}
+.catalog .product__sale span {
+  display: inline-block;
+  vertical-align: middle;
 }
 .catalog .product__sale:after {
   content: "%";
@@ -5382,6 +5386,7 @@ label.profile__label {
     top: 135px;
     width: 80px;
     height: 80px;
+    line-height: 83px;
     color: #fff;
     font-size: 9px;
   }

@@ -40,11 +40,13 @@
 		<? if(strlen($item['PROPERTIES']['SALE']['VALUE']) > 0):
 			if($item['PROPERTIES']['SALE']['VALUE']=="77ebb501-85d4-11e4-82e4-0025908101de"): ?>
 	    	<div class="product__sale">
-	    		<?=(SITE_ID == 's1'?"Уникальная<br>цена":"SALE")?>
+	    		<span><?=(SITE_ID == 's1'?"Уникальная<br>цена":"SALE")?></span>
 	    	</div>
 	    	<? 	
 	    	elseif(SITE_ID != 's1'):?>
-				<div class="product__sale">Скидка<br>30%</div>
+			<div class="product__sale">
+				<span>Скидка<br>30%</span>
+			</div>
 	    	<?endif;		
 	    endif; ?>
 	    <? if(strlen($item['PROPERTIES']['TRADELINE']['VALUE'])>0): ?>
