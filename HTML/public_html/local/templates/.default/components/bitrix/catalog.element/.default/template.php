@@ -133,11 +133,13 @@ endif;
 	      	<span class="product__type"><?=$arResult['PROPERTIES']['NOTE_SHORT']['VALUE']?></span>
 	        <h1 class="product__title">
 	        	<?=str_replace($arResult['BRANDS'][$props['BRAND']['VALUE']], $arResult['BRANDS'][$props['BRAND']['VALUE']]. " " . $arResult['PROPERTIES']['ARTNUMBER']['VALUE'], str_replace($arResult['PROPERTIES']['NOTE_SHORT']['VALUE'], '', $arResult['NAME']))?>
-	        	<?=(strlen($arResult['PROPERTIES']['NOTE_SHORT']['VALUE'])==0?$arResult['NAME']:"")?>
+	        	
 	        </h1>
 	      <?else:
 	      	?>
-			<h1 class="product__title no-margin-top"><?=$props['NOTE_SHORT']['VALUE']?> <?=$arResult['BRANDS'][$props['BRAND']['VALUE']]?></h1>
+			<h1 class="product__title no-margin-top">
+				<?=(strlen($arResult['PROPERTIES']['NOTE_SHORT']['VALUE'])==0?$arResult['NAME']:$props['NOTE_SHORT']['VALUE']." ".$arResult['BRANDS'][$props['BRAND']['VALUE']])?>
+			</h1>
 	      <?endif;?>
 	      <?
 	        	global $arFilter;
