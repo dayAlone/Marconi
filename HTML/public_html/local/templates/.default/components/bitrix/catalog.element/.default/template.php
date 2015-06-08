@@ -133,7 +133,7 @@ endif;
 	      	<span class="product__type"><?=$arResult['PROPERTIES']['NOTE_SHORT']['VALUE']?></span>
 	        <h1 class="product__title">
 	        	<?=str_replace($arResult['BRANDS'][$props['BRAND']['VALUE']], $arResult['BRANDS'][$props['BRAND']['VALUE']]. " " . $arResult['PROPERTIES']['ARTNUMBER']['VALUE'], str_replace($arResult['PROPERTIES']['NOTE_SHORT']['VALUE'], '', $arResult['NAME']))?>
-	        	<?=(strlen($arResult['PROPERTIES']['NOTE_SHORT']['VALUE'])==0?$item['NAME']:"")?>
+	        	<?=(strlen($arResult['PROPERTIES']['NOTE_SHORT']['VALUE'])==0?$arResult['NAME']:"")?>
 	        </h1>
 	      <?else:
 	      	?>
