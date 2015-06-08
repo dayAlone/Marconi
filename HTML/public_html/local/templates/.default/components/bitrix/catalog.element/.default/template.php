@@ -92,7 +92,9 @@ if(SITE_ID == 's1'):
 	<?
 	$this->EndViewTarget();
 endif;
+
 ?>
+<input type="hidden" name="XML_ID" value="<?=$item['XML_ID']?>">
 <div class="row">
 	<div class="col-md-7 col-lg-6">
 	  <div class="picture">
