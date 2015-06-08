@@ -19,7 +19,7 @@ foreach ($arResult['ITEMS'] as &$item):
 	
 	$raw = CIBlockElement::GetElementGroups($item['ID'], false, array('ID', 'CODE'));
 	while($data = $raw->GetNext())
-		if(!in_array($data['CODE'], array('all', 'sale')))
+		if(!in_array($data['CODE'], array('all', 'sale', 'sale30', 'best-sellers', 'new')))
 			$item['IBLOCK_SECTION_ID'] = $data['ID'];
 	
 	if(!isset($paths[$item['IBLOCK_SECTION_ID']])):
