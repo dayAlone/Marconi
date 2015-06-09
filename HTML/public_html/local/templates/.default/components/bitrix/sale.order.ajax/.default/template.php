@@ -35,7 +35,25 @@ if (!function_exists("cmpBySort"))
 			<div class="basket__block basket__block--profile">
 				<div class="basket__block-title">контактная информация</div>
 				<div class="row">
-				<? foreach ($arResult['ORDER_PROP']['USER_PROPS_Y'] as $prop):?>
+				<? 
+				$rsUser = CUser::GetByID($USER->GetID());
+				$arUser = $rsUser->Fetch();
+				foreach ($arResult['ORDER_PROP']['USER_PROPS_Y'] as $prop):
+					switch ($prop['FIELD_NAME']) {
+						case 'ORDER_PROP_20':
+							$prop["VALUE"] = $arUser['EMAIL'];
+							break;
+						case 'ORDER_PROP_16':
+							$prop["VALUE"] = $arUser['NAME'];
+							break;
+						case 'ORDER_PROP_18':
+							$prop["VALUE"] = $arUser['LAST_NAME'];
+							break;
+						case 'ORDER_PROP_19':
+							$prop["VALUE"] = $arUser['PERSONAL_PHONE'];
+							break;
+					}
+				?>
 					<div class="col-xs-<?=($prop['SIZE1']==6?"6":"12")?>">
 						<input type="<?=(in_array($prop['FIELD_NAME'], array("ORDER_PROP_4", "ORDER_PROP_20"))?"email":"text")?>" value="<?=$prop["VALUE"]?>" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=="Y"?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
 					</div>
