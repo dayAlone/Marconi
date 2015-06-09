@@ -2745,6 +2745,11 @@ label.profile__label {
 .condition-theme {
   display: none;
 }
+.condition-theme h4 {
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: bold;
+}
 .condition-theme--short {
   max-width: 80%;
   margin: 0 auto;
