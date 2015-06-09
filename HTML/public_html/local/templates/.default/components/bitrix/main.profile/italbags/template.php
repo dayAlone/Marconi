@@ -24,7 +24,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 		<input type="hidden" name="ID" value=<?=$arResult["ID"]?> />
 		<input type="hidden" name="EMAIL" maxlength="50" value="<?=$arResult["arUser"]["EMAIL"]?>" />
 		<? 
-		$arDisabled = array("NAME", "LAST_NAME", "PERSONAL_GENDER", "USER_COMPANY");
+		$arDisabled = array("NAME", "LAST_NAME", "PERSONAL_GENDER", "WORK_COMPANY");
 		foreach (array("NAME", "LAST_NAME", "PERSONAL_GENDER", "USER_COMPANY", "DIVIDER", "LOGIN", "PERSONAL_PHONE", "UF_SMS", "WORK_PHONE", "PERSONAL_MOBILE") as $item):
 			switch ($item):
 				case 'DIVIDER':

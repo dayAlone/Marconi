@@ -117,10 +117,10 @@ if (!function_exists("cmpBySort"))
 							'TYPE_ID' => '1',
 						);
 						$_REQUEST['FILTER'] = array(
-							'QUERY' => $CITY['NAME'],
+							'QUERY'      => $CITY['NAME'],
 							'EXCLUDE_ID' => '0',
-							'SITE_ID' => 's1',
-							'TYPE_ID' => '3',
+							'SITE_ID'    => 's1',
+							'TYPE_ID'    => '3',
 						);
 						$data = CBitrixLocationSelectorStepsComponent::processSearchRequest();
 						
