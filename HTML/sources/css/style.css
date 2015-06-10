@@ -6594,9 +6594,9 @@ label.profile__label {
 }
 .product__counter--disabled {
   pointer-events: none;
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
+  opacity: 0.3;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  filter: alpha(opacity=30);
 }
 .product__counter-trigger {
   position: absolute;
