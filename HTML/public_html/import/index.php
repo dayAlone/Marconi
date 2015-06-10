@@ -284,12 +284,6 @@
 			$xml_id    = $item->getAttribute('id');
 			$artnumber = $item->getElementsByTagName('artnumber')->item(0)->nodeValue;
 			$tmp       = $item->getElementsByTagName('namePrint')->item(0)->nodeValue;
-			if(strpos($tmp, $artnumber) == 0):
-				$note  = str_replace($item->getElementsByTagName('name')->item(0)->nodeValue, "", $tmp);
-				//$note  = mb_strtoupper(mb_substr($note, 0, 1)) . substr($note, 2, strlen($note));
-			else:
-				$note  = substr($tmp, 0, strpos($tmp, $artnumber)-1);
-			endif;
 			$slug      = str_replace(array(' ','/', '.'), '_', preg_replace($this->remove, '', $item->getElementsByTagName('name')->item(0)->nodeValue));
 
 			$fields = array(
@@ -300,7 +294,6 @@
 			$props = array(
 				'CODE'       => intval($item->getAttribute('code')),
 				'ARTNUMBER'  => $artnumber,
-				'NOTE_SHORT' => $note,
 				'NOTE_FULL'  => preg_replace($this->remove, '', $tmp),
 				'COLOR'      => array(),
 				'MATERIAL'   => array(),
@@ -350,13 +343,23 @@
 			$this->getSections($propSections, $fields, $props);
 
 
+			if(mb_strpos($tmp, $artnumber) === 0):
+				$note  = str_replace($item->getElementsByTagName('name')->item(0)->nodeValue, "", $tmp);
+				$note  = mb_strtoupper(mb_substr($note, 0, 1)) . mb_substr($note, 2, strlen($note));
+			elseif(strlen($artnumber) == 0 && isset($propSections['category'])):
+				$array = preg_split('/\s+/', $tmp);
+				$note = $array[0]." ".$array[1];
+			else:
+				$note  = mb_substr($tmp, 0, mb_strpos($tmp, $artnumber)-1);
+			endif;
+
+			$props['NOTE_SHORT'] = $note;
 			$name = $note;
 
 			if($this->brands[$props['BRAND']]['NAME']):
 				$name .= ' '.$this->brands[$props['BRAND']]['NAME'];
-				$name .= ' '.str_replace($artnumber.' ','', $item->getElementsByTagName('name')->item(0)->nodeValue);
+				if(strlen($artnumber) > 0) $name .= ' '.str_replace($artnumber.' ','', $item->getElementsByTagName('name')->item(0)->nodeValue);
 			endif;
-			
 			if(strlen($name) == 0):
 				$name = $item->getElementsByTagName('name')->item(0)->nodeValue;
 			endif;
