@@ -2,6 +2,9 @@
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 $APPLICATION->SetPageProperty('body_class', "cabinet");
 $APPLICATION->SetTitle('Личный кабинет');
+global $USER;
+if(!$USER->IsAuthorized())
+    LocalRedirect('/');
 ?>
 <div class="page">
     <div class="container">
