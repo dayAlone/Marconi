@@ -23,7 +23,75 @@
         } 
         return $string; 
     }
+	class Users
+	{
+		public function __construct()
+		{
 
+		}
+		public function getData($raw)
+		{
+			// Группы пользователей
+			$groups = array();
+			if($raw[3] == 1 ):
+				$groups[] = 9; // Франчайзи
+			else:
+				$groups[] = 5;
+				switch ($raw[13]) {
+					case 2:
+						$groups[] = 10; // 5%
+						break;
+					case 3:
+						$groups[] = 11; // 7%
+						break;
+					case 4:
+						$groups[] = 12; // 10%
+						break;
+					case 5:
+						$groups[] = 13; // 12%
+						break;
+					case 6:
+						$groups[] = 14; // 16%
+						break;
+				}
+			endif;
+			$fields = array(
+				'LOGIN'             => $raw[5],
+				'EMAIL'             => $raw[5],
+				'NAME'              => $raw[7],
+				'LAST_NAME'         => $raw[27],
+				'PASSWORD'          => $raw[2],
+				'CONFIRM_PASSWORD'  => $raw[2],
+				'GROUP_ID'          => $groups,
+				'PERSONAL_GENDER'   => ($raw[64]=='men'?"M":"F"),
+				'PERSONAL_BIRTHDAY' => (strlen($raw[51]) > 1 && $raw[51] != '0000-00-00'?date('d.m.Y', strtotime($raw[51])):""),
+				'PERSONAL_PHONE'    => $raw[9].$raw[8],
+				'PERSONAL_MOBILE'   => $raw[43].$raw[44], // what's up
+				'WORK_PHONE'        => $raw[31].$raw[39],
+				'WORK_COMPANY'      => $raw[10],
+				'WORK_NOTES'        => $raw[12],
+				'PERSONAL_NOTES'    => $raw[11],
+
+			);
+			return $fields;
+		}
+		public function Action($file)
+		{
+			$data = Import::getElements($file);
+			foreach ($data as $raw) {
+				$user   = new CUser;
+				$fields = $this->getData($raw);
+				$ID = $user->Add($fields);
+				if (intval($ID) > 0)
+					fwrite(STDERR, "\033[35m Пользователь успешно добавлен. \033[37m\r\n");
+				else
+					fwrite(STDERR, "\033[31m\033[4mCUser::Add ".strip_tags($user->LAST_ERROR)." — ".$fields['LOGIN']."\033[0m\n\r");
+				die();
+			}
+			
+			
+		}
+	}
 	class Import
 	{
 		public static $time;
@@ -32,9 +100,9 @@
 
 		private $checkfile = false;
 
-		const step = 1000;
+		const step = 10;
 
-		private $steps = array('properties', 'products', 'counts', 'prices');//, , , 'write-off');
+		private $steps = array('users');//, , , 'write-off');
 		
 		public function __construct($offset=0)
 		{
@@ -54,6 +122,8 @@
 
 			$offset = intval($offset);
 			$files = array_diff(scandir($_SERVER['DOCUMENT_ROOT'].'/import/upload/'), array('..', '.', '.DS_Store'));
+			
+
 
 			foreach ($this->steps as $step):
 				$matches = preg_grep('/^'.$step.'/', $files);
@@ -62,6 +132,7 @@
 					break;
 				endif;
 			endforeach;
+			
 
 			if( isset($action) ):
 				$class  = $action['step'];
@@ -80,7 +151,7 @@
 				unlink($this->lock);
 				$result++;
 
-				shell_exec("php ".$_SERVER['DOCUMENT_ROOT']."/import/index.php ".$result);
+				shell_exec("php ".$_SERVER['DOCUMENT_ROOT']."/import/users.php ".$result);
 			else:
 				unlink($this->lock);
 				return;
@@ -89,24 +160,21 @@
 
 		public function getElements($file, $element, $offset=false)
 		{
-			$path = iconv('windows-1251', 'UTF-8', file_get_contents($_SERVER['DOCUMENT_ROOT']."/import/upload/".$file));
-			
-			$dom  = new DOMDocument('1.0', 'utf-8');
-			$dom->loadXML($path);
-			$path = "";
+			$csv = new CCSVData('R', true);
+			$csv->LoadFile($_SERVER['DOCUMENT_ROOT']."/import/upload/".$file);
 
-			$xpath    = new DOMXPath($dom);
-			$elements = $dom->getElementsByTagName($element[0])->item(0);
-			$count    = $xpath->evaluate("count(".$element[1].")", $elements); 
+			if(isset($offset))
+				$csv->SetPos($offset);
 
-			$start = 1;
-			if(intval($offset)>0)
-				$start = $offset;
-			$end   = $start + Import::step;
-			if($end > intval($count))
-				$end = $count;
+			$i = 0;
+			while ($data = $csv->Fetch()) {
+				$items[] = $data;
+				$i++;
+				if($i >= Import::step)
+					break;
+			}
 			
-			$items = $xpath->evaluate($element[1]."[position() >= $start and not(position() > $end)]", $products);
+			$end = $csv->GetPos();
 
 			if($offset)
 				return array('items'=>$items, 'offset'=>($end==$count?'end':$end));
@@ -114,223 +182,7 @@
 				return $items;
 		}
 
-		public function getIBlocks()
-		{
-			$data = array();
-			$raw  = CIBlock::GetList(
-			    Array(), 
-			    Array(
-					'TYPE'              =>'catalog',
-					'CHECK_PERMISSIONS' => 'N'
-			    ), true
-			);
-			
-			while($item = $raw->Fetch())
-				$data[$item['CODE']] = $item['ID'];
-			
-			return $data;
-		}
-
-		public function getIBlockSections($id, $depth = 1)
-		{
-			$sections = array();
-			$data     = array();
-			$array    = Array('IBLOCK_ID'=>$id, 'ACTIVE'=>'Y', '=<DEPTH_LEVEL'=>$depth, 'CHECK_PERMISSIONS' => 'N');
-			$sort     = Array("LEFT_MARGIN"=>"ASC");
-			if($depth == 1)
-				$sort = Array("ID"=>"ASC");
-			$raw      = CIBlockSection::GetList($sort, $array, true, array('ID', 'NAME', 'CODE', 'XML_ID', 'DEPTH_LEVEL', 'IBLOCK_SECTION_ID'));
-
-			while($section = $raw->GetNext()):
-				$sections[$section['ID']] = $section;
-			endwhile;
-			foreach ($sections as $s):
-				if(strlen($s['XML_ID']) < 36)
-					$s['XML_ID'] = $s['CODE'];
-					
-				switch ($s['DEPTH_LEVEL']):
-					case '1':
-						$data[$s['XML_ID']] = $s['ID'];
-					break;
-					case '2':
-						$parent = $sections[$s['IBLOCK_SECTION_ID']]['XML_ID'];
-						if( !is_array($data[$parent]) )
-							$data[$parent] = array('ID' => $data[$parent], 'CHILD' => array());
-						$data[$parent]['CHILD'][$s['XML_ID']] = $s['ID'];
-					break;
-					case '3':
-						$second = $sections[$s['IBLOCK_SECTION_ID']];
-						$first = $sections[$second['IBLOCK_SECTION_ID']]['XML_ID'];
-						
-						if( !is_array($data[$first]['CHILD'][$second['XML_ID']]) )
-							$data[$first]['CHILD'][$second['XML_ID']] = array('ID' => $data[$first]['CHILD'][$second['XML_ID']], 'CHILD' => array());
-						$data[$first]['CHILD'][$second['XML_ID']]['CHILD'][$s['XML_ID']] = $s['ID'];
-
-					break;
-				endswitch;
-			endforeach;
-			
-			return $data;
-		}
-
-		public function getIBlockElements($id, $filter, $fields = false)
-		{
-			$data = array();
-			$arSelect = array_merge(Array("ID", "NAME", "XML_ID", "IBLOCK_SECTION_ID"), $fields);
-			
-			$arFilter = array_merge(Array("IBLOCK_ID"=>$id, 'CHECK_PERMISSIONS' => 'N'), $filter);
-			$res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
-			
-			while($el = $res->Fetch()):
-				$array = array('IBLOCK_SECTION'=>array());
-				foreach ($el as $key => $item)
-					if(
-							(!preg_match("/^PROPERTY_(.*)_ID/", $key) || strstr($key,'CML2_LINK_XML'))
-							&& !strstr($key, '_DESCRIPTION')
-							&& $item
-						)
-						$array[str_replace(array('PROPERTY_', '_VALUE'), array('',''), $key)] = $item;
-				
-				$raw = CIBlockElement::GetElementGroups($el['ID']);
-
-				while($s = $raw->Fetch())
-					$array['IBLOCK_SECTION'][] = $s['ID'];
-
-				$data[$el['XML_ID']] = $array;
-			endwhile;
-
-			return $data;
-		}
-
-		public function addIBlockSection($id, $data)
-		{
-			$raw   = new CIBlockSection;
-			$array = Array(
-				"ACTIVE"    => "Y",
-				"IBLOCK_ID" => $id,
-				"CODE"      => Translit::UrlTranslit($data["NAME"])
-			);
-			$array = array_merge($array, $data);
-			if($id = $raw->Add($array)):
-				return $id;
-			else:
-				var_dump($raw->LAST_ERROR);
-			endif;
-
-		}
-
-		public function addIBlockElement($id, $data)
-		{
-			$raw   = new CIBlockElement;
-			$array = Array(
-				"ACTIVE"    => "Y",
-				"IBLOCK_ID" => $id
-			);
-			$array = array_merge($array, $data);
-			$id = $raw->Add($array);
-			if(intval($id)>0)
-				return $id;
-			else
-				fwrite(STDERR, "\033[31m\033[4maddIBlockElement ".strip_tags($raw->LAST_ERROR)." — ".$data['CODE']."\033[0m\n\r");
-				return;
-		}
-
-		public function getAllArtnumbers($id)
-		{
-			$obCache   = new CPHPCache();
-			$cacheLife = 60*60; 
-			$cacheID   = 'getAllArtnumbers'; 
-			$cachePath = '/'.$cacheID;
-			if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):
-				$vars = $obCache->GetVars();
-				$data = $vars['data'];
-			elseif( $obCache->StartDataCache() ):
-				$data = array();
-				$arSelect = Array("ID", "PROPERTY_ARTNUMBER");
-				$arFilter = Array("IBLOCK_ID"=>$id, 'CHECK_PERMISSIONS' => 'N', '<=DATE_CREATE' => ConvertTimeStamp(time()-60*60*24*60, "FULL"));
-				$res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
-				while($el = $res->Fetch()):
-					$art = $el['PROPERTY_ARTNUMBER_VALUE'];
-					if(!in_array($art, $data))
-						$data[] = $art;
-					endwhile;
-				$obCache->EndDataCache(array('data' => $data));
-			endif;
-			return $data;
-		}
-
-		public function getHighloadElements($id, $remove=false, $clear=false)
-		{
-			$obCache   = new CPHPCache();
-			$cacheLife = 86400; 
-			$cacheID   = 'getHighloadElements_'.$id; 
-			$cachePath = '/'.$cacheID;
-
-			if($clear)
-				BXClearCache(true, $cachePath);
-
-			if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):
-
-				$vars = $obCache->GetVars();
-				$data = $vars['data'];
-			
-			elseif( $obCache->StartDataCache() ):
-
-				$data    = array();
-				$hlblock = HL\HighloadBlockTable::getById($id)->fetch();
-				$entity  = HL\HighloadBlockTable::compileEntity($hlblock);
-				$class   = $entity->getDataClass();
-
-				$rsData = $class::getList(array(
-					"select" => array("*"),
-					"order"  => array("ID" => "ASC")
-				));
-
-				while($arData = $rsData->Fetch())
-					$data[$arData['UF_XML_ID']] = $arData;
-				
-				$obCache->EndDataCache(array('data' => $data));
-				
-			endif;
-			
-			if($remove):
-				$tmp = array();
-				foreach ($data as $key=>$item):
-					$tmp[$key]=array();
-					foreach ($item as $k => $el)
-						$tmp[$key][str_replace('UF_','',$k)] = $el;
-				endforeach;
-				return $tmp;
-			endif;
-
-			return $data;
-		}
 		
-		public function addHighloadElement($id, $data)
-		{
-			$obCache   = new CPHPCache();
-			$cacheLife = 86400; 
-			$cacheID   = 'getHighloadElements_'.$id; 
-			$cachePath = '/'.$cacheID;
-
-			if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):
-				BXClearCache(true, $cachePath);
-			endif;
-
-
-			$hlblock = HL\HighloadBlockTable::getById($id)->fetch();
-			$entity  = HL\HighloadBlockTable::compileEntity($hlblock);
-			$class   = $entity->getDataClass();
-			$array   =  array('UF_NAME' => $data['name'], 'UF_XML_ID'=> $data['id']);
-
-			if(strlen($data['value']))
-				$array['UF_VALUE'] = $data['value'];
-
-			$result = $class::add($array);
-			
-			if ($result->isSuccess())
-				return $id;
-		}
 	}
 
 	$x = new Import($argv[1]);
