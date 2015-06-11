@@ -12,6 +12,18 @@
 	set_time_limit(0);
 	@ignore_user_abort(true);
 	
+	function mb_ucfirst($string, $e ='utf-8') { 
+        if (function_exists('mb_strtoupper') && function_exists('mb_substr') && !empty($string)) { 
+            $string = mb_strtolower($string, $e); 
+            $upper = mb_strtoupper($string, $e); 
+            preg_match('#(.)#us', $upper, $matches); 
+            $string = $matches[1] . mb_substr($string, 1, mb_strlen($string, $e), $e); 
+        } else { 
+            $string = ucfirst($string); 
+        } 
+        return $string; 
+    }
+
 	class Translit
 	{
 	    function Transliterate($string)
@@ -344,8 +356,7 @@
 
 
 			if(mb_strpos($tmp, $artnumber) === 0):
-				$note  = str_replace($item->getElementsByTagName('name')->item(0)->nodeValue, "", $tmp);
-				$note  = mb_strtoupper(mb_substr($note, 1, 1)) . mb_substr($note, 2, strlen($note));
+				$note  = mb_ucfirst(str_replace($item->getElementsByTagName('name')->item(0)->nodeValue." ", "", $tmp));
 			elseif(strlen($artnumber) == 0 && isset($propSections['category'])):
 				$array = preg_split('/\s+/', $tmp);
 				$note = $array[0]." ".$array[1];
