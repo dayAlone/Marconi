@@ -345,14 +345,15 @@
 
 			if(mb_strpos($tmp, $artnumber) === 0):
 				$note  = str_replace($item->getElementsByTagName('name')->item(0)->nodeValue, "", $tmp);
-				$note  = mb_strtoupper(mb_substr($note, 0, 1)) . mb_substr($note, 2, strlen($note));
+				$note  = mb_strtoupper(mb_substr($note, 1, 1)) . mb_substr($note, 2, strlen($note));
 			elseif(strlen($artnumber) == 0 && isset($propSections['category'])):
 				$array = preg_split('/\s+/', $tmp);
 				$note = $array[0]." ".$array[1];
 			else:
 				$note  = mb_substr($tmp, 0, mb_strpos($tmp, $artnumber)-1);
-			endif;
 
+			endif;
+			
 			$props['NOTE_SHORT'] = $note;
 			$name = $note;
 
@@ -486,6 +487,7 @@
 						CIBlockElement::SetPropertyValuesEx($exist['ID'], $this->iblocks['products'], $diff);
 						$update = true;
 					endif;
+
 					foreach (array('SORT', 'NAME') as $el):
 						if($fields[$el] != $exist[$el]):
 							$raw = new CIBlockElement;
@@ -493,7 +495,7 @@
 							$update = true;	
 						endif;
 					endforeach;
-
+					
 					if(array_diff($fields['IBLOCK_SECTION'], $exist['IBLOCK_SECTION']) || (count($fields['IBLOCK_SECTION'])!=count($exist['IBLOCK_SECTION']))):
 						#fwrite(STDERR, "Разделы обновлены: ".var_export(array_diff($fields['IBLOCK_SECTION'], $exist['IBLOCK_SECTION']),true)." \n\r");
 						$raw = new CIBlockElement;
