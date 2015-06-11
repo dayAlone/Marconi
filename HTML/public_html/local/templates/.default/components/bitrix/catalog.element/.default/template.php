@@ -212,7 +212,7 @@ endif;
 	        );
 	        $i=0;
 	        foreach ($values as $title => $text):
-	        	if(strlen(strip_tags($text))>0||is_array(strip_tags($text))>0):
+	        	if(strlen(strip_tags($text))>0||is_array($text)>0):
 	        		if(is_array($text)):
 	        			$text = str_replace(array_merge(array_keys($arResult['COLORS']),array_keys($arResult['MATERIALS'])), array_merge(array_values($arResult['COLORS']),array_values($arResult['MATERIALS'])), implode($text, ' / '));
 	        		endif;
