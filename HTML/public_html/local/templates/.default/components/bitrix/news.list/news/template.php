@@ -17,6 +17,7 @@
     <?=$item['~PREVIEW_TEXT']?>
   
     <? if($arParams['DISPLAY_PICTURE'] == "Y"):?>
+    <div class="center">
       <?if(isset($item['PREVIEW_PICTURE']['SRC'])):?>
         <img src="<?=$item['PREVIEW_PICTURE']['SRC']?>">
       <?endif;?>
@@ -26,6 +27,7 @@
         <img src="<?=CFile::GetPath($pic)?>">
         <?endforeach;
       endif;?>
+    </div>
     <?endif;?>
     <? if($arParams['ARROW'] == "Y"):?>
     <div class="news-item__divider"></div>

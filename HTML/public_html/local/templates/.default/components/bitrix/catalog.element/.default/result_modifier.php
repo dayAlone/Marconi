@@ -35,6 +35,7 @@
 	$arResult['PREVIEW_PICTURE']['SMALL'] = $small['src'];
 	
 	$APPLICATION->SetPageProperty('description', strip_tags($arResult["PREVIEW_TEXT"]));
+	
 	if(isset($arResult['PREVIEW_PICTURE']['SRC'])):
 		$this->SetViewTarget('header');
 			?><link rel="image_src" href="<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" /><?

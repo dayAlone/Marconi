@@ -3982,6 +3982,8 @@ label.profile__label {
   border-top: 1px solid #e2e5e8;
   padding: 25px 20px 25px;
   display: none;
+  font-size: 15px;
+  font-weight: 300;
 }
 .news--list .news-item__content--arrow {
   padding-bottom: 12px;
@@ -3994,17 +3996,15 @@ label.profile__label {
   margin-top: 5px;
 }
 .news--list .news-item__content p {
-  font-size: 15px;
-  font-weight: 300;
   margin-bottom: 18px;
 }
-.news--list .news-item__content p:last-of-type {
+.news--list .news-item__content:last-of-type {
   margin-bottom: 0;
 }
-.news--list .news-item__content p + img {
+.news--list .news-item__content + img {
   margin-top: 23px;
 }
-.news--list .news-item__content p a {
+.news--list .news-item__content a {
   cursor: pointer;
   font-weight: bold;
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(0,0,0,0.2) 50%);
@@ -4020,10 +4020,10 @@ label.profile__label {
   background-position: 0 calc(100% - 2px);
   color: #000;
 }
-.news--list .news-item__content p a:hover {
+.news--list .news-item__content a:hover {
   text-decoration: none;
 }
-.news--list .news-item__content p a:hover {
+.news--list .news-item__content a:hover {
   color: #d10a32;
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.5) 50%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.5) 50%);
@@ -4037,7 +4037,7 @@ label.profile__label {
   background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
-.news--list .news-item__content p a:hover:hover {
+.news--list .news-item__content a:hover:hover {
   text-decoration: none;
 }
 .news--list .news-item__title,
