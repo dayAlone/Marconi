@@ -1114,7 +1114,7 @@
 			), array(
 				"id[>]" => 0
 			));
-
+			var_dump(count($items));
 			return $items;
 
 		}
