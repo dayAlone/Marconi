@@ -1109,11 +1109,11 @@
 			);
 			$database = new medoo($data);
 
-			$items = $database->select("users", [
+			$items = $database->select("users", array(
 				"email", "name", "address", "password", "franchisee", "phone", "phone_code","company","company_info","company_address","price_type","family","phone2","m_phone_code","f_phone_code","f_phone2","f_phone","m_phone_code2","m_phone2","m_phone","phone_code2","f_phone_code2","birthday","sex"
-			], [
+			), array(
 				"id[>]" => 0
-			]);
+			));
 
 			return $items;
 
