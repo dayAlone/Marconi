@@ -86,7 +86,6 @@
 					fwrite(STDERR, "\033[35m Пользователь успешно добавлен. \033[37m\r\n");
 				else
 					fwrite(STDERR, "\033[31m\033[4mCUser::Add ".strip_tags($user->LAST_ERROR)." — ".$fields['LOGIN']."\033[0m\n\r");
-				die();
 			}
 			
 			
@@ -100,7 +99,7 @@
 
 		private $checkfile = false;
 
-		const step = 10;
+		const step = 200;
 
 		private $steps = array('users');//, , , 'write-off');
 		
