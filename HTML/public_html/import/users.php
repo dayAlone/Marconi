@@ -1099,14 +1099,15 @@
 
 		public function getElements($file, $element, $offset=false)
 		{
-			$database = new medoo([
+			$data = array(
 				'database_type' => 'mysql',
 				'database_name' => 'cy74714_fmarconi',
 				'server'        => 'localhost',
 				'username'      => 'cy74714_fmarconi',
 				'password'      => 'cy74714_fmarconi',
 				'charset'       => 'utf8',
-			]);
+			);
+			$database = new medoo($data);
 
 			$items = $database->select("users", [
 				"email", "name", "address", "password", "franchisee", "phone", "phone_code","company","company_info","company_address","price_type","family","phone2","m_phone_code","f_phone_code","f_phone2","f_phone","m_phone_code2","m_phone2","m_phone","phone_code2","f_phone_code2","birthday","sex"
