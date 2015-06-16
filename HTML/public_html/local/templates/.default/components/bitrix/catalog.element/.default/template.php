@@ -137,7 +137,7 @@ endif;
 	      <?else:
 	      	?>
 			<h1 class="product__title no-margin-top">
-				<?=(strlen($arResult['PROPERTIES']['NOTE_SHORT']['VALUE'])==0?$arResult['NAME']:$props['NOTE_SHORT']['VALUE']." ".$arResult['BRANDS'][$props['BRAND']['VALUE']])?>
+				<?=$arResult['NAME']." ".$arResult['BRANDS'][$props['BRAND']['VALUE']])?>
 			</h1>
 	      <?endif;?>
 	      <?
