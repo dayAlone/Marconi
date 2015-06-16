@@ -357,12 +357,15 @@
 
 			if(mb_strpos($tmp, $artnumber) === 0):
 				$note  = mb_ucfirst(str_replace($item->getElementsByTagName('name')->item(0)->nodeValue." ", "", $tmp));
-			elseif(strlen($artnumber) == 0 && isset($propSections['category'])):
-				$array = preg_split('/\s+/', $tmp);
-				$note = $array[0]." ".$array[1];
+			elseif(strlen($artnumber) == 0):
+				if(isset($propSections['category'])):
+					$array = preg_split('/\s+/', $tmp);
+					$note = $array[0]." ".$array[1];
+				else:
+					$note = $tmp;
+				endif;
 			else:
 				$note  = mb_substr($tmp, 0, mb_strpos($tmp, $artnumber)-1);
-
 			endif;
 			
 			$props['NOTE_SHORT'] = $note;
