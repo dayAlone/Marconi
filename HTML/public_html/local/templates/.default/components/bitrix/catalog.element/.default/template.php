@@ -202,7 +202,13 @@ endif;
 	        <div class="props">
 	        <?
 	        $values = array(
-				'артикул'  => (SITE_ID == 's1' ? $props['ARTNUMBER']['VALUE'] : (strlen($props['NOTE_SHORT']['VALUE'])>0? "<strong>".$props['ARTNUMBER']['VALUE'] . " " . str_replace( array($props['NOTE_SHORT']['VALUE'], $arResult['BRANDS'][$props['BRAND']['VALUE']]), '',$item['NAME']):""))."</strong>",
+				'артикул'  => (
+					SITE_ID == 's1' ? $props['ARTNUMBER']['VALUE'] : (
+						strlen($props['NOTE_SHORT']['VALUE']) > 0 && strlen($props['ARTNUMBER']['VALUE']) > 0 ? 
+						"<strong>".$props['ARTNUMBER']['VALUE'] . " " . str_replace( array($props['NOTE_SHORT']['VALUE'], $arResult['BRANDS'][$props['BRAND']['VALUE']]), '', $item['NAME'])
+						: ""
+						)
+					)."</strong>",
 				'бренд'    => $arResult['BRANDS'][$props['BRAND']['VALUE']],
 				'линия'    => str_replace('Линия ', '', $arResult['TRADELINES'][$props['TRADELINE']['VALUE']]),
 				'цвет'     => $props['COLOR']['VALUE'],
