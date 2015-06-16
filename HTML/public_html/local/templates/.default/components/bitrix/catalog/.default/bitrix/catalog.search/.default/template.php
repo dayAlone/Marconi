@@ -44,7 +44,7 @@ if (!empty($arElements) && is_array($arElements))
 		$searchFilter = array(
 			"=ID" => $arElements,
 		);
-		if($CITY['CLOSED'] == 'Y') $searchFilter['=PROPERTY_GENERAL'] = "Y";
+		if($CITY['CLOSED'] == 'Y' || SITE_ID != 's1') $searchFilter['=PROPERTY_GENERAL'] = "Y";
 		if(SITE_ID == 's1'):
 			$searchFilter['=PROPERTY_COMING'] = false;
 		endif;

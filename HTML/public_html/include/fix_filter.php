@@ -13,7 +13,7 @@ if(count($elements) > 1):
 endif;
 $arrFilter['!PROPERTY_MIN_PRICE'] = false;
 
-if($CITY['CLOSED'] == 'Y') $arrFilter['=PROPERTY_GENERAL'] = "Y";
+if($CITY['CLOSED'] == 'Y' || SITE_ID != 's1') $arrFilter['=PROPERTY_GENERAL'] = "Y";
 if(SITE_ID == 's1'):
 	$arrFilter['=PROPERTY_COMING'] = false;
 endif;
