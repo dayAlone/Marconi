@@ -685,7 +685,7 @@
 						if(intval($v['AMOUNT']) > 0 && $product[$v['FIELD']] != "Y"):
 				    		$updateValue = "Y";
 				    		$product[$v['FIELD']] = "Y";
-				    	else if(intval($v['AMOUNT']) == 0 && (!isset($product[$v['FIELD']]) || $product[$v['FIELD']] == "Y")):
+				    	elseif(intval($v['AMOUNT']) == 0 && (!isset($product[$v['FIELD']]) || $product[$v['FIELD']] == "Y")):
 				    		$updateValue = "N";
 				    	endif;
 				    	if(isset($updateValue)):
