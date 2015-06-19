@@ -611,7 +611,7 @@
 			foreach ($data['items'] as $item)
 				$ids[] = $item->getAttribute('id');
 
-			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_GENERAL')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_CML2_LINK')));
+			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_GENERAL', 'PROPERTY_RETAIL')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_CML2_LINK')));
 
 			$ids  = array();
 			foreach ($this->products as $item)
@@ -625,9 +625,10 @@
         	endwhile;
 
         	foreach ($data['items'] as $item):
-				$product = &$this->products[$item->getAttribute('id')];
-				$id      = $product['ID'];
-				$raw     = $item->getElementsByTagName('count');
+				$product  = &$this->products[$item->getAttribute('id')];
+				$id       = $product['ID'];
+				$raw      = $item->getElementsByTagName('count');
+				$updateID = (isset($product['CML2_LINK'])?$product['CML2_LINK']:$id);
 				if(intval($id) > 0):
 					foreach ($raw as $count):
 						$amount = $count->getAttribute('value');
@@ -649,20 +650,6 @@
 
 				    		#$this->counter++;
 				    	endif;
-				    	
-				    	// Товары на основном складе
-				    	if(in_array($count->getAttribute('store'), array(0,1))):
-					    	$updateID = (isset($product['CML2_LINK'])?$product['CML2_LINK']:$id);
-					    	if(intval($amount) > 0 && $product["GENERAL"] != "Y") 
-					    		$updateValue = "Y";
-					    	else if(intval($amount) == 0 && (!isset($product["GENERAL"]) || $product["GENERAL"] == "Y")) 
-					    		$updateValue = "N";
-					    	
-					    	if(isset($updateValue)):
-					    		CIBlockElement::SetPropertyValuesEx($updateID, $this->iblocks['products'], array('GENERAL'=>$updateValue));
-					    		$this->counter++;
-					    	endif;
-					    endif;
 
 				    	if($this->counts[$id][$store] != $amount):
 				    		if(!isset($this->counts[$id]))
@@ -680,6 +667,35 @@
 						    }
 						endif;
 	        		endforeach;
+
+	        		// Товары на основном или розничном складе
+	        		$arUpdates = array();
+	        		foreach(array(0,1) as $store):
+	        			if(isset($this->counts[$id][$store])):
+	        				$arUpdates[] = array('FIELD' => "GENERAL", 'AMOUNT' => $this->counts[$id][$store]);
+	        				unset($this->counts[$id][$store]);
+	        			endif;
+	        		endforeach;
+	        		
+	        		if(count($this->counts[$id]) > 0):
+	        		 $arUpdates[] = array('FIELD' => "RETAIL", 'AMOUNT' => array_sum($this->counts[$id]) );
+					endif;
+
+					foreach ($arUpdates as $v) {
+						if(intval($v['AMOUNT']) > 0 && $product[$v['FIELD']] != "Y"):
+				    		$updateValue = "Y";
+				    		$product[$v['FIELD']] = "Y";
+				    	else if(intval($v['AMOUNT']) == 0 && (!isset($product[$v['FIELD']]) || $product[$v['FIELD']] == "Y"):
+				    		$updateValue = "N";
+				    	endif;
+				    	
+				    	if(isset($updateValue)):
+				    		CIBlockElement::SetPropertyValuesEx($updateID, $this->iblocks['products'], array($updateProrepty=>$updateValue));
+				    		$this->counter++;
+				    	endif;
+					}
+			    	
+
 	        	endif;
         	endforeach;
         	
