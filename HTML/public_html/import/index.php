@@ -688,7 +688,6 @@
 				    	else if(intval($v['AMOUNT']) == 0 && (!isset($product[$v['FIELD']]) || $product[$v['FIELD']] == "Y")):
 				    		$updateValue = "N";
 				    	endif;
-				    	
 				    	if(isset($updateValue)):
 				    		CIBlockElement::SetPropertyValuesEx($updateID, $this->iblocks['products'], array($updateProrepty=>$updateValue));
 				    		$this->counter++;
