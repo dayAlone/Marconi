@@ -144,7 +144,13 @@ endif;
 	        	global $arFilter;
 	        	$arFilter = array('PROPERTY_ARTNUMBER' => $props['ARTNUMBER']['VALUE']);
 	        	if(SITE_ID == 's1'):
-					$arFilter['=PROPERTY_COMING'] = false;
+					$arFilter[] = array(
+				        "LOGIC" => "OR",
+				        array("=PROPERTY_COMING" => false),
+				        array("=PROPERTY_COMING" => "Y", "=PROPERTY_RETAIL" => "Y"),
+				        array("=PROPERTY_COMING" => "Y", "=PROPERTY_GENERAL" => "Y")
+				    );
+
 				endif;
 	        	if(strlen($props['ARTNUMBER']['VALUE'])>0):
 		        	$APPLICATION->IncludeComponent("bitrix:news.list", "colors", 
