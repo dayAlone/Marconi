@@ -693,7 +693,7 @@
 				    		$updateValue = "N";
 				    	endif;
 				    	if(isset($updateValue)):
-				    		CIBlockElement::SetPropertyValuesEx($updateID, $this->iblocks['products'], array($updateProrepty=>$updateValue));
+				    		CIBlockElement::SetPropertyValuesEx($updateID, $this->iblocks['products'], array($v['FIELD']=>$updateValue));
 				    		$this->counter++;
 				    	endif;
 					}
