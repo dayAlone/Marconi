@@ -681,10 +681,11 @@
 	        		endforeach;
 	        		
 	        		if(count($this->counts[$id]) > 0):
-	        		 $arUpdates[] = array('FIELD' => "RETAIL", 'AMOUNT' => array_sum($this->counts[$id]) );
+	        			$arUpdates[] = array('FIELD' => "RETAIL", 'AMOUNT' => array_sum($this->counts[$id]) );
 					endif;
 					
 					foreach ($arUpdates as $v) {
+						unset($updateValue);
 						if(intval($v['AMOUNT']) > 0 && $product[$v['FIELD']] != "Y"):
 				    		$updateValue = "Y";
 				    		$product[$v['FIELD']] = "Y";
