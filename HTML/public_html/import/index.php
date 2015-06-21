@@ -629,6 +629,7 @@
 				$id       = $product['ID'];
 				$raw      = $item->getElementsByTagName('count');
 				$updateID = (isset($product['CML2_LINK'])?$product['CML2_LINK']:$id);
+				$arData   = array();
 				if(intval($id) > 0):
 					foreach ($raw as $count):
 						$amount = $count->getAttribute('value');
@@ -637,6 +638,8 @@
 						endif;
 						
 						$store = $this->stores[$count->getAttribute('store')];
+
+						$arData[$count->getAttribute('store')] = $amount;
 
 						// Активация товаров которые в наличии
 						if(intval($amount) > 0 && (isset($product['CML2_LINK']) || $product['ACTIVE'] == 'N')):
@@ -672,16 +675,15 @@
 
 	        		// Товары на основном или розничном складе
 	        		$arUpdates = array();
-
-	        		foreach(array($this->stores[0],$this->stores[1]) as $store):
-	        			if(isset($this->counts[$id][$store])):
-	        				$arUpdates[] = array('FIELD' => "GENERAL", 'AMOUNT' => $this->counts[$id][$store]);
-	        				unset($this->counts[$id][$store]);
+	        		foreach(array(0, 1) as $store):
+	        			if(isset($arData[$store])):
+	        				$arUpdates[] = array('FIELD' => "GENERAL", 'AMOUNT' => $arData[$store]);
+	        				unset($arData[$store]);
 	        			endif;
 	        		endforeach;
 	        		
-	        		if(count($this->counts[$id]) > 0):
-	        			$arUpdates[] = array('FIELD' => "RETAIL", 'AMOUNT' => array_sum($this->counts[$id]) );
+	        		if(count($arData[$id]) > 0):
+	        			$arUpdates[] = array('FIELD' => "RETAIL", 'AMOUNT' => array_sum($arData) );
 					endif;
 					
 					foreach ($arUpdates as $v) {
