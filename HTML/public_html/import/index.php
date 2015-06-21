@@ -654,9 +654,9 @@
 				    	if($this->counts[$id][$store] != $amount):
 				    		if(!isset($this->counts[$id]))
 								$this->counts[$id] = array();
-							
 							$this->counts[$id][$store] = $amount;
-							$arFields = Array(
+								
+				    		$arFields = Array(
 								"PRODUCT_ID" => $id,
 								"STORE_ID"   => $store,
 								"AMOUNT"     => $amount,
@@ -666,11 +666,14 @@
 						    	$this->counter++;
 						    }
 						endif;
+
+						
 	        		endforeach;
 
 	        		// Товары на основном или розничном складе
 	        		$arUpdates = array();
-	        		foreach(array(0,1) as $store):
+
+	        		foreach(array($this->stores[0],$this->stores[1]) as $store):
 	        			if(isset($this->counts[$id][$store])):
 	        				$arUpdates[] = array('FIELD' => "GENERAL", 'AMOUNT' => $this->counts[$id][$store]);
 	        				unset($this->counts[$id][$store]);
@@ -680,7 +683,7 @@
 	        		if(count($this->counts[$id]) > 0):
 	        		 $arUpdates[] = array('FIELD' => "RETAIL", 'AMOUNT' => array_sum($this->counts[$id]) );
 					endif;
-
+					
 					foreach ($arUpdates as $v) {
 						if(intval($v['AMOUNT']) > 0 && $product[$v['FIELD']] != "Y"):
 				    		$updateValue = "Y";
