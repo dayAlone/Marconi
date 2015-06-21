@@ -15,7 +15,12 @@ $arrFilter['!PROPERTY_MIN_PRICE'] = false;
 
 if($CITY['CLOSED'] == 'Y' || SITE_ID != 's1') $arrFilter['=PROPERTY_GENERAL'] = "Y";
 if(SITE_ID == 's1'):
-	$arrFilter['=PROPERTY_COMING'] = false;
+	//$arrFilter['=PROPERTY_COMING'] = false;
+	$arrFilter[] = array(
+		        "LOGIC" => "OR",
+		        array("=PROPERTY_COMING" => false),
+		        array("=PROPERTY_COMING" => "Y", "=PROPERTY_RETAIL" => "Y")
+	);
 endif;
 if($arResult['VARIABLES']['SECTION_CODE'] != 'promotion'):
 	$arrFilter['=PROPERTY_PROMOTION'] = false;

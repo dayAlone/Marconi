@@ -47,6 +47,11 @@ if (!empty($arElements) && is_array($arElements))
 		if($CITY['CLOSED'] == 'Y' || SITE_ID != 's1') $searchFilter['=PROPERTY_GENERAL'] = "Y";
 		if(SITE_ID == 's1'):
 			$searchFilter['=PROPERTY_COMING'] = false;
+			$searchFilter[] = array(
+		        "LOGIC" => "OR",
+		        array("=PROPERTY_COMING" => false),
+		        array("=PROPERTY_COMING" => "Y", "=PROPERTY_RETAIL" => "Y")
+		    );
 		endif;
 		$APPLICATION->IncludeComponent(
 		"bitrix:catalog.section",
