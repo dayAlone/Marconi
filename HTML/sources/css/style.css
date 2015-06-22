@@ -3777,7 +3777,8 @@ label.profile__label {
     margin-top: 25px;
   }
 }
-.about--fmarconi .about__slider-title {
+.about--fmarconi .about__slider-title,
+.about--fmarconi .about__slider-sub-title {
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
@@ -3787,13 +3788,16 @@ label.profile__label {
   position: relative;
 }
 @media (min-width: 768px) {
-  .about--fmarconi .about__slider-title {
+  .about--fmarconi .about__slider-title,
+  .about--fmarconi .about__slider-sub-title {
     font-size: 29px;
     margin-bottom: 35px;
   }
 }
 .about--fmarconi .about__slider-title-after,
-.about--fmarconi .about__slider-title-before {
+.about--fmarconi .about__slider-sub-title-after,
+.about--fmarconi .about__slider-title-before,
+.about--fmarconi .about__slider-sub-title-before {
   position: absolute;
   content: "";
   height: 1px;
@@ -3803,9 +3807,19 @@ label.profile__label {
   left: 0;
   display: none;
 }
-.about--fmarconi .about__slider-title-before {
+.about--fmarconi .about__slider-title-before,
+.about--fmarconi .about__slider-sub-title-before {
   left: auto;
   right: 0;
+}
+.about--fmarconi .about__slider-sub-title {
+  font-size: 17px;
+}
+@media (min-width: 768px) {
+  .about--fmarconi .about__slider-sub-title {
+    font-size: 24px;
+    margin-bottom: 35px;
+  }
 }
 .about--fmarconi .about__slider-arrow {
   margin-top: 5px;
