@@ -251,15 +251,10 @@ $(document).ready ->
 			h = $(fotorama.data[fotorama.activeIndex].html).find('.about__slider-item-content').height() + 200
 			fotorama.resize
 				height: h
-
-		posTitle = (title, text)->
-			w = (title.width() - title.find('span').width() - 40) / 2
-			el = $(this).find(text)
-			el.css
-				'width' : w
-			el.show()
+		
 		$('.about').elem('slider-sub-title').each ->
 			posTitle $(this), '.about__slider-sub-title-before, .about__slider-sub-title-after'
+		
 		$('.about').elem('slider-title').each ->
 			posTitle $(this), '.about__slider-title-before, .about__slider-title-after'
 			

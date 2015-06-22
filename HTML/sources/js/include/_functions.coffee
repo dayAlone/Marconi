@@ -1,5 +1,12 @@
 @delay = (ms, func) -> setTimeout func, ms
 
+@posTitle = (title, text)->
+	w = (title.width() - title.find('span').width() - 40) / 2
+	el = $(this).find(text)
+	el.css
+		'width' : w
+	el.show()
+
 @size = ->
 	if $('.lookbook').elem('slider').length > 0
 		$('.lookbook').elem('slider-preview').css

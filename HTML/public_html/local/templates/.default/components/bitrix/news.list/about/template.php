@@ -9,7 +9,7 @@
         <div class="about__slider-title-before"></div>
       </h2>
     <?endif;?>
-      <?=str_replace(array("<h4>", "</h4>"), array("<h4 class='about__slider-sub-title'>", "<div class=\"about__slider-sub-title-after\"></div>
+      <?=str_replace(array("<h4>", "</h4>"), array("<h4 class='about__slider-sub-title'><span>", "</span><div class=\"about__slider-sub-title-after\"></div>
         <div class=\"about__slider-sub-title-before\"></div></h4>"), $item['~PREVIEW_TEXT'])?>
       <?if(count($arResult['ITEMS'])-1 != $key):?>
         <div data-direction=">" class="about__slider-arrow about__slider-arrow--next"><?=svg('slider-arrow-right')?></div>
