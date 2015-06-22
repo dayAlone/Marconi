@@ -12,7 +12,7 @@ $APPLICATION->SetTitle('Плюсы работы с нами');
 	    "CACHE_TYPE"          => "A",
 	    "DISPLAY_PANEL"       => "N",
 	    "SET_TITLE"           => "N",
-	    "PROPERTY_CODE"       => array('DARK')
+	    "PROPERTY_CODE"       => array('DARK', 'HIDE')
        ),
        false
     );

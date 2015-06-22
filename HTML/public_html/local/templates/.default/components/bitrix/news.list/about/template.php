@@ -3,10 +3,12 @@
   <?foreach ($arResult['ITEMS'] as $key=>$item):?>
   <div style="background-image: url(<?=$item['PREVIEW_PICTURE']['SRC']?>), url(<?=$item['PREVIEW_PICTURE']['SMALL']?>)" class="about__slider-item" data-dark="<?=($item['PROPERTIES']['DARK']['VALUE_XML_ID']=='Y'?"Y":"N")?>">
     <div class="about__slider-item-content">
+    <?if($item['PROPERTIES']['HIDE']['VALUE_XML_ID'] != 'Y'):?>
       <h2 class="about__slider-title"> <span><?=$item['NAME']?></span>
         <div class="about__slider-title-after"></div>
         <div class="about__slider-title-before"></div>
       </h2>
+    <?endif;?>
       <?=$item['PREVIEW_TEXT']?>
       <?if(count($arResult['ITEMS'])-1 != $key):?>
         <div data-direction=">" class="about__slider-arrow about__slider-arrow--next"><?=svg('slider-arrow-right')?></div>
