@@ -3815,6 +3815,9 @@ label.profile__label {
 .about--fmarconi .about__slider-sub-title {
   font-size: 17px;
 }
+p + .about--fmarconi .about__slider-sub-title {
+  margin-top: 20px;
+}
 @media (min-width: 768px) {
   .about--fmarconi .about__slider-sub-title {
     font-size: 24px;
