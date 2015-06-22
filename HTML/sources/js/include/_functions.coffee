@@ -2,7 +2,7 @@
 
 @posTitle = (title, text)->
 	w = (title.width() - title.find('span').width() - 40) / 2
-	el = $(this).find(text)
+	el = title.find(text)
 	el.css
 		'width' : w
 	el.show()
