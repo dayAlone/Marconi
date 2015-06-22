@@ -3750,6 +3750,10 @@ label.profile__label {
     font-size: 16px;
   }
 }
+.about--fmarconi .about__slider-item-content p:last-of-type,
+.about--fmarconi .about__slider-item-content li:last-of-type {
+  margin-bottom: 0 !important;
+}
 .about--fmarconi .about__slider-item-content a {
   color: #d10a32;
   font-weight: bold;
@@ -4788,6 +4792,13 @@ label.profile__label {
   .catalog__clear {
     max-width: none;
   }
+}
+.catalog__banner {
+  margin-bottom: 30px;
+}
+.catalog__banner img {
+  max-width: 100%;
+  width: 100%;
 }
 .catalog__card {
   position: fixed;

@@ -124,6 +124,23 @@ if(SITE_ID == 's1' && in_array($arResult['VARIABLES']['SECTION_CODE'], array('sa
 		else
 			$basketAction = (isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '');
 
+		if(SITE_ID != 's1'):
+		    $APPLICATION->IncludeComponent("bitrix:news.list", "banners", 
+			    array(
+			    "IBLOCK_ID"           => 27,
+			    "NEWS_COUNT"          => "1",
+			    "SORT_BY1"            => "SORT",
+			    "SORT_ORDER1"         => "ASC",
+			    "FIELD_CODE"          => array('DETAIL_PICTURE'),
+			    "PROPERTY_CODE"       => array('LINK'),
+			    "CACHE_TYPE"          => "A",
+			    "DISPLAY_PANEL"       => "N",
+			    "SET_TITLE"           => "N"
+			       ),
+			     false
+			);
+		endif;
+
 		$intSectionID = 0;
 		?>
 		<?$intSectionID = $APPLICATION->IncludeComponent(
