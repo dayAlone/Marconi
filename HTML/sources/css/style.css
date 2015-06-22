@@ -3768,12 +3768,14 @@ label.profile__label {
 .about--fmarconi .about__slider-item-content a:hover {
   text-decoration: none;
 }
-.about--fmarconi .about__slider-item-content p+p {
+.about--fmarconi .about__slider-item-content p + p,
+.about--fmarconi .about__slider-item-content p + .about__slider-sub-title {
   margin-top: 15px;
   margin-bottom: 0;
 }
 @media (min-width: 768px) and (min-height: 850px) {
-  .about--fmarconi .about__slider-item-content p+p {
+  .about--fmarconi .about__slider-item-content p + p,
+  .about--fmarconi .about__slider-item-content p + .about__slider-sub-title {
     margin-top: 25px;
   }
 }
@@ -3814,9 +3816,6 @@ label.profile__label {
 }
 .about--fmarconi .about__slider-sub-title {
   font-size: 17px;
-}
-p + .about--fmarconi .about__slider-sub-title {
-  margin-top: 20px;
 }
 @media (min-width: 768px) {
   .about--fmarconi .about__slider-sub-title {
