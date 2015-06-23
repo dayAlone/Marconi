@@ -8240,7 +8240,9 @@ label.profile__label {
   }
 }
 .s2 .order__profile,
-.s2 .order__delivery {
+.s2 .order__delivery,
+.s2 .order__total .basket__block,
+.s2 .order__total .total {
   display: none;
 }
 .order__profile {
