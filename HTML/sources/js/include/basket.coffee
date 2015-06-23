@@ -35,27 +35,30 @@ updateTimer = false
 		totalCounter.start()
 
 	#$('basket').elem('total').text total
+@checkItems = (items)->
+	update = false
+	$.each items, (key, elem)->
+		row = $("[data-id='#{elem.id}']")
+		sale = row.find('.sale')
+		if sale.data('value') != elem.discount
+			update = true
+			row.data 'price', elem.price
+			sale.data 'value', elem.discount
+			row.find('.sale-value').html elem.percent
+	if update
+		basketCalc()
 
 @basketUpdate = (url, callback = false)->
-		$.get url, (data)->
-			if callback
-				callback data
-			
-			if isJson data
-				data = $.parseJSON data
-				if data.result == 'success'
-					update = false
-					$.each data.items, (key, elem)->
-						row = $("[data-id='#{elem.id}']")
-						sale = row.find('.sale')
-						if sale.data('value') != elem.discount
-							update = true
-							row.data 'price', elem.price
-							sale.data 'value', elem.discount
-							row.find('.sale-value').html elem.percent
-					if update
-						basketCalc()
-				getOrderDate()
+	$.get url, (data)->
+		if callback
+			callback data
+		
+		if isJson data
+			data = $.parseJSON data
+			if data.result == 'success'
+				update = false
+				checkItems data.items
+			getOrderDate()
 
 
 @basketInit = ->
@@ -76,9 +79,12 @@ updateTimer = false
 			data = $.parseJSON data
 			if data.result == 'success'
 				getOrderDate()
+				if data.items
+					checkItems data.items
 		row.on end , ->
 			$(this).remove()
 			basketCalc()
+			basketUpdate url
 		e.preventDefault()
 
 	$('.basket').elem('coupon-trigger').on 'click', (e)->
@@ -128,7 +134,6 @@ updateTimer = false
 			e.preventDefault()
 		clearTimeout updateTimer
 		updateTimer = delay 1000, ->
-			
 			id    = el.data 'id'
 			count = el.val()
 			url   = "/include/basket.php?a=update&id=#{id}&count=#{count}"
