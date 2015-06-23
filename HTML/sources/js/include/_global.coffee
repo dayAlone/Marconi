@@ -136,7 +136,7 @@ $(document).ready ->
 					$.each data, (key, el)->
 						$("input[name*='#{key}']").addClass 'parsley-error'
 				else
-
+					console.log $(".#{block}")
 					if $(".#{block}").elem('success').length > 0
 						$(".#{block}").elem('success').show().removeClass 'hidden'
 						$(".#{block}").elem('form').hide().addClass 'hidden'
