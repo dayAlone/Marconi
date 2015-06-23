@@ -125,6 +125,8 @@ $(document).ready ->
 		if block == 'register'
 			data += "&register_submit_button=Y"
 		
+		form.find('input[type="submit"]').attr('disabled', 'disabled')
+		
 		$.post form.data('action'), data,
 			(data)->
 				console.log data
@@ -136,7 +138,6 @@ $(document).ready ->
 					$.each data, (key, el)->
 						$("input[name*='#{key}']").addClass 'parsley-error'
 				else
-					console.log $(".#{block}")
 					if $(".#{block}").elem('success').length > 0
 						$(".#{block}").elem('success').show().removeClass 'hidden'
 						$(".#{block}").elem('form').hide().addClass 'hidden'
