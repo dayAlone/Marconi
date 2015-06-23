@@ -8239,7 +8239,9 @@ label.profile__label {
     margin-top: 0;
   }
 }
-.s2 .order__total .basket__block {
+.s2 .order__profile,
+.s2 .order__total,
+.s2 .order__delivery {
   display: none;
 }
 .order__profile {
