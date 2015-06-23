@@ -603,10 +603,12 @@ svg
 			border 0
 			margin-bottom 0
 			font-size 13px
-			&:disabled
+			&:disabled, &:disabled:hover
 				background transparent
+				box-shadow none
 				color black
 				border-color black
+				border 1px solid black
 				opacity .5
 	textarea
 		&:focus
