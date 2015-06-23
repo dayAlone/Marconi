@@ -8233,6 +8233,7 @@ label.profile__label {
 }
 .order__total {
   margin-top: 30px;
+  min-height: 51px;
 }
 @media (min-width: 768px) {
   .order__total {
