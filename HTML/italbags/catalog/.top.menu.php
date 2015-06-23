@@ -50,7 +50,7 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Новый груз", 
+		"Ожидается", 
 		"/catalog/coming/", 
 		Array(), 
 		Array('GROUPS'=>array(1,9,5)), 

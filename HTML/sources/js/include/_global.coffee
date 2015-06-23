@@ -130,6 +130,8 @@ $(document).ready ->
 		$.post form.data('action'), data,
 			(data)->
 				console.log data
+				form.find('input[type="submit"]').removeAtter 'disabled'
+				
 				if data == "error"
 					form.find('input[type="text"], input[type="password"]').addClass 'parsley-error'
 				else if isJson data

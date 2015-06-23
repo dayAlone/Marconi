@@ -1,6 +1,8 @@
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 $APPLICATION->SetTitle('Корзина');
+if(!$USER->IsAuthorized())
+    LocalRedirect('/');
 ?>
 <?
 	if(isset($_REQUEST['ORDER_ID'])):
