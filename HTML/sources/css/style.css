@@ -7745,6 +7745,11 @@ label.profile__label {
     width: 60px;
   }
 }
+@media (max-width: 480px) {
+  .basket__coupon-frame {
+    display: none;
+  }
+}
 .basket__coupon-trigger {
   display: inline-block;
   font-size: 10px;

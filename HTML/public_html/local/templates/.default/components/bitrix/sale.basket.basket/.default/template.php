@@ -78,7 +78,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			    	<? endforeach;?>
 			        <div class="basket__footer">
 			          <div class="row">
-			          	<div class="col-xs-6 col-md-7">
+			          	<div class="basket__coupon-frame col-xs-6 col-md-7">
 			          		<?if(SITE_ID == 's1'):
 			          		$coupon = $arResult['COUPON_LIST'][0]['COUPON'];
 							if(strlen($coupon) == 0 && $USER->IsAuthorized()):
