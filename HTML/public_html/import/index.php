@@ -286,8 +286,11 @@
 			if($props["COMING"]=='Y'):
 				$fields['IBLOCK_SECTION'][] = $this->sections['coming'];
 			endif;
-
-			if(($props["NEW"]=='Y' || !in_array($props["ARTNUMBER"], $this->artnumbers)) && $props["COMING"]!='Y'):
+			if($props['NEW'] == "Y"):
+				$fields['IBLOCK_SECTION'][] = $this->sections['latest'];
+			endif;
+			
+			if(!in_array($props["ARTNUMBER"], $this->artnumbers) && $props["COMING"]!='Y'):
 				$fields['IBLOCK_SECTION'][] = $this->sections['new'];
 			endif;
 		}
