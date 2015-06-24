@@ -105,6 +105,7 @@ function getOrderDelivery($ID, $props) {
 	return $str;
 }
 function OnBeforeMailSendHandler(&$arFields) {
+	global $USER;
 	CModule::IncludeModule("sale");
 	CModule::IncludeModule("iblock");
 	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
@@ -142,9 +143,16 @@ function OnBeforeMailSendHandler(&$arFields) {
 				<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.intval($arItem['QUANTITY']).'</td>
 				<td style="border:1px solid #c2c4c6;border-collapse:collapse;"><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td></tr>';
 	}
+
+	
+	$orderProps['NAME'] = $USER->GetFullName()
+	if(strlen($orderProps['NAME']) == 0)
+		$orderProps['NAME'] = ($orderProps['NAME']?$orderProps['NAME']:$orderProps['FIRST_NAME'])." ".$orderProps['LAST_NAME'];
+	if(strlen($orderProps['email']) == 0)
+		$orderProps['email'] = $USER->GetLogin();
 	$str .= '</tbody>
 		<tfooter>
-			<td colspan="2" style="font-size:12px;text-align:left;"><strong>Заказчик</strong>: '.($orderProps['NAME']?$orderProps['NAME']:$orderProps['FIRST_NAME']).' '.$orderProps['LAST_NAME'].'
+			<td colspan="2" style="font-size:12px;text-align:left;"><strong>Заказчик</strong>: '.$orderProps['NAME'].'
 			'.(strlen($delivery)>0?"<br><br>".$delivery:"").'
 			<td colspan="4" style="text-align: right;font-size:12px"><strong>Телефон</strong>: '.$orderProps['phone'].', <br><strong>Эл. почта</strong>: '.$orderProps['email'].'</td>
 		</tfooter>
@@ -153,7 +161,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 	
 	if(SITE_ID == 's2'):
 		$arFields['SALE_EMAIL'] = "zakaz@italbags.ru";
-		$arFields['BCC'] .= "zakaz@italbags.ru";
+		$arFields['BCC'] .= "ak@radia.ru";
 	elseif($orderProps['EMAIL']):
 		$arFields['BCC'] .= ", ".$orderProps['EMAIL'];
 	endif;
