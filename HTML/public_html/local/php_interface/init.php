@@ -152,6 +152,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 	$arFields['ORDER_LIST'] = $str;
 	
 	if(SITE_ID == 's2'):
+		$arFields['SALE_EMAIL'] = "zakaz@italbags.ru";
 		$arFields['BCC'] .= "zakaz@italbags.ru";
 	elseif($orderProps['EMAIL']):
 		$arFields['BCC'] .= ", ".$orderProps['EMAIL'];
