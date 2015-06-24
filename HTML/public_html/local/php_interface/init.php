@@ -145,11 +145,13 @@ function OnBeforeMailSendHandler(&$arFields) {
 	}
 
 	
-	$orderProps['NAME'] = $USER->GetFullName()
+	$orderProps['NAME'] = $USER->GetFullName();
 	if(strlen($orderProps['NAME']) == 0)
 		$orderProps['NAME'] = ($orderProps['NAME']?$orderProps['NAME']:$orderProps['FIRST_NAME'])." ".$orderProps['LAST_NAME'];
+	
 	if(strlen($orderProps['email']) == 0)
 		$orderProps['email'] = $USER->GetLogin();
+
 	$str .= '</tbody>
 		<tfooter>
 			<td colspan="2" style="font-size:12px;text-align:left;"><strong>Заказчик</strong>: '.$orderProps['NAME'].'
