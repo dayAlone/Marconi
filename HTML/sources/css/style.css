@@ -1827,6 +1827,12 @@ div.pp_default .pp_loaderIcon {
   padding: 1px 8px 0;
   letter-spacing: 0;
 }
+@media (min-width: 992px) and (max-width: 1200px) {
+  .catalog--italbags .catalog__nav .sub-nav__item,
+  .s2 .catalog__nav .sub-nav__item {
+    font-size: 9px;
+  }
+}
 .sub-nav__item:hover {
   color: #d10a32;
 }
