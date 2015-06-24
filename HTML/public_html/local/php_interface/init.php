@@ -150,6 +150,9 @@ function OnBeforeMailSendHandler(&$arFields) {
 		</tfooter>
 	</table>';
 	$arFields['ORDER_LIST'] = $str;
+	
+	if(SITE_ID == 's2') var_dump($orderProps, $arFields);
+
 	if($orderProps['EMAIL'])
 		$arFields['BCC'] .= ", ".$orderProps['EMAIL'];
 	return $arFields;
