@@ -163,7 +163,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 	
 	if(SITE_ID == 's2'):
 		$arFields['SALE_EMAIL'] = "zakaz@italbags.ru";
-		$arFields['BCC'] = "ak@radia.ru";
+		$arFields['BCC'] = "zakaz@italbags.ru";
 		$arFields['SITE_NAME'] = 'Новый стиль студио';
 	elseif($orderProps['EMAIL']):
 		$arFields['BCC'] .= ", ".$orderProps['EMAIL'];
