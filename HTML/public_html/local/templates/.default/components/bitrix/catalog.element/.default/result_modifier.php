@@ -17,7 +17,7 @@
 
 	$raw = CIBlockElement::GetElementGroups($arResult['ID']);
 	while($data = $raw->GetNext())
-		if(!in_array($data['CODE'], array('all', 'sale', 'sale30', 'new', 'best-sellers', 'coming')))
+		if(!in_array($data['CODE'], array('all', 'sale', 'sale30', 'new', 'best-sellers', 'coming', 'latest')))
 			$arResult['IBLOCK_SECTION_ID'] = $data['ID'];
 
 	$rsPath = GetIBlockSectionPath($arResult['IBLOCK_ID'], $arResult['IBLOCK_SECTION_ID']);
@@ -42,17 +42,18 @@
 		$this->EndViewTarget();
 	endif;
 
-
-	$arBasketItems = array();
-	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC", "ID" => "ASC"), array("FUSER_ID" => CSaleBasket::GetBasketUserID(), "LID" => SITE_ID, "ORDER_ID" => "NULL"), false, false, array("ID", "PRODUCT_ID"));
-	
-	while ($arItems = $dbBasketItems->Fetch())
-		$arBasketItems[] = $arItems['PRODUCT_ID'];
-	
-	$arResult['inCart'] = false;
-	if(in_array($item['ID'],$arBasketItems))
-		$arResult['inCart'] = true;
-	foreach ($item['OFFERS'] as $offer)
-		if(in_array($offer['ID'], $arBasketItems))
+	if(CModule::IncludeModule("sale")):
+		$arBasketItems = array();
+		$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC", "ID" => "ASC"), array("FUSER_ID" => CSaleBasket::GetBasketUserID(), "LID" => SITE_ID, "ORDER_ID" => "NULL"), false, false, array("ID", "PRODUCT_ID"));
+		
+		while ($arItems = $dbBasketItems->Fetch())
+			$arBasketItems[] = $arItems['PRODUCT_ID'];
+		
+		$arResult['inCart'] = false;
+		if(in_array($item['ID'],$arBasketItems))
 			$arResult['inCart'] = true;
+		foreach ($item['OFFERS'] as $offer)
+			if(in_array($offer['ID'], $arBasketItems))
+				$arResult['inCart'] = true;
+	endif;
 ?>
