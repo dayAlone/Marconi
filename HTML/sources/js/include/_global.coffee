@@ -96,7 +96,7 @@ $(document).ready ->
 	
 	$('.modal').on 'shown.bs.modal', ->
 		id = $(this).attr 'id'
-		if id == 'register' || id == 'feedback' 
+		if id == 'register' || id == 'feedback'  || id == 'ask' 
 			getCaptcha()
 
 	$('.modal').on 'hidden.bs.modal', ->

@@ -51,7 +51,7 @@
       <p class="center">Благодарим за обращение.</p>
     </div>
     <form class="feedback__form" data-parsley-validate>
-      <input type="hidden" name="group_id" value="5">
+      <input type="hidden" name="group_id" value="17">
       <label>представьтесь, пожалуйста</label>
       <input name="name" type="text" required>
       <label>Ваш e-mail</label>
