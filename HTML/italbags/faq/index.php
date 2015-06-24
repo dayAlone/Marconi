@@ -8,7 +8,10 @@ $APPLICATION->SetTitle('Вопросы и ответы');
 <div class="page">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+      	<div class="col-md-2 xl-margin-bottom">
+      		<a href="#ask" data-toggle="modal" data-target="#ask" class="product__big-button product__big-button--border full-width xl-margin-top">Задать вопрос</a>
+      	</div>
+        <div class="col-md-8">
         <?
         	$APPLICATION->IncludeComponent("bitrix:news.list", "news", 
 				array(
