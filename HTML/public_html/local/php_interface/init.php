@@ -151,7 +151,11 @@ function OnBeforeMailSendHandler(&$arFields) {
 	
 	if(strlen($orderProps['email']) == 0)
 		$orderProps['email'] = $USER->GetLogin();
-
+	if(strlen($orderProps['phone']) == 0):
+		$rsUser = CUser::GetByID($USER->GetID());
+		$arUser = $rsUser->Fetch();
+		$orderProps['phone'] = (strlen($arUser['WORK_PHONE'])>0?$arUser['WORK_PHONE']:$arUser['PERSONAL_PHONE']);
+	endif;
 	$str .= '</tbody>
 		<tfooter>
 			<td colspan="2" style="font-size:12px;text-align:left;"><strong>Заказчик</strong>: '.$orderProps['NAME'].'
