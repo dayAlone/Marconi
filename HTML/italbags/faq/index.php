@@ -9,7 +9,7 @@ $APPLICATION->SetTitle('Вопросы и ответы');
     <div class="container">
       <div class="row">
       	<div class="col-md-2 xl-margin-bottom">
-      		<a href="#ask" data-toggle="modal" data-target="#ask" class="product__big-button product__big-button--border full-width xl-margin-top">Задать вопрос</a>
+      		<a href="#ask" data-toggle="modal" data-target="#ask" class="product__big-button product__big-button--border full-width">Задать вопрос</a>
       	</div>
         <div class="col-md-8">
         <?

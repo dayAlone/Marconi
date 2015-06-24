@@ -42,7 +42,7 @@
   </div>
 </div>
 
-<?if($APPLICATION->GetCurDir('/faq/')):?>
+<?if($APPLICATION->GetCurDir()=='/faq/'):?>
 <div id="ask" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade feedback">
   <div class="modal-dialog feedback__dialog">
     <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
