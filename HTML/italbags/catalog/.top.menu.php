@@ -22,6 +22,14 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
+		"Последние поступления", 
+		"/catalog/latest/", 
+		Array("/catalog/latest/"), 
+		Array(), 
+		"" 
+	),
+	
+	Array(
 		"Sale", 
 		"/catalog/sale/", 
 		Array("/catalog/sale/"), 

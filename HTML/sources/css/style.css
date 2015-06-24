@@ -8249,6 +8249,9 @@ label.profile__label {
   margin-top: 30px;
   min-height: 51px;
 }
+.s2 .order__total {
+  margin-top: 0;
+}
 @media (min-width: 768px) {
   .order__total {
     margin-top: 0;
