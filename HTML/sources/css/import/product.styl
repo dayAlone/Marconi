@@ -55,11 +55,15 @@
 		position relative
 		float: left
 		t opacity
-		min-width 47%
-		margin-right 5%
+		min-width 30%
+		margin-bottom 20px
+		margin-left 45%
 		display inline-block
 		@media (min-width: scr_sm)
+			margin-right 5%
 			min-width 45%
+			margin-left 0
+			margin-bottom 0
 		@media (min-width: scr_md)
 			max-width 45%
 		& + .product__big-button
@@ -197,8 +201,10 @@
 			min-height 280px
 			max-height 280px
 			margin-bottom 10px
+			pointer-events none
 			@media (min-width: scr_sm)
 				margin-bottom 0
+				pointer-events all
 				min-height 427px
 				max-height 460px
 			@media (min-width: scr_md)

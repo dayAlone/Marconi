@@ -41,4 +41,18 @@
 			?><link rel="image_src" href="<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" /><?
 		$this->EndViewTarget();
 	endif;
+
+
+	$arBasketItems = array();
+	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC", "ID" => "ASC"), array("FUSER_ID" => CSaleBasket::GetBasketUserID(), "LID" => SITE_ID, "ORDER_ID" => "NULL"), false, false, array("ID", "PRODUCT_ID"));
+	
+	while ($arItems = $dbBasketItems->Fetch())
+		$arBasketItems[] = $arItems['PRODUCT_ID'];
+	
+	$arResult['inCart'] = false;
+	if(in_array($item['ID'],$arBasketItems))
+		$arResult['inCart'] = true;
+	foreach ($item['OFFERS'] as $offer)
+		if(in_array($offer['ID'], $arBasketItems))
+			$arResult['inCart'] = true;
 ?>

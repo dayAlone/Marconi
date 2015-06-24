@@ -299,56 +299,39 @@ endif;
 	    <div class="row">
 	      <div class="col-lg-6 center-lg">
 			  <?
-			  if(SITE_ID == 's1' || isUserAccept()):
-			      $frame = $this->createFrame()->begin();
+				if(SITE_ID == 's1' || isUserAccept()):
+				    $frame = $this->createFrame()->begin();
 					if(!$arResult['NOT_AVAILABLE']): 
-						$arBasketItems = array();
-						$dbBasketItems = CSaleBasket::GetList(
-					        array(
-					                "NAME" => "ASC",
-					                "ID" => "ASC"
-					            ),
-					        array(
-					                "FUSER_ID" => CSaleBasket::GetBasketUserID(),
-					                "LID" => SITE_ID,
-					                "ORDER_ID" => "NULL"
-					            ),
-					        false,
-					        false,
-					        array("ID", "PRODUCT_ID")
-					    );
-						while ($arItems = $dbBasketItems->Fetch())
-							$arBasketItems[] = $arItems['PRODUCT_ID'];
-						$inCart = false;
-						if(in_array($item['ID'],$arBasketItems))
-							$inCart = true;
-						foreach ($item['OFFERS'] as $offer)
-							if(in_array($offer['ID'], $arBasketItems))
-								$inCart = true;
-						if(SITE_ID != 's1'):?>
-							<div class="product__counter <?=($inCart?"product__counter--disabled":"")?>">
+
+						if(SITE_ID != 's1'):
+							?><div class="product__counter <?=($inCart?"product__counter--disabled":"")?>">
 					    		<a href="#" class="product__counter-trigger product__counter-trigger--minus">-</a>
 					    		<input type="text" class="product__counter-input" value="1">
 					    		<a href="#" class="product__counter-trigger product__counter-trigger--plus">+</a>
-					    	</div>
-						<?endif;
-						if($inCart):?>
-			      		<a href="#" class="product__big-button product__big-button--border product__big-button--disabled" data-id="<?=$item['ID']?>">Товар в корзине</a>
-			      		<?else:?>
-			      		<a href="#" class="product__big-button product__big-button--buy" data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>">В корзину</a>
-			      	<? 
-			      	endif;
-			      	?>
-			      	<?if(SITE_ID == 's1'):?><a href="#"  data-id="<?=$item['ID']?>" class="hidden-xs product__big-button product__big-button--simmilar no-margin-right"><?=(in_array($item['ID'],json_decode($_COOKIE['simmilar']))?"удалить":"сравнить")?></a><?endif;?>
-			      	<script>initBigButton()</script>
-			      	<?
-			      $frame->beginStub();
-			      	if(isset($item['MIN_PRICE']['VALUE'])&&intval($item['MIN_PRICE']['VALUE'])!=0): ?>
-			      		<a href="#" class="product__big-button product__big-button--buy" data-id="<?=$item['ID']?>">В корзину</a>
-			      		<?if(SITE_ID == 's1'):?><a href="#"  data-id="<?=$item['ID']?>" class="hidden-xs product__big-button product__big-button--simmilar no-margin-right">сравнить</a><?endif;?>
-			      	<? endif; 
-			      	endif; 
-			      $frame->end();
+					    	</div><?
+					    endif;
+
+						if($arResult['inCart']):
+							?><a href="#" class="product__big-button product__big-button--border product__big-button--disabled" data-id="<?=$item['ID']?>">Товар в корзине</a><?
+						else:
+							?><a href="#" class="product__big-button product__big-button--buy" data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>">В корзину</a><?
+						endif;?>
+						
+					  	<?if(SITE_ID == 's1'):
+					  		?><a href="#"  data-id="<?=$item['ID']?>" class="hidden-xs product__big-button product__big-button--simmilar no-margin-right"><?=(in_array($item['ID'],json_decode($_COOKIE['simmilar']))?"удалить":"сравнить")?></a><?
+					  	endif;?>
+					  	
+					  	<script>initBigButton()</script>
+						<?
+						$frame->beginStub();
+							if(isset($item['MIN_PRICE']['VALUE'])&&intval($item['MIN_PRICE']['VALUE'])!=0): ?>
+								<a href="#" class="product__big-button product__big-button--buy" data-id="<?=$item['ID']?>">В корзину</a>
+								<?if(SITE_ID == 's1'):
+									?><a href="#"  data-id="<?=$item['ID']?>" class="hidden-xs product__big-button product__big-button--simmilar no-margin-right">сравнить</a><?endif;
+								?>
+							<? endif; 
+							endif; 
+						$frame->end();
 		      endif;
 		      ?>
 	      	
