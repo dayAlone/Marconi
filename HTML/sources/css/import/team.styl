@@ -3,12 +3,16 @@
 		&__item
 			margin 20px 0
 			border-bottom 1px solid #96969d
-			padding-bottom 20px
+			padding-bottom 0px
 		&__image
-			background-size cover
+			background-size contain
 			width 100%
 			min-height 250px
-			background-position center center
+			background-position center bottom
+	&__info
+		font-size 12px
+		@media (min-width scr_sm)
+			font-size 14px
 	&__content
 		position absolute
 		left 50%
@@ -18,8 +22,8 @@
 	&__position, &__name
 		font-weight 300
 		text-transform: uppercase
-		font-size 17px
-		line-height 20px
+		font-size 13px
+		line-height 14px
 		max-width 90%
 		@media (min-width scr_sm)
 			font-size 27px
@@ -36,8 +40,8 @@
 		margin-bottom 15px
 	&__name
 		font-weight: bold
-		font-size 25px
-		line-height 25px
+		font-size 22px
+		line-height 22px
 		@media (min-width scr_sm)
 			font-size 40px
 			line-height 40px

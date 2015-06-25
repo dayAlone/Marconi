@@ -4604,15 +4604,23 @@ label.profile__label {
 .team-list__item {
   margin: 20px 0;
   border-bottom: 1px solid #96969d;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
 }
 .team-list__image {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  background-size: contain;
   width: 100%;
   min-height: 250px;
-  background-position: center center;
+  background-position: center bottom;
+}
+.team__info {
+  font-size: 12px;
+}
+@media (min-width: 768px) {
+  .team__info {
+    font-size: 14px;
+  }
 }
 .team__content {
   position: absolute;
@@ -4629,8 +4637,8 @@ label.profile__label {
 .team__name {
   font-weight: 300;
   text-transform: uppercase;
-  font-size: 17px;
-  line-height: 20px;
+  font-size: 13px;
+  line-height: 14px;
   max-width: 90%;
 }
 @media (min-width: 768px) {
@@ -4659,8 +4667,8 @@ label.profile__label {
 }
 .team__name {
   font-weight: bold;
-  font-size: 25px;
-  line-height: 25px;
+  font-size: 22px;
+  line-height: 22px;
 }
 @media (min-width: 768px) {
   .team__name {
