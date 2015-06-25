@@ -4607,9 +4607,10 @@ label.profile__label {
   padding-bottom: 0px;
 }
 .team-list__image {
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  background-size: contain;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 100%;
   min-height: 250px;
   background-position: center bottom;
