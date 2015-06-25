@@ -7,7 +7,8 @@
 		&__image
 			background-size cover
 			width 100%
-			min-width 250px
+			min-height 250px
+			background-position center center
 	&__content
 		position absolute
 		left 50%
@@ -17,21 +18,29 @@
 	&__position, &__name
 		font-weight 300
 		text-transform: uppercase
-		font-size 27px
-		line-height 30px
+		font-size 17px
+		line-height 20px
 		max-width 90%
+		@media (min-width scr_sm)
+			font-size 27px
+			line-height 30px
 	&__divider
-		margin 25px 0 35px
+		margin 15px 0 25px
 		width 90px
 		height 3px
 		background: #96969d
+		@media (min-width scr_sm)
+			margin 25px 0 35px
 	&__position
 		opacity .7
 		margin-bottom 15px
 	&__name
 		font-weight: bold
-		font-size 40px
-		line-height 40px
+		font-size 25px
+		line-height 25px
+		@media (min-width scr_sm)
+			font-size 40px
+			line-height 40px
 	&__slider
 		margin-top 30px
 		padding 0 20px

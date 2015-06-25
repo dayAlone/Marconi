@@ -35,10 +35,10 @@
   <?foreach ($arResult['ITEMS'] as $key=>$item):?>
   <div class="team-list__item">
     <div class="row">
-      <div class="col-xs-4">
+      <div class="col-xs-5">
         <div class="team-list__image" style="background-image: url(<?=$item['PREVIEW_PICTURE']['SMALL']?>)"></div>
       </div>
-      <div class="col-xs-8">
+      <div class="col-xs-7">
         <?if(strlen($item['PROPERTIES']['POSITION']['VALUE'])>0):?>
           <div class="team__position"><?=$item['PROPERTIES']['POSITION']['VALUE']?></div>
         <?endif;?>
