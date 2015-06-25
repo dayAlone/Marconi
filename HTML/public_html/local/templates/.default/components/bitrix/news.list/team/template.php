@@ -46,7 +46,7 @@
           <div class="team__divider"></div>
           <div class="team__info">
             <?if(strlen($item['PROPERTIES']['PHONE']['VALUE'])>0):?>
-              Тел./факс: <?=$item['PROPERTIES']['PHONE']['VALUE']?><br>
+              Тел./факс: <nobr><?=$item['PROPERTIES']['PHONE']['VALUE']?></nobr><br>
             <?endif;?>
             <?if(strlen($item['PROPERTIES']['EMAIL']['VALUE'])>0):?>
               Электронная почта: <a href="mailto:<?=$item['PROPERTIES']['EMAIL']['VALUE']?>"><?=$item['PROPERTIES']['EMAIL']['VALUE']?></a><br>
