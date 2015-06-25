@@ -38,7 +38,10 @@
 	
 	if(isset($arResult['PREVIEW_PICTURE']['SRC'])):
 		$this->SetViewTarget('header');
-			?><link rel="image_src" href="<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" /><?
+			?>
+			<link rel="image_src" href="http://<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" />
+			<meta content="http://http://<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" property="og:image">
+			<?
 		$this->EndViewTarget();
 	endif;
 
