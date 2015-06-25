@@ -40,7 +40,10 @@
 		$this->SetViewTarget('header');
 			?>
 			<link rel="image_src" href="http://<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" />
-			<meta content="http://http://<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" property="og:image">
+			<meta content="http://<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" property="og:image">
+			<meta property="og:title" content="<?=$arResult['NAME']?>"/>
+			<meta property="og:type" content="blog"/>
+			<meta property="og:description" content="<?=(strlen(strip_tags($arResult["PREVIEW_TEXT"]))>0?strip_tags($arResult["PREVIEW_TEXT"]):"")?>"/>
 			<?
 		$this->EndViewTarget();
 	endif;
