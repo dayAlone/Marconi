@@ -4604,6 +4604,7 @@ label.profile__label {
 .team-list__item {
   margin: 20px 0;
   border-bottom: 1px solid #96969d;
+  padding-bottom: 20px;
 }
 .team-list__image {
   -webkit-background-size: cover;
