@@ -1503,6 +1503,7 @@ div.pp_default .pp_loaderIcon {
 }
 .header .city .bx-sls .bx-ui-sls-container {
   background: #fff;
+  max-height: 38px;
 }
 .header .city .bx-sls .dropdown-block {
   max-height: 37px;
