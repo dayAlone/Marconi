@@ -150,7 +150,7 @@ $(document).ready ->
 						$('.auth').mod 'active', true
 						$(".toolbar__mobile a[href='#login']").attr 'href', '/profile/'
 
-					if block == 'login' && $('body').hasClass 's2'
+					if block == 'login' && $('body').hasClass 's2' || location.href == '/basket/'
 						location.href = location.href
 
 	# Contacts

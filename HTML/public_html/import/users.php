@@ -964,6 +964,7 @@
     }
 	class Users
 	{
+		$users = false;
 		public function __construct()
 		{
 
@@ -1017,6 +1018,13 @@
 		public function Action($file)
 		{
 			$data = Import::getElements($file);
+
+			$arLogins = array();
+
+			foreach ($data as $raw) {
+				$arLogins[] = $raw['email'];
+			}
+			
 			foreach ($data as $raw) {
 				
 				$user   = new CUser;
@@ -1114,7 +1122,6 @@
 			), array(
 				"id[>]" => 0
 			));
-			var_dump(count($items));
 			return $items;
 
 		}

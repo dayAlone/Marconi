@@ -110,9 +110,11 @@ function OnBeforeMailSendHandler(&$arFields) {
 	CModule::IncludeModule("sale");
 	CModule::IncludeModule("iblock");
 	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
-	$orderProps = getOrderProps($arFields['ORDER_ID']);
-	$delivery = getOrderDelivery($arFields['ORDER_ID'], $orderProps);
-	$arItems = array();
+	$orderProps    = getOrderProps($arFields['ORDER_ID']);
+	$delivery      = getOrderDelivery($arFields['ORDER_ID'], $orderProps);
+	$arItems       = array();
+	$rsUser        = CUser::GetByID($USER->GetID());
+	$arUser        = $rsUser->Fetch();
 	$str = '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;"><thead>
 		<tr style="font-size:12px;">
 			<th></th>
@@ -124,12 +126,15 @@ function OnBeforeMailSendHandler(&$arFields) {
 		</tr>
 		</thead>
 		<tbody>';
+	
 	while ($arItem = $dbBasketItems->Fetch()) {
 		$res = CIBlockElement::GetByID($arItem['PRODUCT_ID']);
 		if($ar_res = $res->GetNextElement()){
+
 			$fields = $ar_res->GetFields(); 
 			$small = CFile::ResizeImageGet(CFile::GetFileArray($fields['PREVIEW_PICTURE']), Array("width" => 150, "height" => 150), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 			$arProps = $ar_res->GetProperties();
+			$arItems[] = array_merge($arItem, $fields, $arProps);
 		}
 		$str .= '<tr>
 				<td style="border:1px solid #c2c4c6;border-collapse:collapse;">
@@ -144,8 +149,6 @@ function OnBeforeMailSendHandler(&$arFields) {
 				<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.intval($arItem['QUANTITY']).'</td>
 				<td style="border:1px solid #c2c4c6;border-collapse:collapse;"><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td></tr>';
 	}
-
-	
 	$orderProps['NAME'] = $USER->GetFullName();
 	if(strlen($orderProps['NAME']) == 0)
 		$orderProps['NAME'] = ($orderProps['NAME']?$orderProps['NAME']:$orderProps['FIRST_NAME'])." ".$orderProps['LAST_NAME'];
@@ -153,8 +156,6 @@ function OnBeforeMailSendHandler(&$arFields) {
 	if(strlen($orderProps['email']) == 0)
 		$orderProps['email'] = $USER->GetLogin();
 	if(strlen($orderProps['phone']) == 0):
-		$rsUser = CUser::GetByID($USER->GetID());
-		$arUser = $rsUser->Fetch();
 		$orderProps['phone'] = (strlen($arUser['WORK_PHONE'])>0?$arUser['WORK_PHONE']:$arUser['PERSONAL_PHONE']);
 	endif;
 	$str .= '</tbody>
@@ -166,6 +167,32 @@ function OnBeforeMailSendHandler(&$arFields) {
 	</table>';
 	$arFields['ORDER_LIST'] = $str;
 	
+	AddMessage2Log(var_export($arUser, true), '1');
+	die();
+	$orderData = array(
+		'ID'      => $arResult['ORDER_ID'],
+		'DATE'    => date('d.m.Y'),
+		'TIME'    => date('H:i:s'),
+		'NAME'    => $orderProps['NAME'],
+		'COMPANY' => ,
+		'LOGIN'   => ,
+		'PHONE'   => ,
+		'EMAIL'   => ,
+		'ADDRESS' => ,
+		'COUNT'   => ,
+		'TOTAL'   => ,
+		'LIST'    => array()
+	);
+	foreach ($arItems as $key => $item) {
+		$orderData['LIST'][] = array(
+			'key'       => $key+1,
+			'artnumber' => (strlen($item['ARTNUMBER']['VALUE']) > 0 ? str_replace($item['NOTE_SHORT']['VALUE'], '', $item['NAME']) : $item['NAME']),
+			'quantity'  => intval($item['QUANTITY']),
+			'price'     => $item['PRICE'],
+			'total'     => $item['PRICE']*intval($item['QUANTITY'])
+		);
+	}
+
 	if(SITE_ID == 's2'):
 		$arFields['SALE_EMAIL'] = "zakaz@italbags.ru";
 		$arFields['BCC'] = "zakaz@italbags.ru";

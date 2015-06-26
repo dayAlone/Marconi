@@ -16,7 +16,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Каталог", 
-		"/catalog/best-sellers/", 
+		"/catalog/", 
 		Array(), 
 		Array(), 
 		"" 
