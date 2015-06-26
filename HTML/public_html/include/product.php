@@ -47,8 +47,12 @@
 			<div class="product__sale">
 				<span>Скидка<br>30%</span>
 			</div>
-	    	<?endif;		
-	    endif; ?>
+	    	<?endif;
+	    elseif(strlen($item['PROPERTIES']['NEW']['VALUE']) > 0 && SITE_ID != 's1'):?>
+	    	<div class="product__sale">
+				<span>NEW</span>
+			</div>
+	    <? endif; ?>
 	    <? if(strlen($item['PROPERTIES']['TRADELINE']['VALUE'])>0): ?>
 	    	<div class="product__tradeline"><?=$arResult['TRADELINES'][$item['PROPERTIES']['TRADELINE']['VALUE']]?></div>
 	    <? endif; ?>
