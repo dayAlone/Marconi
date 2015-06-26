@@ -2290,6 +2290,11 @@ body.index--fmarconi {
     height: 93px;
   }
 }
+.textpage__black {
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 30px 50px;
+}
 .textpage__divider {
   text-align: center;
   margin: 30px 0 35px;
@@ -3633,12 +3638,16 @@ label.profile__label {
   background: url("/layout/images/italbags-about.jpg") bottom center no-repeat;
 }
 .about--requisites .wrap {
-  padding-bottom: 400px;
-  background: url("/layout/images/italbags-requisites.jpg") bottom center no-repeat;
+  background: url("/layout/images/f11.jpg") center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
 }
 .about--mission .wrap {
-  padding-bottom: 150px;
-  background: url("/layout/images/italbags-mission.jpg") center top no-repeat;
+  background: url("/layout/images/f13.jpg") center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
 }
 .about--white .header {
   color: #fff;
@@ -3671,6 +3680,9 @@ label.profile__label {
 .about--white .header .nav__item {
   color: #fff;
   background: transparent;
+}
+.about--white .header .nav__item--active {
+  color: #d10a32;
 }
 .about--white .header .nav__line {
   border-color: #fff;
