@@ -168,7 +168,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 	$arFields['ORDER_LIST'] = $str;
 	
 	AddMessage2Log(var_export($arUser, true), '1');
-	die();
+	//die();
 	$orderData = array(
 		'ID'      => $arResult['ORDER_ID'],
 		'DATE'    => date('d.m.Y'),
