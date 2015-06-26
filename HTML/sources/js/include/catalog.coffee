@@ -334,8 +334,12 @@ filterRequest = false
 					initFiltres()
 
 					size()
-
 					$(window).scrollTop $(window).scrollTop()+1
+					$('.toolbar').velocity "scroll", {
+			            duration: 500,
+			            offset: 0,
+			            easing: "ease-in-out"
+			        }
 		else
 			values = []
 			values[0] = {name: 'ajax', value: 'y'}

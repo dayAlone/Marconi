@@ -387,3 +387,78 @@ array (
 	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/component.php:605
 	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/components/bitrix/main.register/component.php:311
 ----------
+Host: it.local
+Date: 2015-06-26 18:13:34
+Module: 1
+array (
+  'ID' => '1',
+  'TIMESTAMP_X' => '06/03/2015 08:53:52 pm',
+  'LOGIN' => 'admin_fm',
+  'PASSWORD' => '!4rUu8/Cede88c8603b4b522211e955dfcef197a',
+  'CHECKWORD' => 'uj4doaF22f360dd3023fb0dc4d02f1172791beaa',
+  'ACTIVE' => 'Y',
+  'NAME' => '312',
+  'LAST_NAME' => '312',
+  'EMAIL' => 'admin_fm@f.ru',
+  'LAST_LOGIN' => '06/26/2015 06:13:32 pm',
+  'DATE_REGISTER' => '12/02/2014 08:08:16 pm',
+  'LID' => 's1',
+  'PERSONAL_PROFESSION' => '',
+  'PERSONAL_WWW' => '',
+  'PERSONAL_ICQ' => '',
+  'PERSONAL_GENDER' => '',
+  'PERSONAL_BIRTHDATE' => NULL,
+  'PERSONAL_PHOTO' => NULL,
+  'PERSONAL_PHONE' => '',
+  'PERSONAL_FAX' => '',
+  'PERSONAL_MOBILE' => '',
+  'PERSONAL_PAGER' => '',
+  'PERSONAL_STREET' => '',
+  'PERSONAL_MAILBOX' => '',
+  'PERSONAL_CITY' => '',
+  'PERSONAL_STATE' => '',
+  'PERSONAL_ZIP' => '',
+  'PERSONAL_COUNTRY' => '0',
+  'PERSONAL_NOTES' => '',
+  'WORK_COMPANY' => '',
+  'WORK_DEPARTMENT' => '',
+  'WORK_POSITION' => '',
+  'WORK_WWW' => '',
+  'WORK_PHONE' => '',
+  'WORK_FAX' => '',
+  'WORK_PAGER' => '',
+  'WORK_STREET' => '',
+  'WORK_MAILBOX' => '',
+  'WORK_CITY' => '',
+  'WORK_STATE' => '',
+  'WORK_ZIP' => '',
+  'WORK_COUNTRY' => '0',
+  'WORK_PROFILE' => '',
+  'WORK_LOGO' => NULL,
+  'WORK_NOTES' => '',
+  'ADMIN_NOTES' => '',
+  'STORED_HASH' => NULL,
+  'XML_ID' => '',
+  'PERSONAL_BIRTHDAY' => NULL,
+  'EXTERNAL_AUTH_ID' => NULL,
+  'CHECKWORD_TIME' => '2015-06-03 20:53:52',
+  'SECOND_NAME' => '',
+  'CONFIRM_CODE' => NULL,
+  'LOGIN_ATTEMPTS' => '0',
+  'LAST_ACTIVITY_DATE' => '2014-12-02 20:10:41',
+  'AUTO_TIME_ZONE' => '',
+  'TIME_ZONE' => NULL,
+  'TIME_ZONE_OFFSET' => NULL,
+  'TITLE' => '',
+  'BX_USER_ID' => '54d83da9479e46a0a68581e374431988',
+  'LANGUAGE_ID' => NULL,
+  'IS_ONLINE' => 'N',
+  'UF_SMS' => '1',
+  'UF_VIP' => '300',
+)
+    OnBeforeMailSendHandler < call_user_func_array < ExecuteModuleEventEx < Bitrix\Main\Mail\Event::handleEvent < Bitrix\Main\Mail\EventManager::executeEvents
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/classes/general/module.php:461
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/mail/event.php:163
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/mail/eventmanager.php:149
+	/Users/slider/Documents/Projects/Marconi/HTML/public_html/bitrix/modules/main/lib/mail/eventmanager.php:30
+----------
