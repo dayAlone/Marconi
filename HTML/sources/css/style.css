@@ -3678,11 +3678,11 @@ label.profile__label {
   text-decoration: none;
 }
 .about--white .header .nav__item {
-  color: #fff;
+  color: rgba(255,255,255,0.8);
   background: transparent;
 }
 .about--white .header .nav__item--active {
-  color: #d10a32;
+  color: #fff;
 }
 .about--white .header .nav__line {
   border-color: #fff;
