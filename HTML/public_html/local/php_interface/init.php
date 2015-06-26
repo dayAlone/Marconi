@@ -167,36 +167,50 @@ function OnBeforeMailSendHandler(&$arFields) {
 	</table>';
 	$arFields['ORDER_LIST'] = $str;
 	
-	AddMessage2Log(var_export($arUser, true), '1');
-	//die();
-	$orderData = array(
-		'ID'      => $arResult['ORDER_ID'],
-		'DATE'    => date('d.m.Y'),
-		'TIME'    => date('H:i:s'),
-		'NAME'    => $orderProps['NAME'],
-		/*'COMPANY' => ,
-		'LOGIN'   => ,
-		'PHONE'   => ,
-		'EMAIL'   => ,
-		'ADDRESS' => ,
-		'COUNT'   => ,
-		'TOTAL'   => ,*/
-		'LIST'    => array()
-	);
-	foreach ($arItems as $key => $item) {
-		$orderData['LIST'][] = array(
-			'key'       => $key+1,
-			'artnumber' => (strlen($item['ARTNUMBER']['VALUE']) > 0 ? str_replace($item['NOTE_SHORT']['VALUE'], '', $item['NAME']) : $item['NAME']),
-			'quantity'  => intval($item['QUANTITY']),
-			'price'     => $item['PRICE'],
-			'total'     => $item['PRICE']*intval($item['QUANTITY'])
-		);
-	}
-
 	if(SITE_ID == 's2'):
 		$arFields['SALE_EMAIL'] = "zakaz@italbags.ru";
-		$arFields['BCC'] = "zakaz@italbags.ru";
 		$arFields['SITE_NAME'] = 'Новый стиль студио';
+		$arFields['BCC'] = "";
+
+		$newFields = $arFields;
+		$newFields['EMAIL'] = 'ak@radia.ru';//$arFields['SALE_EMAIL'];
+
+		$orderData = array(
+			'ID'      => $arFields['ORDER_ID'],
+			'DATE'    => date('d.m.Y'),
+			'TIME'    => date('H:i:s'),
+			'NAME'    => $orderProps['NAME'],
+			'COMPANY' => $arUser['WORK_COMPANY'],
+			'LOGIN'   => $arUser['LOGIN'],
+			'PHONE'   => $orderProps['phone'],
+			'EMAIL'   => $arUser['EMAIL'],
+			'ADDRESS' => $arUser['WORK_NOTES'],
+			'COUNT'   => 0,
+			'TOTAL'   => 0,
+			'LIST'    => array()
+		);
+		foreach ($arItems as $key => $item) {
+			$total = $item['PRICE']*intval($item['QUANTITY']);
+			$orderData['TOTAL'] += $total;
+			$orderData['COUNT'] += intval($item['QUANTITY']);
+			$orderData['LIST'][] = implode(";", array(
+				'key'       => $key+1,
+				'artnumber' => (strlen($item['ARTNUMBER']['VALUE']) > 0 ? str_replace($item['NOTE_SHORT']['VALUE'], '', $item['NAME']) : $item['NAME']),
+				'quantity'  => intval($item['QUANTITY']),
+				'price'     => $item['PRICE'],
+				'total'     => $item['PRICE']*intval($item['QUANTITY'])
+			));
+		}
+		$csv = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/include/template.csv');
+		foreach ($orderData as $key => $value) {
+			$csv = str_replace("#".$key."#", (is_array($value)? implode("\n", $value): $value), $csv);
+		}
+		$file = $_SERVER['DOCUMENT_ROOT'] . '/orders/order_'.$orderData['ID'].'.csv';
+		file_put_contents($file, $csv);
+		
+		CEvent::Send("SALE_NEW_ORDER", 's2', $newFields, array(CFile::MakeFileArray($file)));
+		
+		
 	elseif($orderProps['EMAIL']):
 		$arFields['BCC'] .= ", ".$orderProps['EMAIL'];
 	endif;
