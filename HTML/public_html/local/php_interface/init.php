@@ -113,6 +113,8 @@ function OnBeforeMailSendHandler(&$arFields) {
 	$orderProps    = getOrderProps($arFields['ORDER_ID']);
 	$delivery      = getOrderDelivery($arFields['ORDER_ID'], $orderProps);
 	$arItems       = array();
+	$rsUser        = CUser::GetByID($USER->GetID());
+	$arUser        = $rsUser->Fetch();
 	
 	$str = '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;"><thead>
 		<tr style="font-size:12px;">
@@ -150,19 +152,15 @@ function OnBeforeMailSendHandler(&$arFields) {
 	}
 	
 	$orderProps['NAME'] = $USER->GetFullName();
-	
-	if(strlen($orderProps['NAME']) == 0)
+	if(strlen($orderProps['NAME']) == 0):
 		$orderProps['NAME'] = ($orderProps['NAME']?$orderProps['NAME']:$orderProps['FIRST_NAME'])." ".$orderProps['LAST_NAME'];
-	
-	if(strlen($orderProps['email']) == 0)
-		$orderProps['email'] = $USER->GetLogin();
-	
-	if(strlen($orderProps['phone']) == 0):
-		$rsUser        = CUser::GetByID($USER->GetID());
-		$arUser        = $rsUser->Fetch();
-		$orderProps['phone'] = (strlen($arUser['WORK_PHONE'])>0?$arUser['WORK_PHONE']:$arUser['PERSONAL_PHONE']);
 	endif;
 	
+	if(SITE_ID == 's2'):
+		$orderProps['email'] = $arUser['LOGIN'];
+		$orderProps['phone'] = (strlen($arUser['WORK_PHONE'])>0?$arUser['WORK_PHONE']:$arUser['PERSONAL_PHONE']);
+	endif;
+
 	$str .= '</tbody>
 		<tfooter>
 			<td colspan="2" style="font-size:12px;text-align:left;"><strong>Заказчик</strong>: '.$orderProps['NAME'].'
@@ -171,9 +169,6 @@ function OnBeforeMailSendHandler(&$arFields) {
 		</tfooter>
 	</table>';
 	$arFields['ORDER_LIST'] = $str;
-
-
-	$arFields['HAS_LIST'] = "Y";
 	
 	if(SITE_ID == 's2'):
 		$arFields['SALE_EMAIL'] = "zakaz@italbags.ru";
@@ -215,7 +210,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 		$file = $_SERVER['DOCUMENT_ROOT'] . '/orders/order_'.$orderData['ID'].'.csv';
 		file_put_contents($file, $csv);
 		
-		require './mail/PHPMailerAutoload.php';
+		require $_SERVER['DOCUMENT_ROOT'].'/include/mail/PHPMailerAutoload.php';
 
 		$mail = new PHPMailer;
 		$mail->isSendmail();
