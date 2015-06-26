@@ -52,8 +52,8 @@
 	    	<div class="product__sale">
 				<span>NEW</span>
 			</div>
-	    <? endif; ?>
-	    <? if(strlen($item['PROPERTIES']['TRADELINE']['VALUE'])>0): ?>
+	    <? 
+	    elseif(strlen($item['PROPERTIES']['TRADELINE']['VALUE'])>0): ?>
 	    	<div class="product__tradeline"><?=$arResult['TRADELINES'][$item['PROPERTIES']['TRADELINE']['VALUE']]?></div>
 	    <? endif; ?>
 	  </div>
