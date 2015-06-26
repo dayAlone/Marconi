@@ -208,7 +208,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 			$csv = str_replace("#".$key."#", (is_array($value)? implode("\n", $value): $value), $csv);
 		}
 		$file = $_SERVER['DOCUMENT_ROOT'] . '/orders/order_'.$orderData['ID'].'.csv';
-		file_put_contents($file, $csv);
+		file_put_contents($file, iconv("utf-8", "windows-1251", $csv));
 		
 		require $_SERVER['DOCUMENT_ROOT'].'/include/mail/PHPMailerAutoload.php';
 
