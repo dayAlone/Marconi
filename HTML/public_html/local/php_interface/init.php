@@ -113,8 +113,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 	$orderProps    = getOrderProps($arFields['ORDER_ID']);
 	$delivery      = getOrderDelivery($arFields['ORDER_ID'], $orderProps);
 	$arItems       = array();
-	$rsUser        = CUser::GetByID($USER->GetID());
-	$arUser        = $rsUser->Fetch();
+	
 	$str = '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;"><thead>
 		<tr style="font-size:12px;">
 			<th></th>
@@ -149,15 +148,21 @@ function OnBeforeMailSendHandler(&$arFields) {
 				<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.intval($arItem['QUANTITY']).'</td>
 				<td style="border:1px solid #c2c4c6;border-collapse:collapse;"><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td></tr>';
 	}
+	
 	$orderProps['NAME'] = $USER->GetFullName();
+	
 	if(strlen($orderProps['NAME']) == 0)
 		$orderProps['NAME'] = ($orderProps['NAME']?$orderProps['NAME']:$orderProps['FIRST_NAME'])." ".$orderProps['LAST_NAME'];
 	
 	if(strlen($orderProps['email']) == 0)
 		$orderProps['email'] = $USER->GetLogin();
+	
 	if(strlen($orderProps['phone']) == 0):
+		$rsUser        = CUser::GetByID($USER->GetID());
+		$arUser        = $rsUser->Fetch();
 		$orderProps['phone'] = (strlen($arUser['WORK_PHONE'])>0?$arUser['WORK_PHONE']:$arUser['PERSONAL_PHONE']);
 	endif;
+	
 	$str .= '</tbody>
 		<tfooter>
 			<td colspan="2" style="font-size:12px;text-align:left;"><strong>Заказчик</strong>: '.$orderProps['NAME'].'
