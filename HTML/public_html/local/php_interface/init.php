@@ -174,13 +174,13 @@ function OnBeforeMailSendHandler(&$arFields) {
 		'DATE'    => date('d.m.Y'),
 		'TIME'    => date('H:i:s'),
 		'NAME'    => $orderProps['NAME'],
-		'COMPANY' => ,
+		/*'COMPANY' => ,
 		'LOGIN'   => ,
 		'PHONE'   => ,
 		'EMAIL'   => ,
 		'ADDRESS' => ,
 		'COUNT'   => ,
-		'TOTAL'   => ,
+		'TOTAL'   => ,*/
 		'LIST'    => array()
 	);
 	foreach ($arItems as $key => $item) {
