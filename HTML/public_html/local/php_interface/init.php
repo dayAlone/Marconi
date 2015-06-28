@@ -9,7 +9,7 @@ define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
 
 AddEventHandler("main", "OnOrderNewSendEmail", "OnBeforeMailSendHandler");
-AddEventHandler("main", "OnBeforeEventSend", "OnBeforeMailSendHandler");
+//AddEventHandler("main", "OnBeforeEventSend", "OnBeforeMailSendHandler");
 
 function findCityByLocation($ID)
 {

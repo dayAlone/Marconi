@@ -1020,20 +1020,28 @@
 			$data = Import::getElements($file);
 
 			$arLogins = array();
+			$arIDs = array();
 
 			foreach ($data as $raw) {
 				$arLogins[] = $raw['email'];
 			}
-			
+			$rsUsers = CUser::GetList(($by="id"), ($order="asc"), array('LOGIN'=>$arLogins));
+			while($user = $rsUsers->Fetch()) :
+				$arIDs[$user['EMAIL']] = $user['ID'];
+			endwhile;
+
+
 			foreach ($data as $raw) {
-				
-				$user   = new CUser;
-				$fields = $this->getData($raw);
-				$ID = $user->Add($fields);
-				if (intval($ID) > 0)
-					fwrite(STDERR, "\033[35m Пользователь успешно добавлен. \033[37m\r\n");
-				else
-					fwrite(STDERR, "\033[31m\033[4mCUser::Add ".strip_tags($user->LAST_ERROR)." — ".$fields['LOGIN']."\033[0m\n\r");
+				if(intval($arIDs[$raw['email']])>0):
+				else:
+					$user   = new CUser;
+					$fields = $this->getData($raw);
+					$ID = $user->Add($fields);
+					if (intval($ID) > 0)
+						fwrite(STDERR, "\033[35m Пользователь успешно добавлен. \033[37m\r\n");
+					else
+						fwrite(STDERR, "\033[31m\033[4mCUser::Add ".strip_tags($user->LAST_ERROR)." — ".$fields['LOGIN']."\033[0m\n\r");
+				endif;
 			}
 			
 			
