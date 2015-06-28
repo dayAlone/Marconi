@@ -184,7 +184,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 				'TIME'    => date('H:i:s'),
 				'NAME'    => $orderProps['NAME'],
 				'COMPANY' => $arUser['WORK_COMPANY'],
-				'LOGIN'   => $arUser['LOGIN'],
+				'LOGIN'   => (strlen($arUser['PERSONAL_PAGER'])>0 ? $arUser['PERSONAL_PAGER'] : $arUser['LOGIN']),
 				'PHONE'   => $orderProps['phone'],
 				'EMAIL'   => $arUser['EMAIL'],
 				'ADDRESS' => $arUser['WORK_NOTES'],
