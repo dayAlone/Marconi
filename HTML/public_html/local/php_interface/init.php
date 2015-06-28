@@ -176,7 +176,7 @@ function OnBeforeMailSendHandler(&$arFields) {
 			$arFields['SITE_NAME'] = 'Новый стиль студио';
 			$arFields['BCC'] = "";
 
-			$adminEmail = 'ak@radia.ru';//$arFields['SALE_EMAIL'];
+			$adminEmail = $arFields['SALE_EMAIL'];
 
 			$orderData = array(
 				'ID'      => $arFields['ORDER_ID'],

@@ -1032,9 +1032,11 @@
 
 
 			foreach ($data as $raw) {
-				if(intval($arIDs[$raw['email']])>0):
+				$user = new CUser;
+				$ID   = intval($arIDs[$raw['email']]);
+				if( $ID > 0):
+					$user->Update($ID, array('PERSONAL_PAGER' => $raw['login']));
 				else:
-					$user   = new CUser;
 					$fields = $this->getData($raw);
 					$ID = $user->Add($fields);
 					if (intval($ID) > 0)
