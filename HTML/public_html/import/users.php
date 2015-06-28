@@ -964,7 +964,7 @@
     }
 	class Users
 	{
-		$users = false;
+		private $users = false;
 		public function __construct()
 		{
 
@@ -1022,20 +1022,20 @@
 			$arLogins = array();
 			$arIDs = array();
 
-			foreach ($data as $raw) {
+			foreach ($data as &$raw) {
+				$raw['email'] = mb_strtolower($raw['email']);
 				$arLogins[] = $raw['email'];
 			}
-			$rsUsers = CUser::GetList(($by="id"), ($order="asc"), array('LOGIN'=>$arLogins));
+			$rsUsers = CUser::GetList(($by="id"), ($order="asc"), array('EMAIL'=>$arLogins));
 			while($user = $rsUsers->Fetch()) :
-				$arIDs[$user['EMAIL']] = $user['ID'];
+				$arIDs[mb_strtolower($user['EMAIL'])] = $user['ID'];
 			endwhile;
-
-
 			foreach ($data as $raw) {
 				$user = new CUser;
-				$ID   = intval($arIDs[$raw['email']]);
+				$ID   = intval($arIDs[mb_strtolower($raw['email'])]);
 				if( $ID > 0):
 					$user->Update($ID, array('PERSONAL_PAGER' => $raw['login']));
+					fwrite(STDERR, "\033[35m Пользователь обновлен (".$raw['login']."). \033[37m\r\n");
 				else:
 					$fields = $this->getData($raw);
 					$ID = $user->Add($fields);
@@ -1119,16 +1119,16 @@
 		{
 			$data = array(
 				'database_type' => 'mysql',
-				'database_name' => 'cy74714_fmarconi',
+				'database_name' => 'freshmate_fm',
 				'server'        => 'localhost',
-				'username'      => 'cy74714_fmarconi',
-				'password'      => 'cy74714_fmarconi',
+				'username'      => 'freshmate_fm',
+				'password'      => 'freshmate_fm',
 				'charset'       => 'utf8',
 			);
 			$database = new medoo($data);
 
 			$items = $database->select("users", array(
-				"email", "name", "address", "password", "franchisee", "phone", "phone_code","company","company_info","company_address","price_type","family","phone2","m_phone_code","f_phone_code","f_phone2","f_phone","m_phone_code2","m_phone2","m_phone","phone_code2","f_phone_code2","birthday","sex"
+				"email", "login", "name", "address", "password", "franchisee", "phone", "phone_code","company","company_info","company_address","price_type","family","phone2","m_phone_code","f_phone_code","f_phone2","f_phone","m_phone_code2","m_phone2","m_phone","phone_code2","f_phone_code2","birthday","sex"
 			), array(
 				"id[>]" => 0
 			));
