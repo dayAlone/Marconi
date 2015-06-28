@@ -107,124 +107,126 @@ function getOrderDelivery($ID, $props) {
 }
 function OnBeforeMailSendHandler(&$arFields) {
 	global $USER;
-	CModule::IncludeModule("sale");
-	CModule::IncludeModule("iblock");
-	$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
-	$orderProps    = getOrderProps($arFields['ORDER_ID']);
-	$delivery      = getOrderDelivery($arFields['ORDER_ID'], $orderProps);
-	$arItems       = array();
-	$rsUser        = CUser::GetByID($USER->GetID());
-	$arUser        = $rsUser->Fetch();
-	
-	$str = '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;"><thead>
-		<tr style="font-size:12px;">
-			<th></th>
-			<th style="text-align:left">Название</th>
-			<th>Артикул</th>
-			<th>Цена</th>
-			<th>Количество</th>
-			<th>Сумма</th>
-		</tr>
-		</thead>
-		<tbody>';
-	
-	while ($arItem = $dbBasketItems->Fetch()) {
-		$res = CIBlockElement::GetByID($arItem['PRODUCT_ID']);
-		if($ar_res = $res->GetNextElement()){
-
-			$fields = $ar_res->GetFields(); 
-			$small = CFile::ResizeImageGet(CFile::GetFileArray($fields['PREVIEW_PICTURE']), Array("width" => 150, "height" => 150), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
-			$arProps = $ar_res->GetProperties();
-			$arItems[] = array_merge($arItem, $fields, $arProps);
-		}
-		$str .= '<tr>
-				<td style="border:1px solid #c2c4c6;border-collapse:collapse;">
-					'.($small?'<img src="http://'.$_SERVER['SERVER_NAME'].'/'.$small['src'].'" width="40" alt="">':'').'
-				</td>
-				<td style="text-align:left;border:1px solid #c2c4c6;border-collapse:collapse;">'.$arItem['NAME'].'</td>
-				<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.$arProps['ARTNUMBER']['VALUE'].'</td>
-				<td style="border:1px solid #c2c4c6;border-collapse:collapse;">
-					<nobr>'.number_format($arItem['PRICE'], 0, '.', ' ').' руб.</nobr>
-					'.(intval($arItem['DISCOUNT_PRICE'])>0?"<br><nobr><small><strike>".number_format($arItem['PRICE']+$arItem['DISCOUNT_PRICE'], 0, '.', ' ')." руб.</strike></small></nobr>":"").'
-				</td>
-				<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.intval($arItem['QUANTITY']).'</td>
-				<td style="border:1px solid #c2c4c6;border-collapse:collapse;"><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td></tr>';
-	}
-	
-	$orderProps['NAME'] = $USER->GetFullName();
-	if(strlen($orderProps['NAME']) == 0):
-		$orderProps['NAME'] = ($orderProps['NAME']?$orderProps['NAME']:$orderProps['FIRST_NAME'])." ".$orderProps['LAST_NAME'];
-	endif;
-	
-	if(SITE_ID == 's2'):
-		$orderProps['email'] = $arUser['LOGIN'];
-		$orderProps['phone'] = (strlen($arUser['WORK_PHONE'])>0?$arUser['WORK_PHONE']:$arUser['PERSONAL_PHONE']);
-	endif;
-
-	$str .= '</tbody>
-		<tfooter>
-			<td colspan="2" style="font-size:12px;text-align:left;"><strong>Заказчик</strong>: '.$orderProps['NAME'].'
-			'.(strlen($delivery)>0?"<br><br>".$delivery:"").'
-			<td colspan="4" style="text-align: right;font-size:12px"><strong>Телефон</strong>: '.$orderProps['phone'].', <br><strong>Эл. почта</strong>: '.$orderProps['email'].'</td>
-		</tfooter>
-	</table>';
-	$arFields['ORDER_LIST'] = $str;
-	
-	if(SITE_ID == 's2'):
-		$arFields['SALE_EMAIL'] = "zakaz@italbags.ru";
-		$arFields['SITE_NAME'] = 'Новый стиль студио';
-		$arFields['BCC'] = "";
-
-		$adminEmail = 'ak@radia.ru';//$arFields['SALE_EMAIL'];
-
-		$orderData = array(
-			'ID'      => $arFields['ORDER_ID'],
-			'DATE'    => date('d.m.Y'),
-			'TIME'    => date('H:i:s'),
-			'NAME'    => $orderProps['NAME'],
-			'COMPANY' => $arUser['WORK_COMPANY'],
-			'LOGIN'   => $arUser['LOGIN'],
-			'PHONE'   => $orderProps['phone'],
-			'EMAIL'   => $arUser['EMAIL'],
-			'ADDRESS' => $arUser['WORK_NOTES'],
-			'COUNT'   => 0,
-			'TOTAL'   => 0,
-			'LIST'    => array()
-		);
-		foreach ($arItems as $key => $item) {
-			$total = $item['PRICE']*intval($item['QUANTITY']);
-			$orderData['TOTAL'] += $total;
-			$orderData['COUNT'] += intval($item['QUANTITY']);
-			$orderData['LIST'][] = implode(";", array(
-				'key'       => $key+1,
-				'artnumber' => (strlen($item['ARTNUMBER']['VALUE']) > 0 ? str_replace($item['NOTE_SHORT']['VALUE'], '', $item['NAME']) : $item['NAME']),
-				'quantity'  => intval($item['QUANTITY']),
-				'price'     => $item['PRICE'],
-				'total'     => $item['PRICE']*intval($item['QUANTITY'])
-			));
-		}
-		$csv = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/include/template.csv');
-		foreach ($orderData as $key => $value) {
-			$csv = str_replace("#".$key."#", (is_array($value)? implode("\n", $value): $value), $csv);
-		}
-		$file = $_SERVER['DOCUMENT_ROOT'] . '/orders/order_'.$orderData['ID'].'.csv';
-		file_put_contents($file, iconv("utf-8", "windows-1251", $csv));
+	if(intval($arFields['ORDER_ID']) > 0):
+		CModule::IncludeModule("sale");
+		CModule::IncludeModule("iblock");
+		$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
+		$orderProps    = getOrderProps($arFields['ORDER_ID']);
+		$delivery      = getOrderDelivery($arFields['ORDER_ID'], $orderProps);
+		$arItems       = array();
+		$rsUser        = CUser::GetByID($USER->GetID());
+		$arUser        = $rsUser->Fetch();
 		
-		require $_SERVER['DOCUMENT_ROOT'].'/include/mail/PHPMailerAutoload.php';
+		$str = '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;"><thead>
+			<tr style="font-size:12px;">
+				<th></th>
+				<th style="text-align:left">Название</th>
+				<th>Артикул</th>
+				<th>Цена</th>
+				<th>Количество</th>
+				<th>Сумма</th>
+			</tr>
+			</thead>
+			<tbody>';
+		
+		while ($arItem = $dbBasketItems->Fetch()) {
+			$res = CIBlockElement::GetByID($arItem['PRODUCT_ID']);
+			if($ar_res = $res->GetNextElement()){
 
-		$mail = new PHPMailer;
-		$mail->isSendmail();
-		$mail->CharSet = 'UTF-8';
-		$mail->addAttachment($file, 'order_'.$orderData['ID'].'.csv');
-		$mail->Subject = "Новый заказ на italbags.ru"; 
-		$mail->setFrom("mailer@".$_SERVER['HTTP_HOST'], "Сайт ".$_SERVER['HTTP_HOST']);
-		$mail->addAddress($adminEmail, 'Администратор');
-		$mail->msgHTML($arFields['ORDER_LIST']);
-		$mail->send();
+				$fields = $ar_res->GetFields(); 
+				$small = CFile::ResizeImageGet(CFile::GetFileArray($fields['PREVIEW_PICTURE']), Array("width" => 150, "height" => 150), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
+				$arProps = $ar_res->GetProperties();
+				$arItems[] = array_merge($arItem, $fields, $arProps);
+			}
+			$str .= '<tr>
+					<td style="border:1px solid #c2c4c6;border-collapse:collapse;">
+						'.($small?'<img src="http://'.$_SERVER['SERVER_NAME'].'/'.$small['src'].'" width="40" alt="">':'').'
+					</td>
+					<td style="text-align:left;border:1px solid #c2c4c6;border-collapse:collapse;">'.$arItem['NAME'].'</td>
+					<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.$arProps['ARTNUMBER']['VALUE'].'</td>
+					<td style="border:1px solid #c2c4c6;border-collapse:collapse;">
+						<nobr>'.number_format($arItem['PRICE'], 0, '.', ' ').' руб.</nobr>
+						'.(intval($arItem['DISCOUNT_PRICE'])>0?"<br><nobr><small><strike>".number_format($arItem['PRICE']+$arItem['DISCOUNT_PRICE'], 0, '.', ' ')." руб.</strike></small></nobr>":"").'
+					</td>
+					<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.intval($arItem['QUANTITY']).'</td>
+					<td style="border:1px solid #c2c4c6;border-collapse:collapse;"><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td></tr>';
+		}
+		
+		$orderProps['NAME'] = $USER->GetFullName();
+		if(strlen($orderProps['NAME']) == 0):
+			$orderProps['NAME'] = ($orderProps['NAME']?$orderProps['NAME']:$orderProps['FIRST_NAME'])." ".$orderProps['LAST_NAME'];
+		endif;
+		
+		if(SITE_ID == 's2'):
+			$orderProps['email'] = $arUser['LOGIN'];
+			$orderProps['phone'] = (strlen($arUser['WORK_PHONE'])>0?$arUser['WORK_PHONE']:$arUser['PERSONAL_PHONE']);
+		endif;
 
-	
-	elseif($orderProps['EMAIL']):
-		$arFields['BCC'] .= ", ".$orderProps['EMAIL'];
+		$str .= '</tbody>
+			<tfooter>
+				<td colspan="2" style="font-size:12px;text-align:left;"><strong>Заказчик</strong>: '.$orderProps['NAME'].'
+				'.(strlen($delivery)>0?"<br><br>".$delivery:"").'
+				<td colspan="4" style="text-align: right;font-size:12px"><strong>Телефон</strong>: '.$orderProps['phone'].', <br><strong>Эл. почта</strong>: '.$orderProps['email'].'</td>
+			</tfooter>
+		</table>';
+		$arFields['ORDER_LIST'] = $str;
+		
+		if(SITE_ID == 's2'):
+			$arFields['SALE_EMAIL'] = "zakaz@italbags.ru";
+			$arFields['SITE_NAME'] = 'Новый стиль студио';
+			$arFields['BCC'] = "";
+
+			$adminEmail = 'ak@radia.ru';//$arFields['SALE_EMAIL'];
+
+			$orderData = array(
+				'ID'      => $arFields['ORDER_ID'],
+				'DATE'    => date('d.m.Y'),
+				'TIME'    => date('H:i:s'),
+				'NAME'    => $orderProps['NAME'],
+				'COMPANY' => $arUser['WORK_COMPANY'],
+				'LOGIN'   => $arUser['LOGIN'],
+				'PHONE'   => $orderProps['phone'],
+				'EMAIL'   => $arUser['EMAIL'],
+				'ADDRESS' => $arUser['WORK_NOTES'],
+				'COUNT'   => 0,
+				'TOTAL'   => 0,
+				'LIST'    => array()
+			);
+			foreach ($arItems as $key => $item) {
+				$total = $item['PRICE']*intval($item['QUANTITY']);
+				$orderData['TOTAL'] += $total;
+				$orderData['COUNT'] += intval($item['QUANTITY']);
+				$orderData['LIST'][] = implode(";", array(
+					'key'       => $key+1,
+					'artnumber' => (strlen($item['ARTNUMBER']['VALUE']) > 0 ? str_replace($item['NOTE_SHORT']['VALUE'], '', $item['NAME']) : $item['NAME']),
+					'quantity'  => intval($item['QUANTITY']),
+					'price'     => $item['PRICE'],
+					'total'     => $item['PRICE']*intval($item['QUANTITY'])
+				));
+			}
+			$csv = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/include/template.csv');
+			foreach ($orderData as $key => $value) {
+				$csv = str_replace("#".$key."#", (is_array($value)? implode("\n", $value): $value), $csv);
+			}
+			$file = $_SERVER['DOCUMENT_ROOT'] . '/orders/order_'.$orderData['ID'].'.csv';
+			file_put_contents($file, iconv("utf-8", "windows-1251", $csv));
+			
+			require $_SERVER['DOCUMENT_ROOT'].'/include/mail/PHPMailerAutoload.php';
+
+			$mail = new PHPMailer;
+			$mail->isSendmail();
+			$mail->CharSet = 'UTF-8';
+			$mail->addAttachment($file, 'order_'.$orderData['ID'].'.csv');
+			$mail->Subject = "Новый заказ на italbags.ru"; 
+			$mail->setFrom("mailer@".$_SERVER['HTTP_HOST'], "Сайт ".$_SERVER['HTTP_HOST']);
+			$mail->addAddress($adminEmail, 'Администратор');
+			$mail->msgHTML($arFields['ORDER_LIST']);
+			$mail->send();
+
+		
+		elseif($orderProps['EMAIL']):
+			$arFields['BCC'] .= ", ".$orderProps['EMAIL'];
+		endif;
 	endif;
 	return $arFields;
 }
