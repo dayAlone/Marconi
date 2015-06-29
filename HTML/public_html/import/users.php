@@ -1119,10 +1119,10 @@
 		{
 			$data = array(
 				'database_type' => 'mysql',
-				'database_name' => 'freshmate_fm',
+				'database_name' => 'cy74714_fmarconi',
 				'server'        => 'localhost',
-				'username'      => 'freshmate_fm',
-				'password'      => 'freshmate_fm',
+				'username'      => 'cy74714_fmarconi',
+				'password'      => 'cy74714_fmarconi',
 				'charset'       => 'utf8',
 			);
 			$database = new medoo($data);
