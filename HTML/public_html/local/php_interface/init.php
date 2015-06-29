@@ -8,8 +8,8 @@ define("BX_COMPOSITE_DEBUG", false);
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
 
-AddEventHandler("main", "OnOrderNewSendEmail", "OnBeforeMailSendHandler");
-//AddEventHandler("main", "OnBeforeEventSend", "OnBeforeMailSendHandler");
+//AddEventHandler("sale", "OnOrderNewSendEmail", "OnBeforeMailSendHandler");
+AddEventHandler("main", "OnBeforeEventSend", "OnBeforeMailSendHandler");
 
 function findCityByLocation($ID)
 {
@@ -105,9 +105,10 @@ function getOrderDelivery($ID, $props) {
 	}
 	return $str;
 }
-function OnBeforeMailSendHandler(&$arFields) {
-	global $USER;
-	if(intval($arFields['ORDER_ID']) > 0):
+function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
+	
+	if($arTemplate['EVENT_NAME'] == 'SALE_NEW_ORDER'):
+		global $USER;
 		CModule::IncludeModule("sale");
 		CModule::IncludeModule("iblock");
 		$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
@@ -171,12 +172,16 @@ function OnBeforeMailSendHandler(&$arFields) {
 		</table>';
 		$arFields['ORDER_LIST'] = $str;
 		
+		
+
 		if(SITE_ID == 's2'):
+			$arFields['BRANDS'] = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
+
 			$arFields['SALE_EMAIL'] = "zakaz@italbags.ru";
 			$arFields['SITE_NAME'] = 'Новый стиль студио';
 			$arFields['BCC'] = "";
 
-			$adminEmail = $arFields['SALE_EMAIL'];
+			$adminEmail = "ak@radia.ru";//$arFields['SALE_EMAIL'];
 
 			$orderData = array(
 				'ID'      => $arFields['ORDER_ID'],
@@ -193,15 +198,15 @@ function OnBeforeMailSendHandler(&$arFields) {
 				'LIST'    => array()
 			);
 			foreach ($arItems as $key => $item) {
-				$total = $item['PRICE']*intval($item['QUANTITY']);
+				$total = $item['PRICE'] * intval($item['QUANTITY']);
 				$orderData['TOTAL'] += $total;
 				$orderData['COUNT'] += intval($item['QUANTITY']);
 				$orderData['LIST'][] = implode(";", array(
-					'key'       => $key+1,
-					'artnumber' => (strlen($item['ARTNUMBER']['VALUE']) > 0 ? str_replace($item['NOTE_SHORT']['VALUE'], '', $item['NAME']) : $item['NAME']),
+					'key'       => $key + 1,
+					'artnumber' => (strlen($item['ARTNUMBER']['VALUE']) > 0 ? $item['ARTNUMBER']['VALUE'] . " " . str_replace(array($item['NOTE_SHORT']['VALUE']." ", $arFields['BRANDS'][$item['BRAND']['VALUE']]." "), '', $item['NAME']) : $item['NAME']),
 					'quantity'  => intval($item['QUANTITY']),
 					'price'     => $item['PRICE'],
-					'total'     => $item['PRICE']*intval($item['QUANTITY'])
+					'total'     => $item['PRICE'] * intval($item['QUANTITY'])
 				));
 			}
 			$csv = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/include/template.csv');
