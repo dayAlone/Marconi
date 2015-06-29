@@ -12,6 +12,7 @@
 	    <div class="product__content-text">
 		    
 		    <? 
+
 		    if(strlen($item['PROPERTIES']['BRAND']['VALUE'])>0):?>
 		    	<div class="product__type">
 		    	<?=str_replace($arResult['BRANDS'][$item['PROPERTIES']['BRAND']['VALUE']], '</div><div class="product__brand">'.$arResult['BRANDS'][$item['PROPERTIES']['BRAND']['VALUE']].'</div><div class="product__name">', $item['NAME'])?>

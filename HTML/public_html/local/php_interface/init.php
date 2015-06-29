@@ -174,7 +174,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 		
 		
 
-		if(SITE_ID == 's2'):
+		if(SITE_ID == 's1'):
 			$arFields['BRANDS'] = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
 
 			$arFields['SALE_EMAIL'] = "zakaz@italbags.ru";
@@ -203,7 +203,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 				$orderData['COUNT'] += intval($item['QUANTITY']);
 				if(strlen($item['ARTNUMBER']['VALUE']) > 0):
 					$artnumber = $item['ARTNUMBER']['VALUE'];
-					$artnumber += " " .str_replace(array($item['NOTE_SHORT']['VALUE'], $arFields['BRANDS'][$item['BRAND']['VALUE']]), array('',''), $item['NAME']);
+					$artnumber .= " " .str_replace(array($item['NOTE_SHORT']['VALUE'], $arFields['BRANDS'][$item['BRAND']['VALUE']]), array('',''), $item['NAME']);
 					$artnumber = preg_replace("/\s+/", " ", $artnumber);
 				else:
 					$artnumber = $item['NAME'];
