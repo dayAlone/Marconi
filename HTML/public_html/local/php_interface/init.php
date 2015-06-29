@@ -174,7 +174,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 		
 		
 
-		if(SITE_ID == 's1'):
+		if(SITE_ID != 's1'):
 			$arFields['BRANDS'] = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
 
 			$arFields['SALE_EMAIL'] = "zakaz@italbags.ru";
