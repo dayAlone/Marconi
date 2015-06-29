@@ -201,9 +201,16 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 				$total = $item['PRICE'] * intval($item['QUANTITY']);
 				$orderData['TOTAL'] += $total;
 				$orderData['COUNT'] += intval($item['QUANTITY']);
+				if(strlen($item['ARTNUMBER']['VALUE']) > 0):
+					$artnumber = $item['ARTNUMBER']['VALUE'];
+					$artnumber += " " .str_replace(array($item['NOTE_SHORT']['VALUE'], $arFields['BRANDS'][$item['BRAND']['VALUE']]), array('',''), $item['NAME']);
+					$artnumber = preg_replace("/\s+/", " ", $artnumber);
+				else:
+					$artnumber = $item['NAME'];
+				endif;
 				$orderData['LIST'][] = implode(";", array(
 					'key'       => $key + 1,
-					'artnumber' => (strlen($item['ARTNUMBER']['VALUE']) > 0 ? $item['ARTNUMBER']['VALUE'] . " " . str_replace(array($item['NOTE_SHORT']['VALUE'], $arFields['BRANDS'][$item['BRAND']['VALUE']], "  "), array('','',' '), $item['NAME']) : $item['NAME']),
+					'artnumber' => $artnumber,
 					'quantity'  => intval($item['QUANTITY']),
 					'price'     => $item['PRICE'],
 					'total'     => $item['PRICE'] * intval($item['QUANTITY'])
