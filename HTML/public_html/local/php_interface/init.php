@@ -203,7 +203,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 				$orderData['COUNT'] += intval($item['QUANTITY']);
 				$orderData['LIST'][] = implode(";", array(
 					'key'       => $key + 1,
-					'artnumber' => (strlen($item['ARTNUMBER']['VALUE']) > 0 ? $item['ARTNUMBER']['VALUE'] . " " . str_replace(array($item['NOTE_SHORT']['VALUE']." ", $arFields['BRANDS'][$item['BRAND']['VALUE']]." "), '', $item['NAME']) : $item['NAME']),
+					'artnumber' => (strlen($item['ARTNUMBER']['VALUE']) > 0 ? $item['ARTNUMBER']['VALUE'] . " " . str_replace(array($item['NOTE_SHORT']['VALUE'], $arFields['BRANDS'][$item['BRAND']['VALUE']], "  "), array('','',' '), $item['NAME']) : $item['NAME']),
 					'quantity'  => intval($item['QUANTITY']),
 					'price'     => $item['PRICE'],
 					'total'     => $item['PRICE'] * intval($item['QUANTITY'])
