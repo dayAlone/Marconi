@@ -288,6 +288,7 @@ endif;
 							</strong>
 							</span>
 						</div>
+						<?if(strlen($arResult['DESCRIPTION']) > 0):?><a href="" class="catalog__title-description" data-toggle="tooltip" data-placement="right" title="<?=$arResult['DESCRIPTION']?>">?</a><?endif;?>
 					</div>
 					
 		    	<? endif;?>
