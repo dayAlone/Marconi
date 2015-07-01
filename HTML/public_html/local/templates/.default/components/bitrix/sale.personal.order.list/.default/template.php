@@ -38,6 +38,7 @@
 						</div>
 					</div>	
 					<div class="order__content">
+						<?if(SITE_ID == 's1'):?>
 						<div class="row">
 							<div class="col-xs-4">
 								<span class="order__param-name"><?=GetMessage('SPOL_PAYED')?>:</span> <span class="order__param-value"><?=GetMessage('SPOL_'.($order["ORDER"]["PAYED"] == "Y" ? 'YES' : 'NO'))?></span> <br />
@@ -67,6 +68,7 @@
 									<?endif?>
 							</div>
 						</div>
+						<?endif;?>
 						<div class="order__products">
 						<?foreach ($order["BASKET_ITEMS"] as $item):
 							$item = array_merge($item, $arResult['ITEMS'][$item['PRODUCT_ID']]);
