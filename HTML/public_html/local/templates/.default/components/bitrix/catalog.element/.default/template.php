@@ -279,16 +279,15 @@ endif;
 						<div class="props__name">ваша скидка</div>
 						<div class="props__value">
 							<span>
-							<strong>
 								<?if($props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de"):?>
-									30%
+									<strong>30%</strong>
+									<a href="#" class="props__help" data-toggle="tooltip" data-placement="bottom" title="<?=$arResult['TOOLTIP']?>">?</a>
 								<?else:?>
-									<?=$arResult['MIN_PRICE']['DISCOUNT_DIFF_PERCENT']?>%
+									<strong><?=$arResult['MIN_PRICE']['DISCOUNT_DIFF_PERCENT']?>%</strong>
 								<?endif;?>
-							</strong>
 							</span>
 						</div>
-						<?if(strlen($arResult['DESCRIPTION']) > 0):?><a href="" class="catalog__title-description" data-toggle="tooltip" data-placement="right" title="<?=$arResult['DESCRIPTION']?>">?</a><?endif;?>
+
 					</div>
 					
 		    	<? endif;?>

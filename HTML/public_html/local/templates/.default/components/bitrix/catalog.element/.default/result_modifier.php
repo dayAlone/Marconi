@@ -16,9 +16,13 @@
 		$arResult['NOT_AVAILABLE'] = false;
 
 	$raw = CIBlockElement::GetElementGroups($arResult['ID']);
-	while($data = $raw->GetNext())
-		if(!in_array($data['CODE'], array('all', 'sale', 'sale30', 'new', 'best-sellers', 'coming', 'latest')))
+	while($data = $raw->GetNext()) {
+		if($data['CODE'] == 'sale30')
+			$arResult['TOOLTIP'] = $data['DESCRIPTION'];
+		if(!in_array($data['CODE'], array('all', 'sale', 'sale30', 'new', 'best-sellers', 'coming', 'latest'))) {
 			$arResult['IBLOCK_SECTION_ID'] = $data['ID'];
+		}
+	}
 
 	$rsPath = GetIBlockSectionPath($arResult['IBLOCK_ID'], $arResult['IBLOCK_SECTION_ID']);
 	while($arPath = $rsPath->GetNext())

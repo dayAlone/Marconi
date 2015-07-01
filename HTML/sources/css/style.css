@@ -7088,6 +7088,26 @@ label.profile__label {
     width: 100%;
   }
 }
+.product .props .tooltip {
+  font-size: 11px;
+  text-transform: none;
+  line-height: 1;
+}
+.product .props__help {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  background: #d10a32;
+  color: #fff;
+  line-height: 24px;
+  text-align: center;
+  font-weight: bold;
+  margin-left: 3px;
+  vertical-align: middle;
+}
 .product .props__item {
   float: left;
   width: 100%;
