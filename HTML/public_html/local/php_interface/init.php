@@ -269,7 +269,7 @@ function OnBeforeUserUpdateHandler(&$arFields)
 				"ACTIVE"       => "Y",
 				"SEND_CONFIRM" => "N",
 				"CONFIRMED"    => "Y",
-				"RUB_ID"       => 1
+				"RUB_ID"       => array(1)
 			);
 			$subscr = new CSubscription;
 			$subscr->Add($data);
