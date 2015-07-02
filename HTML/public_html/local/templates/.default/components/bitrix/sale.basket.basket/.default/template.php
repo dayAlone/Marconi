@@ -11,6 +11,7 @@ $sizes  = getHighloadElements('sizes', 'UF_XML_ID', 'UF_NAME');
 $remove = array();
 foreach ($sizes as $i)
 	$remove[] = "/(\s(".$i.")|_".strtolower(str_replace(array(',', '.'), '_', $i)).")$/";
+$arResult['QUANTITY'] = 0;
 if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 {
 	?>
@@ -52,6 +53,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			        		$section = CIBlockSection::GetByID($item['CATALOG']['SECTION_ID'][0])->Fetch();
 			        		$sections[$item['CATALOG']['SECTION_ID'][0]] = $section;
 			        	endif;
+			        	$arResult['QUANTITY'] += $item['QUANTITY'];
 			        ?>
 			        <div class="basket__item" data-id="<?=$item['ID']?>" data-discount="<?=$item['DISCOUNT_PRICE_PERCENT']?>">
 			          <div class="row">
@@ -97,7 +99,11 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			            	<strong data-text="скидка:" class="basket__sale-total"><span><?=number_format($arResult['DISCOUNT_PRICE_ALL'], 0, ' ', ' ')?></span> ₷</strong>
 			            	<? endif;?>
 			            </div>
-			            <div class="col-md-1 col-xs-1"></div>
+			            <div class="col-md-1 col-xs-1">
+			            <?if(SITE_ID == 's2'):?>
+			            	<strong data-text="кол-во:" class="basket__count-total"><span><?=$arResult['QUANTITY']?></span></strong>
+			            <?endif;?>
+			            </div>
 			            <div class="col-xs-3 col-md-3 xs-right md-center"><strong data-text="итого:" class="basket__total"><span><?=number_format($arResult['allSum'], 0, ' ', ' ')?></span> ₷</strong></div>
 			          </div>
 			        </div>

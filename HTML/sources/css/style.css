@@ -7790,7 +7790,8 @@ label.profile__label {
   }
 }
 .basket__total,
-.basket__sale-total {
+.basket__sale-total,
+.basket__count-total {
   display: inline-block;
   position: relative;
   margin-top: 20px;
@@ -7798,12 +7799,14 @@ label.profile__label {
 }
 @media (min-width: 480px) {
   .basket__total,
-  .basket__sale-total {
+  .basket__sale-total,
+  .basket__count-total {
     font-size: 15px;
   }
 }
 .basket__total:after,
-.basket__sale-total:after {
+.basket__sale-total:after,
+.basket__count-total:after {
   margin-top: 0;
   position: absolute;
   content: attr(data-text);
@@ -7811,6 +7814,7 @@ label.profile__label {
   margin-right: 7px;
   font-weight: normal;
   font-weight: 300;
+  white-space: nowrap;
   top: -2px;
 }
 .basket__coupon-trigger,
