@@ -455,11 +455,13 @@
 	&__links
 		width 85%
 		float right
+		&--left
+			float: left
 		@media (min-width scr_md)
 			width 100%
 		@media (min-width scr_lg)
 			width 80%
-	.cart, .simmilar
+	.cart, .simmilar, .retail
 		position relative
 		font-size 12px
 		color black
@@ -480,6 +482,11 @@
 			border-line(alpha(red,.2), 12px)
 			svg path
 				fill red
+	.retail
+		margin-left 0
+		font-size 13px
+		text-transform uppercase
+		font-weight bold
 	&--italbags
 		@media (min-width scr_sm)
 			margin-bottom 4px

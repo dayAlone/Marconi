@@ -86,6 +86,15 @@ elseif($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):
 			<textarea name="REGISTER[WORK_NOTES]" id="REGISTER[WORK_NOTES]" required class="signup__input"></textarea>
 		</div>
 		<div class="col-sm-6">
+			<label for="REGISTER[WORK_DEPARTMENT]" class="signup__label">№ ОГРН *</label>
+			<input name="REGISTER[WORK_DEPARTMENT]" id="REGISTER[WORK_DEPARTMENT]" required class="signup__input" type="text">
+		</div>
+		<div class="col-sm-6">
+			<label for="REGISTER[WORK_FAX]" class="signup__label">№ ИНН *</label>
+			<input name="REGISTER[WORK_FAX]" id="REGISTER[WORK_FAX]" class="signup__input" type="text">
+		</div>
+		
+		<div class="col-sm-6">
 			<label for="REGISTER[PERSONAL_NOTES]" class="signup__label">примечания</label>
 			<textarea name="REGISTER[PERSONAL_NOTES]" id="REGISTER[PERSONAL_NOTES]" class="signup__input"></textarea>
 		</div>

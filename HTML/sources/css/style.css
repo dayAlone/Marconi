@@ -1681,6 +1681,9 @@ div.pp_default .pp_loaderIcon {
   width: 85%;
   float: right;
 }
+.header__links--left {
+  float: left;
+}
 @media (min-width: 992px) {
   .header__links {
     width: 100%;
@@ -1692,7 +1695,8 @@ div.pp_default .pp_loaderIcon {
   }
 }
 .header .cart,
-.header .simmilar {
+.header .simmilar,
+.header .retail {
   position: relative;
   font-size: 12px;
   color: #000;
@@ -1711,11 +1715,13 @@ div.pp_default .pp_loaderIcon {
   background-position: 0 12px;
 }
 .header .cart:hover,
-.header .simmilar:hover {
+.header .simmilar:hover,
+.header .retail:hover {
   text-decoration: none;
 }
 .header .cart svg,
-.header .simmilar svg {
+.header .simmilar svg,
+.header .retail svg {
   top: -1px;
   left: -20px;
   position: absolute;
@@ -1733,11 +1739,13 @@ div.pp_default .pp_loaderIcon {
   transition-duration: 0.3s;
 }
 .header .cart svg path,
-.header .simmilar svg path {
+.header .simmilar svg path,
+.header .retail svg path {
   fill: #000;
 }
 .header .cart:hover,
-.header .simmilar:hover {
+.header .simmilar:hover,
+.header .retail:hover {
   color: #d10a32;
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.2) 50%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.2) 50%);
@@ -1752,12 +1760,20 @@ div.pp_default .pp_loaderIcon {
   background-position: 0 12px;
 }
 .header .cart:hover:hover,
-.header .simmilar:hover:hover {
+.header .simmilar:hover:hover,
+.header .retail:hover:hover {
   text-decoration: none;
 }
 .header .cart:hover svg path,
-.header .simmilar:hover svg path {
+.header .simmilar:hover svg path,
+.header .retail:hover svg path {
   fill: #d10a32;
+}
+.header .retail {
+  margin-left: 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 @media (min-width: 768px) {
   .header--italbags {

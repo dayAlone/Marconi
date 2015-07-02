@@ -97,7 +97,12 @@
   </div>
   <div class="container header__desktop">
     <div class="row">
-      <div class="col-xs-5 col-md-5"><span class="logo__line logo__line--short logo__line--left"></span></div>
+      <div class="col-xs-3 col-md-2">
+        <div class="header__links header__links--center header__links--left">
+          <a href="http://fmarconi.ru/" target="_blank" class="retail">Купить в розницу</a>
+        </div>
+      </div>
+      <div class="col-xs-2 col-md-3"><span class="logo__line logo__line--short logo__line--left"></span></div>
       <div class="col-xs-2 center"><a href="/" class="logo"><?=svg('italbags')?></a></div>
       <?if(isUserAccept()):?>
       <div class="col-xs-2 col-md-3"><span class="logo__line logo__line--right"></span></div>

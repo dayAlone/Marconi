@@ -24,8 +24,8 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 		<input type="hidden" name="ID" value=<?=$arResult["ID"]?> />
 		<input type="hidden" name="EMAIL" maxlength="50" value="<?=$arResult["arUser"]["EMAIL"]?>" />
 		<? 
-		$arDisabled = array("NAME", "LAST_NAME", "PERSONAL_GENDER", "WORK_COMPANY");
-		foreach (array("NAME", "LAST_NAME", "PERSONAL_GENDER", "WORK_COMPANY", "DIVIDER", "LOGIN", "PERSONAL_PHONE", "WORK_PHONE", "PERSONAL_MOBILE") as $item):
+		$arDisabled = array("NAME", "LAST_NAME", "PERSONAL_GENDER", "WORK_COMPANY", "WORK_DEPARTMENT", "WORK_FAX");
+		foreach (array("NAME", "LAST_NAME", "PERSONAL_GENDER", "WORK_COMPANY", "WORK_DEPARTMENT", "WORK_FAX", "DIVIDER", "LOGIN", "PERSONAL_PHONE", "WORK_PHONE", "PERSONAL_MOBILE") as $item):
 			switch ($item):
 				case 'DIVIDER':
 					?><div class="m-margin-top xxl-margin-bottom"><p>Для того, чтобы изменить имя, фамилию, пол и наименование организации, необходимо отправить запрос администратору сайта <a href="mailto:admin@italbags.ru">admin@italbags.ru</a> со всеми необходимыми данными.</p></div><?
