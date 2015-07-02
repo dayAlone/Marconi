@@ -62,11 +62,13 @@ for vx in margin padding
 				@media (min-width: scr_sm)
 					{vx}-{vy}: value_sm[key] !important
 
-for vx in center right left
-	for vz, key in xs sm md lg
-		.{vz}-{vx}
-			@media (min-width: sizes[key])
-				text-align: vx !important
+
+for vz, key in xs sm md lg
+	@media (min-width: sizes[key])
+		for vx in center right left
+			.{vz}-{vx}
+				@media (min-width: sizes[key])
+					text-align: vx !important
 
 
 

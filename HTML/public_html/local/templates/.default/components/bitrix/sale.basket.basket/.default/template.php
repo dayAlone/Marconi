@@ -24,7 +24,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 		}
 		?>
 	</div>
-	<form method="post" action="<?=POST_FORM_ACTION_URI?>" name="basket_form" id="basket_form">
+	<form method="post" action="<?=POST_FORM_ACTION_URI?>" name="basket_form <?=($arResult['DISCOUNT_PRICE_ALL']==0?"basket--no-sale":"")?>" id="basket_form">
 		<div id="basket_form_container">
 			<div class="bx_ordercart">
 				<? 
@@ -76,11 +76,13 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			            </div>
 			            <?if(SITE_ID=='s2'):?>
 			            <div class="col-md-1 visible-md visible-lg">
+			            	<?if(isset($item['TYPE'])):?>
 			            	<span class="basket__section">
-			            	<a href="/catalog/<?=$item['TYPE']['CODE']?>/">
-			            		<?=$item['TYPE']['NAME']?>
-			            	</a>
+				            	<a href="/catalog/<?=$item['TYPE']['CODE']?>/">
+				            		<?=$item['TYPE']['NAME']?>
+				            	</a>
 			            	</span>
+			            	<?endif;?>
 			            </div>
 			            <?endif;?>
 			            <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>">
@@ -130,12 +132,12 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			            	<strong data-text="скидка:" class="basket__sale-total"><span><?=number_format($arResult['DISCOUNT_PRICE_ALL'], 0, ' ', ' ')?></span> ₷</strong>
 			            	<? endif;?>
 			            </div>
-			            <div class="col-md-<?=($arResult['DISCOUNT_PRICE_ALL']?2:1)?> col-xs-2 xs-right md-center">
+			            <div class="col-md-<?=($arResult['DISCOUNT_PRICE_ALL'] && SITE_ID=='s2'?"2":"1")?> col-xs-2 col-md-offset-1 center">
 			            <?if(SITE_ID == 's2'):?>
 			            	<strong data-text="товаров:" class="basket__count-total"><span><?=$arResult['QUANTITY']?></span></strong>
 			            <?endif;?>
 			            </div>
-			            <div class="col-xs-2 col-md-3 xs-right md-center"><strong data-text="итого:" class="basket__total"><span><?=number_format($arResult['allSum'], 0, ' ', ' ')?></span> ₷</strong></div>
+			            <div class="col-xs-2 col-md-3 center"><strong data-text="итого:" class="basket__total"><nobr><span><?=number_format($arResult['allSum'], 0, ' ', ' ')?></span> ₷</strong></nobr></div>
 			          </div>
 			        </div>
 			      </div>

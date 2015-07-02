@@ -110,10 +110,21 @@
 				border-line alpha(@color, .5)
 	&__title, &__item, &__footer
 		@media (min-width: scr_md)
+			.col-md-offset-1
+				margin-left 0
+				.s2 &
+					margin-left: 9.1%
+					width 12%
 			.col-md-7
 				width: 55.3333333340%
+				.s2 &
+					width 51.2%
 			.col-xs-4
 				width 30%
+				.s2 .basket__frame--no-sale &
+					width 33%
+				.s1 .basket__frame--no-sale &
+					width 34.6%
 			.col-md-3
 				width 20%
 				.s2 &
@@ -223,6 +234,8 @@
 			white-space no-wrap
 			top 0px
 			font-size 13px
+			@media (max-width: scr_sm)
+				display none
 	&__coupon-trigger,
 	&__coupon,
 	&__count

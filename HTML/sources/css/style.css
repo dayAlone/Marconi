@@ -754,66 +754,6 @@ a:hover {
     padding-right: 35px !important;
   }
 }
-@media (min-width: 480px) {
-  .xs-center {
-    text-align: center !important;
-  }
-}
-@media (min-width: 768px) {
-  .sm-center {
-    text-align: center !important;
-  }
-}
-@media (min-width: 992px) {
-  .md-center {
-    text-align: center !important;
-  }
-}
-@media (min-width: 1200px) {
-  .lg-center {
-    text-align: center !important;
-  }
-}
-@media (min-width: 480px) {
-  .xs-right {
-    text-align: right !important;
-  }
-}
-@media (min-width: 768px) {
-  .sm-right {
-    text-align: right !important;
-  }
-}
-@media (min-width: 992px) {
-  .md-right {
-    text-align: right !important;
-  }
-}
-@media (min-width: 1200px) {
-  .lg-right {
-    text-align: right !important;
-  }
-}
-@media (min-width: 480px) {
-  .xs-left {
-    text-align: left !important;
-  }
-}
-@media (min-width: 768px) {
-  .sm-left {
-    text-align: left !important;
-  }
-}
-@media (min-width: 992px) {
-  .md-left {
-    text-align: left !important;
-  }
-}
-@media (min-width: 1200px) {
-  .lg-left {
-    text-align: left !important;
-  }
-}
 .xxs-line-height {
   line-height: 5px !important;
 }
@@ -882,6 +822,66 @@ a:hover {
   .no-gutter-lg > [class*='col-'] {
     padding-right: 0;
     padding-left: 0;
+  }
+}
+@media (min-width: 480px) and (min-width: 480px) {
+  .xs-center {
+    text-align: center !important;
+  }
+}
+@media (min-width: 480px) and (min-width: 480px) {
+  .xs-right {
+    text-align: right !important;
+  }
+}
+@media (min-width: 480px) and (min-width: 480px) {
+  .xs-left {
+    text-align: left !important;
+  }
+}
+@media (min-width: 768px) and (min-width: 768px) {
+  .sm-center {
+    text-align: center !important;
+  }
+}
+@media (min-width: 768px) and (min-width: 768px) {
+  .sm-right {
+    text-align: right !important;
+  }
+}
+@media (min-width: 768px) and (min-width: 768px) {
+  .sm-left {
+    text-align: left !important;
+  }
+}
+@media (min-width: 992px) and (min-width: 992px) {
+  .md-center {
+    text-align: center !important;
+  }
+}
+@media (min-width: 992px) and (min-width: 992px) {
+  .md-right {
+    text-align: right !important;
+  }
+}
+@media (min-width: 992px) and (min-width: 992px) {
+  .md-left {
+    text-align: left !important;
+  }
+}
+@media (min-width: 1200px) and (min-width: 1200px) {
+  .lg-center {
+    text-align: center !important;
+  }
+}
+@media (min-width: 1200px) and (min-width: 1200px) {
+  .lg-right {
+    text-align: right !important;
+  }
+}
+@media (min-width: 1200px) and (min-width: 1200px) {
+  .lg-left {
+    text-align: left !important;
   }
 }
 .fotorama__arr,
@@ -7680,15 +7680,41 @@ label.profile__label {
   text-decoration: none;
 }
 @media (min-width: 992px) {
+  .basket__title .col-md-offset-1,
+  .basket__item .col-md-offset-1,
+  .basket__footer .col-md-offset-1 {
+    margin-left: 0;
+  }
+  .s2 .basket__title .col-md-offset-1,
+  .s2 .basket__item .col-md-offset-1,
+  .s2 .basket__footer .col-md-offset-1 {
+    margin-left: 9.1%;
+    width: 12%;
+  }
   .basket__title .col-md-7,
   .basket__item .col-md-7,
   .basket__footer .col-md-7 {
     width: 55.333333334%;
   }
+  .s2 .basket__title .col-md-7,
+  .s2 .basket__item .col-md-7,
+  .s2 .basket__footer .col-md-7 {
+    width: 51.2%;
+  }
   .basket__title .col-xs-4,
   .basket__item .col-xs-4,
   .basket__footer .col-xs-4 {
     width: 30%;
+  }
+  .s2 .basket__frame--no-sale .basket__title .col-xs-4,
+  .s2 .basket__frame--no-sale .basket__item .col-xs-4,
+  .s2 .basket__frame--no-sale .basket__footer .col-xs-4 {
+    width: 33%;
+  }
+  .s1 .basket__frame--no-sale .basket__title .col-xs-4,
+  .s1 .basket__frame--no-sale .basket__item .col-xs-4,
+  .s1 .basket__frame--no-sale .basket__footer .col-xs-4 {
+    width: 34.6%;
   }
   .basket__title .col-md-3,
   .basket__item .col-md-3,
@@ -7875,6 +7901,13 @@ label.profile__label {
   white-space: nowrap;
   top: 0px;
   font-size: 13px;
+}
+@media (max-width: 768px) {
+  .basket__total:after,
+  .basket__sale-total:after,
+  .basket__count-total:after {
+    display: none;
+  }
 }
 .basket__coupon-trigger,
 .basket__coupon,
