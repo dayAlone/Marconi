@@ -7840,6 +7840,10 @@ label.profile__label {
     margin-right: 0;
   }
 }
+.basket__artnumber {
+  display: inline-block;
+  line-height: 14px;
+}
 .s2 .basket__artnumber {
   font-size: 13px;
 }
