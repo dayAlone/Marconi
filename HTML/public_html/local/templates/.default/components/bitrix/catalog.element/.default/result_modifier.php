@@ -19,7 +19,7 @@
 	while($data = $raw->GetNext()) {
 		if($data['CODE'] == 'sale30')
 			$arResult['TOOLTIP'] = $data['DESCRIPTION'];
-		if(!in_array($data['CODE'], array('all', 'sale', 'sale30', 'new', 'best-sellers', 'coming', 'latest'))) {
+		if(in_array($data['CODE'], array('men', 'women', 'baggage'))) {
 			$arResult['IBLOCK_SECTION_ID'] = $data['ID'];
 		}
 	}
