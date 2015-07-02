@@ -18,7 +18,7 @@ if(!$USER->IsAuthorized())
 		        "OFFERS_PROPS" => array("COLOR_REF"),
 		        "PATH_TO_ORDER" => "/personal/order.php",
 		        "HIDE_COUPON" => "N",
-		        "COLUMNS_LIST" => Array("NAME", "PROPERTY_ARTNUMBER", "PROPERTY_BRAND", "PRICE", "DISCOUNT", "QUANTITY", "DELETE"),
+		        "COLUMNS_LIST" => Array("NAME", "PROPERTY_ARTNUMBER", "PROPERTY_BRAND", "PROPERTY_NOTE_SHORT", "PRICE", "DISCOUNT", "QUANTITY", "DELETE"),
 		        "PRICE_VAT_SHOW_VALUE" => "Y",
 		        "COUNT_DISCOUNT_4_ALL_QUANTITY" => "N",
 		        "USE_PREPAYMENT" => "N",

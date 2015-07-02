@@ -14,7 +14,7 @@ updateTimer = false
 		row = $(this).parents('.basket__item')
 		total    += parseInt($(this).data('price'))*$(this).val()
 		sale     += parseInt(row.find('.sale').data('value'))*$(this).val()
-		quantity += $(this).val()
+		quantity += parseInt($(this).val())
 	
 	if el
 		row  = el.parents('.basket__item')

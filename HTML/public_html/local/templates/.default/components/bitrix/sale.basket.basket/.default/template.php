@@ -54,14 +54,21 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			        		$sections[$item['CATALOG']['SECTION_ID'][0]] = $section;
 			        	endif;
 			        	$arResult['QUANTITY'] += $item['QUANTITY'];
+			        	$item['NAME'] = preg_replace("/\s\s/", "", str_replace(array($brands[$item['PROPERTY_BRAND_VALUE']], $item['PROPERTY_NOTE_SHORT_VALUE']), '', $item['NAME']));
 			        ?>
 			        <div class="basket__item" data-id="<?=$item['ID']?>" data-discount="<?=$item['DISCOUNT_PRICE_PERCENT']?>">
 			          <div class="row">
 			            <div class="col-xs-4 left">
 			              <a href="/catalog/<?=$section['CODE']?>/<?=preg_replace($remove, '', $item['CATALOG']['CODE'])?>/"><div style="background-image: url(<?=($item['PREVIEW_PICTURE_SRC']?$item['PREVIEW_PICTURE_SRC']:'/layout/images/no-image.jpg')?>)" class="basket__picture <?=($item['PREVIEW_PICTURE_SRC']?'':'basket__picture--no-image')?>"></div></a>
-			              <div class="basket__name"><?=str_replace($brands[$item['PROPERTY_BRAND_VALUE']], "<br><span class='basket__brand'>".$brands[$item['PROPERTY_BRAND_VALUE']]."</span><br>", $item['NAME'])?></div>
+			              <div class="basket__name">
+							<?=$item['PROPERTY_NOTE_SHORT_VALUE']?>
+			              	<br><span class='basket__brand'><?=$brands[$item['PROPERTY_BRAND_VALUE']]?></span><br>
+			              	<?=(SITE_ID=='s1'?$item['NAME']:"")?>
+			              </div>
 			            </div>
-			            <div class="col-md-2 visible-md visible-lg"><?=$item['PROPERTY_ARTNUMBER_VALUE']?></div>
+			            <div class="col-md-2 visible-md visible-lg">
+			            	<?=$item['PROPERTY_ARTNUMBER_VALUE']?> <?=(SITE_ID=='s2'?$item['NAME']:"")?>
+			            </div>
 			            <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>"><nobr><strong class="sale" data-value="<?=$item['DISCOUNT_PRICE']?>"><?=number_format($item['FULL_PRICE'], 0, ' ', ' ')?> ₷</strong></nobr></div>
 			            <?=($showSale?'<div class="col-xs-2 col-md-1"> <strong class="sale-value">'.round($item["DISCOUNT_PRICE_PERCENT_FORMATED"]).'%</strong></div>':'')?>
 			            <div class="col-xs-2 col-md-1"> 
@@ -99,7 +106,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			            	<strong data-text="скидка:" class="basket__sale-total"><span><?=number_format($arResult['DISCOUNT_PRICE_ALL'], 0, ' ', ' ')?></span> ₷</strong>
 			            	<? endif;?>
 			            </div>
-			            <div class="col-md-1 col-xs-2 center">
+			            <div class="col-md-1 col-xs-2 <? if($arResult['DISCOUNT_PRICE_ALL']): ?>center<? endif;?>">
 			            <?if(SITE_ID == 's2'):?>
 			            	<strong data-text="кол-во:" class="basket__count-total"><span><?=$arResult['QUANTITY']?></span></strong>
 			            <?endif;?>
