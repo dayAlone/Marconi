@@ -6107,7 +6107,7 @@ label.profile__label {
     font-size: 36px;
   }
 }
-.hello__frame a {
+.hello__frame a:not(.hello__button) {
   color: #fff;
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(255,255,255,0.5) 50%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(255,255,255,0.5) 50%);
@@ -6121,10 +6121,10 @@ label.profile__label {
   background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
-.hello__frame a:hover {
+.hello__frame a:not(.hello__button):hover {
   text-decoration: none;
 }
-.hello__frame a:hover {
+.hello__frame a:not(.hello__button):hover {
   color: #d10a32;
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.5) 50%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.5) 50%);
@@ -6138,7 +6138,7 @@ label.profile__label {
   background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
-.hello__frame a:hover:hover {
+.hello__frame a:not(.hello__button):hover:hover {
   text-decoration: none;
 }
 .filter {
