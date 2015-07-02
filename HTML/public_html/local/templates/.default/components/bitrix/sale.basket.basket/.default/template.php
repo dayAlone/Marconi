@@ -37,7 +37,10 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			        <div class="basket__title">
 			          <div class="row">
 			            <div class="col-xs-4">Наименование</div>
-			            <div class="col-md-2 visible-md visible-lg">Артикул</div>
+			            <div class="col-md-<?=(SITE_ID=='s1'?"2":"1")?> visible-md visible-lg">Артикул</div>
+			            <?if(SITE_ID=='s2'):?>
+			            <div class="col-md-1 visible-md visible-lg">Раздел</div>
+			            <?endif;?>
 			            <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>">Цена</div>
 			            <?=($showSale?'<div class="col-xs-2 col-md-1">скидка</div>':'')?>
 			            <div class="col-xs-2 col-md-1">Кол-во</div>
@@ -47,30 +50,51 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			        <? 
 			        $sections = array();
 			        foreach($arResult['GRID']['ROWS'] as $item):
-			        	if($sections[$item['CATALOG']['SECTION_ID'][0]]):
-			        		$section = $sections[$item['CATALOG']['SECTION_ID'][0]];
-			        	else:
-			        		$section = CIBlockSection::GetByID($item['CATALOG']['SECTION_ID'][0])->Fetch();
-			        		$sections[$item['CATALOG']['SECTION_ID'][0]] = $section;
-			        	endif;
+			        	$section = $arResult['SECTIONS'][$item['CATALOG']['SECTION_ID'][0]];
 			        	$arResult['QUANTITY'] += $item['QUANTITY'];
 			        	$item['NAME'] = preg_replace("/\s\s/", "", str_replace(array($brands[$item['PROPERTY_BRAND_VALUE']], $item['PROPERTY_NOTE_SHORT_VALUE']), '', $item['NAME']));
 			        ?>
 			        <div class="basket__item" data-id="<?=$item['ID']?>" data-discount="<?=$item['DISCOUNT_PRICE_PERCENT']?>">
 			          <div class="row">
 			            <div class="col-xs-4 left">
-			              <a href="/catalog/<?=$section['CODE']?>/<?=preg_replace($remove, '', $item['CATALOG']['CODE'])?>/"><div style="background-image: url(<?=($item['PREVIEW_PICTURE_SRC']?$item['PREVIEW_PICTURE_SRC']:'/layout/images/no-image.jpg')?>)" class="basket__picture <?=($item['PREVIEW_PICTURE_SRC']?'':'basket__picture--no-image')?>"></div></a>
-			              <div class="basket__name">
-							<?=$item['PROPERTY_NOTE_SHORT_VALUE']?>
-			              	<br><span class='basket__brand'><?=$brands[$item['PROPERTY_BRAND_VALUE']]?></span><br>
-			              	<?=(SITE_ID=='s1'?$item['NAME']:"")?>
-			              </div>
+			            	<a href="/catalog/<?=$section['CODE']?>/<?=preg_replace($remove, '', $item['CATALOG']['CODE'])?>/"><div style="background-image: url(<?=($item['PREVIEW_PICTURE_SRC']?$item['PREVIEW_PICTURE_SRC']:'/layout/images/no-image.jpg')?>)" class="basket__picture <?=($item['PREVIEW_PICTURE_SRC']?'':'basket__picture--no-image')?>"></div></a>
+							<div class="basket__name">
+								<?=$item['PROPERTY_NOTE_SHORT_VALUE']?>
+								<br><span class='basket__brand'><?=$brands[$item['PROPERTY_BRAND_VALUE']]?></span><br>
+								<?if(SITE_ID=='s1'):?>
+									<?=$item['NAME']?>
+								<?endif;?>
+								<div class="hidden-md hidden-lg">
+			            			<?=$item['PROPERTY_ARTNUMBER_VALUE']?> <?=(SITE_ID=='s2'?$item['NAME']:"")?>
+								</div>
+							</div>
 			            </div>
-			            <div class="col-md-2 visible-md visible-lg">
-			            	<?=$item['PROPERTY_ARTNUMBER_VALUE']?> <?=(SITE_ID=='s2'?$item['NAME']:"")?>
+			            <div class="col-md-<?=(SITE_ID=='s1'?"2":"1")?> visible-md visible-lg">
+			            	<span class="basket__artnumber">
+			            		<?=$item['PROPERTY_ARTNUMBER_VALUE']?> <?=(SITE_ID=='s2'?$item['NAME']:"")?>
+			            	</span>
 			            </div>
-			            <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>"><nobr><strong class="sale" data-value="<?=$item['DISCOUNT_PRICE']?>"><?=number_format($item['FULL_PRICE'], 0, ' ', ' ')?> ₷</strong></nobr></div>
-			            <?=($showSale?'<div class="col-xs-2 col-md-1"> <strong class="sale-value">'.round($item["DISCOUNT_PRICE_PERCENT_FORMATED"]).'%</strong></div>':'')?>
+			            <?if(SITE_ID=='s2'):?>
+			            <div class="col-md-1 visible-md visible-lg">
+			            	<span class="basket__section">
+			            	<a href="/catalog/<?=$item['TYPE']['CODE']?>/">
+			            		<?=$item['TYPE']['NAME']?>
+			            	</a>
+			            	</span>
+			            </div>
+			            <?endif;?>
+			            <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>">
+			            	<nobr>
+			            		<strong class="sale" data-value="<?=$item['DISCOUNT_PRICE']?>">
+			            			<?=number_format($item['FULL_PRICE'], 0, ' ', ' ')?> ₷
+			            		</strong>
+			            	</nobr>
+			            </div>
+			            <? if($showSale): ?>
+			            <div class="col-xs-2 col-md-1">
+			            	<strong class="sale-value"><?=round($item["DISCOUNT_PRICE_PERCENT_FORMATED"])?> %</strong>
+			            </div>
+						<?endif;?>
 			            <div class="col-xs-2 col-md-1"> 
 			              <input value="<?=$item['QUANTITY']?>" class="basket__count" data-id="<?=$item['ID']?>" data-price="<?=$item['PRICE']?>">
 			            </div>
@@ -106,9 +130,9 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			            	<strong data-text="скидка:" class="basket__sale-total"><span><?=number_format($arResult['DISCOUNT_PRICE_ALL'], 0, ' ', ' ')?></span> ₷</strong>
 			            	<? endif;?>
 			            </div>
-			            <div class="col-md-1 col-xs-2 <? if($arResult['DISCOUNT_PRICE_ALL']): ?>center<? endif;?>">
+			            <div class="col-md-<?=($arResult['DISCOUNT_PRICE_ALL']?2:1)?> col-xs-2 xs-right md-center">
 			            <?if(SITE_ID == 's2'):?>
-			            	<strong data-text="кол-во:" class="basket__count-total"><span><?=$arResult['QUANTITY']?></span></strong>
+			            	<strong data-text="товаров:" class="basket__count-total"><span><?=$arResult['QUANTITY']?></span></strong>
 			            <?endif;?>
 			            </div>
 			            <div class="col-xs-2 col-md-3 xs-right md-center"><strong data-text="итого:" class="basket__total"><span><?=number_format($arResult['allSum'], 0, ' ', ' ')?></span> ₷</strong></div>

@@ -96,6 +96,18 @@
 				@media (min-width: scr_md)
 					.col-md-4
 						width 34%
+	&__section
+		text-transform: none
+		font-size 12px
+		display inline-block
+		line-height 14px
+		max-width 90%
+		a
+			color black
+			border-line alpha(@color, .5)
+			&:hover
+				color red
+				border-line alpha(@color, .5)
 	&__title, &__item, &__footer
 		@media (min-width: scr_md)
 			.col-md-7
@@ -104,10 +116,14 @@
 				width 30%
 			.col-md-3
 				width 20%
+				.s2 &
+					width 17%
 			.col-md-2
 				width 13%
 			.col-md-1
 				width 12.333333333%
+				.s2 &
+					width 10.6%
 	&__footer
 		text-transform: uppercase
 		border-top 1px solid black
@@ -182,6 +198,10 @@
 			@media (min-width: scr_md)
 				margin-right 0
 	
+	&__artnumber
+		.s2 &
+			font-size 13px
+			
 	&__total, &__sale-total, &__count-total
 		
 		display inline-block
