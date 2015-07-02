@@ -7909,6 +7909,9 @@ label.profile__label {
     display: none;
   }
 }
+.basket__frame--sale .basket__count-total {
+  margin-left: 3px;
+}
 .basket__coupon-trigger,
 .basket__coupon,
 .basket__count {

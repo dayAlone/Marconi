@@ -24,7 +24,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 		}
 		?>
 	</div>
-	<form method="post" action="<?=POST_FORM_ACTION_URI?>" name="basket_form <?=($arResult['DISCOUNT_PRICE_ALL']==0?"basket--no-sale":"")?>" id="basket_form">
+	<form method="post" action="<?=POST_FORM_ACTION_URI?>" name="basket_form <?=($arResult['DISCOUNT_PRICE_ALL']==0?"basket--no-sale":".basket__frame--sale")?>" id="basket_form">
 		<div id="basket_form_container">
 			<div class="bx_ordercart">
 				<? 
