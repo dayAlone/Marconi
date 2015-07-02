@@ -4917,7 +4917,7 @@ label.profile__label {
   text-align: center;
   color: #fff;
   z-index: 10001;
-  max-width: 300px;
+  mwidth: 300px;
   margin-left: -150px;
   margin-top: -170px;
   font-size: 14px;
@@ -4925,7 +4925,7 @@ label.profile__label {
 }
 @media (min-width: 768px) {
   .catalog__card {
-    max-width: 700px;
+    width: 700px;
     margin-left: -350px;
     margin-top: -244px;
     line-height: 28px;
@@ -4944,7 +4944,8 @@ label.profile__label {
   -ms-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-.catalog__card-button {
+.catalog__card-button,
+.hello__button {
   display: inline-block;
   margin-top: 20px;
   border: 2px solid #fff;
@@ -4965,7 +4966,9 @@ label.profile__label {
   transition-duration: 0.3s;
 }
 .catalog__card-button:hover,
-.catalog__card-button:focus {
+.hello__button:hover,
+.catalog__card-button:focus,
+.hello__button:focus {
   border-color: #d10a32;
   background: #d10a32;
   color: #fff;
@@ -4974,7 +4977,8 @@ label.profile__label {
   margin-bottom: 25px;
   max-width: 100%;
 }
-.catalog__card-frame {
+.catalog__card-frame,
+.hello {
   position: fixed;
   top: 0;
   left: 0;
@@ -6017,6 +6021,91 @@ label.profile__label {
   .catalog.catalog--without-images .product--without-price .product__counter {
     display: none;
   }
+}
+.hello {
+  background: rgba(0,0,0,0.9);
+}
+.hello__button {
+  font-size: 13px;
+  padding: 14px 30px 9px;
+  border-width: 1px;
+  margin-top: 25px;
+}
+.hello__frame {
+  padding: 40px 30px 50px;
+  width: 100%;
+  max-width: 400px;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  font-weight: 300;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -moz-transform: translateY(-50%) translateX(-50%);
+  -o-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+  font-size: 14px;
+}
+@media (min-width: 992px) {
+  .hello__frame {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1200px) {
+  .hello__frame {
+    font-size: 25px;
+  }
+}
+.hello__frame strong {
+  font-weight: 300;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+@media (min-width: 992px) {
+  .hello__frame strong {
+    font-size: 28px;
+  }
+}
+@media (min-width: 1200px) {
+  .hello__frame strong {
+    font-size: 36px;
+  }
+}
+.hello__frame a {
+  color: #fff;
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(255,255,255,0.5) 50%);
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(255,255,255,0.5) 50%);
+  background-image: -o-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(255,255,255,0.5) 50%);
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(255,255,255,0.5) 50%);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(255,255,255,0.5) 50%);
+  background-repeat: repeat-x;
+  -webkit-background-size: 2px 2px;
+  -moz-background-size: 2px 2px;
+  background-size: 2px 2px;
+  background-position: 0 100%;
+  background-position: 0 calc(100% - 2px);
+}
+.hello__frame a:hover {
+  text-decoration: none;
+}
+.hello__frame a:hover {
+  color: #d10a32;
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.5) 50%);
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.5) 50%);
+  background-image: -o-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.5) 50%);
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.5) 50%);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(209,10,50,0.5) 50%);
+  background-repeat: repeat-x;
+  -webkit-background-size: 2px 2px;
+  -moz-background-size: 2px 2px;
+  background-size: 2px 2px;
+  background-position: 0 100%;
+  background-position: 0 calc(100% - 2px);
+}
+.hello__frame a:hover:hover {
+  text-decoration: none;
 }
 .filter {
   border: 1px solid #ddd;

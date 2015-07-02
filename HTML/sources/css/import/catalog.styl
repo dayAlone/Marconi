@@ -51,13 +51,13 @@
 		
 		color white
 		z-index 10001
-		max-width 300px
+		mwidth 300px
 		margin-left -150px
 		margin-top -170px
 		font-size 14px
 		line-height 20px
 		@media (min-width scr_sm)
-			max-width 700px
+			width 700px
 			margin-left -350px
 			margin-top -244px
 			line-height 28px
@@ -728,6 +728,46 @@
 					&__counter
 						display none
 					
+.hello
+	@extends .catalog__card-frame
+	background rgba(0, 0, 0, .9)
+	&__button
+		@extends .catalog__card-button
+		font-size 13px
+		padding 14px 30px 9px
+		border-width 1px
+		margin-top 25px
+	&__frame
+		padding 40px 30px 50px
+		width 100%
+		max-width 400px
+		color white
+		
+		position absolute
+		top 50%
+		left 50%
+		text-align: center
+		font-weight: 300
+		transform translateY(-50%) translateX(-50%)
+		font-size 14px
+		@media (min-width scr_md)
+			font-size 18px
+		@media (min-width scr_lg)
+			font-size 25px
+		strong
+			font-weight: 300
+			font-size 18px
+			margin-bottom 10px
+			@media (min-width scr_md)
+				font-size 28px
+			@media (min-width scr_lg)
+				font-size 36px
+		a
+			color white
+			border-line(alpha(@color, .5))
+			&:hover
+				color red
+				border-line(alpha(@color, .5))
 .filter
 	border 1px solid #dddddd
 	padding 10px 10px 4px 10px

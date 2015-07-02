@@ -151,8 +151,31 @@ $(document).ready ->
 						$(".toolbar__mobile a[href='#login']").attr 'href', '/profile/'
 
 					if block == 'login' && $('body').hasClass 's2' || location.href == '/basket/'
-						location.href = location.href
-
+						if location.href.indexOf('?') >= 0 
+							amp = "&"
+						else
+							amp = "?"
+						location.href = location.href + amp + "login=yes"
+	#Hello
+	if !$.cookie('hello') && $('.hello').length > 0
+		$('.hello').removeClass 'hidden'
+		$('body').on 'mousewheel', (e)->
+			if $(e.target).hasClass 'hello'
+				e.preventDefault();
+				e.stopPropagation();
+		$('.hello').elem('button').click (e)->
+			block = $(this).block()
+			block.velocity
+				properties: 
+					opacity    : .2
+				options:
+					duration: 300
+					complete: ->
+						$(this).remove();
+						$.cookie('hello', 'Y', { path:"/", expires: .5 });
+			e.preventDefault()
+	if !$('.auth').hasMod 'active' && $.cookie('hello')
+		$.removeCookie 'hello', { path:"/" }
 	# Contacts
 		
 	$('#feedback form').submit (e)->

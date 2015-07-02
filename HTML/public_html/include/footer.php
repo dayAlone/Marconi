@@ -208,6 +208,20 @@ $APPLICATION->ShowViewContent('footer');
   </div>
 </div>
 
+<?
+if(SITE_ID=='s2' && $_REQUEST['login']=="yes"):
+?>
+<div class="hello hidden">
+  <div class="hello__frame">
+    <strong>Здравствуйте, <?=$USER->GetFirstName()?></strong><br>
+    <?if(strlen(COption::GetOptionString("grain.customsettings","popup_text"))>0):?>
+    <?=html_entity_decode(COption::GetOptionString("grain.customsettings","popup_text"))?><br>
+    <?endif;?>
+    <a href="#" class="hello__button">Спасибо</a>
+  </div>
+</div>
+<?endif;?>
+
 <!-- Yandex.Metrika counter --> 
 <script type="text/javascript"> 
 var yaParams = {/*Здесь параметры визита*/}; 
