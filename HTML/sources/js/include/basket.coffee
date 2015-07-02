@@ -2,17 +2,19 @@
 updateTimer = false
 
 @basketCalc = (el)->
-	total  = 0
-	sale   = 0
-	
+	total    = 0
+	sale     = 0
+	quantity = 0
+
 	if $('.basket').elem('count').length == 0
 		location.href = $('.catalog__back').attr('href')
 	$('.basket').elem('count').each ->
 		if parseInt($(this).val()) <= 0 || !$(this).val()
 			$(this).val(1)
 		row = $(this).parents('.basket__item')
-		total += parseInt($(this).data('price'))*$(this).val()
-		sale  += parseInt(row.find('.sale').data('value'))*$(this).val()
+		total    += parseInt($(this).data('price'))*$(this).val()
+		sale     += parseInt(row.find('.sale').data('value'))*$(this).val()
+		quantity += $(this).val()
 	
 	if el
 		row  = el.parents('.basket__item')
@@ -28,6 +30,12 @@ updateTimer = false
 		if saleVal != sale
 			saleCounter = new countUp $('.basket__sale-total span:first')[0], saleVal, sale, 0, 1, countUpOptions
 			saleCounter.start()
+
+	if $('.basket__count-total span:first').length > 0
+		countVal = parseInt $('.basket__count-total span:first').text().replace(' ','')
+		if countVal != quantity
+			countCounter = new countUp $('.basket__count-total span:first')[0], countVal, quantity, 0, 1, countUpOptions
+			countCounter.start()
 
 	totalVal = parseInt $('.basket__total span:first').text().replace(' ','')
 	if totalVal != total

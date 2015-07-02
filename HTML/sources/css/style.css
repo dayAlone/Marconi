@@ -7815,7 +7815,8 @@ label.profile__label {
   font-weight: normal;
   font-weight: 300;
   white-space: nowrap;
-  top: -2px;
+  top: 0px;
+  font-size: 13px;
 }
 .basket__coupon-trigger,
 .basket__coupon,
