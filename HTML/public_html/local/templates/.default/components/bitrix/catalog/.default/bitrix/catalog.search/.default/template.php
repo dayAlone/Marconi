@@ -58,7 +58,7 @@ if (!empty($arElements) && is_array($arElements))
 		"bitrix:catalog.section",
 		".default",
 		array(
-			"CLASS"       => "catalog--full-width".(SITE_ID == 's1'?" catalog--italbags":""),
+			"CLASS"       => "catalog--full-width".(SITE_ID == 's2'?" catalog--italbags":""),
 			"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 			"IBLOCK_ID" => $arParams["IBLOCK_ID"],
 			"ELEMENT_SORT_FIELD" => $arParams["ELEMENT_SORT_FIELD"],
