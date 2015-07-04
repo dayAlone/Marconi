@@ -400,6 +400,39 @@
 		&--absolute
 			z-index 500
 			position absolute
+		&__tradeline, &__showcase
+			position absolute
+			background red
+			transform translateX(-50%)
+			color white
+			white-space no-wrap
+			padding-top 6px
+			font-size 12px
+			bottom 10px
+			left 20%
+			@media (min-width: scr_sm)
+				left 50%
+				bottom 105px
+			&:after, &:before
+				position absolute
+				top 0
+				left -12px
+				width calc(100% + 24px)
+				height 100%
+				background red
+				content ""
+				z-index -1
+			&:after
+				transform skew(30deg,0)
+			&:before
+				transform skew(-30deg,0)
+		&__showcase
+			opacity: .5
+			bottom auto
+			top 90px
+			padding 6px 10px 0
+			&:after, &:before
+				display none
 		&__sale
 			position absolute
 			background red
