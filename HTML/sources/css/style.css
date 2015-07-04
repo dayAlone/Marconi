@@ -4179,7 +4179,6 @@ label.profile__label {
   font-size: 30px;
   font-weight: bold;
   margin-top: 8px;
-  cursor: pointer;
   color: #000;
   display: block;
   line-height: 35px;
@@ -4196,6 +4195,9 @@ label.profile__label {
   font-size: 19px;
   line-height: 1.1;
   font-weight: normal;
+}
+a.news--list .news-item__title {
+  cursor: pointer;
 }
 a.news--list .news-item__title:hover {
   color: #d10a32;
