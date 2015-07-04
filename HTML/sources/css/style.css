@@ -5575,7 +5575,7 @@ a.news--list .news-item__title:hover {
   opacity: 0.5;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
-  bottom: auto;
+  bottom: auto !important;
   top: 90px;
   padding: 6px 10px 0;
 }
