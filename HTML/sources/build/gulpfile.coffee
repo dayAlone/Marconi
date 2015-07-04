@@ -166,8 +166,15 @@ gulp.task 'img_mini', ->
 gulp.task 'reload', ->
 	livereload.changed("/")
 
+gulp.task 'ready_css', ->
+	sequence 'css_bootstrap', 'css_plugins', 'css_front', 'css_mini'
+
+gulp.task 'ready_js', ->
+	sequence 'js_plugins', 'js_front', 'js_mini'
+
 gulp.task 'ready', ->
-	sequence 'js_plugins', 'js_front', 'js_mini', 'css_bootstrap', 'css_plugins', 'css_front', 'css_mini'
+	sequence 'ready_css'
+	sequence 'ready_js'
 
 gulp.task 'default', ->
 	

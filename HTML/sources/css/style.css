@@ -5529,17 +5529,25 @@ a.news--list .news-item__title:hover {
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   color: #fff;
-  white-space: nowrap;
-  padding-top: 6px;
-  font-size: 12px;
+  text-align: center;
   bottom: 10px;
   left: 20%;
+  font-size: 7px;
+}
+@media (max-width: 768px) {
+  .catalog .product__tradeline,
+  .catalog .product__showcase {
+    line-height: 1.1;
+  }
 }
 @media (min-width: 768px) {
   .catalog .product__tradeline,
   .catalog .product__showcase {
     left: 50%;
     bottom: 105px;
+    font-size: 12px;
+    white-space: nowrap;
+    padding-top: 6px;
   }
 }
 .catalog .product__tradeline:after,
@@ -5576,8 +5584,18 @@ a.news--list .news-item__title:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
   bottom: auto !important;
-  top: 90px;
-  padding: 6px 10px 0;
+  top: 15px;
+  max-width: 80px;
+  letter-spacing: 1px;
+  padding: 5px 7px 3px;
+}
+@media (min-width: 768px) {
+  .catalog .product__showcase {
+    top: 90px;
+    letter-spacing: 0px;
+    max-width: none;
+    padding: 6px 10px 0px;
+  }
 }
 .catalog .product__showcase:after,
 .catalog .product__showcase:before {
@@ -6005,9 +6023,16 @@ a.news--list .news-item__title:hover {
   }
 }
 .catalog .product__picture--no {
-  -webkit-background-size: 150px auto;
-  -moz-background-size: 150px auto;
-  background-size: 150px auto;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  background-size: contain;
+}
+@media (min-width: 768px) {
+  .catalog .product__picture--no {
+    -webkit-background-size: 150px auto;
+    -moz-background-size: 150px auto;
+    background-size: 150px auto;
+  }
 }
 .catalog .product__picture-frame {
   position: relative;
