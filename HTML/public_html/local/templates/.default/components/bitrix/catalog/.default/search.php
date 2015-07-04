@@ -27,6 +27,10 @@ else
 	"bitrix:catalog.search",
 	"",
 	array(
+		"HIDE_PRICE"                      => $arParams['HIDE_PRICE'],
+		"HIDE_SIMMILAR"                   => $arParams['HIDE_SIMMILAR'],
+		"HIDE_MORE"                       => $arParams['HIDE_MORE'],
+		"SHOW_COUNT"                      => $arParams['SHOW_COUNT'],
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
 		"ELEMENT_SORT_FIELD" => $arParams["ELEMENT_SORT_FIELD"],
