@@ -4184,6 +4184,7 @@ label.profile__label {
   display: block;
   line-height: 35px;
   margin-bottom: 0px;
+  padding: 0 25px;
 }
 .news--list .news-item__title + .news-item__content {
   margin-top: 15px;
@@ -4192,8 +4193,9 @@ label.profile__label {
   pointer-events: none;
 }
 .news--list .news-item__title--small {
-  font-size: 21px;
+  font-size: 19px;
   line-height: 1.1;
+  font-weight: normal;
 }
 a.news--list .news-item__title:hover {
   color: #d10a32;
