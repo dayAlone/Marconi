@@ -1,14 +1,16 @@
 <? $this->setFrameMode(true);?>
 <?foreach ($arResult['ITEMS'] as $key=>$item):?>
 <div class="news-item">
-  <div class="news-item__title news-item__title--small"><?=$item['NAME']?></div>
+  <div class="news-item__title news-item__title--small">
+    <?=$item['~PREVIEW_TEXT']?>
+  </div>
   
   <?if($item['PROPERTIES']['TITLE']['VALUE']):?>
     <div class="news-item__sub-title"><?=$item['PROPERTIES']['TITLE']['VALUE']?></div>
   <?endif;?>
   
   <div class="news-item__content news-item__content--open <?=(strlen($item['PREVIEW_PICTURE']['SRC'])>0?"news-item__content--arrow":"")?>">
-    <?=$item['~PREVIEW_TEXT']?>
+    <?=$item['~DETAIL_TEXT']?>
   
 
     <?if(strlen($item['PREVIEW_PICTURE']['SRC'])>0):?>
@@ -31,5 +33,5 @@
 <?endif;?>
 
 <script>
-  initNews()
+  initLinks()
 </script>

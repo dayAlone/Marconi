@@ -4192,7 +4192,8 @@ label.profile__label {
   pointer-events: none;
 }
 .news--list .news-item__title--small {
-  font-size: 26px;
+  font-size: 21px;
+  line-height: 1.1;
 }
 a.news--list .news-item__title:hover {
   color: #d10a32;

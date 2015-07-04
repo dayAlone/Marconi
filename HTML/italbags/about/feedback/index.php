@@ -23,6 +23,7 @@ $APPLICATION->SetTitle('Вопросы и ответы');
 					"DETAIL_URL"           => "/faq/",
 					"CACHE_TYPE"           => "A",
 					'PROPERTY_CODE'        => array('TITLE', 'PICTURES'),
+					'FIELD_CODE'           => array('DETAIL_TEXT'),
 					"SET_TITLE"            => "N",
 					"DISPLAY_BOTTOM_PAGER" => "Y"
 				),

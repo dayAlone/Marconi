@@ -56,6 +56,7 @@
 		content = block.elem('content')
 		toggleNews trigger, block, content
 		e.preventDefault()
+@initLinks = ->
 	$('.news-item').elem('link').click (e)->
 		pswpElement = document.querySelectorAll('.pswp')[0];
 		items = $(this).data('pictures')
