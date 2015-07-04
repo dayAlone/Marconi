@@ -24,6 +24,13 @@ $aMenuLinks = Array(
 	),
 	*/
 	Array(
+		"отзывы", 
+		"/about/feedback/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
 		"миссия компании", 
 		"/about/mission/", 
 		Array(), 

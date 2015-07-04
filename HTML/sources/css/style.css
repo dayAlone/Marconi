@@ -4080,6 +4080,7 @@ label.profile__label {
 }
 .news--list .news-item__arrow {
   display: inline-block;
+  background: transparent !important;
 }
 .news--list .news-item__arrow:hover svg path {
   fill: #d10a32;
@@ -4190,7 +4191,10 @@ label.profile__label {
 .news--list .news-item__title--disabled {
   pointer-events: none;
 }
-.news--list .news-item__title:hover {
+.news--list .news-item__title--small {
+  font-size: 26px;
+}
+a.news--list .news-item__title:hover {
   color: #d10a32;
 }
 .news--list .news-item__sub-title {

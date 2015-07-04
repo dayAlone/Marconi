@@ -178,7 +178,7 @@ $(document).ready ->
 		$.removeCookie 'hello', { path:"/" }
 	# Contacts
 		
-	$('#feedback form').submit (e)->
+	$('#feedback form, #ask form, #review form').submit (e)->
 		e.preventDefault()
 		data = $(this).serialize()
 		$.post '/include/send.php', data,
