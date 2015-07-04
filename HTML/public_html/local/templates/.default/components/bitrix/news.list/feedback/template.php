@@ -14,7 +14,7 @@
     <?if(strlen($item['PREVIEW_PICTURE']['SRC'])>0):?>
     <div class="news-item__divider"></div>
     <div class="center">
-      <a href="#" data-pictures="<?=json_encode($item['IMAGES'])?>" class="news-item__link">Cмотреть оригинал отзыва</a>
+      <a href="#" data-pictures='<?=json_encode($item['IMAGES'])?>' class="news-item__link">Cмотреть оригинал отзыва</a>
     </div>
     <?endif;?>
     
