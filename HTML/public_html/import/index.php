@@ -614,7 +614,7 @@
 			foreach ($data['items'] as $item)
 				$ids[] = $item->getAttribute('id');
 
-			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_GENERAL', 'PROPERTY_RETAIL')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_CML2_LINK')));
+			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_GENERAL', 'PROPERTY_RETAIL', 'PROPERTY_SHOWCASE')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_CML2_LINK')));
 
 			$ids  = array();
 			foreach ($this->products as $item)
@@ -681,6 +681,19 @@
 	        		foreach(array(0, 1) as $store):
 	        			if(isset($arData[$store])):
 	        				$arUpdates[] = array('FIELD' => "GENERAL", 'AMOUNT' => $arData[$store]);
+	        				
+	        				// Витринный экземпляр
+	        				if($store == 0):
+	        					$updateShowcase = false;
+	        					if($arData[$store] == 1 && $product['SHOWCASE'] != 'Y'):
+	        						$updateShowcase = "Y";
+	        					elseif($arData[$store] != 1 && $product['SHOWCASE'] != 'N'):
+	        						$updateShowcase = "N";
+	        					endif;
+	        					if($updateShowcase):
+	        						CIBlockElement::SetPropertyValuesEx($updateID, $this->iblocks['products'], array('SHOWCASE'=>$updateShowcase));
+	        					endif;
+	        				endif;
 	        				unset($arData[$store]);
 	        			endif;
 	        		endforeach;
