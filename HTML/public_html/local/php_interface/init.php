@@ -174,15 +174,16 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 				</tfooter>
 			</table>';
 		else:
+			$total = 0;
 			foreach ($arItems as $key => $arItem):
+				$total += $arItem['PRICE']*intval($arItem['QUANTITY']);
 				$str .= '<tr>
-							<td>'.$key.'</td>
+							<td>'.($key+1).'</td>
 							<td>
 								<a href="'.$arItem['DETAIL_PAGE_URL'].'" target="_blank">'.$arItem['NAME'].'</a>
 							</td>
 							<td>'.intval($arItem['QUANTITY']).'</td>
-							<td><nobr>'.number_format($arItem['PRICE'], 0, '.', ' ').' руб.</nobr>
-							'.(intval($arItem['DISCOUNT_PRICE'])>0?"<br><nobr><small><strike>".number_format($arItem['PRICE']+$arItem['DISCOUNT_PRICE'], 0, '.', ' ')." руб.</strike></small></nobr>":"").'</td>
+							<td><nobr>'.number_format($arItem['PRICE'], 0, '.', ' ').' руб.</nobr></td>
 							<td><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td>
 						</tr>';
 			endforeach;
@@ -195,7 +196,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 						</td>
 						<td></td>
 						<td>
-							<strong>'.number_format($arFields['PRICE'], 0, '.', ' ').' руб.</strong>
+							<strong>'.number_format($total, 0, '.', ' ').' руб.</strong>
 						</td>
 					</tr>';
 		endif;
