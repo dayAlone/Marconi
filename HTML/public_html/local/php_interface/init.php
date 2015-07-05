@@ -118,42 +118,8 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 		$rsUser        = CUser::GetByID($USER->GetID());
 		$arUser        = $rsUser->Fetch();
 		
-		$str = '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;"><thead>
-			<tr style="font-size:12px;">
-				<th></th>
-				<th style="text-align:left">Название</th>
-				<th>Артикул</th>
-				<th>Цена</th>
-				<th>Количество</th>
-				<th>Сумма</th>
-			</tr>
-			</thead>
-			<tbody>';
-		
-		while ($arItem = $dbBasketItems->Fetch()) {
-			$res = CIBlockElement::GetByID($arItem['PRODUCT_ID']);
-			if($ar_res = $res->GetNextElement()){
-
-				$fields = $ar_res->GetFields(); 
-				$small = CFile::ResizeImageGet(CFile::GetFileArray($fields['PREVIEW_PICTURE']), Array("width" => 150, "height" => 150), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
-				$arProps = $ar_res->GetProperties();
-				$arItems[] = array_merge($arItem, $fields, $arProps);
-			}
-			$str .= '<tr>
-					<td style="border:1px solid #c2c4c6;border-collapse:collapse;">
-						'.($small?'<img src="http://'.$_SERVER['SERVER_NAME'].'/'.$small['src'].'" width="40" alt="">':'').'
-					</td>
-					<td style="text-align:left;border:1px solid #c2c4c6;border-collapse:collapse;">'.$arItem['NAME'].'</td>
-					<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.$arProps['ARTNUMBER']['VALUE'].'</td>
-					<td style="border:1px solid #c2c4c6;border-collapse:collapse;">
-						<nobr>'.number_format($arItem['PRICE'], 0, '.', ' ').' руб.</nobr>
-						'.(intval($arItem['DISCOUNT_PRICE'])>0?"<br><nobr><small><strike>".number_format($arItem['PRICE']+$arItem['DISCOUNT_PRICE'], 0, '.', ' ')." руб.</strike></small></nobr>":"").'
-					</td>
-					<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.intval($arItem['QUANTITY']).'</td>
-					<td style="border:1px solid #c2c4c6;border-collapse:collapse;"><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td></tr>';
-		}
-		
 		$orderProps['NAME'] = $USER->GetFullName();
+		
 		if(strlen($orderProps['NAME']) == 0):
 			$orderProps['NAME'] = ($orderProps['NAME']?$orderProps['NAME']:$orderProps['FIRST_NAME'])." ".$orderProps['LAST_NAME'];
 		endif;
@@ -162,14 +128,77 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			$orderProps['email'] = $arUser['LOGIN'];
 			$orderProps['phone'] = (strlen($arUser['WORK_PHONE'])>0?$arUser['WORK_PHONE']:$arUser['PERSONAL_PHONE']);
 		endif;
+		while ($arItem = $dbBasketItems->Fetch()) {
+			$res = CIBlockElement::GetByID($arItem['PRODUCT_ID']);
+			if($ar_res = $res->GetNextElement()){
+				$fields = $ar_res->GetFields(); 
+				$small = CFile::ResizeImageGet(CFile::GetFileArray($fields['PREVIEW_PICTURE']), Array("width" => 150, "height" => 150), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
+				$arProps = $ar_res->GetProperties();
+				$arItems[] = array_merge($arItem, $fields, $arProps);
+			}
+		}
+		$str = '';
+		if(SITE_ID == 's1'):
+			$str .= '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;"><thead>
+				<tr style="font-size:12px;">
+					<th></th>
+					<th style="text-align:left">Название</th>
+					<th>Артикул</th>
+					<th>Цена</th>
+					<th>Количество</th>
+					<th>Сумма</th>
+				</tr>
+				</thead>
+				<tbody>';
+			
+			foreach ($arItems as $key => $arItem):
+				$str .= '<tr>
+						<td style="border:1px solid #c2c4c6;border-collapse:collapse;">
+							'.($small?'<img src="http://'.$_SERVER['SERVER_NAME'].'/'.$small['src'].'" width="40" alt="">':'').'
+						</td>
+						<td style="text-align:left;border:1px solid #c2c4c6;border-collapse:collapse;">'.$arItem['NAME'].'</td>
+						<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.$arProps['ARTNUMBER']['VALUE'].'</td>
+						<td style="border:1px solid #c2c4c6;border-collapse:collapse;">
+							<nobr>'.number_format($arItem['PRICE'], 0, '.', ' ').' руб.</nobr>
+							'.(intval($arItem['DISCOUNT_PRICE'])>0?"<br><nobr><small><strike>".number_format($arItem['PRICE']+$arItem['DISCOUNT_PRICE'], 0, '.', ' ')." руб.</strike></small></nobr>":"").'
+						</td>
+						<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.intval($arItem['QUANTITY']).'</td>
+						<td style="border:1px solid #c2c4c6;border-collapse:collapse;"><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td></tr>';
+			endforeach;
 
-		$str .= '</tbody>
-			<tfooter>
-				<td colspan="2" style="font-size:12px;text-align:left;"><strong>Заказчик</strong>: '.$orderProps['NAME'].'
-				'.(strlen($delivery)>0?"<br><br>".$delivery:"").'
-				<td colspan="4" style="text-align: right;font-size:12px"><strong>Телефон</strong>: '.$orderProps['phone'].', <br><strong>Эл. почта</strong>: '.$orderProps['email'].'</td>
-			</tfooter>
-		</table>';
+			$str .= '</tbody>
+				<tfooter>
+					<td colspan="2" style="font-size:12px;text-align:left;"><strong>Заказчик</strong>: '.$orderProps['NAME'].'
+					'.(strlen($delivery)>0?"<br><br>".$delivery:"").'
+					<td colspan="4" style="text-align: right;font-size:12px"><strong>Телефон</strong>: '.$orderProps['phone'].', <br><strong>Эл. почта</strong>: '.$orderProps['email'].'</td>
+				</tfooter>
+			</table>';
+		else:
+			foreach ($arItems as $key => $arItem):
+				$str .= '<tr>
+							<td>'.$key.'</td>
+							<td>
+								<a href="'.$arItem['DETAIL_PAGE_URL'].'" target="_blank">'.$arItem['NAME'].'</a>
+							</td>
+							<td>'.intval($arItem['QUANTITY']).'</td>
+							<td><nobr>'.number_format($arItem['PRICE'], 0, '.', ' ').' руб.</nobr>
+							'.(intval($arItem['DISCOUNT_PRICE'])>0?"<br><nobr><small><strike>".number_format($arItem['PRICE']+$arItem['DISCOUNT_PRICE'], 0, '.', ' ')." руб.</strike></small></nobr>":"").'</td>
+							<td><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td>
+						</tr>';
+			endforeach;
+			$str .= '<tr>
+						<td colspan="2">
+							<strong>Итого:</strong>
+						</td>
+						<td>
+							<strong>'.count($arItems).'</strong>
+						</td>
+						<td></td>
+						<td>
+							<strong>'.number_format($arFields['PRICE'], 0, '.', ' ').' руб.</strong>
+						</td>
+					</tr>';
+		endif;
 		$arFields['ORDER_LIST'] = $str;
 		
 		
