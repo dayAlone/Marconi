@@ -7068,6 +7068,18 @@ a.news--list .news-item__title:hover {
     margin-bottom: 0;
   }
 }
+.product__badge {
+  text-transform: uppercase;
+  color: #fff;
+  background: #d10a32;
+  padding: 7px 14px 2px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  display: inline-block;
+  top: -8px;
+  position: relative;
+  font-weight: bold;
+}
 .product .breadcrumbs {
   float: left;
   width: 100%;

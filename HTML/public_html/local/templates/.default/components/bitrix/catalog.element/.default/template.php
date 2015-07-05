@@ -141,6 +141,9 @@ endif;
 				<?=$arResult['BRANDS'][$props['BRAND']['VALUE']]?>
 			</h1>
 	      <?endif;?>
+	      <? if($arResult['PROPERTIES']['SHOWCASE']['VALUE'] == 'Y' && SITE_ID != 's1'):?>
+	    	<div class="product__badge">Витринный экземпляр</div>
+		  <? endif; ?>
 	      <?
 	        	global $arFilter;
 	        	$arFilter = array('PROPERTY_ARTNUMBER' => $props['ARTNUMBER']['VALUE']);
@@ -206,6 +209,7 @@ endif;
 					endif;
 				endif;
 	        ?>
+	      
 	      </div>
 	      <div class="col-sm-6 col-md-12 col-lg-6">
 	        <div class="props">
