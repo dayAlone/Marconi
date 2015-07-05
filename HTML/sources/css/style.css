@@ -7333,6 +7333,9 @@ a.news--list .news-item__title:hover {
 .product .props__item:hover {
   text-decoration: none;
 }
+.product .props__item--medium {
+  margin-top: 3px;
+}
 .product .props__item--medium .props__value {
   font-size: 15px;
   margin-top: -5px;
