@@ -11,9 +11,10 @@
 	$arResult['SECTIONS']   = array();
 	$arResult['IN_SET']     = false;
 	$arResult['SET']        = false;
+	$arResult['SET_IMAGES'] = array();
 	if(SITE_ID == 's2'):
 		$arResult['SET']        = CCatalogProductSet::isProductHaveSet($arResult['ID']);
-		$arResult['SET_IMAGES'] = array();
+		
 		
 		if($arResult['SET']):
 			$arSetItems = array_values(CCatalogProductSet::getAllSetsByProduct($arResult['ID'], CCatalogProductSet::TYPE_SET))[0];
@@ -48,7 +49,7 @@
 			endif;
 		endif;
 	endif;
-	
+
 	if(intval($arResult['MIN_PRICE']['VALUE']) == 0 || (isset($CITY['CLOSED']) && $arResult['PROPERTIES']['GENERAL']['VALUE'] != 'Y'))
 		$arResult['NOT_AVAILABLE'] = true;
 	else
