@@ -11,7 +11,7 @@ foreach ($arResult['SIZES'] as $i)
 	$remove[] = "/(\s(".$i.")|_".strtolower(str_replace(array(',', '.'), '_', $i)).")$/";
 $arResult['QUANTITY'] = 0;
 
-function basketItem($item, $arResult)
+function basketItem($item, $arResult, $showSale)
 {
 	?>
 	<div class="basket__item <?=($item['SMALL']?"basket__item--small":"")?>" data-id="<?=$item['ID']?>" data-discount="<?=$item['DISCOUNT_PRICE_PERCENT']?>">
@@ -128,11 +128,11 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			        	if(isset($arResult['SETS'][$item['PRODUCT_ID']])):?>
 			        	<div class="basket__set">
 			        	<?endif;
-			        	basketItem($item, $arResult);
+			        	basketItem($item, $arResult, $showSale);
 			        	if(isset($arResult['SETS'][$item['PRODUCT_ID']])):
 			    			foreach ($arResult['SETS'][$item['PRODUCT_ID']]['ITEMS'] as $key => $value) {
 			    				$value['SMALL'] = true;
-			    				basketItem($value, $arResult);
+			    				basketItem($value, $arResult, $showSale);
 			    			}
 			    			?>
 			        	</div>
