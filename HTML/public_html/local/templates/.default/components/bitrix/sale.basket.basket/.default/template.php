@@ -5,14 +5,16 @@ $arUrls = Array(
 	"delay" => $APPLICATION->GetCurPage()."?".$arParams["ACTION_VARIABLE"]."=delay&id=#ID#",
 	"add" => $APPLICATION->GetCurPage()."?".$arParams["ACTION_VARIABLE"]."=add&id=#ID#",
 );
-
+global $remove, $showSale;
 $remove = array();
 foreach ($arResult['SIZES'] as $i)
 	$remove[] = "/(\s(".$i.")|_".strtolower(str_replace(array(',', '.'), '_', $i)).")$/";
 $arResult['QUANTITY'] = 0;
 
-function basketItem($item, $arResult, $showSale)
+function basketItem($item, $arResult)
 {
+	global $remove, $showSale;
+	$section = $arResult['SECTIONS'][$item['CATALOG']['SECTION_ID'][0]];
 	?>
 	<div class="basket__item <?=($item['SMALL']?"basket__item--small":"")?>" data-id="<?=$item['ID']?>" data-discount="<?=$item['DISCOUNT_PRICE_PERCENT']?>">
       <div class="row">
@@ -123,16 +125,15 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			        <? 
 			        $sections = array();
 			        foreach($arResult['GRID']['ROWS'] as $item):
-			        	$section = $arResult['SECTIONS'][$item['CATALOG']['SECTION_ID'][0]];
 			        	$arResult['QUANTITY'] += $item['QUANTITY'];
 			        	if(isset($arResult['SETS'][$item['PRODUCT_ID']])):?>
 			        	<div class="basket__set">
 			        	<?endif;
-			        	basketItem($item, $arResult, $showSale);
+			        	basketItem($item, $arResult);
 			        	if(isset($arResult['SETS'][$item['PRODUCT_ID']])):
 			    			foreach ($arResult['SETS'][$item['PRODUCT_ID']]['ITEMS'] as $key => $value) {
 			    				$value['SMALL'] = true;
-			    				basketItem($value, $arResult, $showSale);
+			    				basketItem($value, $arResult);
 			    			}
 			    			?>
 			        	</div>
