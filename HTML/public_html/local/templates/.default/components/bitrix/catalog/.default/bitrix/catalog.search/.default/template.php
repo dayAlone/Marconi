@@ -38,6 +38,9 @@ $arElements = $APPLICATION->IncludeComponent(
 	),
 	$component
 );
+if(isset($_REQUEST['id'])):
+	$arElements = json_decode($_REQUEST['id']);
+endif;
 if (!empty($arElements) && is_array($arElements))
 {
 		global $searchFilter, $CITY;
@@ -46,7 +49,7 @@ if (!empty($arElements) && is_array($arElements))
 		);
 		if($CITY['CLOSED'] == 'Y' || SITE_ID != 's1') $searchFilter['=PROPERTY_GENERAL'] = "Y";
 		if(SITE_ID == 's1'):
-			//$searchFilter['=PROPERTY_COMING'] = false;
+			$searchFilter['=CATALOG_TYPE'] = 1;
 			$searchFilter[] = array(
 		        "LOGIC" => "OR",
 		        array("=PROPERTY_COMING" => false),
@@ -62,10 +65,10 @@ if (!empty($arElements) && is_array($arElements))
 			"HIDE_SIMMILAR"                   => $arParams['HIDE_SIMMILAR'],
 			"HIDE_MORE"                       => $arParams['HIDE_MORE'],
 			"SHOW_COUNT"                      => $arParams['SHOW_COUNT'],
-			"CLASS"              => "catalog--full-width".(SITE_ID == 's2'?" catalog--italbags":""),
-			"IBLOCK_TYPE"        => $arParams["IBLOCK_TYPE"],
-			"IBLOCK_ID"          => $arParams["IBLOCK_ID"],
-			"ELEMENT_SORT_FIELD" => $arParams["ELEMENT_SORT_FIELD"],
+			"CLASS"                           => "catalog--full-width".(SITE_ID == 's2'?" catalog--italbags":""),
+			"IBLOCK_TYPE"                     => $arParams["IBLOCK_TYPE"],
+			"IBLOCK_ID"                       => $arParams["IBLOCK_ID"],
+			"ELEMENT_SORT_FIELD"              => $arParams["ELEMENT_SORT_FIELD"],
 			"ELEMENT_SORT_ORDER"              => $arParams["ELEMENT_SORT_ORDER"],
 			"ELEMENT_SORT_FIELD2"             => $arParams["ELEMENT_SORT_FIELD2"],
 			"ELEMENT_SORT_ORDER2"             => $arParams["ELEMENT_SORT_ORDER2"],

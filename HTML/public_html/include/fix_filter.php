@@ -16,7 +16,7 @@ $arrFilter['!PROPERTY_MIN_PRICE'] = false;
 if($CITY['CLOSED'] == 'Y' || SITE_ID != 's1') $arrFilter['=PROPERTY_GENERAL'] = "Y";
 
 if($arResult['VARIABLES']['SECTION_CODE'] != 'coming'):
-	//$arrFilter['=PROPERTY_COMING'] = false;
+	$arrFilter['=CATALOG_TYPE'] = 1;
 	$arrFilter[] = array(
         "LOGIC" => "OR",
         array("=PROPERTY_COMING" => false),

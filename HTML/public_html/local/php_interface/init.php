@@ -15,8 +15,8 @@ function findCityByLocation($ID)
 {
 	CModule::IncludeModule("iblock");
 	$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'UF_LOCATION'=>$ID);
-	$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('ID', 'NAME', 'UF_PHONE', 'UF_CLOSED', 'UF_EMAIL'));
-	$item = $raw->Fetch();
+	$raw    = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('ID', 'NAME', 'UF_PHONE', 'UF_CLOSED', 'UF_EMAIL'));
+	$item   = $raw->Fetch();
 	return $item;
 }
 function isUserAccept($groups) {
@@ -57,7 +57,6 @@ function getOrderProps($ID) {
 	}
 	return $orderProps;
 }
-
 function getOrderDelivery($ID, $props) {
 	CModule::IncludeModule("sale");
 	CModule::IncludeModule("catalog");
@@ -106,7 +105,6 @@ function getOrderDelivery($ID, $props) {
 	return $str;
 }
 function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
-	
 	if($arTemplate['EVENT_NAME'] == 'SALE_NEW_ORDER'):
 		global $USER;
 		CModule::IncludeModule("sale");
@@ -131,8 +129,8 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 		while ($arItem = $dbBasketItems->Fetch()) {
 			$res = CIBlockElement::GetByID($arItem['PRODUCT_ID']);
 			if($ar_res = $res->GetNextElement()){
-				$fields = $ar_res->GetFields(); 
-				$arProps = $ar_res->GetProperties();
+				$fields    = $ar_res->GetFields(); 
+				$arProps   = $ar_res->GetProperties();
 				$arItems[] = array_merge($arItem, $fields, $arProps);
 			}
 		}
@@ -149,7 +147,6 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 					</tr>
 				</thead>
 				<tbody>';
-			
 			foreach ($arItems as $key => $arItem):
 				$small = CFile::ResizeImageGet(CFile::GetFileArray($arItem['PREVIEW_PICTURE']), Array("width" => 150, "height" => 150), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 				$str .= '<tr>
@@ -166,7 +163,6 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 						<td width="12%" style="border:1px solid #c2c4c6;border-collapse:collapse;"><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td>
 						</tr>';
 			endforeach;
-
 			$str .= '</tbody>
 				<tfooter>
 					<td colspan="2" style="font-size:12px;text-align:left;"><strong>Заказчик</strong>: '.$orderProps['NAME'].'
@@ -265,7 +261,6 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			$mail->msgHTML($arFields['ORDER_LIST']);
 			$mail->send();
 
-		
 		elseif($orderProps['EMAIL']):
 			$arFields['BCC'] .= ", ".$orderProps['EMAIL'];
 		endif;
@@ -276,7 +271,6 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 AddEventHandler("main", "OnAfterUserAdd", "OnAfterUsedAddHandler");
 AddEventHandler("main", "OnBeforeUserRegister", "OnBeforeUserAddHandler");
 AddEventHandler("main", "OnBeforeUserAdd", "OnBeforeUserAddHandler");
-
 AddEventHandler("main", "OnBeforeUserUpdate", "OnBeforeUserUpdateHandler");
 
 function OnBeforeUserUpdateHandler(&$arFields)
@@ -428,7 +422,6 @@ class CSaleGuestHandlers {
 			$arOrder = array();
 		}
 	}
-	
 }
 
 AddEventHandler("main", "OnEndBufferContent", "OnEndBufferContentHandler", 101);
@@ -516,6 +509,7 @@ function IBlockElementsMenu($IBLOCK_ID)
 		return $arNav;
 	}
 }
+
 function r_date($date = '') {
 
 	$date = strtotime($date);
@@ -559,6 +553,7 @@ function r_date($date = '') {
    		$str = strtr(date('d F Y', $date), $treplace);
    	return $str;
 }
+
 class CatalogStore
 {
    function GetIBlockPropertyDescription()

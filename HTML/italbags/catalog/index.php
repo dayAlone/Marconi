@@ -113,7 +113,7 @@ $APPLICATION->SetPageProperty('body_class', "catalog catalog--italbags ".(!isset
 		"LINK_IBLOCK_TYPE"                 => "",
 		"LINK_IBLOCK_ID"                   => "",
 		"LINK_PROPERTY_SID"                => "",
-		"LINK_ELEMENTS_URL"                => "link.php?PARENT_ELEMENT_ID=#ELEMENT_ID#",
+		"LINK_ELEMENTS_URL"                => "/catalog/#SECTION_CODE#/#ELEMENT_CODE#/",
 		"USE_ALSO_BUY"                     => "N",
 		"USE_STORE"                        => "N",
 		"PAGER_TEMPLATE"                   => ".default",
