@@ -5373,6 +5373,7 @@ a.news--list .news-item__title:hover {
 }
 .catalog__divider {
   width: 100%;
+  float: left;
   border-bottom: 2px solid #000;
   margin: 20px 0 20px;
 }
@@ -7052,6 +7053,11 @@ a.news--list .news-item__title:hover {
     margin-right: 15px;
   }
 }
+@media (min-width: 768px) {
+  .product__big-button--bigger {
+    font-size: 11px;
+  }
+}
 .product__big-button:hover {
   background: #d10a32;
   color: #fff;
@@ -7072,13 +7078,14 @@ a.news--list .news-item__title:hover {
   text-transform: uppercase;
   color: #fff;
   background: #d10a32;
-  padding: 7px 14px 2px;
-  font-size: 10px;
-  letter-spacing: 1px;
+  padding: 7px 10px 2px;
+  font-size: 11px;
   display: inline-block;
-  top: -8px;
+  top: -10px;
+  margin-top: 2px;
   position: relative;
   font-weight: bold;
+  text-align: center;
 }
 .product .breadcrumbs {
   float: left;

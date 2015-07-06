@@ -26,13 +26,11 @@
 				if data == 'success'
 					bx_cart_block1.refreshCart({})
 		if $(this).hasMod 'simmilar'
-
 			getSimmilar $(this), ->
 				fly $('.picture'), $('.header .simmilar')
-
 			e.preventDefault()
 
-		if $(this).parents('form').length == 0
+		if $(this).parents('form').length == 0 && !$(this).hasMod 'set'
 			e.preventDefault()
 	
 @initProduct = ->

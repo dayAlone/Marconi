@@ -8,7 +8,9 @@
 	$('.order__change').on 'click', (e)->
 		$('#register_user').iCheck('uncheck')
 		e.preventDefault()
-
+	$('.time-select .dropdown__item').on 'click', (e)->
+		$(this).block().find('input').val $(this).text()
+		
 	$('.stores-list .dropdown__item').on 'click', (e)->
 		$('.stores-list .parsley-errors-list').removeClass 'filled'
 		$(this).block('select').val $(this).block('select').find("option[data-id='#{$(this).data('id')}']").val()#.val $(this).data 'id'
