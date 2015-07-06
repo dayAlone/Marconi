@@ -8294,7 +8294,7 @@ a.news--list .news-item__title:hover {
   -moz-background-size: auto 50%;
   background-size: auto 50%;
 }
-.basket__item .basket__picture {
+.basket__item--small .basket__picture {
   height: 35px;
 }
 @media (min-width: 480px) {
@@ -8303,7 +8303,7 @@ a.news--list .news-item__title:hover {
     height: 0;
     margin-right: 0;
   }
-  .basket__item .basket__picture {
+  .basket__item--small .basket__picture {
     height: 0px;
   }
 }
@@ -8313,7 +8313,7 @@ a.news--list .news-item__title:hover {
     width: 90px;
     margin-right: 5px;
   }
-  .basket__item .basket__picture {
+  .basket__item--small .basket__picture {
     height: 60px;
   }
 }
@@ -8323,7 +8323,7 @@ a.news--list .news-item__title:hover {
     width: 120px;
     margin-right: 10px;
   }
-  .basket__item .basket__picture {
+  .basket__item--small .basket__picture {
     height: 90px;
   }
 }
