@@ -44,14 +44,14 @@ function basketItem($item, $arResult)
 				<?endif;?>
 			</div>
         </div>
-        <div class="col-md-<?=(SITE_ID=='s1'?"2":"1")?> visible-md visible-lg">
+        <div class="col-md-<?=(SITE_ID=='s1' || !$arResult['SHOW_TYPE']?"2":"1")?> visible-md visible-lg">
         	<span class="basket__artnumber">
         		<?=$item['PROPERTY_ARTNUMBER_VALUE']?> <?=(SITE_ID=='s2' && strlen($arResult['BRANDS'][$item['PROPERTY_BRAND_VALUE']]) > 0?$item['NAME']:"")?>
         	</span>
         </div>
-        <?if(SITE_ID=='s2'):?>
+        <?if(SITE_ID=='s2' && $arResult['SHOW_TYPE']):?>
         <div class="col-md-1 visible-md visible-lg">
-        	<?if(isset($item['TYPE'])):?>
+        	<?if(is_array($item['TYPE'])):?>
         	<span class="basket__section">
             	<a href="/catalog/<?=$item['TYPE']['CODE']?>/">
             		<?=$item['TYPE']['NAME']?>
@@ -60,29 +60,46 @@ function basketItem($item, $arResult)
         	<?endif;?>
         </div>
         <?endif;?>
-        <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>">
-        	<nobr>
-        		<strong class="sale" data-value="<?=$item['DISCOUNT_PRICE']?>">
-        			<?=number_format($item['FULL_PRICE'], 0, ' ', ' ')?> ₷
-        		</strong>
-        	</nobr>
-        </div>
-        <? if($showSale): ?>
-        <div class="col-xs-2 col-md-1">
-        	<strong class="sale-value"><?=round($item["DISCOUNT_PRICE_PERCENT_FORMATED"])?> %</strong>
-        </div>
+        <?if($arResult['SETS'][$item['PRODUCT_ID']]['TYPE'] != CCatalogProductSet::TYPE_GROUP):?>
+	        <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>">
+	        	<nobr>
+	        		<strong class="sale" data-value="<?=$item['DISCOUNT_PRICE']?>">
+	        			<?=number_format($item['FULL_PRICE'], 0, ' ', ' ')?> ₷
+	        		</strong>
+	        	</nobr>
+	        </div>
+	        <? if($showSale): ?>
+	        <div class="col-xs-2 col-md-1">
+	        	<strong class="sale-value"><?=round($item["DISCOUNT_PRICE_PERCENT_FORMATED"])?> %</strong>
+	        </div>
+			<?endif;?>
+	        <div class="col-xs-2 col-md-1"> 
+	          <input value="<?=$item['QUANTITY']?>" class="basket__count" data-id="<?=$item['ID']?>" data-price="<?=$item['PRICE']?>">
+	        </div>
+	        <div class="col-md-3">
+	        	<nobr>
+		        	<strong><span class="total">
+		        		<?=number_format($item['QUANTITY']*$item['PRICE'], 0, ' ', ' ')?></span> ₷</strong>
+					<a href="#" class="basket__delete" data-id="<?=$item['ID']?>">
+						<?=svg('close')?>
+					</a>
+				</nobr>
+	        </div>
+	    <?else:?>
+	    	<div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>"></div>
+	    	<? if($showSale): ?><div class="col-xs-2 col-md-1"></div><?endif;?>
+	    	<div class="col-xs-2 col-md-1"></div>
+	    	<div class="col-md-3">
+	        	<nobr>
+		        	<strong><span class="total">
+		        		<?=number_format($item['QUANTITY']*$item['PRICE'], 0, ' ', ' ')?></span> ₷</strong>
+					<a href="#" class="basket__delete" data-id="<?=$item['ID']?>">
+						<?=svg('close')?>
+					</a>
+				</nobr>
+	        </div>
 		<?endif;?>
-        <div class="col-xs-2 col-md-1"> 
-          <input value="<?=$item['QUANTITY']?>" class="basket__count" data-id="<?=$item['ID']?>" data-price="<?=$item['PRICE']?>">
-        </div>
-        <div class="col-md-3">
-        	<nobr>
-        	<strong><span class="total"><?=number_format($item['QUANTITY']*$item['PRICE'], 0, ' ', ' ')?></span> ₷</strong>
-			<a href="#" class="basket__delete" data-id="<?=$item['ID']?>">
-				<?=svg('close')?>
-			</a>
-			</nobr>
-        </div>
+
       </div>
     </div>
 	<?
@@ -99,7 +116,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 		}
 		?>
 	</div>
-	<form method="post" action="<?=POST_FORM_ACTION_URI?>" name="basket_form <?=($arResult['DISCOUNT_PRICE_ALL']==0?"basket--no-sale":".basket__frame--sale")?>" id="basket_form">
+	<form method="post" action="<?=POST_FORM_ACTION_URI?>" name="basket_form"  class="<?=(!$arResult['SHOW_TYPE']?"basket__frame--no-type":"")?> <?=($arResult['DISCOUNT_PRICE_ALL']==0?"basket--no-sale":"basket__frame--sale")?>" id="basket_form">
 		<div id="basket_form_container">
 			<div class="bx_ordercart">
 				<? 
@@ -112,8 +129,8 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			        <div class="basket__title">
 			          <div class="row">
 			            <div class="col-xs-4">Наименование</div>
-			            <div class="col-md-<?=(SITE_ID=='s1'?"2":"1")?> visible-md visible-lg">Артикул</div>
-			            <?if(SITE_ID=='s2'):?>
+			            <div class="col-md-<?=(SITE_ID=='s1' || !$arResult['SHOW_TYPE']?"2":"1")?> visible-md visible-lg">Артикул</div>
+			            <?if(SITE_ID=='s2' && $arResult['SHOW_TYPE']):?>
 			            <div class="col-md-1 visible-md visible-lg">Раздел</div>
 			            <?endif;?>
 			            <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>">Цена</div>

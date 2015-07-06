@@ -7930,7 +7930,10 @@ a.news--list .news-item__title:hover {
   }
   .s2 .basket__frame--no-sale .basket__title .col-xs-4,
   .s2 .basket__frame--no-sale .basket__item .col-xs-4,
-  .s2 .basket__frame--no-sale .basket__footer .col-xs-4 {
+  .s2 .basket__frame--no-sale .basket__footer .col-xs-4,
+  .s2 .basket__frame--no-type.basket__frame--sale .basket__title .col-xs-4,
+  .s2 .basket__frame--no-type.basket__frame--sale .basket__item .col-xs-4,
+  .s2 .basket__frame--no-type.basket__frame--sale .basket__footer .col-xs-4 {
     width: 33%;
   }
   .s1 .basket__frame--no-sale .basket__title .col-xs-4,
@@ -7963,11 +7966,26 @@ a.news--list .news-item__title:hover {
   .s2 .basket__footer .col-md-1 {
     width: 10.6%;
   }
+  .s2 .basket__frame--no-type.basket__frame--sale .basket__title .col-md-1,
+  .s2 .basket__frame--no-type.basket__frame--sale .basket__item .col-md-1,
+  .s2 .basket__frame--no-type.basket__frame--sale .basket__footer .col-md-1 {
+    width: 12.3%;
+  }
 }
 .basket__footer {
   text-transform: uppercase;
   border-top: 1px solid #000;
   margin-top: 10px;
+  -webkit-transition-property: margin-top;
+  -moz-transition-property: margin-top;
+  -o-transition-property: margin-top;
+  -ms-transition-property: margin-top;
+  transition-property: margin-top;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 @media (max-width: 480px) {
   .basket__footer .col-xs-1 {
@@ -7987,6 +8005,16 @@ a.news--list .news-item__title:hover {
     padding-top: 5px;
     margin-top: 5px;
   }
+}
+.basket__set {
+  border: 1px solid rgba(0,0,0,0.8);
+  padding-top: 5px;
+}
+.basket__set + .basket__set {
+  margin-top: 5px;
+}
+.basket__set + .basket__footer {
+  margin-top: -1px;
 }
 .basket__title {
   text-transform: uppercase;
@@ -8102,9 +8130,6 @@ a.news--list .news-item__title:hover {
   .basket__item .rubl {
     margin-right: 0;
   }
-}
-.basket__set {
-  border: 1px solid rgba(0,0,0,0.8);
 }
 .basket__artnumber {
   display: inline-block;

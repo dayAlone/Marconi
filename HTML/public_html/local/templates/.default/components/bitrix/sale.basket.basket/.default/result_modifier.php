@@ -14,7 +14,7 @@
   }
 
   $arIDs = array();
-  
+  $arResult['SHOW_TYPE'] = false;
   foreach($arResult['GRID']['ROWS'] as &$item) {
     $arIDs[$item['PRODUCT_ID']] = $item['ID'];
     $item['NAME'] = preg_replace("/\s\s/", "", str_replace(array($arResult['BRANDS'][$item['PROPERTY_BRAND_VALUE']], $item['PROPERTY_NOTE_SHORT_VALUE']), '', $item['NAME']));
@@ -22,6 +22,7 @@
   		$section = $arResult['SECTIONS'][$s];
   		if(in_array($section['CODE'], array('best-sellers', 'sale', 'sale30', 'latest', 'promotion'))):
   			$item['TYPE'] = array('CODE'=>$section['CODE'], 'NAME' => $section['NAME']);
+        if(!$arResult['SHOW_TYPE']) $arResult['SHOW_TYPE'] = true;
   		endif;
   	}
   }

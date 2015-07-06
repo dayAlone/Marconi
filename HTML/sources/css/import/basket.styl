@@ -128,8 +128,9 @@
 					width 51.2%
 			.col-xs-4
 				width 30%
-				.s2 .basket__frame--no-sale &
+				.s2 .basket__frame--no-sale &, .s2 .basket__frame--no-type.basket__frame--sale &
 					width 33%
+				
 				.s1 .basket__frame--no-sale &
 					width 34.6%
 			.col-md-3
@@ -142,10 +143,13 @@
 				width 12.333333333%
 				.s2 &
 					width 10.6%
+				.s2 .basket__frame--no-type.basket__frame--sale &
+					width 12.3%
 	&__footer
 		text-transform: uppercase
 		border-top 1px solid black
 		margin-top 10px
+		t margin-top
 		@media (max-width scr_xs)
 			.col-xs-1
 				display none
@@ -157,6 +161,13 @@
 		@media (min-width scr_xs)
 			padding-top 5px
 			margin-top 5px
+	&__set
+		border 1px solid alpha(black, .8)
+		padding-top 5px
+		& + &
+			margin-top 5px
+		& + .basket__footer
+			margin-top -1px
 	&__title
 		text-transform: uppercase
 		font-weight: bold
@@ -227,9 +238,6 @@
 				margin-right 20px
 			@media (min-width: scr_md)
 				margin-right 0
-	&__set
-		border 1px solid alpha(black, .8)
-	
 	&__artnumber
 		display inline-block
 		line-height 14px
