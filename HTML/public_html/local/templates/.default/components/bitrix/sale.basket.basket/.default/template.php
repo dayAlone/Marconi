@@ -6,12 +6,85 @@ $arUrls = Array(
 	"add" => $APPLICATION->GetCurPage()."?".$arParams["ACTION_VARIABLE"]."=add&id=#ID#",
 );
 
-$brands = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
-$sizes  = getHighloadElements('sizes', 'UF_XML_ID', 'UF_NAME');
 $remove = array();
-foreach ($sizes as $i)
+foreach ($arResult['SIZES'] as $i)
 	$remove[] = "/(\s(".$i.")|_".strtolower(str_replace(array(',', '.'), '_', $i)).")$/";
 $arResult['QUANTITY'] = 0;
+
+function basketItem($item, $arResult)
+{
+	?>
+	<div class="basket__item <?=($item['SMALL']?"basket__item--small":"")?>" data-id="<?=$item['ID']?>" data-discount="<?=$item['DISCOUNT_PRICE_PERCENT']?>">
+      <div class="row">
+        <div class="col-xs-4 left">
+        	<a href="/catalog/<?=$section['CODE']?>/<?=preg_replace($remove, '', $item['CATALOG']['CODE'])?>/"><div style="background-image: url(<?=($item['PREVIEW_PICTURE_SRC']?$item['PREVIEW_PICTURE_SRC']:'/layout/images/no-image.jpg')?>)" class="basket__picture <?=($item['PREVIEW_PICTURE_SRC']?'':'basket__picture--no-image')?>"></div></a>
+			<div class="basket__name">
+				<?if(strlen($item['PROPERTY_NOTE_SHORT_VALUE']) > 0):?>
+					<?=$item['PROPERTY_NOTE_SHORT_VALUE']?>
+					<br>
+				<?endif;?>
+				<?if(strlen($arResult['BRANDS'][$item['PROPERTY_BRAND_VALUE']]) > 0):?>
+					<span class='basket__brand'><?=$arResult['BRANDS'][$item['PROPERTY_BRAND_VALUE']]?></span><br>
+				<?else:?>
+					<span class='basket__brand'><?=$item['NAME']?></span><br>
+				<?endif;?>
+				<?if(SITE_ID=='s1' && strlen($arResult['BRANDS'][$item['PROPERTY_BRAND_VALUE']]) > 0):?>
+					<?=$item['NAME']?>
+				<?endif;
+				?>
+				<div class="hidden-md hidden-lg">
+        			<?=$item['PROPERTY_ARTNUMBER_VALUE']?> <?=(SITE_ID=='s2' && strlen($arResult['BRANDS'][$item['PROPERTY_BRAND_VALUE']]) > 0?$item['NAME']:"")?>
+				</div>
+				<?if(isset($arResult['SETS'][$item['PRODUCT_ID']])):?>
+					<div class="basket__badge">
+						<?=($arResult['SETS'][$item['PRODUCT_ID']]['TYPE'] == CCatalogProductSet::TYPE_GROUP ? "Разделяемый" : "Неразделяемый")?> комплект
+					</div>
+				<?endif;?>
+			</div>
+        </div>
+        <div class="col-md-<?=(SITE_ID=='s1'?"2":"1")?> visible-md visible-lg">
+        	<span class="basket__artnumber">
+        		<?=$item['PROPERTY_ARTNUMBER_VALUE']?> <?=(SITE_ID=='s2' && strlen($arResult['BRANDS'][$item['PROPERTY_BRAND_VALUE']]) > 0?$item['NAME']:"")?>
+        	</span>
+        </div>
+        <?if(SITE_ID=='s2'):?>
+        <div class="col-md-1 visible-md visible-lg">
+        	<?if(isset($item['TYPE'])):?>
+        	<span class="basket__section">
+            	<a href="/catalog/<?=$item['TYPE']['CODE']?>/">
+            		<?=$item['TYPE']['NAME']?>
+            	</a>
+        	</span>
+        	<?endif;?>
+        </div>
+        <?endif;?>
+        <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>">
+        	<nobr>
+        		<strong class="sale" data-value="<?=$item['DISCOUNT_PRICE']?>">
+        			<?=number_format($item['FULL_PRICE'], 0, ' ', ' ')?> ₷
+        		</strong>
+        	</nobr>
+        </div>
+        <? if($showSale): ?>
+        <div class="col-xs-2 col-md-1">
+        	<strong class="sale-value"><?=round($item["DISCOUNT_PRICE_PERCENT_FORMATED"])?> %</strong>
+        </div>
+		<?endif;?>
+        <div class="col-xs-2 col-md-1"> 
+          <input value="<?=$item['QUANTITY']?>" class="basket__count" data-id="<?=$item['ID']?>" data-price="<?=$item['PRICE']?>">
+        </div>
+        <div class="col-md-3">
+        	<nobr>
+        	<strong><span class="total"><?=number_format($item['QUANTITY']*$item['PRICE'], 0, ' ', ' ')?></span> ₷</strong>
+			<a href="#" class="basket__delete" data-id="<?=$item['ID']?>">
+				<?=svg('close')?>
+			</a>
+			</nobr>
+        </div>
+      </div>
+    </div>
+	<?
+}
 if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 {
 	?>
@@ -52,65 +125,19 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			        foreach($arResult['GRID']['ROWS'] as $item):
 			        	$section = $arResult['SECTIONS'][$item['CATALOG']['SECTION_ID'][0]];
 			        	$arResult['QUANTITY'] += $item['QUANTITY'];
-			        	$item['NAME'] = preg_replace("/\s\s/", "", str_replace(array($brands[$item['PROPERTY_BRAND_VALUE']], $item['PROPERTY_NOTE_SHORT_VALUE']), '', $item['NAME']));
-			        ?>
-			        <div class="basket__item" data-id="<?=$item['ID']?>" data-discount="<?=$item['DISCOUNT_PRICE_PERCENT']?>">
-			          <div class="row">
-			            <div class="col-xs-4 left">
-			            	<a href="/catalog/<?=$section['CODE']?>/<?=preg_replace($remove, '', $item['CATALOG']['CODE'])?>/"><div style="background-image: url(<?=($item['PREVIEW_PICTURE_SRC']?$item['PREVIEW_PICTURE_SRC']:'/layout/images/no-image.jpg')?>)" class="basket__picture <?=($item['PREVIEW_PICTURE_SRC']?'':'basket__picture--no-image')?>"></div></a>
-							<div class="basket__name">
-								<?=$item['PROPERTY_NOTE_SHORT_VALUE']?>
-								<br><span class='basket__brand'><?=$brands[$item['PROPERTY_BRAND_VALUE']]?></span><br>
-								<?if(SITE_ID=='s1'):?>
-									<?=$item['NAME']?>
-								<?endif;?>
-								<div class="hidden-md hidden-lg">
-			            			<?=$item['PROPERTY_ARTNUMBER_VALUE']?> <?=(SITE_ID=='s2'?$item['NAME']:"")?>
-								</div>
-							</div>
-			            </div>
-			            <div class="col-md-<?=(SITE_ID=='s1'?"2":"1")?> visible-md visible-lg">
-			            	<span class="basket__artnumber">
-			            		<?=$item['PROPERTY_ARTNUMBER_VALUE']?> <?=(SITE_ID=='s2'?$item['NAME']:"")?>
-			            	</span>
-			            </div>
-			            <?if(SITE_ID=='s2'):?>
-			            <div class="col-md-1 visible-md visible-lg">
-			            	<?if(isset($item['TYPE'])):?>
-			            	<span class="basket__section">
-				            	<a href="/catalog/<?=$item['TYPE']['CODE']?>/">
-				            		<?=$item['TYPE']['NAME']?>
-				            	</a>
-			            	</span>
-			            	<?endif;?>
-			            </div>
-			            <?endif;?>
-			            <div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>">
-			            	<nobr>
-			            		<strong class="sale" data-value="<?=$item['DISCOUNT_PRICE']?>">
-			            			<?=number_format($item['FULL_PRICE'], 0, ' ', ' ')?> ₷
-			            		</strong>
-			            	</nobr>
-			            </div>
-			            <? if($showSale): ?>
-			            <div class="col-xs-2 col-md-1">
-			            	<strong class="sale-value"><?=round($item["DISCOUNT_PRICE_PERCENT_FORMATED"])?> %</strong>
-			            </div>
-						<?endif;?>
-			            <div class="col-xs-2 col-md-1"> 
-			              <input value="<?=$item['QUANTITY']?>" class="basket__count" data-id="<?=$item['ID']?>" data-price="<?=$item['PRICE']?>">
-			            </div>
-			            <div class="col-md-3">
-			            	<nobr>
-			            	<strong><span class="total"><?=number_format($item['QUANTITY']*$item['PRICE'], 0, ' ', ' ')?></span> ₷</strong>
-							<a href="#" class="basket__delete" data-id="<?=$item['ID']?>">
-								<?=svg('close')?>
-							</a>
-							</nobr>
-			            </div>
-			          </div>
-			        </div>
-			    	<? endforeach;?>
+			        	if(isset($arResult['SETS'][$item['PRODUCT_ID']])):?>
+			        	<div class="basket__set">
+			        	<?endif;
+			        	basketItem($item, $arResult);
+			        	if(isset($arResult['SETS'][$item['PRODUCT_ID']])):
+			    			foreach ($arResult['SETS'][$item['PRODUCT_ID']]['ITEMS'] as $key => $value) {
+			    				$value['SMALL'] = true;
+			    				basketItem($value, $arResult);
+			    			}
+			    			?>
+			        	</div>
+			        	<?endif;
+				    endforeach;?>
 			        <div class="basket__footer">
 			          <div class="row">
 			          	<div class="basket__coupon-frame col-xs-6 col-md-7">
