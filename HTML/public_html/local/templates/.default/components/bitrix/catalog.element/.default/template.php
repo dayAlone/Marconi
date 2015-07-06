@@ -29,39 +29,39 @@ unset($currencyList, $templateLibrary);
 
 $strMainID = $this->GetEditAreaId($arResult['ID']);
 $arItemIDs = array(
-	'ID' => $strMainID,
-	'PICT' => $strMainID.'_pict',
-	'DISCOUNT_PICT_ID' => $strMainID.'_dsc_pict',
-	'STICKER_ID' => $strMainID.'_sticker',
-	'BIG_SLIDER_ID' => $strMainID.'_big_slider',
-	'BIG_IMG_CONT_ID' => $strMainID.'_bigimg_cont',
-	'SLIDER_CONT_ID' => $strMainID.'_slider_cont',
-	'SLIDER_LIST' => $strMainID.'_slider_list',
-	'SLIDER_LEFT' => $strMainID.'_slider_left',
-	'SLIDER_RIGHT' => $strMainID.'_slider_right',
-	'OLD_PRICE' => $strMainID.'_old_price',
-	'PRICE' => $strMainID.'_price',
-	'DISCOUNT_PRICE' => $strMainID.'_price_discount',
-	'SLIDER_CONT_OF_ID' => $strMainID.'_slider_cont_',
-	'SLIDER_LIST_OF_ID' => $strMainID.'_slider_list_',
-	'SLIDER_LEFT_OF_ID' => $strMainID.'_slider_left_',
+	'ID'                 => $strMainID,
+	'PICT'               => $strMainID.'_pict',
+	'DISCOUNT_PICT_ID'   => $strMainID.'_dsc_pict',
+	'STICKER_ID'         => $strMainID.'_sticker',
+	'BIG_SLIDER_ID'      => $strMainID.'_big_slider',
+	'BIG_IMG_CONT_ID'    => $strMainID.'_bigimg_cont',
+	'SLIDER_CONT_ID'     => $strMainID.'_slider_cont',
+	'SLIDER_LIST'        => $strMainID.'_slider_list',
+	'SLIDER_LEFT'        => $strMainID.'_slider_left',
+	'SLIDER_RIGHT'       => $strMainID.'_slider_right',
+	'OLD_PRICE'          => $strMainID.'_old_price',
+	'PRICE'              => $strMainID.'_price',
+	'DISCOUNT_PRICE'     => $strMainID.'_price_discount',
+	'SLIDER_CONT_OF_ID'  => $strMainID.'_slider_cont_',
+	'SLIDER_LIST_OF_ID'  => $strMainID.'_slider_list_',
+	'SLIDER_LEFT_OF_ID'  => $strMainID.'_slider_left_',
 	'SLIDER_RIGHT_OF_ID' => $strMainID.'_slider_right_',
-	'QUANTITY' => $strMainID.'_quantity',
-	'QUANTITY_DOWN' => $strMainID.'_quant_down',
-	'QUANTITY_UP' => $strMainID.'_quant_up',
-	'QUANTITY_MEASURE' => $strMainID.'_quant_measure',
-	'QUANTITY_LIMIT' => $strMainID.'_quant_limit',
-	'BASIS_PRICE' => $strMainID.'_basis_price',
-	'BUY_LINK' => $strMainID.'_buy_link',
-	'ADD_BASKET_LINK' => $strMainID.'_add_basket_link',
-	'BASKET_ACTIONS' => $strMainID.'_basket_actions',
+	'QUANTITY'           => $strMainID.'_quantity',
+	'QUANTITY_DOWN'      => $strMainID.'_quant_down',
+	'QUANTITY_UP'        => $strMainID.'_quant_up',
+	'QUANTITY_MEASURE'   => $strMainID.'_quant_measure',
+	'QUANTITY_LIMIT'     => $strMainID.'_quant_limit',
+	'BASIS_PRICE'        => $strMainID.'_basis_price',
+	'BUY_LINK'           => $strMainID.'_buy_link',
+	'ADD_BASKET_LINK'    => $strMainID.'_add_basket_link',
+	'BASKET_ACTIONS'     => $strMainID.'_basket_actions',
 	'NOT_AVAILABLE_MESS' => $strMainID.'_not_avail',
-	'COMPARE_LINK' => $strMainID.'_compare_link',
-	'PROP' => $strMainID.'_prop_',
-	'PROP_DIV' => $strMainID.'_skudiv',
-	'DISPLAY_PROP_DIV' => $strMainID.'_sku_prop',
-	'OFFER_GROUP' => $strMainID.'_set_group_',
-	'BASKET_PROP_DIV' => $strMainID.'_basket_prop',
+	'COMPARE_LINK'       => $strMainID.'_compare_link',
+	'PROP'               => $strMainID.'_prop_',
+	'PROP_DIV'           => $strMainID.'_skudiv',
+	'DISPLAY_PROP_DIV'   => $strMainID.'_sku_prop',
+	'OFFER_GROUP'        => $strMainID.'_set_group_',
+	'BASKET_PROP_DIV'    => $strMainID.'_basket_prop',
 );
 $strObName = 'ob'.preg_replace("/[^a-zA-Z0-9_]/", "x", $strMainID);
 $templateData['JS_OBJ'] = $strObName;
@@ -130,19 +130,38 @@ endif;
 	    <div class="row">
 	      <div class="col-sm-6 col-md-12 col-lg-6">
 	      <?if(SITE_ID == 's1'):?>
-	      	<span class="product__type"><?=$arResult['PROPERTIES']['NOTE_SHORT']['VALUE']?></span>
+	      	<?if(strlen($arResult['PROPERTIES']['NOTE_SHORT']['VALUE']) > 0):?>
+	      		<span class="product__type"><?=$arResult['PROPERTIES']['NOTE_SHORT']['VALUE']?></span>
+	      	<?endif;?>
 	        <h1 class="product__title">
+	        	<?if(strlen($arResult['PROPERTIES']['NOTE_SHORT']['VALUE']) > 0):?>
 	        	<?=str_replace($arResult['BRANDS'][$props['BRAND']['VALUE']], $arResult['BRANDS'][$props['BRAND']['VALUE']]. " " . $arResult['PROPERTIES']['ARTNUMBER']['VALUE'], str_replace($arResult['PROPERTIES']['NOTE_SHORT']['VALUE'], '', $arResult['NAME']))?>
+	        	<?else:?>
+	        		<?=$arResult['NAME']?>
+	        	<?endif;?>
 	        </h1>
 	      <?else:
 	      	?>
 			<h1 class="product__title no-margin-top">
-				<?=$arResult['PROPERTIES']['NOTE_SHORT']['VALUE']?>
-				<?=$arResult['BRANDS'][$props['BRAND']['VALUE']]?>
+				<?if(strlen($arResult['PROPERTIES']['NOTE_SHORT']['VALUE']) > 0):?>
+					<?=$arResult['PROPERTIES']['NOTE_SHORT']['VALUE']?>
+					<?=$arResult['BRANDS'][$props['BRAND']['VALUE']]?>
+				<?else:?>
+	        		<?=$arResult['NAME']?>
+	        	<?endif;?>
 			</h1>
 	      <?endif;?>
-	      <? if($arResult['PROPERTIES']['SHOWCASE']['VALUE'] == 'Y' && SITE_ID != 's1'):?>
-	    	<div class="product__badge">Витринный экземпляр</div>
+	      <?if(SITE_ID != 's1'):?>
+		      <? if($arResult['PROPERTIES']['SHOWCASE']['VALUE'] == 'Y'):?>
+		      	<div class="product__badge">Витринный экземпляр</div>
+		      <? endif; ?>  	
+			  <?if($arResult['SET']):?>
+		    	<div class="product__badge">Неразделимый комплект</div>
+			  <? endif; ?>
+			  <?if($arResult['IN_SET']):?>
+		    	<div class="product__badge">В составе неразделимого комплекта</div>
+		    	<a href="<?=(count($arResult['SETS']) == 1 ? array_values($arResult['SETS'])[0]['URL']:"/catalog/?q=+&id=".json_encode(array_keys($arResult['SETS'])))?>" class="product__big-button product__big-button--border product__big-button--bigger product__big-button--set">Посмотреть комплект</a>
+			  <? endif; ?>
 		  <? endif; ?>
 	      <?
 	        	global $arFilter;
@@ -306,7 +325,7 @@ endif;
 			  <?
 				if(SITE_ID == 's1' || isUserAccept()):
 				    $frame = $this->createFrame()->begin();
-					if(!$arResult['NOT_AVAILABLE']): 
+					if(!$arResult['NOT_AVAILABLE'] && !$arResult['IN_SET']): 
 
 						if(SITE_ID != 's1'):
 							?><div class="product__counter <?=($inCart?"product__counter--disabled":"")?>">
@@ -500,8 +519,110 @@ else
 	}
 	unset($emptyProductProperties);
 }
-
-
+global $setFilter;
+if(count($setFilter) > 0):
+?>
+<div data-title="Состав комплекта" class="catalog__divider catalog__divider--title"></div>
+<div class="catalog catalog--full-width catalog--one-line <?=(SITE_ID!='s1'?"catalog--italbags":"")?>">
+<?
+	$APPLICATION->IncludeComponent(
+		"bitrix:catalog.section",
+		"",
+		array(
+			"HIDE_PRICE"                      => $arParams['HIDE_PRICE'],
+			"HIDE_SIMMILAR"                   => $arParams['HIDE_SIMMILAR'],
+			"HIDE_MORE"                       => $arParams['HIDE_MORE'],
+			"SHOW_COUNT"                      => $arParams['SHOW_COUNT'],
+			'HIDE_TOOLBAR'                    => "Y",
+			"IBLOCK_TYPE"                     => $arParams["IBLOCK_TYPE"],
+			"IBLOCK_ID"                       => $arParams["IBLOCK_ID"],
+			"ELEMENT_SORT_FIELD"              => 'RAND',
+			"SECTION_ID"                      => "",
+			"SECTION_CODE"                    => "all",
+			"ELEMENT_SORT_ORDER"              => $arParams["ELEMENT_SORT_ORDER"],
+			"ELEMENT_SORT_FIELD2"             => $arParams["ELEMENT_SORT_FIELD2"],
+			"ELEMENT_SORT_ORDER2"             => $arParams["ELEMENT_SORT_ORDER2"],
+			"PROPERTY_CODE"                   => $arParams["LIST_PROPERTY_CODE"],
+			"META_KEYWORDS"                   => $arParams["LIST_META_KEYWORDS"],
+			"META_DESCRIPTION"                => $arParams["LIST_META_DESCRIPTION"],
+			"BROWSER_TITLE"                   => $arParams["LIST_BROWSER_TITLE"],
+			"INCLUDE_SUBSECTIONS"             => $arParams["INCLUDE_SUBSECTIONS"],
+			"BASKET_URL"                      => $arParams["BASKET_URL"],
+			"ACTION_VARIABLE"                 => $arParams["ACTION_VARIABLE"],
+			"PRODUCT_ID_VARIABLE"             => $arParams["PRODUCT_ID_VARIABLE"],
+			"SECTION_ID_VARIABLE"             => $arParams["SECTION_ID_VARIABLE"],
+			"PRODUCT_QUANTITY_VARIABLE"       => $arParams["PRODUCT_QUANTITY_VARIABLE"],
+			"PRODUCT_PROPS_VARIABLE"          => $arParams["PRODUCT_PROPS_VARIABLE"],
+			"FILTER_NAME"                     => 'setFilter',
+			"CACHE_TYPE"                      => $arParams["CACHE_TYPE"],
+			"CACHE_TIME"                      => $arParams["CACHE_TIME"],
+			"CACHE_FILTER"                    => $arParams["CACHE_FILTER"],
+			"CACHE_GROUPS"                    => $arParams["CACHE_GROUPS"],
+			"SET_TITLE"                       => "N",
+			"SET_STATUS_404"                  => $arParams["SET_STATUS_404"],
+			"DISPLAY_COMPARE"                 => $arParams["USE_COMPARE"],
+			"PAGE_ELEMENT_COUNT"              => 5,
+			"LINE_ELEMENT_COUNT"              => $arParams["LINE_ELEMENT_COUNT"],
+			"PRICE_CODE"                      => $arParams["PRICE_CODE"],
+			"USE_PRICE_COUNT"                 => $arParams["USE_PRICE_COUNT"],
+			"SHOW_PRICE_COUNT"                => $arParams["SHOW_PRICE_COUNT"],
+			
+			"PRICE_VAT_INCLUDE"               => $arParams["PRICE_VAT_INCLUDE"],
+			"USE_PRODUCT_QUANTITY"            => $arParams['USE_PRODUCT_QUANTITY'],
+			"ADD_PROPERTIES_TO_BASKET"        => (isset($arParams["ADD_PROPERTIES_TO_BASKET"]) ? $arParams["ADD_PROPERTIES_TO_BASKET"] : ''),
+			"PARTIAL_PRODUCT_PROPERTIES"      => (isset($arParams["PARTIAL_PRODUCT_PROPERTIES"]) ? $arParams["PARTIAL_PRODUCT_PROPERTIES"] : ''),
+			"PRODUCT_PROPERTIES"              => $arParams["PRODUCT_PROPERTIES"],
+			
+			"DISPLAY_TOP_PAGER"               => $arParams["DISPLAY_TOP_PAGER"],
+			"DISPLAY_BOTTOM_PAGER"            => $arParams["DISPLAY_BOTTOM_PAGER"],
+			"PAGER_TITLE"                     => $arParams["PAGER_TITLE"],
+			"PAGER_SHOW_ALWAYS"               => $arParams["PAGER_SHOW_ALWAYS"],
+			"PAGER_TEMPLATE"                  => $arParams["PAGER_TEMPLATE"],
+			"PAGER_DESC_NUMBERING"            => $arParams["PAGER_DESC_NUMBERING"],
+			"PAGER_DESC_NUMBERING_CACHE_TIME" => $arParams["PAGER_DESC_NUMBERING_CACHE_TIME"],
+			"PAGER_SHOW_ALL"                  => $arParams["PAGER_SHOW_ALL"],
+			
+			"OFFERS_CART_PROPERTIES"          => $arParams["OFFERS_CART_PROPERTIES"],
+			"OFFERS_FIELD_CODE"               => $arParams["LIST_OFFERS_FIELD_CODE"],
+			"OFFERS_PROPERTY_CODE"            => $arParams["LIST_OFFERS_PROPERTY_CODE"],
+			"OFFERS_SORT_FIELD"               => $arParams["OFFERS_SORT_FIELD"],
+			"OFFERS_SORT_ORDER"               => $arParams["OFFERS_SORT_ORDER"],
+			"OFFERS_SORT_FIELD2"              => $arParams["OFFERS_SORT_FIELD2"],
+			"OFFERS_SORT_ORDER2"              => $arParams["OFFERS_SORT_ORDER2"],
+			"OFFERS_LIMIT"                    => $arParams["LIST_OFFERS_LIMIT"],
+			
+			
+			"SECTION_URL"                     => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
+			"DETAIL_URL"                      => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["element"],
+			'CONVERT_CURRENCY'                => $arParams['CONVERT_CURRENCY'],
+			'CURRENCY_ID'                     => $arParams['CURRENCY_ID'],
+			'HIDE_NOT_AVAILABLE'              => $arParams["HIDE_NOT_AVAILABLE"],
+			
+			'LABEL_PROP'                      => $arParams['LABEL_PROP'],
+			'ADD_PICT_PROP'                   => $arParams['ADD_PICT_PROP'],
+			'PRODUCT_DISPLAY_MODE'            => $arParams['PRODUCT_DISPLAY_MODE'],
+			
+			'OFFER_ADD_PICT_PROP'             => $arParams['OFFER_ADD_PICT_PROP'],
+			'OFFER_TREE_PROPS'                => $arParams['OFFER_TREE_PROPS'],
+			'PRODUCT_SUBSCRIPTION'            => $arParams['PRODUCT_SUBSCRIPTION'],
+			'SHOW_DISCOUNT_PERCENT'           => $arParams['SHOW_DISCOUNT_PERCENT'],
+			'SHOW_OLD_PRICE'                  => $arParams['SHOW_OLD_PRICE'],
+			'MESS_BTN_BUY'                    => $arParams['MESS_BTN_BUY'],
+			'MESS_BTN_ADD_TO_BASKET'          => $arParams['MESS_BTN_ADD_TO_BASKET'],
+			'MESS_BTN_SUBSCRIBE'              => $arParams['MESS_BTN_SUBSCRIBE'],
+			'MESS_BTN_DETAIL'                 => $arParams['MESS_BTN_DETAIL'],
+			'MESS_NOT_AVAILABLE'              => $arParams['MESS_NOT_AVAILABLE'],
+			
+			'TEMPLATE_THEME'                  => (isset($arParams['TEMPLATE_THEME']) ? $arParams['TEMPLATE_THEME'] : ''),
+			"ADD_SECTIONS_CHAIN"              => "N",
+			'ADD_TO_BASKET_ACTION'            => $basketAction,
+			'SHOW_CLOSE_POPUP'                => isset($arParams['COMMON_SHOW_CLOSE_POPUP']) ? $arParams['COMMON_SHOW_CLOSE_POPUP'] : '',
+			'COMPARE_PATH'                    => $arResult['FOLDER'].$arResult['URL_TEMPLATES']['compare']
+		)
+	);
+?>
+</div>
+<?endif;
 
 $this->SetViewTarget('footer');
 ?>
