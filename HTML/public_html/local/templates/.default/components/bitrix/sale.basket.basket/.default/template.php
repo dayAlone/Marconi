@@ -142,7 +142,6 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			        <? 
 			        $sections = array();
 			        foreach($arResult['GRID']['ROWS'] as $item):
-			        	$arResult['QUANTITY'] += $item['QUANTITY'];
 			        	if(isset($arResult['SETS'][$item['PRODUCT_ID']])):?>
 			        	<div class="basket__set">
 			        	<?endif;
@@ -151,10 +150,14 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			    			foreach ($arResult['SETS'][$item['PRODUCT_ID']]['ITEMS'] as $key => $value) {
 			    				$value['SMALL'] = true;
 			    				basketItem($value, $arResult);
+			    				$arResult['QUANTITY'] += $value['QUANTITY'];
 			    			}
 			    			?>
 			        	</div>
-			        	<?endif;
+			        	<?
+			        	else:
+			        		$arResult['QUANTITY'] += $item['QUANTITY'];
+			        	endif;
 				    endforeach;?>
 			        <div class="basket__footer">
 			          <div class="row">

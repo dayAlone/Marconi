@@ -122,6 +122,8 @@
 				.s2 &
 					margin-left: 9.1%
 					width 12%
+				.s2 .basket__frame--no-type.basket__frame--sale &
+					margin-left 7.1%
 			.col-md-7
 				width: 55.3333333340%
 				.s2 &
@@ -289,6 +291,11 @@
 			height 30px
 			line-height 31px
 			width 60px
+		.basket__item--small &
+			@media (min-width: scr_sm)
+				height 25px
+				line-height 26px
+				width 45px
 	&__coupon-frame
 		@media (max-width: scr_xs)
 			display none
@@ -337,12 +344,17 @@
 		@media (min-width: scr_sm)
 			font-size 12px
 			line-height 20px
+			.basket__item--small &
+				font-size 11px
+				line-height 17px
 	&__brand
 		font-weight: bold
 		font-size 12px
 		color black
 		@media (min-width: scr_sm)
 			font-size 14px
+			.basket__item--small &
+				font-size 13px
 	&__picture
 		background-size auto 90%
 		background-repeat no-repeat
@@ -356,6 +368,9 @@
 		margin-right 5px
 		.basket__item--small &
 			height 35px
+			background-size auto 70%
+			max-width 70%
+			float: right
 		@media (min-width scr_xs)
 			width 0
 			height 0

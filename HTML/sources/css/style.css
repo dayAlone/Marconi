@@ -7913,6 +7913,11 @@ a.news--list .news-item__title:hover {
     margin-left: 9.1%;
     width: 12%;
   }
+  .s2 .basket__frame--no-type.basket__frame--sale .basket__title .col-md-offset-1,
+  .s2 .basket__frame--no-type.basket__frame--sale .basket__item .col-md-offset-1,
+  .s2 .basket__frame--no-type.basket__frame--sale .basket__footer .col-md-offset-1 {
+    margin-left: 7.1%;
+  }
   .basket__title .col-md-7,
   .basket__item .col-md-7,
   .basket__footer .col-md-7 {
@@ -8207,6 +8212,15 @@ a.news--list .news-item__title:hover {
     width: 60px;
   }
 }
+@media (min-width: 768px) {
+  .basket__item--small .basket__coupon-trigger,
+  .basket__item--small .basket__coupon,
+  .basket__item--small .basket__count {
+    height: 25px;
+    line-height: 26px;
+    width: 45px;
+  }
+}
 @media (max-width: 480px) {
   .basket__coupon-frame {
     display: none;
@@ -8289,6 +8303,10 @@ a.news--list .news-item__title:hover {
     font-size: 12px;
     line-height: 20px;
   }
+  .basket__item--small .basket__name {
+    font-size: 11px;
+    line-height: 17px;
+  }
 }
 .basket__brand {
   font-weight: bold;
@@ -8298,6 +8316,9 @@ a.news--list .news-item__title:hover {
 @media (min-width: 768px) {
   .basket__brand {
     font-size: 14px;
+  }
+  .basket__item--small .basket__brand {
+    font-size: 13px;
   }
 }
 .basket__picture {
@@ -8319,6 +8340,11 @@ a.news--list .news-item__title:hover {
 }
 .basket__item--small .basket__picture {
   height: 35px;
+  -webkit-background-size: auto 70%;
+  -moz-background-size: auto 70%;
+  background-size: auto 70%;
+  max-width: 70%;
+  float: right;
 }
 @media (min-width: 480px) {
   .basket__picture {
