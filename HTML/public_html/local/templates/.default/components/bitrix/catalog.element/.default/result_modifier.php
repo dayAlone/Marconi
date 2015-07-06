@@ -9,42 +9,50 @@
 	$arResult['TRADELINES'] = getHighloadElements('tradeline', 'UF_XML_ID', 'UF_NAME');
 	$arResult['CATEGORIES'] = getHighloadElements('categories', 'UF_XML_ID', 'ID');
 	$arResult['SECTIONS']   = array();
-	$arResult['IN_SET']     = false;
 	$arResult['SET']        = false;
-	$arResult['SET_IMAGES'] = array();
+	
 	if(SITE_ID == 's2'):
-		$arResult['SET']        = CCatalogProductSet::isProductHaveSet($arResult['ID']);
-		
-		
-		if($arResult['SET']):
-			$arSetItems = array_values(CCatalogProductSet::getAllSetsByProduct($arResult['ID'], CCatalogProductSet::TYPE_SET))[0];
-			$arResult['SET_IDs'] = array();
-			$arResult['SET_ITEMS'] = array();
-			foreach ($arSetItems['ITEMS'] as $item) {
-				$arResult['SET_IDs'][] = $item['ITEM_ID'];
-			}
-			$arSelect = Array("ID", "PREVIEW_PICTURE");
-			$arFilter = Array('CHECK_PERMISSIONS' => 'N', 'ID' => $arResult['SET_IDs']);
-			$res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
-			while ($arItem = $res->Fetch()) {
-				$arResult['SET_ITEMS'][] = $arItem;
-				$arResult['SET_IMAGES'][] = $arItem['PREVIEW_PICTURE'];
-			}
-			global $setFilter;
-			$setFilter = array('=ID' => $arResult['SET_IDs']);
+		if(CCatalogProductSet::isProductHaveSet($arResult['ID'])):
+			$arResult['SET'] = array('TYPE' => false);
+			$raw = array_values(CCatalogProductSet::getAllSetsByProduct($arResult['ID'], CCatalogProductSet::TYPE_SET));
+			if(count($raw) > 0):
+				$arResult['SET']['TYPE'] = CCatalogProductSet::TYPE_SET;
+			elseif($raw = array_values(CCatalogProductSet::getAllSetsByProduct($arResult['ID'], CCatalogProductSet::TYPE_GROUP))):
+				$arResult['SET']['TYPE'] = CCatalogProductSet::TYPE_GROUP;
+			endif;
+			if(count($raw[0]['ITEMS']) > 0):
+				$arResult['SET']['ITEMS'] = array();
+				$arResult['SET']['IMAGES'] = array();
+				foreach ($raw[0]['ITEMS'] as $item) {
+					$arResult['SET']['ITEMS'][$item['ITEM_ID']] = $item;
+				}
+				$res = CIBlockElement::GetList(Array(), array('ID' => array_keys($arResult['SET']['ITEMS'])), false, false, Array("PREVIEW_PICTURE"));
+				while ($arItem = $res->Fetch()) {
+					$arResult['SET']['ITEMS'][$arItem['ID']] = array_merge($arResult['SET']['ITEMS'][$arItem['ID']], $arItem);
+					$arResult['SET']['IMAGES'][] = $arItem['PREVIEW_PICTURE'];
+				}
+			else:
+				$arResult['SET'] = false;
+			endif;
 		else:
-			$arResult['IN_SET'] = CCatalogProductSet::isProductInSet($arResult['ID']);
-			if($arResult['IN_SET']):
-				$arResult['SETS'] = array();
+			if(CCatalogProductSet::isProductInSet($arResult['ID'])):
+				$arResult['SET'] = array('IN_SET' => true, 'ITEMS' => array());
+
 				$raw = CCatalogProductSet::getList(array('ID'=>'DESC'), array('ITEM_ID' => $arResult['ID']));
 				while($set = $raw->Fetch()):
-					$arResult['SETS'][$set['OWNER_ID']] = array('ID' => $set['OWNER_ID']);
+					$arResult['SET']['ITEMS'][$set['OWNER_ID']] = array('ID' => $set['OWNER_ID'], 'TYPE'=>$set['TYPE']);
 				endwhile;
-				$arSelect = Array("ID", "DETAIL_PAGE_URL");
-				$arFilter = Array("IBLOCK_ID" => $id, 'CHECK_PERMISSIONS' => 'N', 'ID' => array_keys($arResult['SETS']));
-				$res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
+
+				foreach ($arResult['SET']['ITEMS'] as $set)
+					if($set['TYPE'] == CCatalogProductSet::TYPE_SET)
+						$arResult['SET']['TYPE'] = $arResult['SET'];
+
+				if(!isset($arResult['SET']['TYPE']))
+					$arResult['SET']['TYPE'] = CCatalogProductSet::TYPE_GROUP;
+
+				$res = CIBlockElement::GetList(Array(), array('ID' => array_keys($arResult['SET']['ITEMS'])), false, false, array("DETAIL_PAGE_URL"));
 				while ($arItem = $res->GetNext()) {
-					$arResult['SETS'][$arItem['ID']]['URL'] = $arItem["DETAIL_PAGE_URL"];
+					$arResult['SET']['ITEMS'][$arItem['ID']]['URL'] = $arItem["DETAIL_PAGE_URL"];
 				}
 			endif;
 		endif;
@@ -77,7 +85,7 @@
 			'@ID'=> implode(
 						array_merge(
 							$arResult['PROPERTIES']['PICTURES']['VALUE'], 
-							$arResult['SET_IMAGES']
+							(count($arResult['SET']['IMAGES'])>0?$arResult['SET']['IMAGES']:array())
 							),','))
 		);
 	while($img = $raw->Fetch()):

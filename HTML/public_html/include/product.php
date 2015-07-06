@@ -12,10 +12,15 @@ $props = &$item['PROPERTIES'];
 	    </a>
 	    <div class="product__content-text">
 		    <?
-		    if(strlen($props['BRAND']['VALUE'])>0):?>
-		    	<div class="product__type">
-		    	<?=str_replace($arResult['BRANDS'][$props['BRAND']['VALUE']], '</div><div class="product__brand">'.$arResult['BRANDS'][$props['BRAND']['VALUE']].'</div><div class="product__name">', $item['NAME'])?>
-		    	</div>
+		    if(strlen($props['BRAND']['VALUE'])>0):
+		    	if(strstr($item['NAME'], $arResult['BRANDS'][$props['BRAND']['VALUE']])):?>
+			    	<div class="product__type">
+			    	<?=str_replace($arResult['BRANDS'][$props['BRAND']['VALUE']], '</div><div class="product__brand">'.$arResult['BRANDS'][$props['BRAND']['VALUE']].'</div><div class="product__name">', $item['NAME'])?>
+			    	</div>
+			    <? else: ?>
+			    	<div class="product__type"><?=$item['NAME']?></div>
+			    	<div class="product__brand"><?=$arResult['BRANDS'][$props['BRAND']['VALUE']]?></div>
+		    	<?endif;?>
 		    <? else: ?>
 				<div class="product__brand"><?=$item['NAME']?></div>
 		    <?endif;?>
@@ -67,8 +72,8 @@ $props = &$item['PROPERTIES'];
 	      <a href="#" class="product__icon product__icon--zoom" data-pictures='<?=json_encode($props['PICTURES']['VALUE'])?>'><?=svg('zoom')?></a>
 	    <?endif;?>
 	    
-	    <?if(isset($item['PRICE']) && $arParams['SHOW_PRICE']):?>
-	    <a href="#" class="product__icon product__icon--cart <?=(count($item['OFFERS'])>0?"product__icon--trigger":"")?>" data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>"><?=svg('cart')?></a>
+	    <?if(isset($item['PRICE']) && $arParams['SHOW_PRICE'] && !(in_array($item['ID'], $arResult['SETS']['LOCKED']) && SITE_ID != 's1')):?>
+	    	<a href="#" class="product__icon product__icon--cart <?=(count($item['OFFERS'])>0?"product__icon--trigger":"")?>" data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>"><?=svg('cart')?></a>
 	    <?endif;?>
 	    <?
 	    if($arParams['HIDE_MORE'] != "Y"):?>
@@ -77,7 +82,7 @@ $props = &$item['PROPERTIES'];
 	    <?if($arParams['HIDE_SIMMILAR'] != "Y"):?>
 	    	<a href="#" data-id="<?=$item['ID']?>" class="product__button product__button--simmilar"><?=($arParams['COMPARE_TEXT']?$arParams['COMPARE_TEXT']:"Сравнить")?></a>
 	    <?endif;?>
-	    <?if($arParams['SHOW_COUNT'] == "Y" && $arParams['SHOW_PRICE']):?>
+	    <?if($arParams['SHOW_COUNT'] == "Y" && $arParams['SHOW_PRICE'] && !(in_array($item['ID'], $arResult['SETS']['LOCKED']) && SITE_ID != 's1')):?>
 	    	<div class="product__counter">
 	    		<a href="#" class="product__counter-trigger product__counter-trigger--minus">-</a>
 	    		<input type="text" class="product__counter-input" value="1">

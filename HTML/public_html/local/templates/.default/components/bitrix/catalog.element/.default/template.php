@@ -80,6 +80,7 @@ if(SITE_ID == 's1'):
 			$data = getFilterStringValues($category['ID'], $item['SECTION']['PATH'][0]['ID']);
 		?>
 		</nobr>
+		<?if($data):?>
 		<nobr>
 		<span>&rsaquo;</span>
 		<a href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/?<?=$data?>&set_filter=Y"><?=$category['NAME']?></a>
@@ -88,6 +89,7 @@ if(SITE_ID == 's1'):
 		<span>&rsaquo;</span>
 		<a href="/catalog/<?=$item['SECTION']['PATH'][0]['CODE']?>/?arrFilter_<?=$category['ID']?>_<?=abs(crc32($category['VALUE']))?>=Y&set_filter=Y"><?=$arResult['TYPES'][$category['VALUE']]?></a>
 		</nobr>
+		<?endif;?>
 	</div>
 	<?
 	$this->EndViewTarget();
@@ -156,12 +158,16 @@ endif;
 		      	<div class="product__badge">Витринный экземпляр</div>
 		      <? endif; ?>  	
 			  <?if($arResult['SET']):?>
-		    	<div class="product__badge">Неразделимый комплект</div>
+			  	<?if($arResult['SET']['IN_SET']):?>
+			    	<div class="product__badge">В составе <?=($arResult['SET']['TYPE'] == CCatalogProductSet::TYPE_GROUP ? "разделяемого" : "неразделяемого")?> комплекта</div>
+			    	<a href="<?=(count($arResult['SET']['ITEMS']) == 1 ? array_values($arResult['SET']['ITEMS'])[0]['URL']:"/catalog/?q=+&id=".json_encode(array_keys($arResult['SET']['ITEMS'])))?>" class="product__big-button product__big-button--border product__big-button--bigger product__big-button--set">Посмотреть комплект</a>
+				<? else: ?>
+		    		<div class="product__badge">
+		    			<?=($arResult['SET']['TYPE'] == CCatalogProductSet::TYPE_GROUP ? "Разделяемый" : "Неразделяемый")?> комплект
+		    		</div>
+			  	<? endif; ?>
 			  <? endif; ?>
-			  <?if($arResult['IN_SET']):?>
-		    	<div class="product__badge">В составе неразделимого комплекта</div>
-		    	<a href="<?=(count($arResult['SETS']) == 1 ? array_values($arResult['SETS'])[0]['URL']:"/catalog/?q=+&id=".json_encode(array_keys($arResult['SETS'])))?>" class="product__big-button product__big-button--border product__big-button--bigger product__big-button--set">Посмотреть комплект</a>
-			  <? endif; ?>
+			  
 		  <? endif; ?>
 	      <?
 	        	global $arFilter;
@@ -325,7 +331,7 @@ endif;
 			  <?
 				if(SITE_ID == 's1' || isUserAccept()):
 				    $frame = $this->createFrame()->begin();
-					if(!$arResult['NOT_AVAILABLE'] && !$arResult['IN_SET']): 
+					if(!$arResult['NOT_AVAILABLE'] && (!$arResult['SET']['IN_SET'] || ($arResult['SET']['IN_SET'] && $arResult['SET']['TYPE'] == CCatalogProductSet::TYPE_GROUP))): 
 
 						if(SITE_ID != 's1'):
 							?><div class="product__counter <?=($inCart?"product__counter--disabled":"")?>">
@@ -519,8 +525,9 @@ else
 	}
 	unset($emptyProductProperties);
 }
-global $setFilter;
-if(count($setFilter) > 0):
+if(count(array_keys($arResult['SET']['ITEMS'])) > 0):
+	global $setFilter;
+	$setFilter = array('=ID'=>array_keys($arResult['SET']['ITEMS']));
 ?>
 <div data-title="Состав комплекта" class="catalog__divider catalog__divider--title"></div>
 <div class="catalog catalog--full-width catalog--one-line <?=(SITE_ID!='s1'?"catalog--italbags":"")?>">
@@ -536,7 +543,7 @@ if(count($setFilter) > 0):
 			'HIDE_TOOLBAR'                    => "Y",
 			"IBLOCK_TYPE"                     => $arParams["IBLOCK_TYPE"],
 			"IBLOCK_ID"                       => $arParams["IBLOCK_ID"],
-			"ELEMENT_SORT_FIELD"              => 'RAND',
+			"ELEMENT_SORT_FIELD"              => 'ID',
 			"SECTION_ID"                      => "",
 			"SECTION_CODE"                    => "all",
 			"ELEMENT_SORT_ORDER"              => $arParams["ELEMENT_SORT_ORDER"],

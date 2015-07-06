@@ -1,6 +1,7 @@
 <?
 $arResult['BRANDS']     = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
 $arResult['TRADELINES'] = getHighloadElements('tradeline', 'UF_XML_ID', 'UF_NAME');
+$arResult['SETS']       = array('LOCKED'=>array());
 
 $arParams['SHOW_PRICE'] = false;
 
@@ -10,11 +11,13 @@ if(($arParams['HIDE_PRICE'] == "Y" && isUserAccept()) || $arParams['HIDE_PRICE']
 $images   = array();
 $sections = array();
 $paths    = array();
+$arIDS    = array();
 
 $arResult['IMAGES']   = array();
 $arResult['SECTIONS'] = array();
 
 foreach ($arResult['ITEMS'] as &$item):
+	$arIDS[] = $item['ID'];
 	$brand = $arResult['BRANDS'][$item['PROPERTIES']['BRAND']['VALUE']];
 	
 	$raw = CIBlockElement::GetElementGroups($item['ID'], false, array('ID', 'CODE'));
@@ -51,19 +54,61 @@ foreach ($arResult['ITEMS'] as &$item):
 			$item['PRICE'] = $item['MIN_PRICE']['VALUE'];
 		else:
 			$item['PRICE'] = $item['MIN_PRICE']['DISCOUNT_VALUE'];
-			endif;
 		endif;
+	endif;
 
 endforeach;
+
+if(SITE_ID == 's2'):
+	$rsSets = CCatalogProductSet::getList(
+		array(),
+		array(
+			'@ITEM_ID' => $arIDS,
+			//'=SET_ID' => 0
+		),
+		false,
+		false,
+		array('ID', 'OWNER_ID', 'ITEM_ID', 'TYPE')
+	);
+	$arIDS = array();
+	while ($arSet = $rsSets->Fetch())
+	{
+		if(!isset($arResult['SETS'][$arSet['OWNER_ID']]))
+			$arResult['SETS'][$arSet['OWNER_ID']] = array('TYPE' => $arSet['TYPE'], 'ITEMS'=>array(), 'IMAGES'=>array());
+		$set = &$arResult['SETS'][$arSet['OWNER_ID']];
+		if($arSet['OWNER_ID'] != $arSet['ITEM_ID']) {
+			$arIDS[$arSet['ITEM_ID']] = $arSet['OWNER_ID'];
+			$set['ITEMS'][] = $arSet['ITEM_ID'];
+			if($arSet['TYPE'] == CCatalogProductSet::TYPE_SET)
+				$arResult['SETS']['LOCKED'][] = $arSet['ITEM_ID'];
+		}
+
+	}
+	if(count($arIDS) > 0):
+		$res = CIBlockElement::GetList(Array(), array('ID' => array_keys($arIDS)), false, false, Array("ID", "PREVIEW_PICTURE"));
+		while ($arItem = $res->Fetch()) {
+			$arResult['SETS'][$arIDS[$arItem['ID']]]['IMAGES'][] = $arItem["PREVIEW_PICTURE"];
+			$images[] = $arItem["PREVIEW_PICTURE"];
+		}
+	endif;
+endif;
+
 
 $raw = CFile::GetList(array(), array('@ID'=>implode($images,',')));
 while($img = $raw->Fetch()):
 	$arResult['IMAGES'][$img['ID']] = array('src'=>"/upload/".$img['SUBDIR']."/".$img['FILE_NAME'], 'h'=>$img['HEIGHT'], 'w'=>$img['WIDTH']);
 endwhile;
 
-foreach ($arResult['ITEMS'] as &$item)
-	foreach ($item['PROPERTIES']['PICTURES']['VALUE'] as &$img)
-		$img = array_merge($arResult['IMAGES'][$img], array('title'=>$item['OLD_NAME']));
+foreach ($arResult['ITEMS'] as &$item) {
+	foreach ($item['PROPERTIES']['PICTURES']['VALUE'] as &$img) {
+		$img = array_merge($arResult['IMAGES'][$img], array('title'=>$item['NAME']));
+	}
+	if(count($arResult['SETS'][$item['ID']]['IMAGES']) > 0):
+		foreach ($arResult['SETS'][$item['ID']]['IMAGES'] as &$img) {
+			$item['PROPERTIES']['PICTURES']['VALUE'][] = array_merge($arResult['IMAGES'][$img], array('title'=>$item['NAME']));
+		}
+	endif;
+}
 
 $arResult['SIZES'] = getHighloadElements('sizes', 'UF_XML_ID', 'UF_NAME');
 ?>
