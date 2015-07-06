@@ -184,42 +184,41 @@
 				width 100%
 			.col-xs-2
 				width 23%
-		line-height: 45px
+		line-height: 50px
 		max-height 100px
-		padding-top 5px
+		
 		&--small
-			line-height 30px
+			line-height 35px
 		& + .basket__item
 			padding-top 13px
 			border-top 1px solid #ccc
-			max-height 113px
 			@media (min-width scr_xs)
 				border-top 0
-				padding-top 10px	
+				padding-top 0	
 		@media (min-width scr_xs)
-			line-height: 55px
+			line-height: 60px
 			max-height @line-height
 			min-height 0
 			&--small
-				line-height 35px
+				line-height 40px
 		@media (min-width: scr_sm)
-			line-height: 65px
+			line-height: 70px
 			font-size 14px
 			max-height @line-height
 			&--small
 				font-size 12px
-				line-height: 40px
+				line-height: 45px
 				
 		@media (min-width: scr_md)
-			line-height: 105px
+			line-height: 110px
 			max-height @line-height
 			&--small
-				line-height 85px
+				line-height 90px
 		@media (min-width: scr_lg)
-			line-height: 125px
+			line-height: 130px
 			max-height @line-height
 			&--small
-				line-height 95px
+				line-height 100px
 		[class*='col-'] > *
 			display inline-block
 			vertical-align middle
@@ -345,8 +344,6 @@
 		width 55px
 		height 50px
 		margin-right 5px
-		position relative
-		top -7px
 		.basket__item--small &
 			height 35px
 		@media (min-width scr_xs)
