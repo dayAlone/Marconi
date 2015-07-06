@@ -132,38 +132,39 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			$res = CIBlockElement::GetByID($arItem['PRODUCT_ID']);
 			if($ar_res = $res->GetNextElement()){
 				$fields = $ar_res->GetFields(); 
-				$small = CFile::ResizeImageGet(CFile::GetFileArray($fields['PREVIEW_PICTURE']), Array("width" => 150, "height" => 150), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 				$arProps = $ar_res->GetProperties();
 				$arItems[] = array_merge($arItem, $fields, $arProps);
 			}
 		}
-		$str = '';
 		if(SITE_ID == 's1'):
-			$str .= '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;"><thead>
-				<tr style="font-size:12px;">
-					<th></th>
-					<th style="text-align:left">Название</th>
-					<th>Артикул</th>
-					<th>Цена</th>
-					<th>Количество</th>
-					<th>Сумма</th>
-				</tr>
+			$str = '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;">
+				<thead>
+					<tr style="font-size:12px;">
+						<th></th>
+						<th style="text-align:left">Название</th>
+						<th>Артикул</th>
+						<th>Цена</th>
+						<th>Количество</th>
+						<th>Сумма</th>
+					</tr>
 				</thead>
 				<tbody>';
 			
 			foreach ($arItems as $key => $arItem):
+				$small = CFile::ResizeImageGet(CFile::GetFileArray($arItem['PREVIEW_PICTURE']), Array("width" => 150, "height" => 150), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 				$str .= '<tr>
-						<td style="border:1px solid #c2c4c6;border-collapse:collapse;">
+						<td width="8%" style="border:1px solid #c2c4c6;border-collapse:collapse;">
 							'.($small?'<img src="http://'.$_SERVER['SERVER_NAME'].'/'.$small['src'].'" width="40" alt="">':'').'
 						</td>
-						<td style="text-align:left;border:1px solid #c2c4c6;border-collapse:collapse;">'.$arItem['NAME'].'</td>
-						<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.$arProps['ARTNUMBER']['VALUE'].'</td>
-						<td style="border:1px solid #c2c4c6;border-collapse:collapse;">
+						<td width="40%" style="text-align:left;border:1px solid #c2c4c6;border-collapse:collapse;">'.$arItem['NAME'].'</td>
+						<td width="12%" style="border:1px solid #c2c4c6;border-collapse:collapse;">'.$arItem['ARTNUMBER']['VALUE'].'</td>
+						<td width="12%" style="border:1px solid #c2c4c6;border-collapse:collapse;">
 							<nobr>'.number_format($arItem['PRICE'], 0, '.', ' ').' руб.</nobr>
 							'.(intval($arItem['DISCOUNT_PRICE'])>0?"<br><nobr><small><strike>".number_format($arItem['PRICE']+$arItem['DISCOUNT_PRICE'], 0, '.', ' ')." руб.</strike></small></nobr>":"").'
 						</td>
-						<td style="border:1px solid #c2c4c6;border-collapse:collapse;">'.intval($arItem['QUANTITY']).'</td>
-						<td style="border:1px solid #c2c4c6;border-collapse:collapse;"><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td></tr>';
+						<td width="6%" style="border:1px solid #c2c4c6;border-collapse:collapse;">'.intval($arItem['QUANTITY']).'</td>
+						<td width="12%" style="border:1px solid #c2c4c6;border-collapse:collapse;"><nobr>'.number_format($arItem['PRICE']*intval($arItem['QUANTITY']), 0, '.', ' ').' руб.</nobr></td>
+						</tr>';
 			endforeach;
 
 			$str .= '</tbody>
@@ -174,6 +175,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 				</tfooter>
 			</table>';
 		else:
+			$str = "";
 			$total = 0;
 			foreach ($arItems as $key => $arItem):
 				$total += $arItem['PRICE']*intval($arItem['QUANTITY']);
@@ -201,8 +203,6 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 					</tr>';
 		endif;
 		$arFields['ORDER_LIST'] = $str;
-		
-		
 
 		if(SITE_ID != 's1'):
 			$arFields['BRANDS'] = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
