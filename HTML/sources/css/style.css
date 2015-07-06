@@ -8281,6 +8281,8 @@ a.news--list .news-item__title:hover {
   background-size: auto 90%;
   background-repeat: no-repeat;
   background-position: center center;
+  position: relative;
+  top: -7px;
   width: 55px;
   height: 50px;
   margin-right: 5px;
