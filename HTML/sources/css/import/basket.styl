@@ -78,17 +78,17 @@
 		@media (min-width: scr_xs)
 			margin-top -10px
 		@media (min-width: scr_sm)
+			margin-top -11px
+		@media (min-width: scr_md)
 			width 20px
 			height 20px
-			margin-top -15px
-		@media (min-width: scr_md)
 			margin-top -13px
 		&:hover
 			opacity 1
 		svg
 			width 15px
 			height 15px
-			@media (min-width: scr_sm)
+			@media (min-width: scr_md)
 				width 21px
 				height 21px
 			path
@@ -123,11 +123,13 @@
 					margin-left: 9.1%
 					width 12%
 				.s2 .basket__frame--no-type.basket__frame--sale &
-					margin-left 7.1%
+					margin-left 0%
 			.col-md-7
 				width: 55.3333333340%
 				.s2 &
 					width 51.2%
+				.s2 .basket__frame--no-type.basket__frame--sale &
+					width: 58.3333333340%
 			.col-xs-4
 				width 30%
 				.s2 .basket__frame--no-sale &, .s2 .basket__frame--no-type.basket__frame--sale &
@@ -166,6 +168,8 @@
 	&__set
 		border 1px solid alpha(black, .8)
 		padding-top 5px
+		t all
+		overflow: hidden
 		& + &
 			margin-top 5px
 		& + .basket__footer
@@ -341,12 +345,17 @@
 		text-transform: uppercase
 		font-size 10px
 		color alpha(black, .6)
+		.basket__item--small &
+			padding-left 15px
 		@media (min-width: scr_sm)
 			font-size 12px
 			line-height 20px
 			.basket__item--small &
 				font-size 11px
 				line-height 17px
+		@media (min-width: scr_md)
+			.basket__item--small &
+				padding-left 0
 	&__brand
 		font-weight: bold
 		font-size 12px

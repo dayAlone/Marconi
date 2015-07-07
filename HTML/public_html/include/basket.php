@@ -17,9 +17,8 @@
 				if(intval($_REQUEST['count']) > 0)
 					$count = intval($_REQUEST['count']);
 
-				$id = intval($_GET['id']);
 				$result = Add2BasketByProductID($id, $count, false, $props);
-				if(intval($result)>0)
+				if(intval($result) > 0)
 					$result = 'success';
 			break;
 		case 'check':
@@ -50,11 +49,14 @@
 				endif;
 			break;
 		case 'delete':
-				$id	= intval($_GET['id']);
-				if( $id > 0):
-					if(CSaleBasket::Delete($id))
-						$result = 'success';
-				endif;
+				$id	= json_decode($_GET['id']);
+				if(is_int($id)) $id = array($id);
+				foreach ($id as $val) {
+					if( $val > 0):
+						if(CSaleBasket::Delete($val))
+							$result = 'success';
+					endif;
+				}
 			break;
 	endswitch;
 	if($action != 'add' && $result == 'success'):

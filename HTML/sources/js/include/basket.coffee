@@ -8,6 +8,7 @@ updateTimer = false
 
 	if $('.basket').elem('count').length == 0
 		location.href = $('.catalog__back').attr('href')
+	
 	$('.basket').elem('count').each ->
 		if parseInt($(this).val()) <= 0 || !$(this).val()
 			$(this).val(1)
@@ -16,6 +17,37 @@ updateTimer = false
 		sale     += parseInt(row.find('.sale').data('value'))*$(this).val()
 		quantity += parseInt($(this).val())
 	
+	console.log total
+
+	$('.basket').elem('set').byMod('calc').each ->
+		setTotal = 0
+		$set = $(this)
+		oldVal = parseInt $set.find('.basket__item:first .total').text().replace(' ','')
+		
+		$set.find('.basket__count').each ->
+			row = $(this).parents('.basket__item')
+			setTotal    += parseInt($(this).data('price'))*$(this).val()
+		
+		if oldVal != setTotal
+			valCounter = new countUp $set.find('.basket__item:first .total')[0], oldVal, setTotal, 0, 1, countUpOptions
+			valCounter.start()
+	
+	$('.basket').elem('set').byMod('no-calc').each ->
+		$set = $(this)
+		val  = $set.find('.basket__count').val()
+		$set.find('.basket__text-count').each (key, el)->
+			row = $(this).parents('.basket__item')
+			curVal = parseInt $(el).text()
+			setTotal  = parseInt($(el).data('price')) * val
+			curTotal = row.find('.total').text().replace(' ','')
+			if curVal != val
+				valCounter = new countUp $(el)[0], curVal, val, 0, 1, countUpOptions
+				valCounter.start()
+			if curTotal != setTotal
+				valTotal = new countUp row.find('.total')[0], curTotal, setTotal, 0, 1, countUpOptions
+				valTotal.start()
+			return true
+
 	if el
 		row  = el.parents('.basket__item')
 
@@ -48,11 +80,12 @@ updateTimer = false
 	$.each items, (key, elem)->
 		row = $("[data-id='#{elem.id}']")
 		sale = row.find('.sale')
-		if sale.data('value') != elem.discount
-			update = true
-			row.data 'price', elem.price
-			sale.data 'value', elem.discount
-			row.find('.sale-value').html elem.percent
+		if sale.length > 0
+			if sale.data('value') != elem.discount
+				update = true
+				row.data 'price', elem.price
+				sale.data 'value', elem.discount
+				row.find('.sale-value').html elem.percent
 	if update
 		basketCalc()
 
@@ -76,23 +109,35 @@ updateTimer = false
 		$(this).block().siblings('input').val $(this).text()
 
 	$('.basket .bx-ui-sls-fake').attr 'placeholder', 'город *'
-
+	$('.basket').elem('set').each ->
+		$(this).css 'maxHeight', $(this).outerHeight()
 	$('.basket').elem('delete').click (e)->
 		row  = $(this).parents('.basket__item')
-		id   = $(this).data 'id'
+		id   = JSON.stringify $(this).data 'id'
+		if row.hasMod 'set-title'
+			row = row.parents('.basket__set')
 		row.css
 			maxHeight: 0
+			paddingTop: 0
+			borderColor: "white"
+			borderWidth: 0
+
 		url = "/include/basket.php?a=delete&id=#{id}"
 		$.get url, (data)->
-			data = $.parseJSON data
-			if data.result == 'success'
-				getOrderDate()
-				if data.items
-					checkItems data.items
+			
+			if data != "fail"
+				data = $.parseJSON data
+				if data.result == 'success'
+					getOrderDate()
+					if data.items
+						checkItems data.items
+			else
+				console.log data
 		row.on end , ->
 			$(this).remove()
 			basketCalc()
 			basketUpdate url
+		
 		e.preventDefault()
 
 	$('.basket').elem('coupon-trigger').on 'click', (e)->
