@@ -488,7 +488,11 @@
 							$diff[$prop] = false;
 						endif;
 					}
-
+					foreach (array('NOTE_SHORT', 'NOTE_FULL') as $prop) {
+						if($props[$prop] != $exist[$prop]):
+							$diff[$prop] = $props[$prop];
+						endif;
+					}
 					unset($diff['OFFER_SIZE']);
 
 					foreach (array('COLOR', 'MATERIAL') as $el):
