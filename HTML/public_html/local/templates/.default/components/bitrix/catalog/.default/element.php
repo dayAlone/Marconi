@@ -124,7 +124,7 @@ unset($basketAction);
 if ($ElementID > 0)
 {
 	global $setFilter;
-	if(count($setFilter)>0):
+	if(count($setFilter)>0 && SITE_ID == 's2'):
 	?>
 	<div data-title="Состав комплекта" class="catalog__divider catalog__divider--title"></div>
 	<div class="catalog catalog--full-width catalog--one-line <?=(SITE_ID!='s1'?"catalog--italbags":"")?>">
