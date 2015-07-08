@@ -10,7 +10,9 @@
 	}
 
   foreach($arResult['GRID']['ROWS'] as &$item) {
-    $item['NAME'] = preg_replace("/\s\s/", "", str_replace(array($arResult['BRANDS'][$item['PROPERTY_BRAND_VALUE']], $item['PROPERTY_NOTE_SHORT_VALUE']), '', $item['NAME']));
+    if(strlen($item['PROPERTY_BRAND_VALUE'])>0):
+        $item['NAME'] = preg_replace("/\s\s/", "", str_replace(array($arResult['BRANDS'][$item['PROPERTY_BRAND_VALUE']], $item['PROPERTY_NOTE_SHORT_VALUE']), '', $item['NAME']));
+    endif;
     $arIDs[$item['PRODUCT_ID']] = $item['ID'];
   }
 
@@ -48,7 +50,7 @@
         endif;
       }
     }
-    
+
     if(count($arResult['SETS']['LOCKED']) > 0):
       $raw = CIBlockElement::GetList(
           array("ID" => "DESC"),
@@ -58,7 +60,9 @@
           array('NAME', 'PROPERTY_BRAND', 'PROPERTY_NOTE_SHORT', 'PROPERTY_ARTNUMBER', 'PREVIEW_PICTURE', 'IBLOCK_ID', 'CODE')
       );
       while($row = $raw->Fetch()):
-        $row['NAME'] = preg_replace("/\s\s/", "", str_replace(array($arResult['BRANDS'][$row['PROPERTY_BRAND_VALUE']], $row['PROPERTY_NOTE_SHORT_VALUE']), '', $row['NAME']));
+        if(strlen($row['PROPERTY_BRAND_VALUE'])>0):
+            $row['NAME'] = preg_replace("/\s\s/", "", str_replace(array($arResult['BRANDS'][$row['PROPERTY_BRAND_VALUE']], $row['PROPERTY_NOTE_SHORT_VALUE']), '', $row['NAME']));
+        endif;
         $row['PREVIEW_PICTURE_SRC'] = CFile::GetPath($row['PREVIEW_PICTURE']);
         $set = &$arResult['SETS'][$arResult['SETS']['LOCKED'][$row['ID']]];
         $arPrice = CCatalogProduct::GetOptimalPrice($row['ID'], 1, $USER->GetUserGroupArray());

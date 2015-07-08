@@ -25,7 +25,8 @@ function basketItem($item, $arResult)
         <div class="col-xs-4 left">
         	<a href="/catalog/<?=$section['CODE']?>/<?=preg_replace($remove, '', ($item['CATALOG']['CODE']?$item['CATALOG']['CODE']:$item['CODE']))?>/"><div style="background-image: url(<?=($item['PREVIEW_PICTURE_SRC']?$item['PREVIEW_PICTURE_SRC']:'/layout/images/no-image.jpg')?>)" class="basket__picture <?=($item['PREVIEW_PICTURE_SRC']?'':'basket__picture--no-image')?>"></div></a>
 			<div class="basket__name">
-				<?if(strlen($item['PROPERTY_NOTE_SHORT_VALUE']) > 0):?>
+				<?
+				if(strlen($item['PROPERTY_NOTE_SHORT_VALUE']) > 0 && $item['PROPERTY_NOTE_SHORT_VALUE'] != $item['NAME']):?>
 					<?=$item['PROPERTY_NOTE_SHORT_VALUE']?>
 					<br>
 				<?endif;?>
