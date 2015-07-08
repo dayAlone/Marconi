@@ -367,8 +367,10 @@
 				else:
 					$note = $tmp;
 				endif;
-			else:
+			elseif(mb_strpos($tmp, $artnumber)):
 				$note  = mb_substr($tmp, 0, mb_strpos($tmp, $artnumber)-1);
+			else:
+				$note = $tmp;
 			endif;
 
 			$props['NOTE_SHORT'] = $note;
