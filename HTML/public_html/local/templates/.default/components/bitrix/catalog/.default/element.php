@@ -60,7 +60,7 @@ else
 		"LINK_IBLOCK_ID"             => $arParams["LINK_IBLOCK_ID"],
 		"LINK_PROPERTY_SID"          => $arParams["LINK_PROPERTY_SID"],
 		"LINK_ELEMENTS_URL"          => $arParams["LINK_ELEMENTS_URL"],
-		
+
 		"OFFERS_CART_PROPERTIES"     => $arParams["OFFERS_CART_PROPERTIES"],
 		"OFFERS_FIELD_CODE"          => $arParams["DETAIL_OFFERS_FIELD_CODE"],
 		"OFFERS_PROPERTY_CODE"       => $arParams["DETAIL_OFFERS_PROPERTY_CODE"],
@@ -68,7 +68,7 @@ else
 		"OFFERS_SORT_ORDER"          => $arParams["OFFERS_SORT_ORDER"],
 		"OFFERS_SORT_FIELD2"         => $arParams["OFFERS_SORT_FIELD2"],
 		"OFFERS_SORT_ORDER2"         => $arParams["OFFERS_SORT_ORDER2"],
-		
+
 		"ELEMENT_ID"                 => $arResult["VARIABLES"]["ELEMENT_ID"],
 		"ELEMENT_CODE"               => $arResult["VARIABLES"]["ELEMENT_CODE"],
 		"SECTION_ID"                 => $arResult["VARIABLES"]["SECTION_ID"],
@@ -79,7 +79,7 @@ else
 		'CURRENCY_ID'                => $arParams['CURRENCY_ID'],
 		'HIDE_NOT_AVAILABLE'         => $arParams["HIDE_NOT_AVAILABLE"],
 		'USE_ELEMENT_COUNTER'        => $arParams['USE_ELEMENT_COUNTER'],
-		
+
 		'ADD_PICT_PROP'              => $arParams['ADD_PICT_PROP'],
 		'LABEL_PROP'                 => $arParams['LABEL_PROP'],
 		'OFFER_ADD_PICT_PROP'        => $arParams['OFFER_ADD_PICT_PROP'],
@@ -124,14 +124,14 @@ unset($basketAction);
 if ($ElementID > 0)
 {
 	$APPLICATION->IncludeComponent(
-	"bitrix:catalog.viewed.products", 
-	".default", 
+	"bitrix:catalog.viewed.products",
+	".default",
 	array(
 		"HIDE_PRICE"                      => $arParams['HIDE_PRICE'],
 		"HIDE_SIMMILAR"                   => $arParams['HIDE_SIMMILAR'],
 		"HIDE_MORE"                       => $arParams['HIDE_MORE'],
 		"SHOW_COUNT"                      => $arParams['SHOW_COUNT'],
-		
+
 		"LINE_ELEMENT_COUNT" => "5",
 		"TEMPLATE_THEME" => "blue",
 		"DETAIL_URL" => "/catalog/#SECTION_CODE#/#ELEMENT_CODE#/",
@@ -144,9 +144,7 @@ if ($ElementID > 0)
 		"PARTIAL_PRODUCT_PROPERTIES" => "Y",
 		"SHOW_OLD_PRICE" => "N",
 		"SHOW_DISCOUNT_PERCENT" => "Y",
-		"PRICE_CODE" => array(
-			0 => "RETAIL",
-		),
+		"PRICE_CODE"   => $arParams["PRICE_CODE"],
 		"SHOW_PRICE_COUNT" => "1",
 		"PRODUCT_SUBSCRIPTION" => "N",
 		"PRICE_VAT_INCLUDE" => "Y",
@@ -252,13 +250,13 @@ if ($ElementID > 0)
 			"PRICE_CODE"                      => $arParams["PRICE_CODE"],
 			"USE_PRICE_COUNT"                 => $arParams["USE_PRICE_COUNT"],
 			"SHOW_PRICE_COUNT"                => $arParams["SHOW_PRICE_COUNT"],
-			
+
 			"PRICE_VAT_INCLUDE"               => $arParams["PRICE_VAT_INCLUDE"],
 			"USE_PRODUCT_QUANTITY"            => $arParams['USE_PRODUCT_QUANTITY'],
 			"ADD_PROPERTIES_TO_BASKET"        => (isset($arParams["ADD_PROPERTIES_TO_BASKET"]) ? $arParams["ADD_PROPERTIES_TO_BASKET"] : ''),
 			"PARTIAL_PRODUCT_PROPERTIES"      => (isset($arParams["PARTIAL_PRODUCT_PROPERTIES"]) ? $arParams["PARTIAL_PRODUCT_PROPERTIES"] : ''),
 			"PRODUCT_PROPERTIES"              => $arParams["PRODUCT_PROPERTIES"],
-			
+
 			"DISPLAY_TOP_PAGER"               => $arParams["DISPLAY_TOP_PAGER"],
 			"DISPLAY_BOTTOM_PAGER"            => $arParams["DISPLAY_BOTTOM_PAGER"],
 			"PAGER_TITLE"                     => $arParams["PAGER_TITLE"],
@@ -267,7 +265,7 @@ if ($ElementID > 0)
 			"PAGER_DESC_NUMBERING"            => $arParams["PAGER_DESC_NUMBERING"],
 			"PAGER_DESC_NUMBERING_CACHE_TIME" => $arParams["PAGER_DESC_NUMBERING_CACHE_TIME"],
 			"PAGER_SHOW_ALL"                  => $arParams["PAGER_SHOW_ALL"],
-			
+
 			"OFFERS_CART_PROPERTIES"          => $arParams["OFFERS_CART_PROPERTIES"],
 			"OFFERS_FIELD_CODE"               => $arParams["LIST_OFFERS_FIELD_CODE"],
 			"OFFERS_PROPERTY_CODE"            => $arParams["LIST_OFFERS_PROPERTY_CODE"],
@@ -276,20 +274,20 @@ if ($ElementID > 0)
 			"OFFERS_SORT_FIELD2"              => $arParams["OFFERS_SORT_FIELD2"],
 			"OFFERS_SORT_ORDER2"              => $arParams["OFFERS_SORT_ORDER2"],
 			"OFFERS_LIMIT"                    => $arParams["LIST_OFFERS_LIMIT"],
-			
+
 			"SECTION_ID"                      => $arResult["VARIABLES"]["SECTION_ID"],
 			"SECTION_CODE"                    => $arResult['VARIABLES']['SECTION_CODE'],
-			
+
 			"SECTION_URL"                     => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
 			"DETAIL_URL"                      => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["element"],
 			'CONVERT_CURRENCY'                => $arParams['CONVERT_CURRENCY'],
 			'CURRENCY_ID'                     => $arParams['CURRENCY_ID'],
 			'HIDE_NOT_AVAILABLE'              => $arParams["HIDE_NOT_AVAILABLE"],
-			
+
 			'LABEL_PROP'                      => $arParams['LABEL_PROP'],
 			'ADD_PICT_PROP'                   => $arParams['ADD_PICT_PROP'],
 			'PRODUCT_DISPLAY_MODE'            => $arParams['PRODUCT_DISPLAY_MODE'],
-			
+
 			'OFFER_ADD_PICT_PROP'             => $arParams['OFFER_ADD_PICT_PROP'],
 			'OFFER_TREE_PROPS'                => $arParams['OFFER_TREE_PROPS'],
 			'PRODUCT_SUBSCRIPTION'            => $arParams['PRODUCT_SUBSCRIPTION'],
@@ -300,7 +298,7 @@ if ($ElementID > 0)
 			'MESS_BTN_SUBSCRIBE'              => $arParams['MESS_BTN_SUBSCRIBE'],
 			'MESS_BTN_DETAIL'                 => $arParams['MESS_BTN_DETAIL'],
 			'MESS_NOT_AVAILABLE'              => $arParams['MESS_NOT_AVAILABLE'],
-			
+
 			'TEMPLATE_THEME'                  => (isset($arParams['TEMPLATE_THEME']) ? $arParams['TEMPLATE_THEME'] : ''),
 			"ADD_SECTIONS_CHAIN"              => "N",
 			'ADD_TO_BASKET_ACTION'            => $basketAction,
@@ -312,10 +310,10 @@ if ($ElementID > 0)
 	</div>
 	<div class="hidden">
 	<?
-	
+
 	$APPLICATION->IncludeComponent(
-		"bitrix:catalog.bigdata.products", 
-		".default", 
+		"bitrix:catalog.bigdata.products",
+		".default",
 		array(
 			"RCM_TYPE" => "any_personal",
 			"ID" => $ElementID,
@@ -337,9 +335,7 @@ if ($ElementID > 0)
 			"CACHE_TIME" => "36000000",
 			"CACHE_GROUPS" => "Y",
 			"SHOW_OLD_PRICE" => "N",
-			"PRICE_CODE" => array(
-				0 => "RETAIL",
-			),
+			"PRICE_CODE"                      => $arParams["PRICE_CODE"],
 			"SHOW_PRICE_COUNT" => "1",
 			"PRICE_VAT_INCLUDE" => "Y",
 			"CONVERT_CURRENCY" => "Y",
