@@ -120,6 +120,7 @@
 		$middle = CFile::ResizeImageGet(CFile::GetFileArray($img['ID']), Array("width" => 800, "height" => 800), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 		$arResult['IMAGES'][] = array('ID'=>$img['ID'], 'small'=>$small['src'], 'middle'=>$middle['src'], 'src'=>"/upload/".$img['SUBDIR']."/".$img['FILE_NAME'], 'h'=>$img['HEIGHT'], 'w'=>$img['WIDTH']);
 	endwhile;
+
 	function sortImages(){
 		global $arImages;
 		$a = array_search($a['ID'], $arImages);
@@ -129,7 +130,7 @@
 	    }
 	    return ($a < $b) ? -1 : 1;
 	}
-	usort($arResult['IMAGES'], 'sortImages');
+	if(SITE_ID == 's2') usort($arResult['IMAGES'], 'sortImages');
 
 	$small = CFile::ResizeImageGet(CFile::GetFileArray($arResult['PREVIEW_PICTURE']['ID']), Array("width" => 800, "height" => 800), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 	$arResult['PREVIEW_PICTURE']['SMALL'] = $small['src'];
