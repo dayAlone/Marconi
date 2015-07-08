@@ -104,7 +104,7 @@ if(SITE_ID == 's2'):
 		$res = CIBlockElement::GetList(Array(), array('IBLOCK_CODE'=>'offers', '=ID' => $diff), false, false, Array("ID", "CODE", "PROPERTY_ARTNUMBER", "PROPERTY_SIZE", "PROPERTY_CML2_LINK", "PROPERTY_CML2_LINK.PREVIEW_PICTURE"));
 		while ($arItem = $res->Fetch()) {
 
-			$arResult['SETS']['LOCKED'][] = $arSet['PROPERTY_CML2_LINK'];
+			$arResult['SETS']['LOCKED'][] = $arItem['PROPERTY_CML2_LINK'];
 
 			$set = &$arResult['SETS'][$arIDS[$arItem['ID']]];
 			$item = &$set['ITEMS'][$arItem['ID']];
