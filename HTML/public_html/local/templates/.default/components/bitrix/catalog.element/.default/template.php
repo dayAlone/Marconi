@@ -334,7 +334,7 @@ endif;
 					if(!$arResult['NOT_AVAILABLE'] && (!$arResult['SET']['IN_SET'] || ($arResult['SET']['IN_SET'] && $arResult['SET']['TYPE'] == CCatalogProductSet::TYPE_GROUP))):
 
 						if(SITE_ID != 's1' && $arResult['PROPERTIES']['SHOWCASE']['VALUE'] != "Y"):
-							?><div class="product__counter <?=($inCart?"product__counter--disabled":"")?>">
+							?><div class="product__counter <?=($arResult['inCart']?"product__counter--disabled":"")?>">
 					    		<a href="#" class="product__counter-trigger product__counter-trigger--minus">-</a>
 					    		<input type="text" class="product__counter-input" value="1">
 					    		<a href="#" class="product__counter-trigger product__counter-trigger--plus">+</a>
