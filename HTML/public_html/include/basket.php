@@ -3,10 +3,33 @@
 	CModule::IncludeModule("catalog");
 	CModule::IncludeModule("sale");
 	global $APPLICATION, $USER;
-	
+
 	$action = $_GET['a'];
 	$result = 'fail';
 	switch ($action):
+		case 'add_set':
+			$data = json_decode($_REQUEST['data'], true);
+			foreach ($data as $key => $item) {
+				$props = array();
+				$count = 1;
+
+				if($item['size'])
+					$props['size'] = array("NAME"=>'Размер', "CODE"=>'SIZE', "VALUE"=>$item['size']);
+				if($item['artnumber'])
+					$props['artnumber'] = array("NAME"=>'Артикул', "CODE"=>'ARTNUMBER', "VALUE"=>$item['artnumber']);
+
+				if(intval($item['quantity']) > 0):
+					if($key == 0):
+						$count = 1;
+					else:
+						$count = intval($item['quantity']) * intval($data[0]['quantity']);
+					endif;
+				endif;
+				$result = Add2BasketByProductID($item['id'], $count, false, $props);
+				if(intval($result) > 0)
+					$result = 'success';
+			}
+			break;
 		case 'add':
 				$props = array();
 				$count = 1;
@@ -59,7 +82,7 @@
 				}
 			break;
 	endswitch;
-	if($action != 'add' && $result == 'success'):
+	if(!in_array($action, array('add', 'add_set')) && $result == 'success'):
 		ob_start();
 			$basket = $APPLICATION->IncludeComponent("bitrix:sale.basket.basket","json", Array(
 					"OFFERS_PROPS"				  => array("COLOR_REF"),

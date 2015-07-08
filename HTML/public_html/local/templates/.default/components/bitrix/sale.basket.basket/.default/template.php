@@ -66,7 +66,7 @@ function basketItem($item, $arResult)
         <?endif;
         ?>
         <?if($arResult['SETS'][$item['PRODUCT_ID']]['TYPE'] == CCatalogProductSet::TYPE_GROUP):?>
-	        
+
 	    	<div class="<?=($showSale?'col-xs-2 col-md-1':'col-xs-3 col-md-3')?>"></div>
 	    	<? if($showSale): ?><div class="col-xs-2 col-md-1"></div><?endif;?>
 	    	<div class="col-xs-2 col-md-1"></div>
@@ -107,7 +107,7 @@ function basketItem($item, $arResult)
 	        	<strong class="sale-value"><?=round($item["DISCOUNT_PRICE_PERCENT_FORMATED"])?> %</strong>
 	        </div>
 			<?endif;?>
-	        <div class="col-xs-2 col-md-1"> 
+	        <div class="col-xs-2 col-md-1">
 	        <?
 
 	        if($item['CATALOG']['PROPERTIES']['SHOWCASE']['VALUE'] != "Y"):?>
@@ -143,7 +143,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 	<form method="post" action="<?=POST_FORM_ACTION_URI?>" name="basket_form"  class="<?=(!$arResult['SHOW_TYPE']?"basket__frame--no-type":"")?> <?=($arResult['DISCOUNT_PRICE_ALL']==0?"basket--no-sale":"basket__frame--sale")?>" id="basket_form">
 		<div id="basket_form_container">
 			<div class="bx_ordercart">
-				<? 
+				<?
 				$showSale = false;
 				foreach($arResult['GRID']['ROWS'] as $item)
 					if($item["DISCOUNT_PRICE_PERCENT"] > 0)
@@ -163,7 +163,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			            <div class="col-xs-2 col-md-3">Сумма <span class="visible-md-inline visible-lg-inline"><?=($showSale?'СО СКИДКОЙ':'')?></span></div>
 			          </div>
 			        </div>
-			        <? 
+			        <?
 			        $sections = array();
 			        foreach($arResult['GRID']['ROWS'] as $item):
 			        	if(isset($arResult['SETS'][$item['PRODUCT_ID']])):?>

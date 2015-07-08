@@ -1,7 +1,8 @@
 <?
+$arResult['SIZES']      = getHighloadElements('sizes', 'UF_XML_ID', 'UF_NAME');
 $arResult['BRANDS']     = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
 $arResult['TRADELINES'] = getHighloadElements('tradeline', 'UF_XML_ID', 'UF_NAME');
-$arResult['SETS']       = array('LOCKED'=>array());
+$arResult['SETS']       = array('LOCKED'=>array(), 'PRODUCTS'=>array());
 
 $arParams['SHOW_PRICE'] = false;
 
@@ -19,7 +20,7 @@ $arResult['SECTIONS'] = array();
 foreach ($arResult['ITEMS'] as &$item):
 	$arIDS[] = $item['ID'];
 	$brand = $arResult['BRANDS'][$item['PROPERTIES']['BRAND']['VALUE']];
-	
+
 	$raw = CIBlockElement::GetElementGroups($item['ID'], false, array('ID', 'CODE'));
 	while($data = $raw->GetNext()):
 		if(SITE_ID == 's1' && !in_array($data['CODE'], array('all', 'sale', 'sale30', 'best-sellers', 'new')))
@@ -27,7 +28,7 @@ foreach ($arResult['ITEMS'] as &$item):
 		if(SITE_ID == 's2' && $data['CODE'] == 'all')
 			$item['IBLOCK_SECTION_ID'] = $data['ID'];
 	endwhile;
-	
+
 	if(!isset($paths[$item['IBLOCK_SECTION_ID']])):
 		$rsPath = GetIBlockSectionPath($arResult['ID'], $item['IBLOCK_SECTION_ID']);
 		$arPath = $rsPath->GetNext();
@@ -40,11 +41,11 @@ foreach ($arResult['ITEMS'] as &$item):
 		$arResult['SECTIONS'][$item['IBLOCK_SECTION_ID']] = $arPath['CODE'];
 		$item['DETAIL_PAGE_URL'] = "/catalog/".$arPath['CODE']."/".$item['CODE']."/";
 	endif;
-	
+
 	if(count($item['PROPERTIES']['PICTURES']['VALUE'])>0)
 		foreach ($item['PROPERTIES']['PICTURES']['VALUE'] as $img)
 			$images[] = $img;
-	
+
 	$small = CFile::ResizeImageGet(CFile::GetFileArray($item['PREVIEW_PICTURE']['ID']), Array("width" => 400, "height" => 400), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 	$item['PREVIEW_PICTURE']['SRC'] = $small['src'];
 
@@ -63,12 +64,12 @@ if(SITE_ID == 's2'):
 	$rsSets = CCatalogProductSet::getList(
 		array(),
 		array(
-			'@ITEM_ID' => $arIDS,
+			'@OWNER_ID' => $arIDS,
 			//'=SET_ID' => 0
 		),
 		false,
 		false,
-		array('ID', 'OWNER_ID', 'ITEM_ID', 'TYPE')
+		array('ID', 'OWNER_ID', 'ITEM_ID', 'TYPE', 'QUANTITY')
 	);
 	$arIDS = array();
 	while ($arSet = $rsSets->Fetch())
@@ -76,19 +77,41 @@ if(SITE_ID == 's2'):
 		if(!isset($arResult['SETS'][$arSet['OWNER_ID']]))
 			$arResult['SETS'][$arSet['OWNER_ID']] = array('TYPE' => $arSet['TYPE'], 'ITEMS'=>array(), 'IMAGES'=>array());
 		$set = &$arResult['SETS'][$arSet['OWNER_ID']];
+
 		if($arSet['OWNER_ID'] != $arSet['ITEM_ID']) {
 			$arIDS[$arSet['ITEM_ID']] = $arSet['OWNER_ID'];
-			$set['ITEMS'][] = $arSet['ITEM_ID'];
+			$set['ITEMS'][$arSet['ITEM_ID']] = $arSet;
 			if($arSet['TYPE'] == CCatalogProductSet::TYPE_SET)
 				$arResult['SETS']['LOCKED'][] = $arSet['ITEM_ID'];
 		}
 
 	}
 	if(count($arIDS) > 0):
-		$res = CIBlockElement::GetList(Array(), array('ID' => array_keys($arIDS)), false, false, Array("ID", "PREVIEW_PICTURE"));
+		$res = CIBlockElement::GetList(Array(), array('ID' => array_keys($arIDS)), false, false, Array("ID", "PROPERTY_ARTNUMBER", "PREVIEW_PICTURE", "IBLOCK_CODE"));
 		while ($arItem = $res->Fetch()) {
-			$arResult['SETS'][$arIDS[$arItem['ID']]]['IMAGES'][] = $arItem["PREVIEW_PICTURE"];
-			$images[] = $arItem["PREVIEW_PICTURE"];
+			$set = &$arResult['SETS'][$arIDS[$arItem['ID']]];
+			$arResult['SETS']['PRODUCTS'][$arItem['ID']] = $arIDS[$arItem['ID']];
+			$item = &$set['ITEMS'][$arItem['ID']];
+			$item = array_merge($item, $arItem);
+			if(intval($arItem["PREVIEW_PICTURE"]) > 0):
+				$set['IMAGES'][] = $arItem["PREVIEW_PICTURE"];
+				$images[] = $arItem["PREVIEW_PICTURE"];
+			endif;
+		}
+	endif;
+
+	$diff = array_diff(array_keys($arIDS), array_keys($arResult['SETS']['PRODUCTS']));
+	if(count($diff) > 0):
+		$res = CIBlockElement::GetList(Array(), array('IBLOCK_CODE'=>'offers', '=ID' => $diff), false, false, Array("ID", "CODE", "PROPERTY_ARTNUMBER", "PROPERTY_SIZE", "PROPERTY_CML2_LINK", "PROPERTY_CML2_LINK.PREVIEW_PICTURE"));
+		while ($arItem = $res->Fetch()) {
+			$set = &$arResult['SETS'][$arIDS[$arItem['ID']]];
+			$item = &$set['ITEMS'][$arItem['ID']];
+			$item = array_merge($item, $arItem);
+			$item['PROPERTY_SIZE_VALUE'] = $arResult['SIZES'][$item['PROPERTY_SIZE_VALUE']];
+			if(intval($arItem["PREVIEW_PICTURE"]) > 0):
+				$set['IMAGES'][] = $arItem["PREVIEW_PICTURE"];
+				$images[] = $arItem["PREVIEW_PICTURE"];
+			endif;
 		}
 	endif;
 endif;
@@ -110,5 +133,4 @@ foreach ($arResult['ITEMS'] as &$item) {
 	endif;
 }
 
-$arResult['SIZES'] = getHighloadElements('sizes', 'UF_XML_ID', 'UF_NAME');
 ?>

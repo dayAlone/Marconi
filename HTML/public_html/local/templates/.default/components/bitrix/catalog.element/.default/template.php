@@ -103,7 +103,7 @@ endif;
 	    <div class="row">
 	      <div class="<?=(count($item['IMAGES'])>1?"col-sm-10 col-md-10 no-position":"col-sm-12")?>">
 	      	<? if(count($item['IMAGES'])>0 || isset($item['PREVIEW_PICTURE']['SRC'])):
-	      		$array = array_values($item['IMAGES']);?>	
+	      		$array = array_values($item['IMAGES']);?>
 	        	<div style="background-image:url(<?=(isset($array[0]['middle'])?$array[0]['middle']:(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg"))?>)" class="picture__big">
 					<a href="<?=(isset($array[0]['src'])?$array[0]['src']:(isset($item['PREVIEW_PICTURE']['SRC'])?$item['PREVIEW_PICTURE']['SRC']:"/layout/images/no-image.jpg"))?>">
 				        <img src="<?=(isset($array[0]['middle'])?$array[0]['middle']:(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg"))?>" alt="" />
@@ -114,10 +114,10 @@ endif;
 	      </div>
 	      <? if(count($item['IMAGES'])>1):?>
 	      <div class="col-sm-2 col-md-2">
-	      <? 
+	      <?
 	      $i=0;
-	      foreach ($item['IMAGES'] as $key => $image): 
-	      	?><a style="background-image:url(<?=$image['small']?>)" href="<?=$image['src']?>" data-middle="<?=$image['middle']?>" class="picture__small <?=($key==0?"picture__small--active":"")?>"></a><? 
+	      foreach ($item['IMAGES'] as $key => $image):
+	      	?><a style="background-image:url(<?=$image['small']?>)" href="<?=$image['src']?>" data-middle="<?=$image['middle']?>" class="picture__small <?=($key==0?"picture__small--active":"")?>"></a><?
 	      	$i++;
 	      	if ($i>4)
 	      		break;
@@ -156,7 +156,7 @@ endif;
 	      <?if(SITE_ID != 's1'):?>
 		      <? if($arResult['PROPERTIES']['SHOWCASE']['VALUE'] == 'Y'):?>
 		      	<div class="product__badge">Витринный экземпляр</div>
-		      <? endif; ?>  	
+		      <? endif; ?>
 			  <?if($arResult['SET']):?>
 			  	<?if($arResult['SET']['IN_SET']):?>
 			    	<div class="product__badge">В составе <?=($arResult['SET']['TYPE'] == CCatalogProductSet::TYPE_GROUP ? "разделяемого" : "неразделяемого")?> комплекта</div>
@@ -167,7 +167,7 @@ endif;
 		    		</div>
 			  	<? endif; ?>
 			  <? endif; ?>
-			  
+
 		  <? endif; ?>
 	      <?
 	        	global $arFilter;
@@ -181,7 +181,7 @@ endif;
 				    );
 				endif;
 	        	if(strlen($props['ARTNUMBER']['VALUE'])>0):
-		        	$APPLICATION->IncludeComponent("bitrix:news.list", "colors", 
+		        	$APPLICATION->IncludeComponent("bitrix:news.list", "colors",
 						array(
 							"IBLOCK_ID"     => 1,
 							"NEWS_COUNT"    => "9999999",
@@ -207,7 +207,7 @@ endif;
 							</span>
 							<span class="dropdown" data-id="<?=$item['OFFERS'][0]['ID']?>">
 								<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white"><?=$item['SIZES'][$item['OFFERS'][0]['PROPERTIES']['SIZE']['VALUE']]?></span><?=svg('arrow')?></a>
-									
+
 								<span class="dropdown__frame">
 									<?foreach($item['OFFERS'] as $k=>$offer):?>
 									<a href="#" data-id="<?=$offer['ID']?>" data-price="<?=$offer['MIN_PRICE']['VALUE']?>" class="dropdown__item"><?=$item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']]?></a>
@@ -234,7 +234,7 @@ endif;
 					endif;
 				endif;
 	        ?>
-	      
+
 	      </div>
 	      <div class="col-sm-6 col-md-12 col-lg-6">
 	        <div class="props">
@@ -242,7 +242,7 @@ endif;
 	        $values = array(
 				'артикул'  => (
 					SITE_ID == 's1' ? $props['ARTNUMBER']['VALUE'] : (
-						strlen($props['NOTE_SHORT']['VALUE']) > 0 && strlen($props['ARTNUMBER']['VALUE']) > 0 ? 
+						strlen($props['NOTE_SHORT']['VALUE']) > 0 && strlen($props['ARTNUMBER']['VALUE']) > 0 ?
 						"<strong>".$props['ARTNUMBER']['VALUE'] . " " . str_replace( array($props['NOTE_SHORT']['VALUE'], $arResult['BRANDS'][$props['BRAND']['VALUE']]), '', $item['NAME'])
 						: ""
 						)
@@ -252,7 +252,7 @@ endif;
 				'цвет'     => $props['COLOR']['VALUE'],
 	        	'материал' => $props['MATERIAL']['VALUE'],
 	        	'размер'   => $props['SIZE']['VALUE'],
-	        	
+
 	        );
 	        $i=0;
 	        foreach ($values as $title => $text):
@@ -291,7 +291,7 @@ endif;
 							<strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?></strong> ₷
 							<? endif;?>
 						  <? endif;?>
-						  
+
 						  <?if($props['SALE']['VALUE']=="77ebb501-85d4-11e4-82e4-0025908101de"):?>
 							  <div class="product__sale">
 							  	<span>Уникальная</span><br><span>цена</span>
@@ -318,12 +318,12 @@ endif;
 						</div>
 
 					</div>
-					
+
 		    	<? endif;?>
 		    <?endif;?>
 	        </div>
 
-	        
+
 	      </div>
 	    </div>
 	    <div class="row">
@@ -331,7 +331,7 @@ endif;
 			  <?
 				if(SITE_ID == 's1' || isUserAccept()):
 				    $frame = $this->createFrame()->begin();
-					if(!$arResult['NOT_AVAILABLE'] && (!$arResult['SET']['IN_SET'] || ($arResult['SET']['IN_SET'] && $arResult['SET']['TYPE'] == CCatalogProductSet::TYPE_GROUP))): 
+					if(!$arResult['NOT_AVAILABLE'] && (!$arResult['SET']['IN_SET'] || ($arResult['SET']['IN_SET'] && $arResult['SET']['TYPE'] == CCatalogProductSet::TYPE_GROUP))):
 
 						if(SITE_ID != 's1' && $arResult['PROPERTIES']['SHOWCASE']['VALUE'] != "Y"):
 							?><div class="product__counter <?=($inCart?"product__counter--disabled":"")?>">
@@ -344,27 +344,27 @@ endif;
 						if($arResult['inCart']):
 							?><a href="#" class="product__big-button product__big-button--border product__big-button--disabled" data-id="<?=$item['ID']?>">Товар в корзине</a><?
 						else:
-							?><a href="#" class="product__big-button product__big-button--buy" data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>">В корзину</a><?
+							?><a href="#" class="product__big-button product__big-button--buy" <?=(count($arResult['BUY_DATA'])>0?"data-request='".json_encode($arResult['BUY_DATA'])."'":"")?> data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>">В корзину</a><?
 						endif;?>
-						
+
 					  	<?if(SITE_ID == 's1'):
 					  		?><a href="#"  data-id="<?=$item['ID']?>" class="hidden-xs product__big-button product__big-button--simmilar no-margin-right"><?=(in_array($item['ID'],json_decode($_COOKIE['simmilar']))?"удалить":"сравнить")?></a><?
 					  	endif;?>
-					  	
+
 					  	<script>initBigButton()</script>
 						<?
 						$frame->beginStub();
 							if(isset($item['MIN_PRICE']['VALUE'])&&intval($item['MIN_PRICE']['VALUE'])!=0): ?>
-								<a href="#" class="product__big-button product__big-button--buy" data-id="<?=$item['ID']?>">В корзину</a>
+								<a href="#" class="product__big-button product__big-button--buy" <?=(count($arResult['BUY_DATA'])>0?"data-request='".json_encode($arResult['BUY_DATA'])."'":"")?> data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>">В корзину</a>
 								<?if(SITE_ID == 's1'):
 									?><a href="#"  data-id="<?=$item['ID']?>" class="hidden-xs product__big-button product__big-button--simmilar no-margin-right">сравнить</a><?endif;
 								?>
-							<? endif; 
-							endif; 
+							<? endif;
+							endif;
 						$frame->end();
 		      endif;
 		      ?>
-	      	
+
 	      </div>
 	      <div class="col-lg-6">
 	      <?if(SITE_ID == 's1'):?>
@@ -389,9 +389,9 @@ endif;
 	      	<?if(strlen(COption::GetOptionString("grain.customsettings","refund".(SITE_ID!='s1'?"_it":"")))>0):?>
 	      		<a href="#refund" class="tabs__trigger">возврат</a>
 	      	<?endif;?>
-	      	
+
 	      	<a href="#feedback" data-toggle="modal" data-target="#feedback" class="tabs__trigger">обратная связь</a>
-	      	
+
 	      </div>
 	      <?if(strlen($item['DETAIL_TEXT'])>0):?>
 	      <div id="description" class="tabs__content">
@@ -527,7 +527,7 @@ else
 }
 if(count(array_keys($arResult['SET']['ITEMS'])) > 0):
 	global $setFilter;
-	$setFilter = array('=ID'=>array_keys($arResult['SET']['ITEMS']));
+	$setFilter = array('=ID'=>$arResult['SET']['SHOW']);
 ?>
 <div data-title="Состав комплекта" class="catalog__divider catalog__divider--title"></div>
 <div class="catalog catalog--full-width catalog--one-line <?=(SITE_ID!='s1'?"catalog--italbags":"")?>">
@@ -573,13 +573,13 @@ if(count(array_keys($arResult['SET']['ITEMS'])) > 0):
 			"PRICE_CODE"                      => $arParams["PRICE_CODE"],
 			"USE_PRICE_COUNT"                 => $arParams["USE_PRICE_COUNT"],
 			"SHOW_PRICE_COUNT"                => $arParams["SHOW_PRICE_COUNT"],
-			
+
 			"PRICE_VAT_INCLUDE"               => $arParams["PRICE_VAT_INCLUDE"],
 			"USE_PRODUCT_QUANTITY"            => $arParams['USE_PRODUCT_QUANTITY'],
 			"ADD_PROPERTIES_TO_BASKET"        => (isset($arParams["ADD_PROPERTIES_TO_BASKET"]) ? $arParams["ADD_PROPERTIES_TO_BASKET"] : ''),
 			"PARTIAL_PRODUCT_PROPERTIES"      => (isset($arParams["PARTIAL_PRODUCT_PROPERTIES"]) ? $arParams["PARTIAL_PRODUCT_PROPERTIES"] : ''),
 			"PRODUCT_PROPERTIES"              => $arParams["PRODUCT_PROPERTIES"],
-			
+
 			"DISPLAY_TOP_PAGER"               => $arParams["DISPLAY_TOP_PAGER"],
 			"DISPLAY_BOTTOM_PAGER"            => $arParams["DISPLAY_BOTTOM_PAGER"],
 			"PAGER_TITLE"                     => $arParams["PAGER_TITLE"],
@@ -588,7 +588,7 @@ if(count(array_keys($arResult['SET']['ITEMS'])) > 0):
 			"PAGER_DESC_NUMBERING"            => $arParams["PAGER_DESC_NUMBERING"],
 			"PAGER_DESC_NUMBERING_CACHE_TIME" => $arParams["PAGER_DESC_NUMBERING_CACHE_TIME"],
 			"PAGER_SHOW_ALL"                  => $arParams["PAGER_SHOW_ALL"],
-			
+
 			"OFFERS_CART_PROPERTIES"          => $arParams["OFFERS_CART_PROPERTIES"],
 			"OFFERS_FIELD_CODE"               => $arParams["LIST_OFFERS_FIELD_CODE"],
 			"OFFERS_PROPERTY_CODE"            => $arParams["LIST_OFFERS_PROPERTY_CODE"],
@@ -597,18 +597,18 @@ if(count(array_keys($arResult['SET']['ITEMS'])) > 0):
 			"OFFERS_SORT_FIELD2"              => $arParams["OFFERS_SORT_FIELD2"],
 			"OFFERS_SORT_ORDER2"              => $arParams["OFFERS_SORT_ORDER2"],
 			"OFFERS_LIMIT"                    => $arParams["LIST_OFFERS_LIMIT"],
-			
-			
+
+
 			"SECTION_URL"                     => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
 			"DETAIL_URL"                      => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["element"],
 			'CONVERT_CURRENCY'                => $arParams['CONVERT_CURRENCY'],
 			'CURRENCY_ID'                     => $arParams['CURRENCY_ID'],
 			'HIDE_NOT_AVAILABLE'              => $arParams["HIDE_NOT_AVAILABLE"],
-			
+
 			'LABEL_PROP'                      => $arParams['LABEL_PROP'],
 			'ADD_PICT_PROP'                   => $arParams['ADD_PICT_PROP'],
 			'PRODUCT_DISPLAY_MODE'            => $arParams['PRODUCT_DISPLAY_MODE'],
-			
+
 			'OFFER_ADD_PICT_PROP'             => $arParams['OFFER_ADD_PICT_PROP'],
 			'OFFER_TREE_PROPS'                => $arParams['OFFER_TREE_PROPS'],
 			'PRODUCT_SUBSCRIPTION'            => $arParams['PRODUCT_SUBSCRIPTION'],
@@ -619,7 +619,7 @@ if(count(array_keys($arResult['SET']['ITEMS'])) > 0):
 			'MESS_BTN_SUBSCRIBE'              => $arParams['MESS_BTN_SUBSCRIBE'],
 			'MESS_BTN_DETAIL'                 => $arParams['MESS_BTN_DETAIL'],
 			'MESS_NOT_AVAILABLE'              => $arParams['MESS_NOT_AVAILABLE'],
-			
+
 			'TEMPLATE_THEME'                  => (isset($arParams['TEMPLATE_THEME']) ? $arParams['TEMPLATE_THEME'] : ''),
 			"ADD_SECTIONS_CHAIN"              => "N",
 			'ADD_TO_BASKET_ACTION'            => $basketAction,
@@ -640,13 +640,13 @@ $this->SetViewTarget('footer');
     	<div class="modal-frame" data-title="где купить">
 	    	<div class="row available__row">
 	    		<div class="col-sm-4 col-md-3 hidden-xs">
-	    			<div class="available__picture" style="background-image: url(<?=(isset($array[0]['middle'])?$array[0]['middle']:(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg"))?>)"></div>	
+	    			<div class="available__picture" style="background-image: url(<?=(isset($array[0]['middle'])?$array[0]['middle']:(isset($item['PREVIEW_PICTURE']['SMALL'])?$item['PREVIEW_PICTURE']['SMALL']:"/layout/images/no-image.jpg"))?>)"></div>
 	    		</div>
 	    		<div class="col-sm-8 col-md-9 no-position">
 	    			<div class="available__title">
 	    				<div class="available__product-name"><?=$item['NAME']?></div>
 	    				<div class="available__product-artnumber">Арт. <?=$props['ARTNUMBER']['VALUE']?></div>
-	    			</div>	
+	    			</div>
 	    		</div>
 	    	</div>
 	    	<?
@@ -656,7 +656,7 @@ $this->SetViewTarget('footer');
         	foreach ($item['OFFERS'] as $offer)
         		$offers[$offer['ID']] = $item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']];
 
-        	$APPLICATION->IncludeComponent("bitrix:news.list", "available", 
+        	$APPLICATION->IncludeComponent("bitrix:news.list", "available",
 				array(
 					"IBLOCK_ID"     => 6,
 					"NEWS_COUNT"    => "9999999",

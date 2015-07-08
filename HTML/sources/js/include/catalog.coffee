@@ -8,7 +8,7 @@ filterRequest = false
 		offset.top  -= target.offset().top - block.height()/2
 		offset.left -= target.offset().left - block.width()/2
 		block.clone().prependTo(block).mod('absolute', true).velocity
-			properties: 
+			properties:
 				translateX : -offset.left
 				translateY : -offset.top
 				opacity    : .2
@@ -22,11 +22,11 @@ filterRequest = false
 
 	block    = el.block()
 	id       = el.data 'id'
-	simmilar = $.cookie 'simmilar'	
+	simmilar = $.cookie 'simmilar'
 
 	if !simmilar
 		$.removeCookie 'simmilar', { path : "/" }
-		simmilar = [] 
+		simmilar = []
 		simmilar.push(id)
 	else
 		simmilar = JSON.parse simmilar
@@ -41,44 +41,53 @@ filterRequest = false
 	else
 		el.text 'Сравнить'
 		callbackOff()
-	
-	console.log simmilar
 
 	if simmilar.length > 0
 		$('.simmilar').elem('text').text "К сравнению: #{simmilar.length}"
 		simmilar = JSON.stringify simmilar
 		$.cookie 'simmilar', simmilar, { path:"/", expires: 7}
 		$('.simmilar').attr 'href', '/catalog/compare.php'
-		
+
 	else
 		$('.simmilar').elem('text').text "Товары не выбраны"
 		$.removeCookie 'simmilar', { path : "/" }
 		$('.simmilar').attr 'href', '#'
-		
-	
+
+
 	return
 
 @addToCart = (el)->
-	id     = el.data 'id'
-	block  = el.block()
+
+	block     = el.block()
+	request   = el.data('request')
+	value     = parseInt $(el).block('counter-input').val()
+	id        = el.data 'id'
+	artnumber = el.data('artnumber')
 	
-	url    = "/include/basket.php?a=add&id=#{id}"
-	if el.data('size')
-		url += "&size=#{el.data('size')}"
-	if el.data('artnumber')
-		url += "&artnumber=#{el.data('artnumber')}"
+	if !request
+		url     = "/include/basket.php?a=add&id=#{id}"
+		if el.data('size')
+			url += "&size=#{el.data('size')}"
+		if artnumber
+			url += "&artnumber=#{artnumber}"
+
+		if value > 0
+			url += "&count=#{value}"
+	else
+		request.unshift {'id': id, 'quantity':value}
+		request = JSON.stringify request
+		url     = "/include/basket.php?a=add_set&data=#{request}"
+
 	fly block, $('.header .cart')
-	
-	value = parseInt $(el).block('counter-input').val()
-	if value > 0
-		url += "&count=#{value}"
-		
+
 	$.get url, (data)->
 		if data == 'success'
 			bx_cart_block1.refreshCart({})
+		else
+			console.log data
 
 @initProducts = (images = true)->
-	
+
 	$('.product').elem('content-text').click ->
 		if $.browser.mobile
 			location.href = $(this).block('picture-frame').attr('href')
@@ -115,9 +124,9 @@ filterRequest = false
 			$(this).block('sizes').mod 'open', true
 		else if $(this).hasMod 'cart'
 			addToCart $(this)
-			
+
 		e.preventDefault()
-	
+
 	$('.product').elem('size').off('click').on 'click', (e)->
 		$('.product').elem('size').mod 'active', false
 		$(this).mod 'active', true
@@ -127,7 +136,7 @@ filterRequest = false
 		if $(this).hasMod 'cancel'
 			$(this).block('sizes').mod 'open', false
 			e.preventDefault()
-		
+
 		if $(this).hasMod 'simmilar'
 			block = $(this).block()
 			getSimmilar $(this), (->
@@ -141,12 +150,12 @@ filterRequest = false
 			button = $(this)
 			$(this).block('size').each ->
 				if $(this).hasMod 'active'
-					button.data 'id', $(this).data 'id'	
-					button.data 'size', $(this).data 'size'	
-					button.data 'artnumber', $(this).block().data 'artnumber'	
+					button.data 'id', $(this).data 'id'
+					button.data 'size', $(this).data 'size'
+					button.data 'artnumber', $(this).block().data 'artnumber'
 			addToCart button
 			e.preventDefault()
-	
+
 	$('.product').hoverIntent
 		sensitivity: 40
 		over : ()->
@@ -185,7 +194,7 @@ filterRequest = false
 		offset.left -= $('.header .cart').offset().left - block.width()/2
 
 		block.velocity
-			properties: 
+			properties:
 				translateX : -offset.left
 				translateY : -offset.top
 				opacity    : .2
@@ -195,16 +204,16 @@ filterRequest = false
 				complete: ->
 					$(this).remove();
 					$.cookie('card', 'Y', { path:"/", expires: 7 });
-		
+
 		$('.catalog__card-frame, a.catalog__card-button, .catalog__card-text').css(
 			opacity: 0
 		).on end, ->
 			$(this).remove()
-		e.preventDefault()	
-		
+		e.preventDefault()
+
 @checkRange = ->
 	slider = $("input[name=range]").data("ionRangeSlider")
-			
+
 	if parseInt($("input.range__from").val()) < slider.result.min
 		$("input.range__from").val slider.result.min
 
@@ -235,10 +244,10 @@ filterRequest = false
 		$(this).addClass color
 		delay 300, ->
 			el.addClass('ready')
-	
+
 	$('.filter input[type="radio"], .filter input[type="checkbox"]').off('ifChanged').on 'ifChanged', ->
 		getFilter($(this))
-	
+
 	$('.filter input[type="radio"], .filter input[type="checkbox"]:not(.color)').iCheck()
 	$('.filter input.color').iCheck(checkboxClass: 'icheckbox_color')
 
@@ -274,8 +283,8 @@ filterRequest = false
 						$.cookie(block.data('code'), 'Y')
 						block.mod 'open', true
 
-		e.preventDefault()	
-	
+		e.preventDefault()
+
 	# Range
 	$("input.range__from, input.range__to").on 'input', (e)->
 		if (e.keyCode < 48 || e.keyCode > 57) && $.inArray(e.keyCode, [37,38,39,40,13,27,9,8,46]) == -1
@@ -286,8 +295,8 @@ filterRequest = false
 		else
 			rangeTimer = delay 1000, ->
 				checkRange()
-			
-	
+
+
 	$(".filter__content input[name=range]").ionRangeSlider
 		type: "double"
 		onFinish: ->
@@ -306,12 +315,12 @@ filterRequest = false
 				properties: "transition.slideUpOut"
 				options:
 					duration: 300
-	
+
 	filterRequest.abort() if filterRequest
 	$('.filter').mod 'loading', false
-	
+
 	el.parents('.filter').mod('loading', true) if el
-	
+
 	inputs = $('.page').elem('side').find('input')
 	form   = $('.page').elem('side').find('form')
 	sort   = [$('.catalog__toolbar .dropdown').data('param'), $('.catalog__toolbar .dropdown').data('value')]
@@ -324,19 +333,19 @@ filterRequest = false
 			data = form.serialize() + "&short=Y&set_filter=Y"
 			data += sort
 			filterRequest = $.ajax
-				type     : "GET" 
-				url      : ajaxURL 
+				type     : "GET"
+				url      : ajaxURL
 				data     : data
 				success  : (data)->
 					el.parents('.filter').mod('loading', false) if el
 
 					History.pushState(null, document.title, ajaxURL + "?" + decodeURIComponent(form.serialize()) + sort + "&set_filter=Y");
-					
+
 					if $(data).filter('article').find('.pages').length > 0
 						$('.pages').html $(data).filter('article').find('.pages').html()
 					else
 						$('.pages').html('')
-					
+
 					$('.catalog__frame').html $(data).filter('article').find('.catalog__frame').html()
 					initProducts()
 
@@ -355,7 +364,7 @@ filterRequest = false
 			values[0] = {name: 'ajax', value: 'y'}
 			smartFilter.gatherInputsValues(values, inputs);
 			filterRequest = $.ajax
-				type     : "GET" 
+				type     : "GET"
 				url      : ajaxURL
 				data     : values
 				success  : (data)->
@@ -381,7 +390,7 @@ filterRequest = false
 										duration: 300
 
 @eventBrandSelect = (el)->
-	if window.location.search.length == 0 
+	if window.location.search.length == 0
 			symbol = "?"
 		else
 			symbol = "&"
@@ -397,7 +406,7 @@ filterRequest = false
 				location.href = location.href
 			else
 				location.href = location.href.replace("brand="+getParameterByName('brand'), "")
-			
+
 @initBrandSelect = ->
 	$('.brand-select .dropdown .dropdown__item').click (e)->
 		eventBrandSelect $(this)
@@ -444,13 +453,13 @@ filterRequest = false
 
 	$('.catalog__toolbar .dropdown .dropdown__item').click (e)->
 		checkSort $(this)
-	
+
 	$('.catalog__toolbar .dropdown .dropdown__select').on 'change', (e)->
 		$(this).block().elem('text').html $(this).find('option:selected').text()
 		checkSort $(this).find('option:selected')
-	
+
 	$('.catalog').elem('per-page').click (e)->
-		if window.location.search.length == 0 
+		if window.location.search.length == 0
 			symbol = "?"
 		else
 			symbol = "&"

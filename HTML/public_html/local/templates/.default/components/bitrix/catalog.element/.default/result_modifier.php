@@ -10,7 +10,7 @@
 	$arResult['CATEGORIES'] = getHighloadElements('categories', 'UF_XML_ID', 'ID');
 	$arResult['SECTIONS']   = array();
 	$arResult['SET']        = false;
-	
+
 	if(SITE_ID == 's2'):
 		if(CCatalogProductSet::isProductHaveSet($arResult['ID'])):
 			$arResult['SET'] = array('TYPE' => false);
@@ -21,16 +21,38 @@
 				$arResult['SET']['TYPE'] = CCatalogProductSet::TYPE_GROUP;
 			endif;
 			if(count($raw[0]['ITEMS']) > 0):
-				$arResult['SET']['ITEMS'] = array();
+				$arResult['SET']['SHOW']   = array();
+				$arResult['SET']['ITEMS']  = array();
 				$arResult['SET']['IMAGES'] = array();
 				foreach ($raw[0]['ITEMS'] as $item) {
 					$arResult['SET']['ITEMS'][$item['ITEM_ID']] = $item;
 				}
-				$res = CIBlockElement::GetList(Array(), array('ID' => array_keys($arResult['SET']['ITEMS'])), false, false, Array("PREVIEW_PICTURE"));
+				$res = CIBlockElement::GetList(Array(), array('ID' => array_keys($arResult['SET']['ITEMS'])), false, false, Array("ID", "PREVIEW_PICTURE", "PROPERTY_ARTNUMBER", "IBLOCK_CODE"));
+
 				while ($arItem = $res->Fetch()) {
+					$arResult['SET']['SHOW'][] = $arItem['ID'];
 					$arResult['SET']['ITEMS'][$arItem['ID']] = array_merge($arResult['SET']['ITEMS'][$arItem['ID']], $arItem);
 					$arResult['SET']['IMAGES'][] = $arItem['PREVIEW_PICTURE'];
 				}
+				$diff = array_diff(array_keys($arResult['SET']['ITEMS']), $arResult['SET']['SHOW']);
+				if(count($diff) > 0):
+					$res = CIBlockElement::GetList(Array(), array('IBLOCK_CODE'=>'offers', '=ID' => $diff), false, false, Array("ID", "CODE", "PROPERTY_ARTNUMBER", "PROPERTY_SIZE", "PROPERTY_CML2_LINK", "PROPERTY_CML2_LINK.PREVIEW_PICTURE"));
+					while ($arItem = $res->Fetch()) {
+						$item = &$arResult['SET']['ITEMS'][$arItem['ID']];
+						$item = array_merge($item, $arItem);
+						$item['PROPERTY_SIZE_VALUE'] = $arResult['SIZES'][$item['PROPERTY_SIZE_VALUE']];
+						$arResult['SET']['IMAGES'][] = $arItem['PROPERTY_CML2_LINK_PREVIEW_PICTURE'];
+						$arResult['SET']['SHOW'][]   = $arItem['PROPERTY_CML2_LINK_VALUE'];
+					}
+				endif;
+				$data = array();
+				foreach ($arResult['SET']['ITEMS'] as $val) {
+					$tmp = array('id' => $val['ITEM_ID'], 'artnumber'=> $val['PROPERTY_ARTNUMBER_VALUE'], 'quantity'=>$val['QUANTITY']);
+					if(strlen($val['PROPERTY_SIZE_VALUE']) > 0)
+						$tmp['size'] = $val['PROPERTY_SIZE_VALUE'];
+					$data[] = $tmp;
+				}
+				$arResult['BUY_DATA'] = $data;
 			else:
 				$arResult['SET'] = false;
 			endif;
@@ -67,7 +89,7 @@
 	while($data = $raw->GetNext()) {
 		if($data['CODE'] == 'sale30')
 			$arResult['TOOLTIP'] = $data['DESCRIPTION'];
-	
+
 		if(!in_array($data['CODE'], array('all', 'sale', 'sale30', 'new', 'best-sellers', 'coming', 'latest'))) {
 			$arResult['IBLOCK_SECTION_ID'] = $data['ID'];
 		}
@@ -76,15 +98,15 @@
 	$rsPath = GetIBlockSectionPath($arResult['IBLOCK_ID'], $arResult['IBLOCK_SECTION_ID']);
 	while($arPath = $rsPath->GetNext())
 		$arResult['SECTIONS'][] = $arPath;
-	
+
 	$arResult['IMAGES']    = array();
 	if(!$arResult['PROPERTIES']['PICTURES']['VALUE'])
 		$arResult['PROPERTIES']['PICTURES']['VALUE'] = array();
-	$raw = CFile::GetList(array(), 
+	$raw = CFile::GetList(array(),
 		array(
 			'@ID'=> implode(
 						array_merge(
-							$arResult['PROPERTIES']['PICTURES']['VALUE'], 
+							$arResult['PROPERTIES']['PICTURES']['VALUE'],
 							(count($arResult['SET']['IMAGES'])>0?$arResult['SET']['IMAGES']:array())
 							),','))
 		);
@@ -96,9 +118,9 @@
 
 	$small = CFile::ResizeImageGet(CFile::GetFileArray($arResult['PREVIEW_PICTURE']['ID']), Array("width" => 800, "height" => 800), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 	$arResult['PREVIEW_PICTURE']['SMALL'] = $small['src'];
-	
+
 	$APPLICATION->SetPageProperty('description', strip_tags($arResult["PREVIEW_TEXT"]));
-	
+
 	if(isset($arResult['PREVIEW_PICTURE']['SRC'])):
 		$this->SetViewTarget('header');
 			?>
@@ -114,10 +136,10 @@
 	if(CModule::IncludeModule("sale")):
 		$arBasketItems = array();
 		$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC", "ID" => "ASC"), array("FUSER_ID" => CSaleBasket::GetBasketUserID(), "LID" => SITE_ID, "ORDER_ID" => "NULL"), false, false, array("ID", "PRODUCT_ID"));
-		
+
 		while ($arItems = $dbBasketItems->Fetch())
 			$arBasketItems[] = $arItems['PRODUCT_ID'];
-		
+
 		$arResult['inCart'] = false;
 		if(in_array($item['ID'],$arBasketItems))
 			$arResult['inCart'] = true;

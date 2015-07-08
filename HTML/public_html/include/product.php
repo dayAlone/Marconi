@@ -47,7 +47,7 @@ $props = &$item['PROPERTIES'];
 	    	<div class="product__sale <?=(SITE_ID == 's1'?"":"product__sale--big")?>">
 	    		<span><?=(SITE_ID == 's1'?"Уникальная<br>цена":"SALE")?></span>
 	    	</div>
-	    	<? 	
+	    	<?
 	    	elseif(SITE_ID != 's1'):?>
 			<div class="product__sale">
 				<span>Скидка<br>30%</span>
@@ -57,7 +57,7 @@ $props = &$item['PROPERTIES'];
 	    	<div class="product__sale">
 				<span>NEW</span>
 			</div>
-	    <? 
+	    <?
 	    elseif(strlen($props['TRADELINE']['VALUE'])>0): ?>
 	    	<div class="product__tradeline"><?=$arResult['TRADELINES'][$props['TRADELINE']['VALUE']]?></div>
 	    <? endif; ?>
@@ -67,13 +67,25 @@ $props = &$item['PROPERTIES'];
 	  </div>
 	  <div class="product__hidden">
 	    <div class="product__frame"></div>
-	    
+
 	    <?if(count($props['PICTURES']['VALUE'])>0&&isset($item['PREVIEW_PICTURE']['SRC'])):?>
 	      <a href="#" class="product__icon product__icon--zoom" data-pictures='<?=json_encode($props['PICTURES']['VALUE'])?>'><?=svg('zoom')?></a>
 	    <?endif;?>
-	    
+
 	    <?if(isset($item['PRICE']) && $arParams['SHOW_PRICE'] && !(in_array($item['ID'], $arResult['SETS']['LOCKED']) && SITE_ID != 's1')):?>
-	    	<a href="#" class="product__icon product__icon--cart <?=(count($item['OFFERS'])>0?"product__icon--trigger":"")?>" data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>"><?=svg('cart')?></a>
+	    	<?if(SITE_ID == 's2' && $arResult['SETS'][$item['ID']]['TYPE'] == CCatalogProductSet::TYPE_GROUP):
+				$set = $arResult['SETS'][$item['ID']];
+				$data = array();
+				foreach ($set['ITEMS'] as $val) {
+					$tmp = array('id' => $val['ITEM_ID'], 'artnumber'=> $val['PROPERTY_ARTNUMBER_VALUE'], 'quantity'=>$val['QUANTITY']);
+					if(strlen($val['PROPERTY_SIZE_VALUE']) > 0)
+						$tmp['size'] = $val['PROPERTY_SIZE_VALUE'];
+					$data[] = $tmp;
+				}
+			?>
+			<?endif;?>
+			<a href="#" <?=(count($data)>0?"data-request='".json_encode($data)."'":"")?> class="product__icon product__icon--cart <?=(count($item['OFFERS'])>0?"product__icon--trigger":"")?>" data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>"><?=svg('cart')?></a>
+
 	    <?endif;?>
 	    <?
 	    if($arParams['HIDE_MORE'] != "Y"):?>

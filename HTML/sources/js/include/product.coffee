@@ -3,28 +3,41 @@
 @initBigButton = ->
 	$('.product').elem('big-button').off('click').on 'click', (e)->
 		if $(this).hasMod 'buy'
-			id = $(this).data 'id'
-			if $('.sizes').length > 0
-				id = $('.sizes .dropdown').data 'id'
-				param_size = $('.sizes .dropdown__text').text()
-			url = "/include/basket.php?a=add&id=#{id}"
-			if param_size
-				url += "&size=#{param_size}"
-			
-			url += "&artnumber=#{$(this).data('artnumber')}"
+			$el        = $(this)
+			id        = $el.data 'id'
+			request   = $el.data 'request'
+			artnumber = $el.data 'artnumber'
+			value     = parseInt $el.block('counter-input').val()
+
+			if !request
+				url = "/include/basket.php?a=add&id=#{id}"
+
+				if $('.sizes').length > 0
+					id         = $('.sizes .dropdown').data 'id'
+					param_size = $('.sizes .dropdown__text').text()
+
+				if param_size
+					url += "&size=#{param_size}"
+
+				url += "&artnumber=#{artnumber}"
+
+				if value > 0
+					$el.block('counter').mod 'disabled', true
+					url += "&count=#{value}"
+			else
+				request.unshift {'id': id, 'quantity':value}
+				request = JSON.stringify request
+				url     = "/include/basket.php?a=add_set&data=#{request}"
+
+			$.get url, (data)->
+				if data == 'success'
+					bx_cart_block1.refreshCart({})
 
 			fly $('.picture'), $('.header .cart')
 			$(this).mod('border', true).mod('disabled', true).on end, ->
 				$(this).text('Товар в корзине')
 
-			value = parseInt $(this).block('counter-input').val()
-			if value > 0
-				$(this).block('counter').mod 'disabled', true
-				url += "&count=#{value}"
 
-			$.get url, (data)->
-				if data == 'success'
-					bx_cart_block1.refreshCart({})
 		if $(this).hasMod 'simmilar'
 			getSimmilar $(this), ->
 				fly $('.picture'), $('.header .simmilar')
@@ -32,7 +45,7 @@
 
 		if $(this).parents('form').length == 0 && !$(this).hasMod 'set'
 			e.preventDefault()
-	
+
 @initProduct = ->
 	$('.breadcrumbs').elem('brand').click (e)->
 		if $(this).data('value').length > 0
@@ -76,14 +89,14 @@
 			$(this).mod 'active', true
 			$($(this).attr('href')).mod 'active', true
 		e.preventDefault()
-	$('.picture').elem('small').click (e)->	
+	$('.picture').elem('small').click (e)->
 		$('.picture').elem('small').mod 'active', false
 		$(this).mod 'active', true
 		$('.picture').elem('big').css
 			backgroundImage : "url(#{$(this).data('middle')})"
 		if !$.browser.mobile
 			$('.picture').elem('big').data('easyZoom').swap $(this).data('middle'), $(this).attr('href')
-		
+
 		e.preventDefault()
 	$('.picture').elem('zoom').click (e)->
 			pswpElement = document.querySelectorAll('.pswp')[0];
