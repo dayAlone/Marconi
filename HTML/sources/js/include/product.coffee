@@ -10,11 +10,12 @@
 			value     = parseInt $el.block('counter-input').val()
 
 			if !request
-				url = "/include/basket.php?a=add&id=#{id}"
 
 				if $('.sizes').length > 0
 					id         = $('.sizes .dropdown').data 'id'
 					param_size = $('.sizes .dropdown__text').text()
+
+				url = "/include/basket.php?a=add&id=#{id}"
 
 				if param_size
 					url += "&size=#{param_size}"
@@ -24,6 +25,7 @@
 				if value > 0
 					$el.block('counter').mod 'disabled', true
 					url += "&count=#{value}"
+
 			else
 				request.unshift {'id': id, 'quantity':value}
 				request = JSON.stringify request
@@ -72,8 +74,12 @@
 	$('.tabs__content:first').addClass 'tabs__content--active'
 
 	$('.sizes .dropdown__item').click (e)->
+
 		$(this).block().data 'id', $(this).data 'id'
 		$(this).block().data 'size', $(this).data 'size'
+
+		$('.product').elem('big-button').byMod('buy').text('В корзину').mod('border', false).mod('disabled', false)
+
 		if parseInt($(this).data('price')) > 0
 			el   = $('.props__item--price strong')
 			last = parseInt el.text().replace(' ','')
