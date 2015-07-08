@@ -29,12 +29,12 @@ function basketItem($item, $arResult)
 					<?=$item['PROPERTY_NOTE_SHORT_VALUE']?>
 					<br>
 				<?endif;?>
-				<?if(strlen($arResult['BRANDS'][$item['PROPERTY_BRAND_VALUE']]) > 0):?>
+				<?if(strlen($item['PROPERTY_BRAND_VALUE']) > 1):?>
 					<span class='basket__brand'><?=$arResult['BRANDS'][$item['PROPERTY_BRAND_VALUE']]?></span><br>
 				<?else:?>
 					<span class='basket__brand'><?=$item['NAME']?></span><br>
 				<?endif;?>
-				<?if(SITE_ID=='s1' && strlen($arResult['BRANDS'][$item['PROPERTY_BRAND_VALUE']]) > 0):?>
+				<?if(SITE_ID=='s1' && strlen($item['PROPERTY_BRAND_VALUE']) > 1):?>
 					<?=$item['NAME']?>
 				<?endif;
 				?>
