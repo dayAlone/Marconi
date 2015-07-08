@@ -72,7 +72,8 @@ $props = &$item['PROPERTIES'];
 	      <a href="#" class="product__icon product__icon--zoom" data-pictures='<?=json_encode($props['PICTURES']['VALUE'])?>'><?=svg('zoom')?></a>
 	    <?endif;?>
 
-	    <?if(isset($item['PRICE']) && $arParams['SHOW_PRICE'] && !(in_array($item['ID'], $arResult['SETS']['LOCKED']) && SITE_ID != 's1')):?>
+	    <?
+		if(isset($item['PRICE']) && $arParams['SHOW_PRICE'] && !(in_array($item['ID'], $arResult['SETS']['LOCKED']) && SITE_ID != 's1')):?>
 	    	<?if(SITE_ID == 's2' && $arResult['SETS'][$item['ID']]['TYPE'] == CCatalogProductSet::TYPE_GROUP):
 				$set = $arResult['SETS'][$item['ID']];
 				$data = array();
@@ -102,16 +103,19 @@ $props = &$item['PROPERTIES'];
 	    	</div>
 	    <?endif;?>
 	    <?if(count($item['OFFERS'])>0):
-	      ?>
-	      <div class="product__sizes">
-	        <div class="product__brand">Выберите размер</div>
-	          <? foreach($item['OFFERS'] as $k=>$size):?>
-	            <a href="#" class="product__size <?=($k==0?"product__size--active":"")?>" data-id="<?=$size['ID']?>" data-size="<?=$arResult['SIZES'][$size['DISPLAY_PROPERTIES']['SIZE']['VALUE']]?>"> <?=$arResult['SIZES'][$size['DISPLAY_PROPERTIES']['SIZE']['VALUE']]?> </a>
-	          <? endforeach; ?>
-	        <a href="#" class="product__button product__button--cancel">Отмена</a>
-	        <a href="#" class="product__button product__button--buy">В корзину</a>
-	      </div>
-	      <?
+			  ?>
+		      <div class="product__sizes">
+		        <div class="product__brand">Выберите размер</div>
+		          <?
+				foreach($item['OFFERS'] as $k=>$size):
+					if(!in_array($size['ID'], $arResult['SETS']['LOCKED_OFFERS'])):?>
+		            <a href="#" class="product__size <?=($k==0?"product__size--active":"")?>" data-id="<?=$size['ID']?>" data-size="<?=$arResult['SIZES'][$size['DISPLAY_PROPERTIES']['SIZE']['VALUE']]?>"> <?=$arResult['SIZES'][$size['DISPLAY_PROPERTIES']['SIZE']['VALUE']]?> </a>
+		          <?endif;
+				endforeach; ?>
+		        <a href="#" class="product__button product__button--cancel">Отмена</a>
+		        <a href="#" class="product__button product__button--buy">В корзину</a>
+		      </div>
+		      <?
 	  endif;
 	    ?>
 

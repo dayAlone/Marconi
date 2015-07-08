@@ -2,7 +2,7 @@
 $arResult['SIZES']      = getHighloadElements('sizes', 'UF_XML_ID', 'UF_NAME');
 $arResult['BRANDS']     = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
 $arResult['TRADELINES'] = getHighloadElements('tradeline', 'UF_XML_ID', 'UF_NAME');
-$arResult['SETS']       = array('LOCKED'=>array(), 'PRODUCTS'=>array());
+$arResult['SETS']       = array('LOCKED'=>array(), 'LOCKED_OFFERS'=>array(), 'PRODUCTS'=>array());
 
 $arParams['SHOW_PRICE'] = false;
 
@@ -13,13 +13,16 @@ $images   = array();
 $sections = array();
 $paths    = array();
 $arIDS    = array();
+$arOffers = array();
 
 $arResult['IMAGES']   = array();
 $arResult['SECTIONS'] = array();
 
-foreach ($arResult['ITEMS'] as &$item):
-	$arIDS[] = $item['ID'];
+foreach ($arResult['ITEMS'] as $key => &$item):
+	$arIDS[$item['ID']] = $key;
 	$brand = $arResult['BRANDS'][$item['PROPERTIES']['BRAND']['VALUE']];
+
+	foreach($item['OFFERS'] as $k => $offer) $arOffers[$offer['ID']] = $k;
 
 	$raw = CIBlockElement::GetElementGroups($item['ID'], false, array('ID', 'CODE'));
 	while($data = $raw->GetNext()):
@@ -64,14 +67,14 @@ if(SITE_ID == 's2'):
 	$rsSets = CCatalogProductSet::getList(
 		array(),
 		array(
-			'@OWNER_ID' => $arIDS,
+			'@ITEM_ID' => array_merge(array_keys($arIDS),array_keys($arOffers)),
 			//'=SET_ID' => 0
 		),
 		false,
 		false,
 		array('ID', 'OWNER_ID', 'ITEM_ID', 'TYPE', 'QUANTITY')
 	);
-	$arIDS = array();
+	$arElements = array();
 	while ($arSet = $rsSets->Fetch())
 	{
 		if(!isset($arResult['SETS'][$arSet['OWNER_ID']]))
@@ -79,17 +82,17 @@ if(SITE_ID == 's2'):
 		$set = &$arResult['SETS'][$arSet['OWNER_ID']];
 
 		if($arSet['OWNER_ID'] != $arSet['ITEM_ID']) {
-			$arIDS[$arSet['ITEM_ID']] = $arSet['OWNER_ID'];
+			$arElements[$arSet['ITEM_ID']] = $arSet['OWNER_ID'];
 			$set['ITEMS'][$arSet['ITEM_ID']] = $arSet;
 			if($arSet['TYPE'] == CCatalogProductSet::TYPE_SET)
 				$arResult['SETS']['LOCKED'][] = $arSet['ITEM_ID'];
 		}
 	}
-	if(count($arIDS) > 0):
-		$res = CIBlockElement::GetList(Array(), array('ID' => array_keys($arIDS)), false, false, Array("ID", "PROPERTY_ARTNUMBER", "PREVIEW_PICTURE", "IBLOCK_CODE"));
+	if(count($arElements) > 0):
+		$res = CIBlockElement::GetList(Array(), array('ID' => array_keys($arElements)), false, false, Array("ID", "PROPERTY_ARTNUMBER", "PREVIEW_PICTURE", "IBLOCK_CODE"));
 		while ($arItem = $res->Fetch()) {
-			$set = &$arResult['SETS'][$arIDS[$arItem['ID']]];
-			$arResult['SETS']['PRODUCTS'][$arItem['ID']] = $arIDS[$arItem['ID']];
+			$set = &$arResult['SETS'][$arElements[$arItem['ID']]];
+			$arResult['SETS']['PRODUCTS'][$arItem['ID']] = $arElements[$arItem['ID']];
 			$item = &$set['ITEMS'][$arItem['ID']];
 			$item = array_merge($item, $arItem);
 			if(intval($arItem["PREVIEW_PICTURE"]) > 0):
@@ -99,14 +102,24 @@ if(SITE_ID == 's2'):
 		}
 	endif;
 
-	$diff = array_diff(array_keys($arIDS), array_keys($arResult['SETS']['PRODUCTS']));
+	$diff = array_diff(array_keys($arElements), array_keys($arResult['SETS']['PRODUCTS']));
 	if(count($diff) > 0):
 		$res = CIBlockElement::GetList(Array(), array('IBLOCK_CODE'=>'offers', '=ID' => $diff), false, false, Array("ID", "CODE", "PROPERTY_ARTNUMBER", "PROPERTY_SIZE", "PROPERTY_CML2_LINK", "PROPERTY_CML2_LINK.PREVIEW_PICTURE"));
 		while ($arItem = $res->Fetch()) {
+			$set = &$arResult['SETS'][$arElements[$arItem['ID']]];
 
-			$arResult['SETS']['LOCKED'][] = $arItem['PROPERTY_CML2_LINK'];
+			if($set['TYPE'] == CCatalogProductSet::TYPE_SET):
+				if(count($arResult['ITEMS'][$arIDS[$arItem['PROPERTY_CML2_LINK_VALUE']]]['OFFERS']) == 1):
+					if(!in_array($arItem['PROPERTY_CML2_LINK_VALUE'], $arResult['SETS']['LOCKED'])):
+						$arResult['SETS']['LOCKED'][] = $arItem['PROPERTY_CML2_LINK_VALUE'];
+					endif;
+				else:
+					if(!in_array($arItem['ID'], $arResult['SETS']['LOCKED_OFFERS'])):
+						$arResult['SETS']['LOCKED_OFFERS'][] = $arItem['ID'];
+					endif;
+				endif;
+			endif;
 
-			$set = &$arResult['SETS'][$arIDS[$arItem['ID']]];
 			$item = &$set['ITEMS'][$arItem['ID']];
 			$item = array_merge($item, $arItem);
 			$item['PROPERTY_SIZE_VALUE'] = $arResult['SIZES'][$item['PROPERTY_SIZE_VALUE']];
