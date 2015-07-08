@@ -1,5 +1,5 @@
 <?
-	global $CITY, $setFilter;
+	global $CITY, $setFilter, $arImages;
 	require($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/catalog.element/templates/.default/result_modifier.php');
 	$arResult['BRANDS']     = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
 	$arResult['COLORS']     = getHighloadElements('colors', 'UF_XML_ID', 'UF_NAME');
@@ -107,19 +107,29 @@
 	$arResult['IMAGES']    = array();
 	if(!$arResult['PROPERTIES']['PICTURES']['VALUE'])
 		$arResult['PROPERTIES']['PICTURES']['VALUE'] = array();
+
+	$arImages = array_merge($arResult['PROPERTIES']['PICTURES']['VALUE'],(count($arResult['SET']['IMAGES'])>0?$arResult['SET']['IMAGES']:array()));
+
 	$raw = CFile::GetList(array(),
 		array(
-			'@ID'=> implode(
-						array_merge(
-							$arResult['PROPERTIES']['PICTURES']['VALUE'],
-							(count($arResult['SET']['IMAGES'])>0?$arResult['SET']['IMAGES']:array())
-							),','))
-		);
+			'@ID'=> implode($arImages,','))
+	);
+
 	while($img = $raw->Fetch()):
 		$small = CFile::ResizeImageGet(CFile::GetFileArray($img['ID']), Array("width" => 200, "height" => 200), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 		$middle = CFile::ResizeImageGet(CFile::GetFileArray($img['ID']), Array("width" => 800, "height" => 800), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
-		$arResult['IMAGES'][] = array('small'=>$small['src'], 'middle'=>$middle['src'], 'src'=>"/upload/".$img['SUBDIR']."/".$img['FILE_NAME'], 'h'=>$img['HEIGHT'], 'w'=>$img['WIDTH']);
+		$arResult['IMAGES'][] = array('ID'=>$img['ID'], 'small'=>$small['src'], 'middle'=>$middle['src'], 'src'=>"/upload/".$img['SUBDIR']."/".$img['FILE_NAME'], 'h'=>$img['HEIGHT'], 'w'=>$img['WIDTH']);
 	endwhile;
+	function sortImages(){
+		global $arImages;
+		$a = array_search($a['ID'], $arImages);
+		$b = array_search($b['ID'], $arImages);
+		if ($a == $b) {
+	        return 0;
+	    }
+	    return ($a < $b) ? -1 : 1;
+	}
+	usort($arResult['IMAGES'], 'sortImages');
 
 	$small = CFile::ResizeImageGet(CFile::GetFileArray($arResult['PREVIEW_PICTURE']['ID']), Array("width" => 800, "height" => 800), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 	$arResult['PREVIEW_PICTURE']['SMALL'] = $small['src'];
