@@ -8348,6 +8348,8 @@ a.news--list .news-item__title:hover {
   font-weight: bold;
   font-size: 12px;
   color: #000;
+  line-height: 1.2;
+  display: inline-block;
 }
 @media (min-width: 768px) {
   .basket__brand {
