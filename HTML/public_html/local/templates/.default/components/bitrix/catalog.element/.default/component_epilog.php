@@ -3,7 +3,7 @@ $APPLICATION->SetPageProperty('body_class', "product");
 /** @var array $templateData */
 /** @var @global CMain $APPLICATION */
 use Bitrix\Main\Loader;
-global $APPLICATION, $colorFilter, $CITY, $setFilter, $arResult;
+global $APPLICATION, $colorFilter, $CITY, $setFilter;
 
 $obCache   = new CPHPCache();
 $cacheLife = 86400;
