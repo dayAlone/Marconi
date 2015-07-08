@@ -45,14 +45,16 @@
 						$arResult['SET']['SHOW'][]   = $arItem['PROPERTY_CML2_LINK_VALUE'];
 					}
 				endif;
-				$data = array();
-				foreach ($arResult['SET']['ITEMS'] as $val) {
-					$tmp = array('id' => $val['ITEM_ID'], 'artnumber'=> $val['PROPERTY_ARTNUMBER_VALUE'], 'quantity'=>$val['QUANTITY']);
-					if(strlen($val['PROPERTY_SIZE_VALUE']) > 0)
-						$tmp['size'] = $val['PROPERTY_SIZE_VALUE'];
-					$data[] = $tmp;
-				}
-				$arResult['BUY_DATA'] = $data;
+				if($arResult['SET']['TYPE'] == CCatalogProductSet::TYPE_GROUP):
+					$data = array();
+					foreach ($arResult['SET']['ITEMS'] as $val) {
+						$tmp = array('id' => $val['ITEM_ID'], 'artnumber'=> $val['PROPERTY_ARTNUMBER_VALUE'], 'quantity'=>$val['QUANTITY']);
+						if(strlen($val['PROPERTY_SIZE_VALUE']) > 0)
+							$tmp['size'] = $val['PROPERTY_SIZE_VALUE'];
+						$data[] = $tmp;
+					}
+					$arResult['BUY_DATA'] = $data;
+				endif;
 			else:
 				$arResult['SET'] = false;
 			endif;

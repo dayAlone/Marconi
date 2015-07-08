@@ -7,7 +7,6 @@ define("VIP", 16);
 define("BX_COMPOSITE_DEBUG", false);
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
-
 //AddEventHandler("sale", "OnOrderNewSendEmail", "OnBeforeMailSendHandler");
 AddEventHandler("main", "OnBeforeEventSend", "OnBeforeMailSendHandler");
 
@@ -94,7 +93,7 @@ function getOrderDelivery($ID, $props) {
 				if(strlen($props[$value]) > 0) $subStr .=  (strlen($subStr)>0?", ":"") .$desc[$value] ." " . $props[$value];
 			}
 			if(strlen($subStr) > 0) $str .= " <strong>Адрес</strong>: ".$subStr;
-			
+
 			$subStr = '';
 			foreach (array('date', 'time') as $value) {
 				if(strlen($props[$value]) > 0) $subStr .=  (strlen($subStr)>0?", ":""). $props[$value];
@@ -115,13 +114,13 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 		$arItems       = array();
 		$rsUser        = CUser::GetByID($USER->GetID());
 		$arUser        = $rsUser->Fetch();
-		
+
 		$orderProps['NAME'] = $USER->GetFullName();
-		
+
 		if(strlen($orderProps['NAME']) == 0):
 			$orderProps['NAME'] = ($orderProps['NAME']?$orderProps['NAME']:$orderProps['FIRST_NAME'])." ".$orderProps['LAST_NAME'];
 		endif;
-		
+
 		if(SITE_ID == 's2'):
 			$orderProps['email'] = $arUser['LOGIN'];
 			$orderProps['phone'] = (strlen($arUser['WORK_PHONE'])>0?$arUser['WORK_PHONE']:$arUser['PERSONAL_PHONE']);
@@ -129,7 +128,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 		while ($arItem = $dbBasketItems->Fetch()) {
 			$res = CIBlockElement::GetByID($arItem['PRODUCT_ID']);
 			if($ar_res = $res->GetNextElement()){
-				$fields    = $ar_res->GetFields(); 
+				$fields    = $ar_res->GetFields();
 				$arProps   = $ar_res->GetProperties();
 				$arItems[] = array_merge($arItem, $fields, $arProps);
 			}
@@ -248,14 +247,14 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			}
 			$file = $_SERVER['DOCUMENT_ROOT'] . '/orders/order_'.$orderData['ID'].'.csv';
 			file_put_contents($file, iconv("utf-8", "windows-1251", $csv));
-			
+
 			require $_SERVER['DOCUMENT_ROOT'].'/include/mail/PHPMailerAutoload.php';
 
 			$mail = new PHPMailer;
 			$mail->isSendmail();
 			$mail->CharSet = 'UTF-8';
 			$mail->addAttachment($file, 'order_'.$orderData['ID'].'.csv');
-			$mail->Subject = "Новый заказ на italbags.ru"; 
+			$mail->Subject = "Новый заказ на italbags.ru";
 			$mail->setFrom("mailer@".$_SERVER['HTTP_HOST'], "Сайт ".$_SERVER['HTTP_HOST']);
 			$mail->addAddress($adminEmail, 'Администратор');
 			$mail->msgHTML($arFields['ORDER_LIST']);
@@ -281,7 +280,7 @@ function OnBeforeUserUpdateHandler(&$arFields)
 		if(!isset($arFields["EMAIL"])) $arFields["EMAIL"] = $arFields["LOGIN"];
 		else $arFields["LOGIN"] = $arFields["EMAIL"];
 	}
-	
+
 	if($_SERVER['SCRIPT_NAME'] == '/profile/index.php' && SITE_ID == 's2' && !isset($_REQUEST['NEW_PASSWORD"'])):
 		CModule::IncludeModule("subscribe");
 		$aSubscr = CSubscription::GetUserSubscription();
@@ -316,7 +315,7 @@ function OnBeforeUserAddHandler(&$arFields)
 			if(isset($_REQUEST['ORDER_PROP_3'])):
 				$arFields["PERSONAL_PHONE"] = $_REQUEST['ORDER_PROP_3'];
 			endif;
-			
+
 		else:
 			if(isset($_REQUEST['ORDER_PROP_16'])):
 				$arFields["NAME"] = $_REQUEST['ORDER_PROP_16'];
@@ -340,7 +339,7 @@ function checkUserCoupon(&$arFields)
 		if(strlen($coupon)>0):
 			$ID       = $arFields['ID'];
 			$arGroups = CUser::GetUserGroup($ID);
-			
+
 			if(!in_array(VIP,$arGroups)):
 				$arGroups[] = VIP;
 				CUser::SetUserGroup($ID, $arGroups);
@@ -407,14 +406,14 @@ class CSaleGuestHandlers {
 			}
 		}
 	}
-	
+
 	public static function OnSaleComponentOrderOneStepCompleteHandler($ID, $arOrder, $arParams) {
 		if (self::$bGuestOrder && $GLOBALS['USER']->IsAuthorized() && $_REQUEST['delete_user']=="Y") {
 			$_SESSION['SAVED_UID'] = $GLOBALS['USER']->GetID();
 			$GLOBALS['USER']->Logout();
 		}
 	}
-	
+
 	public static function OnSaleComponentOrderOneStepFinalHandler($ID, $arOrder, $arParams) {
 		if ((!$GLOBALS['USER']->IsAuthorized() && $_SESSION['SAVED_UID']!=$arOrder['USER_ID']) ||
 			($GLOBALS['USER']->IsAuthorized() && $GLOBALS['USER']->GetID()!=$arOrder['USER_ID'])
@@ -429,6 +428,14 @@ function OnEndBufferContentHandler(&$content)
 {
 	$content = str_replace("₷", "<span class='rubl'>&#x20bd;</span>", $content);
 }
+
+AddEventHandler("iblock", "OnBeforeIBlockElementAdd", "OnBeforeIBlockElementAddHandler");
+
+function OnBeforeIBlockElementAddHandler(&$arFields)
+{
+	return $arFields;
+}
+
 
 use Bitrix\Highloadblock as HL;
 use Bitrix\Main\Entity;
@@ -475,8 +482,8 @@ function content_class()
 function IBlockElementsMenu($IBLOCK_ID)
 {
 	$obCache       = new CPHPCache();
-	$cacheLifetime = 86400; 
-	$cacheID       = 'IBlockElementsMenu_'.$IBLOCK_ID; 
+	$cacheLifetime = 86400;
+	$cacheID       = 'IBlockElementsMenu_'.$IBLOCK_ID;
 	$cachePath     = '/'.$cacheID;
 
 	if( $obCache->InitCache($cacheLifetime, $cacheID, $cachePath) )
@@ -487,7 +494,7 @@ function IBlockElementsMenu($IBLOCK_ID)
 	elseif( $obCache->StartDataCache()  )
 	{
 		CModule::IncludeModule("iblock");
-		
+
 		$arNav    = array();
 		$arSort   = array("NAME" => "DESC");
 		$arFilter = array("IBLOCK_ID" => $IBLOCK_ID, 'ACTIVE'=>'Y');
@@ -496,11 +503,11 @@ function IBlockElementsMenu($IBLOCK_ID)
 
 		while ($item = $rs->GetNext()):
 			$arNav[] = Array(
-				$item['NAME'], 
-				$item['DETAIL_PAGE_URL'], 
-				Array(), 
-				Array(), 
-				"" 
+				$item['NAME'],
+				$item['DETAIL_PAGE_URL'],
+				Array(),
+				Array(),
+				""
 			);
 		endwhile;
 
@@ -562,7 +569,7 @@ class CatalogStore
 			"PROPERTY_TYPE"        =>"S",
 			"USER_TYPE"            =>"CatalogStore",
 			"DESCRIPTION"          =>"Склад",
-			"GetPropertyFieldHtml" =>array("CatalogStore", "GetPropertyFieldHtml"), 
+			"GetPropertyFieldHtml" =>array("CatalogStore", "GetPropertyFieldHtml"),
 		);
    }
    function GetPropertyFieldHtml($arProperty, $arUserField, $arHtmlControl)
@@ -573,7 +580,7 @@ class CatalogStore
         $raw = CCatalogStore::GetList(array('ID'=>'ASC'), array('ACTIVE' => 'Y'));
         while ($item = $raw->Fetch())
             $str .= "<option value='".$item['ID']."' ".($item['ID']==$arUserField['VALUE']?"selected":"").">".$item['TITLE']."</option>";
-        
+
         $str .= "</select>";
         return $str;
    }
@@ -609,8 +616,8 @@ class CSectionLocation
    		global $APPLICATION;
    		ob_start();
 	   		$APPLICATION->IncludeComponent(
-				"bitrix:sale.location.selector.search", 
-				".default", 
+				"bitrix:sale.location.selector.search",
+				".default",
 				array(
 					"ID"                     => $arHtmlControl['VALUE'],
 					"CODE"                   => "",
@@ -637,22 +644,22 @@ AddEventHandler("main", "OnUserTypeBuildList", array("CSectionLocation", "GetUse
 function getHighloadBlocks()
 {
 	$obCache   = new CPHPCache();
-	$cacheLife = 86400; 
-	$cacheID   = 'getHighloadBlocks'; 
+	$cacheLife = 86400;
+	$cacheID   = 'getHighloadBlocks';
 	$cachePath = '/'.$cacheID;
 
 	if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):
 
 		$vars = $obCache->GetVars();
 		$data = $vars['data'];
-	
+
 	elseif( $obCache->StartDataCache() ):
 		CModule::IncludeModule("highloadblock");
 		$data    = array();
 		$dbHblock = HL\HighloadBlockTable::getList();
 	    while ($ib = $dbHblock->Fetch())
 	    	$data[$ib['TABLE_NAME']] = (int)$ib['ID'];
-		
+
 		$obCache->EndDataCache(array('data' => $data));
 	endif;
 	return $data;
@@ -661,26 +668,26 @@ function getHighloadBlocks()
 function getFilterProperties()
 {
 	$obCache   = new CPHPCache();
-	$cacheLife = 86400; 
-	$cacheID   = 'getFilterProperties'; 
+	$cacheLife = 86400;
+	$cacheID   = 'getFilterProperties';
 	$cachePath = '/'.$cacheID;
-	
+
 	if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):
 
 		$vars = $obCache->GetVars();
 		$data = $vars['data'];
-	
+
 	elseif( $obCache->StartDataCache() ):
 
 		CModule::IncludeModule("iblock");
 		$data = array();
 		$res = CIBlockProperty::GetList(Array("sort"=>"asc"), Array("ACTIVE"=>"Y", "IBLOCK_ID"=>1));
-		
+
 		while($s = $res->Fetch())
     		if( preg_match("/SECTION_(.*)/", $s['CODE']) )
     			$data[] = $s['ID'];
 		$obCache->EndDataCache(array('data' => $data));
-	
+
 	endif;
 	return $data;
 }
@@ -691,7 +698,7 @@ function getHighloadElements($name, $key, $value)
 	$iblocks   = getHighloadBlocks();
 	$id        = $iblocks[$name];
 	$obCache   = new CPHPCache();
-	$cacheLife = 86400; 
+	$cacheLife = 86400;
 	$cacheID   = 'getHighloadElements_site_'.$key.$value.$id;
 	$cachePath = '/'.$cacheID;
 
@@ -715,9 +722,9 @@ function getHighloadElements($name, $key, $value)
 
 		while($arData = $rsData->Fetch())
 			$data[$arData[$key]] = $arData[$value];
-		
+
 		$obCache->EndDataCache(array('data' => $data));
-		
+
 	endif;
 	return $data;
 }
@@ -743,7 +750,7 @@ use Bitrix\Main\Loader;*/
 function findCity($name = false, $setCookie = true)
 {
 	global $APPLICATION, $CITY;
-	
+
 	if($name) {
 		CModule::IncludeModule("iblock");
 		$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'NAME'=>$name);
@@ -753,10 +760,10 @@ function findCity($name = false, $setCookie = true)
 	}
 	else
 		$name = "Москва";
-	
+
 	if(!isset($phone))
 		$phone = COption::GetOptionString("grain.customsettings","phone");
-	
+
 	$value = array('NAME'=>$name, 'PHONE'=> $phone);
 
 	if(isset($item) && $item['UF_CLOSED'])
@@ -777,7 +784,7 @@ if(!strstr($_SERVER['SCRIPT_NAME'], 'bitrix/admin') && !defined("NO_IP")):
 		else
 			findCity();
 	}
-	
+
 endif;
 
 
