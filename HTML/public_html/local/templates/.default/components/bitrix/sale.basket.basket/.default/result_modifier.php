@@ -52,6 +52,21 @@
     }
 
     if(count($arResult['SETS']['LOCKED']) > 0):
+        $arOffers = array();
+        $raw = CIBlockElement::GetList(
+            array("ID" => "DESC"),
+            array("=ID" => array_keys($arResult['SETS']['LOCKED']), 'IBLOCK_CODE'=>'offers'),
+            false,
+            false,
+            array('ID', 'PROPERTY_CML2_LINK', 'PROPERTY_SIZE')
+        );
+
+      while($row = $raw->Fetch()):
+          $arOffers[$row['PROPERTY_CML2_LINK_VALUE']] = intval($row['ID']);
+          $arResult['SETS']['LOCKED'][$row['PROPERTY_CML2_LINK_VALUE']] = $arResult['SETS']['LOCKED'][$row['ID']];
+          unset($arResult['SETS']['LOCKED'][$row['ID']]);
+      endwhile;
+
       $raw = CIBlockElement::GetList(
           array("ID" => "DESC"),
           array("=ID" => array_keys($arResult['SETS']['LOCKED'])),
@@ -65,7 +80,6 @@
         endif;
         $row['PREVIEW_PICTURE_SRC'] = CFile::GetPath($row['PREVIEW_PICTURE']);
         $set = &$arResult['SETS'][$arResult['SETS']['LOCKED'][$row['ID']]];
-        $arPrice = CCatalogProduct::GetOptimalPrice($row['ID'], 1, $USER->GetUserGroupArray());
 
         // Получаем разделы
         $s = CIBlockElement::GetElementGroups($row['ID'], true);
@@ -75,7 +89,14 @@
         endwhile;
         if(count($row['SECTIONS']) > 0) $arSections = array_merge($arSections, array_diff($row['SECTIONS'], $arSections));
 
-        $set['ITEMS'][$row['ID']] = array_merge($set['ITEMS'][$row['ID']], $row, $arPrice);
+        if(!isset($set['ITEMS'][$row['ID']])):
+            $ID = $arOffers[$row['ID']];
+        else:
+            $ID = $row['ID'];
+        endif;
+        $arPrice = CCatalogProduct::GetOptimalPrice($ID, 1, $USER->GetUserGroupArray());
+        $set['ITEMS'][$ID] = array_merge($set['ITEMS'][$ID], $row, $arPrice);
+
       endwhile;
     endif;
   endif;
@@ -99,7 +120,13 @@
   }
 
   foreach ($arResult['SETS']['LOCKED'] as $key => $val) {
-    $item = &$arResult['SETS'][$val]['ITEMS'][$key];
+
+    if(!isset($arResult['SETS'][$val]['ITEMS'][$key])):
+
+    else:
+        $item = &$arResult['SETS'][$val]['ITEMS'][$key];
+    endif;
+
     foreach($item['SECTIONS'] as $s) {
       $section = $arResult['SECTIONS'][$s];
       if(in_array($section['CODE'], $arSections)):
