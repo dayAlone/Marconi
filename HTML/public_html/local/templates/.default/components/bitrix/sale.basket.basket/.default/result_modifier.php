@@ -13,7 +13,7 @@
     $item['NAME'] = preg_replace("/\s\s/", "", str_replace(array($arResult['BRANDS'][$item['PROPERTY_BRAND_VALUE']], $item['PROPERTY_NOTE_SHORT_VALUE']), '', $item['NAME']));
     $arIDs[$item['PRODUCT_ID']] = $item['ID'];
   }
-  
+
   if(SITE_ID == 's2'):
     $arResult['SETS'] = array();
     $rsSets = CCatalogProductSet::getList(
@@ -30,7 +30,7 @@
       if(!isset($arResult['SETS'][$arSet['OWNER_ID']]))
         $arResult['SETS'][$arSet['OWNER_ID']] = array('TYPE' => $arSet['TYPE'], 'ITEMS'=>array(), 'IMAGES'=>array(), 'TOTAL'=>0);
       $set = &$arResult['SETS'][$arSet['OWNER_ID']];
-      
+
       if($arSet['OWNER_ID'] != $arSet['ITEM_ID']) {
         if($arSet['TYPE'] == CCatalogProductSet::TYPE_GROUP):
           $id = $arIDs[$arSet['ITEM_ID']];
@@ -62,7 +62,7 @@
         $row['PREVIEW_PICTURE_SRC'] = CFile::GetPath($row['PREVIEW_PICTURE']);
         $set = &$arResult['SETS'][$arResult['SETS']['LOCKED'][$row['ID']]];
         $arPrice = CCatalogProduct::GetOptimalPrice($row['ID'], 1, $USER->GetUserGroupArray());
-        
+
         // Получаем разделы
         $s = CIBlockElement::GetElementGroups($row['ID'], true);
         $row['SECTIONS'] = array();
@@ -70,7 +70,7 @@
           $row['SECTIONS'][] = intval($el['ID']);
         endwhile;
         if(count($row['SECTIONS']) > 0) $arSections = array_merge($arSections, array_diff($row['SECTIONS'], $arSections));
-        
+
         $set['ITEMS'][$row['ID']] = array_merge($set['ITEMS'][$row['ID']], $row, $arPrice);
       endwhile;
     endif;

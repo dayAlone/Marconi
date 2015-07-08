@@ -1,5 +1,5 @@
 <?
-	global $CITY;
+	global $CITY, $setFilter;
 	require($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/catalog.element/templates/.default/result_modifier.php');
 	$arResult['BRANDS']     = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
 	$arResult['COLORS']     = getHighloadElements('colors', 'UF_XML_ID', 'UF_NAME');
@@ -54,6 +54,9 @@
 						$data[] = $tmp;
 					}
 					$arResult['BUY_DATA'] = $data;
+				endif;
+				if(count($arResult['SET']['SHOW']) > 0):
+					$setFilter = array('=ID'=>$arResult['SET']['SHOW']);
 				endif;
 			else:
 				$arResult['SET'] = false;

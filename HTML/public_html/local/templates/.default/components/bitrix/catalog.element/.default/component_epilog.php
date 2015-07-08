@@ -3,23 +3,24 @@ $APPLICATION->SetPageProperty('body_class', "product");
 /** @var array $templateData */
 /** @var @global CMain $APPLICATION */
 use Bitrix\Main\Loader;
-global $APPLICATION, $colorFilter, $CITY;
+global $APPLICATION, $colorFilter, $CITY, $setFilter, $arResult;
 
 $obCache   = new CPHPCache();
-$cacheLife = 86400; 
+$cacheLife = 86400;
 $cacheID   = 'colorFilter_'.$arResult['ID'];
 $cachePath = '/'.$cacheID;
 
 if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):
 
 	$vars = $obCache->GetVars();
-	$colorFilter = $vars['data'];
+	$colorFilter = $vars['color'];
+	$setFilter   = $vars['set'];
 
 elseif( $obCache->StartDataCache() ):
 
 	$arResult['CATEGORIES'] = getHighloadElements('categories', 'UF_XML_ID', 'ID');
 	$arResult['SECTIONS']   = array();
-	
+
 	$raw = CIBlockElement::GetElementGroups($arResult['ID']);
 	while($data = $raw->GetNext())
 		if(!in_array($data['CODE'], array('all', 'sale')))
@@ -40,8 +41,8 @@ elseif( $obCache->StartDataCache() ):
 	$colorFilter['!ID'] = $arResult['ID'];
 	if($CITY['CLOSED'] == 'Y') $colorFilter['=PROPERTY_GENERAL'] = "Y";
 
-	$obCache->EndDataCache(array('data' => $colorFilter));
-	
+	$obCache->EndDataCache(array('color' => $colorFilter, 'set' => $setFilter));
+
 endif;
 
 
