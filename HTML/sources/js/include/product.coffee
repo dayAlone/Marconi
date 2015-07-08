@@ -78,7 +78,8 @@
 		$(this).block().data 'id', $(this).data 'id'
 		$(this).block().data 'size', $(this).data 'size'
 
-		$('.product').elem('big-button').byMod('buy').text('В корзину').mod('border', false).mod('disabled', false)
+		$('.product__big-button--buy').text('В корзину')
+		$('.product').elem('big-button').byMod('buy').mod('border', false).mod('disabled', false)
 
 		if parseInt($(this).data('price')) > 0
 			el   = $('.props__item--price strong')

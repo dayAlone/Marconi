@@ -84,7 +84,6 @@ if(SITE_ID == 's2'):
 			if($arSet['TYPE'] == CCatalogProductSet::TYPE_SET)
 				$arResult['SETS']['LOCKED'][] = $arSet['ITEM_ID'];
 		}
-
 	}
 	if(count($arIDS) > 0):
 		$res = CIBlockElement::GetList(Array(), array('ID' => array_keys($arIDS)), false, false, Array("ID", "PROPERTY_ARTNUMBER", "PREVIEW_PICTURE", "IBLOCK_CODE"));
@@ -104,6 +103,9 @@ if(SITE_ID == 's2'):
 	if(count($diff) > 0):
 		$res = CIBlockElement::GetList(Array(), array('IBLOCK_CODE'=>'offers', '=ID' => $diff), false, false, Array("ID", "CODE", "PROPERTY_ARTNUMBER", "PROPERTY_SIZE", "PROPERTY_CML2_LINK", "PROPERTY_CML2_LINK.PREVIEW_PICTURE"));
 		while ($arItem = $res->Fetch()) {
+
+			$arResult['SETS']['LOCKED'][] = $arSet['PROPERTY_CML2_LINK'];
+
 			$set = &$arResult['SETS'][$arIDS[$arItem['ID']]];
 			$item = &$set['ITEMS'][$arItem['ID']];
 			$item = array_merge($item, $arItem);
