@@ -2,26 +2,26 @@
 	define("NO_IP", true);
 	$_SERVER["DOCUMENT_ROOT"] = realpath(dirname(__FILE__)."/..");
 	require_once ($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include.php");
-	
+
 	define("NO_KEEP_STATISTIC", true);
-	define("NOT_CHECK_PERMISSIONS", true); 
-	
+	define("NOT_CHECK_PERMISSIONS", true);
+
 	use Bitrix\Highloadblock as HL;
 	use Bitrix\Main\Entity;
-	
+
 	set_time_limit(0);
 	@ignore_user_abort(true);
-	
-	function mb_ucfirst($string, $e ='utf-8') { 
-        if (function_exists('mb_strtoupper') && function_exists('mb_substr') && !empty($string)) { 
-            $string = mb_strtolower($string, $e); 
-            $upper = mb_strtoupper($string, $e); 
-            preg_match('#(.)#us', $upper, $matches); 
-            $string = $matches[1] . mb_substr($string, 1, mb_strlen($string, $e), $e); 
-        } else { 
-            $string = ucfirst($string); 
-        } 
-        return $string; 
+
+	function mb_ucfirst($string, $e ='utf-8') {
+        if (function_exists('mb_strtoupper') && function_exists('mb_substr') && !empty($string)) {
+            $string = mb_strtolower($string, $e);
+            $upper = mb_strtoupper($string, $e);
+            preg_match('#(.)#us', $upper, $matches);
+            $string = $matches[1] . mb_substr($string, 1, mb_strlen($string, $e), $e);
+        } else {
+            $string = ucfirst($string);
+        }
+        return $string;
     }
 
 	class Translit
@@ -62,7 +62,7 @@
 	        return $string;
 	    }
 	}
-	
+
 	class Properties
 	{
 		private $iblock;
@@ -71,7 +71,7 @@
 		{
 			CModule::IncludeModule("iblock");
 			CModule::IncludeModule("highloadblock");
-	
+
 			$this->iblocks = Import::getIBlocks();
 
 			$dbHblock = HL\HighloadBlockTable::getList();
@@ -82,7 +82,7 @@
 		public function Action($file)
 		{
 			$data = Import::getElements($file, array('properties', 'property'));
-			
+
 			foreach ($data as $item):
 				$code = $item->getAttribute('id');
 				switch ($code) {
@@ -103,7 +103,7 @@
 								$name  = $el->getElementsByTagName('name')->item(0)->nodeValue;
 								$value = $el->getElementsByTagName('value')->item(0)->nodeValue;
 								$array = array('id'=>$id, 'name'=>$name, 'value'=>$value);
-								
+
 								$result = Import::addHighloadElement($this->iblocks[$code], $array);
 
 							endif;
@@ -117,7 +117,7 @@
 							if(!$data[$id]):
 								$name  = $el->getElementsByTagName('name')->item(0)->nodeValue;
 								$array = array('XML_ID'=>$id, 'NAME'=>$name);
-								
+
 								$result = Import::addIBlockSection($this->iblocks['products'], $array);
 							endif;
 						endforeach;
@@ -146,7 +146,7 @@
 			CModule::IncludeModule("iblock");
 			CModule::IncludeModule("catalog");
 			CModule::IncludeModule("highloadblock");
-			
+
 			$this->iblocks    = Import::getIBlocks();
 			$dbHblock = HL\HighloadBlockTable::getList();
             while ($ib = $dbHblock->Fetch())
@@ -162,7 +162,7 @@
 			$this->categories = Import::getHighloadElements($this->iblocks['categories'], true);
 			$this->types      = Import::getHighloadElements($this->iblocks['types'], true);
 			$this->brands     = Import::getHighloadElements($this->iblocks['brands'], true);
-			$this->properties = Array("SORT", "PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_TRADELINE", "PROPERTY_MATERIAL", "PROPERTY_SALE", "PROPERTY_PICTURES", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "PROPERTY_SECTION_4", "IBLOCK_SECTION", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL", "PROPERTY_NEW", "PROPERTY_COMING", "PROPERTY_PROMOTION", "PROPERTY_BEST" );
+			$this->properties = Array("SORT", "DETAIL_TEXT", "PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_TRADELINE", "PROPERTY_MATERIAL", "PROPERTY_SALE", "PROPERTY_PICTURES", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "PROPERTY_SECTION_4", "IBLOCK_SECTION", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL", "PROPERTY_NEW", "PROPERTY_COMING", "PROPERTY_PROMOTION", "PROPERTY_BEST" );
 		}
 		private function addParentCatagory(&$parent, $array)
 		{
@@ -190,7 +190,7 @@
 				$fields['XML_ID'] = $fields['CODE'];
 
 				unset($fields['PROPERTY_VALUES']['CODE']);
-				
+
 				return $offer;
 			else:
 				return false;
@@ -257,7 +257,7 @@
 			endif;
 			if($propSections['type']):
 				$value  = $propSections['type'];
-				
+
 				$fields['IBLOCK_SECTION'] = array();
 				foreach ($sections['first'] as $k => $s):
 					unset($parent);
@@ -289,7 +289,7 @@
 			if($props['NEW'] == "Y"):
 				$fields['IBLOCK_SECTION'][] = $this->sections['latest'];
 			endif;
-			
+
 			if(!in_array($props["ARTNUMBER"], $this->artnumbers) && $props["COMING"]!='Y'):
 				$fields['IBLOCK_SECTION'][] = $this->sections['new'];
 			endif;
@@ -314,7 +314,7 @@
 				'MATERIAL'   => array(),
 				'PICTURES'   => array()
 			);
-			
+
 			$raw = $item->getElementsByTagName('property');
 
 			$propSections = array();
@@ -322,7 +322,7 @@
 			foreach ($raw as $prop):
 				$id    = $prop->getAttribute('id');
 				$value = $prop->getAttribute('value');
-				
+
 				switch ($id):
 					case 'material':
 					case 'color':
@@ -370,7 +370,7 @@
 			else:
 				$note  = mb_substr($tmp, 0, mb_strpos($tmp, $artnumber)-1);
 			endif;
-			
+
 			$props['NOTE_SHORT'] = $note;
 			$name = $note;
 
@@ -385,9 +385,9 @@
 			$fields["NAME"] = str_replace(array("Оо","Уу", "Ee"), array("То","Бу", "Рe"), $name);
 			$fields["CODE"] = Translit::UrlTranslit((strlen($note)>0?$note." ":""). str_replace(array("Оо","Уу", "Ee"), array("То","Бу", "Рe"),$item->getElementsByTagName('name')->item(0)->nodeValue));
 
-			
+
 			$images = array_merge(glob($_SERVER['DOCUMENT_ROOT']."/import/photos/".$slug.".jpg"), glob($_SERVER['DOCUMENT_ROOT']."/import/photos/".$slug."_[0-9].jpg"));
-			
+
 			foreach ($images as $key=>$image):
 				if($key==0)
 					$fields['PREVIEW_PICTURE'] = CFile::MakeFileArray($image);
@@ -433,14 +433,14 @@
 		{
 			$ids     = array();
 			$data    = Import::getElements($file, array('products', 'product'), $offset);
-			
+
 			foreach ($data['items'] as $item):
 				$ids[] = $item->getAttribute('id');
 				$ids[] = Translit::UrlTranslit(substr($item->getElementsByTagName('namePrint')->item(0)->nodeValue, 0, strpos($item->getElementsByTagName('namePrint')->item(0)->nodeValue, $item->getElementsByTagName('artnumber')->item(0)->nodeValue)-1)." ".preg_replace($this->remove, '', $item->getElementsByTagName('name')->item(0)->nodeValue));
 			endforeach;
 
 			$this->offers = Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('PROPERTY_SIZE', "PROPERTY_CML2_LINK", "PROPERTY_CML2_LINK.XML_ID"));
-			
+
 			foreach ($offers as $offer):
 				if(in_array($offer['XML_ID'], $xml_ids))
 					unset($xml_ids[array_search($offer['XML_ID'], $xml_ids)]);
@@ -456,7 +456,7 @@
 				$fields = $this->getData($item);
 				$offer  = $this->getOffer($fields);
 				$props  = &$fields["PROPERTY_VALUES"];
-				
+
 				$exist  = $this->checkExist($fields);
 
 				if(isset($exist)):
@@ -488,7 +488,7 @@
 							$diff[$prop] = false;
 						endif;
 					}
-					
+
 					unset($diff['OFFER_SIZE']);
 
 					foreach (array('COLOR', 'MATERIAL') as $el):
@@ -498,21 +498,21 @@
 							unset($diff[$el]);
 						endif;
 					endforeach;
-					
+
 					if(count($diff)>0):
 						fwrite(STDERR, "Что-то обновлено: ".$fields['XML_ID']." ".$exist['ID']." ".var_export($diff, true)." \n\r");
 						CIBlockElement::SetPropertyValuesEx($exist['ID'], $this->iblocks['products'], $diff);
 						$update = true;
 					endif;
 
-					foreach (array('SORT', 'NAME') as $el):
+					foreach (array('SORT', 'NAME', 'DETAIL_TEXT') as $el):
 						if($fields[$el] != $exist[$el]):
 							$raw = new CIBlockElement;
 							$raw->Update($exist['ID'], array($el => $fields[$el]));
-							$update = true;	
+							$update = true;
 						endif;
 					endforeach;
-					
+
 					if(array_diff($fields['IBLOCK_SECTION'], $exist['IBLOCK_SECTION']) || (count($fields['IBLOCK_SECTION'])!=count($exist['IBLOCK_SECTION']))):
 						#fwrite(STDERR, "Разделы обновлены: ".var_export(array_diff($fields['IBLOCK_SECTION'], $exist['IBLOCK_SECTION']),true)." \n\r");
 						$raw = new CIBlockElement;
@@ -529,14 +529,14 @@
 								$this->counter['offers']++;
 							else:
 								$this->counter['error']++;
-							endif;	
+							endif;
 						else:
 							if($this->offers[$offer['XML_ID']]['SIZE'] != $offer['PROPERTY_VALUES']['SIZE']):
 								fwrite(STDERR, "Размеры обновлены \n\r");
 								$update = true;
 								CIBlockElement::SetPropertyValuesEx($this->offers[$offer['XML_ID']]['ID'], $this->iblocks['offers'], array('SIZE'=>$offer['PROPERTY_VALUES']['SIZE']));
 							endif;
-						endif;		
+						endif;
 					endif;
 
 					if($update):
@@ -545,7 +545,7 @@
 
 				else:
 					$id = Import::addIBlockElement($this->iblocks['products'], $fields);
-					if(intval($id)>0): 
+					if(intval($id)>0):
 						CCatalogProduct::Add(array('ID'=>$id, 'QUANTITY'=>1));
 						$this->counter['add']++;
 						$fields['ID'] = $id;
@@ -558,7 +558,7 @@
 								$this->counter['offers']++;
 							else:
 								$this->counter['error']++;
-							endif;			
+							endif;
 						endif;
 					else:
 						$this->counter['error']++;
@@ -586,7 +586,7 @@
 		{
 			CModule::IncludeModule("iblock");
 			CModule::IncludeModule("catalog");
-	
+
 			$this->iblocks = Import::getIBlocks();
 
 			$raw = CCatalogStore::GetList(array('ID'=>'ASC'), array('ACTIVE' => 'Y'));
@@ -639,7 +639,7 @@
 						if(!$this->stores[$count->getAttribute('store')]):
 							$this->stores[$count->getAttribute('store')] = CCatalogStore::Add(array('TITLE'=>$count->getAttribute('description'), 'XML_ID'=>$count->getAttribute('store')));
 						endif;
-						
+
 						$store = $this->stores[$count->getAttribute('store')];
 
 						$arData[$count->getAttribute('store')] = $amount;
@@ -661,7 +661,7 @@
 				    		if(!isset($this->counts[$id]))
 								$this->counts[$id] = array();
 							$this->counts[$id][$store] = $amount;
-								
+
 				    		$arFields = Array(
 								"PRODUCT_ID" => $id,
 								"STORE_ID"   => $store,
@@ -673,7 +673,7 @@
 						    }
 						endif;
 
-						
+
 	        		endforeach;
 
 	        		// Товары на основном или розничном складе
@@ -681,7 +681,7 @@
 	        		foreach(array(0, 1) as $store):
 	        			if(isset($arData[$store])):
 	        				$arUpdates[] = array('FIELD' => "GENERAL", 'AMOUNT' => $arData[$store]);
-	        				
+
 	        				// Витринный экземпляр
 	        				if($store == 0):
 	        					$updateShowcase = false;
@@ -697,11 +697,11 @@
 	        				unset($arData[$store]);
 	        			endif;
 	        		endforeach;
-	        		
+
 	        		if(count($arData[$id]) > 0):
 	        			$arUpdates[] = array('FIELD' => "RETAIL", 'AMOUNT' => array_sum($arData) );
 					endif;
-					
+
 					foreach ($arUpdates as $v) {
 						unset($updateValue);
 						if(intval($v['AMOUNT']) > 0 && $product[$v['FIELD']] != "Y"):
@@ -715,11 +715,11 @@
 				    		$this->counter++;
 				    	endif;
 					}
-			    	
+
 
 	        	endif;
         	endforeach;
-        	
+
         	fwrite(STDERR, "\033[35m Update: ".$this->counter." \033[37m\r\n");
 
 			if($data['offset'] != 'end')
@@ -738,7 +738,7 @@
 		{
 			CModule::IncludeModule("iblock");
 			CModule::IncludeModule("catalog");
-	
+
 			$this->iblocks = Import::getIBlocks();
 
 			$raw = CCatalogGroup::GetList(array("SORT" => "ASC"), array());
@@ -822,7 +822,7 @@
 	        		endif;
 	        	endif;
         	endforeach;
-        	
+
         	fwrite(STDERR, "\033[35m Update: ".$this->counter['update']." \033[32m Add: ".$this->counter['add']." \033[37m\r\n");
 
 			if($data['offset'] != 'end')
@@ -843,7 +843,7 @@
 		const step = 1000;
 
 		private $steps = array('properties', 'products', 'counts', 'prices');//, , , 'write-off');
-		
+
 		public function __construct($offset=0)
 		{
 			$offset = intval($offset);
@@ -875,7 +875,7 @@
 				$class  = $action['step'];
 				$helper = new $class;
 
-				fwrite(STDERR, "\r\nAction: \033[36m ".$action['step']."\r\n"); 
+				fwrite(STDERR, "\r\nAction: \033[36m ".$action['step']."\r\n");
 				$result = $helper->Action($action['file'], $offset);
 
 				if(intval($result) == 0)
@@ -883,7 +883,7 @@
 
 				$this->time = microtime(true) - $this->time;
 				$time = round($this->time,2);
-				
+
 				fwrite(STDERR,"\033[37mOffset: ".$result." | Time: \033[32m ".$time."\033[37m\r\n");
 				unlink($this->lock);
 				$result++;
@@ -898,14 +898,14 @@
 		public function getElements($file, $element, $offset=false)
 		{
 			$path = iconv('windows-1251', 'UTF-8', file_get_contents($_SERVER['DOCUMENT_ROOT']."/import/upload/".$file));
-			
+
 			$dom  = new DOMDocument('1.0', 'utf-8');
 			$dom->loadXML($path);
 			$path = "";
 
 			$xpath    = new DOMXPath($dom);
 			$elements = $dom->getElementsByTagName($element[0])->item(0);
-			$count    = $xpath->evaluate("count(".$element[1].")", $elements); 
+			$count    = $xpath->evaluate("count(".$element[1].")", $elements);
 
 			$start = 1;
 			if(intval($offset)>0)
@@ -913,7 +913,7 @@
 			$end   = $start + Import::step;
 			if($end > intval($count))
 				$end = $count;
-			
+
 			$items = $xpath->evaluate($element[1]."[position() >= $start and not(position() > $end)]", $products);
 
 			if($offset)
@@ -926,16 +926,16 @@
 		{
 			$data = array();
 			$raw  = CIBlock::GetList(
-			    Array(), 
+			    Array(),
 			    Array(
 					'TYPE'              =>'catalog',
 					'CHECK_PERMISSIONS' => 'N'
 			    ), true
 			);
-			
+
 			while($item = $raw->Fetch())
 				$data[$item['CODE']] = $item['ID'];
-			
+
 			return $data;
 		}
 
@@ -955,7 +955,7 @@
 			foreach ($sections as $s):
 				if(strlen($s['XML_ID']) < 36)
 					$s['XML_ID'] = $s['CODE'];
-					
+
 				switch ($s['DEPTH_LEVEL']):
 					case '1':
 						$data[$s['XML_ID']] = $s['ID'];
@@ -969,7 +969,7 @@
 					case '3':
 						$second = $sections[$s['IBLOCK_SECTION_ID']];
 						$first = $sections[$second['IBLOCK_SECTION_ID']]['XML_ID'];
-						
+
 						if( !is_array($data[$first]['CHILD'][$second['XML_ID']]) )
 							$data[$first]['CHILD'][$second['XML_ID']] = array('ID' => $data[$first]['CHILD'][$second['XML_ID']], 'CHILD' => array());
 						$data[$first]['CHILD'][$second['XML_ID']]['CHILD'][$s['XML_ID']] = $s['ID'];
@@ -977,7 +977,7 @@
 					break;
 				endswitch;
 			endforeach;
-			
+
 			return $data;
 		}
 
@@ -985,10 +985,10 @@
 		{
 			$data = array();
 			$arSelect = array_merge(Array("ID", "NAME", "XML_ID", "IBLOCK_SECTION_ID"), $fields);
-			
+
 			$arFilter = array_merge(Array("IBLOCK_ID"=>$id, 'CHECK_PERMISSIONS' => 'N'), $filter);
 			$res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
-			
+
 			while($el = $res->Fetch()):
 				$array = array('IBLOCK_SECTION'=>array());
 				foreach ($el as $key => $item)
@@ -998,7 +998,7 @@
 							&& $item
 						)
 						$array[str_replace(array('PROPERTY_', '_VALUE'), array('',''), $key)] = $item;
-				
+
 				$raw = CIBlockElement::GetElementGroups($el['ID']);
 
 				while($s = $raw->Fetch())
@@ -1046,8 +1046,8 @@
 		public function getAllArtnumbers($id)
 		{
 			$obCache   = new CPHPCache();
-			$cacheLife = 60*60; 
-			$cacheID   = 'getAllArtnumbers'; 
+			$cacheLife = 60*60;
+			$cacheID   = 'getAllArtnumbers';
 			$cachePath = '/'.$cacheID;
 			if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):
 				$vars = $obCache->GetVars();
@@ -1070,8 +1070,8 @@
 		public function getHighloadElements($id, $remove=false, $clear=false)
 		{
 			$obCache   = new CPHPCache();
-			$cacheLife = 86400; 
-			$cacheID   = 'getHighloadElements_'.$id; 
+			$cacheLife = 86400;
+			$cacheID   = 'getHighloadElements_'.$id;
 			$cachePath = '/'.$cacheID;
 
 			if($clear)
@@ -1081,7 +1081,7 @@
 
 				$vars = $obCache->GetVars();
 				$data = $vars['data'];
-			
+
 			elseif( $obCache->StartDataCache() ):
 
 				$data    = array();
@@ -1096,11 +1096,11 @@
 
 				while($arData = $rsData->Fetch())
 					$data[$arData['UF_XML_ID']] = $arData;
-				
+
 				$obCache->EndDataCache(array('data' => $data));
-				
+
 			endif;
-			
+
 			if($remove):
 				$tmp = array();
 				foreach ($data as $key=>$item):
@@ -1113,12 +1113,12 @@
 
 			return $data;
 		}
-		
+
 		public function addHighloadElement($id, $data)
 		{
 			$obCache   = new CPHPCache();
-			$cacheLife = 86400; 
-			$cacheID   = 'getHighloadElements_'.$id; 
+			$cacheLife = 86400;
+			$cacheID   = 'getHighloadElements_'.$id;
 			$cachePath = '/'.$cacheID;
 
 			if( $obCache->InitCache($cacheLife, $cacheID, $cachePath) ):
@@ -1135,7 +1135,7 @@
 				$array['UF_VALUE'] = $data['value'];
 
 			$result = $class::add($array);
-			
+
 			if ($result->isSuccess())
 				return $id;
 		}
