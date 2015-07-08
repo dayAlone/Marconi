@@ -8324,6 +8324,7 @@ a.news--list .news-item__title:hover {
   .basket__name {
     font-size: 12px;
     line-height: 20px;
+    max-width: calc(100% - 50px);
   }
   .basket__item--small .basket__name {
     font-size: 11px;
@@ -8331,8 +8332,16 @@ a.news--list .news-item__title:hover {
   }
 }
 @media (min-width: 992px) {
+  .basket__name {
+    max-width: calc(100% - 90px);
+  }
   .basket__item--small .basket__name {
     padding-left: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .basket__name {
+    max-width: calc(100% - 120px);
   }
 }
 .basket__brand {
@@ -8385,8 +8394,8 @@ a.news--list .news-item__title:hover {
 }
 @media (min-width: 992px) {
   .basket__picture {
-    height: 90px;
     width: 90px;
+    height: 90px;
     margin-right: 5px;
   }
   .basket__item--small .basket__picture {
@@ -8395,8 +8404,8 @@ a.news--list .news-item__title:hover {
 }
 @media (min-width: 1200px) {
   .basket__picture {
-    height: 120px;
     width: 120px;
+    height: 120px;
     margin-right: 10px;
   }
   .basket__item--small .basket__picture {

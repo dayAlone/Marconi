@@ -134,7 +134,7 @@
 				width 30%
 				.s2 .basket__frame--no-sale &, .s2 .basket__frame--no-type.basket__frame--sale &
 					width 33%
-				
+
 				.s1 .basket__frame--no-sale &
 					width 34.6%
 			.col-md-3
@@ -203,7 +203,7 @@
 				width 23%
 		line-height: 50px
 		max-height 100px
-		
+
 		&--small
 			line-height 35px
 		& + .basket__item
@@ -211,7 +211,7 @@
 			border-top 1px solid #ccc
 			@media (min-width scr_xs)
 				border-top 0
-				padding-top 0	
+				padding-top 0
 		@media (min-width scr_xs)
 			line-height: 60px
 			max-height @line-height
@@ -225,7 +225,7 @@
 			&--small
 				font-size 12px
 				line-height: 45px
-				
+
 		@media (min-width: scr_md)
 			line-height: 110px
 			max-height @line-height
@@ -252,9 +252,9 @@
 		.basket__item--small &
 			.s2 &
 				font-size 11px
-			
+
 	&__total, &__sale-total, &__count-total
-		
+
 		display inline-block
 		position relative
 		margin-top 20px
@@ -345,17 +345,22 @@
 		text-transform: uppercase
 		font-size 10px
 		color alpha(black, .6)
+
 		.basket__item--small &
 			padding-left 15px
 		@media (min-width: scr_sm)
 			font-size 12px
 			line-height 20px
+			max-width calc(100% - 50px)
 			.basket__item--small &
 				font-size 11px
 				line-height 17px
 		@media (min-width: scr_md)
+			max-width calc(100% - 90px)
 			.basket__item--small &
 				padding-left 0
+		@media (min-width: scr_lg)
+			max-width calc(100% - 120px)
 	&__brand
 		font-weight: bold
 		font-size 12px
@@ -387,14 +392,16 @@
 			.basket__item--small &
 				height 0px
 		@media (min-width: scr_md)
+			width 90px
 			height 90px
-			width 90px	
+
 			margin-right 5px
 			.basket__item--small &
 				height 60px
 		@media (min-width: scr_lg)
+			width 120px
 			height 120px
-			width 120px	
+
 			margin-right 10px
 			.basket__item--small &
 				height 90px
@@ -561,11 +568,11 @@
 			text-transform: uppercase
 			margin-left 1px
 			margin-bottom 10px
-			
+
 			color #4e4e51
 			& + .iradio, & + input[type="radio"]
 				margin-left 25px
-		
+
 		input[type="text"], input[type="email"], textarea
 			width 100%
 			border 1px solid #d5dbdf
@@ -635,7 +642,7 @@
 			margin-top 0
 		@media (min-width: scr_sm)
 			margin-top 0
-		
+
 	&__profile, &__delivery, &__total .basket__block, &__total .total
 		.s2 &
 			display none
@@ -673,7 +680,7 @@
 		background-size 16px auto
 		margin-top -1px
 		opacity 0
-		
+
 		&:hover
 			opacity 1
 	.dropdown-block
