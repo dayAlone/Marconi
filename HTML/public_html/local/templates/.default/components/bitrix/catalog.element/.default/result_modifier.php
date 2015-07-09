@@ -10,7 +10,6 @@
 	$arResult['CATEGORIES'] = getHighloadElements('categories', 'UF_XML_ID', 'ID');
 	$arResult['SECTIONS']   = array();
 	$arResult['SET']        = false;
-
 	if(SITE_ID == 's2'):
 		if(CCatalogProductSet::isProductHaveSet($arResult['ID'])):
 			$arResult['SET'] = array('TYPE' => false);
@@ -62,26 +61,53 @@
 				$arResult['SET'] = false;
 			endif;
 		else:
-			if(CCatalogProductSet::isProductInSet($arResult['ID'])):
-				$arResult['SET'] = array('IN_SET' => true, 'ITEMS' => array());
+			$arIDS = array($arResult['ID']);
+			foreach ($arResult['OFFERS'] as $key => $offer) {
+				$arIDS[] = $offer['ID'];
+			}
+			$rsSets = CCatalogProductSet::getList(
+		      array(),
+		      array(
+		        '@ITEM_ID' => $arIDS,
+		        //'=SET_ID' => 0
+		      ),
+		      false,
+		      false
+		    );
+			while($arItem = $rsSets->Fetch())
+			{
+				if(!$arResult['SET']) $arResult['SET'] = array('IN_SET' => true, 'ITEMS' => array(), 'SETS'=> array(), 'URL'=>"#", 'SHOW_BADGE'=>true);
 
-				$raw = CCatalogProductSet::getList(array('ID'=>'DESC'), array('ITEM_ID' => $arResult['ID']));
-				while($set = $raw->Fetch()):
-					$arResult['SET']['ITEMS'][$set['OWNER_ID']] = array('ID' => $set['OWNER_ID'], 'TYPE'=>$set['TYPE']);
-				endwhile;
+				if(!isset($arResult['SET']['SETS'][$arItem['ITEM_ID']])) $arResult['SET']['SETS'][$arItem['ITEM_ID']] = array();
+				$arResult['SET']['SETS'][$arItem['ITEM_ID']][] = intval($arItem['OWNER_ID']);
+				$arResult['SET']['ITEMS'][$arItem['OWNER_ID']] = array('ID' => $arItem['OWNER_ID'], 'TYPE'=>$arItem['TYPE'], 'ITEM_ID' => $arItem['ITEM_ID']);
+			}
 
-				foreach ($arResult['SET']['ITEMS'] as $set)
-					if($set['TYPE'] == CCatalogProductSet::TYPE_SET)
-						$arResult['SET']['TYPE'] = $arResult['SET'];
-
-				if(!isset($arResult['SET']['TYPE']))
-					$arResult['SET']['TYPE'] = CCatalogProductSet::TYPE_GROUP;
-
+			// Получение URL каждого комплекта
+			if(count($arResult['SET']['ITEMS']) > 0):
 				$res = CIBlockElement::GetList(Array(), array('ID' => array_keys($arResult['SET']['ITEMS'])), false, false, array("DETAIL_PAGE_URL"));
 				while ($arItem = $res->GetNext()) {
 					$arResult['SET']['ITEMS'][$arItem['ID']]['URL'] = $arItem["DETAIL_PAGE_URL"];
 				}
 			endif;
+
+			// Сбор данный для JS
+			foreach ($arResult['SET']['SETS'] as $key => $value) {
+				$type = CCatalogProductSet::TYPE_GROUP;
+				foreach ($value as $k)
+					if($arResult['SET']['ITEMS'][$k]['TYPE'] == CCatalogProductSet::TYPE_SET)
+						$type = CCatalogProductSet::TYPE_SET;
+				$arResult['SET']['JSON'][$key] = array('url'=>count($value) == 1 ? $arResult['SET']['ITEMS'][$value[0]]['URL']:"/catalog/?q=+&id=".json_encode(array_keys($arResult['SET']['ITEMS'])),'type'=>$type);
+			}
+
+			// Стартовая URL
+			if($arResult['SET']['JSON'][$arResult['ID']]['url'])
+				$arResult['SET']['URL'] = $arResult['SET']['JSON'][$arResult['ID']]['url'];
+			if(count($arResult['OFFERS']) == 1 && strlen($arResult['SET']['JSON'][$arResult['OFFERS'][0]['ID']]['url']) > 0)
+				$arResult['SET']['URL'] = $arResult['SET']['JSON'][$arResult['OFFERS'][0]['ID']]['url'];
+
+			if(!isset($arResult['SET']['SETS'][$arResult['ID']]) && !isset($arResult['SET']['SETS'][$arResult['OFFERS'][0]['ID']]))
+				$arResult['SET']['SHOW_BADGE'] = false;
 		endif;
 	endif;
 

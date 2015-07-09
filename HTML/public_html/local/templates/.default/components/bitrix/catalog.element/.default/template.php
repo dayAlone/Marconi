@@ -159,8 +159,10 @@ endif;
 		      <? endif; ?>
 			  <?if($arResult['SET']):?>
 			  	<?if($arResult['SET']['IN_SET']):?>
-			    	<div class="product__badge">В составе <?=($arResult['SET']['TYPE'] == CCatalogProductSet::TYPE_GROUP ? "разделяемого" : "неразделяемого")?> комплекта</div>
-			    	<a href="<?=(count($arResult['SET']['ITEMS']) == 1 ? array_values($arResult['SET']['ITEMS'])[0]['URL']:"/catalog/?q=+&id=".json_encode(array_keys($arResult['SET']['ITEMS'])))?>" class="product__big-button product__big-button--border product__big-button--bigger product__big-button--set">Посмотреть комплект</a>
+					<div class="product__set <?=($arResult['SET']['SHOW_BADGE']?"":"hidden")?>">
+						<div class="product__badge product__badge--set">В составе <?=($arResult['SET']['TYPE'] == CCatalogProductSet::TYPE_GROUP ? "разделяемого" : "неразделяемого")?> комплекта</div>
+			    		<a href="<?=$arResult['SET']['URL']?>" class="product__big-button product__big-button--border product__big-button--bigger product__big-button--set">Посмотреть комплект</a>
+					</div>
 				<? else: ?>
 		    		<div class="product__badge">
 		    			<?=($arResult['SET']['TYPE'] == CCatalogProductSet::TYPE_GROUP ? "Разделяемый" : "Неразделяемый")?> комплект
@@ -205,12 +207,12 @@ endif;
 							<span class="sizes__title">
 								выберите размер
 							</span>
-							<span class="dropdown" data-id="<?=$item['OFFERS'][0]['ID']?>">
+							<span class="dropdown" data-id="<?=$item['OFFERS'][0]['ID']?>" <?=(count($arResult['SET']['JSON'])>0?"data-set='".json_encode($arResult['SET']['JSON'])."'":"")?>>
 								<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white"><?=$item['SIZES'][$item['OFFERS'][0]['PROPERTIES']['SIZE']['VALUE']]?></span><?=svg('arrow')?></a>
 
 								<span class="dropdown__frame">
 									<?foreach($item['OFFERS'] as $k=>$offer):?>
-									<a href="#" data-id="<?=$offer['ID']?>" data-price="<?=$offer['MIN_PRICE']['VALUE']?>" class="dropdown__item"><?=$item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']]?></a>
+									<a href="#" data-id="<?=$offer['ID']?>" <?=($arResult['SET']['SETS'][$offer['ID']]?"data-set='true'":"")?> data-price="<?=$offer['MIN_PRICE']['VALUE']?>" class="dropdown__item"><?=$item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']]?></a>
 									<?endforeach;?>
 								</span>
 								<select class="dropdown__select">
@@ -220,7 +222,7 @@ endif;
 								</select>
 							</span>
 						</div><?
-					elseif(count($item['OFFERS'])==1):
+					elseif(count($item['OFFERS'])==1 && !isset($arResult['SET']['SETS'][$item['OFFERS'][0]['ID']])):
 						?>
 						<div class="sizes">
 							<span class="sizes__title">
@@ -331,10 +333,10 @@ endif;
 			  <?
 				if(SITE_ID == 's1' || isUserAccept()):
 				    $frame = $this->createFrame()->begin();
-					if(!$arResult['NOT_AVAILABLE'] && (!$arResult['SET']['IN_SET'] || ($arResult['SET']['IN_SET'] && $arResult['SET']['TYPE'] == CCatalogProductSet::TYPE_GROUP))):
+					if(!$arResult['NOT_AVAILABLE'] && (!$arResult['SET']['IN_SET'] || ($arResult['SET']['IN_SET'] && !isset($arResult['SET']['SETS'][$arResult['ID']] ) && count($item['OFFERS']) > 1 ))):
 
 						if(SITE_ID != 's1' && $arResult['PROPERTIES']['SHOWCASE']['VALUE'] != "Y"):
-							?><div class="product__counter <?=($arResult['inCart']?"product__counter--disabled":"")?>">
+							?><div class="product__counter <?=($arResult['inCart']?"product__counter--disabled":"")?> <?=($arResult['SET']['SETS'][$item['OFFERS'][0]['ID']]?"hidden":"")?>">
 					    		<a href="#" class="product__counter-trigger product__counter-trigger--minus">-</a>
 					    		<input type="text" class="product__counter-input" value="1">
 					    		<a href="#" class="product__counter-trigger product__counter-trigger--plus">+</a>
@@ -344,7 +346,7 @@ endif;
 						if($arResult['inCart']):
 							?><a href="#" class="product__big-button product__big-button--border product__big-button--disabled" data-id="<?=$item['ID']?>">Товар в корзине</a><?
 						else:
-							?><a href="#" class="product__big-button product__big-button--buy" <?=(count($arResult['BUY_DATA'])>0?"data-request='".json_encode($arResult['BUY_DATA'])."'":"")?> data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>">В корзину</a><?
+							?><a href="#" class="product__big-button product__big-button--buy <?=($arResult['SET']['SETS'][$item['OFFERS'][0]['ID']]?"hidden":"")?>" <?=(count($arResult['BUY_DATA'])>0?"data-request='".json_encode($arResult['BUY_DATA'])."'":"")?> data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>">В корзину</a><?
 						endif;?>
 
 					  	<?if(SITE_ID == 's1'):

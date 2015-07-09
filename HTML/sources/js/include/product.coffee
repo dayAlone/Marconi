@@ -75,8 +75,33 @@
 
 	$('.sizes .dropdown__item').click (e)->
 
-		$(this).block().data 'id', $(this).data 'id'
+		id = parseInt $(this).data 'id'
+		set = $(this).block().data 'set'
+		if set
+			$button = $('.product').elem('big-button').byMod('set')
+			$badge  = $('.product').elem('badge').byMod('set')
+			$set    = $('.product').elem('set')
+			if set[id]
+				$set.removeClass 'hidden'
+				$button.attr 'url', set[id].url
+				if set[id].type == 2
+					 text = 'неразделяемого12'
+				else
+					text = 'разделяемого'
+				$badge.text "В составе #{text} комплекта"
+			else
+				$set.addClass 'hidden'
+
+		$(this).block().data 'id', id
 		$(this).block().data 'size', $(this).data 'size'
+
+
+		if !$(this).data 'set'
+			$('.product').elem('big-button').byMod('buy').removeClass 'hidden'
+			$('.product').elem('counter').removeClass 'hidden'
+		else
+			$('.product').elem('big-button').byMod('buy').addClass 'hidden'
+			$('.product').elem('counter').addClass 'hidden'
 
 		$('.product__big-button--buy').text('В корзину')
 		$('.product').elem('big-button').byMod('buy').mod('border', false).mod('disabled', false)
