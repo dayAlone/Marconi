@@ -274,7 +274,19 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 					if(count($arSets[2])>0):
 						$html .= " Разделяемых: ".count($arSets[2])." шт. — ".implode($arSets[2], ", ").".";
 					endif;
-			echo $html."<table>".$str."</table>";
+
+			$html .= "<table border='1'>
+						<tbody>
+							<tr>
+								<td>№</td>
+								<td>Товар</td>
+								<td>Количество</td>
+								<td>Цена за 1 шт.</td>
+								<td>Цена</td>
+							</tr>
+							".$str."
+						</tbody>
+					</table>";
 
 			$arFields['SALE_EMAIL'] = "zakaz@italbags.ru";
 			$arFields['SITE_NAME'] = 'Новый стиль студио';
@@ -321,7 +333,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			}
 			$file = $_SERVER['DOCUMENT_ROOT'] . '/orders/order_'.$orderData['ID'].'.csv';
 			file_put_contents($file, iconv("utf-8", "windows-1251", $csv));
-			
+
 			require $_SERVER['DOCUMENT_ROOT'].'/include/mail/PHPMailerAutoload.php';
 
 			$mail = new PHPMailer;
@@ -331,7 +343,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			$mail->Subject = "Новый заказ на italbags.ru";
 			$mail->setFrom("mailer@".$_SERVER['HTTP_HOST'], "Сайт ".$_SERVER['HTTP_HOST']);
 			$mail->addAddress($adminEmail, 'Администратор');
-			$mail->msgHTML($arFields['ORDER_LIST']);
+			$mail->msgHTML($html);
 			$mail->send();
 
 		elseif($orderProps['EMAIL']):
