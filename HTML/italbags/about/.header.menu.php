@@ -1,48 +1,46 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"выставочный зал", 
-		"/about/showroom/", 
-		Array(), 
-		Array(), 
-		"" 
+		"выставочный зал",
+		"/about/showroom/",
+		Array(),
+		Array(),
+		""
 	),
 	Array(
-		"достижения", 
-		"/about/achievements/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	/*
-	Array(
-		"команда", 
-		"/about/team/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	*/
-	Array(
-		"отзывы", 
-		"/about/feedback/", 
-		Array(), 
-		Array(), 
-		"" 
+		"достижения",
+		"/about/achievements/",
+		Array(),
+		Array(),
+		""
 	),
 	Array(
-		"миссия компании", 
-		"/about/mission/", 
-		Array(), 
-		Array(), 
-		"" 
+		"команда",
+		"/about/team/",
+		Array(),
+		Array(),
+		""
 	),
 	Array(
-		"реквизиты", 
-		"/about/requisites/", 
-		Array(), 
-		Array(), 
-		"" 
+		"отзывы",
+		"/about/feedback/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"миссия компании",
+		"/about/mission/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"реквизиты",
+		"/about/requisites/",
+		Array(),
+		Array(),
+		""
 	)
 );
 ?>
