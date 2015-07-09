@@ -2217,7 +2217,7 @@ body.index--fmarconi {
   min-height: 450px;
   height: 100vh;
   max-height: 100vh;
-  background: url("/layout/images/italbags-main.jpg") bottom left no-repeat;
+  background: url("/layout/images/italbags-main.jpg") top left no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -2326,6 +2326,8 @@ body.index--fmarconi {
   background: #96969d;
 }
 .textpage__content {
+  float: left;
+  width: 100%;
   padding-bottom: 50px;
   font-size: 14px;
 }
@@ -4705,6 +4707,13 @@ a.news--list .news-item__title:hover {
   width: 100%;
   min-height: 250px;
   background-position: center bottom;
+}
+@media (min-width: 480px) {
+  .team-list__image {
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    background-size: contain;
+  }
 }
 .team__info {
   font-size: 12px;
