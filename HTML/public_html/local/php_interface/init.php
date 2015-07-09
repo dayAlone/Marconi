@@ -127,10 +127,10 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			$arUser['STATUS'] = "";
 			$i = 0;
 			while($g = $raw->Fetch()) {
-				if(in_array($g, array(5, 9, 10, 11, 12, 13, 14, 14))) {
+				if(in_array($g['ID'], array(5, 9, 10, 11, 12, 13, 14)) && in_array($g['ID'],$arGroups)) {
 					$arUser['STATUS'] .= ($i != 0?", ":"").$g['NAME'];
+					$i++;
 				}
-				$i++;
 			}
 
 		endif;
@@ -275,7 +275,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 						$html .= " Разделяемых: ".count($arSets[2])." шт. — ".implode($arSets[2], ", ").".";
 					endif;
 
-			$html .= "<table border='1'>
+			$html .= "<br><br><hr><br><table border='1' style='font-size:13px'>
 						<tbody>
 							<tr>
 								<td>№</td>
