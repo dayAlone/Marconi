@@ -82,6 +82,11 @@
 				$arResult['SET']['SETS'][$arItem['ITEM_ID']][] = intval($arItem['OWNER_ID']);
 				$arResult['SET']['ITEMS'][$arItem['OWNER_ID']] = array('ID' => $arItem['OWNER_ID'], 'TYPE'=>$arItem['TYPE'], 'ITEM_ID' => $arItem['ITEM_ID']);
 			}
+			foreach (array($arResult['ID'], $arResult['OFFERS'][0]['ID']) as $value) {
+				$set = $arResult['SET']['ITEMS'][$arResult['SET']['SETS'][$value][0]];
+				if(isset($set))
+					$arResult['SET']['TYPE'] = $set['TYPE'];
+			}
 
 			// Получение URL каждого комплекта
 			if(count($arResult['SET']['ITEMS']) > 0):
@@ -106,8 +111,10 @@
 			if(count($arResult['OFFERS']) == 1 && strlen($arResult['SET']['JSON'][$arResult['OFFERS'][0]['ID']]['url']) > 0)
 				$arResult['SET']['URL'] = $arResult['SET']['JSON'][$arResult['OFFERS'][0]['ID']]['url'];
 
-			if(!isset($arResult['SET']['SETS'][$arResult['ID']]) && !isset($arResult['SET']['SETS'][$arResult['OFFERS'][0]['ID']]))
+			if(!isset($arResult['SET']['SETS'][$arResult['ID']]) && !isset($arResult['SET']['SETS'][$arResult['OFFERS'][0]['ID']]) && $arResult['SET']){
 				$arResult['SET']['SHOW_BADGE'] = false;
+			}
+
 		endif;
 	endif;
 

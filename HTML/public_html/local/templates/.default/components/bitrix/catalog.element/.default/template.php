@@ -157,8 +157,10 @@ endif;
 		      <? if($arResult['PROPERTIES']['SHOWCASE']['VALUE'] == 'Y'):?>
 		      	<div class="product__badge">Витринный экземпляр</div>
 		      <? endif; ?>
-			  <?if($arResult['SET']):?>
-			  	<?if($arResult['SET']['IN_SET']):?>
+			  <?
+			  if($arResult['SET']):?>
+			  	<?if($arResult['SET']['IN_SET']):
+					?>
 					<div class="product__set <?=($arResult['SET']['SHOW_BADGE']?"":"hidden")?>">
 						<div class="product__badge product__badge--set">В составе <?=($arResult['SET']['TYPE'] == CCatalogProductSet::TYPE_GROUP ? "разделяемого" : "неразделяемого")?> комплекта</div>
 			    		<a href="<?=$arResult['SET']['URL']?>" class="product__big-button product__big-button--border product__big-button--bigger product__big-button--set">Посмотреть комплект</a>
@@ -333,7 +335,14 @@ endif;
 			  <?
 				if(SITE_ID == 's1' || isUserAccept()):
 				    $frame = $this->createFrame()->begin();
-					if(!$arResult['NOT_AVAILABLE'] && (!$arResult['SET']['IN_SET'] || ($arResult['SET']['IN_SET'] && !isset($arResult['SET']['SETS'][$arResult['ID']] ) && count($item['OFFERS']) > 1 ))):
+					$showAdd = true;
+					if($arResult['SET']['IN_SET'] && $arResult['SET']['TYPE'] != CCatalogProductSet::TYPE_SET) {
+						$showAdd = false;
+					}
+					else if (!$arResult['SET']['IN_SET'])
+						$showAdd = false;
+
+					if(!$arResult['NOT_AVAILABLE'] && !$showAdd):
 
 						if(SITE_ID != 's1' && $arResult['PROPERTIES']['SHOWCASE']['VALUE'] != "Y"):
 							?><div class="product__counter <?=($arResult['inCart']?"product__counter--disabled":"")?> <?=($arResult['SET']['SETS'][$item['OFFERS'][0]['ID']]?"hidden":"")?>">

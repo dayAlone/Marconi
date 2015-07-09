@@ -485,7 +485,6 @@ function OnBeforePriceUpdate($ID, &$arFields)
 function OnBeforePriceAdd($ID, &$arFields)
 {
 	checkPrice($arFields);
-	var_dump($arFields);
 }
 
 use Bitrix\Highloadblock as HL;
