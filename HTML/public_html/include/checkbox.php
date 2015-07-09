@@ -1,6 +1,6 @@
 <?
 IncludeModuleLangFile(__FILE__);
-define ('RADIA_CHECKBOX', 'SASDCheckbox');
+define ('RADIA_CHECKBOX', 'RADIACheckbox');
 define ('RADIA_CHECKBOX_VAL_FALSE', '');
 define ('RADIA_CHECKBOX_VAL_TRUE', 'Y');
 define ('RADIA_CHECKBOX_DESCR', 'Простой чекбокс (строка)');
