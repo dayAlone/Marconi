@@ -52,7 +52,7 @@
       elseif($arSet['TYPE'] == CCatalogProductSet::TYPE_GROUP) {
           $id = $arIDs[$arSet['ITEM_ID']];
           $row = $arResult['GRID']['ROWS'][$id];
-          $arResult['DISCOUNT_PRICE_ALL'] -= $row['FULL_PRICE'];
+          $arResult['DISCOUNT_PRICE_ALL'] -= $row['FULL_PRICE'] * $row['QUANTITY'];
       }
     }
 
