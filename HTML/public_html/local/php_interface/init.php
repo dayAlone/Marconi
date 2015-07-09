@@ -460,21 +460,22 @@ function checkPrice(&$arFields)
 				$arSale[$arItem['ITEM_ID']] = $sale/100;
 			}
 		}
-		$raw = CPrice::GetList(
-			array(),
-			array(
-					"PRODUCT_ID" => $arIDs
-				)
-		);
-		$arPrice = array();
-		while($arItem = $raw->Fetch()){
-			if(!isset($arPrice[$arItem['CATALOG_GROUP_ID']])) $arPrice[$arItem['CATALOG_GROUP_ID']] = array('VALUE'=>0, 'CURRENCY'=>$arItem['CURRENCY']);
-			if($arItem['PRODUCT_ID'] == $arFields['PRODUCT_ID']) $arPrice[$arItem['CATALOG_GROUP_ID']]['ID'] = $arItem['ID'];
-			else
-				$arPrice[$arItem['CATALOG_GROUP_ID']]['VALUE'] += intval($arItem['PRICE']) - intval($arItem['PRICE'])*$arSale[$arItem['PRODUCT_ID']];
-		}
-		$arFields['PRICE'] = $arPrice[$arFields['CATALOG_GROUP_ID']]['VALUE'];
-		
+		if(count($arIDs) > 0):
+			$raw = CPrice::GetList(
+				array(),
+				array(
+						"PRODUCT_ID" => $arIDs
+					)
+			);
+			$arPrice = array();
+			while($arItem = $raw->Fetch()){
+				if(!isset($arPrice[$arItem['CATALOG_GROUP_ID']])) $arPrice[$arItem['CATALOG_GROUP_ID']] = array('VALUE'=>0, 'CURRENCY'=>$arItem['CURRENCY']);
+				if($arItem['PRODUCT_ID'] == $arFields['PRODUCT_ID']) $arPrice[$arItem['CATALOG_GROUP_ID']]['ID'] = $arItem['ID'];
+				else
+					$arPrice[$arItem['CATALOG_GROUP_ID']]['VALUE'] += intval($arItem['PRICE']) - intval($arItem['PRICE'])*$arSale[$arItem['PRODUCT_ID']];
+			}
+			$arFields['PRICE'] = $arPrice[$arFields['CATALOG_GROUP_ID']]['VALUE'];
+		endif;
 	endif;
 }
 function OnBeforePriceUpdate($ID, &$arFields)
