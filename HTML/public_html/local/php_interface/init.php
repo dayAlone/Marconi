@@ -440,7 +440,7 @@ AddEventHandler("catalog", "OnBeforePriceAdd", "OnBeforePriceAdd");
 
 function checkPrice(&$arFields)
 {
-	if(intval($_REQUEST['PROP'][103][0]['VALUE'])>0):
+	if(intval($_REQUEST['PROP'][120][0]['VALUE'])>0):
 		$rsSets = CCatalogProductSet::getList(
 		  array(),
 		  array(
