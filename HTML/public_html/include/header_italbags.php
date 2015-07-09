@@ -6,12 +6,12 @@
       </div>
       <div class="col-xs-10 col-lg-8">
         <?php
-            $APPLICATION->IncludeComponent("bitrix:menu", "toolbar", 
+            $APPLICATION->IncludeComponent("bitrix:menu", "toolbar",
             array(
                 "ALLOW_MULTI_SELECT" => "Y",
                 "MENU_CACHE_TYPE"    => "A",
                 "ROOT_MENU_TYPE"     => "toolbar",
-                "CHILD_MENU_TYPE"    => "header", 
+                "CHILD_MENU_TYPE"    => "header",
                 "MAX_LEVEL"          => "2",
                 "CLASS"              => "center"
                 ),
@@ -99,7 +99,7 @@
     <div class="row">
       <div class="col-xs-3 col-md-2">
         <div class="header__links header__links--center header__links--left">
-          <a href="http://fmarconi.ru/" target="_blank" class="retail">Купить в розницу</a>
+          <a href="http://fmarconi.ru/catalog/" target="_blank" class="retail">Купить в розницу</a>
         </div>
       </div>
       <div class="col-xs-2 col-md-3"><span class="logo__line logo__line--short logo__line--left"></span></div>
@@ -135,7 +135,7 @@
     </div>
   </div>
   <?php
-    $APPLICATION->IncludeComponent("bitrix:menu", "header", 
+    $APPLICATION->IncludeComponent("bitrix:menu", "header",
       array(
           "ALLOW_MULTI_SELECT" => "Y",
           "MENU_CACHE_TYPE"    => "A",
