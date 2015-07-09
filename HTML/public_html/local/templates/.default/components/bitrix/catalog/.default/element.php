@@ -228,7 +228,7 @@ if ($ElementID > 0)
 		?>
 	</div>
 	<?
-	endif;
+	else:
 	$APPLICATION->IncludeComponent(
 	"bitrix:catalog.viewed.products",
 	".default",
@@ -311,7 +311,7 @@ if ($ElementID > 0)
 		)
 	),
 	$component
-);
+	);
 	?>
 	<div data-title="<?=(SITE_ID=='s1'?"francesco marconi":"Новый Стиль Студио")?> рекомендует" class="catalog__divider catalog__divider--title"></div>
 	<div class="catalog catalog--full-width catalog--one-line <?=(SITE_ID!='s1'?"catalog--italbags":"")?>">
@@ -415,6 +415,7 @@ if ($ElementID > 0)
 	);
 	?>
 	</div>
+	<?endif;?>
 	<div class="hidden">
 	<?
 
