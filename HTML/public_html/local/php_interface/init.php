@@ -106,18 +106,34 @@ function getOrderDelivery($ID, $props) {
 	return $str;
 }
 function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
+
 	if($arTemplate['EVENT_NAME'] == 'SALE_NEW_ORDER'):
 		global $USER;
 		CModule::IncludeModule("sale");
 		CModule::IncludeModule("iblock");
+
 		$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
 		$orderProps    = getOrderProps($arFields['ORDER_ID']);
 		$delivery      = getOrderDelivery($arFields['ORDER_ID'], $orderProps);
 		$arItems       = array();
-		$rsUser        = CUser::GetByID($USER->GetID());
-		$arUser        = $rsUser->Fetch();
+		$arOrder       = CSaleOrder::GetByID($arFields['ORDER_ID']);
 
-		$orderProps['NAME'] = $USER->GetFullName();
+		if($USER):
+			$rsUser    = CUser::GetByID($USER->GetID());
+			$arUser    = $rsUser->Fetch();
+			$orderProps['NAME'] = $USER->GetFullName();
+			$arGroups  = CUser::GetUserGroup($USER->GetID());
+			$raw       = CGroup::GetList(($by="c_sort"), ($order="desc"), array('ID'=>$arGroups));
+			$arUser['STATUS'] = "";
+			$i = 0;
+			while($g = $raw->Fetch()) {
+				if(in_array($g, array(5, 9, 10, 11, 12, 13, 14, 14))) {
+					$arUser['STATUS'] .= ($i != 0?", ":"").$g['NAME'];
+				}
+				$i++;
+			}
+
+		endif;
 
 		if(strlen($orderProps['NAME']) == 0):
 			$orderProps['NAME'] = ($orderProps['NAME']?$orderProps['NAME']:$orderProps['FIRST_NAME'])." ".$orderProps['LAST_NAME'];
@@ -128,13 +144,50 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			$orderProps['phone'] = (strlen($arUser['WORK_PHONE'])>0?$arUser['WORK_PHONE']:$arUser['PERSONAL_PHONE']);
 		endif;
 		while ($arItem = $dbBasketItems->Fetch()) {
-			$res = CIBlockElement::GetByID($arItem['PRODUCT_ID']);
-			if($ar_res = $res->GetNextElement()){
-				$fields    = $ar_res->GetFields();
-				$arProps   = $ar_res->GetProperties();
-				$arItems[] = array_merge($arItem, $fields, $arProps);
-			}
+			$arItems[$arItem['PRODUCT_ID']] = $arItem;
 		}
+
+		$raw = CIBlockElement::GetList(array("ID" => "DESC"), array('=ID'=>array_keys($arItems), 'IBLOCK_CODE'=>'offers'), false, false, array('ID', 'NAME', 'PROPERTY_CML2_LINK.PROPERTY_BRAND', 'PROPERTY_CML2_LINK.CODE', 'PROPERTY_CML2_LINK.PROPERTY_ARTNUMBER', 'PROPERTY_CML2_LINK.PROPERTY_NOTE_SHORT'));
+		while($ar_res = $raw->GetNextElement()){
+			$fields = $ar_res->GetFields();
+			$fields['DETAIL_PAGE_URL'] = "/catalog/all/".$fields['PROPERTY_CML2_LINK_CODE']."/";
+
+			if(isset($arItems[$fields['ID']])):
+				$arProps = array('BRAND'=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_BRAND_VALUE']), "ARTNUMBER"=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_ARTNUMBER_VALUE']), "NOTE_SHORT"=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_NOTE_SHORT_VALUE']));
+				$arItems[$fields['ID']] = array_merge($arItems[$fields['ID']], $fields, $arProps);
+			endif;
+		}
+
+		$raw = CIBlockElement::GetList(array("ID" => "DESC"), array('=ID'=>array_keys($arItems), 'IBLOCK_CODE'=>'products'), false, false);
+		while($ar_res = $raw->GetNextElement()){
+			$fields = $ar_res->GetFields();
+			if(isset($arItems[$fields['ID']])):
+				$arProps   = $ar_res->GetProperties();
+				$arItems[$fields['ID']] = array_merge($arItems[$fields['ID']], $fields, $arProps);
+			endif;
+		}
+
+
+		$arSets = array();
+	    $rsSets = CCatalogProductSet::getList(
+	      array('SET_ID'=>"DESC"),
+	      array(
+	        '@ITEM_ID' => array_keys($arItems),
+	        //'=SET_ID' => 0
+	      ),
+	      false,
+	      false
+	    );
+
+		while ($arSet = $rsSets->Fetch())
+	    {
+			if($arSet['SET_ID'] == 0):
+				if(!isset($arSets[$arSet['TYPE']])) $arSets[$arSet['TYPE']] = array();
+				$arSets[$arSet['TYPE']][] = $arItems[$arSet['ITEM_ID']]['NAME'];
+				unset($arItems[$arSet['ITEM_ID']]);
+			endif;
+		}
+
 		if(SITE_ID == 's1'):
 			$str = '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;">
 				<thead>
@@ -172,12 +225,15 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 				</tfooter>
 			</table>';
 		else:
+
 			$str = "";
 			$total = 0;
+			$i = 0;
 			foreach ($arItems as $key => $arItem):
+				$i++;
 				$total += $arItem['PRICE']*intval($arItem['QUANTITY']);
 				$str .= '<tr>
-							<td>'.($key+1).'</td>
+							<td>'.$i.'</td>
 							<td>
 								<a href="'.$arItem['DETAIL_PAGE_URL'].'" target="_blank">'.$arItem['NAME'].'</a>
 							</td>
@@ -195,14 +251,30 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 						</td>
 						<td></td>
 						<td>
-							<strong>'.number_format($total, 0, '.', ' ').' руб.</strong>
+							<strong>'.number_format($arOrder['PRICE'], 0, '.', ' ').' руб.</strong>
 						</td>
 					</tr>';
 		endif;
 		$arFields['ORDER_LIST'] = $str;
 
+
 		if(SITE_ID != 's1'):
 			$arFields['BRANDS'] = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
+
+			$html = "Поступил новый заказ (№ ".$arFields['ORDER_ID'].") с сайта <a href='http://www.italbags.ru/'>http://www.italbags.ru/</a>. Посмотреть подробности можно <a href='http://fmarconi.ru/bitrix/admin/sale_order_detail.php?ID=".$arFields['ORDER_ID']."'>здесь</a>.<br><br>
+
+					Клиент	".$orderProps['NAME']." <br>
+					Статус клиента	".$arUser['STATUS']."<br>
+					Организация	".$arUser['WORK_COMPANY']."<br>
+					Телефон ".$orderProps['phone']."<br>
+					Скидки комплектов:	Комплектов в заказе: ".count($arSets)."шт.";
+					if(count($arSets[1])>0):
+						$html .= " Неразделяемых: ".count($arSets[1])." шт. — ".implode($arSets[1], ", ").".";
+					endif;
+					if(count($arSets[2])>0):
+						$html .= " Разделяемых: ".count($arSets[2])." шт. — ".implode($arSets[2], ", ").".";
+					endif;
+			echo $html."<table>".$str."</table>";
 
 			$arFields['SALE_EMAIL'] = "zakaz@italbags.ru";
 			$arFields['SITE_NAME'] = 'Новый стиль студио';
@@ -249,7 +321,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			}
 			$file = $_SERVER['DOCUMENT_ROOT'] . '/orders/order_'.$orderData['ID'].'.csv';
 			file_put_contents($file, iconv("utf-8", "windows-1251", $csv));
-
+			die();
 			require $_SERVER['DOCUMENT_ROOT'].'/include/mail/PHPMailerAutoload.php';
 
 			$mail = new PHPMailer;
@@ -266,8 +338,10 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			$arFields['BCC'] .= ", ".$orderProps['EMAIL'];
 		endif;
 	endif;
+
 	return $arFields;
 }
+
 
 AddEventHandler("main", "OnAfterUserAdd", "OnAfterUsedAddHandler");
 AddEventHandler("main", "OnBeforeUserRegister", "OnBeforeUserAddHandler");
