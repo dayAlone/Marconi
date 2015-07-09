@@ -28,7 +28,10 @@ updateTimer = false
 
 	$('.basket').elem('set').byMod('no-calc').each ->
 		$set = $(this)
-		val  = $set.find('.basket__count').val()
+		val  = parseInt $set.find('.basket__count').val()
+		if val == 0
+			val = 1
+		console.log val
 		$set.find('.basket__text-count').each (key, el)->
 			row = $(this).parents('.basket__item')
 			curVal = parseInt $(el).text()
@@ -92,7 +95,7 @@ updateTimer = false
 
 		totalVal = parseInt $('.basket__total span:first').text().replace(' ','')
 		if totalVal != total
-			
+
 			totalCounter = new countUp $('.basket__total span:first')[0], totalVal, total, 0, 2, countUpOptions
 			totalCounter.start()
 

@@ -63,7 +63,7 @@ filterRequest = false
 	value     = parseInt $(el).block('counter-input').val()
 	id        = el.data 'id'
 	artnumber = el.data('artnumber')
-	
+
 	if !request
 		url     = "/include/basket.php?a=add&id=#{id}"
 		if el.data('size')
@@ -93,6 +93,7 @@ filterRequest = false
 			location.href = $(this).block('picture-frame').attr('href')
 
 	$('.product').elem('counter-input').off('keydown').on 'keydown', (e)->
+		console.log e.keyCode
 		if $.inArray(e.keyCode, [
 			46
 			8
