@@ -19,7 +19,7 @@
   if(SITE_ID == 's2'):
     $arResult['SETS'] = array();
     $rsSets = CCatalogProductSet::getList(
-      array(),
+      array('SET_ID'=>"DESC"),
       array(
         '@OWNER_ID' => array_keys($arIDs),
         //'=SET_ID' => 0
@@ -48,6 +48,9 @@
           $set['ITEMS'][$arSet['ITEM_ID']] = array('QUANTITY' => $arSet['QUANTITY']*$arResult['GRID']['ROWS'][$id]['QUANTITY']);
           $arResult['SETS']['LOCKED'][$arSet['ITEM_ID']] = $arSet['OWNER_ID'];
         endif;
+      }
+      elseif($arSet['TYPE'] == CCatalogProductSet::TYPE_GROUP) {
+          $arResult['DISCOUNT_PRICE_ALL'] -= $set['TOTAL'];
       }
     }
 
