@@ -222,7 +222,7 @@ endif;
 								</select>
 							</span>
 						</div><?
-					elseif(count($item['OFFERS'])==1 && !isset($arResult['SET']['SETS'][$item['OFFERS'][0]['ID']])):
+					elseif(count($item['OFFERS'])==1):
 						?>
 						<div class="sizes">
 							<span class="sizes__title">
