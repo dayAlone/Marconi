@@ -3,6 +3,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 $APPLICATION->SetPageProperty('body_class', "about about--requisites about--white textpage");
 $APPLICATION->SetTitle('Реквизиты');
 ?>
+<div class="page">
 <div class="container textpage__content">
 	<div class="textpage__black">
 		<h1 class="center">Реквизиты</h1>
@@ -44,6 +45,7 @@ $APPLICATION->SetTitle('Реквизиты');
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');
