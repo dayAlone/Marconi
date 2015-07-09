@@ -65,9 +65,13 @@ endforeach;
 
 if(SITE_ID == 's2'):
 	$rsSets = CCatalogProductSet::getList(
-		array(),
+		array('SET_ID' => 'DESC'),
 		array(
-			'@ITEM_ID' => array_merge(array_keys($arIDS),array_keys($arOffers)),
+			array(
+			   "LOGIC" => "OR",
+				'@PRODUCT_ID' => array_merge(array_keys($arIDS),array_keys($arOffers)),
+				'@OWNER_ID' => array_merge(array_keys($arIDS),array_keys($arOffers)),
+			)
 			//'=SET_ID' => 0
 		),
 		false,
@@ -88,6 +92,7 @@ if(SITE_ID == 's2'):
 				$arResult['SETS']['LOCKED'][] = $arSet['ITEM_ID'];
 		}
 	}
+
 	if(count($arElements) > 0):
 		$res = CIBlockElement::GetList(Array(), array('ID' => array_keys($arElements)), false, false, Array("ID", "PROPERTY_ARTNUMBER", "PREVIEW_PICTURE", "IBLOCK_CODE"));
 		while ($arItem = $res->Fetch()) {

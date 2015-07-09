@@ -95,7 +95,8 @@ $props = &$item['PROPERTIES'];
 	    <?if($arParams['HIDE_SIMMILAR'] != "Y"):?>
 	    	<a href="#" data-id="<?=$item['ID']?>" class="product__button product__button--simmilar"><?=($arParams['COMPARE_TEXT']?$arParams['COMPARE_TEXT']:"Сравнить")?></a>
 	    <?endif;?>
-	    <?if($arParams['SHOW_COUNT'] == "Y" && $props['SHOWCASE']['VALUE'] != "Y" && $arParams['SHOW_PRICE'] && !(in_array($item['ID'], $arResult['SETS']['LOCKED']) && SITE_ID != 's1')):?>
+	    <?
+		if($arParams['SHOW_COUNT'] == "Y" && $props['SHOWCASE']['VALUE'] != "Y" && $arParams['SHOW_PRICE'] && !(in_array($item['ID'], $arResult['SETS']['LOCKED']) && SITE_ID != 's1')):?>
 	    	<div class="product__counter">
 	    		<a href="#" class="product__counter-trigger product__counter-trigger--minus">-</a>
 	    		<input type="text" class="product__counter-input" value="1">
