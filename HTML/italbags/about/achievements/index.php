@@ -3,9 +3,10 @@ require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 $APPLICATION->SetPageProperty('body_class', "textpage");
 $APPLICATION->SetTitle('Достижения');
 ?>
+<div class="page">
 <div class="container textpage__content">
 	<?
-    	$APPLICATION->IncludeComponent("bitrix:news.list", "achievements", 
+    	$APPLICATION->IncludeComponent("bitrix:news.list", "achievements",
 			array(
 				"IBLOCK_ID"            => 20,
 				"NEWS_COUNT"           => "100",
@@ -20,6 +21,7 @@ $APPLICATION->SetTitle('Достижения');
 			false
 		);
 	?>
+</div>
 </div>
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');

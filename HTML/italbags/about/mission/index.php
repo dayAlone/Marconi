@@ -3,6 +3,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 $APPLICATION->SetPageProperty('body_class', "about about--mission textpage");
 $APPLICATION->SetTitle('Миссия компании');
 ?>
+<div class="page">
 <div class="container textpage__content">
 	<div class="textpage__black">
 		<h1 class="center">Миссия компании</h1>
@@ -21,6 +22,7 @@ $APPLICATION->SetTitle('Миссия компании');
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');

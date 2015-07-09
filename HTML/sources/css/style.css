@@ -2326,8 +2326,6 @@ body.index--fmarconi {
   background: #96969d;
 }
 .textpage__content {
-  float: left;
-  width: 100%;
   padding-bottom: 50px;
   font-size: 14px;
 }
