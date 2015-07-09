@@ -9,6 +9,8 @@ define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
 //AddEventHandler("sale", "OnOrderNewSendEmail", "OnBeforeMailSendHandler");
 AddEventHandler("main", "OnBeforeEventSend", "OnBeforeMailSendHandler");
+require_once($_SERVER['DOCUMENT_ROOT'].'/include/checkbox.php');
+
 
 function findCityByLocation($ID)
 {
