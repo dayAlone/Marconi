@@ -84,7 +84,7 @@
 			if set[id]
 				$set.removeClass 'hidden'
 				$button.attr 'url', set[id].url
-				if set[id].type == 2
+				if set[id].type == 1
 					 text = 'неразделяемого'
 				else
 					text = 'разделяемого'
@@ -99,7 +99,7 @@
 		if !$(this).data 'set'
 			$('.product').elem('big-button').byMod('buy').removeClass 'hidden'
 			$('.product').elem('counter').removeClass 'hidden'
-		else
+		else if set[id].type == 1
 			$('.product').elem('big-button').byMod('buy').addClass 'hidden'
 			$('.product').elem('counter').addClass 'hidden'
 

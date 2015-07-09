@@ -19,6 +19,7 @@
 			elseif($raw = array_values(CCatalogProductSet::getAllSetsByProduct($arResult['ID'], CCatalogProductSet::TYPE_GROUP))):
 				$arResult['SET']['TYPE'] = CCatalogProductSet::TYPE_GROUP;
 			endif;
+
 			if(count($raw[0]['ITEMS']) > 0):
 				$arResult['SET']['SHOW']   = array();
 				$arResult['SET']['ITEMS']  = array();

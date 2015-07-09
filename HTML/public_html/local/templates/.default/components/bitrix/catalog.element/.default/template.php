@@ -336,16 +336,21 @@ endif;
 				if(SITE_ID == 's1' || isUserAccept()):
 				    $frame = $this->createFrame()->begin();
 					$showAdd = true;
+					$hideAdd = false;
 					if($arResult['SET']['IN_SET'] && $arResult['SET']['TYPE'] != CCatalogProductSet::TYPE_SET) {
 						$showAdd = false;
 					}
-					else if (!$arResult['SET']['IN_SET'])
+					else if (!$arResult['SET']['IN_SET']) {
 						$showAdd = false;
+					}
+					else {
+						$hideAdd = true;
+					}
+
 
 					if(!$arResult['NOT_AVAILABLE'] && !$showAdd):
-
 						if(SITE_ID != 's1' && $arResult['PROPERTIES']['SHOWCASE']['VALUE'] != "Y"):
-							?><div class="product__counter <?=($arResult['inCart']?"product__counter--disabled":"")?> <?=($arResult['SET']['SETS'][$item['OFFERS'][0]['ID']]?"hidden":"")?>">
+							?><div class="product__counter <?=($arResult['inCart']?"product__counter--disabled":"")?> <?=($hideAdd?"hidden":"")?>">
 					    		<a href="#" class="product__counter-trigger product__counter-trigger--minus">-</a>
 					    		<input type="text" class="product__counter-input" value="1">
 					    		<a href="#" class="product__counter-trigger product__counter-trigger--plus">+</a>
@@ -355,7 +360,7 @@ endif;
 						if($arResult['inCart']):
 							?><a href="#" class="product__big-button product__big-button--border product__big-button--disabled" data-id="<?=$item['ID']?>">Товар в корзине</a><?
 						else:
-							?><a href="#" class="product__big-button product__big-button--buy <?=($arResult['SET']['SETS'][$item['OFFERS'][0]['ID']]?"hidden":"")?>" <?=(count($arResult['BUY_DATA'])>0?"data-request='".json_encode($arResult['BUY_DATA'])."'":"")?> data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>">В корзину</a><?
+							?><a href="#" class="product__big-button product__big-button--buy <?=($hideAdd?"hidden":"")?>" <?=(count($arResult['BUY_DATA'])>0?"data-request='".json_encode($arResult['BUY_DATA'])."'":"")?> data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>">В корзину</a><?
 						endif;?>
 
 					  	<?if(SITE_ID == 's1'):
