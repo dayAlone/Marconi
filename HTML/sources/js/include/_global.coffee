@@ -1,10 +1,10 @@
 $(document).ready ->
-	
+
 	window.ParsleyValidator.setLocale('ru');
 
 	delay 300, ()->
 		size()
-		
+
 	x = undefined
 	$(window).resize ->
 		clearTimeout(x)
@@ -13,7 +13,7 @@ $(document).ready ->
 
 	$('a.captcha_refresh').click (e)->
 		getCaptcha()
-		e.preventDefault()	
+		e.preventDefault()
 
 	$('[data-toggle="tooltip"]').tooltip()
 	$('[data-draggable="true"]').backgroundDraggable({ axis: 'x' });
@@ -93,10 +93,10 @@ $(document).ready ->
 		$('#achievement p').html $.parseHTML($el.data('text'))
 
 	# Login
-	
+
 	$('.modal').on 'shown.bs.modal', ->
 		id = $(this).attr 'id'
-		if id == 'register' || id == 'feedback'  || id == 'ask' 
+		if id == 'register' || id == 'feedback'  || id == 'ask' || id == 'review' 
 			getCaptcha()
 
 	$('.modal').on 'hidden.bs.modal', ->
@@ -110,12 +110,12 @@ $(document).ready ->
 
 	$('#login form, #forget form, #register form, #change form').submit (e)->
 		e.preventDefault()
-		
+
 		form  = $(this)
 		modal = form.parents('.modal')
 		if modal.length == 0
-			modal = form.parent() 
-		
+			modal = form.parent()
+
 		block = modal.attr 'id'
 
 		if block == 'register'
@@ -124,9 +124,9 @@ $(document).ready ->
 		data  = $(this).serialize()
 		if block == 'register'
 			data += "&register_submit_button=Y"
-		
+
 		form.find('input[type="submit"]').attr('disabled', 'disabled')
-		
+
 		$.post form.data('action'), data,
 			(data)->
 				console.log data
@@ -151,7 +151,7 @@ $(document).ready ->
 						$(".toolbar__mobile a[href='#login']").attr 'href', '/profile/'
 
 					if block == 'login' && $('body').hasClass 's2' || location.href == '/basket/'
-						if location.href.indexOf('?') >= 0 
+						if location.href.indexOf('?') >= 0
 							amp = "&"
 						else
 							amp = "?"
@@ -166,7 +166,7 @@ $(document).ready ->
 		$('.hello').elem('button').click (e)->
 			block = $(this).block()
 			block.velocity
-				properties: 
+				properties:
 					opacity    : .2
 				options:
 					duration: 300
@@ -177,7 +177,7 @@ $(document).ready ->
 	if !$('.auth').hasMod 'active' && $.cookie('hello')
 		$.removeCookie 'hello', { path:"/" }
 	# Contacts
-		
+
 	$('#feedback form, #ask form, #review form').submit (e)->
 		e.preventDefault()
 		data = $(this).serialize()
@@ -190,7 +190,7 @@ $(document).ready ->
 	        	else if data.status == "error"
 	        		$('input[name=captcha_word]').addClass('parsley-error')
 	        		getCaptcha()
-		
+
 
 	if $('body.contacts').length > 0
 		lang = ""
@@ -213,7 +213,7 @@ $(document).ready ->
 						anchor     : new google.maps.Point(20, 0),
 						scaledSize : new google.maps.Size(40, 35)
 					animation : google.maps.Animation.DROP
-	
+
 	# City selector
 	openCityDropdown = ->
 		$('.city').elem('dropdown').velocity
@@ -234,7 +234,7 @@ $(document).ready ->
 	$('.city').elem('trigger').click (e)->
 		if $('.city').elem('dropdown').is ':visible'
 			hideCityDropdown()
-		else	
+		else
 			openCityDropdown()
 			$('.city').elem('message').hide()
 			$('.city').elem('select').show()
@@ -253,7 +253,7 @@ $(document).ready ->
 		$.cookie('city', 'Y', { path:"/", expires: 7 });
 		hideCityDropdown()
 		e.preventDefault()
-	
+
 	$('.city').elem('button').byMod('false').click (e)->
 		$('.city').elem('message').hide()
 		$('.city').elem('select').show()
@@ -277,17 +277,16 @@ $(document).ready ->
 			h = $(fotorama.data[fotorama.activeIndex].html).find('.about__slider-item-content').height() + 200
 			fotorama.resize
 				height: h
-		
+
 		$('.about').elem('slider-sub-title').each ->
 			posTitle $(this), '.about__slider-sub-title-before, .about__slider-sub-title-after'
-		
+
 		$('.about').elem('slider-title').each ->
 			posTitle $(this), '.about__slider-title-before, .about__slider-title-after'
-			
+
 	)
 	.fotorama()
-	
-	
+
+
 
 	window.initDropdown()
-	
