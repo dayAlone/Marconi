@@ -15,7 +15,7 @@ $frame->setBrowserStorage(true);
 			$rsSets = CCatalogProductSet::getList(
 					array('SET_ID' => 'DESC'),
 					array(
-						'@ITEM_ID' => array_keys($arIDS),
+						'@OWNER_ID' => array_keys($arIDS),
 						//'=SET_ID' => 0
 					),
 					false,
@@ -29,12 +29,11 @@ $frame->setBrowserStorage(true);
 					if($arItem['TYPE'] == CCatalogProductSet::TYPE_GROUP):
 						$count -= $arResult['CATEGORIES']['READY'][$arIDS[$arItem['ITEM_ID']]]['QUANTITY'];
 					else:
-						$count += $sets[$arItem['ITEM_ID']] * $arResult['CATEGORIES']['READY'][$arIDS[$arItem['ITEM_ID']]]['QUANTITY'];
+						$count += $sets[$arItem['ITEM_ID']] * $arResult['CATEGORIES']['READY'][$arIDS[$arItem['ITEM_ID']]]['QUANTITY'] - $arResult['CATEGORIES']['READY'][$arIDS[$arItem['ITEM_ID']]]['QUANTITY'];
 					endif;
 				elseif($arItem['TYPE'] != CCatalogProductSet::TYPE_GROUP):
-
 					if(!isset($sets[$arItem['OWNER_ID']])) $sets[$arItem['OWNER_ID']] = 0;
-					$sets[$arItem['OWNER_ID']]++;
+					$sets[$arItem['OWNER_ID']] += $arItem['QUANTITY'];
 				endif;
 			}
 		endif;
