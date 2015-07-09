@@ -85,7 +85,7 @@
 				$set.removeClass 'hidden'
 				$button.attr 'url', set[id].url
 				if set[id].type == 2
-					 text = 'неразделяемого12'
+					 text = 'неразделяемого'
 				else
 					text = 'разделяемого'
 				$badge.text "В составе #{text} комплекта"

@@ -604,7 +604,7 @@
 		public function Action($file, $offset)
 		{
 
-			$all = Import::getIBlockElements($this->iblocks['products'], array('ACTIVE' => "Y"), array('ID'));
+			$all = Import::getIBlockElements($this->iblocks['products'], array('ACTIVE' => "Y", "PROPERTY_SET" => false), array('ID'));
 			if ($offset == 1 && strstr($file, 'retail')):
 				if(count($all) > 0):
 					foreach ($all as $item):

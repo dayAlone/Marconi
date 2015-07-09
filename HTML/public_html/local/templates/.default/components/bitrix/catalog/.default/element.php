@@ -317,6 +317,7 @@ if ($ElementID > 0)
 	<div class="catalog catalog--full-width catalog--one-line <?=(SITE_ID!='s1'?"catalog--italbags":"")?>">
 	<?
 	global $colorFilter;
+	if(SITE_ID=='s1') $colorFilter['PROPERTY_SET'] = false;
 	$APPLICATION->IncludeComponent(
 		"bitrix:catalog.section",
 		"",

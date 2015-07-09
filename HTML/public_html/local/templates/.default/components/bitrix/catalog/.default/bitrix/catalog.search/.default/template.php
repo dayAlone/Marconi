@@ -49,7 +49,7 @@ if (!empty($arElements) && is_array($arElements))
 		);
 		if($CITY['CLOSED'] == 'Y' || SITE_ID != 's1') $searchFilter['=PROPERTY_GENERAL'] = "Y";
 		if(SITE_ID == 's1'):
-			$searchFilter['=CATALOG_TYPE'] = 1;
+			$searchFilter['PROPERTY_SET'] = false;
 			$searchFilter[] = array(
 		        "LOGIC" => "OR",
 		        array("=PROPERTY_COMING" => false),
@@ -127,11 +127,11 @@ if (!empty($arElements) && is_array($arElements))
 			"SET_STATUS_404"                  => "N",
 			"CACHE_FILTER"                    => "N",
 			"CACHE_GROUPS"                    => "N",
-			
+
 			'LABEL_PROP'                      => $arParams['LABEL_PROP'],
 			'ADD_PICT_PROP'                   => $arParams['ADD_PICT_PROP'],
 			'PRODUCT_DISPLAY_MODE'            => $arParams['PRODUCT_DISPLAY_MODE'],
-			
+
 			'OFFER_ADD_PICT_PROP'             => $arParams['OFFER_ADD_PICT_PROP'],
 			'OFFER_TREE_PROPS'                => $arParams['OFFER_TREE_PROPS'],
 			'PRODUCT_SUBSCRIPTION'            => $arParams['PRODUCT_SUBSCRIPTION'],
@@ -142,7 +142,7 @@ if (!empty($arElements) && is_array($arElements))
 			'MESS_BTN_SUBSCRIBE'              => $arParams['MESS_BTN_SUBSCRIBE'],
 			'MESS_BTN_DETAIL'                 => $arParams['MESS_BTN_DETAIL'],
 			'MESS_NOT_AVAILABLE'              => $arParams['MESS_NOT_AVAILABLE'],
-			
+
 			'TEMPLATE_THEME'                  => $arParams['TEMPLATE_THEME'],
 			'ADD_TO_BASKET_ACTION'            => (isset($arParams['ADD_TO_BASKET_ACTION']) ? $arParams['ADD_TO_BASKET_ACTION'] : ''),
 			'SHOW_CLOSE_POPUP'                => (isset($arParams['SHOW_CLOSE_POPUP']) ? $arParams['SHOW_CLOSE_POPUP'] : ''),

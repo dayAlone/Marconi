@@ -431,13 +431,61 @@ function OnEndBufferContentHandler(&$content)
 	$content = str_replace("₷", "<span class='rubl'>&#x20bd;</span>", $content);
 }
 
-AddEventHandler("iblock", "OnBeforeIBlockElementAdd", "OnBeforeIBlockElementAddHandler");
+AddEventHandler("iblock", "OnAfterIBlockElementAdd", "OnAfterIBlockElementAddHandler");
+//AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "OnAfterIBlockElementAddHandler");
 
-function OnBeforeIBlockElementAddHandler(&$arFields)
+AddEventHandler("catalog", "OnBeforePriceUpdate", "OnBeforePriceUpdate");
+AddEventHandler("catalog", "OnBeforePriceAdd", "OnBeforePriceAdd");
+
+
+function checkPrice(&$arFields)
 {
-	return $arFields;
+	if(intval($_REQUEST['PROP'][103][0]['VALUE'])>0):
+		$rsSets = CCatalogProductSet::getList(
+		  array(),
+		  array(
+			'@OWNER_ID' => $arFields['PRODUCT_ID'],
+			//'=SET_ID' => 0
+		  ),
+		  false,
+		  false
+		);
+		$arIDs = array();
+		$arSale = array();
+		while($arItem = $rsSets->Fetch())
+		{
+			$arIDs[] = $arItem['ITEM_ID'];
+			if($arItem['SET_ID']!=0) {
+				$sale = intval($_REQUEST['PRODUCT_SET'][$arItem['SET_ID']]['ITEMS'][$arItem['ID']]['DISCOUNT_PERCENT']);
+				$arSale[$arItem['ITEM_ID']] = $sale/100;
+			}
+		}
+		$raw = CPrice::GetList(
+			array(),
+			array(
+					"PRODUCT_ID" => $arIDs
+				)
+		);
+		$arPrice = array();
+		while($arItem = $raw->Fetch()){
+			if(!isset($arPrice[$arItem['CATALOG_GROUP_ID']])) $arPrice[$arItem['CATALOG_GROUP_ID']] = array('VALUE'=>0, 'CURRENCY'=>$arItem['CURRENCY']);
+			if($arItem['PRODUCT_ID'] == $arFields['PRODUCT_ID']) $arPrice[$arItem['CATALOG_GROUP_ID']]['ID'] = $arItem['ID'];
+			else
+				$arPrice[$arItem['CATALOG_GROUP_ID']]['VALUE'] += intval($arItem['PRICE']) - intval($arItem['PRICE'])*$arSale[$arItem['PRODUCT_ID']];
+		}
+		$arFields['PRICE'] = $arPrice[$arFields['CATALOG_GROUP_ID']]['VALUE'];
+		
+	endif;
 }
-
+function OnBeforePriceUpdate($ID, &$arFields)
+{
+	checkPrice($arFields);
+}
+function OnBeforePriceAdd($ID, &$arFields)
+{
+	checkPrice($arFields);
+	var_dump($arFields);
+}
 
 use Bitrix\Highloadblock as HL;
 use Bitrix\Main\Entity;
