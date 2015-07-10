@@ -5780,6 +5780,7 @@ a.news--list .news-item__title:hover {
   z-index: 300;
   min-height: 148px;
   padding: 14px 0;
+  pointer-events: none;
 }
 .catalog .product__sizes .product__brand {
   margin-bottom: 10px;
@@ -5792,14 +5793,14 @@ a.news--list .news-item__title:hover {
   pointer-events: none;
 }
 .catalog .product__sizes--open {
-  pointer-events: initial;
   opacity: 1;
   -ms-filter: none;
   filter: none;
   z-index: 5;
+  pointer-events: all;
 }
 .catalog .product__sizes--open .product__button {
-  pointer-events: initial;
+  pointer-events: all;
 }
 .catalog .product__counter {
   width: 84px;

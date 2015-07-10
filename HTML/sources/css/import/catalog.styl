@@ -540,7 +540,6 @@
 			z-index -1
 			opacity 0
 			t all, .07s
-
 		&__sizes
 			width 100%
 			left 0
@@ -549,6 +548,7 @@
 			z-index 300
 			min-height 148px
 			padding 14px 0
+			pointer-events none
 			.product__brand
 				margin-bottom 10px
 			.product__button
@@ -556,11 +556,11 @@
 				opacity 1
 				pointer-events none
 			&--open
-				pointer-events initial
 				opacity 1
 				z-index 5
+				pointer-events all
 				.product__button
-					pointer-events initial
+					pointer-events all
 		&__counter
 			width 84px
 			left 50%
