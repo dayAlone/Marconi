@@ -4719,6 +4719,7 @@ a.news--list .news-item__title:hover {
 .team__text p {
   font-size: 13px;
   margin-bottom: 10px;
+  line-height: 1.1;
 }
 .team__info {
   font-size: 12px;
