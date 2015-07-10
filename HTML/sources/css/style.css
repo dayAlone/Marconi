@@ -4743,16 +4743,7 @@ a.news--list .news-item__title:hover {
 .team__name {
   font-weight: 300;
   text-transform: uppercase;
-  font-size: 13px;
-  line-height: 14px;
   max-width: 90%;
-}
-@media (min-width: 768px) {
-  .team__position,
-  .team__name {
-    font-size: 27px;
-    line-height: 30px;
-  }
 }
 .team__divider {
   margin: 15px 0 25px;
@@ -4770,6 +4761,18 @@ a.news--list .news-item__title:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
   filter: alpha(opacity=70);
   margin-bottom: 15px;
+  font-size: 13px;
+  line-height: 1.3;
+}
+@media (min-width: 768px) {
+  .team__position {
+    font-size: 20px;
+  }
+}
+@media (min-width: 992px) {
+  .team__position {
+    font-size: 25px;
+  }
 }
 .team__name {
   font-weight: bold;
