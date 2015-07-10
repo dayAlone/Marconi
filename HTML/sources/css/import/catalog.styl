@@ -48,7 +48,7 @@
 		top 50%
 		left 50%
 		text-align: center
-		
+
 		color white
 		z-index 10001
 		mwidth 300px
@@ -71,7 +71,7 @@
 			padding 10px 20px 3px
 			color white
 			font-size 15px
-			
+
 			font-weight: bold
 			text-transform: uppercase
 			t all
@@ -97,7 +97,7 @@
 		border 2px solid black
 		color black
 		text-transform: uppercase
-		
+
 		font-weight: bold
 		line-height 33px
 		padding 0 5px
@@ -362,7 +362,7 @@
 		margin-bottom 50px
 	.search-page
 		display none
-	
+
 	.product
 		width 100%
 		position relative
@@ -387,11 +387,12 @@
 				.product__sale
 					transform scale(.85) translateZ(0)
 				.product__picture
-					transform scale(1.03) translateZ(0) 
+					transform scale(1.03) translateZ(0)
 				.product__icon, .product__button, .product__frame, .product__counter
 					opacity 1
 					pointer-events initial
 					transition-duration .5s
+					z-index 5
 				.product__frame
 					box-shadow 0 0 10px rgba(116, 132, 149, 0.8)
 					background white
@@ -409,7 +410,7 @@
 			text-align: center
 			bottom 10px
 			left 20%
-			
+
 			font-size 7px
 			@media (max-width: scr_sm)
 				line-height 1.1
@@ -481,7 +482,7 @@
 				margin-top -13px
 				@media (min-width scr_sm)
 					display none
-					
+
 			@media (min-width scr_sm)
 				left auto
 				right 10px
@@ -536,10 +537,10 @@
 				min-height 323px
 		&__icon, &__button, &__frame, &__sizes, &__counter
 			position absolute
-			z-index 5
+			z-index -1
 			opacity 0
-			pointer-events none
 			t all, .07s
+
 		&__sizes
 			width 100%
 			left 0
@@ -557,6 +558,7 @@
 			&--open
 				pointer-events initial
 				opacity 1
+				z-index 5
 				.product__button
 					pointer-events initial
 		&__counter
@@ -677,7 +679,7 @@
 			font-size 9px
 			font-weight: normal
 			opacity .6
-			margin-top 1px	
+			margin-top 1px
 			@media (min-width scr_sm)
 				font-size 10px
 		&__price
@@ -697,12 +699,12 @@
 			&, &-frame
 				min-height 115px
 			&-frame
-				width 40%	
+				width 40%
 			@media (min-width scr_sm)
 				&, &-frame
 					min-height 220px
 					width 100%
-					
+
 			&--no
 				background-size contain
 				@media (min-width: scr_sm)
@@ -775,7 +777,7 @@
 						padding-top 210px
 					&__counter
 						display none
-					
+
 .hello
 	@extends .catalog__card-frame
 	background rgba(0, 0, 0, .9)
@@ -785,13 +787,13 @@
 		padding 14px 30px 9px
 		border-width 1px
 		margin-top 25px
-		
+
 	&__frame
 		padding 40px 30px 50px
 		width 100%
 		max-width 700px
 		color white
-		
+
 		position absolute
 		top 50%
 		left 50%
@@ -917,9 +919,9 @@
 		&.disabled, &.disabled + label, &:disabled, &:disabled + label
 			opacity .15
 			pointer-events none
-	
+
 	.icheckbox_color, input.color
-		
+
 		margin 3px
 		box-shadow inset 0 0 0 3.5px
 		border 0
@@ -983,7 +985,7 @@
 			margin-bottom 5px
 			@media (min-width: scr_xs)
 				width (100/4)%
-				
+
 			@media (min-width: scr_sm)
 				float none
 				display inline
@@ -992,7 +994,7 @@
 		transition-duration 0s
 		opacity 0
 		position relative
-		
+
 		&:hover
 			&:nth-child(5n + 1), &:first-of-type
 				&:before
@@ -1103,7 +1105,7 @@
 			&:hover
 				border-line(alpha(red, .3))
 				background transparent
-		
+
 		&:hover
 			color red
 		&--active

@@ -134,27 +134,30 @@ filterRequest = false
 		e.preventDefault()
 
 	$('.product').elem('button').off('click').on 'click', (e)->
-		if $(this).hasMod 'cancel'
-			$(this).block('sizes').mod 'open', false
-			e.preventDefault()
+		if $(this).block('sizes').hasMod 'open'
+			if $(this).hasMod 'cancel'
+				$(this).block('sizes').mod 'open', false
+				e.preventDefault()
 
-		if $(this).hasMod 'simmilar'
-			block = $(this).block()
-			getSimmilar $(this), (->
-				fly block, $('.header .simmilar')
-				), ->
-				if $('.catalog').hasMod 'simmilar'
-					block.parent().remove()
-			e.preventDefault()
+			if $(this).hasMod 'simmilar'
+				block = $(this).block()
+				getSimmilar $(this), (->
+					fly block, $('.header .simmilar')
+					), ->
+					if $('.catalog').hasMod 'simmilar'
+						block.parent().remove()
+				e.preventDefault()
 
-		if $(this).hasMod 'buy'
-			button = $(this)
-			$(this).block('size').each ->
-				if $(this).hasMod 'active'
-					button.data 'id', $(this).data 'id'
-					button.data 'size', $(this).data 'size'
-					button.data 'artnumber', $(this).block().data 'artnumber'
-			addToCart button
+			if $(this).hasMod 'buy'
+				button = $(this)
+				$(this).block('size').each ->
+					if $(this).hasMod 'active'
+						button.data 'id', $(this).data 'id'
+						button.data 'size', $(this).data 'size'
+						button.data 'artnumber', $(this).block().data 'artnumber'
+				addToCart button
+				e.preventDefault()
+		else
 			e.preventDefault()
 
 	$('.product').hoverIntent
