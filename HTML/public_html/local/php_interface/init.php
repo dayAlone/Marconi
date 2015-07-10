@@ -297,7 +297,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			$arFields['SITE_NAME'] = 'Новый стиль студио';
 			$arFields['BCC'] = "";
 
-			$adminEmail = "dp@radia.ru";//"ak@radia.ru";//$arFields['SALE_EMAIL'];
+			$adminEmail = COption::GetOptionString("grain.customsettings","it_email"); //"italbags.test@yandex.ru";//"ak@radia.ru";//$arFields['SALE_EMAIL'];
 
 			$orderData = array(
 				'ID'      => $arFields['ORDER_ID'],
