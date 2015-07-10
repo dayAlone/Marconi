@@ -18,6 +18,7 @@ function findCityByLocation($ID)
 	$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'UF_LOCATION'=>$ID);
 	$raw    = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('ID', 'NAME', 'UF_PHONE', 'UF_CLOSED', 'UF_EMAIL'));
 	$item   = $raw->Fetch();
+	AddMessage2Log(var_export($item,true));
 	return $item;
 }
 function isUserAccept($groups) {
@@ -44,6 +45,7 @@ function getOrderProps($ID) {
 		switch ($prop['CODE']) {
 			case 'address':
 				$val = CSaleLocation::GetByID($prop['VALUE']);
+				AddMessage2Log(var_export($val,true));
 				if($val) {
 					$orderProps[$prop['CODE']] = $val['CITY_NAME_ORIG'].", ".$val['REGION_NAME_ORIG'].", ".$val['COUNTRY_NAME_ORIG'];
 					if($item = findCityByLocation($prop['VALUE'])) {
@@ -147,46 +149,6 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			$arItems[$arItem['PRODUCT_ID']] = $arItem;
 		}
 
-		$raw = CIBlockElement::GetList(array("ID" => "DESC"), array('=ID'=>array_keys($arItems), 'IBLOCK_CODE'=>'offers'), false, false, array('ID', 'NAME', 'PROPERTY_CML2_LINK.PROPERTY_BRAND', 'PROPERTY_CML2_LINK.CODE', 'PROPERTY_CML2_LINK.PROPERTY_ARTNUMBER', 'PROPERTY_CML2_LINK.PROPERTY_NOTE_SHORT'));
-		while($ar_res = $raw->GetNextElement()){
-			$fields = $ar_res->GetFields();
-			$fields['DETAIL_PAGE_URL'] = "/catalog/all/".$fields['PROPERTY_CML2_LINK_CODE']."/";
-
-			if(isset($arItems[$fields['ID']])):
-				$arProps = array('BRAND'=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_BRAND_VALUE']), "ARTNUMBER"=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_ARTNUMBER_VALUE']), "NOTE_SHORT"=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_NOTE_SHORT_VALUE']));
-				$arItems[$fields['ID']] = array_merge($arItems[$fields['ID']], $fields, $arProps);
-			endif;
-		}
-
-		$raw = CIBlockElement::GetList(array("ID" => "DESC"), array('=ID'=>array_keys($arItems), 'IBLOCK_CODE'=>'products'), false, false);
-		while($ar_res = $raw->GetNextElement()){
-			$fields = $ar_res->GetFields();
-			if(isset($arItems[$fields['ID']])):
-				$arProps   = $ar_res->GetProperties();
-				$arItems[$fields['ID']] = array_merge($arItems[$fields['ID']], $fields, $arProps);
-			endif;
-		}
-
-
-		$arSets = array();
-	    $rsSets = CCatalogProductSet::getList(
-	      array('SET_ID'=>"DESC"),
-	      array(
-	        '@ITEM_ID' => array_keys($arItems),
-	        //'=SET_ID' => 0
-	      ),
-	      false,
-	      false
-	    );
-
-		while ($arSet = $rsSets->Fetch())
-	    {
-			if($arSet['SET_ID'] == 0):
-				if(!isset($arSets[$arSet['TYPE']])) $arSets[$arSet['TYPE']] = array();
-				$arSets[$arSet['TYPE']][] = $arItems[$arSet['ITEM_ID']]['NAME'];
-				unset($arItems[$arSet['ITEM_ID']]);
-			endif;
-		}
 
 		if(SITE_ID == 's1'):
 			$str = '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;">
@@ -225,6 +187,46 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 				</tfooter>
 			</table>';
 		else:
+			$raw = CIBlockElement::GetList(array("ID" => "DESC"), array('=ID'=>array_keys($arItems), 'IBLOCK_CODE'=>'offers'), false, false, array('ID', 'NAME', 'PROPERTY_CML2_LINK.PROPERTY_BRAND', 'PROPERTY_CML2_LINK.CODE', 'PROPERTY_CML2_LINK.PROPERTY_ARTNUMBER', 'PROPERTY_CML2_LINK.PROPERTY_NOTE_SHORT'));
+			while($ar_res = $raw->GetNextElement()){
+				$fields = $ar_res->GetFields();
+				$fields['DETAIL_PAGE_URL'] = "/catalog/all/".$fields['PROPERTY_CML2_LINK_CODE']."/";
+
+				if(isset($arItems[$fields['ID']])):
+					$arProps = array('BRAND'=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_BRAND_VALUE']), "ARTNUMBER"=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_ARTNUMBER_VALUE']), "NOTE_SHORT"=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_NOTE_SHORT_VALUE']));
+					$arItems[$fields['ID']] = array_merge($arItems[$fields['ID']], $fields, $arProps);
+				endif;
+			}
+
+			$raw = CIBlockElement::GetList(array("ID" => "DESC"), array('=ID'=>array_keys($arItems), 'IBLOCK_CODE'=>'products'), false, false);
+			while($ar_res = $raw->GetNextElement()){
+				$fields = $ar_res->GetFields();
+				if(isset($arItems[$fields['ID']])):
+					$arProps   = $ar_res->GetProperties();
+					$arItems[$fields['ID']] = array_merge($arItems[$fields['ID']], $fields, $arProps);
+				endif;
+			}
+
+
+			$arSets = array();
+		    $rsSets = CCatalogProductSet::getList(
+		      array('SET_ID'=>"DESC"),
+		      array(
+		        '@ITEM_ID' => array_keys($arItems),
+		        //'=SET_ID' => 0
+		      ),
+		      false,
+		      false
+		    );
+
+			while ($arSet = $rsSets->Fetch())
+		    {
+				if($arSet['SET_ID'] == 0):
+					if(!isset($arSets[$arSet['TYPE']])) $arSets[$arSet['TYPE']] = array();
+					$arSets[$arSet['TYPE']][] = $arItems[$arSet['ITEM_ID']]['NAME'];
+					unset($arItems[$arSet['ITEM_ID']]);
+				endif;
+			}
 
 			$str = "";
 			$total = 0;
@@ -256,7 +258,6 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 					</tr>';
 		endif;
 		$arFields['ORDER_LIST'] = $str;
-
 
 		if(SITE_ID != 's1'):
 			$arFields['BRANDS'] = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
