@@ -47,7 +47,7 @@
         <?endif;?>
           <div class="team__name"><?=$item['NAME']?></div>
           <?if(strlen($item['PREVIEW_TEXT'])>0):?>
-          <?=$item['~PREVIEW_TEXT']?>
+          <div class="team__text"><?=$item['~PREVIEW_TEXT']?></div>
           <?endif;?>
           <div class="team__divider"></div>
           <div class="team__info">

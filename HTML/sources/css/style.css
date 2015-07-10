@@ -4713,6 +4713,13 @@ a.news--list .news-item__title:hover {
     background-size: contain;
   }
 }
+.team__text {
+  margin-top: 20px;
+}
+.team__text p {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
 .team__info {
   font-size: 12px;
 }
