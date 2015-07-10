@@ -388,15 +388,16 @@
 					transform scale(.85) translateZ(0)
 				.product__picture
 					transform scale(1.03) translateZ(0)
-				.product__icon, .product__button, .product__frame, .product__counter
+				.product__icon, .product__frame, .product__counter,  .product__button
 					opacity 1
-					pointer-events initial
+					pointer-events all
 					transition-duration .5s
-					z-index 5
+					z-index 7
 				.product__frame
 					box-shadow 0 0 10px rgba(116, 132, 149, 0.8)
 					background white
 					transition-duration .2s
+					z-index 6
 		&--index, &--hover
 			z-index 50
 		&--absolute
@@ -534,10 +535,10 @@
 					top auto
 					transform none
 			@media (min-width scr_sm)
-				min-height 323px
+				min-height 328px
 		&__icon, &__button, &__frame, &__sizes, &__counter
 			position absolute
-			z-index -1
+			z-index 5
 			opacity 0
 			t all, .07s
 		&__sizes
@@ -545,10 +546,9 @@
 			left 0
 			top 230px
 			background white
-			z-index 300
 			min-height 148px
-			padding 14px 0
 			pointer-events none
+			padding 14px 0
 			.product__brand
 				margin-bottom 10px
 			.product__button
@@ -557,7 +557,7 @@
 				pointer-events none
 			&--open
 				opacity 1
-				z-index 5
+				z-index 300
 				pointer-events all
 				.product__button
 					pointer-events all

@@ -5498,19 +5498,19 @@ a.news--list .news-item__title:hover {
     transform: scale(1.03) translateZ(0);
   }
   .catalog .product--hover .product__icon,
-  .catalog .product--hover .product__button,
   .catalog .product--hover .product__frame,
-  .catalog .product--hover .product__counter {
+  .catalog .product--hover .product__counter,
+  .catalog .product--hover .product__button {
     opacity: 1;
     -ms-filter: none;
     filter: none;
-    pointer-events: initial;
+    pointer-events: all;
     -webkit-transition-duration: 0.5s;
     -moz-transition-duration: 0.5s;
     -o-transition-duration: 0.5s;
     -ms-transition-duration: 0.5s;
     transition-duration: 0.5s;
-    z-index: 5;
+    z-index: 7;
   }
   .catalog .product--hover .product__frame {
     -webkit-box-shadow: 0 0 10px rgba(116,132,149,0.8);
@@ -5521,6 +5521,7 @@ a.news--list .news-item__title:hover {
     -o-transition-duration: 0.2s;
     -ms-transition-duration: 0.2s;
     transition-duration: 0.2s;
+    z-index: 6;
   }
 }
 .catalog .product--index,
@@ -5748,7 +5749,7 @@ a.news--list .news-item__title:hover {
 }
 @media (min-width: 768px) {
   .catalog .product__content {
-    min-height: 323px;
+    min-height: 328px;
   }
 }
 .catalog .product__icon,
@@ -5757,7 +5758,7 @@ a.news--list .news-item__title:hover {
 .catalog .product__sizes,
 .catalog .product__counter {
   position: absolute;
-  z-index: -1;
+  z-index: 5;
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
@@ -5777,10 +5778,9 @@ a.news--list .news-item__title:hover {
   left: 0;
   top: 230px;
   background: #fff;
-  z-index: 300;
   min-height: 148px;
-  padding: 14px 0;
   pointer-events: none;
+  padding: 14px 0;
 }
 .catalog .product__sizes .product__brand {
   margin-bottom: 10px;
@@ -5796,7 +5796,7 @@ a.news--list .news-item__title:hover {
   opacity: 1;
   -ms-filter: none;
   filter: none;
-  z-index: 5;
+  z-index: 300;
   pointer-events: all;
 }
 .catalog .product__sizes--open .product__button {

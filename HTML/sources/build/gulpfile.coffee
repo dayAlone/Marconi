@@ -5,7 +5,7 @@ cmq          = require 'gulp-combine-media-queries'
 csscomb      = require 'gulp-csscomb'
 coffee       = require 'gulp-coffee'
 concat       = require 'gulp-concat'
-cssmin       = require 'gulp-cssmin'
+cssmin       = require 'gulp-minify-css'
 data         = require 'gulp-data'
 gutil        = require 'gulp-util'
 livereload   = require 'gulp-livereload'
@@ -123,14 +123,16 @@ gulp.task 'css_front', ['css_stylus'], ->
 
 gulp.task 'css_mini', ->
 	gulp.src [ "#{path.css.frontend}/frontend.css"]
-	#.pipe csscomb()
+	.pipe gulp.dest path.css.frontend
+	###
+	.pipe csscomb()
 	.pipe autoprefixer
         browsers: ['last 2 versions'],
         cascade: false
     .pipe cmq
       log: true
 	.pipe cssmin()
-	.pipe gulp.dest path.css.frontend
+	###
 
 
 gulp.task 'copy', ->

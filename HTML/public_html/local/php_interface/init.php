@@ -147,7 +147,26 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			$arItems[$arItem['PRODUCT_ID']] = $arItem;
 		}
 
+		$raw = CIBlockElement::GetList(array("ID" => "DESC"), array('=ID'=>array_keys($arItems), 'IBLOCK_CODE'=>'offers'), false, false, array('ID', 'NAME', 'PROPERTY_CML2_LINK.PROPERTY_BRAND', 'PROPERTY_CML2_LINK.CODE', 'PROPERTY_CML2_LINK.PROPERTY_ARTNUMBER', 'PROPERTY_CML2_LINK.PROPERTY_NOTE_SHORT'));
+		while($ar_res = $raw->GetNextElement()){
+			$fields = $ar_res->GetFields();
+			$fields['DETAIL_PAGE_URL'] = "/catalog/all/".$fields['PROPERTY_CML2_LINK_CODE']."/";
 
+			if(isset($arItems[$fields['ID']])):
+				$arProps = array('BRAND'=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_BRAND_VALUE']), "ARTNUMBER"=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_ARTNUMBER_VALUE']), "NOTE_SHORT"=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_NOTE_SHORT_VALUE']));
+				$arItems[$fields['ID']] = array_merge($arItems[$fields['ID']], $fields, $arProps);
+			endif;
+		}
+
+		$raw = CIBlockElement::GetList(array("ID" => "DESC"), array('=ID'=>array_keys($arItems), 'IBLOCK_CODE'=>'products'), false, false);
+		while($ar_res = $raw->GetNextElement()){
+			$fields = $ar_res->GetFields();
+			if(isset($arItems[$fields['ID']])):
+				$arProps   = $ar_res->GetProperties();
+				$arItems[$fields['ID']] = array_merge($arItems[$fields['ID']], $fields, $arProps);
+			endif;
+		}
+		
 		if(SITE_ID == 's1'):
 			$str = '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;">
 				<thead>
@@ -185,26 +204,6 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 				</tfooter>
 			</table>';
 		else:
-			$raw = CIBlockElement::GetList(array("ID" => "DESC"), array('=ID'=>array_keys($arItems), 'IBLOCK_CODE'=>'offers'), false, false, array('ID', 'NAME', 'PROPERTY_CML2_LINK.PROPERTY_BRAND', 'PROPERTY_CML2_LINK.CODE', 'PROPERTY_CML2_LINK.PROPERTY_ARTNUMBER', 'PROPERTY_CML2_LINK.PROPERTY_NOTE_SHORT'));
-			while($ar_res = $raw->GetNextElement()){
-				$fields = $ar_res->GetFields();
-				$fields['DETAIL_PAGE_URL'] = "/catalog/all/".$fields['PROPERTY_CML2_LINK_CODE']."/";
-
-				if(isset($arItems[$fields['ID']])):
-					$arProps = array('BRAND'=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_BRAND_VALUE']), "ARTNUMBER"=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_ARTNUMBER_VALUE']), "NOTE_SHORT"=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_NOTE_SHORT_VALUE']));
-					$arItems[$fields['ID']] = array_merge($arItems[$fields['ID']], $fields, $arProps);
-				endif;
-			}
-
-			$raw = CIBlockElement::GetList(array("ID" => "DESC"), array('=ID'=>array_keys($arItems), 'IBLOCK_CODE'=>'products'), false, false);
-			while($ar_res = $raw->GetNextElement()){
-				$fields = $ar_res->GetFields();
-				if(isset($arItems[$fields['ID']])):
-					$arProps   = $ar_res->GetProperties();
-					$arItems[$fields['ID']] = array_merge($arItems[$fields['ID']], $fields, $arProps);
-				endif;
-			}
-
 
 			$arSets = array();
 		    $rsSets = CCatalogProductSet::getList(
