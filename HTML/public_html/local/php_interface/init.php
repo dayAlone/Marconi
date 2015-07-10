@@ -147,13 +147,18 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			$arItems[$arItem['PRODUCT_ID']] = $arItem;
 		}
 
-		$raw = CIBlockElement::GetList(array("ID" => "DESC"), array('=ID'=>array_keys($arItems), 'IBLOCK_CODE'=>'offers'), false, false, array('ID', 'NAME', 'PROPERTY_CML2_LINK.PROPERTY_BRAND', 'PROPERTY_CML2_LINK.CODE', 'PROPERTY_CML2_LINK.PROPERTY_ARTNUMBER', 'PROPERTY_CML2_LINK.PROPERTY_NOTE_SHORT'));
+		$raw = CIBlockElement::GetList(array("ID" => "DESC"), array('=ID'=>array_keys($arItems), 'IBLOCK_CODE'=>'offers'), false, false, array('ID', 'NAME', 'PROPERTY_CML2_LINK.PROPERTY_BRAND', 'PROPERTY_CML2_LINK.CODE', 'PROPERTY_CML2_LINK.PREVIEW_PICTURE', 'PROPERTY_CML2_LINK.PROPERTY_ARTNUMBER', 'PROPERTY_CML2_LINK.PROPERTY_NOTE_SHORT'));
 		while($ar_res = $raw->GetNextElement()){
 			$fields = $ar_res->GetFields();
 			$fields['DETAIL_PAGE_URL'] = "/catalog/all/".$fields['PROPERTY_CML2_LINK_CODE']."/";
 
 			if(isset($arItems[$fields['ID']])):
-				$arProps = array('BRAND'=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_BRAND_VALUE']), "ARTNUMBER"=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_ARTNUMBER_VALUE']), "NOTE_SHORT"=>array('VALUE'=>$fields['PROPERTY_CML2_LINK_PROPERTY_NOTE_SHORT_VALUE']));
+				$arProps = array(
+					'BRAND'           => array('VALUE' => $fields['PROPERTY_CML2_LINK_PROPERTY_BRAND_VALUE']),
+					"ARTNUMBER"       => array('VALUE' => $fields['PROPERTY_CML2_LINK_PROPERTY_ARTNUMBER_VALUE']),
+					"NOTE_SHORT"      => array('VALUE' => $fields['PROPERTY_CML2_LINK_PROPERTY_NOTE_SHORT_VALUE']),
+					"PREVIEW_PICTURE" => $fields['PROPERTY_CML2_LINK_PREVIEW_PICTURE']
+				);
 				$arItems[$fields['ID']] = array_merge($arItems[$fields['ID']], $fields, $arProps);
 			endif;
 		}
@@ -166,7 +171,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 				$arItems[$fields['ID']] = array_merge($arItems[$fields['ID']], $fields, $arProps);
 			endif;
 		}
-		
+
 		if(SITE_ID == 's1'):
 			$str = '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;">
 				<thead>
@@ -203,6 +208,8 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 					<td colspan="4" style="text-align: right;font-size:12px"><strong>Телефон</strong>: '.$orderProps['phone'].', <br><strong>Эл. почта</strong>: '.$orderProps['email'].'</td>
 				</tfooter>
 			</table>';
+			echo $str;
+			die();
 		else:
 
 			$arSets = array();
@@ -353,6 +360,8 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 	return $arFields;
 }
 
+
+//OnBeforeMailSendHandler(unserialize('a:9:{s:8:"ORDER_ID";s:2:"29";s:10:"ORDER_DATE";s:10:"07/09/2015";s:10:"ORDER_USER";s:7:"312 312";s:5:"PRICE";s:16:"4 076.85 руб.";s:3:"BCC";s:23:"order@fmarconi.radia.ru";s:5:"EMAIL";s:11:"ak@radia.ru";s:10:"ORDER_LIST";s:63:"Тестовый комплект - 1.00 шт: 3 776.85 руб.";s:10:"SALE_EMAIL";s:23:"order@fmarconi.radia.ru";s:14:"DELIVERY_PRICE";d:300;}'), array('EVENT_NAME' => 'SALE_NEW_ORDER'));
 
 AddEventHandler("main", "OnAfterUserAdd", "OnAfterUsedAddHandler");
 AddEventHandler("main", "OnBeforeUserRegister", "OnBeforeUserAddHandler");
