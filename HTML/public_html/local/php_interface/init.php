@@ -18,7 +18,6 @@ function findCityByLocation($ID)
 	$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'UF_LOCATION'=>$ID);
 	$raw    = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('ID', 'NAME', 'UF_PHONE', 'UF_CLOSED', 'UF_EMAIL'));
 	$item   = $raw->Fetch();
-	AddMessage2Log(var_export($item,true));
 	return $item;
 }
 function isUserAccept($groups) {
@@ -45,7 +44,6 @@ function getOrderProps($ID) {
 		switch ($prop['CODE']) {
 			case 'address':
 				$val = CSaleLocation::GetByID($prop['VALUE']);
-				AddMessage2Log(var_export($val,true));
 				if($val) {
 					$orderProps[$prop['CODE']] = $val['CITY_NAME_ORIG'].", ".$val['REGION_NAME_ORIG'].", ".$val['COUNTRY_NAME_ORIG'];
 					if($item = findCityByLocation($prop['VALUE'])) {
@@ -349,6 +347,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 
 		elseif($orderProps['EMAIL']):
 			$arFields['BCC'] .= ", ".$orderProps['EMAIL'];
+			AddMessage2Log(var_export($arFields['BCC'],true));
 		endif;
 	endif;
 
