@@ -84,7 +84,9 @@ $props = &$item['PROPERTIES'];
 					$data[] = $tmp;
 				}
 			?>
-			<?endif;?>
+			<?endif;
+			if(SITE_ID == 's2') var_dump(count($item['OFFERS']));
+			?>
 			<a href="#" <?=(count($data)>0?"data-request='".json_encode($data)."'":"")?> class="product__icon product__icon--cart <?=(count($item['OFFERS'])>0?"product__icon--trigger":"")?>" data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>"><?=svg('cart')?></a>
 
 	    <?endif;?>
