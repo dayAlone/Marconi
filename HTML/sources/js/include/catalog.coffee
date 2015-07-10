@@ -139,15 +139,6 @@ filterRequest = false
 				$(this).block('sizes').mod 'open', false
 				e.preventDefault()
 
-			if $(this).hasMod 'simmilar'
-				block = $(this).block()
-				getSimmilar $(this), (->
-					fly block, $('.header .simmilar')
-					), ->
-					if $('.catalog').hasMod 'simmilar'
-						block.parent().remove()
-				e.preventDefault()
-
 			if $(this).hasMod 'buy'
 				button = $(this)
 				$(this).block('size').each ->
@@ -157,7 +148,14 @@ filterRequest = false
 						button.data 'artnumber', $(this).block().data 'artnumber'
 				addToCart button
 				e.preventDefault()
-		else
+
+		else if $(this).hasMod 'simmilar'
+			block = $(this).block()
+			getSimmilar $(this), (->
+				fly block, $('.header .simmilar')
+				), ->
+				if $('.catalog').hasMod 'simmilar'
+					block.parent().remove()
 			e.preventDefault()
 
 	$('.product').hoverIntent
