@@ -8,7 +8,7 @@ $APPLICATION->SetTitle('Команда');
 	<?
     	$APPLICATION->IncludeComponent("bitrix:news.list", "team",
 			array(
-				"IBLOCK_ID"            => 22,
+				"IBLOCK_ID"            => 10,//22,
 				"NEWS_COUNT"           => "100",
 				"SORT_BY1"             => "SORT",
 				"SORT_ORDER1"          => "ASC",

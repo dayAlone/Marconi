@@ -9,6 +9,9 @@
       <div class="team__position"><?=$item['PROPERTIES']['POSITION']['VALUE']?></div>
     <?endif;?>
       <div class="team__name"><?=$item['NAME']?></div>
+      <?if(strlen($item['PREVIEW_TEXT'])>0):?>
+      <?=$item['~PREVIEW_TEXT']?>
+      <?endif;?>
       <div class="team__divider"></div>
       <div class="team__info">
         <?if(strlen($item['PROPERTIES']['PHONE']['VALUE'])>0):?>
@@ -43,6 +46,9 @@
           <div class="team__position"><?=$item['PROPERTIES']['POSITION']['VALUE']?></div>
         <?endif;?>
           <div class="team__name"><?=$item['NAME']?></div>
+          <?if(strlen($item['PREVIEW_TEXT'])>0):?>
+          <?=$item['~PREVIEW_TEXT']?>
+          <?endif;?>
           <div class="team__divider"></div>
           <div class="team__info">
             <?if(strlen($item['PROPERTIES']['PHONE']['VALUE'])>0):?>
