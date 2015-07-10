@@ -43,7 +43,7 @@ loadPlugins = (x, y)->
 		css   : []
 		js    : []
 		files : []
-	
+
 	bower   = './bower_components'
 	plugins = require('./plugins.json')
 	for i in x
@@ -112,7 +112,7 @@ gulp.task 'css_stylus', ->
 	gulp.src [ "#{path.css.sources}/style.styl" ]
 	.pipe plumber
 		errorHandler: notify.onError("Error: <%= error.message %>")
-	.pipe stylus 
+	.pipe stylus
 		use: nib()
 	.pipe gulp.dest path.css.sources
 
@@ -123,7 +123,7 @@ gulp.task 'css_front', ['css_stylus'], ->
 
 gulp.task 'css_mini', ->
 	gulp.src [ "#{path.css.frontend}/frontend.css"]
-	.pipe csscomb()
+	#.pipe csscomb()
 	.pipe autoprefixer
         browsers: ['last 2 versions'],
         cascade: false
@@ -143,8 +143,8 @@ gulp.task 'svg_mini', ->
 	gulp.src [ "#{sources}/images/svg/**/*.svg" ]
 	.pipe svgmin([{ moveGroupAttrsToElems: false },
 			{ removeUselessStrokeAndFill: false },
-			{ cleanupIDs: false }, 
-			{ removeComments: true }, 
+			{ cleanupIDs: false },
+			{ removeComments: true },
 			{ moveGroupAttrsToElems: false },
 			{ convertPathData: { straightCurves: false}}
 		])
@@ -177,12 +177,12 @@ gulp.task 'ready', ->
 	sequence 'ready_js'
 
 gulp.task 'default', ->
-	
+
 	livereload.listen()
 
 	gulp.watch "#{path.js.sources}/**/*.coffee", ->
 		sequence 'js_front', 'reload'
-	
+
 	gulp.watch "#{path.css.sources}/**/*.styl", ->
 		sequence 'css_front', 'reload'
 
@@ -197,25 +197,12 @@ gulp.task 'default', ->
 
 	gulp.watch ["./public_html/**/*.php",'!./public_html/bitrix/**'], {'dot':true}, ->
 		sequence 'reload'
-	
+
 	gulp.watch ["#{path.css.sources}/bootstrap/bootstrap.less", "./sources/build/plugins.json"], ->
 		sequence 'css_bootstrap', 'css_plugins', 'copy', 'css_front', 'reload'
-	
+
 	gulp.watch ["./sources/build/gulpfile.coffee"], ->
 		sequence 'js_plugins', 'js_front', 'css_bootstrap', 'css_plugins', 'copy', 'css_front', 'reload'
 
 	gulp.watch ["./bower_components/**/*.js"], ->
 		sequence 'js_plugins', 'js_front', 'reload'
-
-
-
-
-
-
-
-
-
-
-
-
-
