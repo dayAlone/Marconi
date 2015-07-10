@@ -8627,11 +8627,17 @@ a.news--list .news-item__title:hover {
 }
 .team__text {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 .team__text p {
-  font-size: 13px;
   margin-bottom: 10px;
-  line-height: 1.1;
+  font-size: 12px;
+  line-height: 1.2;
+}
+@media (min-width: 768px) {
+  .team__text p {
+    font-size: 13px;
+  }
 }
 .team__info {
   font-size: 12px;
