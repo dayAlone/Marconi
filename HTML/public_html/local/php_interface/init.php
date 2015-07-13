@@ -208,8 +208,6 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 					<td colspan="4" style="text-align: right;font-size:12px"><strong>Телефон</strong>: '.$orderProps['phone'].', <br><strong>Эл. почта</strong>: '.$orderProps['email'].'</td>
 				</tfooter>
 			</table>';
-			echo $str;
-			die();
 		else:
 			$arFields['BRANDS'] = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
 			$arSets = array();
