@@ -118,11 +118,11 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 		$arItems       = array();
 		$arOrder       = CSaleOrder::GetByID($arFields['ORDER_ID']);
 
-		if($USER):
-			$rsUser    = CUser::GetByID($USER->GetID());
+		if(intval($arOrder['USER_ID'])>0):
+			$rsUser    = CUser::GetByID($arOrder['USER_ID']);
 			$arUser    = $rsUser->Fetch();
-			$orderProps['NAME'] = $USER->GetFullName();
-			$arGroups  = CUser::GetUserGroup($USER->GetID());
+			$orderProps['NAME'] = $arUser['NAME'] . " " .$arUser['LAST_NAME'];
+			$arGroups  = CUser::GetUserGroup($arOrder['USER_ID']);
 			$raw       = CGroup::GetList(($by="c_sort"), ($order="desc"), array('ID'=>$arGroups));
 			$arUser['STATUS'] = "";
 			$i = 0;
@@ -292,8 +292,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 							".$str."
 						</tbody>
 					</table>";
-			echo $html;
-			die();
+
 			$arFields['SALE_EMAIL'] = "zakaz@italbags.ru";
 			$arFields['SITE_NAME'] = 'Новый стиль студио';
 			$arFields['BCC'] = "";
@@ -361,10 +360,11 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 	return $arFields;
 }
 
+/*
 if(SITE_ID == 's2'):
-OnBeforeMailSendHandler(unserialize('a:9:{s:8:"ORDER_ID";s:3:"925";s:10:"ORDER_DATE";s:10:"07/09/2015";s:10:"ORDER_USER";s:7:"312 312";s:5:"PRICE";s:16:"4 076.85 руб.";s:3:"BCC";s:23:"order@fmarconi.radia.ru";s:5:"EMAIL";s:11:"ak@radia.ru";s:10:"ORDER_LIST";s:63:"Тестовый комплект - 1.00 шт: 3 776.85 руб.";s:10:"SALE_EMAIL";s:23:"order@fmarconi.radia.ru";s:14:"DELIVERY_PRICE";d:300;}'), array('EVENT_NAME' => 'SALE_NEW_ORDER'));
+OnBeforeMailSendHandler(unserialize('a:9:{s:8:"ORDER_ID";s:3:"926";s:10:"ORDER_DATE";s:10:"07/09/2015";s:10:"ORDER_USER";s:7:"312 312";s:5:"PRICE";s:16:"4 076.85 руб.";s:3:"BCC";s:23:"order@fmarconi.radia.ru";s:5:"EMAIL";s:11:"ak@radia.ru";s:10:"ORDER_LIST";s:63:"Тестовый комплект - 1.00 шт: 3 776.85 руб.";s:10:"SALE_EMAIL";s:23:"order@fmarconi.radia.ru";s:14:"DELIVERY_PRICE";d:300;}'), array('EVENT_NAME' => 'SALE_NEW_ORDER'));
 endif;
-
+*/
 
 AddEventHandler("main", "OnAfterUserAdd", "OnAfterUsedAddHandler");
 AddEventHandler("main", "OnBeforeUserRegister", "OnBeforeUserAddHandler");
