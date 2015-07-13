@@ -362,7 +362,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 
 /*
 if(SITE_ID == 's2'):
-OnBeforeMailSendHandler(unserialize('a:9:{s:8:"ORDER_ID";s:3:"926";s:10:"ORDER_DATE";s:10:"07/09/2015";s:10:"ORDER_USER";s:7:"312 312";s:5:"PRICE";s:16:"4 076.85 руб.";s:3:"BCC";s:23:"order@fmarconi.radia.ru";s:5:"EMAIL";s:11:"ak@radia.ru";s:10:"ORDER_LIST";s:63:"Тестовый комплект - 1.00 шт: 3 776.85 руб.";s:10:"SALE_EMAIL";s:23:"order@fmarconi.radia.ru";s:14:"DELIVERY_PRICE";d:300;}'), array('EVENT_NAME' => 'SALE_NEW_ORDER'));
+OnBeforeMailSendHandler(unserialize('a:9:{s:8:"ORDER_ID";s:3:"933";s:10:"ORDER_DATE";s:10:"07/09/2015";s:10:"ORDER_USER";s:7:"312 312";s:5:"PRICE";s:16:"4 076.85 руб.";s:3:"BCC";s:23:"order@fmarconi.radia.ru";s:5:"EMAIL";s:11:"ak@radia.ru";s:10:"ORDER_LIST";s:63:"Тестовый комплект - 1.00 шт: 3 776.85 руб.";s:10:"SALE_EMAIL";s:23:"order@fmarconi.radia.ru";s:14:"DELIVERY_PRICE";d:300;}'), array('EVENT_NAME' => 'SALE_NEW_ORDER'));
 endif;
 */
 
