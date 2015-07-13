@@ -9,8 +9,8 @@ if(!$USER->IsAuthorized())
 		$APPLICATION->SetTitle('Заказ успешно оформлен');
 		$APPLICATION->SetPageProperty('body_class', "text");
 	?>
-	<p>Номер вашего заказа: <strong><?=$_REQUEST['ORDER_ID']?></strong></p>
-	<p>В ближайшее время оператор нашего интернет-магазина свяжется с вами для подтверждения заказа</p>
+	<p>Спасибо, Ваш заказ №<strong><?=$_REQUEST['ORDER_ID']?></strong> принят к обработке.</p>
+	<p>Ожидайте информацию по заказу и счет на электронную почту.</p>
 	<?
 	else:
 		$APPLICATION->SetPageProperty('body_class', "basket catalog--italbags");
@@ -28,8 +28,8 @@ if(!$USER->IsAuthorized())
 		    )
 		);
 		$APPLICATION->IncludeComponent(
-		"bitrix:sale.order.ajax", 
-		".default", 
+		"bitrix:sale.order.ajax",
+		".default",
 		array(
 			"ALLOW_NEW_PROFILE" => "Y",
 			"SHOW_PAYMENT_SERVICES_NAMES" => "Y",
@@ -68,5 +68,5 @@ if(!$USER->IsAuthorized())
 	endif;
 
 ?>
-<? require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php'); 
+<? require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');
 ?>
