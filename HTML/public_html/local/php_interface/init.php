@@ -172,7 +172,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			endif;
 		}
 
-		if($arOrder['PERSON_TYPE_ID'] == 1):
+		if(intval($arOrder['PERSON_TYPE_ID']) == 1):
 			$str = '<table width="100%" cellpadding="10" cellspacing="0" style="text-align:center;font-size:14px;border-collapse:collapse;border:1px solid #c2c4c6;">
 				<thead>
 					<tr style="font-size:12px;">
@@ -264,7 +264,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 		endif;
 		$arFields['ORDER_LIST'] = $str;
 
-		if($arOrder['PERSON_TYPE_ID'] == 2):
+		if(intval($arOrder['PERSON_TYPE_ID']) == 2):
 
 			$html = "Поступил новый заказ (№ ".$arFields['ORDER_ID'].") с сайта <a href='http://www.italbags.ru/'>http://www.italbags.ru/</a>. Посмотреть подробности можно <a href='http://fmarconi.ru/bitrix/admin/sale_order_detail.php?ID=".$arFields['ORDER_ID']."'>здесь</a>.<br><br>
 
