@@ -313,6 +313,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 				'TOTAL'   => 0,
 				'LIST'    => array()
 			);
+			$i = 1;
 			foreach ($arItems as $key => $item) {
 				$total = $item['PRICE'] * intval($item['QUANTITY']);
 				$orderData['TOTAL'] += $total;
@@ -325,12 +326,13 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 					$artnumber = $item['NAME'];
 				endif;
 				$orderData['LIST'][] = implode(";", array(
-					'key'       => $key + 1,
+					'key'       => $i,
 					'artnumber' => $artnumber,
 					'quantity'  => intval($item['QUANTITY']),
 					'price'     => $item['PRICE'],
 					'total'     => $item['PRICE'] * intval($item['QUANTITY'])
 				));
+				$i++;
 			}
 			$csv = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/include/template.csv');
 			foreach ($orderData as $key => $value) {
