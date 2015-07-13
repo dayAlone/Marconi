@@ -211,7 +211,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			echo $str;
 			die();
 		else:
-
+			$arFields['BRANDS'] = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
 			$arSets = array();
 		    $rsSets = CCatalogProductSet::getList(
 		      array('SET_ID'=>"DESC"),
@@ -238,6 +238,9 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			foreach ($arItems as $key => $arItem):
 				$i++;
 				$total += $arItem['PRICE']*intval($arItem['QUANTITY']);
+				if(strlen($arItem['BRAND']['VALUE']) > 0 && strlen($arItem['ARTNUMBER']['VALUE']) > 0):
+					$arItem['NAME'] = str_replace($arFields['BRANDS'][$arItem['BRAND']['VALUE']], $arFields['BRANDS'][$arItem['BRAND']['VALUE']]." ".$arItem['ARTNUMBER']['VALUE'], $arItem['NAME']);
+				endif;
 				$str .= '<tr>
 							<td>'.$i.'</td>
 							<td>
@@ -264,7 +267,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 		$arFields['ORDER_LIST'] = $str;
 
 		if(SITE_ID != 's1'):
-			$arFields['BRANDS'] = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
+
 
 			$html = "Поступил новый заказ (№ ".$arFields['ORDER_ID'].") с сайта <a href='http://www.italbags.ru/'>http://www.italbags.ru/</a>. Посмотреть подробности можно <a href='http://fmarconi.ru/bitrix/admin/sale_order_detail.php?ID=".$arFields['ORDER_ID']."'>здесь</a>.<br><br>
 
@@ -346,7 +349,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			$mail->CharSet = 'UTF-8';
 			$mail->addAttachment($file, 'order_'.$orderData['ID'].'.csv');
 			$mail->Subject = "Новый заказ на italbags.ru";
-			$mail->setFrom("mailer@".$_SERVER['HTTP_HOST'], "Сайт ".$_SERVER['HTTP_HOST']);
+			$mail->setFrom("mailer@".$_SERVER['HTTP_HOST'], "Сайт Italbags.ru");
 			$mail->addAddress($adminEmail, 'Администратор');
 			$mail->msgHTML($html);
 			$mail->send();
