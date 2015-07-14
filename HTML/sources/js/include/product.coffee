@@ -22,9 +22,9 @@
 
 				url += "&artnumber=#{artnumber}"
 
-				if value > 0
-					$el.block('counter').mod 'disabled', true
-					url += "&count=#{value}"
+				#if value > 0
+				#	$el.block('counter').mod 'disabled', true
+				#	url += "&count=#{value}"
 
 			else
 				request.unshift {'id': id, 'quantity':value}
@@ -36,8 +36,9 @@
 					bx_cart_block1.refreshCart({})
 
 			fly $('.picture'), $('.header .cart')
-			$(this).mod('border', true).mod('disabled', true).on end, ->
-				$(this).text('Товар в корзине')
+			if !$('body').hasClass 's2'
+				$(this).mod('border', true).mod('disabled', true).on end, ->
+					$(this).text('Товар в корзине')
 
 
 		if $(this).hasMod 'simmilar'
