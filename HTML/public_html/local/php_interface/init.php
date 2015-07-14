@@ -272,6 +272,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 					Статус клиента	".$arUser['STATUS']."<br>
 					Организация	".$arUser['WORK_COMPANY']."<br>
 					Телефон ".$orderProps['phone']."<br>
+					Комментарий клиента: ".$arOrder['USER_DESCRIPTION']."<br>
 					Скидки комплектов:	Комплектов в заказе: ".count($arSets)."шт.";
 					if(count($arSets[1])>0):
 						$html .= " Неразделяемых: ".count($arSets[1])." шт. — ".implode($arSets[1], ", ").".";
