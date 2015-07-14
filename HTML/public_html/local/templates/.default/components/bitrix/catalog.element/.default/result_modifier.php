@@ -178,7 +178,7 @@
 			<meta content="http://<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" property="og:image">
 			<meta property="og:title" content="<?=$arResult['NAME']?>"/>
 			<meta property="og:type" content="blog"/>
-			<meta property="og:description" content="<?=(strlen(strip_tags($arResult["PREVIEW_TEXT"]))>0?strip_tags($arResult["PREVIEW_TEXT"]):"")?>"/>
+			<meta property="og:description" content="<?=(strlen(strip_tags($arResult["PREVIEW_TEXT"]))>0?strip_tags($arResult["PREVIEW_TEXT"]):"Эту модель и еще очень много интересного вы найдете на сайте fmarconi.ru")?>"/>
 			<?
 		$this->EndViewTarget();
 	endif;
