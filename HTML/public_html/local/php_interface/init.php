@@ -300,18 +300,19 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			$adminEmail = COption::GetOptionString("grain.customsettings","it_email"); //"italbags.test@yandex.ru";//"ak@radia.ru";//$arFields['SALE_EMAIL'];
 
 			$orderData = array(
-				'ID'      => $arFields['ORDER_ID'],
-				'DATE'    => date('d.m.Y'),
-				'TIME'    => date('H:i:s'),
-				'NAME'    => $orderProps['NAME'],
-				'COMPANY' => $arUser['WORK_COMPANY'],
-				'LOGIN'   => (strlen($arUser['PERSONAL_PAGER'])>0 ? $arUser['PERSONAL_PAGER'] : $arUser['LOGIN']),
-				'PHONE'   => $orderProps['phone'],
-				'EMAIL'   => $arUser['EMAIL'],
-				'ADDRESS' => $arUser['WORK_NOTES'],
-				'COUNT'   => 0,
-				'TOTAL'   => 0,
-				'LIST'    => array()
+				'ID'          => $arFields['ORDER_ID'],
+				'DATE'        => date('d.m.Y'),
+				'TIME'        => date('H:i:s'),
+				'NAME'        => $orderProps['NAME'],
+				'COMPANY'     => $arUser['WORK_COMPANY'],
+				'LOGIN'       => (strlen($arUser['PERSONAL_PAGER'])>0 ? $arUser['PERSONAL_PAGER'] : $arUser['LOGIN']),
+				'PHONE'       => $orderProps['phone'],
+				'EMAIL'       => $arUser['EMAIL'],
+				'ADDRESS'     => $arUser['WORK_NOTES'],
+				'COUNT'       => 0,
+				'TOTAL'       => 0,
+				'LIST'        => array(),
+				'DESCRIPTION' => $arOrder['USER_DESCRIPTION']
 			);
 			$i = 1;
 			foreach ($arItems as $key => $item) {
@@ -364,7 +365,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 
 /*
 if(SITE_ID == 's2'):
-OnBeforeMailSendHandler(unserialize('a:9:{s:8:"ORDER_ID";s:3:"933";s:10:"ORDER_DATE";s:10:"07/09/2015";s:10:"ORDER_USER";s:7:"312 312";s:5:"PRICE";s:16:"4 076.85 руб.";s:3:"BCC";s:23:"order@fmarconi.radia.ru";s:5:"EMAIL";s:11:"ak@radia.ru";s:10:"ORDER_LIST";s:63:"Тестовый комплект - 1.00 шт: 3 776.85 руб.";s:10:"SALE_EMAIL";s:23:"order@fmarconi.radia.ru";s:14:"DELIVERY_PRICE";d:300;}'), array('EVENT_NAME' => 'SALE_NEW_ORDER'));
+OnBeforeMailSendHandler(unserialize('a:9:{s:8:"ORDER_ID";s:2:"72";s:10:"ORDER_DATE";s:10:"07/09/2015";s:10:"ORDER_USER";s:7:"312 312";s:5:"PRICE";s:16:"4 076.85 руб.";s:3:"BCC";s:23:"order@fmarconi.radia.ru";s:5:"EMAIL";s:11:"ak@radia.ru";s:10:"ORDER_LIST";s:63:"Тестовый комплект - 1.00 шт: 3 776.85 руб.";s:10:"SALE_EMAIL";s:23:"order@fmarconi.radia.ru";s:14:"DELIVERY_PRICE";d:300;}'), array('EVENT_NAME' => 'SALE_NEW_ORDER'));
 endif;
 */
 

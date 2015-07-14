@@ -29,15 +29,16 @@
 	.row
 		position relative
 	.total
-		&__frame
-			bottom 0
-			right 0
-			padding 0 10px
-			@media (min-width: scr_sm)
-				position absolute
-				width 50%
-			@media (min-width: scr_md)
-				width: 33.33333333%;
+		.s1&
+			&__frame
+				bottom 0
+				right 0
+				padding 0 10px
+				@media (min-width: scr_sm)
+					position absolute
+					width 50%
+				@media (min-width: scr_md)
+					width: 33.33333333%;
 		text-transform: uppercase
 		margin-top 20px
 		&__item
@@ -436,28 +437,29 @@
 	#ORDER_FORM
 		padding-bottom 60px
 		overflow: hidden;
-	.page
-		input[type="submit"]
-			width 100%
+	input[type="submit"]
+		width 100%
+		background black
+		border 0
+		text-transform: uppercase
+		font-weight: bold
+		font-size 17px
+		text-align: center
+		height 51px
+		line-height 54px
+		color white
+		t background
+		.s1&
 			margin-top 5px
-			background black
-			border 0
-			text-transform: uppercase
-			font-weight: bold
-			font-size 17px
-			text-align: center
-			height 51px
-			line-height 54px
-			color white
-			t background
-			&:hover
-				background red
-			&:disabled
-				background alpha(black,.3)
+		&:hover
+			background red
+		&:disabled
+			background alpha(black,.3)
 	&__block
 		width 100%
-		padding 15px 13px 3px
-		border 1px solid #d5dbdf
+		.s1 &
+			padding 15px 13px 3px
+			border 1px solid #d5dbdf
 		position relative
 		&--profile
 			.row
@@ -609,9 +611,12 @@
 		textarea
 			margin-bottom 0
 			resize none
-			height 106px
 			padding 10px
 			line-height 15px
+			.s2 &
+				height 80px
+			.s1 &
+				height 120px
 		&-title
 			text-transform: uppercase
 			width 100%

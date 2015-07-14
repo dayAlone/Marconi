@@ -31,11 +31,19 @@ if (!function_exists("cmpBySort"))
 				echo ShowError($v);
 	?>
 	<div class="row">
+
+		<?if(SITE_ID=='s2'):?>
+		<div class="col-sm-6 col-md-8">
+			<div class="basket__block">
+			<textarea name="ORDER_DESCRIPTION" id="ORDER_DESCRIPTION" style="max-width:100%;" placeholder="комментарий к заказу"><?=$arResult["USER_VALS"]["ORDER_DESCRIPTION"]?></textarea>
+			</div>
+		</div>
+		<?endif;?>
 		<div class="col-md-4 order__profile col-md-push-4">
 			<div class="basket__block basket__block--profile">
 				<div class="basket__block-title">контактная информация</div>
 				<div class="row">
-				<? 
+				<?
 				$rsUser = CUser::GetByID($USER->GetID());
 				$arUser = $rsUser->Fetch();
 				foreach ($arResult['ORDER_PROP']['USER_PROPS_Y'] as $prop):
@@ -67,7 +75,9 @@ if (!function_exists("cmpBySort"))
 					<?endif;?>
 				<? endforeach ?>
 				</div>
+				<?if(SITE_ID=='s1'):?>
 				<textarea name="ORDER_DESCRIPTION" id="ORDER_DESCRIPTION" style="max-width:100%;min-height:120px" placeholder="комментарий к заказу"><?=$arResult["USER_VALS"]["ORDER_DESCRIPTION"]?></textarea>
+				<?endif;?>
 				<? global $USER;
 					if(!$USER->getID()):
 				?>
@@ -79,7 +89,7 @@ if (!function_exists("cmpBySort"))
 			<div class="basket__block">
 				<div class="basket__block-title">доставка</div>
 				<div class="delivery">
-					<? 
+					<?
 					$showStores = false;
 					$checked    = false;
 					foreach ($arResult["DELIVERY"] as $delivery_id => $delivery):
@@ -96,7 +106,7 @@ if (!function_exists("cmpBySort"))
 								value="<?=$delivery_id.":".$profile_id;?>" <?if ($arDelivery["CHECKED"]=="Y") echo " checked";?>
 								/>
 		    				<label for="ID_DELIVERY_<?=$delivery_id?>_<?=$profile_id?>"><?=$delivery['TITLE']?> <?=($arDelivery["PRICE_FORMATED"]&&$arDelivery["CHECKED"]?$arDelivery["PRICE_FORMATED"]:"")?></label></nobr>
-							<? 
+							<?
 							endforeach;
 						else:
 							if(isset($delivery["STORE"])&&$delivery["CHECKED"]=="Y")
@@ -127,7 +137,7 @@ if (!function_exists("cmpBySort"))
 								}
 							}
 						}
-						
+
 						Loader::includeModule('sale');
 						include($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/sale.location.selector.steps/class.php');
 						$_REQUEST['SHOW'] = array(
@@ -141,15 +151,15 @@ if (!function_exists("cmpBySort"))
 							'TYPE_ID'    => '3',
 						);
 						$data = CBitrixLocationSelectorStepsComponent::processSearchRequest();
-						
+
 						if(count($data['ITEMS']) > 0)
 							$value = $data['ITEMS'][0]['ID'];
 						if(!isset($value))
 							$value = $prop['DEFAULT_VALUE'];
 
 						$APPLICATION->IncludeComponent(
-							"bitrix:sale.location.selector.search", 
-							".default", 
+							"bitrix:sale.location.selector.search",
+							".default",
 							array(
 								"ID"                     => $value,
 								"CODE"                   => "",
@@ -204,10 +214,10 @@ if (!function_exists("cmpBySort"))
 				 			break;
 				 		case "pickup":
 				 			if(isset($_REQUEST['ORDER_PROP_2'])):
-				 				
+
 					 			$section = findCityByLocation($_REQUEST['ORDER_PROP_2']);
 					 			if($section):
-						 			$APPLICATION->IncludeComponent("bitrix:news.list", "stores", 
+						 			$APPLICATION->IncludeComponent("bitrix:news.list", "stores",
 										array(
 											"IBLOCK_ID"      => 6,
 											"NEWS_COUNT"     => "9999999",
@@ -234,7 +244,7 @@ if (!function_exists("cmpBySort"))
 				<?if($showStores && $_REQUEST['ORDER_PROP_2'] == 218):
 					global $arFilter;
 	        		$arFilter = array('PROPERTY_STORE' => $showStores);
-					$APPLICATION->IncludeComponent("bitrix:news.list", "stores", 
+					$APPLICATION->IncludeComponent("bitrix:news.list", "stores",
 						array(
 							"IBLOCK_ID"     => 6,
 							"NEWS_COUNT"    => "9999999",
@@ -255,7 +265,7 @@ if (!function_exists("cmpBySort"))
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="col-sm-6  order__total col-md-4 no-position">
 			<div class="basket__block">
 				<div class="basket__block-title">способы оплаты</div>
@@ -264,8 +274,8 @@ if (!function_exists("cmpBySort"))
 					uasort($arResult["PAY_SYSTEM"], "cmpBySort"); // resort arrays according to SORT value
 					foreach($arResult["PAY_SYSTEM"] as $arPaySystem):
 							?>
-							<input 
-								type="radio" name="PAY_SYSTEM_ID" 
+							<input
+								type="radio" name="PAY_SYSTEM_ID"
 								value="<?=$arPaySystem["ID"]?>" id="money-<?=$arPaySystem['ID']?>"
 								<?if ($arPaySystem["CHECKED"]=="Y" && !($arParams["ONLY_FULL_PAY_FROM_ACCOUNT"] == "Y" && $arResult["USER_VALS"]["PAY_CURRENT_ACCOUNT"]=="Y")) echo " checked=\"checked\"";?>
 								>
@@ -301,15 +311,15 @@ if (!function_exists("cmpBySort"))
 			</div>
 		</div>
 	</div>
-	
+
 	<?=bitrix_sessid_post()?>
-	<?include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/person_type.php");?>	
+	<?include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/person_type.php");?>
 	<input type="hidden" name="confirmorder" id="confirmorder" value="N">
 	<input type="hidden" name="profile_change" id="profile_change" value="N">
 	<input type="hidden" name="is_ajax_post" id="is_ajax_post" value="Y">
 	<input type="hidden" name="json" value="Y">
 
-	
+
 </form>
 <?
 if($_POST["is_ajax_post"] == "Y")

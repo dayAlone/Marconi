@@ -7776,19 +7776,19 @@ a.news--list .news-item__title:hover {
   text-transform: uppercase;
   margin-top: 20px;
 }
-.basket .total__frame {
+.s1.basket .total__frame {
   bottom: 0;
   right: 0;
   padding: 0 10px;
 }
 @media (min-width: 768px) {
-  .basket .total__frame {
+  .s1.basket .total__frame {
     position: absolute;
     width: 50%;
   }
 }
 @media (min-width: 992px) {
-  .basket .total__frame {
+  .s1.basket .total__frame {
     width: 33.33333333%;
   }
 }
@@ -8483,9 +8483,8 @@ a.news--list .news-item__title:hover {
   padding-bottom: 60px;
   overflow: hidden;
 }
-.basket .page input[type="submit"] {
+.basket input[type="submit"] {
   width: 100%;
-  margin-top: 5px;
   background: #000;
   border: 0;
   text-transform: uppercase;
@@ -8506,17 +8505,22 @@ a.news--list .news-item__title:hover {
   -ms-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-.basket .page input[type="submit"]:hover {
+.s1.basket input[type="submit"] {
+  margin-top: 5px;
+}
+.basket input[type="submit"]:hover {
   background: #d10a32;
 }
-.basket .page input[type="submit"]:disabled {
+.basket input[type="submit"]:disabled {
   background: rgba(0,0,0,0.3);
 }
 .basket__block {
   width: 100%;
+  position: relative;
+}
+.s1 .basket__block {
   padding: 15px 13px 3px;
   border: 1px solid #d5dbdf;
-  position: relative;
 }
 .basket__block--profile .row {
   padding: 0 5px;
@@ -8761,9 +8765,14 @@ a.news--list .news-item__title:hover {
 .basket__block textarea {
   margin-bottom: 0;
   resize: none;
-  height: 106px;
   padding: 10px;
   line-height: 15px;
+}
+.s2 .basket__block textarea {
+  height: 80px;
+}
+.s1 .basket__block textarea {
+  height: 120px;
 }
 .basket__block-title {
   text-transform: uppercase;
