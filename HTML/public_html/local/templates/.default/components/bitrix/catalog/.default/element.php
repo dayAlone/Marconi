@@ -10,6 +10,7 @@
 /** @var string $templateFolder */
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
+global $CITY;
 use Bitrix\Main\Loader;
 use Bitrix\Main\ModuleManager;
 $this->setFrameMode(true);
@@ -44,6 +45,7 @@ else
 		"PRODUCT_PROPS_VARIABLE"     => $arParams["PRODUCT_PROPS_VARIABLE"],
 		"CACHE_TYPE"                 => $arParams["CACHE_TYPE"],
 		"CACHE_TIME"                 => $arParams["CACHE_TIME"],
+		"CACHE_NOTES"                => $CITY['CLOSED'],
 		"CACHE_GROUPS"               => $arParams["CACHE_GROUPS"],
 		"SET_TITLE"                  => "Y",
 		"SET_STATUS_404"             => $arParams["SET_STATUS_404"],
