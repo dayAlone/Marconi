@@ -15,7 +15,7 @@ $props = &$item['PROPERTIES'];
 		    if(strlen($props['BRAND']['VALUE'])>0):
 		    	if(strstr($item['NAME'], $arResult['BRANDS'][$props['BRAND']['VALUE']])):?>
 			    	<div class="product__type">
-			    	<?=str_replace($arResult['BRANDS'][$props['BRAND']['VALUE']], '</div><div class="product__brand">'.$arResult['BRANDS'][$props['BRAND']['VALUE']].'</div><div class="product__name">', $item['NAME'])?>
+			    	<?=str_replace($arResult['BRANDS'][$props['BRAND']['VALUE']], '</div><div class="product__brand">'.$arResult['BRANDS'][$props['BRAND']['VALUE']].'</div><div class="product__name">'.(SITE_ID=="s2"?$props['ARTNUMBER']['VALUE']." ":""), $item['NAME'])?>
 			    	</div>
 			    <? else: ?>
 			    	<div class="product__type"><?=$item['NAME']?></div>
@@ -24,7 +24,7 @@ $props = &$item['PROPERTIES'];
 		    <? else: ?>
 				<div class="product__brand"><?=$item['NAME']?></div>
 		    <?endif;?>
-		    <?if(strlen($props['ARTNUMBER']['VALUE'])>0):?>
+		    <?if(strlen($props['ARTNUMBER']['VALUE'])>0 && SITE_ID == 's1'):?>
 		    	<div class="product__artnumber">Арт. <?=$props['ARTNUMBER']['VALUE']?></div>
 		    <?endif;?>
 		    <?if($arParams['SHOW_PRICE']):?>
