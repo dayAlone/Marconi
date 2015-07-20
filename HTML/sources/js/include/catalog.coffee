@@ -181,7 +181,7 @@ filterRequest = false
 	if images
 		$('.product').elem('picture').lazyLoadXT()
 
-	# Card
+	### Card
 	if !$.cookie('card')
 		$('.catalog__card, .catalog__card-frame').removeClass 'hidden'
 		$('body').on 'mousewheel', (e)->
@@ -212,7 +212,7 @@ filterRequest = false
 		).on end, ->
 			$(this).remove()
 		e.preventDefault()
-
+	###
 @checkRange = ->
 	slider = $("input[name=range]").data("ionRangeSlider")
 

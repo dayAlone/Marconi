@@ -11628,7 +11628,7 @@ a.news--list .news-item__title:hover {
   text-decoration: none;
 }
 .available__table tbody td .available__name {
-  background: transparent;
+  background: transparent !important;
 }
 .available__table tbody td span {
   margin-right: 8px;
