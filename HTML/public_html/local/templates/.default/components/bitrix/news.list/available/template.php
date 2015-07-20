@@ -22,7 +22,13 @@
 			$store = $item['PROPERTIES']['STORE']['VALUE'];
 			?>
 			<tr>
-				<td width="25%"><a href="/stores/<?=$item['CODE']?>/"><?=preg_replace('@\(.*?\)@', '', $item['NAME'])?></a></td>
+				<td width="25%">
+					<?if($store!=0):?>
+						<a href="/stores/<?=$item['CODE']?>/"><?=preg_replace('@\(.*?\)@', '', $item['NAME'])?></a>
+					<? else: ?>
+						<?=$item['NAME']?>
+					<?endif;?>
+				</td>
 				<?if(isset($arParams['CACHE_NOTES'])):?>
 				<td width="25%" class="center-xs left-sm">
 					<? if(isset($arResult['COUNTS'][$store])):?>
@@ -48,7 +54,7 @@
 				        <?endif;?>
 					<?endif;?>
 				</td>
-			
+
 			</tr>
 		<?endforeach;?>
 	</tbody>
