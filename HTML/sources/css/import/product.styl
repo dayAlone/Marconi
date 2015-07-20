@@ -9,7 +9,7 @@
 			padding 0px 4px 0
 			&:first-of-type
 				padding-top 4px
-			
+
 			background red
 			color white
 	&__type
@@ -104,7 +104,7 @@
 			float right
 			@media (min-width: scr_sm)
 				float none
-		
+
 		&--disabled
 			pointer-events none
 			color black
@@ -177,7 +177,7 @@
 	.picture
 		width 100%
 		margin-bottom 10px
-		
+
 		@media (min-width: scr_sm)
 			margin-bottom 30px
 		@media (min-width: scr_md)
@@ -213,7 +213,7 @@
 			top 0
 			margin-left 10px
 			b('loader.gif', center center no-repeat, white, 80px auto)
-			
+
 		.easyzoom-notice
 			display none
 		&__big
@@ -413,13 +413,13 @@
 		.dropdown
 			position relative
 			top -7px
-			
+
 			&--disable
 				pointer-events none
 				.dropdown__trigger
 					padding 0 10px
 					text-align: center
-					
+
 			&:hover, &--open
 				.dropdown__trigger
 					background red
@@ -461,11 +461,11 @@
 .available
 	&__row
 		position relative
-		
+
 	&__product-name
 		text-transform: uppercase
 		font-weight: bold
-		
+
 		text-align: center
 		margin-bottom 3px
 		font-size 18px
@@ -508,7 +508,7 @@
 		margin-bottom 10px
 		background-repeat no-repeat
 		background-position center center
-		
+
 	&__table
 		font-size 11px
 		@media (min-width: scr_md)
@@ -518,7 +518,7 @@
 				padding: 10px 15px 10px 0;
 				text-transform: uppercase
 				font-weight: bold
-				a
+				a, .available__name
 					color black
 					font-size 12px
 					@media (min-width: scr_sm)
@@ -527,6 +527,8 @@
 					&:hover
 						color red
 						border-line(alpha(@color, .3))
+				.available__name
+					background transparent
 				span
 					margin-right 8px
 				&.available__address
@@ -539,4 +541,3 @@
 			font-weight: normal
 			font-size 12px
 			padding 7px 0 2px
-			

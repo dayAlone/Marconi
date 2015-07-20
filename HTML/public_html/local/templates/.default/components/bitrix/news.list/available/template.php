@@ -26,12 +26,12 @@
 					<?if($store!=1):?>
 						<a href="/stores/<?=$item['CODE']?>/"><?=preg_replace('@\(.*?\)@', '', $item['NAME'])?></a>
 					<? else: ?>
-						<?=$item['NAME']?>
+						<span class="available__name"><?=$item['NAME']?></span>
 					<?endif;?>
 				</td>
 				<?if(isset($arParams['CACHE_NOTES'])):?>
 				<td width="25%" class="center-xs left-sm">
-					<? if(isset($arResult['COUNTS'][$store])):?>
+					<? if(isset($arResult['COUNTS'][$store]) || $store == 1):?>
 						<span class="available__icon available__icon--true"></span><span class="hidden-xs">Есть в наличии</span>
 					<? else: ?>
 						<span class="available__icon available__icon--false"></span><span class="hidden-xs">нет в наличии</span>
