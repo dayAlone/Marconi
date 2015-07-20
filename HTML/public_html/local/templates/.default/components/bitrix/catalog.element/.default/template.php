@@ -332,7 +332,7 @@ endif;
 					<div class="props__name">розничные цены</div>
 					<div class="props__value">
 						<span>
-							<?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?>
+							<?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?>  ₷
 						</span>
 					</div>
 				</div>
