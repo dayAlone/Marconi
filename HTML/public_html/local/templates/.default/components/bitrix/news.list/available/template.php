@@ -23,7 +23,7 @@
 			?>
 			<tr>
 				<td width="25%">
-					<?if($store!=0):?>
+					<?if($store!=1):?>
 						<a href="/stores/<?=$item['CODE']?>/"><?=preg_replace('@\(.*?\)@', '', $item['NAME'])?></a>
 					<? else: ?>
 						<?=$item['NAME']?>
