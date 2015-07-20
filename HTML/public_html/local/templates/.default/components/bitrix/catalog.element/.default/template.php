@@ -573,7 +573,7 @@ $this->SetViewTarget('footer');
 					"NEWS_COUNT"    => "9999999",
 					"CACHE_NOTES"   => $item['ID'],
 					"FILTER_NAME"   => "arFilter",
-					"SORT_BY1"      => "ID",
+					"SORT_BY1"      => "SORT",
 					"SORT_ORDER1"   => "ASC",
 					"DETAIL_URL"    => "/catalog/",
 					"CACHE_TYPE"    => "N",
