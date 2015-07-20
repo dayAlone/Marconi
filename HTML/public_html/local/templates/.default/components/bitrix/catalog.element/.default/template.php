@@ -327,6 +327,16 @@ endif;
 
 		    	<? endif;?>
 		    <?endif;?>
+			<?if(SITE_ID == 's1'):?>
+				<div class="props__item props__item--medium">
+					<div class="props__name">розничные цены</div>
+					<div class="props__value">
+						<span>
+							<?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?>
+						</span>
+					</div>
+				</div>
+			<?endif;?>
 	        </div>
 
 
