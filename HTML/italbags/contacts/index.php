@@ -27,11 +27,10 @@ if(!isset($_REQUEST['short'])):
 	    					<a href="#feedback" data-toggle="modal" data-target="#feedback" class="product__big-button product__big-button--border full-width xl-margin-top">Напишите нам</a>
 	    				</div>
 	    			</div>
-					
+
 	    		</div>
 	    		<div class="col-md-2 col-xs-12 right">
 	    			<img src="/layout/images/qr.jpg" class="max-width">
-	    			
 	    		</div>
 	    	</div>
 		</div>

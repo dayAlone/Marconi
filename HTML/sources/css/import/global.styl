@@ -730,6 +730,14 @@ svg
 		font-size 27px
 		@media (min-width scr_md)
 			font-size 30px
+		a
+			font-size 13px
+			color red
+			font-weight normal
+			border-dashed alpha(@color, .5), 13px, 4px
+			&:hover
+				color black
+				border-dashed alpha(@color, .5), 13px, 4px
 		&--full-width
 			max-width none
 		&--no-border

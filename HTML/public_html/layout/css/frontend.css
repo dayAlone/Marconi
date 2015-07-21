@@ -7315,6 +7315,42 @@ label.profile__label {
     font-size: 30px;
   }
 }
+.page__title a {
+  font-size: 13px;
+  color: #d10a32;
+  font-weight: normal;
+  background-image: -webkit-linear-gradient(left, rgba(209,10,50,0.5) 70%, transparent 70%);
+  background-image: -moz-linear-gradient(left, rgba(209,10,50,0.5) 70%, transparent 70%);
+  background-image: -o-linear-gradient(left, rgba(209,10,50,0.5) 70%, transparent 70%);
+  background-image: -ms-linear-gradient(left, rgba(209,10,50,0.5) 70%, transparent 70%);
+  background-image: linear-gradient(to right, rgba(209,10,50,0.5) 70%, transparent 70%);
+  background-repeat: repeat-x;
+  -webkit-background-size: 4px 1px;
+  -moz-background-size: 4px 1px;
+  background-size: 4px 1px;
+  background-position: 0 100%;
+  background-position: 0 13px;
+}
+.page__title a:hover {
+  text-decoration: none;
+}
+.page__title a:hover {
+  color: #000;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.5) 70%, transparent 70%);
+  background-image: -moz-linear-gradient(left, rgba(0,0,0,0.5) 70%, transparent 70%);
+  background-image: -o-linear-gradient(left, rgba(0,0,0,0.5) 70%, transparent 70%);
+  background-image: -ms-linear-gradient(left, rgba(0,0,0,0.5) 70%, transparent 70%);
+  background-image: linear-gradient(to right, rgba(0,0,0,0.5) 70%, transparent 70%);
+  background-repeat: repeat-x;
+  -webkit-background-size: 4px 1px;
+  -moz-background-size: 4px 1px;
+  background-size: 4px 1px;
+  background-position: 0 100%;
+  background-position: 0 13px;
+}
+.page__title a:hover:hover {
+  text-decoration: none;
+}
 .page__title--full-width {
   max-width: none;
 }

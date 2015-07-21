@@ -15,6 +15,19 @@ $(document).ready ->
 		getCaptcha()
 		e.preventDefault()
 
+	$('a.toggle').click (e)->
+		el = $("#{$(this).attr('href')}")
+
+		if $(this).hasMod 'active'
+			$(this).text 'Развернуть'
+			$(this).mod 'active', false
+			el.addClass 'hidden'
+		else
+			$(this).mod 'active', true
+			$(this).text 'Свернуть'
+			el.removeClass 'hidden'
+		e.preventDefault()
+
 	$('[data-toggle="tooltip"]').tooltip()
 	$('[data-draggable="true"]').backgroundDraggable({ axis: 'x' });
 
@@ -96,7 +109,7 @@ $(document).ready ->
 
 	$('.modal').on 'shown.bs.modal', ->
 		id = $(this).attr 'id'
-		if id == 'register' || id == 'feedback'  || id == 'ask' || id == 'review' 
+		if id == 'register' || id == 'feedback'  || id == 'ask' || id == 'review'
 			getCaptcha()
 
 	$('.modal').on 'hidden.bs.modal', ->

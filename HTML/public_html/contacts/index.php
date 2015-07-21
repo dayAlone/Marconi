@@ -20,12 +20,66 @@ if(!isset($_REQUEST['short'])):
 	    				Пятница с 10 до 19 ч. (без обеда)<br>
 						Выходные дни: суббота, воскресенье, а также праздничные дни.
 	    			</p>
-
+					<br><br>
 	    		</div>
 	    		<div class="col-md-2 col-xs-12 contacts__button">
 	    			<a href="#feedback" data-toggle="modal" data-target="#feedback" class="product__big-button product__big-button--border full-width xxl-margin-bottom">Напишите нам</a>
-	    			<p class="xxl-margin-top full-width visible-md visible-lg">ООО «Мегатрон»</p>
 	    		</div>
+				<div class="col-md-5 col-sm-6 clearfix s-margin-top">
+					<div class="page__title">
+						<div class="row">
+							<div class="col-sm-8">Реквизиты</div>
+							<div class="col-sm-4 right"><a href="#requisits" class="toggle">Развернуть</a></div>
+						</div>
+					</div>
+					<div class="hidden" id="requisits">
+						<div class="row">
+							<div class="col-sm-6">Наименование предприятия</div>
+							<div class="col-sm-6">ООО «Мегатрон»</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">Индентификационный номер (ИНН/КПП)</div>
+							<div class="col-sm-6">7723576871\772301001</div>
+							</div>
+							<div class="row xs-margin-top">
+							<div class="col-sm-6">ОГРН</div>
+							<div class="col-sm-6">1067746756494</div>
+							</div>
+							<div class="row xs-margin-top">
+							<div class="col-sm-6">Код организации по ОКПО</div>
+							<div class="col-sm-6">96044634</div>
+							</div>
+							<div class="row xs-margin-top">
+							<div class="col-sm-6">Код отрасли организации	по ОКВЕД</div>
+							<div class="col-sm-6">52.43 розничная торговля кож. Изделиями</div>
+							</div>
+							<div class="row xs-margin-top">
+							<div class="col-sm-6">Юридический адрес:</div>
+							<div class="col-sm-6">109469, Москва г, Перервинский б-р, дом № 27, корпус 1, кв.15</div>
+							</div>
+							<div class="row xs-margin-top">
+							<div class="col-sm-6">Расчетный счет</div>
+							<div class="col-sm-6">40702810638050020496</div>
+							</div>
+							<div class="row xs-margin-top">
+							<div class="col-sm-6">Корр. счет</div>
+							<div class="col-sm-6">30101810400000000225</div>
+							</div>
+							<div class="row xs-margin-top">
+							<div class="col-sm-6">БИК</div>
+							<div class="col-sm-6">044525225</div>
+							</div>
+							<div class="row xs-margin-top">
+							<div class="col-sm-6">Полное наименование	учреждения банка</div>
+							<div class="col-sm-6">ОАО "СБЕРБАНК РОССИИ" г. Москва</div>
+							</div>
+							<div class="row xs-margin-top">
+							<div class="col-sm-6">Генеральный директор</div>
+							<div class="col-sm-6">Шипов Андрей Игоревич</div>
+						</div>
+					</div>
+
+				</div>
 	    	</div>
 		</div>
 	</div>
