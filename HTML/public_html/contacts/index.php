@@ -20,16 +20,16 @@ if(!isset($_REQUEST['short'])):
 	    				Пятница с 10 до 19 ч. (без обеда)<br>
 						Выходные дни: суббота, воскресенье, а также праздничные дни.
 	    			</p>
-					<br><br>
+					<br class="hidden-xs"><br class="hidden-xs">
 	    		</div>
-	    		<div class="col-md-2 col-xs-12 contacts__button">
+	    		<div class="col-md-2 col-xs-12 contacts__button xxl-margin-bottom">
 	    			<a href="#feedback" data-toggle="modal" data-target="#feedback" class="product__big-button product__big-button--border full-width xxl-margin-bottom">Напишите нам</a>
 	    		</div>
 				<div class="col-md-5 col-sm-6 clearfix s-margin-top">
 					<div class="page__title">
 						<div class="row">
 							<div class="col-sm-8">Реквизиты</div>
-							<div class="col-sm-4 right"><a href="#requisits" class="toggle">Развернуть</a></div>
+							<div class="col-sm-4 sm-right"><a href="#requisits" class="toggle">Развернуть</a></div>
 						</div>
 					</div>
 					<div class="hidden" id="requisits">
