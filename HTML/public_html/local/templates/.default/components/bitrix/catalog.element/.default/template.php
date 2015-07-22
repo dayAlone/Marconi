@@ -305,7 +305,7 @@ endif;
 						  </div>
 					  <?endif;?>
 					<? else: ?>
-					  <small><nobr>Товара нет в наличии</nobr></small>
+					  <small><nobr>Нет в наличии</nobr></small>
 					<? endif; ?>
 				</span>
 				</div>

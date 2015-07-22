@@ -37,7 +37,7 @@ $props = &$item['PROPERTIES'];
 			      		<?=number_format($item['PRICE'], 0, '.', ' ')?> ₷
 			      	<?endif;?>
 			    <? else: ?>
-			      <small>Товара нет в наличии</small>
+			      <small>Нет в наличии</small>
 			    <? endif; ?>
 			    </div>
 			<? endif;?>
