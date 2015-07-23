@@ -12,7 +12,7 @@ if(count($elements) > 1):
 	$arrFilter[] = array_merge(array("LOGIC" => "OR"), $elements);
 endif;
 
-if($CITY['CLOSED'] == 'Y' || SITE_ID != 's1') $arrFilter['=PROPERTY_GENERAL'] = "Y";
+if (($CITY['CLOSED'] == 'Y' || SITE_ID != 's1') && $arResult['VARIABLES']['SECTION_CODE'] != 'coming') $arrFilter['=PROPERTY_GENERAL'] = "Y";
 
 if(SITE_ID == 's1'):
 	$arrFilter['PROPERTY_SET'] = false;

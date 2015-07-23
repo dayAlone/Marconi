@@ -106,13 +106,13 @@ if(SITE_ID == 's1' && in_array($arResult['VARIABLES']['SECTION_CODE'], array('sa
 	</div>
 	<div class="col-md-9 col-lg-10">
 		<?
-		
+
 		require_once($_SERVER['DOCUMENT_ROOT'].'/include/fix_filter.php');
-		
+
 		$brand = (isset($_COOKIE['BRAND'])?$_COOKIE['BRAND']:(isset($_REQUEST['brand'])?$_REQUEST['brand']:""));
 
 		if(strlen($brand)>0)
-			$arrFilter[] = array( 
+			$arrFilter[] = array(
 							"LOGIC" => "OR",
 							"=PROPERTY_4" => $brand,
 							"=PROPERTY_35" => $brand
@@ -125,7 +125,7 @@ if(SITE_ID == 's1' && in_array($arResult['VARIABLES']['SECTION_CODE'], array('sa
 			$basketAction = (isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '');
 
 		if(SITE_ID != 's1'):
-		    $APPLICATION->IncludeComponent("bitrix:news.list", "banners", 
+		    $APPLICATION->IncludeComponent("bitrix:news.list", "banners",
 			    array(
 			    "IBLOCK_ID"           => 27,
 			    "NEWS_COUNT"          => "1",
@@ -151,7 +151,7 @@ if(SITE_ID == 's1' && in_array($arResult['VARIABLES']['SECTION_CODE'], array('sa
 				"HIDE_SIMMILAR"                   => $arParams['HIDE_SIMMILAR'],
 				"HIDE_MORE"                       => $arParams['HIDE_MORE'],
 				"SHOW_COUNT"                      => $arParams['SHOW_COUNT'],
-				
+
 				"IBLOCK_TYPE"                     => $arParams["IBLOCK_TYPE"],
 				"IBLOCK_ID"                       => $arParams["IBLOCK_ID"],
 				"ELEMENT_SORT_FIELD"              => $arParams["ELEMENT_SORT_FIELD"],
@@ -182,13 +182,13 @@ if(SITE_ID == 's1' && in_array($arResult['VARIABLES']['SECTION_CODE'], array('sa
 				"PRICE_CODE"                      => $arParams["PRICE_CODE"],
 				"USE_PRICE_COUNT"                 => $arParams["USE_PRICE_COUNT"],
 				"SHOW_PRICE_COUNT"                => $arParams["SHOW_PRICE_COUNT"],
-				
+
 				"PRICE_VAT_INCLUDE"               => $arParams["PRICE_VAT_INCLUDE"],
 				"USE_PRODUCT_QUANTITY"            => $arParams['USE_PRODUCT_QUANTITY'],
 				"ADD_PROPERTIES_TO_BASKET"        => (isset($arParams["ADD_PROPERTIES_TO_BASKET"]) ? $arParams["ADD_PROPERTIES_TO_BASKET"] : ''),
 				"PARTIAL_PRODUCT_PROPERTIES"      => (isset($arParams["PARTIAL_PRODUCT_PROPERTIES"]) ? $arParams["PARTIAL_PRODUCT_PROPERTIES"] : ''),
 				"PRODUCT_PROPERTIES"              => $arParams["PRODUCT_PROPERTIES"],
-				
+
 				"DISPLAY_TOP_PAGER"               => $arParams["DISPLAY_TOP_PAGER"],
 				"DISPLAY_BOTTOM_PAGER"            => $arParams["DISPLAY_BOTTOM_PAGER"],
 				"PAGER_TITLE"                     => $arParams["PAGER_TITLE"],
@@ -197,7 +197,7 @@ if(SITE_ID == 's1' && in_array($arResult['VARIABLES']['SECTION_CODE'], array('sa
 				"PAGER_DESC_NUMBERING"            => $arParams["PAGER_DESC_NUMBERING"],
 				"PAGER_DESC_NUMBERING_CACHE_TIME" => $arParams["PAGER_DESC_NUMBERING_CACHE_TIME"],
 				"PAGER_SHOW_ALL"                  => $arParams["PAGER_SHOW_ALL"],
-				
+
 				"OFFERS_CART_PROPERTIES"          => $arParams["OFFERS_CART_PROPERTIES"],
 				"OFFERS_FIELD_CODE"               => $arParams["LIST_OFFERS_FIELD_CODE"],
 				"OFFERS_PROPERTY_CODE"            => $arParams["LIST_OFFERS_PROPERTY_CODE"],
@@ -206,7 +206,7 @@ if(SITE_ID == 's1' && in_array($arResult['VARIABLES']['SECTION_CODE'], array('sa
 				"OFFERS_SORT_FIELD2"              => $arParams["OFFERS_SORT_FIELD2"],
 				"OFFERS_SORT_ORDER2"              => $arParams["OFFERS_SORT_ORDER2"],
 				"OFFERS_LIMIT"                    => $arParams["LIST_OFFERS_LIMIT"],
-				
+
 				"SECTION_ID"                      => $arResult["VARIABLES"]["SECTION_ID"],
 				"SECTION_CODE"                    => ($arResult["VARIABLES"]["SECTION_CODE"]=='all' ?"":$arResult["VARIABLES"]["SECTION_CODE"]),
 				"BY_LINK"                         => ($arResult["VARIABLES"]["SECTION_CODE"]=='all'? "Y" : "N"),
@@ -215,11 +215,11 @@ if(SITE_ID == 's1' && in_array($arResult['VARIABLES']['SECTION_CODE'], array('sa
 				'CONVERT_CURRENCY'                => $arParams['CONVERT_CURRENCY'],
 				'CURRENCY_ID'                     => $arParams['CURRENCY_ID'],
 				'HIDE_NOT_AVAILABLE'              => $arParams["HIDE_NOT_AVAILABLE"],
-				
+
 				'LABEL_PROP'                      => $arParams['LABEL_PROP'],
 				'ADD_PICT_PROP'                   => $arParams['ADD_PICT_PROP'],
 				'PRODUCT_DISPLAY_MODE'            => $arParams['PRODUCT_DISPLAY_MODE'],
-				
+
 				'OFFER_ADD_PICT_PROP'             => $arParams['OFFER_ADD_PICT_PROP'],
 				'OFFER_TREE_PROPS'                => $arParams['OFFER_TREE_PROPS'],
 				'PRODUCT_SUBSCRIPTION'            => $arParams['PRODUCT_SUBSCRIPTION'],
@@ -230,7 +230,7 @@ if(SITE_ID == 's1' && in_array($arResult['VARIABLES']['SECTION_CODE'], array('sa
 				'MESS_BTN_SUBSCRIBE'              => $arParams['MESS_BTN_SUBSCRIBE'],
 				'MESS_BTN_DETAIL'                 => $arParams['MESS_BTN_DETAIL'],
 				'MESS_NOT_AVAILABLE'              => $arParams['MESS_NOT_AVAILABLE'],
-				
+
 				'TEMPLATE_THEME'                  => (isset($arParams['TEMPLATE_THEME']) ? $arParams['TEMPLATE_THEME'] : ''),
 				"ADD_SECTIONS_CHAIN"              => "N",
 				'ADD_TO_BASKET_ACTION'            => $basketAction,
