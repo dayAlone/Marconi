@@ -27,8 +27,8 @@
 			'background-position-y': 0
 			'background-position-x': ->
 				return -(3500-$(window).width())/2
-				
-			
+
+
 
 
 	$('.header .nav__line').width ($('.header .nav').width() - $('.header .nav__content').width())/2
@@ -60,10 +60,10 @@
 	element.style.pointerEvents = 'auto';
 	element.style.pointerEvents = 'x';
 	documentElement.appendChild(element);
-	supports = getComputedStyle && 
+	supports = getComputedStyle &&
 	getComputedStyle(element, '').pointerEvents == 'auto';
 	documentElement.removeChild(element);
-	
+
 	return !!supports;
 )();
 
@@ -89,18 +89,18 @@
 			el.find(height_selector).removeAttr 'style'
 		else
 			el.find(selector).removeAttr 'style'
-		
+
 		item_padding = item.css('padding-left').split('px')[0]*2
 		padding      = el.css('padding-left').split('px')[0]*2
 		if debug
 			step = Math.round((el.width()-padding)/(item.width()+item_padding))
 		else
 			step = Math.round(el.width()/item.width())
-		
+
 		count = item.length-1
 		loops = Math.ceil(count/step)
 		i     = 0
-		
+
 		if debug
 			console.log count, step, item_padding, padding, el.width(), item.width()
 
@@ -108,14 +108,14 @@
 			items = {}
 			for x in [0..step-1]
 				items[x] = item[i+x] if item[i+x]
-			
+
 			heights = []
 			$.each items, ()->
 				if height_selector
 					heights.push($(this).find(height_selector).height())
 				else
 					heights.push($(this).height())
-			
+
 			if debug
 				console.log heights
 
@@ -133,7 +133,7 @@
 		setCaptcha data
 
 @setCaptcha = (code)->
-	$('input[name=captcha_sid]').val(code)
+	$('input[name=captcha_sid], input[name=captcha_code]').val(code)
 	$('.captcha').css 'background-image', "url(/include/captcha.php?captcha_sid=#{code})"
 
 timer = false
@@ -141,7 +141,7 @@ timer = false
 
 @rgb2hex = (rgb)->
 	rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
-	if (rgb && rgb.length == 4) 
+	if (rgb && rgb.length == 4)
 		return ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) + ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) + ("0" + parseInt(rgb[3],10).toString(16)).slice(-2)
 	else
 		return false
@@ -181,7 +181,7 @@ timer = false
 			e.preventDefault()
 		else
 			window.location.href = $(this).attr('href')
-	
+
 	$('.dropdown').elem('trigger').on 'click', (e)->
 		if $.browser.mobile
 			$(this).block()
@@ -195,7 +195,7 @@ timer = false
 		$(this).block().find("a[href='#{val}']").trigger 'click'
 		$(this).block().mod 'open', false
 		$(this).block().elem('text').text $(this).find('option:selected').text()
-		
+
 	$('.dropdown').hoverIntent
 			over : ()->
 				if !$.browser.mobile
