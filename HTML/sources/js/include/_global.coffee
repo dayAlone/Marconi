@@ -193,17 +193,16 @@ $(document).ready ->
 
 	$('#feedback form, #ask form, #review form').submit (e)->
 		e.preventDefault()
-		data = $(this).serialize()
-		$.post '/include/send.php', data,
-	        (data) ->
-				console.log data
-				data = $.parseJSON(data)
-				if data.status == "ok"
-	        		$('.feedback').elem('form').hide().addClass 'hidden'
-	        		$('.feedback').elem('success').show().removeClass 'hidden'
-	        	else if data.status == "error"
-	        		$('input[name=captcha_word]').addClass('parsley-error')
-	        		getCaptcha()
+		request = $(this).serialize()
+		$.post '/include/send.php', request, (data) ->
+			console.log data
+			data = $.parseJSON(data)
+			if data.status == "ok"
+        		$('.feedback').elem('form').hide().addClass 'hidden'
+        		$('.feedback').elem('success').show().removeClass 'hidden'
+        	else if data.status == "error"
+        		$('input[name=captcha_word]').addClass('parsley-error')
+        		getCaptcha()
 
 
 	if $('body.contacts').length > 0
