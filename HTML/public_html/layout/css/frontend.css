@@ -7133,8 +7133,8 @@ label.profile__label {
   -o-transition-duration: 0.3s;
   -ms-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  text-align: center;
-  padding: 0 10px;
+  text-align: left;
+  padding: 3px 10px;
 }
 .modal textarea:focus {
   outline: 0;

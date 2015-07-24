@@ -196,8 +196,9 @@ $(document).ready ->
 		data = $(this).serialize()
 		$.post '/include/send.php', data,
 	        (data) ->
-	        	data = $.parseJSON(data)
-	        	if data.status == "ok"
+				console.log data
+				data = $.parseJSON(data)
+				if data.status == "ok"
 	        		$('.feedback').elem('form').hide().addClass 'hidden'
 	        		$('.feedback').elem('success').show().removeClass 'hidden'
 	        	else if data.status == "error"
