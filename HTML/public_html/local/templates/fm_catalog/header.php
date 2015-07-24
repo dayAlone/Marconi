@@ -10,8 +10,8 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
         	<?
           if(!preg_match("/\/catalog\/(.*?)\/(.*?)\/|\/basket\//", $APPLICATION->GetCurDir(), $matches)):
           $APPLICATION->IncludeComponent(
-    				"bitrix:highloadblock.list", 
-    				"brands", 
+    				"bitrix:highloadblock.list",
+    				"brands",
     				array(
     					"DETAIL_URL" => "detail.php?BLOCK_ID=#BLOCK_ID#&ROW_ID=#ID#",
     					"BLOCK_ID" => "3",
@@ -28,7 +28,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
                 $link = "/catalog/".$matches[1]."/";
               else
                 preg_match("/\/catalog\/(.*?)\/(.*?)\//", $_SERVER['HTTP_REFERER'], $matches);
-              
+
               if(isset($matches[1]))
                 $link = "/catalog/".$matches[1]."/";
 
@@ -39,7 +39,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
               }
               if(isset($_SESSION['Filter'][$matches[1]]))
                 $link .= $symbol.$_SESSION['Filter'][$matches[1]];
-              
+
               if($link=="/catalog/")
                 $link = $_SERVER['HTTP_REFERER'];
               ?>
@@ -73,13 +73,14 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
         <?endif;?>
         	<?php
             if(!preg_match("/\/catalog\/(.*?)\/(.*?)\//", $APPLICATION->GetCurDir(), $matches) || SITE_ID != 's1'):
-              $APPLICATION->IncludeComponent("bitrix:menu", "catalog", 
+              $APPLICATION->IncludeComponent("bitrix:menu", "catalog",
               array(
                   "ALLOW_MULTI_SELECT" => "Y",
                   "MENU_CACHE_TYPE"    => "A",
                   "ROOT_MENU_TYPE"     => "top",
                   "MAX_LEVEL"          => "1",
                   "CLASS"              => "sub",
+                  "CACHE_GROUPS"        => "Y",
                   ),
               false);
             else:
@@ -87,7 +88,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
             endif;
           ?>
         </div>
-        
+
       </div>
     </div>
   </div>
