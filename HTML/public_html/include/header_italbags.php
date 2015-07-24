@@ -13,7 +13,8 @@
                 "ROOT_MENU_TYPE"     => "toolbar",
                 "CHILD_MENU_TYPE"    => "header",
                 "MAX_LEVEL"          => "2",
-                "CLASS"              => "center"
+                "CLASS"              => "center",
+                "CACHE_GROUPS"        => "Y",
                 ),
             false);
         ?>
