@@ -10,12 +10,12 @@
   $APPLICATION->AddHeadScript('/layout/js/frontend.js');
   global $CITY;
   ?>
-  <title><?php 
+  <title><?php
     $rsSites = CSite::GetByID(SITE_ID);
     $arSite  = $rsSites->Fetch();
     if($APPLICATION->GetCurDir() != '/' && $APPLICATION->GetCurDir() != "/eng/") {
       $APPLICATION->ShowTitle();
-      
+
       echo ' | ' . $arSite['NAME'];
     }
     else echo $arSite['NAME'];
@@ -28,8 +28,11 @@
 <body class="<?=$APPLICATION->AddBufferContent("body_class");?> <?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"eng":"")?> <?=SITE_ID?>">
 <div class="wrap">
   <div id="panel"><?$APPLICATION->ShowPanel();?></div>
-  <?if(SITE_ID == 's1'):
+  <?
+  if(SITE_ID == 's1'):
     require($_SERVER['DOCUMENT_ROOT'].'/include/header_fmarconi.php');
   else:
     require($_SERVER['DOCUMENT_ROOT'].'/include/header_italbags.php');
-  endif;?>
+  endif;
+
+  ?>

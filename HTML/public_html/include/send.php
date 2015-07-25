@@ -48,15 +48,17 @@ if($result['status'] == 'ok') {
 			$rsSites = CSite::GetByID(SITE_ID);
 	    	$arSite  = $rsSites->Fetch();
 			foreach ($emails as $email):
-				$mail = new PHPMailer;
-				$mail->isSendmail();
-				$mail->CharSet = 'UTF-8';
-				$mail->Subject = "Сообщение с сайта ".$arSite['NAME'];
-				$mail->setFrom("mailer@".$_SERVER['HTTP_HOST'], "Сайт ".$arSite['NAME']);
-				$mail->addAddress($email, $email);
-				$mail->msgHTML($body);
-				AddMessage2Log($email." ".$arSite['NAME']);
-				//$mail->send();
+				if(filter_var($email, FILTER_VALIDATE_EMAIL)):
+					$mail = new PHPMailer;
+					$mail->isSendmail();
+					$mail->CharSet = 'UTF-8';
+					$mail->Subject = "Сообщение с сайта ".$arSite['NAME'];
+					$mail->setFrom("mailer@".$_SERVER['HTTP_HOST'], "Сайт ".$arSite['NAME']);
+					$mail->addAddress($email, $email);
+					$mail->msgHTML($body);
+					AddMessage2Log($email." ".$arSite['NAME']);
+					//$mail->send();
+				endif;
 			endforeach;
 
 		}
