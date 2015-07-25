@@ -343,9 +343,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 
 			require $_SERVER['DOCUMENT_ROOT'].'/include/mail/PHPMailerAutoload.php';
 
-
 			$emails = preg_split("/(,\s|,)/", COption::GetOptionString("grain.customsettings","it_email"));
-			AddMessage2Log(var_export($emails, true));
 			foreach ($emails as $email):
 				if(filter_var($email, FILTER_VALIDATE_EMAIL)):
 					$mail = new PHPMailer;
@@ -356,7 +354,6 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 					$mail->setFrom("mailer@".$_SERVER['HTTP_HOST'], "Сайт Italbags.ru");
 					$mail->addAddress($email, $email);
 					$mail->msgHTML($html);
-					AddMessage2Log($email);
 					$mail->send();
 				endif;
 			endforeach;
