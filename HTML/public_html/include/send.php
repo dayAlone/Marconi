@@ -45,16 +45,17 @@ if($result['status'] == 'ok') {
 		if ($result['status'] == 'ok') {
 
 			$emails = preg_split("/(,\s|,)/", COption::GetOptionString("grain.customsettings","group_".$_REQUEST["group_id"]));
-
+			$rsSites = CSite::GetByID(SITE_ID);
+	    	$arSite  = $rsSites->Fetch();
 			foreach ($emails as $email):
 				$mail = new PHPMailer;
 				$mail->isSendmail();
 				$mail->CharSet = 'UTF-8';
-				$mail->Subject = "Сообщение с сайта ".$_SERVER['HTTP_HOST'];
-				$mail->setFrom("mailer@".$_SERVER['HTTP_HOST'], "Сайт ".$_SERVER['HTTP_HOST']);
+				$mail->Subject = "Сообщение с сайта ".$arSite['NAME'];
+				$mail->setFrom("mailer@".$_SERVER['HTTP_HOST'], "Сайт ".$arSite['NAME']);
 				$mail->addAddress($email, $email);
 				$mail->msgHTML($body);
-				AddMessage2Log($email);
+				AddMessage2Log($email." ".$arSite['NAME']);
 				//$mail->send();
 			endforeach;
 
