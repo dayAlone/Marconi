@@ -19,7 +19,6 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 	die();
 ?>
 <?
-	AddMessage2Log(var_export($_REQUEST['REGISTER'], true), "my_module_id");
 	if($USER->IsAuthorized()):
 		echo 'success';
 	else:

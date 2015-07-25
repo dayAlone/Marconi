@@ -360,7 +360,6 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 
 		elseif($orderProps['EMAIL']):
 			$arFields['BCC'] .= ", ".$orderProps['EMAIL'];
-			AddMessage2Log(var_export($arFields['BCC'],true));
 		endif;
 	endif;
 
