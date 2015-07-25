@@ -27,7 +27,7 @@ function getFormFields ($x = false) {
       <p class="center">В ближайшее время представители нашей компании свяжутся с вами. Благодарим за обращение.</p>
     </div>
     <form class="feedback__form" data-parsley-validate>
-      <input type="hidden" name="group_id" value="<?=(SITE_ID == 's1'?"5":"18")?>">
+      <input type="hidden" name="group_id" value="<?=(SITE_ID == 's1'?"6":"18")?>">
       <? getFormFields (true) ?>
       <label>ваше сообщение</label>
       <textarea required name="message"></textarea>
@@ -53,7 +53,6 @@ function getFormFields ($x = false) {
         <input type="submit" class="product__big-button product__big-button--border m-margin-top" value="Отправить">
       </div>
     </form>
-
     </div>
   </div>
 </div>
