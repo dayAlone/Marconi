@@ -43,7 +43,6 @@ if($result['status'] == 'ok') {
 		$body .= "<br /><hr><br />";
 
 		if ($result['status'] == 'ok') {
-
 			$emails = preg_split("/(,\s|,)/", COption::GetOptionString("grain.customsettings","group_".$_REQUEST["group_id"]));
 			$rsSites = CSite::GetByID(SITE_ID);
 	    	$arSite  = $rsSites->Fetch();
@@ -56,8 +55,7 @@ if($result['status'] == 'ok') {
 					$mail->setFrom("mailer@".$_SERVER['HTTP_HOST'], "Сайт ".$arSite['NAME']);
 					$mail->addAddress($email, $email);
 					$mail->msgHTML($body);
-					AddMessage2Log($email." ".$arSite['NAME']);
-					//$mail->send();
+					$mail->send();
 				endif;
 			endforeach;
 
