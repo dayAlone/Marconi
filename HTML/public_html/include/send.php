@@ -35,7 +35,7 @@ if($result['status'] == 'ok') {
 
 		foreach ($_FILES as $key => $value):
 			if($text[$key]):
-				$name = $value['name'];
+				$name  = $value['name'];
 				$value = CFile::GetPath(CFile::SaveFile($value));
 				$body .= $text[$key].': <a href="http://'.$_SERVER['HTTP_HOST'].$value.'">'.$name."</a><br /><br />\r\n";
 			endif;
@@ -43,24 +43,20 @@ if($result['status'] == 'ok') {
 		$body .= "<br /><hr><br />";
 
 		if ($result['status'] == 'ok') {
-			$rs_user = CUser::GetList(
-				($by = 'name'),
-				($order = 'asc'),
-				array(
-					'GROUPS_ID' => array($_REQUEST["group_id"])
-				)
-			);
 
-			while($ar_user = $rs_user->GetNext()):
+			$emails = preg_split("/(,\s|,)/", COption::GetOptionString("grain.customsettings","group_".$_REQUEST["group_id"]));
+
+			foreach ($emails as $email):
 				$mail = new PHPMailer;
 				$mail->isSendmail();
 				$mail->CharSet = 'UTF-8';
 				$mail->Subject = "Сообщение с сайта ".$_SERVER['HTTP_HOST'];
 				$mail->setFrom("mailer@".$_SERVER['HTTP_HOST'], "Сайт ".$_SERVER['HTTP_HOST']);
-				$mail->addAddress($ar_user['EMAIL'], $ar_user['LOGIN']);
+				$mail->addAddress($email, $email);
 				$mail->msgHTML($body);
+				AddMessage2Log($email);
 				//$mail->send();
-			endwhile;
+			endforeach;
 
 		}
 }
