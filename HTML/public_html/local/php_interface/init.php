@@ -298,8 +298,6 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			$arFields['SITE_NAME'] = 'Новый стиль студио';
 			$arFields['BCC'] = "";
 
-			$adminEmail = COption::GetOptionString("grain.customsettings","it_email"); //"italbags.test@yandex.ru";//"ak@radia.ru";//$arFields['SALE_EMAIL'];
-
 			$orderData = array(
 				'ID'          => $arFields['ORDER_ID'],
 				'DATE'        => date('d.m.Y'),
@@ -345,15 +343,23 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 
 			require $_SERVER['DOCUMENT_ROOT'].'/include/mail/PHPMailerAutoload.php';
 
-			$mail = new PHPMailer;
-			$mail->isSendmail();
-			$mail->CharSet = 'UTF-8';
-			$mail->addAttachment($file, 'order_'.$orderData['ID'].'.csv');
-			$mail->Subject = "Новый заказ на italbags.ru";
-			$mail->setFrom("mailer@".$_SERVER['HTTP_HOST'], "Сайт Italbags.ru");
-			$mail->addAddress($adminEmail, 'Администратор');
-			$mail->msgHTML($html);
-			$mail->send();
+
+			$emails = preg_split("/(,\s|,)/", COption::GetOptionString("grain.customsettings","it_email"));
+			AddMessage2Log(var_export($emails, true));
+			foreach ($emails as $email):
+				if(filter_var($email, FILTER_VALIDATE_EMAIL)):
+					$mail = new PHPMailer;
+					$mail->isSendmail();
+					$mail->CharSet = 'UTF-8';
+					$mail->addAttachment($file, 'order_'.$orderData['ID'].'.csv');
+					$mail->Subject = "Новый заказ на italbags.ru";
+					$mail->setFrom("mailer@".$_SERVER['HTTP_HOST'], "Сайт Italbags.ru");
+					$mail->addAddress($email, $email);
+					$mail->msgHTML($html);
+					AddMessage2Log($email);
+					$mail->send();
+				endif;
+			endforeach;
 
 		elseif($orderProps['EMAIL']):
 			$arFields['BCC'] .= ", ".$orderProps['EMAIL'];
