@@ -9,19 +9,19 @@ if (!$GLOBALS['APPLICATION']->CaptchaCheckCode($_REQUEST["captcha_word"], $_REQU
 if ($err) {
 	$result['status'] = 'error';
 	$result['errors'] = $err;
-} 
+}
 else
 	$result['status'] = 'ok';
 
 if($result['status'] == 'ok') {
-		
+
 		require './mail/PHPMailerAutoload.php';
 
 		$mail = new PHPMailer;
 		$mail->isSendmail();
 		$mail->CharSet = 'UTF-8';
-		
-		
+
+
 		$text = array(
 			'name'    => 'Автор заявки',
 			'phone'   => 'Номер телефона',
@@ -47,7 +47,7 @@ if($result['status'] == 'ok') {
 		endforeach;
 		$body .= "<br /><hr><br />";
 
-		$mail->Subject = "Сообщение с сайта ".$_SERVER['HTTP_HOST']; 
+		$mail->Subject = "Сообщение с сайта ".$_SERVER['HTTP_HOST'];
 		$mail->setFrom("mailer@".$_SERVER['HTTP_HOST'], "Сайт ".$_SERVER['HTTP_HOST']);
 
 		if ($result['status'] == 'ok') {
@@ -59,9 +59,11 @@ if($result['status'] == 'ok') {
 				)
 			);
 
-			while($ar_user = $rs_user->GetNext())
+			while($ar_user = $rs_user->GetNext()):
 				$mail->addAddress($ar_user['EMAIL'], $ar_user['LOGIN']);
-			
+			endwhile;
+			die();
+
 			$mail->msgHTML($body);
 			$mail->send();
 		}
