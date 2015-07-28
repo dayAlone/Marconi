@@ -1561,23 +1561,37 @@ if (empty($arRunErrors))
 					$strOfferYandex .= $arItem['YANDEX_CATEGORY'];
 
 					$strFile = '';
-					$arOfferItem["DETAIL_PICTURE"] = (int)$arOfferItem["DETAIL_PICTURE"];
-					$arOfferItem["PREVIEW_PICTURE"] = (int)$arOfferItem["PREVIEW_PICTURE"];
-					if ($arOfferItem["DETAIL_PICTURE"] > 0 || $arOfferItem["PREVIEW_PICTURE"] > 0)
-					{
-						$pictNo = ($arOfferItem["DETAIL_PICTURE"] > 0 ? $arOfferItem["DETAIL_PICTURE"] : $arOfferItem["PREVIEW_PICTURE"]);
-
-						if ($ar_file = CFile::GetFileArray($pictNo))
+					if(count($arOfferItem['PROPERTIES'][13]['VALUE']) == 0) {
+						$arOfferItem["DETAIL_PICTURE"] = (int)$arOfferItem["DETAIL_PICTURE"];
+						$arOfferItem["PREVIEW_PICTURE"] = (int)$arOfferItem["PREVIEW_PICTURE"];
+						if ($arOfferItem["DETAIL_PICTURE"] > 0 || $arOfferItem["PREVIEW_PICTURE"] > 0)
 						{
-							if(substr($ar_file["SRC"], 0, 1) == "/")
-								$strFile = "http://".$ar_iblock['SERVER_NAME'].CHTTP::urnEncode($ar_file['SRC'], 'utf-8');
-							else
-								$strFile = $ar_file["SRC"];
+							$pictNo = ($arOfferItem["DETAIL_PICTURE"] > 0 ? $arOfferItem["DETAIL_PICTURE"] : $arOfferItem["PREVIEW_PICTURE"]);
+
+							if ($ar_file = CFile::GetFileArray($pictNo))
+							{
+								if(substr($ar_file["SRC"], 0, 1) == "/")
+									$strFile = "http://".$ar_iblock['SERVER_NAME'].CHTTP::urnEncode($ar_file['SRC'], 'utf-8');
+								else
+									$strFile = $ar_file["SRC"];
+							}
 						}
-					}
-					if (!empty($strFile) || !empty($arItem['YANDEX_PICT']))
-					{
-						$strOfferYandex .= "<picture>".(!empty($strFile) ? $strFile : $arItem['YANDEX_PICT'])."</picture>\n";
+						if (!empty($strFile) || !empty($arItem['YANDEX_PICT']))
+						{
+							$strOfferYandex .= "<picture>".(!empty($strFile) ? $strFile : $arItem['YANDEX_PICT'])."</picture>\n";
+						}
+					} else {
+						foreach ($arOfferItem['PROPERTIES'][13]['VALUE'] as $image) {
+							$strFile = '';
+							if ($ar_file = CFile::GetFileArray($image)):
+								if(substr($ar_file["SRC"], 0, 1) == "/"):
+									$strFile = "http://".$ar_iblock['SERVER_NAME'].CHTTP::urnEncode($ar_file['SRC'], 'utf-8');
+								else:
+									$strFile = $ar_file["SRC"];
+								endif;
+								$strOfferYandex .= "<picture>".(!empty($strFile) ? $strFile : $arItem['YANDEX_PICT'])."</picture>\n";
+							endif;
+						}
 					}
 
 					$y = 0;
