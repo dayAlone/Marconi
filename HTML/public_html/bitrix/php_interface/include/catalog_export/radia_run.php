@@ -25,7 +25,7 @@ CCatalogDiscountCoupon::ClearCoupon();
 if ($USER->IsAuthorized())
 	CCatalogDiscountCoupon::ClearCouponsByManage($USER->GetID());
 
-$arYandexFields = array('vendor', 'vendorCode', 'model', 'author', 'name', 'publisher', 'series', 'year', 'ISBN', 'volume', 'part', 'language', 'binding', 'page_extent', 'table_of_contents', 'performed_by', 'performance_type', 'storage', 'format', 'recording_length', 'artist', 'title', 'year', 'media', 'starring', 'director', 'originalName', 'country', 'aliases', 'description', 'sales_notes', 'promo', 'provider', 'tarifplan', 'xCategory', 'additional', 'worldRegion', 'region', 'days', 'dataTour', 'hotel_stars', 'room', 'meal', 'included', 'transport', 'price_min', 'price_max', 'options', 'manufacturer_warranty', 'country_of_origin', 'downloadable', 'param', 'place', 'hall', 'hall_part', 'is_premiere', 'is_kids', 'date',);
+$arYandexFields = array('typePrefix', 'vendor', 'vendorCode', 'model', 'author', 'name', 'publisher', 'series', 'year', 'ISBN', 'volume', 'part', 'language', 'binding', 'page_extent', 'table_of_contents', 'performed_by', 'performance_type', 'storage', 'format', 'recording_length', 'artist', 'title', 'year', 'media', 'starring', 'director', 'originalName', 'country', 'aliases', 'description', 'sales_notes', 'promo', 'provider', 'tarifplan', 'xCategory', 'additional', 'worldRegion', 'region', 'days', 'dataTour', 'hotel_stars', 'room', 'meal', 'included', 'transport', 'price_min', 'price_max', 'options', 'manufacturer_warranty', 'country_of_origin', 'downloadable', 'param', 'place', 'hall', 'hall_part', 'is_premiere', 'is_kids', 'date',);
 
 if (!function_exists("yandex_replace_special"))
 {
@@ -891,7 +891,6 @@ if (empty($arRunErrors))
 					$strTmpOff.="<picture>".$strFile."</picture>\n";
 				}
 			}
-
 			$y = 0;
 			foreach ($arYandexFields as $key)
 			{
@@ -1303,26 +1302,40 @@ if (empty($arRunErrors))
 
 					$strOfferYandex .= $arItem['YANDEX_CATEGORY'];
 
-					$strFile = '';
-					$arOfferItem["DETAIL_PICTURE"] = (int)$arOfferItem["DETAIL_PICTURE"];
-					$arOfferItem["PREVIEW_PICTURE"] = (int)$arOfferItem["PREVIEW_PICTURE"];
-					if ($arOfferItem["DETAIL_PICTURE"] > 0 || $arOfferItem["PREVIEW_PICTURE"] > 0)
-					{
-						$pictNo = ($arOfferItem["DETAIL_PICTURE"] > 0 ? $arOfferItem["DETAIL_PICTURE"] : $arOfferItem["PREVIEW_PICTURE"]);
-
-						if ($ar_file = CFile::GetFileArray($pictNo))
+					if(count($arOfferItem['PROPERTIES'][13]['VALUE']) == 0) {
+						$strFile = '';
+						$arOfferItem["DETAIL_PICTURE"] = (int)$arOfferItem["DETAIL_PICTURE"];
+						$arOfferItem["PREVIEW_PICTURE"] = (int)$arOfferItem["PREVIEW_PICTURE"];
+						if ($arOfferItem["DETAIL_PICTURE"] > 0 || $arOfferItem["PREVIEW_PICTURE"] > 0)
 						{
-							if(substr($ar_file["SRC"], 0, 1) == "/")
-								$strFile = "http://".$ar_iblock['SERVER_NAME'].CHTTP::urnEncode($ar_file['SRC'], 'utf-8');
-							else
-								$strFile = $ar_file["SRC"];
+							$pictNo = ($arOfferItem["DETAIL_PICTURE"] > 0 ? $arOfferItem["DETAIL_PICTURE"] : $arOfferItem["PREVIEW_PICTURE"]);
+
+							if ($ar_file = CFile::GetFileArray($pictNo))
+							{
+								if(substr($ar_file["SRC"], 0, 1) == "/")
+									$strFile = "http://".$ar_iblock['SERVER_NAME'].CHTTP::urnEncode($ar_file['SRC'], 'utf-8');
+								else
+									$strFile = $ar_file["SRC"];
+							}
+						}
+
+						if (!empty($strFile) || !empty($arItem['YANDEX_PICT']))
+						{
+							$strOfferYandex .= "<picture>".(!empty($strFile) ? $strFile : $arItem['YANDEX_PICT'])."</picture>\n";
+						}
+					} else {
+						foreach ($arOfferItem['PROPERTIES'][13]['VALUE'] as $image) {
+							$strFile = '';
+							if ($ar_file = CFile::GetFileArray($image)):
+								if(substr($ar_file["SRC"], 0, 1) == "/"):
+									$strFile = "http://".$ar_iblock['SERVER_NAME'].CHTTP::urnEncode($ar_file['SRC'], 'utf-8');
+								else:
+									$strFile = $ar_file["SRC"];
+								endif;
+								$strOfferYandex .= "<picture>".(!empty($strFile) ? $strFile : $arItem['YANDEX_PICT'])."</picture>\n";
+							endif;
 						}
 					}
-					if (!empty($strFile) || !empty($arItem['YANDEX_PICT']))
-					{
-						$strOfferYandex .= "<picture>".(!empty($strFile) ? $strFile : $arItem['YANDEX_PICT'])."</picture>\n";
-					}
-
 					$y = 0;
 					foreach ($arYandexFields as $key)
 					{
@@ -1832,9 +1845,15 @@ if (empty($arRunErrors))
 							}
 						}
 						break;
+					case 'typePrefix':
+						$strValue = "<typePrefix>".yandex_text2xml($arItem['PROPERTIES'][11]['VALUE'], true)."</typePrefix>";
+						if ('' != $strValue)
+							$strValue .= "\n";
+						break;
 					case 'model':
 					case 'title':
-
+						$brand = strip_tags(yandex_get_value($arItem, '', 4, $arProperties, $arUserTypeFormat));
+						$text = str_replace(array($arItem['PROPERTIES'][11]['VALUE'], $brand, "  "), "", $arItem['NAME']);
 						if (!is_array($XML_DATA) || !is_array($XML_DATA['XML_DATA']) || !$XML_DATA['XML_DATA'][$key])
 						{
 							if (
@@ -1846,7 +1865,7 @@ if (empty($arRunErrors))
 						}
 						else
 						{
-							$strValue = "<model>".yandex_text2xml($arItem['PROPERTIES'][11]['VALUE'], true)." ".yandex_text2xml($arItem['PROPERTIES'][2]['VALUE'], true)."</model>";
+							$strValue = "<model>".yandex_text2xml($arItem['PROPERTIES'][2]['VALUE'] . ' ' . $text, true)."</model>";
 							if ('' != $strValue)
 								$strValue .= "\n";
 						}
