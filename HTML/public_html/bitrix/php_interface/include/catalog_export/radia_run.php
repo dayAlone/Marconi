@@ -1014,6 +1014,7 @@ if (empty($arRunErrors))
 		$arFilter['PROPERTY_SET'] = false;
 		$arFilter['!PROPERTY_MIN_PRICE'] = false;
 		$arFilter['!PROPERTY_ARTNUMBER'] = false;
+		$arFilter['!PROPERTY_BRAND'] = false;
 		$arFilter[] = array(
 	        "LOGIC" => "OR",
 	        array("=PROPERTY_COMING" => false),
