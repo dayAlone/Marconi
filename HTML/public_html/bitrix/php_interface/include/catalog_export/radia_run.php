@@ -704,7 +704,7 @@ if (empty($arRunErrors))
 
 	if ('D' == $arCatalog['CATALOG_TYPE'] || 'O' == $arCatalog['CATALOG_TYPE'])
 	{
-		$arSelect = array("ID", "LID", "IBLOCK_ID", "IBLOCK_SECTION_ID", "NAME", "PREVIEW_PICTURE", "PREVIEW_TEXT", "PREVIEW_TEXT_TYPE", "DETAIL_PICTURE", "LANG_DIR", "DETAIL_PAGE_URL");
+		$arSelect = array("ID", "LID", "IBLOCK_ID", "IBLOCK_SECTION_ID", "NAME", "PREVIEW_PICTURE", "DETAIL_TEXT", "DETAIL_TEXT_TYPE", "DETAIL_PICTURE", "LANG_DIR", "DETAIL_PAGE_URL");
 
 		$filter = array("IBLOCK_ID" => $IBLOCK_ID);
 		if (!$bAllSections && !empty($arSectionIDs))
@@ -907,8 +907,8 @@ if (empty($arRunErrors))
 					$strTmpOff .=
 						"<description>".
 						yandex_text2xml(TruncateText(
-							($arAcc["PREVIEW_TEXT_TYPE"]=="html"?
-							strip_tags(preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arAcc["~PREVIEW_TEXT"])) : preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arAcc["~PREVIEW_TEXT"])),
+							($arAcc["DETAIL_TEXT_TYPE"]=="html"?
+							strip_tags(preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arAcc["~DETAIL_TEXT"])) : preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arAcc["~DETAIL_TEXT"])),
 							255), true).
 						"</description>\n";
 					break;
@@ -943,6 +943,7 @@ if (empty($arRunErrors))
 					{
 						$strValue = '';
 						$strValue = yandex_get_value($arAcc, $key, $XML_DATA['XML_DATA'][$key], $arProperties, $arUserTypeFormat);
+
 						if ('' != $strValue)
 							$strTmpOff .= $strValue."\n";
 					}
@@ -985,7 +986,7 @@ if (empty($arRunErrors))
 	}
 	elseif ('P' == $arCatalog['CATALOG_TYPE'] || 'X' == $arCatalog['CATALOG_TYPE'])
 	{
-		$arOfferSelect = array("ID", "LID", "IBLOCK_ID", "NAME", "PREVIEW_PICTURE", "PREVIEW_TEXT", "PREVIEW_TEXT_TYPE", "DETAIL_PICTURE", "DETAIL_PAGE_URL");
+		$arOfferSelect = array("ID", "LID", "IBLOCK_ID", "NAME", "PREVIEW_PICTURE", "DETAIL_TEXT", "DETAIL_TEXT_TYPE", "DETAIL_PICTURE", "DETAIL_PAGE_URL");
 		$arOfferFilter = array('IBLOCK_ID' => $intOfferIBlockID, 'PROPERTY_'.$arOffers['SKU_PROPERTY_ID'] => 0, "ACTIVE" => "Y", "ACTIVE_DATE" => "Y");
 		if (YANDEX_SKU_EXPORT_PROP == $arSKUExport['SKU_EXPORT_COND'])
 		{
@@ -999,7 +1000,7 @@ if (empty($arRunErrors))
 			$arOfferFilter[$strExportKey] = $mxValues;
 		}
 
-		$arSelect = array("ID", "LID", "IBLOCK_ID", "IBLOCK_SECTION_ID", "NAME", "PREVIEW_PICTURE", "PREVIEW_TEXT", "PREVIEW_TEXT_TYPE", "DETAIL_PICTURE", "DETAIL_PAGE_URL");
+		$arSelect = array("ID", "LID", "IBLOCK_ID", "IBLOCK_SECTION_ID", "NAME", "PREVIEW_PICTURE", "DETAIL_TEXT", "DETAIL_TEXT_TYPE", "DETAIL_PICTURE", "DETAIL_PAGE_URL");
 		$arFilter = array("IBLOCK_ID" => $IBLOCK_ID);
 		if (!$bAllSections && !empty($arSectionIDs))
 		{
@@ -1019,7 +1020,6 @@ if (empty($arRunErrors))
 	        array("=PROPERTY_COMING" => "Y", "=PROPERTY_RETAIL" => "Y"),
 	        array("=PROPERTY_COMING" => "Y", "=PROPERTY_GENERAL" => "Y")
 		);
-
 
 		$strOfferTemplateURL = '';
 		if (!empty($arSKUExport['SKU_URL_TEMPLATE_TYPE']))
@@ -1109,8 +1109,8 @@ if (empty($arRunErrors))
 			$arItem['YANDEX_PICT'] = $strFile;
 
 			$arItem['YANDEX_DESCR'] = yandex_text2xml(TruncateText(
-							($arItem["PREVIEW_TEXT_TYPE"]=="html"?
-							strip_tags(preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arItem["~PREVIEW_TEXT"])) : preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arItem["~PREVIEW_TEXT"])),
+							($arItem["DETAIL_TEXT_TYPE"]=="html"?
+							strip_tags(preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arItem["~DETAIL_TEXT"])) : preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arItem["~DETAIL_TEXT"])),
 							255), true);
 
 			$arOfferFilter['PROPERTY_'.$arOffers['SKU_PROPERTY_ID']] = $arItem['ID'];
@@ -1335,15 +1335,15 @@ if (empty($arRunErrors))
 							break;
 						case 'description':
 							$strOfferYandex .= "<description>";
-							if (strlen($arOfferItem['~PREVIEW_TEXT']) <= 0)
+							if (strlen($arOfferItem['~DETAIL_TEXT']) <= 0)
 							{
 								$strOfferYandex .= $arItem['YANDEX_DESCR'];
 							}
 							else
 							{
 								$strOfferYandex .= yandex_text2xml(TruncateText(
-									($arOfferItem["PREVIEW_TEXT_TYPE"]=="html"?
-										strip_tags(preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arOfferItem["~PREVIEW_TEXT"])) : $arOfferItem["~PREVIEW_TEXT"]),
+									($arOfferItem["DETAIL_TEXT_TYPE"]=="html"?
+										strip_tags(preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arOfferItem["~DETAIL_TEXT"])) : $arOfferItem["~DETAIL_TEXT"]),
 										255),
 									true);
 							}
@@ -1579,15 +1579,15 @@ if (empty($arRunErrors))
 							break;
 						case 'description':
 							$strOfferYandex .= "<description>";
-							if (strlen($arOfferItem['~PREVIEW_TEXT']) <= 0)
+							if (strlen($arOfferItem['~DETAIL_TEXT']) <= 0)
 							{
 								$strOfferYandex .= $arItem['YANDEX_DESCR'];
 							}
 							else
 							{
 								$strOfferYandex .= yandex_text2xml(TruncateText(
-									($arOfferItem["PREVIEW_TEXT_TYPE"]=="html"?
-										strip_tags(preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arOfferItem["~PREVIEW_TEXT"])) : preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arOfferItem["~PREVIEW_TEXT"])),
+									($arOfferItem["DETAIL_TEXT_TYPE"]=="html"?
+										strip_tags(preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arOfferItem["~DETAIL_TEXT"])) : preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arOfferItem["~DETAIL_TEXT"])),
 										255),
 									true);
 							}
@@ -1811,8 +1811,8 @@ if (empty($arRunErrors))
 						$strValue =
 							"<description>".
 							yandex_text2xml(TruncateText(
-								($arItem["PREVIEW_TEXT_TYPE"]=="html"?
-								strip_tags(preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arItem["~PREVIEW_TEXT"])) : preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arItem["~PREVIEW_TEXT"])),
+								($arItem["DETAIL_TEXT_TYPE"]=="html"?
+								strip_tags(preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arItem["~DETAIL_TEXT"])) : preg_replace_callback("'&[^;]*;'", "yandex_replace_special", $arItem["~DETAIL_TEXT"])),
 								255), true).
 							"</description>\n";
 						break;
@@ -1877,7 +1877,6 @@ if (empty($arRunErrors))
 				}
 
 				$strOfferYandex .= "</offer>\n";
-
 				if ('' != $strOfferYandex)
 				{
 					$arItem['OFFERS'][] = $strOfferYandex;
