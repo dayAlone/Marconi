@@ -3,7 +3,6 @@ HTML/node_modules/
 HTML/public_html/upload/
 !HTML/public_html/upload/xml/*
 HTML/public_html/import/upload/
-HTML/public_html/bitrix/
 HTML/public_html/import/photos/
 PSD/
 HTML/public_html/*.txt
@@ -11,4 +10,6 @@ HTML/public_html/import/log.txt
 .lock
 HTML/public_html/log.txt
 HTML/sources/js/script.js
-!HTML/public_html/bitrix/php_interface/include/catalog_export/radia*
+
+HTML/public_html/bitrix/**/**/**/*
+!HTML/public_html/bitrix/php_interface/include/catalog_export/radia_*
