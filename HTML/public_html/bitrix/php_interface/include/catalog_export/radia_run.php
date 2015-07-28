@@ -1846,7 +1846,7 @@ if (empty($arRunErrors))
 						}
 						else
 						{
-							$strValue = "<model>".$arItem['PROPERTIES'][11]['VALUE']." ".$arItem['PROPERTIES'][2]['VALUE']."</model>";
+							$strValue = "<model>".yandex_text2xml($arItem['PROPERTIES'][11]['VALUE'], true)." ".yandex_text2xml($arItem['PROPERTIES'][2]['VALUE'], true)."</model>";
 							if ('' != $strValue)
 								$strValue .= "\n";
 						}
