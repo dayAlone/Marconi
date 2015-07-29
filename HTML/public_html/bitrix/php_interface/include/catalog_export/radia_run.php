@@ -1818,11 +1818,27 @@ if (empty($arRunErrors))
 
 				$strOfferYandex.= $arItem['YANDEX_CATEGORY'];
 
-				if (!empty($arItem['YANDEX_PICT']))
-				{
-					$strOfferYandex .= "<picture>".$arItem['YANDEX_PICT']."</picture>\n";
-				}
 
+				if(count($arItem['PROPERTIES'][13]['VALUE']) == 0) {
+					if (!empty($arItem['YANDEX_PICT']))
+					{
+						$strOfferYandex .= "<picture>".$arItem['YANDEX_PICT']."</picture>\n";
+					}
+				}
+				else {
+					foreach ($arItem['PROPERTIES'][13]['VALUE'] as $image) {
+						$strFile = '';
+						if ($ar_file = CFile::GetFileArray($image)):
+
+							if(substr($ar_file["SRC"], 0, 1) == "/"):
+								$strFile = "http://".$ar_iblock['SERVER_NAME'].CHTTP::urnEncode($ar_file['SRC'], 'utf-8');
+							else:
+								$strFile = $ar_file["SRC"];
+							endif;
+							$strOfferYandex .= "<picture>".(!empty($strFile) ? $strFile : $arItem['YANDEX_PICT'])."</picture>\n";
+						endif;
+					}
+				}
 				$y = 0;
 				foreach ($arYandexFields as $key)
 				{
