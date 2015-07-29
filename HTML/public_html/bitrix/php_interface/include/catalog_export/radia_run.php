@@ -900,7 +900,7 @@ if (empty($arRunErrors))
 			else
 				$str_TYPE = '';
 
-			$strTmpOff.= "<offer id=\"".$arAcc["ID"]."\"".$str_TYPE.$str_AVAILABLE.">\n";
+			$strTmpOff.= "<offer id=\"".$arAcc["ID"]."0\"".$str_TYPE.$str_AVAILABLE.">\n";
 
 			$url = getDetailUrl($arAcc);
 			if(strlen($url) > 0):
@@ -1332,7 +1332,7 @@ if (empty($arRunErrors))
 					$arOfferItem['YANDEX_TYPE'] = $str_TYPE;
 
 					$strOfferYandex = '';
-					$strOfferYandex .= "<offer id=\"".$arOfferItem["ID"]."\"".$str_TYPE." available=\"".$arOfferItem['YANDEX_AVAILABLE']."\">\n";
+					$strOfferYandex .= "<offer id=\"".$arOfferItem["ID"]."0\"".$str_TYPE." available=\"".$arOfferItem['YANDEX_AVAILABLE']."\">\n";
 					$url = getDetailUrl($arOfferItem);
 					if(strlen($url) > 0):
 						$arOfferItem["~DETAIL_PAGE_URL"] = $url;
@@ -1595,7 +1595,7 @@ if (empty($arRunErrors))
 					$arOfferItem['YANDEX_TYPE'] = $str_TYPE;
 
 					$strOfferYandex = '';
-					$strOfferYandex .= "<offer id=\"".$arOfferItem["ID"]."\"".$str_TYPE." available=\"".$arOfferItem['YANDEX_AVAILABLE']."\">\n";
+					$strOfferYandex .= "<offer id=\"".$arOfferItem["ID"]."0\"".$str_TYPE." available=\"".$arOfferItem['YANDEX_AVAILABLE']."\">\n";
 
 					$url = getDetailUrl($arOfferItem);
 					if(strlen($url) > 0):
@@ -1859,7 +1859,7 @@ if (empty($arRunErrors))
 					$str_TYPE = '';
 
 				$strOfferYandex = '';
-				$strOfferYandex.= "<offer id=\"".$arItem["ID"]."\"".$str_TYPE.$str_AVAILABLE.">\n";
+				$strOfferYandex.= "<offer id=\"".$arItem["ID"]."0\"".$str_TYPE.$str_AVAILABLE.">\n";
 				$url = getDetailUrl($arItem);
 				if(strlen($url) > 0):
 					$arItem["~DETAIL_PAGE_URL"] = $url;
