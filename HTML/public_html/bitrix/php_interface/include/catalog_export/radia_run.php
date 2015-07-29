@@ -38,6 +38,38 @@ if (!function_exists("yandex_replace_special"))
 	}
 }
 
+global $paths;
+$paths = array();
+
+function getDetailUrl($item) {
+	global $paths;
+
+	$id = $item['PROPERTY_CML2_LINK_VALUE'];
+	if(!$id)
+		$id = $item['ID'];
+
+	$raw = CIBlockElement::GetElementGroups($id);
+	while($data = $raw->GetNext()) {
+		if(!in_array($data['CODE'], array('all', 'sale', 'sale30', 'new', 'best-sellers', 'coming', 'latest'))) {
+			$item['IBLOCK_SECTION_ID'] = $data['ID'];
+		}
+	}
+
+	if(!isset($paths[$item['IBLOCK_SECTION_ID']])):
+		$rsPath = GetIBlockSectionPath(1, $item['IBLOCK_SECTION_ID']);
+		$arPath = $rsPath->GetNext();
+		//var_dump($arPath);
+		$paths[$item['IBLOCK_SECTION_ID']] = $arPath;
+	else:
+		$arPath = $paths[$item['IBLOCK_SECTION_ID']];
+	endif;
+	if($arPath):
+		return "/catalog/".$arPath['CODE']."/".($item['PROPERTY_CML2_LINK_CODE']?$item['PROPERTY_CML2_LINK_CODE']:$item['CODE'])."/".($item['PROPERTY_CML2_LINK_CODE']?"?offer=".$item['ID']:"");
+	endif;
+
+	return false;
+}
+
 if (!function_exists("yandex_text2xml"))
 {
 	function yandex_text2xml($text, $bHSC = false, $bDblQuote = false)
@@ -869,6 +901,12 @@ if (empty($arRunErrors))
 				$str_TYPE = '';
 
 			$strTmpOff.= "<offer id=\"".$arAcc["ID"]."\"".$str_TYPE.$str_AVAILABLE.">\n";
+
+			$url = getDetailUrl($arAcc);
+			if(strlen($url) > 0):
+				$arAcc["~DETAIL_PAGE_URL"] = $url;
+				$arAcc['DETAIL_PAGE_URL'] =  $url;
+			endif;
 			$strTmpOff.= "<url>http://".$ar_iblock['SERVER_NAME'].htmlspecialcharsbx($arAcc["~DETAIL_PAGE_URL"]).(strstr($arAcc['DETAIL_PAGE_URL'], '?') === false ? '?' : '&amp;')."r1=<?echo \$strReferer1; ?>&amp;r2=<?echo \$strReferer2; ?></url>\n";
 
 			$strTmpOff.= "<price>".$minPrice."</price>\n";
@@ -985,7 +1023,7 @@ if (empty($arRunErrors))
 	}
 	elseif ('P' == $arCatalog['CATALOG_TYPE'] || 'X' == $arCatalog['CATALOG_TYPE'])
 	{
-		$arOfferSelect = array("ID", "LID", "IBLOCK_ID", "NAME", "PREVIEW_PICTURE", "DETAIL_TEXT", "DETAIL_TEXT_TYPE", "DETAIL_PICTURE", "DETAIL_PAGE_URL");
+		$arOfferSelect = array("ID", "LID", "IBLOCK_ID", "NAME", "PREVIEW_PICTURE", "DETAIL_TEXT", "PROPERTY_CML2_LINK.CODE", "PROPERTY_CML2_LINK", "DETAIL_TEXT_TYPE", "DETAIL_PICTURE", "DETAIL_PAGE_URL");
 		$arOfferFilter = array('IBLOCK_ID' => $intOfferIBlockID, 'PROPERTY_'.$arOffers['SKU_PROPERTY_ID'] => 0, "ACTIVE" => "Y", "ACTIVE_DATE" => "Y");
 		if (YANDEX_SKU_EXPORT_PROP == $arSKUExport['SKU_EXPORT_COND'])
 		{
@@ -1295,6 +1333,11 @@ if (empty($arRunErrors))
 
 					$strOfferYandex = '';
 					$strOfferYandex .= "<offer id=\"".$arOfferItem["ID"]."\"".$str_TYPE." available=\"".$arOfferItem['YANDEX_AVAILABLE']."\">\n";
+					$url = getDetailUrl($arOfferItem);
+					if(strlen($url) > 0):
+						$arOfferItem["~DETAIL_PAGE_URL"] = $url;
+						$arOfferItem['DETAIL_PAGE_URL'] =  $url;
+					endif;
 					$strOfferYandex .= "<url>http://".$ar_iblock['SERVER_NAME'].htmlspecialcharsbx($arOfferItem["~DETAIL_PAGE_URL"]).(strstr($arOfferItem['DETAIL_PAGE_URL'], '?') === false ? '?' : '&amp;')."r1=<?echo \$strReferer1; ?>&amp;r2=<?echo \$strReferer2; ?></url>\n";
 
 					$strOfferYandex .= "<price>".$minPrice."</price>\n";
@@ -1553,6 +1596,12 @@ if (empty($arRunErrors))
 
 					$strOfferYandex = '';
 					$strOfferYandex .= "<offer id=\"".$arOfferItem["ID"]."\"".$str_TYPE." available=\"".$arOfferItem['YANDEX_AVAILABLE']."\">\n";
+
+					$url = getDetailUrl($arOfferItem);
+					if(strlen($url) > 0):
+						$arOfferItem["~DETAIL_PAGE_URL"] = $url;
+						$arOfferItem['DETAIL_PAGE_URL'] =  $url;
+					endif;
 					$strOfferYandex .= "<url>http://".$ar_iblock['SERVER_NAME'].htmlspecialcharsbx($arOfferItem["~DETAIL_PAGE_URL"]).(strstr($arOfferItem['DETAIL_PAGE_URL'], '?') === false ? '?' : '&amp;')."r1=<?echo \$strReferer1; ?>&amp;r2=<?echo \$strReferer2; ?></url>\n";
 
 					$strOfferYandex .= "<price>".$minPrice."</price>\n";
@@ -1811,6 +1860,11 @@ if (empty($arRunErrors))
 
 				$strOfferYandex = '';
 				$strOfferYandex.= "<offer id=\"".$arItem["ID"]."\"".$str_TYPE.$str_AVAILABLE.">\n";
+				$url = getDetailUrl($arItem);
+				if(strlen($url) > 0):
+					$arItem["~DETAIL_PAGE_URL"] = $url;
+					$arItem['DETAIL_PAGE_URL'] =  $url;
+				endif;
 				$strOfferYandex.= "<url>http://".$ar_iblock['SERVER_NAME'].htmlspecialcharsbx($arItem["~DETAIL_PAGE_URL"]).(strstr($arItem['DETAIL_PAGE_URL'], '?') === false ? '?' : '&amp;')."r1=<?echo \$strReferer1; ?>&amp;r2=<?echo \$strReferer2; ?></url>\n";
 
 				$strOfferYandex.= "<price>".$minPrice."</price>\n";
