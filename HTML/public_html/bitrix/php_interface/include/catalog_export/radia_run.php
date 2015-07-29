@@ -1367,7 +1367,7 @@ if (empty($arRunErrors))
 							$strOfferYandex .= "<picture>".(!empty($strFile) ? $strFile : $arItem['YANDEX_PICT'])."</picture>\n";
 						}
 					} else {
-						foreach (array_reverse($arOfferItem['PROPERTIES'][13]['VALUE']) as $image) {
+						foreach ($arOfferItem['PROPERTIES'][13]['VALUE'] as $image) {
 							$strFile = '';
 							if ($ar_file = CFile::GetFileArray($image)):
 								if(substr($ar_file["SRC"], 0, 1) == "/"):
@@ -1630,7 +1630,7 @@ if (empty($arRunErrors))
 							$strOfferYandex .= "<picture>".(!empty($strFile) ? $strFile : $arItem['YANDEX_PICT'])."</picture>\n";
 						}
 					} else {
-						foreach (array_reverse($arOfferItem['PROPERTIES'][13]['VALUE']) as $image) {
+						foreach ($arOfferItem['PROPERTIES'][13]['VALUE'] as $image) {
 							$strFile = '';
 							if ($ar_file = CFile::GetFileArray($image)):
 								if(substr($ar_file["SRC"], 0, 1) == "/"):
@@ -1880,7 +1880,7 @@ if (empty($arRunErrors))
 					}
 				}
 				else {
-					foreach (array_reverse($arItem['PROPERTIES'][13]['VALUE']) as $image) {
+					foreach ($arItem['PROPERTIES'][13]['VALUE'] as $image) {
 						$strFile = '';
 						if ($ar_file = CFile::GetFileArray($image)):
 
