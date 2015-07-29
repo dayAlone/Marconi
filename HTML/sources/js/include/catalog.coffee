@@ -83,6 +83,8 @@ filterRequest = false
 	$.get url, (data)->
 		if data == 'success'
 			bx_cart_block1.refreshCart({})
+			if yaCounter28060548
+				yaCounter28060548.reachGoal 'addToCart'
 		else
 			console.log data
 
