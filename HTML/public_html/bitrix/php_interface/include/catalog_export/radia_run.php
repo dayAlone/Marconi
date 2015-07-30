@@ -689,7 +689,7 @@ if (empty($arRunErrors))
 			unset($section, $sectionIterator);
 
 			$filter = array("IBLOCK_ID"=>$IBLOCK_ID, ">LEFT_MARGIN"=>$curLEFT_MARGIN, "<RIGHT_MARGIN"=>$curRIGHT_MARGIN, "ACTIVE"=>"Y", "IBLOCK_ACTIVE"=>"Y", "GLOBAL_ACTIVE"=>"Y");
-			$sectionIterator = CIBlockSection::GetList(array("LEFT_MARGIN"=>"ASC"), $filter, false, array('ID', 'IBLOCK_SECTION_ID', 'NAME', 'UF_SECTION'));
+			$sectionIterator = CIBlockSection::GetList(array("LEFT_MARGIN"=>"ASC"), $filter, false, array('ID', 'IBLOCK_SECTION_ID', 'NAME', 'UF_CATEGORY'));
 			while ($section = $sectionIterator->Fetch())
 			{
 				$section["ID"] = (int)$section["ID"];
@@ -707,7 +707,7 @@ if (empty($arRunErrors))
 	else
 	{
 		$filter = array("IBLOCK_ID"=>$IBLOCK_ID, "ACTIVE"=>"Y", "IBLOCK_ACTIVE"=>"Y", "GLOBAL_ACTIVE"=>"Y");
-		$sectionIterator = CIBlockSection::GetList(array("LEFT_MARGIN"=>"ASC"), $filter, false, array('ID', 'IBLOCK_SECTION_ID', 'NAME', 'UF_SECTION'));
+		$sectionIterator = CIBlockSection::GetList(array("LEFT_MARGIN"=>"ASC"), $filter, false, array('ID', 'IBLOCK_SECTION_ID', 'NAME', 'UF_CATEGORY'));
 		while ($section = $sectionIterator->Fetch())
 		{
 			$section["ID"] = (int)$section["ID"];
@@ -891,8 +891,8 @@ if (empty($arRunErrors))
 			}
 
 			$section = (int)end(preg_split("/\n/", strip_tags($strTmpOff_tmp),-1, PREG_SPLIT_NO_EMPTY));
-			if($arAvailGroups[$section]['UF_SECTION']):
-				$strTmpOff_tmp .= "<market_category>". $arAvailGroups[$section]['UF_SECTION'] ."</market_category>";
+			if($arAvailGroups[$section]['UF_CATEGORY']):
+				$strTmpOff_tmp .= "<market_category>". $arAvailGroups[$section]['UF_CATEGORY'] ."</market_category>";
 			endif;
 
 			if (strlen($arAcc['DETAIL_PAGE_URL']) <= 0)
@@ -1139,8 +1139,8 @@ if (empty($arRunErrors))
 			}
 
 			$section = (int)end(preg_split("/\n/", strip_tags($strSections),-1, PREG_SPLIT_NO_EMPTY));
-			if($arAvailGroups[$section]['UF_SECTION']):
-				$strSections .= "<market_category>". $arAvailGroups[$section]['UF_SECTION'] ."</market_category>";
+			if($arAvailGroups[$section]['UF_CATEGORY']):
+				$strSections .= "<market_category>". $arAvailGroups[$section]['UF_CATEGORY'] ."</market_category>";
 			endif;
 
 			$arItem['YANDEX_CATEGORY'] = $strSections;
