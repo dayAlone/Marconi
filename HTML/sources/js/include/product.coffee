@@ -35,7 +35,7 @@
 				if data == 'success'
 					bx_cart_block1.refreshCart({})
 					if yaCounter28060548
-						yaCounter28060548.reachGoal 'addToCart'
+						yaCounter28060548.reachGoal 'addToCart', { product: id, artnumber: artnumber }
 
 			fly $('.picture'), $('.header .cart')
 			if !$('body').hasClass 's2'

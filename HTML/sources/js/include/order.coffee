@@ -64,9 +64,10 @@
 				$('.basket').elem('submit').removeAttr 'disabled'
 			else
 				data = $.parseJSON data
+				orderID = parseInt(data.redirect.replace('/basket/?ORDER_ID=', ''))
 				if data.success == 'Y'
 					if yaCounter28060548
-						yaCounter28060548.reachGoal 'createOrder'
+						yaCounter28060548.reachGoal 'createOrder', { order: orderID }
 					delay 400, ->
 						location.href = data.redirect
 
