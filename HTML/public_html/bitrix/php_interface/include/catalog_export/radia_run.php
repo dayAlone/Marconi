@@ -964,6 +964,11 @@ if (empty($arRunErrors))
 						}
 					}
 					break;
+				case 'typePrefix':
+					$strValue = "<typePrefix>".yandex_text2xml($arAcc['PROPERTIES'][11]['VALUE'], true)."</typePrefix>";
+					if ('' != $strValue)
+						$strValue .= "\n";
+					break;
 				case 'model':
 				case 'title':
 					if (!is_array($XML_DATA) || !is_array($XML_DATA['XML_DATA']) || !$XML_DATA['XML_DATA'][$key])
@@ -1421,6 +1426,11 @@ if (empty($arRunErrors))
 								}
 							}
 							break;
+						case 'typePrefix':
+							$strValue = "<typePrefix>".yandex_text2xml($arOfferItem['PROPERTIES'][11]['VALUE'], true)."</typePrefix>";
+							if ('' != $strValue)
+								$strValue .= "\n";
+							break;
 						case 'model':
 						case 'title':
 							if (!is_array($XML_DATA) || !is_array($XML_DATA['XML_DATA']) || !$XML_DATA['XML_DATA'][$key])
@@ -1684,6 +1694,11 @@ if (empty($arRunErrors))
 										$strOfferYandex .= $strParamValue."\n";
 								}
 							}
+							break;
+						case 'typePrefix':
+							$strValue = "<typePrefix>".yandex_text2xml($arOfferItem['PROPERTIES'][11]['VALUE'], true)."</typePrefix>";
+							if ('' != $strValue)
+								$strValue .= "\n";
 							break;
 						case 'model':
 						case 'title':
