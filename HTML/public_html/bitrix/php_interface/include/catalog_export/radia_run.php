@@ -892,7 +892,7 @@ if (empty($arRunErrors))
 
 			$section = (int)end(preg_split("/\n/", strip_tags($strTmpOff_tmp),-1, PREG_SPLIT_NO_EMPTY));
 			if($arAvailGroups[$section]['UF_CATEGORY']):
-				$strTmpOff_tmp .= "<market_category>". $arAvailGroups[$section]['UF_CATEGORY'] ."</market_category>";
+				$strTmpOff_tmp .= "<market_category>". yandex_text2xml($arAvailGroups[$section]['UF_CATEGORY'], true) ."</market_category>";
 			endif;
 
 			if (strlen($arAcc['DETAIL_PAGE_URL']) <= 0)
@@ -1140,7 +1140,7 @@ if (empty($arRunErrors))
 
 			$section = (int)end(preg_split("/\n/", strip_tags($strSections),-1, PREG_SPLIT_NO_EMPTY));
 			if($arAvailGroups[$section]['UF_CATEGORY']):
-				$strSections .= "<market_category>". $arAvailGroups[$section]['UF_CATEGORY'] ."</market_category>";
+				$strSections .= "<market_category>". yandex_text2xml($arAvailGroups[$section]['UF_CATEGORY'], true) ."</market_category>";
 			endif;
 
 			$arItem['YANDEX_CATEGORY'] = $strSections;
