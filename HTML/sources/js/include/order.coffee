@@ -65,9 +65,11 @@
 			else
 				data = $.parseJSON data
 				if data.success == 'Y'
-					location.href = data.redirect
 					if yaCounter28060548
 						yaCounter28060548.reachGoal 'createOrder'
+					delay 400, ->
+						location.href = data.redirect
+
 @initOrderPage = ->
 	initOrder()
 	getOrderDate()
