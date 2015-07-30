@@ -689,7 +689,7 @@ if (empty($arRunErrors))
 			unset($section, $sectionIterator);
 
 			$filter = array("IBLOCK_ID"=>$IBLOCK_ID, ">LEFT_MARGIN"=>$curLEFT_MARGIN, "<RIGHT_MARGIN"=>$curRIGHT_MARGIN, "ACTIVE"=>"Y", "IBLOCK_ACTIVE"=>"Y", "GLOBAL_ACTIVE"=>"Y");
-			$sectionIterator = CIBlockSection::GetList(array("LEFT_MARGIN"=>"ASC"), $filter, false, array('ID', 'IBLOCK_SECTION_ID', 'NAME'));
+			$sectionIterator = CIBlockSection::GetList(array("LEFT_MARGIN"=>"ASC"), $filter, false, array('ID', 'IBLOCK_SECTION_ID', 'NAME', 'UF_SECTION'));
 			while ($section = $sectionIterator->Fetch())
 			{
 				$section["ID"] = (int)$section["ID"];
@@ -707,7 +707,7 @@ if (empty($arRunErrors))
 	else
 	{
 		$filter = array("IBLOCK_ID"=>$IBLOCK_ID, "ACTIVE"=>"Y", "IBLOCK_ACTIVE"=>"Y", "GLOBAL_ACTIVE"=>"Y");
-		$sectionIterator = CIBlockSection::GetList(array("LEFT_MARGIN"=>"ASC"), $filter, false, array('ID', 'IBLOCK_SECTION_ID', 'NAME'));
+		$sectionIterator = CIBlockSection::GetList(array("LEFT_MARGIN"=>"ASC"), $filter, false, array('ID', 'IBLOCK_SECTION_ID', 'NAME', 'UF_SECTION'));
 		while ($section = $sectionIterator->Fetch())
 		{
 			$section["ID"] = (int)$section["ID"];
@@ -721,7 +721,6 @@ if (empty($arRunErrors))
 		if (!empty($arAvailGroups))
 			$arSectionIDs = array_keys($arAvailGroups);
 	}
-
 	foreach ($arAvailGroups as &$value)
 	{
 		$strTmpCat.= '<category id="'.$value['ID'].'"'.($value['IBLOCK_SECTION_ID'] > 0 ? ' parentId="'.$value['IBLOCK_SECTION_ID'].'"' : '').'>'.yandex_text2xml($value['NAME'], true).'</category>'."\n";
@@ -879,6 +878,7 @@ if (empty($arRunErrors))
 
 				}
 			}
+
 			if (!$boolCurrentSections)
 			{
 				$boolNeedRootSection = true;
@@ -889,6 +889,11 @@ if (empty($arRunErrors))
 				if ($bNoActiveGroup)
 					continue;
 			}
+
+			$section = (int)end(preg_split("/\n/", strip_tags($strTmpOff_tmp),-1, PREG_SPLIT_NO_EMPTY));
+			if($arAvailGroups[$section]['UF_SECTION']):
+				$strTmpOff_tmp .= "<market_category>". $arAvailGroups[$section]['UF_SECTION'] ."</market_category>";
+			endif;
 
 			if (strlen($arAcc['DETAIL_PAGE_URL']) <= 0)
 				$arAcc['DETAIL_PAGE_URL'] = '/';
@@ -1121,6 +1126,7 @@ if (empty($arRunErrors))
 					$boolNoActiveSections = false;
 				}
 			}
+
 			if (!$boolCurrentSections)
 			{
 				$boolNeedRootSection = true;
@@ -1131,6 +1137,11 @@ if (empty($arRunErrors))
 				if ($boolNoActiveSections)
 					continue;
 			}
+
+			$section = (int)end(preg_split("/\n/", strip_tags($strSections),-1, PREG_SPLIT_NO_EMPTY));
+			if($arAvailGroups[$section]['UF_SECTION']):
+				$strSections .= "<market_category>". $arAvailGroups[$section]['UF_SECTION'] ."</market_category>";
+			endif;
 
 			$arItem['YANDEX_CATEGORY'] = $strSections;
 
