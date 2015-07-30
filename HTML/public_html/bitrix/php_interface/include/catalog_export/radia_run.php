@@ -971,6 +971,8 @@ if (empty($arRunErrors))
 					break;
 				case 'model':
 				case 'title':
+					$brand = strip_tags(yandex_get_value($arAcc, '', 4, $arProperties, $arUserTypeFormat));
+					$text = str_replace(array($arAcc['PROPERTIES'][11]['VALUE'], $brand, "  "), "", $arAcc['NAME']);
 					if (!is_array($XML_DATA) || !is_array($XML_DATA['XML_DATA']) || !$XML_DATA['XML_DATA'][$key])
 					{
 						if (
@@ -978,17 +980,15 @@ if (empty($arRunErrors))
 							||
 							$key == 'title' && $XML_DATA['TYPE'] == 'artist.title'
 						)
-
-						$strTmpOff.= "<".$key.">".yandex_text2xml($arAcc["~NAME"], true)."</".$key.">\n";
+						$strValue = "<".$key.">".yandex_text2xml($arAcc["~NAME"], true)."</".$key.">\n";
 					}
 					else
 					{
-						$strValue = '';
-						$strValue = yandex_get_value($arAcc, $key, $XML_DATA['XML_DATA'][$key], $arProperties, $arUserTypeFormat);
-
+						$strValue = "<model>".yandex_text2xml($arAcc['PROPERTIES'][2]['VALUE'] . ' ' . $text, true)."</model>";
 						if ('' != $strValue)
-							$strTmpOff .= $strValue."\n";
+							$strValue .= "\n";
 					}
+
 					break;
 				case 'year':
 					$y++;
@@ -1429,10 +1429,12 @@ if (empty($arRunErrors))
 						case 'typePrefix':
 							$strValue = "<typePrefix>".yandex_text2xml($arOfferItem['PROPERTIES'][11]['VALUE'], true)."</typePrefix>";
 							if ('' != $strValue)
-								$strValue .= "\n";
+								$strOfferYandex .= $strValue."\n";
 							break;
 						case 'model':
 						case 'title':
+							$brand = strip_tags(yandex_get_value($arOfferItem, '', 4, $arProperties, $arUserTypeFormat));
+							$text = str_replace(array($arOfferItem['PROPERTIES'][11]['VALUE'], $brand, "  "), "", $arOfferItem['NAME']);
 							if (!is_array($XML_DATA) || !is_array($XML_DATA['XML_DATA']) || !$XML_DATA['XML_DATA'][$key])
 							{
 								if (
@@ -1440,15 +1442,15 @@ if (empty($arRunErrors))
 									||
 									$key == 'title' && $XML_DATA['TYPE'] == 'artist.title'
 								)
-								$strOfferYandex .= "<".$key.">".yandex_text2xml($arOfferItem["~NAME"], true)."</".$key.">\n";
+								$strOfferYandex = "<".$key.">".yandex_text2xml($arOfferItem["~NAME"], true)."</".$key.">\n";
 							}
 							else
 							{
-								$strValue = '';
-								$strValue = yandex_get_value($arOfferItem, $key, $XML_DATA['XML_DATA'][$key], $arProperties, $arUserTypeFormat);
+								$strValue = "<model>".yandex_text2xml($arOfferItem['PROPERTIES'][2]['VALUE'] . ' ' . $text, true)."</model>";
 								if ('' != $strValue)
 									$strOfferYandex .= $strValue."\n";
 							}
+
 							break;
 						case 'year':
 							$y++;
@@ -1523,7 +1525,7 @@ if (empty($arRunErrors))
 						);
 						if ($arPrice = $rsPrices->Fetch())
 						{
-/*							$dbVAT = CCatalogProduct::GetVATInfo($arOfferItem['ID']);
+							/*$dbVAT = CCatalogProduct::GetVATInfo($arOfferItem['ID']);
 							if ($arVat = $dbVAT->Fetch())
 							{
 								$arVat['RATE'] = floatval($arVat['RATE'] * 0.01);
@@ -1698,10 +1700,12 @@ if (empty($arRunErrors))
 						case 'typePrefix':
 							$strValue = "<typePrefix>".yandex_text2xml($arOfferItem['PROPERTIES'][11]['VALUE'], true)."</typePrefix>";
 							if ('' != $strValue)
-								$strValue .= "\n";
+								$strOfferYandex .= $strValue."\n";
 							break;
 						case 'model':
 						case 'title':
+							$brand = strip_tags(yandex_get_value($arOfferItem, '', 4, $arProperties, $arUserTypeFormat));
+							$text = str_replace(array($arOfferItem['PROPERTIES'][11]['VALUE'], $brand, "  "), "", $arOfferItem['NAME']);
 							if (!is_array($XML_DATA) || !is_array($XML_DATA['XML_DATA']) || !$XML_DATA['XML_DATA'][$key])
 							{
 								if (
@@ -1709,15 +1713,15 @@ if (empty($arRunErrors))
 									||
 									$key == 'title' && $XML_DATA['TYPE'] == 'artist.title'
 								)
-								$strOfferYandex .= "<".$key.">".yandex_text2xml($arOfferItem["~NAME"], true)."</".$key.">\n";
+								$strOfferYandex = "<".$key.">".yandex_text2xml($arOfferItem["~NAME"], true)."</".$key.">\n";
 							}
 							else
 							{
-								$strValue = '';
-								$strValue = yandex_get_value($arOfferItem, $key, $XML_DATA['XML_DATA'][$key], $arProperties, $arUserTypeFormat);
+								$strValue = "<model>".yandex_text2xml($arOfferItem['PROPERTIES'][2]['VALUE'] . ' ' . $text, true)."</model>";
 								if ('' != $strValue)
 									$strOfferYandex .= $strValue."\n";
 							}
+
 							break;
 						case 'year':
 							$y++;
@@ -1783,7 +1787,7 @@ if (empty($arRunErrors))
 					);
 					if ($arPrice = $rsPrices->Fetch())
 					{
-/*						$dbVAT = CCatalogProduct::GetVATInfo($arItem['ID']);
+						/*$dbVAT = CCatalogProduct::GetVATInfo($arItem['ID']);
 						if ($arVat = $dbVAT->Fetch())
 						{
 							$arVat['RATE'] = floatval($arVat['RATE'] * 0.01);
