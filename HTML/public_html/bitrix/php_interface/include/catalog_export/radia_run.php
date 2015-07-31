@@ -976,24 +976,13 @@ if (empty($arRunErrors))
 					break;
 				case 'model':
 				case 'title':
+				case 'vendorCode':
 					$brand = strip_tags(yandex_get_value($arAcc, '', 4, $arProperties, $arUserTypeFormat));
-					$text = str_replace(array($arAcc['PROPERTIES'][11]['VALUE'], $brand, "  "), "", $arAcc['NAME']);
-					if (!is_array($XML_DATA) || !is_array($XML_DATA['XML_DATA']) || !$XML_DATA['XML_DATA'][$key])
-					{
-						if (
-							$key == 'model' && $XML_DATA['TYPE'] == 'vendor.model'
-							||
-							$key == 'title' && $XML_DATA['TYPE'] == 'artist.title'
-						)
-						$strValue = "<".$key.">".yandex_text2xml($arAcc["~NAME"], true)."</".$key.">\n";
-					}
-					else
-					{
-						$strValue = "<model>".yandex_text2xml($arAcc['PROPERTIES'][2]['VALUE'] . ' ' . $text, true)."</model>";
-						if ('' != $strValue)
-							$strValue .= "\n";
-					}
-
+					$text = $arAcc['PROPERTIES'][2]['VALUE'] . ' ' . str_replace(array($arAcc['PROPERTIES'][11]['VALUE'], $brand, "  "), "", $arAcc['NAME']);
+					if($key == 'vendorCode') $text = str_replace(' ', '_', $text);
+					$strValue = "<".$key.">".yandex_text2xml($text, true)."</".$key.">";
+					if ('' != $strValue)
+						$strValue .= "\n";
 					break;
 				case 'year':
 					$y++;
@@ -1444,24 +1433,13 @@ if (empty($arRunErrors))
 							break;
 						case 'model':
 						case 'title':
+						case 'vendorCode':
 							$brand = strip_tags(yandex_get_value($arOfferItem, '', 4, $arProperties, $arUserTypeFormat));
-							$text = str_replace(array($arOfferItem['PROPERTIES'][11]['VALUE'], $brand, "  "), "", $arOfferItem['NAME']);
-							if (!is_array($XML_DATA) || !is_array($XML_DATA['XML_DATA']) || !$XML_DATA['XML_DATA'][$key])
-							{
-								if (
-									$key == 'model' && $XML_DATA['TYPE'] == 'vendor.model'
-									||
-									$key == 'title' && $XML_DATA['TYPE'] == 'artist.title'
-								)
-								$strOfferYandex = "<".$key.">".yandex_text2xml($arOfferItem["~NAME"], true)."</".$key.">\n";
-							}
-							else
-							{
-								$strValue = "<model>".yandex_text2xml($arOfferItem['PROPERTIES'][2]['VALUE'] . ' ' . $text, true)."</model>";
-								if ('' != $strValue)
-									$strOfferYandex .= $strValue."\n";
-							}
-
+							$text = $arOfferItem['PROPERTIES'][2]['VALUE'] . ' ' . str_replace(array($arOfferItem['PROPERTIES'][11]['VALUE'], $brand, "  "), "", $arOfferItem['NAME']);
+							if($key == 'vendorCode') $text = str_replace(' ', '_', $text);
+							$strValue = "<".$key.">".yandex_text2xml($text, true)."</".$key.">";
+							if ('' != $strValue)
+								$strOfferYandex .= $strValue."\n";
 							break;
 						case 'year':
 							$y++;
@@ -1715,25 +1693,15 @@ if (empty($arRunErrors))
 							break;
 						case 'model':
 						case 'title':
+						case 'vendorCode':
 							$brand = strip_tags(yandex_get_value($arOfferItem, '', 4, $arProperties, $arUserTypeFormat));
-							$text = str_replace(array($arOfferItem['PROPERTIES'][11]['VALUE'], $brand, "  "), "", $arOfferItem['NAME']);
-							if (!is_array($XML_DATA) || !is_array($XML_DATA['XML_DATA']) || !$XML_DATA['XML_DATA'][$key])
-							{
-								if (
-									$key == 'model' && $XML_DATA['TYPE'] == 'vendor.model'
-									||
-									$key == 'title' && $XML_DATA['TYPE'] == 'artist.title'
-								)
-								$strOfferYandex = "<".$key.">".yandex_text2xml($arOfferItem["~NAME"], true)."</".$key.">\n";
-							}
-							else
-							{
-								$strValue = "<model>".yandex_text2xml($arOfferItem['PROPERTIES'][2]['VALUE'] . ' ' . $text, true)."</model>";
-								if ('' != $strValue)
-									$strOfferYandex .= $strValue."\n";
-							}
-
+							$text = $arOfferItem['PROPERTIES'][2]['VALUE'] . ' ' . str_replace(array($arOfferItem['PROPERTIES'][11]['VALUE'], $brand, "  "), "", $arOfferItem['NAME']);
+							if($key == 'vendorCode') $text = str_replace(' ', '_', $text);
+							$strValue = "<".$key.">".yandex_text2xml($text, true)."</".$key.">";
+							if ('' != $strValue)
+								$strOfferYandex .= $strValue."\n";
 							break;
+
 						case 'year':
 							$y++;
 							if ($XML_DATA['TYPE'] == 'artist.title')
@@ -1966,24 +1934,15 @@ if (empty($arRunErrors))
 						break;
 					case 'model':
 					case 'title':
+					case 'vendorCode':
 						$brand = strip_tags(yandex_get_value($arItem, '', 4, $arProperties, $arUserTypeFormat));
-						$text = str_replace(array($arItem['PROPERTIES'][11]['VALUE'], $brand, "  "), "", $arItem['NAME']);
-						if (!is_array($XML_DATA) || !is_array($XML_DATA['XML_DATA']) || !$XML_DATA['XML_DATA'][$key])
-						{
-							if (
-								$key == 'model' && $XML_DATA['TYPE'] == 'vendor.model'
-								||
-								$key == 'title' && $XML_DATA['TYPE'] == 'artist.title'
-							)
-							$strValue = "<".$key.">".yandex_text2xml($arItem["~NAME"], true)."</".$key.">\n";
-						}
-						else
-						{
-							$strValue = "<model>".yandex_text2xml($arItem['PROPERTIES'][2]['VALUE'] . ' ' . $text, true)."</model>";
-							if ('' != $strValue)
-								$strValue .= "\n";
-						}
+						$text = $arItem['PROPERTIES'][2]['VALUE'] . ' ' . str_replace(array($arItem['PROPERTIES'][11]['VALUE'], $brand, "  "), "", $arItem['NAME']);
+						if($key == 'vendorCode') $text = str_replace(' ', '_', $text);
+						$strValue = "<".$key.">".yandex_text2xml($text, true)."</".$key.">";
+						if ('' != $strValue)
+							$strValue .= "\n";
 						break;
+
 					case 'year':
 						$y++;
 						if ($XML_DATA['TYPE'] == 'artist.title')
