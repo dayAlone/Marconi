@@ -25,7 +25,7 @@ CCatalogDiscountCoupon::ClearCoupon();
 if ($USER->IsAuthorized())
 	CCatalogDiscountCoupon::ClearCouponsByManage($USER->GetID());
 
-$arYandexFields = array('typePrefix', 'vendor', 'vendorCode', 'group_id', 'model', 'author', 'name', 'publisher', 'series', 'year', 'ISBN', 'volume', 'part', 'language', 'binding', 'page_extent', 'table_of_contents', 'performed_by', 'performance_type', 'storage', 'format', 'recording_length', 'artist', 'year', 'media', 'starring', 'director', 'originalName', 'country', 'aliases', 'description', 'sales_notes', 'promo', 'provider', 'tarifplan', 'xCategory', 'additional', 'worldRegion', 'region', 'days', 'dataTour', 'hotel_stars', 'room', 'meal', 'included', 'transport', 'price_min', 'price_max', 'options', 'manufacturer_warranty', 'country_of_origin', 'downloadable', 'param', 'place', 'hall', 'hall_part', 'is_premiere', 'is_kids', 'date',);
+$arYandexFields = array('typePrefix', 'vendor', 'vendorCode', 'model', 'author', 'name', 'publisher', 'series', 'year', 'ISBN', 'volume', 'part', 'language', 'binding', 'page_extent', 'table_of_contents', 'performed_by', 'performance_type', 'storage', 'format', 'recording_length', 'artist', 'year', 'media', 'starring', 'director', 'originalName', 'country', 'aliases', 'description', 'sales_notes', 'promo', 'provider', 'tarifplan', 'xCategory', 'additional', 'worldRegion', 'region', 'days', 'dataTour', 'hotel_stars', 'room', 'meal', 'included', 'transport', 'price_min', 'price_max', 'options', 'manufacturer_warranty', 'country_of_origin', 'downloadable', 'param', 'place', 'hall', 'hall_part', 'is_premiere', 'is_kids', 'date',);
 
 if (!function_exists("yandex_replace_special"))
 {
@@ -905,7 +905,7 @@ if (empty($arRunErrors))
 			else
 				$str_TYPE = '';
 
-			$strTmpOff.= "<offer id=\"".$arAcc["ID"]."0\"".$str_TYPE.$str_AVAILABLE.">\n";
+			$strTmpOff.= "<offer group_id=\"".$arAcc["ID"]."0\" id=\"".$arAcc["ID"]."0\"".$str_TYPE.$str_AVAILABLE.">\n";
 
 			$url = getDetailUrl($arAcc);
 			if(strlen($url) > 0):
@@ -1342,7 +1342,7 @@ if (empty($arRunErrors))
 					$arOfferItem['YANDEX_TYPE'] = $str_TYPE;
 
 					$strOfferYandex = '';
-					$strOfferYandex .= "<offer id=\"".$arOfferItem["ID"]."0\"".$str_TYPE." available=\"".$arOfferItem['YANDEX_AVAILABLE']."\">\n";
+					$strOfferYandex .= "<offer group_id=\"".$arOfferItem["ID"]."0\" id=\"".$arOfferItem["ID"]."0\"".$str_TYPE." available=\"".$arOfferItem['YANDEX_AVAILABLE']."\">\n";
 					$url = getDetailUrl($arOfferItem);
 					if(strlen($url) > 0):
 						$arOfferItem["~DETAIL_PAGE_URL"] = $url;
@@ -1606,7 +1606,7 @@ if (empty($arRunErrors))
 					$arOfferItem['YANDEX_TYPE'] = $str_TYPE;
 
 					$strOfferYandex = '';
-					$strOfferYandex .= "<offer id=\"".$arOfferItem["ID"]."0\"".$str_TYPE." available=\"".$arOfferItem['YANDEX_AVAILABLE']."\">\n";
+					$strOfferYandex .= "<offer group_id=\"".$arOfferItem["ID"]."0\" id=\"".$arOfferItem["ID"]."0\"".$str_TYPE." available=\"".$arOfferItem['YANDEX_AVAILABLE']."\">\n";
 
 					$url = getDetailUrl($arOfferItem);
 					if(strlen($url) > 0):
@@ -1872,7 +1872,7 @@ if (empty($arRunErrors))
 					$str_TYPE = '';
 
 				$strOfferYandex = '';
-				$strOfferYandex.= "<offer id=\"".$arItem["ID"]."0\"".$str_TYPE.$str_AVAILABLE.">\n";
+				$strOfferYandex.= "<offer group_id=\"".$arItem["ID"]."0\" id=\"".$arItem["ID"]."0\"".$str_TYPE.$str_AVAILABLE.">\n";
 				$url = getDetailUrl($arItem);
 				if(strlen($url) > 0):
 					$arItem["~DETAIL_PAGE_URL"] = $url;
