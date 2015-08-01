@@ -975,7 +975,7 @@ if (empty($arRunErrors))
 						$strValue .= "\n";
 					break;
 				case 'group_id':
-					$strValue = "<group_id>"$arAcc['ID']."0</group_id>";
+					$strValue = "<group_id>".$arAcc['ID']."0</group_id>";
 					if ('' != $strValue)
 						$strValue .= "\n";
 					break;
@@ -1437,7 +1437,7 @@ if (empty($arRunErrors))
 								$strOfferYandex .= $strValue."\n";
 							break;
 						case 'group_id':
-							$strValue = "<group_id>"$arOfferItem['ID']."0</group_id>";
+							$strValue = "<group_id>".$arOfferItem['ID']."0</group_id>";
 							if ('' != $strValue)
 								$strValue .= "\n";
 							break;
@@ -1697,7 +1697,7 @@ if (empty($arRunErrors))
 							}
 							break;
 						case 'group_id':
-							$strValue = "<group_id>"$arOfferItem['ID']."0</group_id>";
+							$strValue = "<group_id>".$arOfferItem['ID']."0</group_id>";
 							if ('' != $strValue)
 								$strValue .= "\n";
 							break;
@@ -1943,7 +1943,7 @@ if (empty($arRunErrors))
 						}
 						break;
 					case 'group_id':
-						$strValue = "<group_id>"$arItem['ID']."0</group_id>";
+						$strValue = "<group_id>".$arItem['ID']."0</group_id>";
 						if ('' != $strValue)
 							$strValue .= "\n";
 						break;
