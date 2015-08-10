@@ -26,7 +26,7 @@ foreach ($arResult['ITEMS'] as $key => &$item):
 
 	$raw = CIBlockElement::GetElementGroups($item['ID'], false, array('ID', 'CODE'));
 	while($data = $raw->GetNext()):
-		if(SITE_ID == 's1' && !in_array($data['CODE'], array('all', 'sale', 'sale30', 'best-sellers', 'new')))
+		if(SITE_ID == 's1' && !in_array($data['CODE'], array('all', 'sale', 'sale30', 'best-sellers', 'new', 'coming')))
 			$item['IBLOCK_SECTION_ID'] = $data['ID'];
 		if(SITE_ID == 's2' && $data['CODE'] == 'all')
 			$item['IBLOCK_SECTION_ID'] = $data['ID'];
