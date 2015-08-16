@@ -7,6 +7,26 @@ define("VIP", 16);
 define("BX_COMPOSITE_DEBUG", false);
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
+
+AddEventHandler("subscribe", "BeforePostingSendMail", "BeforePostingSendMailHandler");
+
+function BeforePostingSendMailHandler($arFields)
+{
+	$HELLO = "Уважаемый";
+    $USER_NAME = "Подписчик";
+    //Попробуем найти подписчика.
+    $rs = CUser::GetList(($by="id"), ($order="desc"), array('EMAIL'=>$arFields["EMAIL"]));
+    if($ar = $rs->Fetch())
+    {
+		if($ar['PERSONAL_GENDER'] == 'F')
+			$HELLO = "Уважаемая";
+		$USER_NAME = $ar["NAME"];
+    }
+    $arFields["BODY"] = $HELLO." ".$USER_NAME. "! \n\r" . $arFields["BODY"];
+    return $arFields;
+}
+
+
 //AddEventHandler("sale", "OnOrderNewSendEmail", "OnBeforeMailSendHandler");
 AddEventHandler("main", "OnBeforeEventSend", "OnBeforeMailSendHandler");
 require_once($_SERVER['DOCUMENT_ROOT'].'/include/checkbox.php');
