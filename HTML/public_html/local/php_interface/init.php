@@ -20,7 +20,8 @@ function BeforePostingSendMailHandler($arFields)
     {
 		if($ar['PERSONAL_GENDER'] == 'F')
 			$HELLO = "Уважаемая";
-		$USER_NAME = $ar["NAME"];
+		if(strlen($ar["NAME"])>0)
+			$USER_NAME = $ar["NAME"];
     }
 	$arFields["BODY"] = str_replace("#NAME#", $USER_NAME, $arFields["BODY"]);
 	$arFields["BODY"] = str_replace("#HELLO#", $HELLO, $arFields["BODY"]);
