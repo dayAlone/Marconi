@@ -22,7 +22,8 @@ function BeforePostingSendMailHandler($arFields)
 			$HELLO = "Уважаемая";
 		$USER_NAME = $ar["NAME"];
     }
-    $arFields["BODY"] = $HELLO." ".$USER_NAME. "! \n\r" . $arFields["BODY"];
+	$arFields["BODY"] = str_replace("#NAME#", $USER_NAME, $arFields["BODY"]);
+	$arFields["BODY"] = str_replace("#HELLO#", $HELLO, $arFields["BODY"]);
     return $arFields;
 }
 
