@@ -7,7 +7,6 @@ define("VIP", 16);
 define("BX_COMPOSITE_DEBUG", false);
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
-
 AddEventHandler("subscribe", "BeforePostingSendMail", "BeforePostingSendMailHandler");
 
 function BeforePostingSendMailHandler($arFields)
@@ -929,7 +928,7 @@ function findCity($name = false, $setCookie = true)
 	if($name) {
 		CModule::IncludeModule("iblock");
 		$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'NAME'=>$name);
-		$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('NAME', 'UF_PHONE', 'UF_CLOSED'));
+		$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('NAME', 'UF_PHONE', 'UF_CLOSED', 'UF_LOCATION'));
 		$item = $raw->Fetch();
 		if($item && isset($item['UF_PHONE'])) { $phone = $item['UF_PHONE']; }
 	}
@@ -941,8 +940,11 @@ function findCity($name = false, $setCookie = true)
 
 	$value = array('NAME'=>$name, 'PHONE'=> $phone);
 
-	if(isset($item) && $item['UF_CLOSED'])
-		$value['CLOSED'] = "Y";
+
+	if(isset($item)):
+		if($item['UF_CLOSED']) $value['CLOSED'] = "Y";
+		if($item['UF_LOCATION']) $value['LOCATION'] = "Y";
+	endif;
 
 	$CITY = $value;
 	$APPLICATION->set_cookie("CITY", json_encode($value, JSON_UNESCAPED_UNICODE), time()+60*60*24);

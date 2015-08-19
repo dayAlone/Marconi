@@ -138,24 +138,29 @@ if (!function_exists("cmpBySort"))
 							}
 						}
 
-						Loader::includeModule('sale');
-						include($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/sale.location.selector.steps/class.php');
-						$_REQUEST['SHOW'] = array(
-							'PATH' => '1',
-							'TYPE_ID' => '1',
-						);
-						$_REQUEST['FILTER'] = array(
-							'QUERY'      => $CITY['NAME'],
-							'EXCLUDE_ID' => '0',
-							'SITE_ID'    => 's1',
-							'TYPE_ID'    => '3',
-						);
-						$data = CBitrixLocationSelectorStepsComponent::processSearchRequest();
+						if(!isset($CITY['LOCATION'])):
+							Loader::includeModule('sale');
+							include($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/sale.location.selector.steps/class.php');
+							$_REQUEST['SHOW'] = array(
+								'PATH' => '1',
+								'TYPE_ID' => '1',
+							);
+							$_REQUEST['FILTER'] = array(
+								'QUERY'      => $CITY['NAME'],
+								'EXCLUDE_ID' => '0',
+								'SITE_ID'    => 's1',
+								'TYPE_ID'    => '3',
+							);
+							$data = CBitrixLocationSelectorStepsComponent::processSearchRequest();
 
-						if(count($data['ITEMS']) > 0)
-							$value = $data['ITEMS'][0]['ID'];
-						if(!isset($value))
-							$value = $prop['DEFAULT_VALUE'];
+
+							if(count($data['ITEMS']) > 0)
+								$value = $data['ITEMS'][0]['ID'];
+							if(!isset($value))
+								$value = $prop['DEFAULT_VALUE'];
+						else:
+							$value = $CITY['LOCATION'];
+						endif;
 
 						$APPLICATION->IncludeComponent(
 							"bitrix:sale.location.selector.search",
