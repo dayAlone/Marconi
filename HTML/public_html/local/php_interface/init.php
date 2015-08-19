@@ -139,7 +139,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 		$arItems       = array();
 		$arOrder       = CSaleOrder::GetByID($arFields['ORDER_ID']);
 
-		if((intval)($arOrder['USER_ID'])>0):
+		if(($arOrder['USER_ID'])>0):
 			$rsUser    = CUser::GetByID($arOrder['USER_ID']);
 			$arUser    = $rsUser->Fetch();
 			$orderProps['NAME'] = $arUser['NAME'] . " " .$arUser['LAST_NAME'];
