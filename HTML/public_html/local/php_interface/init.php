@@ -37,7 +37,7 @@ function findCityByLocation($ID)
 {
 	CModule::IncludeModule("iblock");
 	$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'UF_LOCATION'=>$ID);
-	$raw    = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('ID', 'NAME', 'UF_PHONE', 'UF_CLOSED', 'UF_EMAIL'));
+	$raw    = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('ID', 'NAME', 'UF_PHONE', 'UF_CLOSED', 'UF_EMAIL', 'UF_LOCATION'));
 	$item   = $raw->Fetch();
 	return $item;
 }
