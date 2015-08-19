@@ -138,7 +138,7 @@ if (!function_exists("cmpBySort"))
 							}
 						}
 
-						if(!isset($CITY['LOCATION'])):
+						if(!isset($CITY['LOCATION'])){
 							Loader::includeModule('sale');
 							include($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/sale.location.selector.steps/class.php');
 							$_REQUEST['SHOW'] = array(
@@ -153,14 +153,11 @@ if (!function_exists("cmpBySort"))
 							);
 							$data = CBitrixLocationSelectorStepsComponent::processSearchRequest();
 
-
-							if(count($data['ITEMS']) > 0)
-								$value = $data['ITEMS'][0]['ID'];
-							if(!isset($value))
-								$value = $prop['DEFAULT_VALUE'];
-						else:
+							if(count($data['ITEMS']) > 0) {$value = $data['ITEMS'][0]['ID'];}
+							if(!isset($value)) { $value = $prop['DEFAULT_VALUE'];}
+						} else {
 							$value = $CITY['LOCATION'];
-						endif;
+						}
 
 						$APPLICATION->IncludeComponent(
 							"bitrix:sale.location.selector.search",
