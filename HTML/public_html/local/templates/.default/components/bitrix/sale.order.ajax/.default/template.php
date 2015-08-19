@@ -138,7 +138,7 @@ if (!function_exists("cmpBySort"))
 							}
 						}
 
-						if(!isset($CITY['LOCATION'])){
+						if(intval($CITY['LOCATION']) == 0) {
 							Loader::includeModule('sale');
 							include($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/sale.location.selector.steps/class.php');
 							$_REQUEST['SHOW'] = array(
