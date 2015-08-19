@@ -139,7 +139,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 		$arItems       = array();
 		$arOrder       = CSaleOrder::GetByID($arFields['ORDER_ID']);
 
-		if(($arOrder['USER_ID'])>0):
+		if(intval($arOrder['USER_ID'])>0):
 			$rsUser    = CUser::GetByID($arOrder['USER_ID']);
 			$arUser    = $rsUser->Fetch();
 			$orderProps['NAME'] = $arUser['NAME'] . " " .$arUser['LAST_NAME'];
@@ -921,13 +921,13 @@ function getFilterStringValues($id, $section, $values)
 /*use Bitrix\Main;
 use Bitrix\Main\Loader;*/
 
-function findCity($name = false, $setCookie = true)
+function findCity($name = false, $setCookie = true, $id = false)
 {
 	global $APPLICATION, $CITY;
 
 	if($name) {
-		if(intval($name) == $name) {
-			$item = findCityByLocation($name);
+		if(intval($id) > 0) {
+			$item = findCityByLocation($id);
 		}
 		else {
 			CModule::IncludeModule("iblock");
@@ -959,7 +959,10 @@ function findCity($name = false, $setCookie = true)
 if(!strstr($_SERVER['SCRIPT_NAME'], 'bitrix/admin') && !defined("NO_IP")):
 	global $CITY;
 	$CITY = json_decode($APPLICATION->get_cookie("CITY"), true);
-	if(strlen($_COOKIE['city']) > 1) { findCity($_COOKIE['city']); }
+	if(strlen($_COOKIE['city']) > 1) {
+		$data = json_decode($_COOKIE['city'], TRUE);
+		findCity($data['name'], true, $data['id']);
+	}
 	if(!is_array($CITY) && CModule::IncludeModule("altasib.geoip")) {
 		$arData = ALX_GeoIP::GetAddr();
 		if(isset($_SESSION['GEOIP']['city']))

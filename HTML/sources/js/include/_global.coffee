@@ -257,7 +257,7 @@ $(document).ready ->
 
 	$('.city input[name="place"]').on 'change', ->
 		if $(this).val() > 0
-			val = $('.city').elem('select').find('input[type="text"].bx-ui-sls-fake').val()
+			val = JSON.stringify { 'id':$(this).val(), 'name': $('.city').elem('select').find('input[type="text"].bx-ui-sls-fake').val() }
 			$.cookie('city', val, { path:"/", expires: 7 });
 			location.href = location.href
 			hideCityDropdown()
