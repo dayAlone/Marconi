@@ -929,7 +929,7 @@ function findCity($name = false, $setCookie = true)
 		if(intval($name) == $name) {
 			$item = findCityByLocation($name);
 		}
-		if (!$item) {
+		else {
 			CModule::IncludeModule("iblock");
 			$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'NAME'=>$name);
 			$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('NAME', 'UF_PHONE', 'UF_CLOSED', 'UF_LOCATION'));
