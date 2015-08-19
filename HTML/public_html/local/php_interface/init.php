@@ -139,7 +139,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 		$arItems       = array();
 		$arOrder       = CSaleOrder::GetByID($arFields['ORDER_ID']);
 
-		if(intval($arOrder['USER_ID'])>0):
+		if((intval)($arOrder['USER_ID'])>0):
 			$rsUser    = CUser::GetByID($arOrder['USER_ID']);
 			$arUser    = $rsUser->Fetch();
 			$orderProps['NAME'] = $arUser['NAME'] . " " .$arUser['LAST_NAME'];
@@ -926,10 +926,15 @@ function findCity($name = false, $setCookie = true)
 	global $APPLICATION, $CITY;
 
 	if($name) {
-		CModule::IncludeModule("iblock");
-		$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'NAME'=>$name);
-		$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('NAME', 'UF_PHONE', 'UF_CLOSED', 'UF_LOCATION'));
-		$item = $raw->Fetch();
+		if(intval($name) == $name) {
+			$item = findCityByLocation($name);
+		}
+		if (!$item) {
+			CModule::IncludeModule("iblock");
+			$filter = Array('IBLOCK_ID' => 6, 'ACTIVE'=>'Y', 'NAME'=>$name);
+			$raw = CIBlockSection::GetList(Array('NAME'=>'ASC'), $filter, false, array('NAME', 'UF_PHONE', 'UF_CLOSED', 'UF_LOCATION'));
+			$item = $raw->Fetch();
+		}
 		if($item && isset($item['UF_PHONE'])) { $phone = $item['UF_PHONE']; }
 	}
 	else
@@ -950,6 +955,7 @@ function findCity($name = false, $setCookie = true)
 	$APPLICATION->set_cookie("CITY", json_encode($value, JSON_UNESCAPED_UNICODE), time()+60*60*24);
 
 }
+
 if(!strstr($_SERVER['SCRIPT_NAME'], 'bitrix/admin') && !defined("NO_IP")):
 	global $CITY;
 	$CITY = json_decode($APPLICATION->get_cookie("CITY"), true);
