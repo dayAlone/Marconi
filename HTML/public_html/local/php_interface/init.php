@@ -943,7 +943,7 @@ function findCity($name = false, $setCookie = true)
 
 	if(isset($item)):
 		if($item['UF_CLOSED']) $value['CLOSED'] = "Y";
-		if($item['UF_LOCATION']) $value['LOCATION'] = "Y";
+		if($item['UF_LOCATION']) $value['LOCATION'] = $item['UF_LOCATION'];
 	endif;
 
 	$CITY = $value;
