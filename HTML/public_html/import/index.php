@@ -620,7 +620,7 @@
 			foreach ($data['items'] as $item)
 				$ids[] = $item->getAttribute('id');
 
-			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_GENERAL', 'PROPERTY_RETAIL', 'PROPERTY_SHOWCASE')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_CML2_LINK')));
+			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_GENERAL', 'PROPERTY_RETAIL', 'PROPERTY_SHOWCASE', 'PROPERTY_COMING')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_CML2_LINK')));
 
 			$ids  = array();
 			foreach ($this->products as $item)
@@ -650,8 +650,11 @@
 
 						$arData[$count->getAttribute('store')] = $amount;
 
+						$coming = false;
+						if($product['COMING'] == 'Y') $coming = true;
+
 						// Активация товаров которые в наличии
-						if(intval($amount) > 0 && (isset($product['CML2_LINK']) || $product['ACTIVE'] == 'N')):
+						if((intval($amount) > 0 || $coming) && (isset($product['CML2_LINK']) || $product['ACTIVE'] == 'N')):
 				    		$raw = new CIBlockElement;
 				    		if(isset($product['CML2_LINK'])):
 				    			$raw->Update($product['CML2_LINK'], array('ACTIVE'=>'Y'));
