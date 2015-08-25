@@ -2215,6 +2215,7 @@ body.index--fmarconi {
 .index--italbags .wrap {
   position: relative;
   min-height: 450px;
+  height: 100%;
   height: 100vh;
   max-height: 100vh;
   background: url("/layout/images/italbags-main.jpg") top left no-repeat;
@@ -2234,11 +2235,12 @@ body.index--fmarconi {
 .index--italbags .index__block {
   position: absolute;
   top: 40%;
-  -webkit-transform: translateY(calc(-50% - 10px));
-  -moz-transform: translateY(calc(-50% - 10px));
-  -o-transform: translateY(calc(-50% - 10px));
-  -ms-transform: translateY(calc(-50% - 10px));
-  transform: translateY(calc(-50% - 10px));
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin-top: -10px;
   border: 5px solid #000;
   max-width: 90%;
   padding: 20px 30px 15px 18px;
