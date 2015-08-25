@@ -26,7 +26,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 <?
 if (count($arResult["ERRORS"]) > 0):
 	foreach ($arResult["ERRORS"] as $key => $error)
-		if (intval($key) == 0 && $key !== 0) 
+		if (intval($key) == 0 && $key !== 0)
 			$arResult["ERRORS"][$key] = str_replace("#FIELD_NAME#", "&quot;".GetMessage("REGISTER_FIELD_".$key)."&quot;", $error);
 
 	ShowError(implode("<br />", $arResult["ERRORS"]));
@@ -57,7 +57,7 @@ elseif($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):
 				</div>
 				<div class="col-xs-8">
 					<label for="REGISTER[PERSONAL_BIRTHDAY]" class="signup__label">дата рождения *</label>
-					<input data-provide="datepicker" data-date-format="dd.mm.yyyy" data-date-language="ru" type="text" name="REGISTER[PERSONAL_BIRTHDAY]" id="REGISTER[PERSONAL_BIRTHDAY]" required class="signup__input">		
+					<input data-provide="datepicker" data-date-format="dd.mm.yyyy" data-date-language="ru" type="text" name="REGISTER[PERSONAL_BIRTHDAY]" id="REGISTER[PERSONAL_BIRTHDAY]" required class="signup__input">
 				</div>
 			</div>
 		</div>
@@ -91,9 +91,9 @@ elseif($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):
 		</div>
 		<div class="col-sm-6">
 			<label for="REGISTER[WORK_FAX]" class="signup__label">№ ИНН *</label>
-			<input name="REGISTER[WORK_FAX]" id="REGISTER[WORK_FAX]" class="signup__input" type="text">
+			<input name="REGISTER[WORK_FAX]" id="REGISTER[WORK_FAX]" class="signup__input" required type="text">
 		</div>
-		
+
 		<div class="col-sm-6">
 			<label for="REGISTER[PERSONAL_NOTES]" class="signup__label">примечания</label>
 			<textarea name="REGISTER[PERSONAL_NOTES]" id="REGISTER[PERSONAL_NOTES]" class="signup__input"></textarea>
@@ -106,7 +106,7 @@ elseif($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):
 			<label for="REGISTER[PERSONAL_MOBILE]" class="signup__label">Номер для What`s App рассылки</label>
 			<div class="row">
 				<div class="col-xs-8">
-					<input type="text" name="REGISTER[PERSONAL_MOBILE]" id="REGISTER[PERSONAL_MOBILE]" class="signup__input">		
+					<input type="text" name="REGISTER[PERSONAL_MOBILE]" id="REGISTER[PERSONAL_MOBILE]" class="signup__input">
 				</div>
 				<div class="col-xs-4">
 					<input type="checkbox" id="email" name="maillist" value="1" class="signup__checkbox">
@@ -133,7 +133,7 @@ elseif($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):
 				<div class="col-xs-5">
 					<input type="hidden" name="captcha_sid" value="<?=$code?>">
 					<label for="captcha_word" class="signup__label">в это поле *</label>
-					<input type="text" name="captcha_word" id="captcha_word" required class="signup__input">		
+					<input type="text" name="captcha_word" id="captcha_word" required class="signup__input">
 				</div>
 			</div>
 		</div>

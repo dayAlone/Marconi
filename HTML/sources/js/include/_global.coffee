@@ -1,5 +1,8 @@
 $(document).ready ->
 
+	if !pointerEventsSupported
+		$('body').addClass 'nopointer'
+
 	window.ParsleyValidator.setLocale('ru');
 
 	delay 300, ()->

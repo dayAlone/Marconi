@@ -5053,6 +5053,9 @@ div.pp_default .pp_loaderIcon {
   top: 100%;
   pointer-events: all;
 }
+.nopointer .toolbar .nav > li:hover > ul {
+  display: block;
+}
 .toolbar .nav > li:hover > .nav__item {
   background: #d10a32;
   color: #fff;
@@ -5083,6 +5086,9 @@ div.pp_default .pp_loaderIcon {
   filter: alpha(opacity=0);
   padding: 0;
   list-style: none;
+}
+.nopointer .toolbar .nav > li > ul {
+  display: none;
 }
 .toolbar .nav > li > ul li {
   float: left;
