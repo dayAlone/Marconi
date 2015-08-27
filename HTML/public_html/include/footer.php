@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-7 col-sm-3 col-md-2">
-        <div class="copyright">© <?=date('Y')?> 
+        <div class="copyright">© <?=date('Y')?>
         <?if(SITE_ID == 's1'):?>
           <?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"Megatron LLC":"ООО «Мегатрон»")?>
         <?else:?>
@@ -23,7 +23,7 @@
         <nobr>
         <?php
             if(SITE_ID == 's1'):
-              $APPLICATION->IncludeComponent("bitrix:menu", "social", 
+              $APPLICATION->IncludeComponent("bitrix:menu", "social",
               array(
                   "ALLOW_MULTI_SELECT" => "Y",
                   "MENU_CACHE_TYPE"    => "A",
@@ -80,7 +80,7 @@
             </div>
 
             <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
+                <div class="pswp__share-tooltip"></div>
             </div>
 
             <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
@@ -132,17 +132,17 @@ $APPLICATION->ShowViewContent('footer');
     })
   </script>
   <?endif;?>
-  
+
   <div id="login" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade">
     <div class="modal-dialog feedback__dialog">
       <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
         <?
-          $APPLICATION->IncludeComponent("bitrix:system.auth.form", "", 
+          $APPLICATION->IncludeComponent("bitrix:system.auth.form", "",
           Array(
             "REGISTER_URL"        => "register.php",
             "FORGOT_PASSWORD_URL" => "",
             "PROFILE_URL"         => "/profile/",
-            "SHOW_ERRORS"         => "Y" 
+            "SHOW_ERRORS"         => "Y"
           )
         );
         ?>
@@ -163,7 +163,7 @@ $APPLICATION->ShowViewContent('footer');
       </div>
     </div>
   </div>
-  
+
   <? if(SITE_ID == 's1'):?>
   <div id="register" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade register">
     <div class="modal-dialog feedback__dialog">
@@ -172,20 +172,20 @@ $APPLICATION->ShowViewContent('footer');
           <p><big>Вы успешно зарегистрированы и авторизованы на сайте.</big></p>
         </div>
         <?$APPLICATION->IncludeComponent("bitrix:main.register","",Array(
-                "USER_PROPERTY_NAME" => "", 
-                "SEF_MODE"           => "Y", 
-                "SHOW_FIELDS"        => Array("NAME", "LAST_NAME", "PERSONAL_PHONE"), 
-                "REQUIRED_FIELDS"    => Array("NAME"), 
-                "AUTH"               => "Y", 
-                "USE_BACKURL"        => "Y", 
-                "USE_CAPTCHA"        => "Y", 
-                "SUCCESS_PAGE"       => "", 
-                "SET_TITLE"          => "N", 
-                "USER_PROPERTY"      => Array(), 
-                "SEF_FOLDER"         => "/", 
+                "USER_PROPERTY_NAME" => "",
+                "SEF_MODE"           => "Y",
+                "SHOW_FIELDS"        => Array("NAME", "LAST_NAME", "PERSONAL_PHONE"),
+                "REQUIRED_FIELDS"    => Array("NAME"),
+                "AUTH"               => "Y",
+                "USE_BACKURL"        => "Y",
+                "USE_CAPTCHA"        => "Y",
+                "SUCCESS_PAGE"       => "",
+                "SET_TITLE"          => "N",
+                "USER_PROPERTY"      => Array(),
+                "SEF_FOLDER"         => "/",
                 "VARIABLE_ALIASES"   => Array()
             )
-        );?> 
+        );?>
       </div>
     </div>
   </div>
@@ -195,12 +195,12 @@ $APPLICATION->ShowViewContent('footer');
   <div class="modal-dialog">
     <a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
     <?php
-        $APPLICATION->IncludeComponent("bitrix:menu", "toolbar", 
+        $APPLICATION->IncludeComponent("bitrix:menu", "toolbar",
         array(
             "ALLOW_MULTI_SELECT" => "Y",
               "MENU_CACHE_TYPE"    => "A",
               "ROOT_MENU_TYPE"     => "toolbar",
-              "CHILD_MENU_TYPE"    => "header", 
+              "CHILD_MENU_TYPE"    => "header",
               "MAX_LEVEL"          => "2"
             ),
         false);
@@ -222,37 +222,37 @@ if(SITE_ID=='s2' && $_REQUEST['login']=="yes"):
 </div>
 <?endif;?>
 
-<!-- Yandex.Metrika counter --> 
-<script type="text/javascript"> 
-var yaParams = {/*Здесь параметры визита*/}; 
-</script> 
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+var yaParams = {/*Здесь параметры визита*/};
+</script>
 
-<script type="text/javascript"> 
-(function (d, w, c) { 
-(w[c] = w[c] || []).push(function() { 
-try { 
-w.yaCounter28060548 = new Ya.Metrika({id:28060548, 
-webvisor:true, 
-clickmap:true, 
-trackLinks:true, 
-accurateTrackBounce:true,params:window.yaParams||{ }}); 
-} catch(e) { } 
-}); 
+<script type="text/javascript">
+(function (d, w, c) {
+(w[c] = w[c] || []).push(function() {
+try {
+w.yaCounter28060548 = new Ya.Metrika({id:<?=(SITE_ID=='s1'?'28060548':'32173039')?>, 
+webvisor:true,
+clickmap:true,
+trackLinks:true,
+accurateTrackBounce:true,params:window.yaParams||{ }});
+} catch(e) { }
+});
 
-var n = d.getElementsByTagName("script")[0], 
-s = d.createElement("script"), 
-f = function () { n.parentNode.insertBefore(s, n); }; 
-s.type = "text/javascript"; 
-s.async = true; 
-s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; 
+var n = d.getElementsByTagName("script")[0],
+s = d.createElement("script"),
+f = function () { n.parentNode.insertBefore(s, n); };
+s.type = "text/javascript";
+s.async = true;
+s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
 
-if (w.opera == "[object Opera]") { 
-d.addEventListener("DOMContentLoaded", f, false); 
-} else { f(); } 
-})(document, window, "yandex_metrika_callbacks"); 
-</script> 
-<noscript><div><img src="//mc.yandex.ru/watch/28060548" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 
-<!-- /Yandex.Metrika counter --> 
+if (w.opera == "[object Opera]") {
+d.addEventListener("DOMContentLoaded", f, false);
+} else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/28060548" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <?if(SITE_ID=='s1'):?>
 <!-- {literal} -->
 <script type='text/javascript'>
