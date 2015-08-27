@@ -7,6 +7,29 @@ define("VIP", 16);
 define("BX_COMPOSITE_DEBUG", false);
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
+AddEventHandler("main", "OnBeforeUserLogin", "OnBeforeUserLoginHandler");
+function OnBeforeUserLoginHandler(&$arFields)
+{
+	if(SITE_ID == 's2'):
+		$rsUser   = CUser::GetByLogin($arFields['LOGIN']);
+		$arUser   = $rsUser->Fetch();
+		if($arUser):
+			$arGroups = CUser::GetUserGroup($arUser['ID']);
+			$auth = false;
+			foreach (array(1,9,5,19) as $val) {
+				if(in_array($val, $arGroups)) $auth = true;
+			}
+			AddMessage2Log(var_export($auth, true));
+			if(!$auth):
+				global $APPLICATION;
+				$APPLICATION->throwException("Пользователь с именем входа Guest не может быть авторизован.");
+				return false;
+			endif;
+		endif;
+	endif;
+}
+
+
 AddEventHandler("subscribe", "BeforePostingSendMail", "BeforePostingSendMailHandler");
 
 function BeforePostingSendMailHandler($arFields)
