@@ -10,19 +10,18 @@ define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 AddEventHandler("main", "OnBeforeUserLogin", "OnBeforeUserLoginHandler");
 function OnBeforeUserLoginHandler(&$arFields)
 {
-	if(SITE_ID == 's2'):
-		$rsUser   = CUser::GetByLogin($arFields['LOGIN']);
-		$arUser   = $rsUser->Fetch();
-		if($arUser):
-			$arGroups = CUser::GetUserGroup($arUser['ID']);
+	$rsUser   = CUser::GetByLogin($arFields['LOGIN']);
+	$arUser   = $rsUser->Fetch();
+	if($arUser):
+		$arGroups = CUser::GetUserGroup($arUser['ID']);
+		if(!in_array(1, $arGroups) && !in_array(19, $arGroups)):
 			$auth = false;
-			foreach (array(1,9,5,19) as $val) {
+			foreach (array(9,5) as $val) {
 				if(in_array($val, $arGroups)) $auth = true;
 			}
-			AddMessage2Log(var_export($auth, true));
-			if(!$auth):
+			if((!$auth && SITE_ID == 's2') || ($auth && SITE_ID == 's1')):
 				global $APPLICATION;
-				$APPLICATION->throwException("Пользователь с именем входа Guest не может быть авторизован.");
+				$APPLICATION->throwException("Не подходящие группы");
 				return false;
 			endif;
 		endif;
