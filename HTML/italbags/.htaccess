@@ -1,4 +1,4 @@
-Options -Indexes 
+Options -Indexes
 ErrorDocument 404 /404.php
 
 <IfModule mod_php5.c>
@@ -11,6 +11,10 @@ ErrorDocument 404 /404.php
 <IfModule mod_rewrite.c>
   Options +FollowSymLinks
   RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^italbags.fmarconi.ru [NC,OR]
+  RewriteCond %{HTTP_HOST} ^www.italbags.fmarconi.ru [NC]
+  RewriteRule ^(.*)$ http://italbags.ru/$1 [L,R=301,NC]
+
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-l
   RewriteCond %{REQUEST_FILENAME} !-d
@@ -29,5 +33,5 @@ ErrorDocument 404 /404.php
   ExpiresByType image/gif "access plus 3 day"
   ExpiresByType image/png "access plus 3 day"
   ExpiresByType text/css "access plus 3 day"
-  ExpiresByType application/javascript "access plus 3 day"  
+  ExpiresByType application/javascript "access plus 3 day"
 </IfModule>
