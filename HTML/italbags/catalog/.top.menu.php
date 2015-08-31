@@ -54,7 +54,7 @@ $aMenuLinks = Array(
 		"Промоушен",
 		"/catalog/promotion/",
 		Array(),
-		Array('GROUPS'=>array(1,9)),
+		Array('GROUPS'=>array(1,9,5)),
 		""
 	),
 	Array(
