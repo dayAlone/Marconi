@@ -278,10 +278,14 @@ endif;
 	        	$i++;
 	        endforeach;
 	        ?>
-	        <?if(SITE_ID == 's1' || isUserAccept()):?>
+	        <?if(SITE_ID == 's1' || isUserAccept()):
+				$showRetailPrice = true; // 1 показ
+				if(SITE_ID == 's2' || $props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de")
+					$showRetailPrice = false;
+			?>
 			<div class="props__item props__item--price">
 				<div class="props__name">
-					<?=(SITE_ID=='s1'?"интернет-магазин":"цена")?>
+					<?=($showRetailPrice?"интернет-магазин":"цена")?>
 				</div>
 				<div class="props__value">
 				<span>
@@ -303,9 +307,9 @@ endif;
 						<? endif;?>
 					  <? endif;?>
 
-					  <?if(strlen($props['SALE']['VALUE']) > 0 && SITE_ID == 's1'):?>
+					  <?if($showRetailPrice):?>
 						  <div class="product__sale">
-						  	<span><?=($props['SALE']['VALUE'] == "77ebb501-85d4-11e4-82e4-0025908101de" ? "Уникальная&nbsp;&nbsp;<br>&nbsp;&nbsp;цена" : "Скидка&nbsp;&nbsp;<br>&nbsp;&nbsp;30%")?></span>
+						  	<span>Уникальная&nbsp;&nbsp;<br>&nbsp;&nbsp;цена</span>
 						  </div>
 					  <?endif;?>
 					<? else: ?>
@@ -314,14 +318,16 @@ endif;
 				</span>
 				</div>
 			</div>
-				<? if(($arResult['MIN_PRICE']['DISCOUNT_VALUE'] < $arResult['MIN_PRICE']['VALUE'] || $props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de") && SITE_ID != 's1'): ?>
+				<? if(($arResult['MIN_PRICE']['DISCOUNT_VALUE'] < $arResult['MIN_PRICE']['VALUE'] || !$showRetailPrice): ?>
 					<div class="props__item props__item--medium">
 						<div class="props__name">ваша скидка</div>
 						<div class="props__value">
 							<span>
 								<?if($props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de"):?>
 									<strong>30%</strong>
-									<a href="#" class="props__help" data-toggle="tooltip" data-placement="bottom" title="<?=$arResult['TOOLTIP']?>">?</a>
+									<? if(SITE_ID == 's2'):?>
+										<a href="#" class="props__help" data-toggle="tooltip" data-placement="bottom" title="<?=$arResult['TOOLTIP']?>">?</a>
+									<? endif;?>
 								<?else:?>
 									<strong><?=$arResult['MIN_PRICE']['DISCOUNT_DIFF_PERCENT']?>%</strong>
 								<?endif;?>
