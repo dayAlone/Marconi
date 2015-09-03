@@ -273,10 +273,11 @@
 			endif;
 
 			// Частные случаи разделов
-			if($props["SALE"]==$this->sale):
-				$fields['IBLOCK_SECTION'][] = $this->sections['sale'];
-			elseif(strlen($props["SALE"]) > 0):
+			if($props["SALE"] != $this->sale && strlen($props["SALE"]) > 0):
 				$fields['IBLOCK_SECTION'][] = $this->sections['sale30'];
+			endif;
+			if(strlen($props["SALE"]) > 0):
+				$fields['IBLOCK_SECTION'][] = $this->sections['sale'];
 			endif;
 
 			if($props["BEST"]=='Y'):
