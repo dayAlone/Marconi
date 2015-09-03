@@ -4,8 +4,8 @@ $APPLICATION->SetPageProperty("keywords", "Купить сумку francesco mar
 $APPLICATION->SetTitle("Интернет-магазин сумок и аксессуаров");
 $APPLICATION->SetPageProperty('body_class', "catalog ".(!isset($_REQUEST['v'])?"catalog--ajax":""));
 ?><?$APPLICATION->IncludeComponent(
-	"bitrix:catalog", 
-	".default", 
+	"bitrix:catalog",
+	".default",
 	array(
 		"IBLOCK_TYPE"         => "catalog",
 		"IBLOCK_ID"           => "1",
@@ -16,7 +16,7 @@ $APPLICATION->SetPageProperty('body_class', "catalog ".(!isset($_REQUEST['v'])?"
 		"AJAX_OPTION_JUMP"    => "N",
 		"AJAX_OPTION_STYLE"   => "N",
 		"AJAX_OPTION_HISTORY" => "N",
-		"CACHE_TYPE"          => "A",
+		"CACHE_TYPE"          => "Y",
 		"CACHE_TIME"          => "36000000",
 		"CACHE_FILTER"        => "Y",
 		"CACHE_GROUPS"        => "Y",

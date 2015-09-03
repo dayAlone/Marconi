@@ -5,12 +5,12 @@ countUpOptions =
 	separator   : ' '
 	decimal     : ' '
 
-galleryOptions =     
+galleryOptions =
 	history : false
 	focus   : false
 	shareEl : false
 
-spinOptions = 
+@spinOptions = 
 	lines     : 13
 	length    : 21
 	width     : 2

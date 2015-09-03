@@ -196,3 +196,51 @@ timer = false
 			out : ()->
 				if $(window).width() > 970
 					closeDropdown $(this)
+
+@initCitySelector = ->
+	openCityDropdown = ->
+		if $('.city').elem('dropdown').is ':hidden'
+			$('.city').elem('dropdown').velocity
+				properties: "transition.slideDownIn"
+				options:
+					duration: 400
+	hideCityDropdown = ->
+		if $('.city').elem('dropdown').is ':visible'
+			$('.city').elem('dropdown').velocity
+				properties: "transition.slideUpOut"
+				options:
+					duration: 400
+
+	if !$.cookie('city')
+		openCityDropdown()
+	else if	$.cookie('city').length > 1
+		$.cookie('city', 'Y', { path:"/", expires: 7 });
+
+	$('.city').elem('trigger').off('click').on 'click', (e)->
+		if $('.city').elem('dropdown').is ':visible'
+			hideCityDropdown()
+		else
+			openCityDropdown()
+			$('.city').elem('message').hide()
+			$('.city').elem('select').show()
+			delay 300, ->
+				$('.city').elem('select').find('.bx-ui-sls-fake').focus()
+		e.preventDefault()
+
+	$('.city input[name="place"]').off('change').on 'change', ->
+		if $(this).val() > 0
+			val = JSON.stringify { 'id':$(this).val(), 'name': $('.city').elem('select').find('input[type="text"].bx-ui-sls-fake').val() }
+			$.cookie('city', val, { path:"/", expires: 7 });
+			location.href = location.href
+			hideCityDropdown()
+
+	$('.city').elem('button').byMod('true').off('click').on 'click', (e)->
+		$.cookie('city', 'Y', { path:"/", expires: 7 });
+		hideCityDropdown()
+		e.preventDefault()
+
+	$('.city').elem('button').byMod('false').off('click').on 'click', (e)->
+		$('.city').elem('message').hide()
+		$('.city').elem('select').show()
+		$('.city').elem('select').find('input[type="text"]:visible').focus()
+		e.preventDefault()

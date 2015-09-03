@@ -13,7 +13,7 @@
 use Bitrix\Main\Loader;
 use Bitrix\Main\ModuleManager;
 
-$this->setFrameMode(true);
+$frame = $this->createFrame()->begin();
 
 if (!isset($arParams['FILTER_VIEW_MODE']) || (string)$arParams['FILTER_VIEW_MODE'] == '')
 	$arParams['FILTER_VIEW_MODE'] = 'VERTICAL';
@@ -249,3 +249,13 @@ if(SITE_ID == 's1' && in_array($arResult['VARIABLES']['SECTION_CODE'], array('sa
 	})
 </script>
 </article>
+<?$frame->beginStub();?>
+	<div class="catalog__spinner"></div>
+	<script>
+		$(function() {
+			$('.catalog__spinner').spin(spinOptions);
+		});
+	</script>
+<?
+$frame->end();
+?>

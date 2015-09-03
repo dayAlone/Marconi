@@ -5,6 +5,7 @@ use Bitrix\Main\Localization\Loc;
 use Bitrix\Sale\Location;
 
 Loc::loadMessages(__FILE__);
+$frame = $this->createFrame()->begin();
 ?>
 
 <?if(!empty($arResult['ERRORS']['FATAL'])):?>
@@ -75,7 +76,7 @@ Loc::loadMessages(__FILE__);
 	</div>
 
 	<script>
-
+		initCitySelector();
 		if (!window.BX && top.BX)
 			window.BX = top.BX;
 
@@ -86,7 +87,7 @@ Loc::loadMessages(__FILE__);
 
 			<?if(strlen($arParams['JS_CONTROL_GLOBAL_ID'])):?>
 				if(typeof window.BX.locationSelectors == 'undefined') window.BX.locationSelectors = {};
-				window.BX.locationSelectors['<?=$arParams['JS_CONTROL_GLOBAL_ID']?>'] = 
+				window.BX.locationSelectors['<?=$arParams['JS_CONTROL_GLOBAL_ID']?>'] =
 			<?endif?>
 
 			new BX.autoCompleteSLS(<?=CUtil::PhpToJSObject(array(
@@ -133,4 +134,9 @@ Loc::loadMessages(__FILE__);
 
 	</script>
 
-<?endif?>
+<?endif;
+$frame->beginStub();?>
+
+<?
+$frame->end();
+?>
