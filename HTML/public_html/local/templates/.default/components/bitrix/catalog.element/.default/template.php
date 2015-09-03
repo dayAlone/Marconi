@@ -338,7 +338,7 @@ endif;
 
 		    	<? endif;?>
 		    <?endif;?>
-			<?if(SITE_ID == 's1'):?>
+			<?if($showRetailPrice):?>
 				<div class="props__item props__item--medium">
 					<div class="props__name">розничные магазины</div>
 					<div class="props__value">
