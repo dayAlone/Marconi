@@ -252,9 +252,8 @@ if(SITE_ID == 's1' && in_array($arResult['VARIABLES']['SECTION_CODE'], array('sa
 <?$frame->beginStub();?>
 	<div class="catalog__spinner"></div>
 	<script>
-		$(function() {
-			$('.catalog__spinner').spin(spinOptions);
-		});
+		var spin = new Spinner(spinOptions).spin();
+		document.getElementsByClassName('catalog__spinner')[0].appendChild(spin.el);
 	</script>
 <?
 $frame->end();
