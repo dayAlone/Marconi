@@ -215,6 +215,7 @@ filterRequest = false
 			$(this).remove()
 		e.preventDefault()
 	###
+
 @checkRange = ->
 	slider = $("input[name=range]").data("ionRangeSlider")
 
@@ -434,48 +435,49 @@ filterRequest = false
 			location.href = location.href.replace(getParameterByName('sort_param'), $(this).data('param')).replace(getParameterByName('sort_value'), $(this).data('value'))
 
 @initCatalog = ->
-	initProducts()
-	initFiltres()
-	initBrandSelect()
+	delay 100, ->
+		initProducts()
+		initFiltres()
+		initBrandSelect()
 
-	$('.page').elem('side-trigger').click (e)->
-		if !$('.page').elem('side-trigger').hasMod 'open'
-			$('.page').elem('side').find('form').velocity
-				properties: "transition.slideDownIn"
-				options:
-					duration: 300
-					complete: ->
-						$('.page').elem('side-trigger').mod 'open', true
-		else
-			$('.page').elem('side').find('form').velocity
-				properties: "transition.slideUpOut"
-				options:
-					duration: 300
-					complete: ->
-						$('.page').elem('side-trigger').mod 'open', false
-		e.preventDefault()
+		$('.page').elem('side-trigger').click (e)->
+			if !$('.page').elem('side-trigger').hasMod 'open'
+				$('.page').elem('side').find('form').velocity
+					properties: "transition.slideDownIn"
+					options:
+						duration: 300
+						complete: ->
+							$('.page').elem('side-trigger').mod 'open', true
+			else
+				$('.page').elem('side').find('form').velocity
+					properties: "transition.slideUpOut"
+					options:
+						duration: 300
+						complete: ->
+							$('.page').elem('side-trigger').mod 'open', false
+			e.preventDefault()
 
-	$('.catalog__toolbar .dropdown .dropdown__item').click (e)->
-		checkSort $(this)
+		$('.catalog__toolbar .dropdown .dropdown__item').click (e)->
+			checkSort $(this)
 
-	$('.catalog__toolbar .dropdown .dropdown__select').on 'change', (e)->
-		$(this).block().elem('text').html $(this).find('option:selected').text()
-		checkSort $(this).find('option:selected')
+		$('.catalog__toolbar .dropdown .dropdown__select').on 'change', (e)->
+			$(this).block().elem('text').html $(this).find('option:selected').text()
+			checkSort $(this).find('option:selected')
 
-	$('.catalog').elem('per-page').click (e)->
-		if window.location.search.length == 0
-			symbol = "?"
-		else
-			symbol = "&"
-		$.cookie('PER_PAGE', $(this).text(),{path:"/"})
-		if !getParameterByName('per_page')
-			location.href = location.href + symbol + "per_page=#{$(this).text()}"
-		else
-			location.href = location.href.replace(getParameterByName('per_page'), $(this).text())
-		e.preventDefault()
-	# Top button
-	$('.catalog').elem('top').on('click', (e)->
-		$('html, body').animate({'scrollTop' : 0 },300)
-		e.preventDefault()
-	).scrollToFixed
-		marginTop: 20
+		$('.catalog').elem('per-page').click (e)->
+			if window.location.search.length == 0
+				symbol = "?"
+			else
+				symbol = "&"
+			$.cookie('PER_PAGE', $(this).text(),{path:"/"})
+			if !getParameterByName('per_page')
+				location.href = location.href + symbol + "per_page=#{$(this).text()}"
+			else
+				location.href = location.href.replace(getParameterByName('per_page'), $(this).text())
+			e.preventDefault()
+		# Top button
+		$('.catalog').elem('top').on('click', (e)->
+			$('html, body').animate({'scrollTop' : 0 },300)
+			e.preventDefault()
+		).scrollToFixed
+			marginTop: 20
