@@ -303,7 +303,7 @@ endif;
 
 					  <?if(strlen($props['SALE']['VALUE']) > 0):?>
 						  <div class="product__sale">
-						  	<span><?=($props['SALE']['VALUE'] == "77ebb501-85d4-11e4-82e4-0025908101de" ? (SITE_ID=='s1'?"Уникальная цена":"SALE") : "Скидка<br>30%")?></span>
+						  	<span><?=($props['SALE']['VALUE'] == "77ebb501-85d4-11e4-82e4-0025908101de" ? (SITE_ID=='s1'?"Уникальная цена":"SALE") : "Скидка 30%")?></span>
 						  </div>
 					  <?endif;?>
 					<? else: ?>
