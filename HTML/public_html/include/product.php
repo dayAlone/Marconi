@@ -30,7 +30,7 @@ $props = &$item['PROPERTIES'];
 		    <?if($arParams['SHOW_PRICE']):?>
 			    <div class="product__price">
 			    <? if(isset($item['PRICE']) && intval($item['PRICE'])!=0): ?>
-			    	<? if($props['SALE']['VALUE'] == "77ebb502-85d4-11e4-82e4-0025908101de" && SITE_ID != 's1'):?>
+			    	<? if($props['SALE']['VALUE'] == "77ebb502-85d4-11e4-82e4-0025908101de"):?>
 						<?=number_format($item['PRICE']*.7, 0, '.', ' ')?> ₷
 						<del><?=number_format($item['PRICE'], 0, '.', ' ')?> ₷</del>
 					<?else:?>
@@ -43,16 +43,13 @@ $props = &$item['PROPERTIES'];
 			<? endif;?>
 		</div>
 		<? if(strlen($props['SALE']['VALUE']) > 0):
-			if($props['SALE']['VALUE']=="77ebb501-85d4-11e4-82e4-0025908101de"): ?>
-	    	<div class="product__sale <?=(SITE_ID == 's1'?"":"product__sale--big")?>">
-	    		<span><?=(SITE_ID == 's1'?"Уникальная<br>цена":"SALE")?></span>
-	    	</div>
-	    	<?
-	    	elseif(SITE_ID != 's1'):?>
+			?>
 			<div class="product__sale">
-				<span>Скидка<br>30%</span>
+				<span>
+					<?=($props['SALE']['VALUE'] == "77ebb501-85d4-11e4-82e4-0025908101de" ? (SITE_ID=='s1'?"Уникальная цена":"SALE") : "Скидка<br>30%")?>
+				</span>
 			</div>
-	    	<?endif;
+	    	<?
 	    elseif(strlen($props['NEW']['VALUE']) > 0 && SITE_ID != 's1'):?>
 	    	<div class="product__sale">
 				<span>NEW</span>
