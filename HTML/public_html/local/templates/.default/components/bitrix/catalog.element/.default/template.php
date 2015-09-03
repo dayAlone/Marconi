@@ -215,7 +215,9 @@ endif;
 								<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white"><?=$item['SIZES'][$item['OFFERS'][0]['PROPERTIES']['SIZE']['VALUE']]?></span><?=svg('arrow')?></a>
 
 								<span class="dropdown__frame">
-									<?foreach($item['OFFERS'] as $k=>$offer):?>
+									<?foreach($item['OFFERS'] as $k=>&$offer):
+										if($props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de") $offer['MIN_PRICE']['VALUE'] = $offer['MIN_PRICE']['VALUE']*.7;
+										?>
 									<a href="#" data-id="<?=$offer['ID']?>" <?=($arResult['SET']['SETS'][$offer['ID']]?"data-set='true'":"")?> data-price="<?=$offer['MIN_PRICE']['VALUE']?>" class="dropdown__item"><?=$item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']]?></a>
 									<?endforeach;?>
 								</span>
