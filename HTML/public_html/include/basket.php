@@ -36,8 +36,7 @@
 					        array()
 					        );
 						foreach ($dbBasketItems as $dbBasketItem) {
-							if($item['id'] == $dbBasketItem['PRODUCT_ID']);
-							$inBasket = true;
+							if($item['id'] == $dbBasketItem['PRODUCT_ID']) $inBasket = true;
 						}
 					endif;
 				endif;
