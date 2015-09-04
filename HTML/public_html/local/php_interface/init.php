@@ -299,7 +299,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 							<strong>Итого:</strong>
 						</td>
 						<td>
-							<strong>'.count($quantity).'</strong>
+							<strong>'.$quantity.'</strong>
 						</td>
 						<td></td>
 						<td>
