@@ -276,8 +276,10 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			$str = "";
 			$total = 0;
 			$i = 0;
+			$quantity = 0;
 			foreach ($arItems as $key => $arItem):
 				$i++;
+				$quantity += intval($arItem['QUANTITY']);
 				$total += $arItem['PRICE']*intval($arItem['QUANTITY']);
 				if(strlen($arItem['BRAND']['VALUE']) > 0 && strlen($arItem['ARTNUMBER']['VALUE']) > 0):
 					$arItem['NAME'] = str_replace($arFields['BRANDS'][$arItem['BRAND']['VALUE']], $arFields['BRANDS'][$arItem['BRAND']['VALUE']]." ".$arItem['ARTNUMBER']['VALUE'], $arItem['NAME']);
@@ -297,7 +299,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 							<strong>Итого:</strong>
 						</td>
 						<td>
-							<strong>'.count($arItems).'</strong>
+							<strong>'.count($quantity).'</strong>
 						</td>
 						<td></td>
 						<td>

@@ -1,5 +1,6 @@
 <?
 require_once($_SERVER['DOCUMENT_ROOT'].'/include/fix_items.php');
+
 foreach($arResult['ITEMS'] as &$item):
 	if($item["PROPERTY_TYPE"] == "N"):
 		if($item["VALUES"]["MIN"]["HTML_VALUE"] || $item["VALUES"]["MAX"]["HTML_VALUE"]):
