@@ -14,6 +14,9 @@
             param_size = $('.sizes .dropdown__text').text();
           }
           url = "/include/basket.php?a=add&id=" + id;
+          if (el.data('showcase')) {
+            url += "&showcase=1";
+          }
           if (param_size) {
             url += "&size=" + param_size;
           }
