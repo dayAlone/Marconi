@@ -383,7 +383,14 @@ endif;
 						if($arResult['inCart']):
 							?><a href="#" class="product__big-button product__big-button--border product__big-button--disabled" data-id="<?=$item['ID']?>">Товар в корзине</a><?
 						else:
-							?><a href="#" class="product__big-button product__big-button--buy <?=($hideAdd?"hidden":"")?>" <?=(count($arResult['BUY_DATA'])>0?"data-request='".json_encode($arResult['BUY_DATA'])."'":"")?> data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>">В корзину</a><?
+							?><a href="#" class="product__big-button product__big-button--buy <?=($hideAdd?"hidden":"")?>"
+								<?=(count($arResult['BUY_DATA'])>0 ?
+									"data-request='".json_encode($arResult['BUY_DATA'])."'" : "")
+								?>
+								data-id="<?=$item['ID']?>"
+								data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>"
+								<?=($arResult['PROPERTIES']['SHOWCASE']['VALUE'] == 'Y' ? "data-showcase='true'":"")?>
+								>В корзину</a><?
 						endif;?>
 
 					  	<?if(SITE_ID == 's1'):

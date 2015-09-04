@@ -18,6 +18,28 @@
 				if($item['artnumber'])
 					$props['artnumber'] = array("NAME"=>'Артикул', "CODE"=>'ARTNUMBER', "VALUE"=>$item['artnumber']);
 
+				if($item['showcase']):
+					$inBasket = false;
+					$dbBasketItems = CSaleBasket::GetList(
+				        array(
+				                "NAME" => "ASC",
+				                "ID" => "ASC"
+				                ),
+				        array(
+				                "FUSER_ID" => CSaleBasket::GetBasketUserID(),
+				                "LID" => SITE_ID,
+				                "ORDER_ID" => "NULL"
+				                ),
+				        false,
+				        false,
+				        array()
+				        );
+					foreach ($dbBasketItems as $dbBasketItem) {
+						if($item['id'] == $dbBasketItem['ID']);
+						$inBasket = true;
+					}
+				endif;
+
 				if(intval($item['quantity']) > 0):
 					if($key == 0):
 						$count = 1;
@@ -25,9 +47,12 @@
 						$count = intval($item['quantity']) * intval($data[0]['quantity']);
 					endif;
 				endif;
-				$result = Add2BasketByProductID($item['id'], $count, false, $props);
-				if(intval($result) > 0)
+				if(($item['showcase'] && !$inBasket) || !$item['showcase']):
+					$result = Add2BasketByProductID($item['id'], $count, false, $props);
+					if(intval($result) > 0): $result = 'success'; endif;
+				else:
 					$result = 'success';
+				endif;
 			}
 			break;
 		case 'add':

@@ -66,6 +66,9 @@ filterRequest = false
 
 	if !request
 		url     = "/include/basket.php?a=add&id=#{id}"
+
+		if el.data('shocase')
+			url += "&showcase=1"
 		if el.data('size')
 			url += "&size=#{el.data('size')}"
 		if artnumber

@@ -82,7 +82,13 @@ $props = &$item['PROPERTIES'];
 				}
 			?>
 			<?endif;?>
-			<a href="#" <?=(count($data)>0?"data-request='".json_encode($data)."'":"")?> class="product__icon product__icon--cart <?=(count($item['OFFERS'])>0?"product__icon--trigger":"")?>" data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>"><?=svg('cart')?></a>
+			<a href="#"
+				<?=(count($data)>0?"data-request='".json_encode($data)."'":"")?>
+				class="product__icon product__icon--cart <?=(count($item['OFFERS'])>0?"product__icon--trigger":"")?>"
+				data-id="<?=$item['ID']?>"
+				data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>"
+				<?=($props['SHOWCASE']['VALUE'] == 'Y' ? "data-showcase='true'":"")?>
+				><?=svg('cart')?></a>
 
 	    <?endif;?>
 	    <?
