@@ -20,24 +20,26 @@
 
 				if($item['showcase']):
 					$inBasket = false;
-					$dbBasketItems = CSaleBasket::GetList(
-				        array(
-				                "NAME" => "ASC",
-				                "ID" => "ASC"
-				                ),
-				        array(
-				                "FUSER_ID" => CSaleBasket::GetBasketUserID(),
-				                "LID" => SITE_ID,
-				                "ORDER_ID" => "NULL"
-				                ),
-				        false,
-				        false,
-				        array()
-				        );
-					foreach ($dbBasketItems as $dbBasketItem) {
-						if($item['id'] == $dbBasketItem['ID']);
-						$inBasket = true;
-					}
+					if(SITE_ID == 's2'):
+						$dbBasketItems = CSaleBasket::GetList(
+					        array(
+					                "NAME" => "ASC",
+					                "ID" => "ASC"
+					                ),
+					        array(
+					                "FUSER_ID" => CSaleBasket::GetBasketUserID(),
+					                "LID" => SITE_ID,
+					                "ORDER_ID" => "NULL"
+					                ),
+					        false,
+					        false,
+					        array()
+					        );
+						foreach ($dbBasketItems as $dbBasketItem) {
+							if($item['id'] == $dbBasketItem['ID']);
+							$inBasket = true;
+						}
+					endif;
 				endif;
 
 				if(intval($item['quantity']) > 0):
