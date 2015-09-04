@@ -131,7 +131,6 @@
             <?
             $frame = new \Bitrix\Main\Page\FrameHelper("city-select");
             $frame->begin();?>
-            ?>
             <a href="#" class="city__trigger"><span><?=$CITY['NAME']?></span> <?=svg('arrow')?></a>
             <div class="city__dropdown">
                 <div class="city__message">
