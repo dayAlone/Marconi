@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-lg-2 visible-lg">
           <?php
-              $APPLICATION->IncludeComponent("bitrix:menu", "social", 
+              $APPLICATION->IncludeComponent("bitrix:menu", "social",
               array(
                   "ALLOW_MULTI_SELECT" => "Y",
                   "MENU_CACHE_TYPE"    => "A",
@@ -20,7 +20,7 @@
         </div>
         <div class="col-xs-10 col-lg-8">
           <?php
-              $APPLICATION->IncludeComponent("bitrix:menu", "toolbar", 
+              $APPLICATION->IncludeComponent("bitrix:menu", "toolbar",
               array(
                   "ALLOW_MULTI_SELECT" => "Y",
                   "MENU_CACHE_TYPE"    => "A",
@@ -118,20 +118,22 @@
         <div class="col-xs-3 col-md-2">
           <div class="contacts"><a href="tel:<?=preg_replace('/[^\dx+]/i', '', $CITY['PHONE'])?>" class="contacts__number"><?=svg('phone')?><?=$CITY['PHONE']?></a></div>
           <div class="city">
-            
+            <?
+            Bitrix\Main\Page\Frame::getInstance()->startDynamicWithID("city-select");
+            ?>
             <a href="#" class="city__trigger"><span><?=$CITY['NAME']?></span> <?=svg('arrow')?></a>
             <div class="city__dropdown">
                 <div class="city__message">
                   Попробуем угадать, ваш город — <br>
                   <strong class="city__value"><?=$CITY['NAME']?>?</strong><br>
                   <a href="#" class="city__button city__button--true">Да</a><a href="#" class="city__button city__button--false">Выбрать другой город</a><br>
-                  <div class="city__description">От выбранного города зависит наличие товара <br>и способы доставки</div> 
+                  <div class="city__description">От выбранного города зависит наличие товара <br>и способы доставки</div>
                 </div>
                 <div class="city__select">
                   <?
                     $APPLICATION->IncludeComponent(
-                      "bitrix:sale.location.selector.search", 
-                      ".default", 
+                      "bitrix:sale.location.selector.search",
+                      ".default",
                       array(
                         "ID"                     => "",
                         "CODE"                   => "",
@@ -150,6 +152,9 @@
                     ?>
                 </div>
             </div>
+            <?
+            Bitrix\Main\Page\Frame::getInstance()->finishDynamicWithID("city-select", "");
+            ?>
           </div>
         </div>
         <div class="col-xs-1 col-md-2"><span class="logo__line logo__line--left"></span></div>
@@ -188,7 +193,7 @@
               ?><a href="#" class="simmilar"><?=svg('simmilar')?><span class="simmilar__text">Товары не выбраны</span></a><?
             $frame->end();
             ?>
-            
+
           </div>
         </div>
       </div>

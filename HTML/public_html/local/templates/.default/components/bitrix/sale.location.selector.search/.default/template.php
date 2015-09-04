@@ -1,11 +1,12 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+$frame = $this->createFrame('city-location-widget', false)->begin();
+?>
 
 <?
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Sale\Location;
 
 Loc::loadMessages(__FILE__);
-$frame = $this->createFrame()->begin();
 ?>
 
 <?if(!empty($arResult['ERRORS']['FATAL'])):?>
