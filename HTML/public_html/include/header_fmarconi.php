@@ -116,10 +116,21 @@
     <?else:?>
       <div class="row">
         <div class="col-xs-3 col-md-2">
-          <div class="contacts"><a href="tel:<?=preg_replace('/[^\dx+]/i', '', $CITY['PHONE'])?>" class="contacts__number"><?=svg('phone')?><?=$CITY['PHONE']?></a></div>
+          <div class="contacts">
+              <?
+                $frame = new \Bitrix\Main\Page\FrameHelper("phone-number");
+                $frame->begin();?>
+                <a href="tel:<?=preg_replace('/[^\dx+]/i', '', $CITY['PHONE'])?>" class="contacts__number"><?=svg('phone')?><?=$CITY['PHONE']?></a>
+                <?$frame->beginStub();?>
+                <a href="tel:+74959723265" class="contacts__number"><?=svg('phone')?>+7 495 972-32-65</a>
+
+                <?$frame->end();?>
+
+          </div>
           <div class="city">
             <?
-            Bitrix\Main\Page\Frame::getInstance()->startDynamicWithID("city-select");
+            $frame = new \Bitrix\Main\Page\FrameHelper("city-select");
+            $frame->begin();?>
             ?>
             <a href="#" class="city__trigger"><span><?=$CITY['NAME']?></span> <?=svg('arrow')?></a>
             <div class="city__dropdown">
@@ -152,9 +163,9 @@
                     ?>
                 </div>
             </div>
-            <?
-            Bitrix\Main\Page\Frame::getInstance()->finishDynamicWithID("city-select", "");
-            ?>
+            <?$frame->beginStub();?>
+            <a href="#" class="city__trigger"><span>Москва</span> <?=svg('arrow')?></a>
+            <?$frame->end();?>
           </div>
         </div>
         <div class="col-xs-1 col-md-2"><span class="logo__line logo__line--left"></span></div>
