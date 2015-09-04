@@ -41,8 +41,7 @@
 				if(intval($_REQUEST['count']) > 0)
 					$count = intval($_REQUEST['count']);
 
-
-				if($item['showcase']):
+				if($_REQUEST['showcase']):
 					$inBasket = false;
 					if(SITE_ID == 's2'):
 						$dbBasketItems = CSaleBasket::GetList(
@@ -60,12 +59,14 @@
 					        array()
 					        );
 						while ($dbBasketItem = $dbBasketItems->Fetch()) {
-							if($item['id'] == $dbBasketItem['PRODUCT_ID']) $inBasket = true;
+							if($id == $dbBasketItem['PRODUCT_ID']) {
+								$inBasket = true;
+							}
 						}
 					endif;
 				endif;
 
-				if(($item['showcase'] && !$inBasket) || !$item['showcase']):
+				if(($_REQUEST['showcase'] && !$inBasket) || !$_REQUEST['showcase']):
 					$result = Add2BasketByProductID($id, $count, false, $props);
 					if(intval($result) > 0): $result = 'success'; endif;
 				else:

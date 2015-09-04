@@ -17,7 +17,7 @@
 
 				url = "/include/basket.php?a=add&id=#{id}"
 
-				if el.data('showcase')
+				if $el.data('showcase')
 					url += "&showcase=1"
 
 				if param_size

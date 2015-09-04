@@ -84,6 +84,7 @@ filterRequest = false
 	fly block, $('.header .cart')
 
 	$.get url, (data)->
+		console.log data
 		if data == 'success'
 			bx_cart_block1.refreshCart({})
 			if yaCounter28060548
