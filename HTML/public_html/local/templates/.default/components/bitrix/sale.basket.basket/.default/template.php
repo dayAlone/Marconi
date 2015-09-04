@@ -110,7 +110,7 @@ function basketItem($item, $arResult)
 			<?endif;?>
 	        <div class="col-xs-2 col-md-1">
 
-	          <input value="<?=$item['QUANTITY']?>" class="basket__count <?if($item['CATALOG']['PROPERTIES']['SHOWCASE']['VALUE'] != "Y"):?>hidden<?endif;?>" data-id="<?=$item['ID']?>" data-price="<?=$item['PRICE']?>">
+	          <input value="<?=$item['QUANTITY']?>" class="basket__count <?if($item['CATALOG']['PROPERTIES']['SHOWCASE']['VALUE'] == "Y"):?>hidden<?endif;?>" data-id="<?=$item['ID']?>" data-price="<?=$item['PRICE']?>">
 
 	        </div>
 	        <div class="col-md-3">
