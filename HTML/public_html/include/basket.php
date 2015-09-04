@@ -18,6 +18,30 @@
 				if($item['artnumber'])
 					$props['artnumber'] = array("NAME"=>'Артикул', "CODE"=>'ARTNUMBER', "VALUE"=>$item['artnumber']);
 
+				if(intval($item['quantity']) > 0):
+					if($key == 0):
+						$count = 1;
+					else:
+						$count = intval($item['quantity']) * intval($data[0]['quantity']);
+					endif;
+				endif;
+
+				$result = Add2BasketByProductID($item['id'], $count, false, $props);
+				if(intval($result) > 0): $result = 'success'; endif;
+
+			}
+			break;
+		case 'add':
+				$props = array();
+				$count = 1;
+				if($_REQUEST['size'])
+					$props['size'] = array("NAME"=>'Размер', "CODE"=>'SIZE', "VALUE"=>$_REQUEST['size']);
+				if($_REQUEST['artnumber'])
+					$props['artnumber'] = array("NAME"=>'Артикул', "CODE"=>'ARTNUMBER', "VALUE"=>$_REQUEST['artnumber']);
+				if(intval($_REQUEST['count']) > 0)
+					$count = intval($_REQUEST['count']);
+
+
 				if($item['showcase']):
 					$inBasket = false;
 					if(SITE_ID == 's2'):
@@ -35,40 +59,18 @@
 					        false,
 					        array()
 					        );
-						foreach ($dbBasketItems as $dbBasketItem) {
+						while ($dbBasketItem = $dbBasketItems->Fetch()) {
 							if($item['id'] == $dbBasketItem['PRODUCT_ID']) $inBasket = true;
 						}
 					endif;
 				endif;
 
-				if(intval($item['quantity']) > 0):
-					if($key == 0):
-						$count = 1;
-					else:
-						$count = intval($item['quantity']) * intval($data[0]['quantity']);
-					endif;
-				endif;
 				if(($item['showcase'] && !$inBasket) || !$item['showcase']):
-					$result = Add2BasketByProductID($item['id'], $count, false, $props);
+					$result = Add2BasketByProductID($id, $count, false, $props);
 					if(intval($result) > 0): $result = 'success'; endif;
 				else:
 					$result = 'success';
 				endif;
-			}
-			break;
-		case 'add':
-				$props = array();
-				$count = 1;
-				if($_REQUEST['size'])
-					$props['size'] = array("NAME"=>'Размер', "CODE"=>'SIZE', "VALUE"=>$_REQUEST['size']);
-				if($_REQUEST['artnumber'])
-					$props['artnumber'] = array("NAME"=>'Артикул', "CODE"=>'ARTNUMBER', "VALUE"=>$_REQUEST['artnumber']);
-				if(intval($_REQUEST['count']) > 0)
-					$count = intval($_REQUEST['count']);
-
-				$result = Add2BasketByProductID($id, $count, false, $props);
-				if(intval($result) > 0)
-					$result = 'success';
 			break;
 		case 'check':
 			if(CCatalogDiscountCoupon::IsExistCoupon($_REQUEST['code'])):
