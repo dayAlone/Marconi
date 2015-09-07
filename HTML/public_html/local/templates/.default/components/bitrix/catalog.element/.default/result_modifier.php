@@ -119,7 +119,7 @@
 		endif;
 	endif;
 
-	if(intval($arResult['MIN_PRICE']['VALUE']) == 0 || (isset($CITY['CLOSED']) && $arResult['PROPERTIES']['GENERAL']['VALUE'] != 'Y') || (SITE_ID == 's2' && $arResult['PROPERTIES']['GENERAL']['VALUE'] != 'Y'))
+	if(intval($arResult['MIN_PRICE']['VALUE']) == 0 || (isset($CITY['CLOSED']) && $arResult['PROPERTIES']['GENERAL']['VALUE'] != 'Y') || (SITE_ID == 's2' && $arResult['PROPERTIES']['GENERAL']['VALUE'] != 'Y') || (SITE_ID == 's2' && $arResult['PROPERTIES']['COMING']['VALUE'] == 'Y'))
 		$arResult['NOT_AVAILABLE'] = true;
 	else
 		$arResult['NOT_AVAILABLE'] = false;
