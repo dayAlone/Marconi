@@ -320,7 +320,7 @@ endif;
 				</span>
 				</div>
 			</div>
-				<? if(($arResult['MIN_PRICE']['DISCOUNT_VALUE'] < $arResult['MIN_PRICE']['VALUE'] && SITE_ID == 's2') || !$showRetailPrice): ?>
+				<? if(($arResult['MIN_PRICE']['DISCOUNT_VALUE'] < $arResult['MIN_PRICE']['VALUE'] && SITE_ID == 's2') || (!$showRetailPrice && strlen($props['SALE']['VALUE'])>0)): ?>
 					<div class="props__item props__item--medium">
 						<div class="props__name">ваша скидка</div>
 						<div class="props__value">
