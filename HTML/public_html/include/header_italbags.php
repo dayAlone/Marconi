@@ -116,16 +116,16 @@
             "SHOW_NUM_PRODUCTS"   => "Y",
             "SHOW_TOTAL_PRICE"    => "Y",
             "SHOW_EMPTY_VALUES"   => "Y",
-            "SHOW_PRODUCTS"       => "Y",
+            "SHOW_PRODUCTS"       => "N",
             "POSITION_FIXED"      => "Y",
             "POSITION_HORIZONTAL" => "right",
             "POSITION_VERTICAL"   => "top",
             "PATH_TO_ORDER"       => SITE_DIR."personal/order/",
             "SHOW_DELAY"          => "N",
-            "SHOW_NOTAVAIL"       => "Y",
-            "SHOW_SUBSCRIBE"      => "Y",
-            "SHOW_IMAGE"          => "Y",
-            "SHOW_PRICE"          => "Y",
+            "SHOW_NOTAVAIL"       => "N",
+            "SHOW_SUBSCRIBE"      => "N",
+            "SHOW_IMAGE"          => "N",
+            "SHOW_PRICE"          => "N",
             "SHOW_SUMMARY"        => "Y"
         ));?>
         </div>
