@@ -11,7 +11,7 @@ $item = $arResult;
     <?endif;?>
   <?endif;?>
   <div class="news-item__content news-item__content--open">
-    <?=$item['PREVIEW_TEXT']?>
+	  <?=(strlen($item['~DETAIL_TEXT'])> 0 ? $item['~DETAIL_TEXT']: $item['~PREVIEW_TEXT'])?>
     <div class="center">
       <?if(isset($item['PREVIEW_PICTURE']['SRC'])):?>
         <img src="<?=$item['PREVIEW_PICTURE']['SRC']?>">
