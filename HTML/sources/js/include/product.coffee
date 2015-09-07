@@ -25,9 +25,10 @@
 
 				url += "&artnumber=#{artnumber}"
 
-				#if value > 0
+				if value > 0
+					url += "&count=#{value}"
 				#	$el.block('counter').mod 'disabled', true
-				#	url += "&count=#{value}"
+
 
 			else
 				request.unshift {'id': id, 'quantity':value}
