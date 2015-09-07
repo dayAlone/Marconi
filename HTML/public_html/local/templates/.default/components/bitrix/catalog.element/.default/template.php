@@ -279,11 +279,9 @@ endif;
 	        endforeach;
 	        ?>
 	        <?if(SITE_ID == 's1' || isUserAccept()):
-				if(strlen($props['SALE']['VALUE'])>0):
-					$showRetailPrice = true; // 1 показ
-					if(SITE_ID == 's2' || $props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de")
-						$showRetailPrice = false;
-				endif;
+				$showRetailPrice = true; // 1 показ
+				if(SITE_ID == 's2' || $props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de")
+					$showRetailPrice = false;
 			?>
 			<div class="props__item props__item--price">
 				<div class="props__name">
@@ -309,7 +307,7 @@ endif;
 						<? endif;?>
 					  <? endif;?>
 
-					  <?if($showRetailPrice):?>
+					  <?if($showRetailPrice && strlen($props['SALE']['VALUE']) > 0 && $props['SALE']['VALUE']!="77ebb502-85d4-11e4-82e4-0025908101de"):?>
 						  <div class="product__sale">
 						  	<span>Уникальная&nbsp;&nbsp;<br>&nbsp;&nbsp;цена</span>
 						  </div>
@@ -320,7 +318,7 @@ endif;
 				</span>
 				</div>
 			</div>
-				<? if(($arResult['MIN_PRICE']['DISCOUNT_VALUE'] < $arResult['MIN_PRICE']['VALUE'] && SITE_ID == 's2') || (!$showRetailPrice && strlen($props['SALE']['VALUE'])>0)): ?>
+				<? if(($arResult['MIN_PRICE']['DISCOUNT_VALUE'] < $arResult['MIN_PRICE']['VALUE'] && SITE_ID == 's2') || !$showRetailPrice): ?>
 					<div class="props__item props__item--medium">
 						<div class="props__name">ваша скидка</div>
 						<div class="props__value">
