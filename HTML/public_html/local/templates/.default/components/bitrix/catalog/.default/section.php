@@ -86,7 +86,7 @@ if(SITE_ID == 's1' && in_array($arResult['VARIABLES']['SECTION_CODE'], array('sa
 					"SECTION_ID"          => $arCurSection['ID'],
 					"FILTER_NAME"         => $arParams["FILTER_NAME"],
 					"PRICE_CODE"          => $arParams["PRICE_CODE"],
-					"CACHE_TYPE"          => "N",
+					"CACHE_TYPE"          => $arParams["CACHE_TYPE"],
 					"CACHE_TIME"          => $arParams["CACHE_TIME"],
 					"CACHE_GROUPS"        => $arParams["CACHE_GROUPS"],
 					"SAVE_IN_SESSION"     => (SITE_ID=='s1'?"Y":"N"),
