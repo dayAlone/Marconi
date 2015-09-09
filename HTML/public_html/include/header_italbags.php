@@ -110,23 +110,23 @@
       <div class="col-xs-3 col-md-2">
         <div class="header__links header__links--center">
           <?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line","",Array(
-            "PATH_TO_BASKET"      => "/basket/",
-            "PATH_TO_PERSONAL"    => "/personal/",
-            "SHOW_PERSONAL_LINK"  => "Y",
-            "SHOW_NUM_PRODUCTS"   => "Y",
-            "SHOW_TOTAL_PRICE"    => "Y",
-            "SHOW_EMPTY_VALUES"   => "Y",
-            "SHOW_PRODUCTS"       => "N",
-            "POSITION_FIXED"      => "Y",
-            "POSITION_HORIZONTAL" => "right",
-            "POSITION_VERTICAL"   => "top",
-            "PATH_TO_ORDER"       => SITE_DIR."personal/order/",
-            "SHOW_DELAY"          => "N",
-            "SHOW_NOTAVAIL"       => "N",
-            "SHOW_SUBSCRIBE"      => "N",
-            "SHOW_IMAGE"          => "N",
-            "SHOW_PRICE"          => "N",
-            "SHOW_SUMMARY"        => "Y"
+             "PATH_TO_BASKET"      => "/basket/",
+             "PATH_TO_PERSONAL"    => "/personal/",
+             "SHOW_PERSONAL_LINK"  => "Y",
+             "SHOW_NUM_PRODUCTS"   => "Y",
+             "SHOW_TOTAL_PRICE"    => "Y",
+             "SHOW_EMPTY_VALUES"   => "Y",
+             "SHOW_PRODUCTS"       => "Y",
+             "POSITION_FIXED"      => "Y",
+             "POSITION_HORIZONTAL" => "right",
+             "POSITION_VERTICAL"   => "top",
+             "PATH_TO_ORDER"       => SITE_DIR."personal/order/",
+             "SHOW_DELAY"          => "N",
+             "SHOW_NOTAVAIL"       => "Y",
+             "SHOW_SUBSCRIBE"      => "Y",
+             "SHOW_IMAGE"          => "Y",
+             "SHOW_PRICE"          => "Y",
+             "SHOW_SUMMARY"        => "Y"
         ));?>
         </div>
       </div>
