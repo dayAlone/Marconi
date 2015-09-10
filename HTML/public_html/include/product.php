@@ -51,7 +51,7 @@ $props = &$item['PROPERTIES'];
 			</div>
 	    	<?
 	    elseif(strlen($props['NEW']['VALUE']) > 0 && SITE_ID != 's1'):?>
-	    	<div class="product__sale">
+	    	<div class="product__sale product__sale--new">
 				<span>NEW</span>
 			</div>
 	    <?
