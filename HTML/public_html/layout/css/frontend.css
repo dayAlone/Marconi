@@ -8856,11 +8856,11 @@ a.news--list .news-item__title:hover {
   border-bottom: 1px solid #d5dbdf;
 }
 .catalog__frame {
-  overflow: hiddem;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
   .catalog__frame {
-    overflow: auto;
+    overflow: visible;
   }
 }
 .catalog__top,
