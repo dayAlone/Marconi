@@ -1,4 +1,8 @@
 .catalog
+	&__frame
+		overflow hiddem
+		@media (min-width scr_sm)
+			overflow auto
 	&__top, &__clear
 		width 100%
 		border 1px solid black
@@ -485,7 +489,8 @@
 					display none
 			&--new:after
 				content "new"
-				font-size 14px
+				font-size 8px
+				margin-top -14px
 			@media (min-width scr_sm)
 				left auto
 				right 10px

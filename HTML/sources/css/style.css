@@ -4943,6 +4943,14 @@ a.news--list .news-item__title:hover {
   left: 0;
   border-bottom: 1px solid #d5dbdf;
 }
+.catalog__frame {
+  overflow: hiddem;
+}
+@media (min-width: 768px) {
+  .catalog__frame {
+    overflow: auto;
+  }
+}
 .catalog__top,
 .catalog__clear {
   width: 100%;
@@ -5732,7 +5740,8 @@ a.news--list .news-item__title:hover {
 }
 .catalog .product__sale--new:after {
   content: "new";
-  font-size: 14px;
+  font-size: 8px;
+  margin-top: -14px;
 }
 @media (min-width: 768px) {
   .catalog .product__sale {
