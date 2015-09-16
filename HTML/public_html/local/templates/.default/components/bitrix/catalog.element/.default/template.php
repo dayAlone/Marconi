@@ -67,7 +67,7 @@ $strObName = 'ob'.preg_replace("/[^a-zA-Z0-9_]/", "x", $strMainID);
 $templateData['JS_OBJ'] = $strObName;
 $item = &$arResult;
 $props = &$arResult['PROPERTIES'];
-//var_dump($item['OFFERS']);
+
 if(SITE_ID == 's1'):
 	$this->SetViewTarget('toolbar');
 	?>
@@ -212,8 +212,8 @@ endif;
 							<span class="sizes__title">
 								выберите размер
 							</span>
-							<span class="dropdown" data-id="<?=$item['OFFERS'][0]['ID']?>" <?=(count($arResult['SET']['JSON'])>0?"data-set='".json_encode($arResult['SET']['JSON'])."'":"")?>>
-								<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white"><?=$item['SIZES'][$item['OFFERS'][0]['PROPERTIES']['SIZE']['VALUE']]?></span><?=svg('arrow')?></a>
+							<span class="dropdown" data-id="<?=array_values($item['OFFERS'])[0]['ID']?>" <?=(count($arResult['SET']['JSON'])>0?"data-set='".json_encode($arResult['SET']['JSON'])."'":"")?>>
+								<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white"><?=$item['SIZES'][array_values($item['OFFERS'])[0]['PROPERTIES']['SIZE']['VALUE']]?></span><?=svg('arrow')?></a>
 
 								<span class="dropdown__frame">
 									<?foreach($item['OFFERS'] as $k=>&$offer):
@@ -237,8 +237,8 @@ endif;
 							<span class="sizes__title">
 								только в размере
 							</span>
-							<span class="dropdown dropdown--disable" data-id="<?=$item['OFFERS'][0]['ID']?>">
-								<a href="#" data-id="<?=$item['OFFERS'][0]['ID']?>" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white"><?=$item['SIZES'][$item['OFFERS'][0]['PROPERTIES']['SIZE']['VALUE']]?></span></a>
+							<span class="dropdown dropdown--disable" data-id="<?=array_values($item['OFFERS'])[0]['ID']?>">
+								<a href="#" data-id="<?=array_values($item['OFFERS'])[0]['ID']?>" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white"><?=$item['SIZES'][array_values($item['OFFERS'])[0]['PROPERTIES']['SIZE']['VALUE']]?></span></a>
 							</span>
 						</div>
 						<?

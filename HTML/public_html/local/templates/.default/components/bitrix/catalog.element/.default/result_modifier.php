@@ -199,4 +199,20 @@
 			if(in_array($offer['ID'], $arBasketItems))
 				$arResult['inCart'] = true;
 	endif;
+
+	if(count($arResult['OFFERS']) > 0):
+
+		$offers = array();
+		foreach($arResult['OFFERS'] as $offer) $offers[$offer['ID']] = array_merge($offer, array('COUNTS' => false));
+		$raw = CCatalogStoreProduct::GetList(array('ID'=>'ASC'), array('ACTIVE' => 'Y', 'PRODUCT_ID'=>array_keys($offers)));
+		while ($count = $raw->Fetch()):
+			if (intval($count['AMOUNT']) > 0) $offers[$count['PRODUCT_ID']]['COUNTS'] = true;
+		endwhile;
+
+		foreach($offers as $offer)
+			if(!$offer['COUNTS'])
+				unset($offers[$offer['ID']]);
+		$arResult['OFFERS'] = $offers;
+
+	endif;
 ?>
