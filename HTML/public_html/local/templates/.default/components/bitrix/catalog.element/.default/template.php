@@ -67,6 +67,7 @@ $strObName = 'ob'.preg_replace("/[^a-zA-Z0-9_]/", "x", $strMainID);
 $templateData['JS_OBJ'] = $strObName;
 $item = &$arResult;
 $props = &$arResult['PROPERTIES'];
+//var_dump($item['OFFERS']);
 if(SITE_ID == 's1'):
 	$this->SetViewTarget('toolbar');
 	?>
@@ -94,7 +95,6 @@ if(SITE_ID == 's1'):
 	<?
 	$this->EndViewTarget();
 endif;
-
 ?>
 <input type="hidden" name="XML_ID" value="<?=$item['XML_ID']?>">
 <div class="row">
@@ -205,6 +205,7 @@ endif;
 					);
 	        	endif;
 				if(isset($arResult['MIN_PRICE']['VALUE'])):
+
 					if(count($item['OFFERS'])>1):
 						?>
 						<div class="sizes">
@@ -216,6 +217,8 @@ endif;
 
 								<span class="dropdown__frame">
 									<?foreach($item['OFFERS'] as $k=>&$offer):
+										//var_dump($offer);
+										if(isset($offer['MIN_PRICE']['DISCOUNT_VALUE'])) $offer['MIN_PRICE']['VALUE'] = (int)$offer['MIN_PRICE']['DISCOUNT_VALUE'];
 										if($props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de") $offer['MIN_PRICE']['VALUE'] = $offer['MIN_PRICE']['VALUE']*.7;
 										?>
 									<a href="#" data-id="<?=$offer['ID']?>" <?=($arResult['SET']['SETS'][$offer['ID']]?"data-set='true'":"")?> data-price="<?=$offer['MIN_PRICE']['VALUE']?>" class="dropdown__item"><?=$item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']]?></a>
