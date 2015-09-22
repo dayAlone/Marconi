@@ -605,8 +605,8 @@
 		public function Action($file, $offset)
 		{
 
-			$all = Import::getIBlockElements($this->iblocks['products'], array('ACTIVE' => "Y", "PROPERTY_SET" => false), array('ID'));
 			if ($offset == 1 && strstr($file, 'retail')):
+				$all = Import::getIBlockElements($this->iblocks['products'], array('ACTIVE' => "Y", "PROPERTY_SET" => false), array('ID'));
 				if(count($all) > 0):
 					foreach ($all as $item):
 						$raw = new CIBlockElement;
@@ -624,8 +624,17 @@
 			$this->products = array_merge(Import::getIBlockElements($this->iblocks['products'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_GENERAL', 'PROPERTY_RETAIL', 'PROPERTY_SHOWCASE', 'PROPERTY_COMING')), Import::getIBlockElements($this->iblocks['offers'], array('XML_ID' => $ids), array('ID', 'ACTIVE', 'PROPERTY_CML2_LINK')));
 
 			$ids  = array();
-			foreach ($this->products as $item)
+			$cmlIDs = array();
+			foreach ($this->products as $item) {
+				if(isset($item['CML2_LINK'])) $cmlIDs[] = $item['CML2_LINK'];
 				$ids[$item['XML_ID']] = $item['ID'];
+			}
+			if(count($cmlIDs) > 0) {
+				$raw = Import::getIBlockElements($this->iblocks['products'], array('ID' => $cmlIDs), array('ID', 'ACTIVE', 'PROPERTY_COMING'));
+				foreach($raw as $item) {
+					$this->products[$item['ID']] = $item;
+				}
+			}
 
 			$raw = CCatalogStoreProduct::GetList(array('ID'=>'ASC'), array('ACTIVE' => 'Y', 'PRODUCT_ID'=>array_values($ids)));
         	while ($count = $raw->Fetch()):
@@ -653,6 +662,7 @@
 
 						$coming = false;
 						if($product['COMING'] == 'Y') $coming = true;
+						if($this->products[$product['CML2_LINK']]['COMING'] == 'Y') $coming = true;
 
 						// Активация товаров которые в наличии
 						if((intval($amount) > 0 || $coming) && (isset($product['CML2_LINK']) || $product['ACTIVE'] == 'N')):
@@ -691,7 +701,6 @@
 	        		foreach(array(0, 1) as $store):
 	        			if(isset($arData[$store])):
 	        				$arUpdates[] = array('FIELD' => "GENERAL", 'AMOUNT' => $arData[$store]);
-
 	        				// Витринный экземпляр
 	        				if($store == 0):
 	        					$updateShowcase = false;
@@ -708,7 +717,7 @@
 	        			endif;
 	        		endforeach;
 
-	        		if(count($arData[$id]) > 0):
+	        		if(count($arData) > 0):
 	        			$arUpdates[] = array('FIELD' => "RETAIL", 'AMOUNT' => array_sum($arData) );
 					endif;
 

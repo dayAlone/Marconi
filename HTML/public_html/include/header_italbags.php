@@ -21,6 +21,7 @@
       </div>
       <div class="col-xs-2">
         <?
+        
           if(!strstr($APPLICATION->GetCurDir(), "/eng/")):
           $frame = new \Bitrix\Main\Page\FrameHelper("login");
           $frame->begin();?>

@@ -232,7 +232,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 				$small = CFile::ResizeImageGet(CFile::GetFileArray($arItem['PREVIEW_PICTURE']), Array("width" => 150, "height" => 150), BX_RESIZE_IMAGE_PROPORTIONAL, false, Array("name" => "sharpen", "precision" => 15), false, 75);
 				$str .= '<tr>
 						<td width="8%" style="border:1px solid #c2c4c6;border-collapse:collapse;">
-							'.($small?'<img src="http://'.$_SERVER['SERVER_NAME'].'/'.$small['src'].'" width="40" alt="">':'').'
+							'.($small?'<img src="http://fmarconi.ru/'.$small['src'].'" width="40" alt="">':'').'
 						</td>
 						<td width="40%" style="text-align:left;border:1px solid #c2c4c6;border-collapse:collapse;">'.$arItem['NAME'].'</td>
 						<td width="12%" style="border:1px solid #c2c4c6;border-collapse:collapse;">'.$arItem['ARTNUMBER']['VALUE'].'</td>
