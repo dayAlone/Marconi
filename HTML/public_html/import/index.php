@@ -162,7 +162,7 @@
 			$this->categories = Import::getHighloadElements($this->iblocks['categories'], true);
 			$this->types      = Import::getHighloadElements($this->iblocks['types'], true);
 			$this->brands     = Import::getHighloadElements($this->iblocks['brands'], true);
-			$this->properties = Array("SORT", "DETAIL_TEXT", "PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_TRADELINE", "PROPERTY_MATERIAL", "PROPERTY_SALE", "PROPERTY_PICTURES", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "PROPERTY_SECTION_4", "IBLOCK_SECTION", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL", "PROPERTY_NEW", "PROPERTY_COMING", "PROPERTY_PROMOTION", "PROPERTY_BEST" );
+			$this->properties = Array("SORT", "PREVIEW_PICTURE", "DETAIL_TEXT", "PROPERTY_COLOR", "PROPERTY_SIZE", "PROPERTY_TRADELINE", "PROPERTY_MATERIAL", "PROPERTY_SALE", "PROPERTY_PICTURES", "PROPERTY_BRAND", "PROPERTY_SECTION_1", "PROPERTY_SECTION_2", "PROPERTY_SECTION_3", "PROPERTY_SECTION_4", "IBLOCK_SECTION", "PROPERTY_CODE", "PROPERTY_ARTNUMBER", "PROPERTY_NOTE_SHORT", "PROPERTY_NOTE_FULL", "PROPERTY_NEW", "PROPERTY_COMING", "PROPERTY_PROMOTION", "PROPERTY_BEST" );
 		}
 		private function addParentCatagory(&$parent, $array)
 		{
@@ -472,6 +472,7 @@
 						if(!isset($exist['PICTURES'])):
 							$updateImages = true;
 						else:
+							if(!file_exists($_SERVER['DOCUMENT_ROOT'].CFile::GetPath($exist['PREVIEW_PICTURE']))) $updateImages = true;
 							foreach($exist['PICTURES'] as $imgKey => $img):
 								if(filemtime($props['PICTURES']['n'.$imgKey]['VALUE']['tmp_name']) > $this->files[$img]['TIME']) $updateImages = true;
 							endforeach;
