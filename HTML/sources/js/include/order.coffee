@@ -82,6 +82,12 @@
 		getOrderDate()
 
 	$('#ORDER_FORM').parsley().subscribe 'parsley:form:validate', (formInstance)->
-		if formInstance.isValid()
+		if formInstance.isValid() && !$('#ORDER_FORM').data('locked')
 			getOrderDate(true)
+		if formInstance.isValid() && $('#ORDER_FORM').data('locked')
+			$('#addPromotionModal').removeClass 'hidden'
 		formInstance.submitEvent.preventDefault();
+
+	$('#addPromotionModalAction').on 'click', (e)->
+		getOrderDate(true)
+		e.preventDefault()

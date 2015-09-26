@@ -117,12 +117,15 @@
   foreach($arResult['GRID']['ROWS'] as &$item) {
     foreach($item['CATALOG']['SECTION_ID'] as $s) {
       $section = $arResult['SECTIONS'][$s];
+      if($section['CODE']=='promotion') $APPLICATION->SetPageProperty('showPromotionAlert', 'notVisible');
       if(in_array($section['CODE'], $arSections)):
         $item['TYPE'] = array('CODE'=>$section['CODE'], 'NAME' => $section['NAME']);
         if(!$arResult['SHOW_TYPE']) $arResult['SHOW_TYPE'] = true;
       endif;
     }
   }
+
+
 
   foreach ($arResult['SETS']['LOCKED'] as $key => $val) {
 

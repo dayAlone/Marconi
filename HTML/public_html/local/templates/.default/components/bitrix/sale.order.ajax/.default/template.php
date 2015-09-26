@@ -24,7 +24,9 @@ if (!function_exists("cmpBySort"))
 	}
 }
 ?>
-<form action="<?=$APPLICATION->GetCurPage();?>" method="POST" name="ORDER_FORM" id="ORDER_FORM" enctype="multipart/form-data" data-parsley-validate>
+<form action="<?=$APPLICATION->GetCurPage();?>" method="POST" name="ORDER_FORM" id="ORDER_FORM" enctype="multipart/form-data" data-parsley-validate
+	<?if(SITE_ID=='s2' && $APPLICATION->GetPageProperty('showPromotionAlert') != 'notVisible'):?>data-locked='true'<?endif;?>
+	>
 	<?
 		if(!empty($arResult["ERROR"]) && $arResult["USER_VALS"]["FINAL_STEP"] == "Y")
 			foreach($arResult["ERROR"] as $v)
@@ -239,7 +241,13 @@ if (!function_exists("cmpBySort"))
 						 	endif;
 				 		break;
 				 		default:
-				 			?><input data-sort="<?=$prop['SORT']?>" class="<?=($prop['SIZE1']==2?"small":"")?>" type="text" name="<?=$prop['FIELD_NAME']?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=='Y'?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?> value="<?=$prop["VALUE"]?>"><?
+				 			?><input
+								data-sort="<?=$prop['SORT']?>"
+								class="<?=($prop['SIZE1']==2?"small":"")?>"
+								type="text" name="<?=$prop['FIELD_NAME']?>"
+								value="<?=$prop["VALUE"]?>"
+								<?=($prop['REQUIED']=='Y'?"required='required'":"")?>
+								placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=='Y'?" *":"")?>" /><?
 				 			break;
 				 	}
 					endforeach ?>
@@ -323,6 +331,15 @@ if (!function_exists("cmpBySort"))
 
 
 </form>
+<?
+if(SITE_ID=='s2' && $APPLICATION->GetPageProperty('showPromotionAlert') != 'notVisible'):?>
+<div class="usermodal hidden" id="addPromotionModal">
+  <div class="usermodal__frame">
+    <strong>Не забыли ли вы купить товаров из раздела Промоушен?</strong><br>
+    <a href="/catalog/promotion/" class="hello__button">Раздел «Промоушен»</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" id="addPromotionModalAction" class="hello__button hello__button--red">Оформить заказ</a>
+  </div>
+</div>
+<?endif;?>
 <?
 if($_POST["is_ajax_post"] == "Y")
 	die;

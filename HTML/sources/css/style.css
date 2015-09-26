@@ -5067,7 +5067,8 @@ a.news--list .news-item__title:hover {
   transition-duration: 0.3s;
 }
 .catalog__card-button,
-.hello__button {
+.hello__button,
+.usermodal__button {
   display: inline-block;
   margin-top: 20px;
   border: 2px solid #fff;
@@ -5089,8 +5090,10 @@ a.news--list .news-item__title:hover {
 }
 .catalog__card-button:hover,
 .hello__button:hover,
+.usermodal__button:hover,
 .catalog__card-button:focus,
-.hello__button:focus {
+.hello__button:focus,
+.usermodal__button:focus {
   border-color: #d10a32;
   background: #d10a32;
   color: #fff;
@@ -5100,7 +5103,8 @@ a.news--list .news-item__title:hover {
   max-width: 100%;
 }
 .catalog__card-frame,
-.hello {
+.hello,
+.usermodal {
   position: fixed;
   top: 0;
   left: 0;
@@ -6241,16 +6245,25 @@ a.news--list .news-item__title:hover {
     display: none;
   }
 }
-.hello {
+.hello,
+.usermodal {
   background: rgba(0,0,0,0.9);
 }
-.hello__button {
+.hello__button,
+.usermodal__button {
   font-size: 13px;
   padding: 14px 30px 9px;
   border-width: 1px;
   margin-top: 25px;
 }
-.hello__frame {
+.hello__button--red,
+.usermodal__button--red {
+  color: #d10a32;
+  border-color: #fff;
+  background-color: #fff;
+}
+.hello__frame,
+.usermodal__frame {
   padding: 40px 30px 50px;
   width: 100%;
   max-width: 700px;
@@ -6268,31 +6281,37 @@ a.news--list .news-item__title:hover {
   font-size: 14px;
 }
 @media (min-width: 992px) {
-  .hello__frame {
+  .hello__frame,
+  .usermodal__frame {
     font-size: 18px;
   }
 }
 @media (min-width: 1200px) {
-  .hello__frame {
+  .hello__frame,
+  .usermodal__frame {
     font-size: 25px;
   }
 }
-.hello__frame strong {
+.hello__frame strong,
+.usermodal__frame strong {
   font-weight: 300;
   font-size: 18px;
   margin-bottom: 10px;
 }
 @media (min-width: 992px) {
-  .hello__frame strong {
+  .hello__frame strong,
+  .usermodal__frame strong {
     font-size: 28px;
   }
 }
 @media (min-width: 1200px) {
-  .hello__frame strong {
+  .hello__frame strong,
+  .usermodal__frame strong {
     font-size: 36px;
   }
 }
-.hello__frame a:not(.hello__button) {
+.hello__frame a:not(.hello__button),
+.usermodal__frame a:not(.hello__button) {
   color: #fff;
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(255,255,255,0.5) 50%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(255,255,255,0.5) 50%);
@@ -6306,10 +6325,12 @@ a.news--list .news-item__title:hover {
   background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
-.hello__frame a:not(.hello__button):hover {
+.hello__frame a:not(.hello__button):hover,
+.usermodal__frame a:not(.hello__button):hover {
   text-decoration: none;
 }
-.hello__frame a:not(.hello__button):hover {
+.hello__frame a:not(.hello__button):hover,
+.usermodal__frame a:not(.hello__button):hover {
   color: #d10a32;
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.5) 50%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 50%, rgba(209,10,50,0.5) 50%);
@@ -6323,7 +6344,8 @@ a.news--list .news-item__title:hover {
   background-position: 0 100%;
   background-position: 0 calc(100% - 2px);
 }
-.hello__frame a:not(.hello__button):hover:hover {
+.hello__frame a:not(.hello__button):hover:hover,
+.usermodal__frame a:not(.hello__button):hover:hover {
   text-decoration: none;
 }
 .filter {

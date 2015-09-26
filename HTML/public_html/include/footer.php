@@ -231,7 +231,7 @@ var yaParams = {/*Здесь параметры визита*/};
 (function (d, w, c) {
 (w[c] = w[c] || []).push(function() {
 try {
-w.yaCounter28060548 = new Ya.Metrika({id:<?=(SITE_ID=='s1'?'28060548':'32173039')?>, 
+w.yaCounter28060548 = new Ya.Metrika({id:<?=(SITE_ID=='s1'?'28060548':'32173039')?>,
 webvisor:true,
 clickmap:true,
 trackLinks:true,
