@@ -61,6 +61,12 @@ elseif($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):
 				</div>
 			</div>
 		</div>
+		<div class="col-sm-6">
+			<label for="pass" class="signup__label">Пароль *</label>
+			<input size="30" type="password" data-parsley-trigger="change" required class="signup__input" name="REGISTER[PASSWORD]" id="pass" value=""></div>
+		<div class="col-sm-6">
+			<label for="REGISTER[CONFIRM_PASSWORD]" class="signup__label">Подтверждение пароля *</label>
+			<input size="30" type="password" data-parsley-trigger="change" data-parsley-equalto="#pass" required class="signup__input" name="REGISTER[CONFIRM_PASSWORD]" id="REGISTER[CONFIRM_PASSWORD]" data-parsley-equalto-message="Пароли не совпадают" value=""></div>
 		<div class="col-sm-6 col-md-4">
 			<label for="REGISTER[PERSONAL_PHONE]" class="signup__label">Мобильный телефон *</label>
 			<input type="text" name="REGISTER[PERSONAL_PHONE]" id="REGISTER[PERSONAL_PHONE]" required class="signup__input">
@@ -139,11 +145,6 @@ elseif($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):
 		</div>
 	</div>
 	<input size="30" type="hidden" required="" name="REGISTER[EMAIL]" value="">
-	<?
-		$password = md5(time()+date('Y'));
-	?>
-	<input size="30" type="hidden" required="" name="REGISTER[PASSWORD]" value="<?=$password?>">
-	<input size="30" type="hidden" required="" name="REGISTER[CONFIRM_PASSWORD]" value="<?=$password?>">
 	<div class="row">
 		<div class="col-sm-7"></div>
 		<div class="col-sm-5 right">
