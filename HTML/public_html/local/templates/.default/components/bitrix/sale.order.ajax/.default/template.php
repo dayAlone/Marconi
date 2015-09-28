@@ -251,7 +251,7 @@ if (!function_exists("cmpBySort"))
 				 			break;
 				 	}
 					endforeach ?>
-				<?if($showStores && $_REQUEST['ORDER_PROP_2'] == 218):
+				<?if($showStores && in_array($_REQUEST['ORDER_PROP_2'], array(218, 222))):
 					global $arFilter;
 	        		$arFilter = array('PROPERTY_STORE' => $showStores);
 					$APPLICATION->IncludeComponent("bitrix:news.list", "stores",
