@@ -335,7 +335,7 @@ if (!function_exists("cmpBySort"))
 if(SITE_ID=='s2' && $APPLICATION->GetPageProperty('showPromotionAlert') != 'notVisible'):?>
 <div class="usermodal hidden" id="addPromotionModal">
   <div class="usermodal__frame">
-    <strong>Не забыли ли вы купить товаров из раздела Промоушен?</strong><br>
+    <strong>Вы не забыли приобрести товар из раздела «Промоушен»?</strong><br>
     <a href="/catalog/promotion/" class="hello__button">Раздел «Промоушен»</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" id="addPromotionModalAction" class="hello__button hello__button--red">Оформить заказ</a>
   </div>
 </div>
