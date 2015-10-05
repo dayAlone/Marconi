@@ -89,6 +89,7 @@ function getOrderProps($ID) {
 				$val = CSaleLocation::GetByID($prop['VALUE']);
 				if($val) {
 					$orderProps[$prop['CODE']] = $val['CITY_NAME_ORIG'].", ".$val['REGION_NAME_ORIG'].", ".$val['COUNTRY_NAME_ORIG'];
+					AddMessage2Log(var_export($prop['VALUE'], true), 'city');
 					if($item = findCityByLocation($prop['VALUE'])) {
 						$orderProps['EMAIL'] = $item['UF_EMAIL'];
 					}
@@ -157,6 +158,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 
 		$dbBasketItems = CSaleBasket::GetList(array("NAME" => "ASC","ID" => "ASC"),array("ORDER_ID" => $arFields['ORDER_ID']), false, false);
 		$orderProps    = getOrderProps($arFields['ORDER_ID']);
+		AddMessage2Log(var_export($orderProps['EMAIL'], true), 'city');
 		$delivery      = getOrderDelivery($arFields['ORDER_ID'], $orderProps);
 		$arItems       = array();
 		$arOrder       = CSaleOrder::GetByID($arFields['ORDER_ID']);
@@ -405,7 +407,6 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 
 		elseif($orderProps['EMAIL']):
 			$arFields['BCC'] .= ", ".$orderProps['EMAIL'];
-			AddMessage2Log(var_export($arFields['BCC'], true), 'mail');
 		endif;
 	endif;
 
