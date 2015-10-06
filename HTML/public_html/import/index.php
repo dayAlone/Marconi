@@ -420,7 +420,8 @@
 			endforeach;
 			$res = CFile::GetList(array("FILE_SIZE"=>"desc"), array("@ID"=> implode(',', $ids)));
 			while($file = $res->GetNext())
-				$this->files[$file['ID']] = array('TIME' => strtotime($file['TIMESTAMP_X']), 'SIZE'=>$file['FILE_SIZE']);
+				$this->files[$file['ID']] = array('TIME' => strtotime($file['TIMESTAMP_X']), 'SIZE'=>$file['FILE_SIZE'],
+					'SRC'=> "/upload/" . $file["SUBDIR"] . "/" . $file["FILE_NAME"]);
 		}
 		private function checkExist($fields)
 		{
@@ -475,6 +476,7 @@
 							if(!file_exists($_SERVER['DOCUMENT_ROOT'].CFile::GetPath($exist['PREVIEW_PICTURE']))) $updateImages = true;
 							foreach($exist['PICTURES'] as $imgKey => $img):
 								if(filemtime($props['PICTURES']['n'.$imgKey]['VALUE']['tmp_name']) > $this->files[$img]['TIME']) $updateImages = true;
+								if(!file_exists($_SERVER['DOCUMENT_ROOT'].$this->files[$img]['SRC'])) $updateImages = true;
 							endforeach;
 						endif;
 						if($updateImages):
