@@ -37,6 +37,10 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
                 $link .= "?PAGEN_1=".$query['PAGEN_1'];
                 $symbol = "&";
               }
+              if($link==$ref['path']&&isset($query['PAGEN_2'])){
+                $link .= "?PAGEN_2=".$query['PAGEN_2'];
+                $symbol = "&";
+              }
               if(isset($_SESSION['Filter'][$matches[1]]))
                 $link .= $symbol.$_SESSION['Filter'][$matches[1]];
 
