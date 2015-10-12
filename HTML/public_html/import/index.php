@@ -801,6 +801,7 @@
 								"CURRENCY"         => "RUB"
 							);
 	        				CPrice::Add($arFields);
+							$this->prices[$id][$key]['price'] = $price;
 	        				$this->counter['add']++;
 	        			endforeach;
 	        		else:
