@@ -861,7 +861,7 @@
 
 		private $lock;
 
-		private $checkfile = false;
+		private $checkfile = true;
 
 		const step = 1000;
 
