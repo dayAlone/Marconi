@@ -19,6 +19,11 @@ $arResult['IMAGES']   = array();
 $arResult['SECTIONS'] = array();
 
 foreach ($arResult['ITEMS'] as $key => &$item):
+	if(count($item['PROPERTIES']) == 0) {
+		unset($arResult['ITEMS'][$key]);
+		continue;
+	}
+
 	$arIDS[$item['ID']] = $key;
 	$brand = $arResult['BRANDS'][$item['PROPERTIES']['BRAND']['VALUE']];
 
@@ -26,7 +31,7 @@ foreach ($arResult['ITEMS'] as $key => &$item):
 
 	$raw = CIBlockElement::GetElementGroups($item['ID'], false, array('ID', 'CODE'));
 	while($data = $raw->GetNext()):
-		if(SITE_ID == 's1' && !in_array($data['CODE'], array('all', 'sale', 'sale30', 'best-sellers', 'new', 'coming')))
+		if(SITE_ID == 's1' && !in_array($data['CODE'], array('all', 'sale', 'sale30', 'best-sellers', 'new', 'coming', 'latest')))
 			$item['IBLOCK_SECTION_ID'] = $data['ID'];
 		if(SITE_ID == 's2' && $data['CODE'] == 'all')
 			$item['IBLOCK_SECTION_ID'] = $data['ID'];

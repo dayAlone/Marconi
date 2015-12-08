@@ -877,10 +877,13 @@
 			$this->lock = $_SERVER['DOCUMENT_ROOT'].'/import/.lock';
 
 			if($this->checkfile):
-				if(file_exists($this->lock))
-					return;
-				else
+				if(file_exists($this->lock)) {
+					if(time() - filemtime($this->lock) < 60 * 15) {
+						return;
+					}
+				} else {
 					file_put_contents($this->lock, '');
+				}
 			endif;
 
 			$offset = intval($offset);
