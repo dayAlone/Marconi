@@ -29,13 +29,13 @@
 		itemSelector : "[class*='col-']"
 		masonry:
 			columnWidth: $('.row.enter').width()/4
-  
+
 	$('.lookbook').elem('slider-preview').click (e)->
 		slider = $('.lookbook').elem('slider').data('fotorama')
 		slider.show $(this).data('direction')
 		e.preventDefault()
 
-	
+
 	window.onYouTubeIframeAPIReady = ->
 		window.player = false
 		$('.lookbook').elem('slider')
@@ -45,21 +45,21 @@
 					window.player = false
 				video = $(fotorama.data[fotorama.activeIndex].html).find('.lookbook__slider-video')
 				if video.length > 0
-					window.player = new YT.Player video.find('div:first').attr('id'), { 
+					window.player = new YT.Player video.find('div:first').attr('id'), {
 						videoId    : video.data('id')
 						playerVars :
 							showinfo : 0
-						events     : 
+						events     :
 							onReady : (e)->
 								e.target.playVideo()
 				}
-          
+
 				el = $(fotorama.data[fotorama.activeIndex].html).find('.lookbook__picture')
 				if el.hasMod 'contain'
 					$('.lookbook').elem('slider-preview').mod 'width', true
 				else
 					$('.lookbook').elem('slider-preview').mod 'width', false
-				
+
 				size()
 
 				$('.lookbook').elem('slider-preview').each ->
@@ -67,7 +67,7 @@
 						el = getElem fotorama, 'prev'
 					if $(this).hasMod 'prev'
 						el = getElem fotorama, 'next'
-					
+
 					$(this).css
 						'background-image' : el.find('.lookbook__picture').css 'background-image'
 
@@ -80,7 +80,7 @@
 			.on('fotorama:showend', (e, fotorama, extra)->
 				delay 100, ->
 					slider = $(fotorama.data[fotorama.activeIndex].html).find('.catalog')
-					
+
 					if slider && $(window).width() > 480
 						slider
 						.on('init', (event, slick, direction)->

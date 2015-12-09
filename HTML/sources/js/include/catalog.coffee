@@ -442,7 +442,6 @@ filterRequest = false
 		initProducts()
 		initFiltres()
 		initBrandSelect()
-
 		$('.page').elem('side-trigger').click (e)->
 			if !$('.page').elem('side-trigger').hasMod 'open'
 				$('.page').elem('side').find('form').velocity

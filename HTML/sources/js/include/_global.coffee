@@ -14,6 +14,11 @@ $(document).ready ->
 		x = delay 200, ()->
 			size()
 
+	$('.catalog__banner--slider').slick
+		arrows: false
+		autoplay: true
+		loop: true
+
 	$('a.captcha_refresh').click (e)->
 		getCaptcha()
 		e.preventDefault()

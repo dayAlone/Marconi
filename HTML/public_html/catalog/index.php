@@ -3,7 +3,25 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("keywords", "Купить сумку francesco marconi, сумки francesco marconi, сумки франческо маркони, купить францеско маркони, интернет-магазин франческо маркони");
 $APPLICATION->SetTitle("Интернет-магазин сумок и аксессуаров");
 $APPLICATION->SetPageProperty('body_class', "catalog ".(!isset($_REQUEST['v'])?"catalog--ajax":""));
-?><?$APPLICATION->IncludeComponent(
+?>
+<?
+	$bannersFilter = array(
+		"ACTIVE_DATE" => "Y"
+	);
+	$APPLICATION->IncludeComponent("bitrix:news.list", "slider_banners",
+		array(
+			"IBLOCK_ID"      => 20,
+			"NEWS_COUNT"     => "999999",
+			"SORT_BY1"       => "ID",
+			"SORT_ORDER1"    => "DESC",
+			"CACHE_TYPE"     => "A",
+			'PROPERTY_CODE'  => array('LINK'),
+			"SET_TITLE"      => "N",
+		),
+		false
+	);
+?>
+<?$APPLICATION->IncludeComponent(
 	"bitrix:catalog",
 	".default",
 	array(
