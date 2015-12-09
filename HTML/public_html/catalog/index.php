@@ -10,7 +10,7 @@ $APPLICATION->SetPageProperty('body_class', "catalog ".(!isset($_REQUEST['v'])?"
 	);
 	$APPLICATION->IncludeComponent("bitrix:news.list", "slider_banners",
 		array(
-			"IBLOCK_ID"      => 20,
+			"IBLOCK_ID"      => 29,
 			"NEWS_COUNT"     => "999999",
 			"SORT_BY1"       => "ID",
 			"SORT_ORDER1"    => "DESC",
