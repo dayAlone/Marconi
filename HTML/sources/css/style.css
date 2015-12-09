@@ -5042,6 +5042,10 @@ a.news--list .news-item__title:hover {
 .catalog__banner {
   margin-bottom: 30px;
 }
+.s1 .catalog__banner {
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
 .catalog__banner img {
   max-width: 100%;
   width: 100%;
