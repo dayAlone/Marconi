@@ -7040,6 +7040,12 @@ label.profile__label {
   margin-bottom: 10px;
   margin-top: -10px;
 }
+#Lottery .modal__title {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-weight: bold;
+  color: #d10a32;
+}
 .modal .captcha_refresh {
   background: transparent !important;
 }
