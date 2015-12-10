@@ -16,8 +16,12 @@ $(document).ready ->
 
 	$('.catalog__banner--slider').slick
 		arrows: false
+		infinite: true
 		autoplay: true
-		loop: true
+		autoplaySpeed: 3000
+		fade: true
+		speed: 2000
+		swipe: false
 
 	$('a.captcha_refresh').click (e)->
 		getCaptcha()
