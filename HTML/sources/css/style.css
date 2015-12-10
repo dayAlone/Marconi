@@ -5046,6 +5046,12 @@ a.news--list .news-item__title:hover {
   margin-top: -20px;
   margin-bottom: 20px;
 }
+.catalog__banner--slider img {
+  display: none;
+}
+.catalog__banner--slider.slick-initialized img {
+  display: block;
+}
 .catalog__banner img {
   max-width: 100%;
   width: 100%;
