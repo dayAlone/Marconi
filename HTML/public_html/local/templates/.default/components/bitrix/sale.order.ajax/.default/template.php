@@ -201,15 +201,15 @@ if (!function_exists("cmpBySort"))
 								<div class="col-xs-6 time-select">
 									<small><strong><?=str_replace(" доставки", "<span class='hidden-xs'> доставки</span>", $prop['NAME'])?></strong></small>
 									<div class="dropdown">
-										<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white">с 9 до 15 часов</span><?=svg('arrow')?></a>
-										<input type="hidden" name="<?=$prop['FIELD_NAME']?>" value="<?=(strlen($prop["VALUE"]) > 0 ? $prop["VALUE"]:'с 9 до 15 часов')?>">
+										<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white">с 12 до 19 часов</span><?=svg('arrow')?></a>
+										<input type="hidden" name="<?=$prop['FIELD_NAME']?>" value="<?=(strlen($prop["VALUE"]) > 0 ? $prop["VALUE"]:'с 12 до 19 часов')?>"><!--
 										<span class="dropdown__frame">
-											<a href="#" class="dropdown__item">с 9 до 15 часов</a>
+											<a href="#" class="dropdown__item">с 12 до 19 часов</a>
 											<a href="#" class="dropdown__item">с 15 до 18 часов</a>
 										</span>
 										<select class="dropdown__select">
-											<option value="" <?=($prop["VALUE"] == "с 9 до 15 часов"?"selected":"")?>>с 9 до 15 часов</option>
-											<option value="" <?=($prop["VALUE"] == "с 15 до 18 часов"?"selected":"")?>>с 15 до 18 часов</option>
+											<option value="" <?/*=($prop["VALUE"] == "с 12 до 19 часов"?"selected":"")*/?>>с 12 до 19 часов</option>
+											<option value="" <?/*=($prop["VALUE"] == "с 15 до 18 часов"?"selected":"")*/?>>с 15 до 18 часов</option>-->
 										</select>
 									</div>
 								</div>
