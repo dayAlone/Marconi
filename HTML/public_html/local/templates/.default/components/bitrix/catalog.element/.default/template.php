@@ -215,7 +215,7 @@ endif;
 								if(SITE_ID === 's2' && !$offer['OPT']) continue;
 								if(isset($offer['MIN_PRICE']['DISCOUNT_VALUE']))
 									$offer['MIN_PRICE']['VALUE'] = (int)$offer['MIN_PRICE']['DISCOUNT_VALUE'];
-								if($props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de")
+								if(SITE_ID === 's2' && $props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de")
 									$offer['MIN_PRICE']['VALUE'] = $offer['MIN_PRICE']['VALUE']*.7;
 								$links .= '<a
 									href="#"
