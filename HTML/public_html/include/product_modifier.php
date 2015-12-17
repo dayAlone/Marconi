@@ -27,7 +27,7 @@ foreach ($arResult['ITEMS'] as $key => &$item):
 	$arIDS[$item['ID']] = $key;
 	$brand = $arResult['BRANDS'][$item['PROPERTIES']['BRAND']['VALUE']];
 
-
+	/*
 	if (SITE_ID == 's2' && $USER->IsAuthorized()):
 		$offers = array();
 		foreach($item['OFFERS'] as $offer) $offers[$offer['ID']] = $offer;
@@ -40,7 +40,7 @@ foreach ($arResult['ITEMS'] as $key => &$item):
 		endwhile;
 
 	endif;
-
+	*/
 	foreach($item['OFFERS'] as $k => $offer) {
 		$arOffers[$offer['ID']] = $k;
 	}
