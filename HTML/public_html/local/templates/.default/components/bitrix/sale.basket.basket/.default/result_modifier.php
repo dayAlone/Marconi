@@ -111,7 +111,7 @@
   while ( $section = $raw->Fetch()) {
     $arResult['SECTIONS'][$section['ID']] = $section;
   }
-  $arSections = array('best-sellers', 'sale', 'sale30', 'new', 'latest', 'promotion');
+  $arSections = array('best-sellers', 'sales', 'sale', 'sale30', 'new', 'latest', 'promotion');
 
   $arResult['SHOW_TYPE'] = false;
   foreach($arResult['GRID']['ROWS'] as &$item) {

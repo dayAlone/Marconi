@@ -22,9 +22,9 @@ $aMenuLinks = Array(
 		""
 	),
 	Array(
-		"Sale", 
-		"/catalog/sale/",
-		Array("/catalog/sale/"),
+		"Sale",
+		"/catalog/sales/",
+		Array("/catalog/sales/"),
 		Array(),
 		""
 	),
