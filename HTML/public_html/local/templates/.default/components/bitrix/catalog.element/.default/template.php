@@ -208,31 +208,32 @@ endif;
 
 					if(count($item['OFFERS'])>1):
 						?>
+						<?
+							$links = '';
+							$options = '';
+							foreach($item['OFFERS'] as $k=>&$offer):
+								if(SITE_ID === 's2' && !$offer['OPT']) continue;
+								if(isset($offer['MIN_PRICE']['DISCOUNT_VALUE']))
+									$offer['MIN_PRICE']['VALUE'] = (int)$offer['MIN_PRICE']['DISCOUNT_VALUE'];
+								if($props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de")
+									$offer['MIN_PRICE']['VALUE'] = $offer['MIN_PRICE']['VALUE']*.7;
+								$links .= '<a
+									href="#"
+									data-id="'.$offer['ID'].'"
+									data-price="'.$offer['MIN_PRICE']['VALUE'].'"
+									class="dropdown__item"
+									'.($arResult['SET']['SETS'][$offer['ID']]?"data-set='true'":"").'  >'.$item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']].'</a>';
+								$options .= '<option
+									value="'.$offer['ID'].'"
+									data-price="'.$offer['MIN_PRICE']['VALUE'].'">'.$item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']].'</option>';
+							endforeach;?>
 						<div class="sizes">
 							<span class="sizes__title">
 								выберите размер
 							</span>
 							<span class="dropdown" data-id="<?=array_values($item['OFFERS'])[0]['ID']?>" <?=(count($arResult['SET']['JSON'])>0?"data-set='".json_encode($arResult['SET']['JSON'])."'":"")?>>
 								<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white"><?=$item['SIZES'][array_values($item['OFFERS'])[0]['PROPERTIES']['SIZE']['VALUE']]?></span><?=svg('arrow')?></a>
-								<?
-									$links = '';
-									$options = '';
-									foreach($item['OFFERS'] as $k=>&$offer):
-										//var_dump($offer);
-										if(isset($offer['MIN_PRICE']['DISCOUNT_VALUE']))
-											$offer['MIN_PRICE']['VALUE'] = (int)$offer['MIN_PRICE']['DISCOUNT_VALUE'];
-										if($props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de")
-											$offer['MIN_PRICE']['VALUE'] = $offer['MIN_PRICE']['VALUE']*.7;
-										$links .= '<a
-											href="#"
-											data-id="'.$offer['ID'].'"
-											data-price="'.$offer['MIN_PRICE']['VALUE'].'"
-											class="dropdown__item"
-											'.($arResult['SET']['SETS'][$offer['ID']]?"data-set='true'":"").'  >'.$item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']].'</a>';
-										$options .= '<option
-											value="'.$offer['ID'].'"
-											data-price="'.$offer['MIN_PRICE']['VALUE'].'">'.$item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']].'</option>';
-									endforeach;?>
+
 								<span class="dropdown__frame">
 									<?=$links?>
 								</span>
