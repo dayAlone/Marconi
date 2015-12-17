@@ -27,20 +27,7 @@ foreach ($arResult['ITEMS'] as $key => &$item):
 	$arIDS[$item['ID']] = $key;
 	$brand = $arResult['BRANDS'][$item['PROPERTIES']['BRAND']['VALUE']];
 
-	/*
-	if (SITE_ID == 's2' && $USER->IsAuthorized()):
-		$offers = array();
-		foreach($item['OFFERS'] as $offer) $offers[$offer['ID']] = $offer;
-		$raw = CCatalogStoreProduct::GetList(array('ID'=>'ASC'), array('ACTIVE' => 'Y', 'PRODUCT_ID'=>array_keys($offers)));
-		$item['OFFERS'] = array();
-		while ($count = $raw->Fetch()):
-			if (intval($count['AMOUNT']) > 0) {
-				$item['OFFERS'][] = $offers[$count['PRODUCT_ID']];
-			}
-		endwhile;
 
-	endif;
-	*/
 	foreach($item['OFFERS'] as $k => $offer) {
 		$arOffers[$offer['ID']] = $k;
 	}
@@ -83,6 +70,29 @@ foreach ($arResult['ITEMS'] as $key => &$item):
 	endif;
 
 endforeach;
+
+
+
+if (SITE_ID == 's2' && $USER->IsAuthorized()):
+	$offers = array();
+	foreach($item['OFFERS'] as $offer) $offers[$offer['ID']] = $offer;
+	$raw = CCatalogStoreProduct::GetList(array('ID'=>'ASC'), array('ACTIVE' => 'Y', 'PRODUCT_ID'=>array_keys($arOffers)));
+	$item['OFFERS'] = array();
+	while ($count = $raw->Fetch()):
+		if (intval($count['AMOUNT']) > 0 && $count['STORE_ID'] == 1) {
+			$arOffers[$count['PRODUCT_ID']]['OPT'] = true;
+		}
+	endwhile;
+	foreach ($arResult['ITEMS'] as $key => &$item):
+		$offers = array();
+		foreach($item['OFFERS'] as $k => $offer) {
+			if ($arOffers[$offer['ID']]['OPT']) {
+				$offers[] = $arOffers[$offer['ID']];
+			}
+		}
+		$item['OFFERS'] = $offers;
+	endforeach;
+endif;
 
 if(SITE_ID == 's2'):
 
