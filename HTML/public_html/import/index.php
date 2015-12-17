@@ -276,6 +276,9 @@
 			if($props["SALE"] != $this->sale && strlen($props["SALE"]) > 0):
 				$fields['IBLOCK_SECTION'][] = $this->sections['sale30'];
 			endif;
+			if($props["SALE"] == $this->sale && strlen($props["SALE"]) > 0):
+				$fields['IBLOCK_SECTION'][] = $this->sections['sale20'];
+			endif;
 			if(strlen($props["SALE"]) > 0):
 				$fields['IBLOCK_SECTION'][] = $this->sections['sale'];
 			endif;

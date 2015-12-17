@@ -31,8 +31,8 @@ $aMenuLinks = Array(
 
 	Array(
 		"Sale",
-		"/catalog/sale/",
-		Array("/catalog/sale/"),
+		"/catalog/sale20/",
+		Array("/catalog/sale20/"),
 		Array(),
 		""
 	),
