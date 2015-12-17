@@ -27,7 +27,23 @@ foreach ($arResult['ITEMS'] as $key => &$item):
 	$arIDS[$item['ID']] = $key;
 	$brand = $arResult['BRANDS'][$item['PROPERTIES']['BRAND']['VALUE']];
 
-	foreach($item['OFFERS'] as $k => $offer) $arOffers[$offer['ID']] = $k;
+
+	if (SITE_ID == 's2' && $USER->IsAuthorized()):
+		$offers = array();
+		foreach($item['OFFERS'] as $offer) $offers[$offer['ID']] = $offer;
+		$raw = CCatalogStoreProduct::GetList(array('ID'=>'ASC'), array('ACTIVE' => 'Y', 'PRODUCT_ID'=>array_keys($offers)));
+		$item['OFFERS'] = array();
+		while ($count = $raw->Fetch()):
+			if (intval($count['AMOUNT']) > 0) {
+				$item['OFFERS'][] = $offers[$count['PRODUCT_ID']];
+			}
+		endwhile;
+
+	endif;
+
+	foreach($item['OFFERS'] as $k => $offer) {
+		$arOffers[$offer['ID']] = $k;
+	}
 
 	$raw = CIBlockElement::GetElementGroups($item['ID'], false, array('ID', 'CODE'));
 	while($data = $raw->GetNext()):
@@ -69,6 +85,9 @@ foreach ($arResult['ITEMS'] as $key => &$item):
 endforeach;
 
 if(SITE_ID == 's2'):
+
+
+
 	$rsSets = CCatalogProductSet::getList(
 		array('SET_ID' => 'DESC'),
 		array(
