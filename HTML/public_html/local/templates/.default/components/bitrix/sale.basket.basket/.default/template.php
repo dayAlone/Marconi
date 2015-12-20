@@ -184,8 +184,19 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			        		$arResult['QUANTITY'] += $item['QUANTITY'];
 			        	endif;
 				    endforeach;?>
+					<?if(SITE_ID == 's1' && strtotime('20.11.2016') > time() && strtotime('31.11.2016') > time()):?>
+						<div class="basket__item">
+							<div class="row">
+								<div class="col-xs-4 left">
+						        	<a href="#">
+										<div style="background-image: url(/layout/images/gift.jpg); background-size: 85px auto;" class="basket__picture"></div></a>
+										<div class="basket__name">новогодняя Акция<br><span class="basket__brand">ВАШ ПОДАРОК</span></div>
+								</div>
+						    </div>
+						</div>
+					<? endif;?>
 					<?if(SITE_ID == 's1' && strtotime('10.11.2016') > time()):?>
-					<div class="basket__item  " data-id="332" data-discount="10">
+					<div class="basket__item">
 						<div class="row">
 							<div class="col-xs-4 left">
 					        	<a href="#Lottery" data-toggle='modal'>
