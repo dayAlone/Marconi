@@ -13,7 +13,7 @@
         if($section != $item['IBLOCK_SECTION_ID']):?>
           <?if($i!=0):?></section>
           <?endif;?>
-          <section data-id="<?=$item['IBLOCK_SECTION_ID']?>" key="<?=$i?>" class="<?=($i==0?"active":"")?>">
+          <section data-id="<?=$item['IBLOCK_SECTION_ID']?>" key="<?=$i?>" class="<?=($item['IBLOCK_SECTION_ID']==47?"active":"")?>">
           <?
           $section = $item['IBLOCK_SECTION_ID'];
         endif;
