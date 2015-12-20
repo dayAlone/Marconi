@@ -33,15 +33,11 @@
 	<?endif;?>
 	<div class="stores-list__description <?=(count($arResult['ITEMS'])==1?"stores-list__description--active":"")?>">
 		<small><strong>адрес пункта самовывоза</strong></small><br>
-		<?
-		$i = 0;
-		foreach ($arResult['ITEMS'] as $key => $item):?>
-			<div data-id="<?=$item['ID']?>" class="stores-list__item <?=($i==0?"stores-list__item--active":"")?>">
+		<?foreach ($arResult['ITEMS'] as $key => $item):?>
+			<div data-id="<?=$item['ID']?>" class="stores-list__item <?=($key==0?"stores-list__item--active":"")?>">
 				<?=html_entity_decode($item['PROPERTIES']['ADDRESS']['VALUE']['TEXT'])?>
 			</div>
-		<?
-		$i++;
-		endforeach;?>
+		<?endforeach;?>
 	</div>
 </div>
 <?endif;?>

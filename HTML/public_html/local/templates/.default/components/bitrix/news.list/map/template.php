@@ -4,15 +4,16 @@
     <?
       $items = array();
       $section = false;
+      $i=0;
       foreach ($arResult['ITEMS'] as $key=>$item):
         if(count(preg_split("/,/", $item['PROPERTIES']['COORDS']['VALUE']))>0 && isset($item['PROPERTIES']['TYPE']['VALUE_XML_ID']))
           $items[$item['ID']] = array('code'=>$item['CODE'], 'coords' => preg_split("/,/", $item['PROPERTIES']['COORDS']['VALUE']), 'type'=>$item['PROPERTIES']['TYPE']['VALUE_XML_ID']);
         if($item['CODE'] == $_REQUEST['ELEMENT_CODE'])
           $active = $item;
         if($section != $item['IBLOCK_SECTION_ID']):?>
-          <?if($key!=0):?></section>
+          <?if($i!=0):?></section>
           <?endif;?>
-          <section data-id="<?=$item['IBLOCK_SECTION_ID']?>" class="<?=($key==0?"active":"")?>">
+          <section data-id="<?=$item['IBLOCK_SECTION_ID']?>" key="<?=$i?>" class="<?=($i==0?"active":"")?>">
           <?
           $section = $item['IBLOCK_SECTION_ID'];
         endif;
@@ -50,7 +51,9 @@
           </div>
         <? endif; ?>
         </div>
-      <?endforeach;
+      <?
+        $i++;
+        endforeach;
     ?>
   </div>
 </div>
