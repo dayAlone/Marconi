@@ -674,6 +674,9 @@
 						if((intval($amount) > 0 || $coming) && (isset($product['CML2_LINK']) || $product['ACTIVE'] == 'N')):
 				    		$raw = new CIBlockElement;
 				    		if(isset($product['CML2_LINK'])):
+								if ($item->getAttribute('id') === 'a32bb1c0-4dec-11e3-8e50-0025901865a3') {
+									var_dump(123, $product['ID'], $product['CML2_LINK']);
+								}
 								$raw2 = new CIBlockElement;
 								$raw2->Update($product['ID'], array('ACTIVE'=>'Y'));
 				    			$raw->Update($product['CML2_LINK'], array('ACTIVE'=>'Y'));
