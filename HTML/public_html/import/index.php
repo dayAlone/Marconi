@@ -674,7 +674,8 @@
 						if((intval($amount) > 0 || $coming) && (isset($product['CML2_LINK']) || $product['ACTIVE'] == 'N')):
 				    		$raw = new CIBlockElement;
 				    		if(isset($product['CML2_LINK'])):
-								$raw->Update($product['ID'], array('ACTIVE'=>'Y'));
+								$raw2 = new CIBlockElement;
+								$raw2->Update($product['ID'], array('ACTIVE'=>'Y'));
 				    			$raw->Update($product['CML2_LINK'], array('ACTIVE'=>'Y'));
 				    		else:
 				    			$product['ACTIVE'] = "Y";
