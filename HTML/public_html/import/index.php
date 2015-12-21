@@ -612,7 +612,7 @@
 		{
 
 			if ($offset == 1 && strstr($file, 'retail')):
-				$all = Import::getIBlockElements($this->iblocks['products'], array('ACTIVE' => "Y", "PROPERTY_SET" => false), array('ID'));
+				$all = array_merge(Import::getIBlockElements($this->iblocks['products'], array('ACTIVE' => "Y", "PROPERTY_SET" => false), array('ID')), Import::getIBlockElements($this->iblocks['offers'], array('ACTIVE' => "Y"), array('ID')));
 				if(count($all) > 0):
 					foreach ($all as $item):
 						$raw = new CIBlockElement;
@@ -674,6 +674,7 @@
 						if((intval($amount) > 0 || $coming) && (isset($product['CML2_LINK']) || $product['ACTIVE'] == 'N')):
 				    		$raw = new CIBlockElement;
 				    		if(isset($product['CML2_LINK'])):
+								$raw->Update($product['ID'], array('ACTIVE'=>'Y'));
 				    			$raw->Update($product['CML2_LINK'], array('ACTIVE'=>'Y'));
 				    		else:
 				    			$product['ACTIVE'] = "Y";
