@@ -199,10 +199,10 @@ if (!function_exists("cmpBySort"))
 										data-date-language="ru"
 										data-date-dates-disabled='<?
 											$dates = array();
-											$dates[] = "31-12-<?=date('Y')?>";
+											$dates[] = '31.12.'.date('Y');
 											for ($i=1; $i < 11; $i++) {
-												$dates[] = ($i < 10 ? '0' : '' ).'"'.$i.'-01-'.date('Y').'",';
-												$dates[] = ($i < 10 ? '0' : '' ).'"'.$i.'-01-'.date('Y', strtotime('+1 year')).'",';
+												$dates[] = ($i < 10 ? '0' : '' ).$i.'.01.'.date('Y');
+												$dates[] = ($i < 10 ? '0' : '' ).$i.'.01.'.date('Y', strtotime('+1 year'));
 											}
 											echo json_encode($dates);
 										?>'
