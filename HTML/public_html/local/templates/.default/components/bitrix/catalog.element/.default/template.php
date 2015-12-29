@@ -310,7 +310,7 @@ endif;
 					  	<strong><?=number_format($arResult['MIN_PRICE']['DISCOUNT_VALUE'], 0, '.', ' ')?></strong> ₷
 					  <? else: ?>
 					  	<? if($arResult['MIN_PRICE']['DISCOUNT_VALUE'] < $arResult['MIN_PRICE']['VALUE'] || $props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de"): ?>
-					  		<?if($props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de"):?>
+					  		<?if($props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de" && $props['DAY']['VALUE'] != 'Y'):?>
 					  			<strong><?=number_format($arResult['MIN_PRICE']['VALUE']*.7, 0, '.', ' ')?></strong> ₷
 					  		<?else:?>
 					  			<strong><?=number_format($arResult['MIN_PRICE']['DISCOUNT_VALUE'], 0, '.', ' ')?></strong> ₷
@@ -332,7 +332,7 @@ endif;
 				</span>
 				</div>
 			</div>
-				<? if(($arResult['MIN_PRICE']['DISCOUNT_VALUE'] < $arResult['MIN_PRICE']['VALUE'] && SITE_ID == 's2') || !$showRetailPrice): ?>
+				<? if(($arResult['MIN_PRICE']['DISCOUNT_VALUE'] < $arResult['MIN_PRICE']['VALUE'] && SITE_ID == 's2' && $props['DAY']['VALUE'] != 'Y') || !$showRetailPrice): ?>
 					<div class="props__item props__item--medium">
 						<div class="props__name">ваша скидка</div>
 						<div class="props__value">
