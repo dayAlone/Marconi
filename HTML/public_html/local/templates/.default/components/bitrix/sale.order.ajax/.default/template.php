@@ -197,7 +197,7 @@ if (!function_exists("cmpBySort"))
 										data-date-format="dd.mm.yyyy"
 										data-date-start-date="<?=date('d.m.Y', strtotime(date('d.m.Y') . "+1 days"))?>"
 										data-date-language="ru"
-										data-date-dates-disabled='["31-12-"<?=date('Y')?>,"1-1-"<?=date('Y', strtotime('+1 year'))?>,"2-1-"<?=date('Y', strtotime('+1 year'))?>,"3-1-"<?=date('Y', strtotime('+1 year'))?>,"4-1-"<?=date('Y', strtotime('+1 year'))?>,"5-1-"<?=date('Y', strtotime('+1 year'))?>,"6-1-"<?=date('Y', strtotime('+1 year'))?>,"7-1-"<?=date('Y', strtotime('+1 year'))?>,"8-1-"<?=date('Y', strtotime('+1 year'))?>,"9-1-"<?=date('Y', strtotime('+1 year'))?>,"10-1-"<?=date('Y', strtotime('+1 year'))?>]'
+										data-date-dates-disabled='["31-12-"<?=date('Y')?>,"1-1-"<?=date('Y', strtotime('+1 year'))?>,"2-1-"<?=date('Y', strtotime('+1 year'))?>,"3-1-"<?=date('Y', strtotime('+1 year'))?>,"4-1-"<?=date('Y', strtotime('+1 year'))?>,"5-1-"<?=date('Y', strtotime('+1 year'))?>,"6-1-"<?=date('Y', strtotime('+1 year'))?>,"7-1-"<?=date('Y', strtotime('+1 year'))?>,"8-1-"<?=date('Y', strtotime('+1 year'))?>,"9-1-"<?=date('Y', strtotime('+1 year'))?>,"10-1-"<?=date('Y', strtotime('+1 year'))?>,"1-1-"<?=date('Y')?>,"2-1-"<?=date('Y')?>,"3-1-"<?=date('Y')?>,"4-1-"<?=date('Y')?>,"5-1-"<?=date('Y')?>,"6-1-"<?=date('Y')?>,"7-1-"<?=date('Y')?>,"8-1-"<?=date('Y')?>,"9-1-"<?=date('Y')?>,"10-1-"<?=date('Y')?>]'
 										type="text"
 										name="<?=$prop['FIELD_NAME']?>"
 										value="<?=($prop["VALUE"]?$prop["VALUE"]:date('d.m.Y', strtotime(date('d.m.Y') . "+1 days")))?>"
