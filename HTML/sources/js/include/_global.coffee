@@ -14,6 +14,10 @@ $(document).ready ->
 		x = delay 200, ()->
 			size()
 
+	$('a[href*="#NY"]').click (e)->
+		$('#NY').modal()
+		e.preventDefault()
+
 	$('.catalog__banner--slider').slick
 		arrows: false
 		infinite: true
