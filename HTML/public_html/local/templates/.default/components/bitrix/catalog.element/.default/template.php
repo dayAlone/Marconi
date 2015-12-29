@@ -315,7 +315,7 @@ endif;
 					  		<?else:?>
 					  			<strong><?=number_format($arResult['MIN_PRICE']['DISCOUNT_VALUE'], 0, '.', ' ')?></strong> ₷
 					  		<? endif;?>
-							<? if ($props['DAY']['VALUE'] != 'Y') {?>
+							<? if ((SITE_ID == 's2' && $props['DAY']['VALUE'] != 'Y') || SITE_ID == 's1') {?>
 					  		<del><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?> ₷</del>
 							<? } ?>
 						<? else: ?>
