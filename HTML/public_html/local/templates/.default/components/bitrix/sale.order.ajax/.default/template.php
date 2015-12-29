@@ -197,12 +197,15 @@ if (!function_exists("cmpBySort"))
 										data-date-format="dd.mm.yyyy"
 										data-date-start-date="<?=date('d.m.Y', strtotime(date('d.m.Y') . "+1 days"))?>"
 										data-date-language="ru"
-										data-date-dates-disabled='["31-12-<?=date('Y')?>",<?
+										data-date-dates-disabled='<?
+											$dates = array();
+											$dates[] = "31-12-<?=date('Y')?>";
 											for ($i=1; $i < 11; $i++) {
-												echo '"'.$i.'-1-'.date('Y').'",';
-												echo '"'.$i.'-1-'.strtotime('+1 year').'",';
+												$dates[] = ($i < 10 ? '0' : '' ).'"'.$i.'-01-'.date('Y').'",';
+												$dates[] = ($i < 10 ? '0' : '' ).'"'.$i.'-01-'.date('Y', strtotime('+1 year')).'",';
 											}
-										?>]'
+											echo json_encode($dates);
+										?>'
 										type="text"
 										name="<?=$prop['FIELD_NAME']?>"
 										value="<?=($prop["VALUE"]?$prop["VALUE"]:date('d.m.Y', strtotime(date('d.m.Y') . "+1 days")))?>"
