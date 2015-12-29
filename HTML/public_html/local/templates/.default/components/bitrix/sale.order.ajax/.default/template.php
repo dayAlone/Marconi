@@ -191,7 +191,18 @@ if (!function_exists("cmpBySort"))
 							<div class="row xs-margin-top">
 								<div class="col-xs-6">
 									<small><strong><?=str_replace(" доставки", "<span class='hidden-xs'> доставки</span>", $prop['NAME'])?></strong></small>
-									<input class="date" data-provide="datepicker" readonly data-date-format="dd.mm.yyyy" data-date-start-date="<?=date('d.m.Y', strtotime(date('d.m.Y') . "+1 days"))?>" data-date-language="ru" type="text" name="<?=$prop['FIELD_NAME']?>" value="<?=($prop["VALUE"]?$prop["VALUE"]:date('d.m.Y', strtotime(date('d.m.Y') . "+1 days")))?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=='Y'?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
+									<input class="date"
+										readonly
+										data-provide="datepicker"
+										data-date-format="dd.mm.yyyy"
+										data-date-start-date="<?=date('d.m.Y', strtotime(date('d.m.Y') . "+1 days"))?>"
+										data-date-language="ru"
+										data-date-dates-disabled='["31-12-"<?=date('Y')?>,"1-1-"<?=date('Y', strtotime('+1 year'))?>,"2-1-"<?=date('Y', strtotime('+1 year'))?>,"3-1-"<?=date('Y', strtotime('+1 year'))?>,"4-1-"<?=date('Y', strtotime('+1 year'))?>,"5-1-"<?=date('Y', strtotime('+1 year'))?>,"6-1-"<?=date('Y', strtotime('+1 year'))?>,"7-1-"<?=date('Y', strtotime('+1 year'))?>,"8-1-"<?=date('Y', strtotime('+1 year'))?>,"9-1-"<?=date('Y', strtotime('+1 year'))?>,"10-1-"<?=date('Y', strtotime('+1 year'))?>]'
+										type="text"
+										name="<?=$prop['FIELD_NAME']?>"
+										value="<?=($prop["VALUE"]?$prop["VALUE"]:date('d.m.Y', strtotime(date('d.m.Y') . "+1 days")))?>"
+										placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=='Y'?" *":"")?>"
+										<?=($prop['REQUIED']=='Y'?"required":"")?>>
 									<div class="blue-arrow"><?=svg('arrow')?></div>
 								</div>
 				 			<?
