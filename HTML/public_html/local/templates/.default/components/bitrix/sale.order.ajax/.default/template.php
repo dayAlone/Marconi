@@ -189,7 +189,7 @@ if (!function_exists("cmpBySort"))
 				 		case "date":
 							$startDate = $prop["VALUE"] ? $prop["VALUE"] : date('d.m.Y', strtotime(date('d.m.Y') . "+1 days"));
 							if (!$prop["VALUE"] && strtotime("+1 days") > strtotime('29.12'.date('Y'))) {
-								$startDate = '11.01.'.(time() > strtotime('31.12'.date('Y')) ? date('Y') : date('Y', strtotime('+1 year')));
+								$startDate = '11.01.'.(time() > strtotime('31.12.'.date('Y')) ? date('Y') : date('Y', strtotime('+1 year')));
 							}
 				 			?>
 							<div class="row xs-margin-top">
