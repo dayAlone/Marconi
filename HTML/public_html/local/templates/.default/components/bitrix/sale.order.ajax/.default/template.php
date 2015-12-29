@@ -187,6 +187,10 @@ if (!function_exists("cmpBySort"))
 				 foreach ($arResult['ORDER_PROP']['RELATED'] as $prop):
 				 	switch ($prop['CODE']) {
 				 		case "date":
+							$startDate = $prop["VALUE"] ? $prop["VALUE"] : date('d.m.Y', strtotime(date('d.m.Y') . "+1 days"));
+							if (!$prop["VALUE"] && strtotime("+1 days") > strtotime('29.12'.date('Y'))) {
+								$startDate = '11.01.'.(time() > strtotime('31.12'.date('Y')) ? date('Y') : date('Y', strtotime('+1 year')));
+							}
 				 			?>
 							<div class="row xs-margin-top">
 								<div class="col-xs-6">
@@ -195,7 +199,7 @@ if (!function_exists("cmpBySort"))
 										readonly
 										data-provide="datepicker"
 										data-date-format="dd.mm.yyyy"
-										data-date-start-date="<?=date('d.m.Y', strtotime(date('d.m.Y') . "+1 days"))?>"
+										data-date-start-date="<?=$startDate?>"
 										data-date-language="ru"
 										data-date-dates-disabled='<?
 											$dates = array();
@@ -209,7 +213,7 @@ if (!function_exists("cmpBySort"))
 										?>'
 										type="text"
 										name="<?=$prop['FIELD_NAME']?>"
-										value="<?=($prop["VALUE"]?$prop["VALUE"]:date('d.m.Y', strtotime(date('d.m.Y') . "+1 days")))?>"
+										value="<?=$startDate?>"
 										placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=='Y'?" *":"")?>"
 										<?=($prop['REQUIED']=='Y'?"required":"")?>>
 									<div class="blue-arrow"><?=svg('arrow')?></div>
