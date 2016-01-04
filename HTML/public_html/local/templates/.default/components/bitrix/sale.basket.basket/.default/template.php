@@ -187,7 +187,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 			        		$arResult['QUANTITY'] += $item['QUANTITY'];
 			        	endif;
 				    endforeach;?>
-					<?if(SITE_ID == 's1' && strtotime('20.11.2016') > time() && strtotime('31.11.2016') > time()):?>
+					<?if(SITE_ID == 's1' && strtotime('20.11.2016') > time() && strtotime('31.11.2016') < time()):?>
 						<div class="basket__item basket__item--present">
 							<div class="row">
 								<div class="col-xs-4 left">
