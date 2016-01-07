@@ -187,9 +187,9 @@ if (!function_exists("cmpBySort"))
 				 foreach ($arResult['ORDER_PROP']['RELATED'] as $prop):
 				 	switch ($prop['CODE']) {
 				 		case "date":
-							$startDate = $prop["VALUE"] ? $prop["VALUE"] : date('d.m.Y', strtotime(date('d.m.Y') . "+1 days"));
-							if (!$prop["VALUE"] && strtotime("+1 days") > strtotime('29.12'.date('Y'))) {
-								$startDate = '11.01.'.(time() > strtotime('31.12.'.date('Y')) ? date('Y') : date('Y', strtotime('+1 year')));
+							$startDate = $prop["VALUE"] ? $prop["VALUE"] : date('d.m.Y', strtotime(date('d.m.Y') . "+1 day"));
+							if (!$prop["VALUE"] && (strtotime("+1 day") > strtotime('28.12.'.date('Y')) || strtotime("+1 day") < strtotime('11.01.'.date('Y')))) {
+								$startDate = '11.01.'.(strtotime("+1 day") < strtotime('11.01.'.date('Y')) ? date('Y') : date('Y', strtotime('+1 year')));
 							}
 				 			?>
 							<div class="row xs-margin-top">
@@ -325,19 +325,19 @@ if (!function_exists("cmpBySort"))
 					<div class="total__item <?=(intval($arResult['DELIVERY_PRICE'])>0?"":"hidden")?>">
 						<div class="row">
 							<div class="col-xs-7">ВАШ ЗАКАЗ НА СУММУ</div>
-							<div class="col-xs-5 right total__counter"><nobr><span id="price-1"><?=number_format($arResult['ORDER_PRICE'], 0, " ", " ")?></span> ₷</nobr></div>
+							<div class="col-xs-5 right total__counter"><nobr><span id="price-1"><?=number_format($arResult['ORDER_PRICE'], 0, " ", " ")?></span> <span class='rubl'>₽</span></nobr></div>
 						</div>
 					</div>
 					<div class="total__item <?=(intval($arResult['DELIVERY_PRICE'])>0?"":"hidden")?>">
 						<div class="row">
 							<div class="col-xs-7">ДОСТАВКА</div>
-							<div class="col-xs-5 right total__counter"><nobr><span id="price-2"><?=number_format($arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> ₷</nobr></div>
+							<div class="col-xs-5 right total__counter"><nobr><span id="price-2"><?=number_format($arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> <span class='rubl'>₽</span></nobr></div>
 						</div>
 					</div>
 					<div class="total__item total__item--big">
 						<div class="row">
 							<div class="col-xs-7">к оплате</div>
-							<div class="col-xs-5 right total__counter"><nobr><span id="price-3"><?=number_format($arResult['ORDER_PRICE']+$arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> ₷</nobr></div>
+							<div class="col-xs-5 right total__counter"><nobr><span id="price-3"><?=number_format($arResult['ORDER_PRICE']+$arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> <span class='rubl'>₽</span></nobr></div>
 						</div>
 					</div>
 				</div>
