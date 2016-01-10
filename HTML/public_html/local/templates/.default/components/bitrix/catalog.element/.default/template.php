@@ -299,7 +299,7 @@ endif;
 			?>
 			<div class="props__item props__item--price">
 				<div class="props__name">
-					<?=($showRetailPrice ? strtotime('10.01.2016') < time() ? "Christmas price" : "интернет-магазин" : "цена")?>
+					<?=($showRetailPrice ? strtotime('9.01.'.date('Y')) < time() ? "Christmas price" : "интернет-магазин" : "цена")?>
 				</div>
 				<div class="props__value">
 				<span>
@@ -356,7 +356,7 @@ endif;
 		    <?endif;?>
 			<?if($showRetailPrice):?>
 				<div class="props__item props__item--medium">
-					<div class="props__name"><?=(strtotime('10.01.2016') < time() ? "Crisis price" : 'розничные магазины')?></div>
+					<div class="props__name"><?=(strtotime('9.01.'.date('Y')) < time() ? "Crisis price" : 'розничные магазины')?></div>
 					<div class="props__value">
 						<span>
 							<strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?> ₷</strong>
