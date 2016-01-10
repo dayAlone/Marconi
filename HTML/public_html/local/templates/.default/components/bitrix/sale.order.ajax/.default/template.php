@@ -187,11 +187,35 @@ if (!function_exists("cmpBySort"))
 				 foreach ($arResult['ORDER_PROP']['RELATED'] as $prop):
 				 	switch ($prop['CODE']) {
 				 		case "date":
+							$startDate = $prop["VALUE"] ? $prop["VALUE"] : date('d.m.Y', strtotime(date('d.m.Y') . "+1 day"));
+							if (!$prop["VALUE"] && (strtotime("+1 day") > strtotime('28.12.'.date('Y')) || strtotime("+1 day") < strtotime('11.01.'.date('Y')))) {
+								$startDate = '11.01.'.(strtotime("+1 day") < strtotime('11.01.'.date('Y')) ? date('Y') : date('Y', strtotime('+1 year')));
+							}
 				 			?>
 							<div class="row xs-margin-top">
 								<div class="col-xs-6">
 									<small><strong><?=str_replace(" доставки", "<span class='hidden-xs'> доставки</span>", $prop['NAME'])?></strong></small>
-									<input class="date" data-provide="datepicker" readonly data-date-format="dd.mm.yyyy" data-date-start-date="<?=date('d.m.Y', strtotime(date('d.m.Y') . "+1 days"))?>" data-date-language="ru" type="text" name="<?=$prop['FIELD_NAME']?>" value="<?=($prop["VALUE"]?$prop["VALUE"]:date('d.m.Y', strtotime(date('d.m.Y') . "+1 days")))?>" placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=='Y'?" *":"")?>" <?=($prop['REQUIED']=='Y'?"required":"")?>>
+									<input class="date"
+										readonly
+										data-provide="datepicker"
+										data-date-format="dd.mm.yyyy"
+										data-date-start-date="<?=$startDate?>"
+										data-date-language="ru"
+										data-date-dates-disabled='<?
+											$dates = array();
+											$dates[] = '30.12.'.date('Y');
+											$dates[] = '31.12.'.date('Y');
+											for ($i=1; $i < 11; $i++) {
+												$dates[] = ($i < 10 ? '0' : '' ).$i.'.01.'.date('Y');
+												$dates[] = ($i < 10 ? '0' : '' ).$i.'.01.'.date('Y', strtotime('+1 year'));
+											}
+											echo json_encode($dates);
+										?>'
+										type="text"
+										name="<?=$prop['FIELD_NAME']?>"
+										value="<?=$startDate?>"
+										placeholder="<?=$prop['NAME']?><?=($prop['REQUIED']=='Y'?" *":"")?>"
+										<?=($prop['REQUIED']=='Y'?"required":"")?>>
 									<div class="blue-arrow"><?=svg('arrow')?></div>
 								</div>
 				 			<?
@@ -301,19 +325,19 @@ if (!function_exists("cmpBySort"))
 					<div class="total__item <?=(intval($arResult['DELIVERY_PRICE'])>0?"":"hidden")?>">
 						<div class="row">
 							<div class="col-xs-7">ВАШ ЗАКАЗ НА СУММУ</div>
-							<div class="col-xs-5 right total__counter"><nobr><span id="price-1"><?=number_format($arResult['ORDER_PRICE'], 0, " ", " ")?></span> ₷</nobr></div>
+							<div class="col-xs-5 right total__counter"><nobr><span id="price-1"><?=number_format($arResult['ORDER_PRICE'], 0, " ", " ")?></span> <span class='rubl'>₽</span></nobr></div>
 						</div>
 					</div>
 					<div class="total__item <?=(intval($arResult['DELIVERY_PRICE'])>0?"":"hidden")?>">
 						<div class="row">
 							<div class="col-xs-7">ДОСТАВКА</div>
-							<div class="col-xs-5 right total__counter"><nobr><span id="price-2"><?=number_format($arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> ₷</nobr></div>
+							<div class="col-xs-5 right total__counter"><nobr><span id="price-2"><?=number_format($arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> <span class='rubl'>₽</span></nobr></div>
 						</div>
 					</div>
 					<div class="total__item total__item--big">
 						<div class="row">
 							<div class="col-xs-7">к оплате</div>
-							<div class="col-xs-5 right total__counter"><nobr><span id="price-3"><?=number_format($arResult['ORDER_PRICE']+$arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> ₷</nobr></div>
+							<div class="col-xs-5 right total__counter"><nobr><span id="price-3"><?=number_format($arResult['ORDER_PRICE']+$arResult['DELIVERY_PRICE'], 0, " ", " ")?></span> <span class='rubl'>₽</span></nobr></div>
 						</div>
 					</div>
 				</div>

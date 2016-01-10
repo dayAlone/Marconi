@@ -14,6 +14,10 @@ $(document).ready ->
 		x = delay 200, ()->
 			size()
 
+	$('a[href*="#NY"]').click (e)->
+		$('#NY').modal()
+		e.preventDefault()
+
 	$('.catalog__banner--slider').slick
 		arrows: false
 		infinite: true
@@ -221,23 +225,9 @@ $(document).ready ->
 		lang = ""
 		if $('#contactsMap').data 'lang'
 			lang = "&language="+$('#contactsMap').data 'lang'
-		$.getScript 'http://maps.googleapis.com/maps/api/js?sensor=true&callback=contactsInit'+lang, ->
-			window.contactsInit = ->
-				center     = new google.maps.LatLng(55.83666078, 37.48988550);
-				mapElement = document.getElementById('contactsMap');
-				mapOptions = {zoom:14,draggable:true,minZoom: 3, zoomControl:true,zoomControlOptions: {style: google.maps.ZoomControlStyle.LARGE,position: google.maps.ControlPosition.LEFT_CENTER},scrollwheel:false,disableDoubleClickZoom:false,disableDefaultUI:true,center:center,styles:window.styles}
-				map        = new google.maps.Map(mapElement, mapOptions);
+		
+		$.getScript 'http://maps.googleapis.com/maps/api/js?sensor=true&callback=contactsInit'+lang
 
-				marker = new google.maps.Marker
-					position  : center
-					map       : map
-					icon      :
-						url        : "/layout/images/store-3.png"
-						size       : new google.maps.Size(82,73),
-						origin     : new google.maps.Point(0, 0),
-						anchor     : new google.maps.Point(20, 0),
-						scaledSize : new google.maps.Size(40, 35)
-					animation : google.maps.Animation.DROP
 
 	# About
 	$('.about').elem('slider').on('fotorama:show', (e, fotorama, extra) ->

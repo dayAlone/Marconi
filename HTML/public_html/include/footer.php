@@ -191,6 +191,21 @@ $APPLICATION->ShowViewContent('footer');
   </div>
   <?endif;?>
 <?endif;?>
+<? if(SITE_ID == 's2'):?>
+<div id="NY" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content"><a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
+        <object type="application/x-shockwave-flash" data="/layout/ny.swf" id="flash" style="margin:0;width:100%;height:580px;">
+
+        <param name="movie" value="/layout/ny.swf" />
+        <param name="wmode" value="transparent" />
+        <param name="quality" value="high" />
+
+        </object>
+    </div>
+  </div>
+</div>
+<?endif;?>
 <div id="Nav" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade overlay">
   <div class="modal-dialog">
     <a data-dismiss="modal" href="#" class="close"><?=svg('close')?></a>
