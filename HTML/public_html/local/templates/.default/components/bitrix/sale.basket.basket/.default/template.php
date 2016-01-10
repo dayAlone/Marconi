@@ -186,13 +186,6 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 				    endforeach;?>
 					<?if(SITE_ID == 's1' && strtotime('10.11.2016') > time()):?>
 					<div class="basket__item  " data-id="332" data-discount="10">
-						<div class="row">
-							<div class="col-xs-4 left">
-					        	<a href="#Lottery" data-toggle='modal'>
-									<div style="background-image: url(/layout/images/ticket.jpg)" class="basket__picture"></div></a>
-									<div class="basket__name">новогодняя Акция<br><span class="basket__brand">лотерейный билет</span></div>
-							</div>
-					    </div>
 					</div>
 					<? endif;?>
 					<div class="basket__footer">
