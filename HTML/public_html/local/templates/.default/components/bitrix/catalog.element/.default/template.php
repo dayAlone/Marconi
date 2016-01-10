@@ -356,7 +356,7 @@ endif;
 		    <?endif;?>
 			<?if($showRetailPrice):?>
 				<div class="props__item props__item--medium">
-					<div class="props__name"><?=(strtotime('10.01.2016') > time() ? "Crisis price" : 'розничные магазины')?></div>
+					<div class="props__name"><?=(strtotime('10.01.2016') < time() ? "Crisis price" : 'розничные магазины')?></div>
 					<div class="props__value">
 						<span>
 							<strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?> ₷</strong>
