@@ -216,7 +216,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 							</style>
 						</div>
 					<? endif;?>
-					<?if(SITE_ID == 's1' && strtotime('10.11.2016') > time()):?>
+					<?if(SITE_ID == 's1' && strtotime('10.11.2015') > time() && time() < strtotime('9.01.2016')):?>
 					<div class="basket__item">
 						<div class="row">
 							<div class="col-xs-4 left">
