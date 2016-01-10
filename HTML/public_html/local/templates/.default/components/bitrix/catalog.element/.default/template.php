@@ -299,7 +299,7 @@ endif;
 			?>
 			<div class="props__item props__item--price">
 				<div class="props__name">
-					<?=($showRetailPrice ? strtotime('10.01.2016') > time() ? "Christmas price" : "интернет-магазин" : "цена")?>
+					<?=($showRetailPrice ? strtotime('10.01.2016') < time() ? "Christmas price" : "интернет-магазин" : "цена")?>
 				</div>
 				<div class="props__value">
 				<span>
