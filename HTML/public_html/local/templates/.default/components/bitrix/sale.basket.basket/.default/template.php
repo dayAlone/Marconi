@@ -214,6 +214,7 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 						</div>
 					<? endif;?>
 					<?if(SITE_ID == 's1' && strtotime('10.11.2016') > time()):?>
+<<<<<<< Updated upstream
 					<div class="basket__item">
 						<div class="row">
 							<div class="col-xs-4 left">
@@ -222,6 +223,10 @@ if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 									<div class="basket__name">новогодняя Акция<br><span class="basket__brand">лотерейный билет</span></div>
 							</div>
 					    </div>
+=======
+					<div class="basket__item  " data-id="332" data-discount="10">
+						
+>>>>>>> Stashed changes
 					</div>
 					<? endif;?>
 					<div class="basket__footer">
