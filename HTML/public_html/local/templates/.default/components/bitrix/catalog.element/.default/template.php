@@ -184,7 +184,7 @@ endif;
 				        array("=PROPERTY_COMING" => "Y", "=PROPERTY_GENERAL" => "Y")
 				    );
 				else:
-					$arFilter["PROPERTY_GENERAL"] = "Y";
+					if ($props['COMING']['VALUE'] !== 'Y') $arFilter["PROPERTY_GENERAL"] = "Y";
 				endif;
 	        	if(strlen($props['ARTNUMBER']['VALUE'])>0):
 		        	$APPLICATION->IncludeComponent("bitrix:news.list", "colors",
