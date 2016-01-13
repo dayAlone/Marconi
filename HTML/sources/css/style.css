@@ -2217,6 +2217,7 @@ body.index--fmarconi {
 }
 .index--italbags {
   background: #448fca;
+  overflow: hidden;
 }
 .index--italbags .wrap {
   position: relative;
