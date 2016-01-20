@@ -13,7 +13,7 @@
    },
    "datepicker":{
       "js":["/bootstrap-datepicker/js/bootstrap-datepicker.js", "/bootstrap-datepicker/js/locales/bootstrap-datepicker.ru.js"],
-      "css": "/bootstrap-datepicker/dist/css/bootstrap-datepicker.css"
+      "css": "/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.css"
    },
    "bootstrap":{
       "js":[

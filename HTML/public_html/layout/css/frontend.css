@@ -3317,10 +3317,10 @@ tbody.collapse.in {
   display: inline-block;
   width: auto;
   min-width: 16px;
-  height: 18px;
+  height: 20px;
   padding: 4px 5px;
   font-weight: normal;
-  line-height: 18px;
+  line-height: 20px;
   text-align: center;
   text-shadow: 0 1px 0 #ffffff;
   vertical-align: middle;
@@ -3328,6 +3328,39 @@ tbody.collapse.in {
   border: 1px solid #ccc;
   margin-left: -5px;
   margin-right: -5px;
+}
+.datepicker.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  display: none;
+  min-width: 160px;
+  list-style: none;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+  color: #333333;
+  font-size: 13px;
+  line-height: 20px;
+}
+.datepicker.dropdown-menu th,
+.datepicker.datepicker-inline th,
+.datepicker.dropdown-menu td,
+.datepicker.datepicker-inline td {
+  padding: 4px 5px;
 }
 
 /*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license */
@@ -12906,20 +12939,11 @@ a.news--list .news-item__title:hover {
 }
 .datepicker {
   z-index: 1000 !important;
+  background-color: #fff;
 }
 .datepicker table tr td span {
   -webkit-border-radius: 0;
   border-radius: 0;
-}
-.datepicker table tr td span.active.active,
-.datepicker table tr td span.active.disabled.active,
-.datepicker table tr td span.active.disabled:active,
-.datepicker table tr td span.active.disabled:hover.active,
-.datepicker table tr td span.active.disabled:hover:active,
-.datepicker table tr td span.active:active,
-.datepicker table tr td span.active:hover.active,
-.datepicker table tr td span.active:hover:active {
-  background: #d10a32;
 }
 .datepicker.dropdown-menu {
   font-family: 'Proxima', 'Helvetica Neue', 'Arial', sans-serif;
@@ -12931,6 +12955,16 @@ a.news--list .news-item__title:hover {
   -webkit-border-radius: 0;
   border-radius: 0;
   padding: 5px 2px 0px;
+}
+.datepicker table tr td.active:active,
+.datepicker table tr td.active:hover:active,
+.datepicker table tr td.active.disabled:active,
+.datepicker table tr td.active.disabled:hover:active,
+.datepicker table tr td.active.active,
+.datepicker table tr td.active:hover.active,
+.datepicker table tr td.active.disabled.active,
+.datepicker table tr td.active.disabled:hover.active {
+  background: #d10a32;
 }
 .stores__list h3 {
   margin-top: 30px;
