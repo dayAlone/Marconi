@@ -264,6 +264,25 @@ if (!function_exists("cmpBySort"))
 						 		endif;
 						 	endif;
 				 		break;
+						case "metro":
+							require($_SERVER['DOCUMENT_ROOT'].'/include/metro.php');
+							?>
+							<div class="dropdown metro-select">
+								<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white"><?=(strlen($prop["VALUE"]) > 0 ? $prop["VALUE"]:'Выберите станцию метро')?></span><?=svg('arrow')?></a>
+								<input type="hidden" name="<?=$prop['FIELD_NAME']?>" value="<?=(strlen($prop["VALUE"]) > 0 ? $prop["VALUE"]:'')?>">
+								<span class="dropdown__frame">
+									<? foreach ($metro as $key => $value) {?>
+										<a href="#" class="dropdown__item"><?=$value?></a>
+									<?}?>
+
+								</span>
+								<select class="dropdown__select">
+									<? foreach ($metro as $key => $value) {?>
+									<option value="" <?=($prop["VALUE"] == $value ? "selected":"")?>>$value</option>
+									<?}?>
+								</select>
+							</div>
+						<?break;
 				 		default:
 				 			?><input
 								data-sort="<?=$prop['SORT']?>"

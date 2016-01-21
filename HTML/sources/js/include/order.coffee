@@ -8,7 +8,7 @@
 	$('.order__change').on 'click', (e)->
 		$('#register_user').iCheck('uncheck')
 		e.preventDefault()
-	$('.time-select .dropdown__item').on 'click', (e)->
+	$('.time-select .dropdown__item, .metro-select .dropdown__item').on 'click', (e)->
 		$(this).block().find('input').val $(this).text()
 
 	$('.stores-list .dropdown__item').on 'click', (e)->
