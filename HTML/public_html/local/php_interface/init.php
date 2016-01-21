@@ -125,13 +125,13 @@ function getOrderDelivery($ID, $props) {
 			$delivery['ADDRESS'] = $arList["TITLE"];
 		endif;
 	endif;
-	$str = "<strong>Способ доставки</strong>: ".$delivery['NAME'];
+	$str = "<strong>Способ доставки</strong>: ".$delivery['NAME']. "<br/>";
 	switch ($delivery['ID']) {
 		case 2:
 			if(isset($delivery['ADDRESS'])):
-				$str .= " (".$delivery['ADDRESS'].")";
+				$str .= " (".$delivery['ADDRESS'].")". "<br/>";
 			elseif($props['pickup']):
-				$str .= " <strong>Адрес</strong>: ".trim(preg_replace('/\s+/', ' ', $props['pickup']));
+				$str .= " <strong>Адрес</strong>: ".trim(preg_replace('/\s+/', ' ', $props['pickup'])). "<br/>";
 				endif;
 			break;
 		default:
@@ -140,13 +140,13 @@ function getOrderDelivery($ID, $props) {
 			foreach (array('street', 'house', 'corpus', 'building', 'flat', 'stage') as $value) {
 				if(strlen($props[$value]) > 0) $subStr .=  (strlen($subStr)>0?", ":"") .$desc[$value] ." " . $props[$value];
 			}
-			if(strlen($subStr) > 0) $str .= " <strong>Адрес</strong>: ".$subStr;
+			if(strlen($subStr) > 0) $str .= " <strong>Адрес</strong>: ".$subStr. "<br/>";
 
 			$subStr = '';
 			foreach (array('date', 'time') as $value) {
 				if(strlen($props[$value]) > 0) $subStr .=  (strlen($subStr)>0?", ":""). $props[$value];
 			}
-			if(strlen($subStr) > 0) $str .= " <strong>Пожелания к доставке</strong>: ".$subStr;
+			if(strlen($subStr) > 0) $str .= " <strong>Пожелания к доставке</strong>: ".$subStr . "<br/>";
 			break;
 	}
 	return $str;
