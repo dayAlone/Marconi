@@ -276,6 +276,7 @@ if (!function_exists("cmpBySort"))
 									<?}?>
 								</span>
 								<select class="dropdown__select" required>
+									<option value="">Выберите станцию метро</option>
 									<? foreach ($metro as $key => $value) {?>
 									<option value="<?=$value?>" <?=($prop["VALUE"] == $value ? "selected":"")?>><?=$value?></option>
 									<?}?>
