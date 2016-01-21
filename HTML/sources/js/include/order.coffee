@@ -10,6 +10,7 @@
 		e.preventDefault()
 	$('.time-select .dropdown__item, .metro-select .dropdown__item').on 'click', (e)->
 		$(this).block().find('input').val $(this).text()
+		$(this).block('select').val $(this).block('select').find("option[value='#{$(this).text()}']").val()
 
 	$('.stores-list .dropdown__item').on 'click', (e)->
 		$('.stores-list .parsley-errors-list').removeClass 'filled'
