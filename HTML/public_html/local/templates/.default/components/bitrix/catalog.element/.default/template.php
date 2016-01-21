@@ -184,7 +184,7 @@ endif;
 				        array("=PROPERTY_COMING" => "Y", "=PROPERTY_GENERAL" => "Y")
 				    );
 				else:
-					$arFilter["PROPERTY_GENERAL"] = "Y";
+					if ($props['COMING']['VALUE'] !== 'Y') $arFilter["PROPERTY_GENERAL"] = "Y";
 				endif;
 	        	if(strlen($props['ARTNUMBER']['VALUE'])>0):
 		        	$APPLICATION->IncludeComponent("bitrix:news.list", "colors",
@@ -299,7 +299,7 @@ endif;
 			?>
 			<div class="props__item props__item--price">
 				<div class="props__name">
-					<?=($showRetailPrice ? strtotime('9.01.'.date('Y')) < time() ? "Christmas price" : "интернет-магазин" : "цена")?>
+					<?=($showRetailPrice ? strtotime('9.01.'.date('Y')) > time() ? "Christmas price" : "интернет-магазин" : "цена")?>
 				</div>
 				<div class="props__value">
 				<span>
@@ -356,7 +356,7 @@ endif;
 		    <?endif;?>
 			<?if($showRetailPrice):?>
 				<div class="props__item props__item--medium">
-					<div class="props__name"><?=(strtotime('9.01.'.date('Y')) < time() ? "Crisis price" : 'розничные магазины')?></div>
+					<div class="props__name"><?=(strtotime('9.01.'.date('Y')) > time() ? "Crisis price" : 'розничные магазины')?></div>
 					<div class="props__value">
 						<span>
 							<strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?> ₷</strong>

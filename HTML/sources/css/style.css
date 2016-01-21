@@ -4004,7 +4004,7 @@ label.profile__label {
   position: absolute;
   bottom: 80px;
   margin-left: 25px;
-  width: 100%;
+  width: 70%;
 }
 .news--index .news-item {
   max-width: 95%;
@@ -9032,20 +9032,11 @@ a.news--list .news-item__title:hover {
 }
 .datepicker {
   z-index: 1000 !important;
+  background-color: #fff;
 }
 .datepicker table tr td span {
   -webkit-border-radius: 0;
   border-radius: 0;
-}
-.datepicker table tr td span.active.active,
-.datepicker table tr td span.active.disabled.active,
-.datepicker table tr td span.active.disabled:active,
-.datepicker table tr td span.active.disabled:hover.active,
-.datepicker table tr td span.active.disabled:hover:active,
-.datepicker table tr td span.active:active,
-.datepicker table tr td span.active:hover.active,
-.datepicker table tr td span.active:hover:active {
-  background: #d10a32;
 }
 .datepicker.dropdown-menu {
   font-family: 'Proxima', 'Helvetica Neue', 'Arial', sans-serif;
@@ -9057,6 +9048,16 @@ a.news--list .news-item__title:hover {
   -webkit-border-radius: 0;
   border-radius: 0;
   padding: 5px 2px 0px;
+}
+.datepicker table tr td.active:active,
+.datepicker table tr td.active:hover:active,
+.datepicker table tr td.active.disabled:active,
+.datepicker table tr td.active.disabled:hover:active,
+.datepicker table tr td.active.active,
+.datepicker table tr td.active:hover.active,
+.datepicker table tr td.active.disabled.active,
+.datepicker table tr td.active.disabled:hover.active {
+  background: #d10a32;
 }
 .stores__list h3 {
   margin-top: 30px;

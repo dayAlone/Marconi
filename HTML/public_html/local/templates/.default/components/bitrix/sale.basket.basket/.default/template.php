@@ -129,7 +129,7 @@ function basketItem($item, $arResult)
 }
 if (strlen($arResult["ERROR_MESSAGE"]) <= 0)
 {
-	if (SITE_ID == 's1' && time() < strtotime('11.01.2016')):?>
+	if (SITE_ID == 's1' && time() < strtotime('10.01.2016')):?>
 		<img src="/layout/images/ny-info.png" width="100%" alt="" style="margin-top: -20px; display: inline-block;"/>
 		<br/><br/><br/>
 	<?endif;?>
