@@ -275,7 +275,7 @@ if (!function_exists("cmpBySort"))
 										<a href="#" class="dropdown__item"><?=$value?></a>
 									<?}?>
 								</span>
-								<select class="dropdown__select">
+								<select class="dropdown__select" required>
 									<? foreach ($metro as $key => $value) {?>
 									<option value="" <?=($prop["VALUE"] == $value ? "selected":"")?>>$value</option>
 									<?}?>

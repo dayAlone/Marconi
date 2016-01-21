@@ -8720,6 +8720,9 @@ a.news--list .news-item__title:hover {
   display: inline-block;
   width: 100%;
 }
+.basket__block .dropdown.metro-select {
+  z-index: 100;
+}
 .basket__block .dropdown .parsley-errors-list.filled {
   position: absolute;
   border: 1px solid #d10a32;
