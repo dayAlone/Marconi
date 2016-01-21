@@ -274,7 +274,6 @@ if (!function_exists("cmpBySort"))
 									<? foreach ($metro as $key => $value) {?>
 										<a href="#" class="dropdown__item"><?=$value?></a>
 									<?}?>
-
 								</span>
 								<select class="dropdown__select">
 									<? foreach ($metro as $key => $value) {?>
