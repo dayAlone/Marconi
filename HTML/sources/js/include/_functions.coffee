@@ -184,9 +184,35 @@ timer = false
 		$(this).block().mod 'open', false
 		$(this).block().elem('text').text $(this).find('option:selected').text()
 
+	$('.dropdown input').on 'keydown', (e)->
+		if e.keyCode == 13
+			dropdown = $(this).parents '.dropdown'
+			$(this).val dropdown.find('.dropdown__item.active:first').text()
+			closeDropdown dropdown
+			e.preventDefault()
+
+	keyupTimer = false
+
+	$('.dropdown input').on 'keyup', (e)->
+		clearTimeout keyupTimer
+		value = $(this).val()
+		value = value.charAt(0).toUpperCase() + value.slice(1)
+		dropdown = $(this).parents '.dropdown'
+		keyupTimer = delay 300, ->
+			if e.keyCode != 13
+				dropdown.find(".dropdown__item" ).removeClass 'active'
+				dropdown.find(".dropdown__item:not(:contains('#{value}'))" ).addClass 'hidden'
+				dropdown.find(".dropdown__item:contains('#{value}')" ).removeClass 'hidden'
+				dropdown.find(".dropdown__item:not('.hidden'):first" ).addClass 'active'
+
+				if dropdown.find(".dropdown__item:not(.hidden)").length == 0
+					closeDropdown dropdown
+				else if !dropdown.hasMod 'open'
+					openDropdown dropdown
+
 	$('.dropdown').hoverIntent
 			over : ()->
-				if !$.browser.mobile
+				if !$.browser.mobile && !$(this).hasClass 'metro-select'
 					openDropdown $(this)
 				else
 					$(this)

@@ -12633,6 +12633,23 @@ a.news--list .news-item__title:hover {
 .basket__block .dropdown.metro-select {
   z-index: 100;
 }
+.basket__block .dropdown.metro-select .dropdown__frame {
+  margin-top: -4px;
+  padding: 5px;
+  background-color: #fff;
+  -webkit-box-shadow: inset 0 0 0 1px #d5dbdf;
+  box-shadow: inset 0 0 0 1px #d5dbdf;
+}
+.basket__block .dropdown.metro-select .dropdown__item {
+  color: #000;
+}
+.basket__block .dropdown.metro-select .dropdown__item:hover {
+  background-color: #e0e8ea;
+}
+.basket__block .dropdown.metro-select .dropdown__item.active {
+  background-color: #d10a32;
+  color: #fff;
+}
 .basket__block .dropdown .parsley-errors-list.filled {
   position: absolute;
   border: 1px solid #d10a32;
@@ -12798,7 +12815,7 @@ a.news--list .news-item__title:hover {
   height: 80px;
 }
 .s1 .basket__block textarea {
-  height: 157px;
+  height: 136px;
 }
 .basket__block-title {
   text-transform: uppercase;
@@ -12890,6 +12907,8 @@ a.news--list .news-item__title:hover {
   max-height: 288px;
   -webkit-box-shadow: none;
   box-shadow: none;
+  -webkit-box-shadow: 0 0 0 1px #d5dbdf;
+  box-shadow: 0 0 0 1px #d5dbdf;
 }
 .bx-sls .bx-ui-sls-pane .dropdown-item {
   padding-bottom: 4px;

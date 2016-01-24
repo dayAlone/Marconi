@@ -125,13 +125,13 @@ function getOrderDelivery($ID, $props) {
 			$delivery['ADDRESS'] = $arList["TITLE"];
 		endif;
 	endif;
-	$str = "<strong>Способ доставки</strong>: ".$delivery['NAME'];
+	$str = "<strong>Способ доставки</strong>: ".$delivery['NAME']. "<br/>";
 	switch ($delivery['ID']) {
 		case 2:
 			if(isset($delivery['ADDRESS'])):
-				$str .= " (".$delivery['ADDRESS'].")";
+				$str .= " (".$delivery['ADDRESS'].")". "<br/>";
 			elseif($props['pickup']):
-				$str .= " <strong>Адрес</strong>: ".trim(preg_replace('/\s+/', ' ', $props['pickup']));
+				$str .= " <strong>Адрес</strong>: ".trim(preg_replace('/\s+/', ' ', $props['pickup'])). "<br/>";
 				endif;
 			break;
 		default:
@@ -140,13 +140,13 @@ function getOrderDelivery($ID, $props) {
 			foreach (array('street', 'house', 'corpus', 'building', 'flat', 'stage') as $value) {
 				if(strlen($props[$value]) > 0) $subStr .=  (strlen($subStr)>0?", ":"") .$desc[$value] ." " . $props[$value];
 			}
-			if(strlen($subStr) > 0) $str .= " <strong>Адрес</strong>: ".$subStr;
+			if(strlen($subStr) > 0) $str .= " <strong>Адрес</strong>: ".$subStr. "<br/>";
 
 			$subStr = '';
 			foreach (array('date', 'time') as $value) {
 				if(strlen($props[$value]) > 0) $subStr .=  (strlen($subStr)>0?", ":""). $props[$value];
 			}
-			if(strlen($subStr) > 0) $str .= " <strong>Пожелания к доставке</strong>: ".$subStr;
+			if(strlen($subStr) > 0) $str .= " <strong>Пожелания к доставке</strong>: ".$subStr . "<br/>";
 			break;
 	}
 	return $str;
@@ -251,7 +251,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 			$str .= '</tbody>
 				<tfooter>
 					<td colspan="2" style="font-size:12px;text-align:left;">
-					<strong>Заказчик</strong>: '.$orderProps['NAME'].''.(strlen($delivery)>0?"<br><br>".$delivery."<br>":"").'
+					<strong>Заказчик</strong>: '.$orderProps['NAME'].''.(strlen($delivery)>0?"<br><br>".$delivery:"").'
 					'.(strlen($orderProps['metro']) > 0 ? "<strong>Метро</strong>:".$orderProps['metro']."<br>" : "").'
 					'.(strlen($arOrder['USER_DESCRIPTION']) > 0 ? "<strong>Комментарий</strong>:".$arOrder['USER_DESCRIPTION'] : "").'
 					<td colspan="4" style="text-align: right;font-size:12px"><strong>Телефон</strong>: '.$orderProps['phone'].', <br><strong>Эл. почта</strong>: '.$orderProps['email'].'</td>

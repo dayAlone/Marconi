@@ -268,19 +268,13 @@ if (!function_exists("cmpBySort"))
 							require($_SERVER['DOCUMENT_ROOT'].'/include/metro.php');
 							?>
 							<div class="dropdown metro-select">
-								<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white"><?=(strlen($prop["VALUE"]) > 0 ? $prop["VALUE"]:'Выберите станцию метро')?></span><?=svg('arrow')?></a>
-								<input type="hidden" name="<?=$prop['FIELD_NAME']?>" value="<?=(strlen($prop["VALUE"]) > 0 ? $prop["VALUE"]:'')?>">
+								<input type="text" name="<?=$prop['FIELD_NAME']?>" value="" placeholder="Станция метро" autocomplete="off">
 								<span class="dropdown__frame">
 									<? foreach ($metro as $key => $value) {?>
 										<a href="#" class="dropdown__item"><?=$value?></a>
 									<?}?>
 								</span>
-								<select class="dropdown__select" required>
-									<option value="">Выберите станцию метро</option>
-									<? foreach ($metro as $key => $value) {?>
-									<option value="<?=$value?>" <?=($prop["VALUE"] == $value ? "selected":"")?>><?=$value?></option>
-									<?}?>
-								</select>
+								
 							</div>
 						<?break;
 				 		default:

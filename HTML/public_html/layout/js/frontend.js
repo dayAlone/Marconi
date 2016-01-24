@@ -45048,6 +45048,7 @@ return PhotoSwipeUI_Default;
   };
 
   this.initDropdown = function() {
+    var keyupTimer;
     $('.dropdown').elem('item').off('click').on('click', function(e) {
       if ($(this).attr('href')[0] === "#") {
         $(this).block('select').val($(this).data('id'));
@@ -45076,9 +45077,39 @@ return PhotoSwipeUI_Default;
       $(this).block().mod('open', false);
       return $(this).block().elem('text').text($(this).find('option:selected').text());
     });
+    $('.dropdown input').on('keydown', function(e) {
+      var dropdown;
+      if (e.keyCode === 13) {
+        dropdown = $(this).parents('.dropdown');
+        $(this).val(dropdown.find('.dropdown__item.active:first').text());
+        closeDropdown(dropdown);
+        return e.preventDefault();
+      }
+    });
+    keyupTimer = false;
+    $('.dropdown input').on('keyup', function(e) {
+      var dropdown, value;
+      clearTimeout(keyupTimer);
+      value = $(this).val();
+      value = value.charAt(0).toUpperCase() + value.slice(1);
+      dropdown = $(this).parents('.dropdown');
+      return keyupTimer = delay(300, function() {
+        if (e.keyCode !== 13) {
+          dropdown.find(".dropdown__item").removeClass('active');
+          dropdown.find(".dropdown__item:not(:contains('" + value + "'))").addClass('hidden');
+          dropdown.find(".dropdown__item:contains('" + value + "')").removeClass('hidden');
+          dropdown.find(".dropdown__item:not('.hidden'):first").addClass('active');
+          if (dropdown.find(".dropdown__item:not(.hidden)").length === 0) {
+            return closeDropdown(dropdown);
+          } else if (!dropdown.hasMod('open')) {
+            return openDropdown(dropdown);
+          }
+        }
+      });
+    });
     return $('.dropdown').hoverIntent({
       over: function() {
-        if (!$.browser.mobile) {
+        if (!$.browser.mobile && !$(this).hasClass('metro-select')) {
           return openDropdown($(this));
         } else {
           return $(this).elem('select').focus().trigger('click').mod('open', true);
