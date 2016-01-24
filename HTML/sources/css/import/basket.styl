@@ -515,6 +515,19 @@
 			width 100%
 			&.metro-select
 				z-index 100
+				.dropdown
+					&__frame
+						margin-top -4px
+						padding 5px
+						background-color white
+						box-shadow inset 0 0 0 1px #d5dbdf
+					&__item
+						color black
+						&:hover
+							background-color #e0e8ea
+						&.active
+							background-color red
+							color white
 			.parsley-errors-list.filled
 				position absolute
 				border 1px solid red
@@ -676,6 +689,7 @@
 		border 0
 		max-height 288px
 		box-shadow none
+		box-shadow 0 0 0 1px #d5dbdf
 		.dropdown-item
 			padding-bottom 4px
 			border-radius 0
