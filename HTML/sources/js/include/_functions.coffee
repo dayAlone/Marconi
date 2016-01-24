@@ -198,8 +198,8 @@ timer = false
 		value = $(this).val()
 		value = value.charAt(0).toUpperCase() + value.slice(1)
 		dropdown = $(this).parents '.dropdown'
-		keyupTimer = delay 300, ->
-			if e.keyCode != 13
+		if e.keyCode != 13 && value.length > 0
+			keyupTimer = delay 300, ->
 				dropdown.find(".dropdown__item" ).removeClass 'active'
 				dropdown.find(".dropdown__item:not(:contains('#{value}'))" ).addClass 'hidden'
 				dropdown.find(".dropdown__item:contains('#{value}')" ).removeClass 'hidden'

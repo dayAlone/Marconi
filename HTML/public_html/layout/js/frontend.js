@@ -45093,8 +45093,8 @@ return PhotoSwipeUI_Default;
       value = $(this).val();
       value = value.charAt(0).toUpperCase() + value.slice(1);
       dropdown = $(this).parents('.dropdown');
-      return keyupTimer = delay(300, function() {
-        if (e.keyCode !== 13) {
+      if (e.keyCode !== 13 && value.length > 0) {
+        return keyupTimer = delay(300, function() {
           dropdown.find(".dropdown__item").removeClass('active');
           dropdown.find(".dropdown__item:not(:contains('" + value + "'))").addClass('hidden');
           dropdown.find(".dropdown__item:contains('" + value + "')").removeClass('hidden');
@@ -45104,8 +45104,8 @@ return PhotoSwipeUI_Default;
           } else if (!dropdown.hasMod('open')) {
             return openDropdown(dropdown);
           }
-        }
-      });
+        });
+      }
     });
     return $('.dropdown').hoverIntent({
       over: function() {
