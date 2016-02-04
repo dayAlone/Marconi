@@ -265,18 +265,21 @@ if (!function_exists("cmpBySort"))
 						 	endif;
 				 		break;
 						case "metro":
-							require($_SERVER['DOCUMENT_ROOT'].'/include/metro.php');
-							?>
-							<div class="dropdown metro-select">
-								<input type="text" name="<?=$prop['FIELD_NAME']?>" value="" placeholder="Станция метро" autocomplete="off">
-								<span class="dropdown__frame">
-									<? foreach ($metro as $key => $value) {?>
-										<a href="#" class="dropdown__item"><?=$value?></a>
-									<?}?>
-								</span>
-								
-							</div>
-						<?break;
+							if (in_array($_REQUEST['ORDER_PROP_2'], array(218, 222))):
+								require($_SERVER['DOCUMENT_ROOT'].'/include/metro.php');
+								?>
+								<div class="dropdown metro-select">
+									<input type="text" name="<?=$prop['FIELD_NAME']?>" value="" placeholder="Станция метро" autocomplete="off">
+									<span class="dropdown__frame">
+										<? foreach ($metro as $key => $value) {?>
+											<a href="#" class="dropdown__item"><?=$value?></a>
+										<?}?>
+									</span>
+
+								</div>
+						<?
+							endif;
+						break;
 				 		default:
 				 			?><input
 								data-sort="<?=$prop['SORT']?>"
