@@ -374,7 +374,7 @@ function OnBeforeMailSendHandler(&$arFields, $arTemplate) {
 					$artnumber .= " " .str_replace(array($item['NOTE_SHORT']['VALUE'], $arFields['BRANDS'][$item['BRAND']['VALUE']]), array('',''), $item['NAME']);
 					$artnumber = preg_replace("/\s+/", " ", $artnumber);
 				else:
-					$artnumber = str_replace(' '.$arFields['BRANDS'][$item['BRAND']['VALUE']], '', $item['NAME']);
+					$artnumber = strlen($arFields['BRANDS'][$item['BRAND']['VALUE']]) > 0 ? str_replace(' '.$arFields['BRANDS'][$item['BRAND']['VALUE']], '', $item['NAME']) : $item['NAME'];
 				endif;
 				$orderData['LIST'][] = implode(";", array(
 					'key'       => $i,
