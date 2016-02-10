@@ -44,15 +44,21 @@
 	foreach($arResult["ORDERS"] as $k => $order)
 		foreach ($order["BASKET_ITEMS"] as $item)
 			$arItems[] = $item['PRODUCT_ID'];
-	
+
 	$arSelect = Array("ID", "PROPERTY_CML2_LINK");
 	$arFilter = Array("ID" => $arItems );
 	$res      = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
 	while($item = $res->Fetch()):
-		$arResult['KEYS'][$item["PROPERTY_CML2_LINK_VALUE"]] = $item['ID'];
+		$el = &$arResult['KEYS'][$item["PROPERTY_CML2_LINK_VALUE"]];
+		if (!isset($el)):
+			$el = $item['ID'];
+		else:
+			if (!is_array($el)) $el = array($el, $item['ID']);
+			else $el[] = $item['ID'];
+		endif;
 		$key = array_search($item['ID'], $arItems);
 		unset($arItems[$key]);
-		$arItems[] = $item["PROPERTY_CML2_LINK_VALUE"];
+		if(!in_array($item["PROPERTY_CML2_LINK_VALUE"], $arItems)) $arItems[] = $item["PROPERTY_CML2_LINK_VALUE"];
 	endwhile;
 
 	$arSelect = Array("ID", "PREVIEW_PICTURE", "CODE", "PROPERTY_ARTNUMBER");
@@ -70,7 +76,7 @@
 		while($data = $raw->GetNext())
 			if(!in_array($data['CODE'], array('all', 'sale')))
 				$item['IBLOCK_SECTION_ID'] = $data['ID'];
-		
+
 		if(!isset($paths[$item['IBLOCK_SECTION_ID']])):
 			$rsPath = GetIBlockSectionPath($arResult['ID'], $item['IBLOCK_SECTION_ID']);
 			$arPath = $rsPath->GetNext();
@@ -85,6 +91,7 @@
 		endif;
 		$arResult['ITEMS'][$key] = $item;
 	endwhile;
+
 	if(is_array($arResult["ORDERS"]) && !empty($arResult["ORDERS"]))
 	{
 		foreach ($arResult["ORDERS"] as $order)
