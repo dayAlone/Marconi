@@ -14,9 +14,11 @@ $(document).ready ->
 		x = delay 200, ()->
 			size()
 
-	$('a[href*="#NY"]').click (e)->
-		$('#NY').modal()
-		e.preventDefault()
+	$('.catalog__banner a').click (e)->
+		url = $(this).attr('href')
+		if $(url).hasClass 'modal'
+			$(url).modal()
+			e.preventDefault()
 
 	$('.catalog__banner--slider').slick
 		arrows: false
@@ -225,7 +227,7 @@ $(document).ready ->
 		lang = ""
 		if $('#contactsMap').data 'lang'
 			lang = "&language="+$('#contactsMap').data 'lang'
-		
+
 		$.getScript 'http://maps.googleapis.com/maps/api/js?sensor=true&callback=contactsInit'+lang
 
 
