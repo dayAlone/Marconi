@@ -12634,7 +12634,7 @@ a.news--list .news-item__title:hover {
   z-index: 100;
 }
 .basket__block .dropdown.metro-select .parsley-errors-list {
-  display: none;
+  display: none !important;
 }
 .basket__block .dropdown.metro-select .dropdown__frame {
   margin-top: -4px;
