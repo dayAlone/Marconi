@@ -269,7 +269,7 @@ if (!function_exists("cmpBySort"))
 								require($_SERVER['DOCUMENT_ROOT'].'/include/metro.php');
 								?>
 								<div class="dropdown metro-select">
-									<input type="text" <?=($prop['REQUIED']=='Y'?"required='required'":"")?> name="<?=$prop['FIELD_NAME']?>" value="" placeholder="Станция метро" autocomplete="off">
+									<input type="text" <?=($prop['REQUIED']=='Y'?"required='required'":"")?> name="<?=$prop['FIELD_NAME']?>" value="" placeholder="Станция метро <?=($prop['REQUIED']=="Y"?"*":"")?>" autocomplete="off">
 									<span class="dropdown__frame">
 										<? foreach ($metro as $key => $value) {?>
 											<a href="#" class="dropdown__item"><?=$value?></a>
