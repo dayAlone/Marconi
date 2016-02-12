@@ -45,7 +45,7 @@ $APPLICATION->SetTitle('Новости');
     			);
             else:
     			$APPLICATION->IncludeComponent("bitrix:news.detail","news",Array(
-    		      "IBLOCK_ID"     => $IBLOCK,
+    		      "IBLOCK_ID"     => 4,
     		      "ELEMENT_CODE"  => $_REQUEST['ELEMENT_CODE'],
     		      "CHECK_DATES"   => "N",
     		      "IBLOCK_TYPE"   => "content",
