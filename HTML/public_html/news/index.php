@@ -48,7 +48,7 @@ $APPLICATION->SetTitle('Новости');
     		      "IBLOCK_ID"     => $IBLOCK,
     		      "ELEMENT_CODE"  => $_REQUEST['ELEMENT_CODE'],
     		      "CHECK_DATES"   => "N",
-    		      "IBLOCK_TYPE"   => "content_italbags",
+    		      "IBLOCK_TYPE"   => "content_fmarconi",
     		      "SET_TITLE"     => "Y",
     		      "CACHE_TYPE"    => "A",
     		      "PROPERTY_CODE" => array("GALLERY"),
