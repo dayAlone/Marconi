@@ -3,5 +3,5 @@
     {
         return ($a['NAME'] >= $b['NAME']) ? -1 : 1;
     }
-    uasort($arResult['SECTIONS'], "years_sort");
+    usort($arResult['SECTIONS'], "years_sort");
 ?>
