@@ -1,7 +1,7 @@
 <? $this->setFrameMode(true);
 $item = $arResult;
-?>
 
+?>
 <div class="news-item news-item--detail">
   <div class="news-item__date"><?=r_date($item['ACTIVE_FROM'])?></div>
   <a href="<?=($arParams['DETAIL']=="Y"?$item['DETAIL_PAGE_URL']:"#")?>" class="news-item__title"><?=$item['NAME']?></a>
@@ -31,5 +31,5 @@ $item = $arResult;
   </div>
 </div>
 <div class="center xl-margin-bottom">
-  <a href="/news/" class="news-item__back"><?=svg('arrow')?> вернуться к новостям</a>
+  <a href="/news/<?=$item['SECTION']['PATH'][0]['CODE']?>/" class="news-item__back"><?=svg('arrow')?> вернуться к новостям</a>
 </div>
