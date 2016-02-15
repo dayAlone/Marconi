@@ -36,6 +36,17 @@
 	$('.picture').elem('big').height ->
 		return $('.product').elem('description').height()
 
+	if $('.pictures .picture__small').length > 5 && !$.browser.mobile
+		next = $('.pictures__arrow--right').html()
+		prev = $('.pictures__arrow--left').html()
+		$('.pictures:not(.slick-initialized)').slick
+			vertical: true
+			slidesToShow: 5
+			nextArrow      : "<button type=\"button\" class=\"slick-next\">#{next}</button>"
+			prevArrow      : "<button type=\"button\" class=\"slick-prev\">#{prev}</button>"
+	else if $.browser.mobile
+		$('.pictures.slick-initialized').slick 'unslick'
+
 	$('.filter')
 		.removeAttr('style')
 		.mod('loaded', false)

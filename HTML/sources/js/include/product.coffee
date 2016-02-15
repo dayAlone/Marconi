@@ -130,8 +130,8 @@
 				$($(this).attr('href')).mod 'active', true
 			e.preventDefault()
 		$('.picture').elem('small').click (e)->
-			$('.picture').elem('small').mod 'active', false
-			$(this).mod 'active', true
+			$('.picture').elem('small').removeClass 'picture__small--active'
+			$(this).addClass 'picture__small--active'
 			$('.picture').elem('big').css
 				backgroundImage : "url(#{$(this).data('middle')})"
 			if !$.browser.mobile

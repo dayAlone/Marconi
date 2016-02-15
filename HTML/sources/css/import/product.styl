@@ -183,8 +183,8 @@
 		@media (min-width: scr_md)
 			padding-right 25px
 		&__big
-			min-height 280px
-			max-height 280px
+			min-height 285px
+			max-height 285px
 			margin-bottom 10px
 			pointer-events none
 			@media (min-width: scr_sm)
@@ -247,6 +247,7 @@
 				width 100%
 				display block
 				margin 0 0 15px 0
+
 			box-shadow 0 0 0 3px rgba(255,255,255,.4)
 			t all
 			transform translateZ(0)
@@ -541,3 +542,33 @@
 			font-weight: normal
 			font-size 12px
 			padding 7px 0 2px
+.pictures
+	&.slick-initialized
+		.picture__small
+			margin-bottom 11px
+	.slick-arrow
+		appearance none
+		border 0
+		background-color transparent
+		overflow hidden
+		text-indent -1000px
+		position relative
+		width 100%
+		height 20px
+		display block
+		padding 0
+		background-color white
+		&.slick-next
+			margin-top -10px
+			padding-top 3px
+		&.slick-prev
+			margin-top -3px
+			margin-bottom 3px
+		svg
+			transform rotate(90deg) translateX(0%) translateY(50%)
+			size 20px
+			position absolute
+			top 0
+			left 50%
+			path
+				fill black

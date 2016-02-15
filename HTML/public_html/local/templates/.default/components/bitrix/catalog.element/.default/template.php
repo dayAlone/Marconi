@@ -114,14 +114,20 @@ endif;
 	      </div>
 	      <? if(count($item['IMAGES'])>1):?>
 	      <div class="col-sm-2 col-md-2">
-	      <?
-	      $i=0;
-	      foreach ($item['IMAGES'] as $key => $image):
-	      	?><a style="background-image:url(<?=$image['small']?>)" href="<?=$image['src']?>" data-middle="<?=$image['middle']?>" class="picture__small <?=($key==0?"picture__small--active":"")?>"></a><?
-	      	$i++;
-	      	if ($i>4)
-	      		break;
-	      endforeach; ?>
+			  <div class='pictures__arrow pictures__arrow--left hidden'><?=svg('slider-arrow-left')?></div>
+			  <div class='pictures__arrow pictures__arrow--right hidden'><?=svg('slider-arrow-right')?></div>
+			  <div class='pictures'>
+
+
+			  	<?
+	  		      $i=0;
+	  		      foreach ($item['IMAGES'] as $key => $image):
+	  		      	?><a style="background-image:url(<?=$image['small']?>)" href="<?=$image['src']?>" data-middle="<?=$image['middle']?>" class="picture__small <?=($key==0?"picture__small--active":"")?>"></a><?
+	  		      	$i++;
+	  		      endforeach;
+	  		  ?>
+			  </div>
+
 	      </div>
 	      <? endif;?>
 	    </div>
