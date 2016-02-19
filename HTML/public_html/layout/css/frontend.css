@@ -11748,10 +11748,11 @@ a.news--list .news-item__title:hover {
   padding: 7px 0 2px;
 }
 .pictures:not(.slick-initialized) {
-  max-height: 389px;
+  max-height: 406px;
   overflow: hidden;
 }
 .pictures.slick-initialized .picture__small {
+  max-width: 99%;
   margin-bottom: 11px;
 }
 .pictures .slick-arrow {
