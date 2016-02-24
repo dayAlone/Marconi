@@ -43,7 +43,27 @@ $props = &$item['PROPERTIES'];
 			<? endif;?>
 		</div>
 		<?
-		if ((SITE_ID == 's2' && $props['DAY']['VALUE'] != 'Y') || SITE_ID == 's1') {
+		if (SITE_ID == 's2' && $props['DAY']['VALUE'] != 'Y') {
+			if(strlen($props['SALE']['VALUE']) > 0):
+				?>
+				<div class="product__sale">
+					<span>
+						<?=($props['SALE']['VALUE'] == "77ebb501-85d4-11e4-82e4-0025908101de" ? (SITE_ID=='s1'?"Уникальная цена":"SALE") : "Скидка<br>30%")?>
+					</span>
+				</div>
+			<?
+		    elseif(strlen($props['TRADELINE']['VALUE'])>0): ?>
+		    	<div class="product__tradeline"><?=$arResult['TRADELINES'][$props['TRADELINE']['VALUE']]?></div>
+		    	<?
+		    elseif(strlen($props['NEW']['VALUE']) > 0 && SITE_ID != 's1'):?>
+		    	<div class="product__sale product__sale--new">
+					<span>NEW</span>
+				</div>
+
+		    <? endif;
+		}?>
+		<?
+		if (SITE_ID == 's1') {
 			if(strlen($props['SALE']['VALUE']) > 0):
 				?>
 				<div class="product__sale">
