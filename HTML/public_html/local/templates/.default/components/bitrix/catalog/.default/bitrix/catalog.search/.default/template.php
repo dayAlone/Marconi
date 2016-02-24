@@ -57,6 +57,7 @@ if (!empty($arElements) && is_array($arElements))
 		endif;
 		if(SITE_ID == 's1'):
 			$searchFilter['PROPERTY_SET'] = false;
+			$searchFilter['=PROPERTY_PROMOTION'] = false;
 			$searchFilter[] = array(
 		        "LOGIC" => "OR",
 		        array("=PROPERTY_COMING" => false),
