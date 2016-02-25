@@ -55,7 +55,7 @@ $props = &$item['PROPERTIES'];
 		    elseif(strlen($props['TRADELINE']['VALUE'])>0): ?>
 		    	<div class="product__tradeline"><?=$arResult['TRADELINES'][$props['TRADELINE']['VALUE']]?></div>
 		    	<?
-		    elseif(strlen($props['NEW']['VALUE']) > 0 && SITE_ID != 's1'):?>
+		    elseif(strlen($props['NEW']['VALUE']) > 0):?>
 		    	<div class="product__sale product__sale--new">
 					<span>NEW</span>
 				</div>
