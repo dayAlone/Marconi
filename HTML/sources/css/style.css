@@ -5739,6 +5739,12 @@ a.news--list .news-item__title:hover {
   line-height: 33px;
   color: #d10a32;
 }
+.catalog .product__sale--new {
+  background-color: #67ab49;
+}
+.catalog .product__sale--sale-30 {
+  background-color: #ea7d24;
+}
 .catalog .product__sale span {
   vertical-align: middle;
   line-height: 10px;
