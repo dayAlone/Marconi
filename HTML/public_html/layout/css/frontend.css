@@ -9659,6 +9659,7 @@ a.news--list .news-item__title:hover {
   vertical-align: middle;
   line-height: 10px;
   display: none;
+  background-color: transparent !important;
 }
 .catalog .product__sale:after {
   content: "%";
