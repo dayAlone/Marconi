@@ -11754,6 +11754,12 @@ a.news--list .news-item__title:hover {
   font-size: 12px;
   padding: 7px 0 2px;
 }
+.pictures {
+  min-height: 433px;
+}
+.pictures .slick-list {
+  min-height: 400px;
+}
 .pictures:not(.slick-initialized) {
   max-height: 406px;
   overflow: hidden;
