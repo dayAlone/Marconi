@@ -185,7 +185,7 @@
 				?>
 
 				<link rel="image_src" href="http://<?=$_SERVER['SERVER_NAME']. $watermark['src']?>" />
-				<meta content="http://<?=$_SERVER['SERVER_NAME']. $watermark['src']?>" property="og:image">
+				<meta content="http://<?=$_SERVER['SERVER_NAME']. $watermark['src']?>&vk=1" property="og:image">
 				<meta property="og:title" content="<?=$arResult['NAME']?>"/>
 				<meta property="og:type" content="blog"/>
 				<meta property="og:description" content="Это будет лучшим подарком для меня!"/>
