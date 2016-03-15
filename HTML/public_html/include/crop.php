@@ -3,9 +3,11 @@
     error_reporting(0);
     if(AcImage::isFileExists($_SERVER['DOCUMENT_ROOT'].$_REQUEST['img'])) {
         $img = AcImage::createImage($_SERVER['DOCUMENT_ROOT'].$_REQUEST['img']);
-        
-        $img->resize(1200, 630);
-
+        if (strstr($_SERVER['HTTP_REFERER'], 'vk.com')) {
+            $img->resize(1000, 700);
+        } else {
+            $img->resize(1200, 630);
+        }
         //header("Content-Length: 0");
         //imagejpeg($img->getResource());
         header('Content-Type: image/jpeg');
