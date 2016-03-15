@@ -7878,39 +7878,33 @@ a.news--list .news-item__title:hover {
 .pictures .slick-arrow svg path {
   fill: #000;
 }
-.social-likes {
+.pictures .social-likes {
   display: inline-block;
   margin-left: -3px;
   width: 100%;
   text-align: center;
 }
 @media (min-width: 768px) {
-  .social-likes {
+  .pictures .social-likes {
     width: auto;
     text-align: left;
   }
 }
-#present .social-likes {
-  margin: 15px 0 20px;
-}
-.social-likes__button {
+.pictures .social-likes__button {
   width: 100%;
   padding: 0;
 }
-.social-likes__icon {
+.pictures .social-likes__icon {
   margin: 0;
   font-size: 1em;
   position: relative;
   left: 0;
   text-align: center;
 }
-.social-likes__icon_vkontakte {
+.pictures .social-likes__icon_vkontakte {
   top: 4px;
 }
-#present .social-likes__icon {
-  font-size: 1.3em;
-}
-.social-likes__widget {
+.pictures .social-likes__widget {
   height: 22px;
   width: 22px;
   line-height: 22px;
@@ -7919,6 +7913,12 @@ a.news--list .news-item__title:hover {
   text-align: center;
   margin: 0 2px;
   top: 6px;
+}
+#present .social-likes {
+  margin: 15px 0 20px;
+}
+#present .social-likes__icon {
+  font-size: 1.3em;
 }
 #present .social-likes__widget {
   width: 36px;

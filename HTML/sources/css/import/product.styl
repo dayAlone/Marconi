@@ -563,39 +563,44 @@
 			path
 				fill black
 
-.social-likes
-	display inline-block
-	margin-left -3px
-	width 100%
-	text-align center
-	@media (min-width: scr_sm)
-		width auto
-		text-align left
-	#present &
-		margin 15px 0 20px
-	&__button
+	.social-likes
+		display inline-block
+		margin-left -3px
 		width 100%
-		padding 0
-	&__icon
-		margin 0
-		font-size 1em
-		position relative
-		left 0
 		text-align center
-		&_vkontakte
-			top 4px
-		#present &
+		@media (min-width: scr_sm)
+			width auto
+			text-align left
+
+		&__button
+			width 100%
+			padding 0
+		&__icon
+			margin 0
+			font-size 1em
+			position relative
+			left 0
+			text-align center
+			&_vkontakte
+				top 4px
+
+		&__widget
+			height 22px
+			width 22px
+			line-height 22px
+			padding 0
+			position relative
+			text-align: center
+			margin 0 2px
+			top 6px
+
+
+#present
+	.social-likes
+		margin 15px 0 20px
+		&__icon
 			font-size 1.3em
-	&__widget
-		height 22px
-		width 22px
-		line-height 22px
-		padding 0
-		position relative
-		text-align: center
-		margin 0 2px
-		top 6px
-		#present &
+		&__widget
 			size 36px
 			margin 0 5px
 			border-radius 3px
