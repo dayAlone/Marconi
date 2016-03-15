@@ -179,7 +179,8 @@
 			$wFilter = array(
 				array("name" => "watermark", "fill" => "resize", "coefficient" => 1, "position" => "center", "width"=>630, "height"=>630, "alpha_level" => 100, "file"=>$_SERVER['DOCUMENT_ROOT']."/layout/images/watermark.png")
 			);
-			$watermark = CFile::ResizeImageGet(CFile::GetFileArray($arResult['PREVIEW_PICTURE']['ID']), Array("width" => 1200, "height" => 630), BX_RESIZE_IMAGE_PROPORTIONAL_ALT, false, $wFilter, false, 100);
+			$watermark = CFile::ResizeImageGet($small, Array("width" => 1200, "height" => 630), BX_RESIZE_IMAGE_EXACT, false, false, false, 100);
+			$watermark['src'] = '/include/crop.php?img='.$watermark['src'];
 			$this->SetViewTarget('header');
 				?>
 
