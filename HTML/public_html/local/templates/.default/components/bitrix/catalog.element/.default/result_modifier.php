@@ -188,6 +188,9 @@
 				<meta property="og:title" content="<?=$arResult['NAME']?>"/>
 				<meta property="og:type" content="blog"/>
 				<meta property="og:description" content="Это будет лучшим подарком для меня!"/>
+				<meta name="twitter:title" content="<?=$arResult['NAME']?>">
+				<meta name="twitter:description" content="Это будет лучшим подарком для меня!">
+				<meta name="twitter:image" content="http://<?=$_SERVER['SERVER_NAME']. $watermark['src']?>">
 				<?
 			$this->EndViewTarget();
 		else:
@@ -199,6 +202,9 @@
 				<meta property="og:title" content="<?=$arResult['NAME']?>"/>
 				<meta property="og:type" content="blog"/>
 				<meta property="og:description" content="<?=(strlen(strip_tags($arResult["PREVIEW_TEXT"]))>0?strip_tags($arResult["PREVIEW_TEXT"]):"Эту модель и еще очень много интересного вы найдете на сайте fmarconi.ru")?>"/>
+				<meta name="twitter:title" content="<?=$arResult['NAME']?>">
+				<meta name="twitter:description" content="<?=(strlen(strip_tags($arResult["PREVIEW_TEXT"]))>0?strip_tags($arResult["PREVIEW_TEXT"]):"Эту модель и еще очень много интересного вы найдете на сайте fmarconi.ru")?>">
+				<meta name="twitter:image" content="http://<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>">
 				<?
 			$this->EndViewTarget();
 		endif;
