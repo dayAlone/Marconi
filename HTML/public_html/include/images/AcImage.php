@@ -82,7 +82,7 @@ class AcImage
 	 * @var int
 	 */
 
-	private static $quality = 85;
+	private static $quality = 100;
 
 	/**
 	 * Вкл/откл прозрачность
