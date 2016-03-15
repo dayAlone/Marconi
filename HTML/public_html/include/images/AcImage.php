@@ -269,13 +269,24 @@ class AcImage
 			$size = $args[0];
 			$imageSize = $this->getSize()->getByFrame($size);
 
-			$newImageResource = imagecreatetruecolor($imageSize->getWidth(), $imageSize->getHeight());
+			$newImageResource = imagecreatetruecolor($size->getWidth(), $size->getHeight());
+			imagefill($newImageResource , 0, 0, self::getBackgroundColor()->getCode());
 			imageAlphaBlending($newImageResource, false);
 			imageSaveAlpha($newImageResource, true);
-			imagecopyresampled($newImageResource, $this->getResource(), 0, 0, 0, 0, $imageSize->getWidth(),
-				$imageSize->getHeight(), $this->getWidth(), $this->getHeight());
+			imagecopyresampled(
+				$newImageResource,
+				$this->getResource(),
+				($size->getWidth() - $imageSize->getWidth()) / 2,
+				($size->getHeight() - $imageSize->getHeight()) / 2,
+				0,
+				0,
+				$imageSize->getWidth(),
+				$imageSize->getHeight(),
+				$this->getWidth(),
+				$this->getHeight()
+			);
 			$this->setResource($newImageResource);
-			$this->setSize($imageSize);
+			$this->setSize($size);
 			return $this;
 		}
 		throw new IllegalArgumentException();
