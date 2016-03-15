@@ -376,7 +376,7 @@ endif;
 	      </div>
 	    </div>
 	    <div class="row">
-	      <div class="col-lg-6 center-lg">
+	      <div class="col-sm-6 center-lg">
 			  <?
 				if(SITE_ID == 's1' || isUserAccept()):
 				    $frame = $this->createFrame()->begin();
@@ -416,7 +416,7 @@ endif;
 						endif;?>
 
 					  	<?if(SITE_ID == 's1'):
-					  		?><a href="#"  data-id="<?=$item['ID']?>" class="hidden-xs product__big-button product__big-button--simmilar no-margin-right"><?=(in_array($item['ID'],json_decode($_COOKIE['simmilar']))?"удалить":"сравнить")?></a><?
+					  		?><a href="#present" data-toggle="modal" class="product__big-button product__big-button--present no-margin-right">Хочу в подарок</a><?
 					  	endif;?>
 
 					  	<script>initBigButton()</script>
@@ -425,7 +425,7 @@ endif;
 							if(isset($item['MIN_PRICE']['VALUE'])&&intval($item['MIN_PRICE']['VALUE'])!=0): ?>
 								<a href="#" class="product__big-button product__big-button--buy" <?=(count($arResult['BUY_DATA'])>0?"data-request='".json_encode($arResult['BUY_DATA'])."'":"")?> data-id="<?=$item['ID']?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>">В корзину</a>
 								<?if(SITE_ID == 's1'):
-									?><a href="#"  data-id="<?=$item['ID']?>" class="hidden-xs product__big-button product__big-button--simmilar no-margin-right">сравнить</a><?endif;
+									?><a href="#present" data-toggle="modal" class="product__big-button product__big-button--present no-margin-right">Хочу в подарок</a><?endif;
 								?>
 							<? endif;
 							endif;
@@ -434,7 +434,7 @@ endif;
 		      ?>
 
 	      </div>
-	      <div class="col-lg-6">
+	      <div class="col-sm-6">
 	      <?if(SITE_ID == 's1'):?>
 			<? if(!isset($CITY['CLOSED'])):?>
 				<a href="#available" data-toggle="modal" data-target="#available" class="product__big-button product__big-button--border product__big-button--available">наличие в магазинах</a>
@@ -596,6 +596,20 @@ else
 
 $this->SetViewTarget('footer');
 ?>
+<div class="modal fade" id="present" tabindex="-1" role="dialog" aria-labelledby="present" aria-hidden="true">
+	<div class="modal-dialog modal-xs">
+		<div class="modal-content">
+			<a href="#" class="close" data-dismiss="modal" aria-label="Close"><?=svg('close')?></a>
+			<div class="modal-frame center" data-title="хочу в подарок">
+				<p>
+					Помогите своему близкому человеку выбрать для Вас подарок!<br/>
+					Поделитесь в любой социальной сети личным сообщением с тем, от кого хотите получить выбранный Вами подарок.
+				</p>
+				<div class="social-likes social-likes_notext center" data-title="Это будет лучшим подарком для меня!" data-description="Это будет лучшим подарком для меня!" data-url="<?=strtok($APPLICATION->GetCurUri(), '?')?>?buyme=Y&ncc=1"><div class="facebook"></div><div class="twitter"></div><div class="vkontakte"></div><div class="odnoklassniki"></div></div>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="modal fade" id="available" tabindex="-1" role="dialog" aria-labelledby="available" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
