@@ -605,7 +605,7 @@ $this->SetViewTarget('footer');
 					Помогите своему близкому человеку выбрать для Вас подарок!<br/>
 					Поделитесь в любой социальной сети личным сообщением с тем, от кого хотите получить выбранный Вами подарок.
 				</p>
-				<div class="social-likes social-likes_notext center" data-title="Это будет лучшим подарком для меня!" data-url="http://<?=$_SERVER['SERVER_NAME']?><?=strtok($APPLICATION->GetCurUri(), '?')?>?buyme=Y&ncc=1"><div class="facebook"></div><div class="twitter"></div><div class="vkontakte"></div><div class="odnoklassniki"></div></div>
+				<div class="social-likes social-likes_notext center" data-title="<?=$arResult['NAME']?>" data-url="http://<?=$_SERVER['SERVER_NAME']?><?=strtok($APPLICATION->GetCurUri(), '?')?>?buyme=Y&ncc=1"><div class="facebook"></div><div class="twitter"></div><div class="vkontakte"></div><div class="odnoklassniki"></div></div>
 			</div>
 		</div>
 	</div>
