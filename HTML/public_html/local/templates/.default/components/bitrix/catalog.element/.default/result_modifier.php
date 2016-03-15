@@ -180,8 +180,6 @@
 				array("name" => "watermark", "position" => "center", "width"=>800, "height"=>800, "fill"=>"resize", "alpha_level" => 100, "file"=>$_SERVER['DOCUMENT_ROOT']."/layout/images/watermark.png")
 			);
 			$watermark = CFile::ResizeImageGet(CFile::GetFileArray($arResult['PREVIEW_PICTURE']['ID']), Array("width" => 800, "height" => 800), BX_RESIZE_IMAGE_PROPORTIONAL, false, $wFilter, false, 100);
-			var_dump($watermark);
-			die();
 			$this->SetViewTarget('header');
 				?>
 				<link rel="image_src" href="http://<?=$_SERVER['SERVER_NAME']. $watermark['src']?>" />
