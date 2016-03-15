@@ -182,12 +182,15 @@
 			$watermark = CFile::ResizeImageGet(CFile::GetFileArray($arResult['PREVIEW_PICTURE']['ID']), Array("width" => 800, "height" => 800), BX_RESIZE_IMAGE_PROPORTIONAL, false, $wFilter, false, 100);
 			$this->SetViewTarget('header');
 				?>
-				<meta name="twitter:card" content="summary" />
+
 				<link rel="image_src" href="http://<?=$_SERVER['SERVER_NAME']. $watermark['src']?>" />
 				<meta content="http://<?=$_SERVER['SERVER_NAME']. $watermark['src']?>" property="og:image">
 				<meta property="og:title" content="<?=$arResult['NAME']?>"/>
 				<meta property="og:type" content="blog"/>
 				<meta property="og:description" content="Это будет лучшим подарком для меня!"/>
+
+				<meta name="twitter:card" content="summary" />
+				<meta name="twitter:site" content="@fmarconi_ru" />
 				<meta name="twitter:title" content="<?=$arResult['NAME']?>">
 				<meta name="twitter:description" content="Это будет лучшим подарком для меня!">
 				<meta name="twitter:image" content="http://<?=$_SERVER['SERVER_NAME']. $watermark['src']?>">
@@ -196,12 +199,15 @@
 		else:
 			$this->SetViewTarget('header');
 				?>
-				<meta name="twitter:card" content="summary" />
+
 				<link rel="image_src" href="http://<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" />
 				<meta content="http://<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" property="og:image">
 				<meta property="og:title" content="<?=$arResult['NAME']?>"/>
 				<meta property="og:type" content="blog"/>
 				<meta property="og:description" content="<?=(strlen(strip_tags($arResult["PREVIEW_TEXT"]))>0?strip_tags($arResult["PREVIEW_TEXT"]):"Эту модель и еще очень много интересного вы найдете на сайте fmarconi.ru")?>"/>
+
+				<meta name="twitter:card" content="summary" />
+				<meta name="twitter:site" content="@fmarconi_ru" />
 				<meta name="twitter:title" content="<?=$arResult['NAME']?>">
 				<meta name="twitter:description" content="<?=(strlen(strip_tags($arResult["PREVIEW_TEXT"]))>0?strip_tags($arResult["PREVIEW_TEXT"]):"Эту модель и еще очень много интересного вы найдете на сайте fmarconi.ru")?>">
 				<meta name="twitter:image" content="http://<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>">
