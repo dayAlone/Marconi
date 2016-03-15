@@ -177,9 +177,9 @@
 	if(isset($arResult['PREVIEW_PICTURE']['SRC'])):
 		if (isset($_REQUEST['buyme'])):
 			$wFilter = array(
-				array("name" => "watermark", "fill" => "resize", "coefficient" => 1, "position" => "center", "width"=>800, "height"=>800, "alpha_level" => 100, "file"=>$_SERVER['DOCUMENT_ROOT']."/layout/images/watermark.png")
+				array("name" => "watermark", "fill" => "resize", "coefficient" => 1, "position" => "center", "width"=>630, "height"=>630, "alpha_level" => 100, "file"=>$_SERVER['DOCUMENT_ROOT']."/layout/images/watermark.png")
 			);
-			$watermark = CFile::ResizeImageGet(CFile::GetFileArray($arResult['PREVIEW_PICTURE']['ID']), Array("width" => 800, "height" => 800), BX_RESIZE_IMAGE_PROPORTIONAL, false, $wFilter, false, 100);
+			$watermark = CFile::ResizeImageGet(CFile::GetFileArray($arResult['PREVIEW_PICTURE']['ID']), Array("width" => 1200, "height" => 630), BX_RESIZE_IMAGE_PROPORTIONAL_ALT, false, $wFilter, false, 100);
 			$this->SetViewTarget('header');
 				?>
 
