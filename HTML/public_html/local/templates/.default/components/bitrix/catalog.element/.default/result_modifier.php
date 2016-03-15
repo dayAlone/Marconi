@@ -182,16 +182,18 @@
 			$watermark = CFile::ResizeImageGet(CFile::GetFileArray($arResult['PREVIEW_PICTURE']['ID']), Array("width" => 800, "height" => 800), BX_RESIZE_IMAGE_PROPORTIONAL, false, $wFilter, false, 100);
 			$this->SetViewTarget('header');
 				?>
+				<meta name="twitter:card" content="summary" />
 				<link rel="image_src" href="http://<?=$_SERVER['SERVER_NAME']. $watermark['src']?>" />
 				<meta content="http://<?=$_SERVER['SERVER_NAME']. $watermark['src']?>" property="og:image">
-				<meta property="og:title" content="Подари мне: <?=$arResult['NAME']?>"/>
+				<meta property="og:title" content="<?=$arResult['NAME']?>"/>
 				<meta property="og:type" content="blog"/>
-				<meta property="og:description" content="Мне очень нужен этот подарок"/>
+				<meta property="og:description" content="Это будет лучшим подарком для меня!"/>
 				<?
 			$this->EndViewTarget();
 		else:
 			$this->SetViewTarget('header');
 				?>
+				<meta name="twitter:card" content="summary" />
 				<link rel="image_src" href="http://<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" />
 				<meta content="http://<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" property="og:image">
 				<meta property="og:title" content="<?=$arResult['NAME']?>"/>
