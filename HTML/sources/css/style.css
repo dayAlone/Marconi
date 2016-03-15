@@ -7902,6 +7902,7 @@ a.news--list .news-item__title:hover {
   font-size: 1em;
   position: relative;
   left: 0;
+  text-align: center;
 }
 .social-likes__icon_vkontakte {
   top: 4px;
