@@ -1,4 +1,5 @@
 <?
+
 	global $CITY, $setFilter, $arImages;
 	require($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/catalog.element/templates/.default/result_modifier.php');
 	$arResult['BRANDS']     = getHighloadElements('brands', 'UF_XML_ID', 'UF_NAME');
@@ -174,15 +175,33 @@
 	$APPLICATION->SetPageProperty('description', strip_tags($arResult["PREVIEW_TEXT"]));
 
 	if(isset($arResult['PREVIEW_PICTURE']['SRC'])):
-		$this->SetViewTarget('header');
-			?>
-			<link rel="image_src" href="http://<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" />
-			<meta content="http://<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" property="og:image">
-			<meta property="og:title" content="<?=$arResult['NAME']?>"/>
-			<meta property="og:type" content="blog"/>
-			<meta property="og:description" content="<?=(strlen(strip_tags($arResult["PREVIEW_TEXT"]))>0?strip_tags($arResult["PREVIEW_TEXT"]):"Эту модель и еще очень много интересного вы найдете на сайте fmarconi.ru")?>"/>
-			<?
-		$this->EndViewTarget();
+		if (isset($_REQUEST['buyme'])):
+			$wFilter = array(
+				array("name" => "watermark", "position" => "center", "width"=>800, "height"=>800, "fill"=>"resize", "alpha_level" => 100, "file"=>$_SERVER['DOCUMENT_ROOT']."/layout/images/watermark.png")
+			);
+			$watermark = CFile::ResizeImageGet(CFile::GetFileArray($arResult['PREVIEW_PICTURE']['ID']), Array("width" => 800, "height" => 800), BX_RESIZE_IMAGE_PROPORTIONAL, false, $wFilter, false, 100);
+			var_dump($watermark);
+			die();
+			$this->SetViewTarget('header');
+				?>
+				<link rel="image_src" href="http://<?=$_SERVER['SERVER_NAME']. $watermark['src']?>" />
+				<meta content="http://<?=$_SERVER['SERVER_NAME']. $watermark['src']?>" property="og:image">
+				<meta property="og:title" content="Подари мне: <?=$arResult['NAME']?>"/>
+				<meta property="og:type" content="blog"/>
+				<meta property="og:description" content="Мне очень нужен этот подарок"/>
+				<?
+			$this->EndViewTarget();
+		else:
+			$this->SetViewTarget('header');
+				?>
+				<link rel="image_src" href="http://<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" />
+				<meta content="http://<?=$_SERVER['SERVER_NAME']. $arResult['PREVIEW_PICTURE']['SRC']?>" property="og:image">
+				<meta property="og:title" content="<?=$arResult['NAME']?>"/>
+				<meta property="og:type" content="blog"/>
+				<meta property="og:description" content="<?=(strlen(strip_tags($arResult["PREVIEW_TEXT"]))>0?strip_tags($arResult["PREVIEW_TEXT"]):"Эту модель и еще очень много интересного вы найдете на сайте fmarconi.ru")?>"/>
+				<?
+			$this->EndViewTarget();
+		endif;
 	endif;
 
 	if(CModule::IncludeModule("sale")):
