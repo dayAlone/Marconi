@@ -3,7 +3,7 @@
     error_reporting(0);
     if(AcImage::isFileExists($_SERVER['DOCUMENT_ROOT'].$_REQUEST['img'])) {
         $img = AcImage::createImage($_SERVER['DOCUMENT_ROOT'].$_REQUEST['img']);
-        if ($_REQUEST['vk']) {
+        if (isset($_REQUEST['vk'])) {
             $img->resize(1000, 700);
         } else {
             $img->resize(1200, 630);
