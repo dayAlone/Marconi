@@ -201,6 +201,7 @@ if (!function_exists("cmpBySort"))
 										data-date-format="dd.mm.yyyy"
 										data-date-start-date="<?=$startDate?>"
 										data-date-language="ru"
+										data-date-days-of-week-disabled="[0,6]"
 										data-date-dates-disabled='<?
 											$dates = array();
 											$dates[] = '30.12.'.date('Y');
