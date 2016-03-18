@@ -175,13 +175,14 @@
 	$APPLICATION->SetPageProperty('description', strip_tags($arResult["PREVIEW_TEXT"]));
 
 	if(isset($arResult['PREVIEW_PICTURE']['SRC'])):
+		$wFilter = array(
+			array("name" => "watermark", "fill" => "resize", "coefficient" => 1, "position" => "center", "width"=>630, "height"=>630, "alpha_level" => 100, "file"=>$_SERVER['DOCUMENT_ROOT']."/layout/images/watermark.png")
+		);
+		$watermark = CFile::ResizeImageGet(CFile::GetFileArray($arResult['PREVIEW_PICTURE']['ID']), Array("width" => 1200, "height" => 630), BX_RESIZE_IMAGE_PROPORTIONAL, false, $wFilter, false, 100);
+		$arResult['WATERMARK'] = $watermark['src'];
+		$watermark['src'] = '/include/crop.php?img='.$watermark['src'];
 		if (isset($_REQUEST['buyme'])):
-			$wFilter = array(
-				array("name" => "watermark", "fill" => "resize", "coefficient" => 1, "position" => "center", "width"=>630, "height"=>630, "alpha_level" => 100, "file"=>$_SERVER['DOCUMENT_ROOT']."/layout/images/watermark.png")
-			);
-			$watermark = CFile::ResizeImageGet(CFile::GetFileArray($arResult['PREVIEW_PICTURE']['ID']), Array("width" => 1200, "height" => 630), BX_RESIZE_IMAGE_PROPORTIONAL, false, $wFilter, false, 100);
-			$arResult['WATERMARK'] = $watermark['src'];
-			$watermark['src'] = '/include/crop.php?img='.$watermark['src'];
+
 
 			$this->SetViewTarget('header');
 				?>
