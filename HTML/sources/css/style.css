@@ -7155,6 +7155,8 @@ a.news--list .news-item__title:hover {
 .product__big-button--simmilar,
 .product__big-button--present {
   float: right;
+  position: relative;
+  z-index: 20;
 }
 @media (min-width: 768px) {
   .product__big-button--simmilar,
