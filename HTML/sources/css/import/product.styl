@@ -96,12 +96,17 @@
 		&--width
 			min-width 70%
 		&--buy
-			max-width 45%
 			@media (max-width: scr_sm)
 				width 100%
 				max-width none
-		&--simmilar
+		&--present
+			font-size 8px
+			@media (min-width: scr_sm)
+				font-size 10px
+		&--simmilar, &--present
 			float right
+			position relative
+			z-index: 20;
 			@media (min-width: scr_sm)
 				float none
 
@@ -337,28 +342,7 @@
 			> span
 				background white
 				padding-left 5px
-	.social-likes
-		display inline-block
-		margin-left -3px
-		&__button
-			width 100%
-			padding 0
-		&__icon
-			margin 0
-			font-size 1em
-			position relative
-			left 0
-			&_vkontakte
-				top 4px
-		&__widget
-			height 22px
-			width 22px
-			line-height 22px
-			padding 0
-			position relative
-			text-align: center
-			margin 0 2px
-			top 6px
+
 	.tabs
 		width 100%
 		margin-top 20px
@@ -399,6 +383,36 @@
 				color black
 			&.tabs__trigger--active:first-of-type
 				border-left-color white
+	.social-likes
+		display inline-block
+		margin-left -3px
+		width 100%
+		text-align center
+		@media (min-width: scr_sm)
+			width auto
+			text-align left
+
+		&__button
+			width 100%
+			padding 0
+		&__icon
+			margin 0
+			font-size 1em
+			position relative
+			left 0
+			text-align center
+			&_vkontakte
+				top 4px
+
+		&__widget
+			height 22px
+			width 22px
+			line-height 22px
+			padding 0
+			position relative
+			text-align: center
+			margin 0 2px
+			top 6px
 	.sizes
 		width 100%
 		margin-bottom 25px
@@ -580,3 +594,20 @@
 			left 50%
 			path
 				fill black
+
+
+
+
+#present
+	.social-likes
+		margin 15px 0 20px
+		&__button
+			width 100%
+			padding 0
+		&__icon
+			font-size 1.3em
+		&__widget
+			size 36px
+			margin 0 5px
+			border-radius 3px
+			line-height 36px

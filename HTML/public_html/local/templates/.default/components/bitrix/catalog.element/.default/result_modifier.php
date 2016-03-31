@@ -175,16 +175,20 @@
 	$APPLICATION->SetPageProperty('description', strip_tags($arResult["PREVIEW_TEXT"]));
 
 	if(isset($arResult['PREVIEW_PICTURE']['SRC'])):
+		$wFilter = array(
+			array("name" => "watermark", "fill" => "resize", "coefficient" => 1, "position" => "center", "width"=>630, "height"=>630, "alpha_level" => 100, "file"=>$_SERVER['DOCUMENT_ROOT']."/layout/images/watermark.png")
+		);
+		$watermark = CFile::ResizeImageGet(CFile::GetFileArray($arResult['PREVIEW_PICTURE']['ID']), Array("width" => 1200, "height" => 630), BX_RESIZE_IMAGE_PROPORTIONAL, false, $wFilter, false, 100);
+		$arResult['WATERMARK'] = $watermark['src'];
+		$watermark['src'] = '/include/crop.php?img='.$watermark['src'];
 		if (isset($_REQUEST['buyme'])):
-			$wFilter = array(
-				array("name" => "watermark", "fill" => "resize", "coefficient" => 1, "position" => "center", "width"=>800, "height"=>800, "alpha_level" => 100, "file"=>$_SERVER['DOCUMENT_ROOT']."/layout/images/watermark.png")
-			);
-			$watermark = CFile::ResizeImageGet(CFile::GetFileArray($arResult['PREVIEW_PICTURE']['ID']), Array("width" => 800, "height" => 800), BX_RESIZE_IMAGE_PROPORTIONAL, false, $wFilter, false, 100);
+
+
 			$this->SetViewTarget('header');
 				?>
 
 				<link rel="image_src" href="http://<?=$_SERVER['SERVER_NAME']. $watermark['src']?>" />
-				<meta content="http://<?=$_SERVER['SERVER_NAME']. $watermark['src']?>" property="og:image">
+				<meta content="http://<?=$_SERVER['SERVER_NAME']. $watermark['src']?>&vk=1" property="og:image">
 				<meta property="og:title" content="<?=$arResult['NAME']?>"/>
 				<meta property="og:type" content="blog"/>
 				<meta property="og:description" content="Это будет лучшим подарком для меня!"/>
