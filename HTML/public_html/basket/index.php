@@ -7,7 +7,7 @@ $APPLICATION->SetTitle('Корзина');
 		$APPLICATION->SetTitle('Заказ успешно оформлен');
 		$APPLICATION->SetPageProperty('body_class', "text");
 	?>
-	<p>Номер вашего заказа: <strong><?=$_REQUEST['ORDER_ID']?></strong></p>
+	<p>Номер вашего заказа: <strong><?=htmlspecialcharsbx($_REQUEST['ORDER_ID'])?></strong></p>
 	<?if(SITE_ID=='s1'):?>
 		<p>В ближайшее время оператор нашего интернет-магазина свяжется с вами для подтверждения заказа</p>
 	<?else:?>
@@ -30,8 +30,8 @@ $APPLICATION->SetTitle('Корзина');
 		    )
 		);
 		$APPLICATION->IncludeComponent(
-		"bitrix:sale.order.ajax", 
-		".default", 
+		"bitrix:sale.order.ajax",
+		".default",
 		array(
 			"ALLOW_NEW_PROFILE" => "Y",
 			"SHOW_PAYMENT_SERVICES_NAMES" => "Y",
@@ -70,5 +70,5 @@ $APPLICATION->SetTitle('Корзина');
 	endif;
 
 ?>
-<? require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php'); 
+<? require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');
 ?>
