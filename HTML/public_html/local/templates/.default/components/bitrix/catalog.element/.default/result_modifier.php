@@ -246,10 +246,11 @@
 				if ($count['STORE_ID'] == 1) $offers[$count['PRODUCT_ID']]['OPT'] = true;
 			}
 		endwhile;
-
-		foreach($offers as $offer)
-			if(!$offer['COUNTS'])
-				unset($offers[$offer['ID']]);
+		if ($arResult['PROPERTIES']['COMING']['VALUE'] != 'Y') {
+			foreach($offers as $offer)
+				if(!$offer['COUNTS'])
+					unset($offers[$offer['ID']]);
+		}
 		$arResult['OFFERS'] = $offers;
 
 	endif;
