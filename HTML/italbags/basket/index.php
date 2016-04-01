@@ -9,7 +9,7 @@ if(!$USER->IsAuthorized())
 		$APPLICATION->SetTitle('Заказ успешно оформлен');
 		$APPLICATION->SetPageProperty('body_class', "text");
 	?>
-	<p>Спасибо, Ваш заказ №<strong><?=$_REQUEST['ORDER_ID']?></strong> принят к обработке.</p>
+	<p>Спасибо, Ваш заказ №<strong><?=htmlspecialcharsbx($_REQUEST['ORDER_ID'])?></strong> принят к обработке.</p>
 	<p>Ожидайте информацию по заказу и счет на электронную почту.</p>
 	<?
 	else:

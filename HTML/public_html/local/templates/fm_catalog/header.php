@@ -64,7 +64,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
         <?endif;?>
           <div class="search">
             <form action="/catalog/">
-              <input type="text" name="q" value="<?=$_REQUEST['q']?>" placeholder="Введите название товара" class="search__input">
+              <input type="text" name="q" value="<?=htmlspecialcharsbx($_REQUEST['q'])?>" placeholder="Введите название товара" class="search__input">
               <button class="search__button" type="submit"><?=svg('search')?>
               </button>
             </form>
