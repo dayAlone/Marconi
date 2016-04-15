@@ -16,7 +16,7 @@
 		backgroundPosition : "center center"
 		backgroundSize : "contain; background-repeat: no-repeat"
 	]
-	markers    = [] 
+	markers    = []
 	closeModal = ->
 		$('.stores').elem('modal').velocity
 			properties: "transition.slideDownOut"
@@ -29,7 +29,7 @@
 		if i.code && !$.browser.mobile
 			map.setCenter new google.maps.LatLng parseFloat(i.coords[0])-.00245, parseFloat(i.coords[1])
 			map.setZoom 16
-			
+
 			$.get "/stores/#{i.code}/?short=y", (data)->
 				$('.stores').elem('content').html(data)
 				History.pushState(null, document.title, "/stores/#{i.code}/");
@@ -38,7 +38,7 @@
 					properties: "transition.slideUpIn"
 					options:
 						duration: 300
-			
+
 			$('.stores').elem('close').one 'click', (e)->
 				map.setCenter new google.maps.LatLng parseFloat(i.coords[0]), parseFloat(i.coords[1])
 				closeModal()
@@ -54,7 +54,7 @@
 					map.setZoom 10
 
 	$.each items, (k, i)->
-		
+
 		marker = new google.maps.Marker
 			position  : new google.maps.LatLng i.coords[0], i.coords[1]
 			icon      :
@@ -64,21 +64,21 @@
 				anchor     : new google.maps.Point(20, 0),
 				scaledSize : new google.maps.Size(40, 35)
 			animation : google.maps.Animation.DROP
-		
+
 		markers.push marker
-		
+
 		google.maps.event.addListener marker, 'click', ->
 			openModal i
-			
+
 	markerCluster = new MarkerClusterer map, markers, { styles : clusterStyle, gridSize: 50, maxZoom: 13 }
-	
+
 	if window.currentStore
 		currentStore = $.parseJSON window.currentStore
 		openModal currentStore
 	else if window.currentCity
 		currentCity = $.parseJSON window.currentCity
 		goToCity currentCity.name, currentCity.code
-	
+
 	$('.dropdown').elem('item').click (e)->
 		goToCity $(this).text(), $(this).data('code')
 		e.preventDefault()
@@ -101,4 +101,4 @@
 	lang = ""
 	if $('body').hasClass 'eng'
 		lang = "&language=en"
-	$.getScript 'http://maps.googleapis.com/maps/api/js?sensor=true&callback=mapInit'+lang
+	$.getScript 'https://maps.googleapis.com/maps/api/js?sensor=true&callback=mapInit'+lang
