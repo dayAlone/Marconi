@@ -228,7 +228,7 @@ $(document).ready ->
 		if $('#contactsMap').data 'lang'
 			lang = "&language="+$('#contactsMap').data 'lang'
 
-		$.getScript 'http://maps.googleapis.com/maps/api/js?sensor=true&callback=contactsInit'+lang
+		$.getScript 'https://maps.googleapis.com/maps/api/js?sensor=true&callback=contactsInit'+lang
 
 
 	# About
