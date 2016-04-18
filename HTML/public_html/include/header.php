@@ -23,6 +23,40 @@
   <?
     $APPLICATION->ShowHead();
     $APPLICATION->ShowViewContent('header');
+    if (SITE_ID === 's2') {?>
+        <style>
+            @font-face {
+              font-family: 'Proxima';
+              src: url("/layout/css/../fonts/ProximaNova-Bold.ttf");
+              src: local('â˜º'), url("/layout/css/../fonts/ProximaNova-Bold.ttf") format('truetype');
+              font-weight: bold;
+            }
+            @font-face {
+              font-family: 'Proxima';
+              src: url("/layout/css/../fonts/ProximaNova-Regular.ttf");
+              src: local('â˜º'), url("/layout/css/../fonts/ProximaNova-Regular.ttf") format('truetype');
+              font-weight: normal;
+            }
+            @font-face {
+              font-family: 'Proxima';
+              src: url("/layout/css/../fonts/ProximaNova-Light.ttf");
+              src: local('â˜º'), url("/layout/css/../fonts/ProximaNova-Light.ttf") format('truetype');
+              font-weight: 300;
+            }
+            @font-face {
+              font-family: 'Rubl';
+              src: url("/layout/css/../fonts/Rubl-Bold.ttf");
+              src: local('â˜º'), url("/layout/css/../fonts/Rubl-Bold.ttf") format('truetype');
+              font-weight: bold;
+            }
+            @font-face {
+              font-family: 'Rubl';
+              src: url("/layout/css/../fonts/Rubl-Regular.ttf");
+              src: local('â˜º'), url("/layout/css/../fonts/Rubl-Regular.ttf") format('truetype');
+              font-weight: normal;
+            }
+        </style>
+    <? } ?>
   ?>
 </head>
 <body class="<?=$APPLICATION->AddBufferContent("body_class");?> <?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"eng":"")?> <?=SITE_ID?>">
