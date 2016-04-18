@@ -23,7 +23,7 @@
   <?
     $APPLICATION->ShowHead();
     $APPLICATION->ShowViewContent('header');
-    if (SITE_ID === 's2') {?>
+    if (SITE_ID == 's2') {?>
         <style>
             @font-face {
               font-family: 'Proxima';
@@ -56,7 +56,7 @@
               font-weight: normal;
             }
         </style>
-    <? } ?>
+    <? } 
   ?>
 </head>
 <body class="<?=$APPLICATION->AddBufferContent("body_class");?> <?=(strstr($APPLICATION->GetCurDir(), "/eng/")?"eng":"")?> <?=SITE_ID?>">
