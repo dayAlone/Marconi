@@ -15,7 +15,7 @@ endif;
 if (($CITY['CLOSED'] == 'Y' || SITE_ID != 's1') && $arResult['VARIABLES']['SECTION_CODE'] != 'coming') $arrFilter['=PROPERTY_GENERAL'] = "Y";
 
 if(SITE_ID == 's1'):
-	$arrFilter['PROPERTY_SET'] = false;
+	//$arrFilter['PROPERTY_SET'] = false;
 endif;
 
 $arrFilter['!PROPERTY_MIN_PRICE'] = false;
