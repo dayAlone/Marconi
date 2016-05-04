@@ -20,7 +20,7 @@ $(document).ready ->
 			$(url).modal()
 			e.preventDefault()
 
-	$('.catalog__banner--slider').slick
+	$('.catalog__banner--slider, .catalog__banners').slick
 		arrows: false
 		infinite: true
 		autoplay: true
