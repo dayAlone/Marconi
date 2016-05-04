@@ -128,7 +128,7 @@ if(SITE_ID == 's1' && in_array($arResult['VARIABLES']['SECTION_CODE'], array('sa
 		    $APPLICATION->IncludeComponent("bitrix:news.list", "banners",
 			    array(
 			    "IBLOCK_ID"           => 27,
-			    "NEWS_COUNT"          => "1",
+			    "NEWS_COUNT"          => 9999,
 			    "SORT_BY1"            => "SORT",
 			    "SORT_ORDER1"         => "ASC",
 			    "FIELD_CODE"          => array('DETAIL_PICTURE'),
