@@ -210,19 +210,21 @@ endif;
 						$component
 					);
 	        	endif;
-				if(isset($arResult['MIN_PRICE']['VALUE'])):
 
+				if(isset($arResult['MIN_PRICE']['VALUE'])):
 					if(count($item['OFFERS'])>1):
 						?>
 						<?
 							$links = '';
 							$options = '';
+							$offers = array();
 							foreach($item['OFFERS'] as $k=>&$offer):
 								if(SITE_ID === 's2' && !$offer['OPT']) continue;
 								if(isset($offer['MIN_PRICE']['DISCOUNT_VALUE']))
 									$offer['MIN_PRICE']['VALUE'] = (int)$offer['MIN_PRICE']['DISCOUNT_VALUE'];
 								if(SITE_ID === 's2' && $props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de")
 									$offer['MIN_PRICE']['VALUE'] = $offer['MIN_PRICE']['VALUE']*.7;
+								$offers[] = $offer;
 								$links .= '<a
 									href="#"
 									data-id="'.$offer['ID'].'"
@@ -232,13 +234,14 @@ endif;
 								$options .= '<option
 									value="'.$offer['ID'].'"
 									data-price="'.$offer['MIN_PRICE']['VALUE'].'">'.$item['SIZES'][$offer['PROPERTIES']['SIZE']['VALUE']].'</option>';
-							endforeach;?>
+							endforeach;
+						?>
 						<div class="sizes">
 							<span class="sizes__title">
 								выберите размер
 							</span>
-							<span class="dropdown" data-id="<?=array_values($item['OFFERS'])[0]['ID']?>" <?=(count($arResult['SET']['JSON'])>0?"data-set='".json_encode($arResult['SET']['JSON'])."'":"")?>>
-								<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white"><?=$item['SIZES'][array_values($item['OFFERS'])[0]['PROPERTIES']['SIZE']['VALUE']]?></span><?=svg('arrow')?></a>
+							<span class="dropdown" data-id="<?=$offers[0]['ID']?>" <?=(count($arResult['SET']['JSON'])>0?"data-set='".json_encode($arResult['SET']['JSON'])."'":"")?>>
+								<a href="#" class="dropdown__trigger"><span class="dropdown__text dropdown__text--white"><?=$item['SIZES'][$offers[0]['PROPERTIES']['SIZE']['VALUE']]?></span><?=svg('arrow')?></a>
 
 								<span class="dropdown__frame">
 									<?=$links?>
@@ -313,19 +316,19 @@ endif;
 
 					if(!$arResult['NOT_AVAILABLE']): ?>
 					  <? if(SITE_ID == 's1'): ?>
-					  	<strong><?=number_format($arResult['MIN_PRICE']['DISCOUNT_VALUE'], 0, '.', ' ')?></strong> ₷
+					  	<strong><?=number_format($arResult['MIN_PRICE']['DISCOUNT_VALUE'], 0, '.', ' ')?></strong> <span class='rubl'>₽</span>
 					  <? else: ?>
 					  	<? if($arResult['MIN_PRICE']['DISCOUNT_VALUE'] < $arResult['MIN_PRICE']['VALUE'] || $props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de"): ?>
 					  		<?if($props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de" && $props['DAY']['VALUE'] != 'Y'):?>
-					  			<strong><?=number_format($arResult['MIN_PRICE']['VALUE']*.7, 0, '.', ' ')?></strong> ₷
+					  			<strong><?=number_format($arResult['MIN_PRICE']['VALUE']*.7, 0, '.', ' ')?></strong> <span class='rubl'>₽</span>
 					  		<?else:?>
-					  			<strong><?=number_format($arResult['MIN_PRICE']['DISCOUNT_VALUE'], 0, '.', ' ')?></strong> ₷
+					  			<strong><?=number_format($arResult['MIN_PRICE']['DISCOUNT_VALUE'], 0, '.', ' ')?></strong> <span class='rubl'>₽</span>
 					  		<? endif;?>
 							<? if ((SITE_ID == 's2' && $props['DAY']['VALUE'] != 'Y') || SITE_ID == 's1') {?>
-					  		<del><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?> ₷</del>
+					  		<del><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?> <span class='rubl'>₽</span></del>
 							<? } ?>
 						<? else: ?>
-						<strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?></strong> ₷
+						<strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?></strong> <span class='rubl'>₽</span>
 						<? endif;?>
 					  <? endif;?>
 
@@ -365,7 +368,7 @@ endif;
 					<div class="props__name"><?=(strtotime('9.01.'.date('Y')) > time() ? "Crisis price" : 'розничные магазины')?></div>
 					<div class="props__value">
 						<span>
-							<strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?> ₷</strong>
+							<strong><?=number_format($arResult['MIN_PRICE']['VALUE'], 0, '.', ' ')?> <span class='rubl'>₽</span></strong>
 						</span>
 					</div>
 				</div>
