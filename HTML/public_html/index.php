@@ -5,7 +5,7 @@ $APPLICATION->SetPageProperty("keywords", "francesco marconi, сумки frances
 $APPLICATION->SetTitle("Francesco Marconi");
 $APPLICATION->SetPageProperty('body_class', "index  index--fmarconi");
 $v = getHighloadElements('categories', 'UF_XML_ID', 'ID');
-LocalRedirect(‘/catalog/‘); ?>
+?>
 <div class="background"></div>
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');
