@@ -494,7 +494,7 @@
                 $props  = &$fields["PROPERTY_VALUES"];
 
                 $exist  = $this->checkExist($fields);
-                var_dump($exist);
+                
 
                 if(isset($exist)):
                     $update = false;
