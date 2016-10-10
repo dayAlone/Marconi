@@ -520,7 +520,7 @@
                     endif;
 
                     // Проверка свойств
-                    foreach (array('SALE', 'NEW', 'COMING', 'BEST', 'PROMOTION') as $prop) {
+                    foreach (array('SALE', 'NEW', 'VIP', 'COMING', 'BEST', 'PROMOTION') as $prop) {
                         if(!isset($exist[$prop]) && strlen($props[$prop])>0):
                             $diff[$prop] = $props[$prop];
                         elseif(isset($exist[$prop]) && !isset($props[$prop])):
