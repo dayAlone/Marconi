@@ -305,11 +305,11 @@
             endif;
 
             if($props["VIP"]=='Y'):
-                $fields['IBLOCK_SECTION'][] = $this->sections['coming'];
+                $fields['IBLOCK_SECTION'][] = $this->sections['vip'];
             endif;
 
             if($props['NEW'] == "Y"):
-                $fields['IBLOCK_SECTION'][] = $this->sections['vip'];
+                $fields['IBLOCK_SECTION'][] = $this->sections['latest'];
             endif;
 
             if(!in_array($props["ARTNUMBER"], $this->artnumbers) && $props["COMING"]!='Y'):
