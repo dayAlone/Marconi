@@ -300,8 +300,8 @@ endif;
 	        ?>
 	        <?if(SITE_ID == 's1' || isUserAccept()):
 				$showRetailPrice = true; // 1 показ
-				if(SITE_ID == 's2' || $props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de")
-					$showRetailPrice = false;
+				if(SITE_ID == 's2' || $props['SALE']['VALUE']=="77ebb502-85d4-11e4-82e4-0025908101de") $showRetailPrice = false;
+				if (strlen($arResult['PROPERTIES']['SALE_TEXT']['VALUE']) > 0) $showRetailPrice = false;
 			?>
 			<div class="props__item props__item--price">
 				<div class="props__name">

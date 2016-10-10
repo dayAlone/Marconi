@@ -5,7 +5,7 @@
 $props = &$item['PROPERTIES'];
 ?>
 <div class="col-xs-6 col-sm-4 col-lg-3">
-	<div class="product <?=(!$arParams['SHOW_PRICE']?"product--without-price":"")?>" data-id="<?=$item["ID"]?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>">
+	<div data-in="<?=$item['IN_COMPLECT']?>" class="product <?=(!$arParams['SHOW_PRICE']?"product--without-price":"")?>" data-id="<?=$item["ID"]?>" data-artnumber="<?=$props['ARTNUMBER']['VALUE']?>">
 	  <div class="product__content">
 	  	<a href="<?=$item['DETAIL_PAGE_URL']?>" class="product__picture-frame">
 	    	<div data-bg="<?=(isset($item['PREVIEW_PICTURE']['SRC'])?$item['PREVIEW_PICTURE']['SRC']:"/layout/images/no-image.jpg")?>" class="product__picture <?=(!$item['PREVIEW_PICTURE']['SRC']?"product__picture--no":"")?>"></div>
@@ -32,6 +32,10 @@ $props = &$item['PROPERTIES'];
 			    <? if(isset($item['PRICE']) && intval($item['PRICE'])!=0): ?>
 			    	<? if($props['SALE']['VALUE'] == "77ebb502-85d4-11e4-82e4-0025908101de" && ((SITE_ID == 's2' && $props['DAY']['VALUE'] != 'Y') || SITE_ID == 's1')):?>
 						<?=number_format($item['PRICE']*.7, 0, '.', ' ')?> ₷
+						<del><?=number_format($item['PRICE'], 0, '.', ' ')?> ₷</del>
+					<?elseif(strlen($props['SALE_TEXT']['VALUE']) > 0 && SITE_ID == 's1'):
+						?>
+						<?=number_format($item['PRICE']*$item['MIN_PRICE']['DISCOUNT_DIFF_PERCENT']/100, 0, '.', ' ')?> ₷
 						<del><?=number_format($item['PRICE'], 0, '.', ' ')?> ₷</del>
 					<?else:?>
 			      		<?=number_format($item['PRICE'], 0, '.', ' ')?> ₷
@@ -64,11 +68,13 @@ $props = &$item['PROPERTIES'];
 		}?>
 		<?
 		if (SITE_ID == 's1') {
-			if(strlen($props['SALE']['VALUE']) > 0):
+			if(strlen($props['SALE']['VALUE']) > 0 || strlen($props['SALE_TEXT']['VALUE']) > 0):
 				?>
 				<div class="product__sale product__sale--sale<?=($props['SALE']['VALUE'] == "77ebb501-85d4-11e4-82e4-0025908101de" ? '' : "-30")?>">
 					<span>
-						<?=($props['SALE']['VALUE'] == "77ebb501-85d4-11e4-82e4-0025908101de" ? (SITE_ID=='s1'?"Уникальная цена":"SALE") : "Скидка<br>30%")?>
+						<?=(
+							$props['SALE']['VALUE'] == "77ebb501-85d4-11e4-82e4-0025908101de"
+							? "Уникальная цена" : (strlen($props['SALE_TEXT']['VALUE']) > 0 ? html_entity_decode($props['SALE_TEXT']['VALUE']) : "Скидка<br>30%"))?>
 					</span>
 				</div>
 		    <?
@@ -92,7 +98,7 @@ $props = &$item['PROPERTIES'];
 	    <?endif;?>
 
 	    <?
-		if(isset($item['PRICE']) && $arParams['SHOW_PRICE'] && !(in_array($item['ID'], $arResult['SETS']['LOCKED']) && SITE_ID != 's1')):?>
+		if(isset($item['PRICE']) && $arParams['SHOW_PRICE'] && !($item['IN_COMPLECT'] && SITE_ID != 's1')):?>
 	    	<?if(SITE_ID == 's2' && $arResult['SETS'][$item['ID']]['TYPE'] == CCatalogProductSet::TYPE_GROUP):
 				$set = $arResult['SETS'][$item['ID']];
 				$data = array();
@@ -121,7 +127,7 @@ $props = &$item['PROPERTIES'];
 	    	<a href="#" data-id="<?=$item['ID']?>" class="product__button product__button--simmilar"><?=($arParams['COMPARE_TEXT']?$arParams['COMPARE_TEXT']:"Сравнить")?></a>
 	    <?endif;?>
 	    <?
-		if($arParams['SHOW_COUNT'] == "Y" && $props['SHOWCASE']['VALUE'] != "Y" && $arParams['SHOW_PRICE'] && !(in_array($item['ID'], $arResult['SETS']['LOCKED']) && SITE_ID != 's1')):?>
+		if($arParams['SHOW_COUNT'] == "Y" && $props['SHOWCASE']['VALUE'] != "Y" && $arParams['SHOW_PRICE'] && !($item['IN_COMPLECT'] && SITE_ID != 's1')):?>
 	    	<div class="product__counter">
 	    		<a href="#" class="product__counter-trigger product__counter-trigger--minus">-</a>
 	    		<input type="text" class="product__counter-input" value="1">
