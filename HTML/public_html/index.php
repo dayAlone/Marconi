@@ -4,7 +4,7 @@ $APPLICATION->SetPageProperty("description", "Официальный сайт и
 $APPLICATION->SetPageProperty("keywords", "francesco marconi, сумки francesco marconi, francesco marconi сайт, купить сумку francesco marconi, франческо маркони, купить франческо маркони");
 $APPLICATION->SetTitle("Francesco Marconi");
 $APPLICATION->SetPageProperty('body_class', "index  index--fmarconi");
-$v = getHighloadElements('categories', 'UF_XML_ID', 'ID');
+LocalRedirect('/catalog/');
 ?>
 <div class="background"></div>
 <?
