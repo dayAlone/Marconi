@@ -72,27 +72,32 @@ endforeach;
 
 
 
-if (SITE_ID == 's2' && $USER->IsAuthorized()):
+if (SITE_ID == 's2'):
 	$arTmpOffers = array();
+
 	$raw = CCatalogStoreProduct::GetList(array('ID'=>'ASC'), array('ACTIVE' => 'Y', 'PRODUCT_ID'=>array_keys($arOffers)));
 	while ($count = $raw->Fetch()):
-		if (intval($count['AMOUNT']) > 0 && $count['STORE_ID'] == 1) {
-			$arTmpOffers[$count['PRODUCT_ID']] = true;
-		}
+		if (!$arTmpOffers[$count['PRODUCT_ID']]) $arTmpOffers[$count['PRODUCT_ID']] = array();
+
+		$arTmpOffers[$count['PRODUCT_ID']][] = $count;
 	endwhile;
+
 	foreach ($arResult['ITEMS'] as $key => &$item):
 		$offers = array();
 		foreach($item['OFFERS'] as $k => $offer) {
-			if ($arTmpOffers[intval($offer['ID'])]) {
-				$offers[] = $offer;
+			$counts = $arTmpOffers[intval($offer['ID'])];
+
+			foreach ($counts as $key => $count) {
+				if (intval($count['AMOUNT']) > 0 && in_array($count['STORE_ID'], array(1, 11)) || $item['PROPERTIES']['COMING']['VALUE'] === 'Y') {
+					$offers[] = $offer;
+				}
 			}
+
 		}
+
+
 		$item['OFFERS'] = $offers;
 	endforeach;
-endif;
-
-if(SITE_ID == 's2'):
-
 
 
 	$rsSets = CCatalogProductSet::getList(
@@ -165,6 +170,18 @@ if(SITE_ID == 's2'):
 			endif;
 		}
 	endif;
+
+	foreach ($arResult['ITEMS'] as &$item) {
+
+		$item['IN_COMPLECT'] = false;
+		if (in_array($item['ID'], $arResult['SETS']['LOCKED'])) $item['IN_COMPLECT'] = true;
+
+		foreach ($item['OFFERS'] as $key => $el) {
+			if (in_array($el['ID'], $arResult['SETS']['LOCKED'])) $item['IN_COMPLECT'] = true;
+		}
+
+	}
+
 endif;
 
 

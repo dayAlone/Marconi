@@ -12,3 +12,5 @@ HTML/sources/js/script.js
 
 HTML/public_html/bitrix/**/**/**/*
 !HTML/public_html/bitrix/php_interface/include/catalog_export/radia_*
+.DS_Store
+/HTML/erl_crash.dump

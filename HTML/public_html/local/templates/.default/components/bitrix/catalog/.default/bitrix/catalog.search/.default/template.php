@@ -55,6 +55,7 @@ if (!empty($arElements) && is_array($arElements))
 		        array("=PROPERTY_GENERAL" => "Y")
 		    );
 		endif;
+		$searchFilter['=PROPERTY_VIP'] = false;
 		if(SITE_ID == 's1'):
 			//$searchFilter['PROPERTY_SET'] = false;
 			$searchFilter['=PROPERTY_PROMOTION'] = false;

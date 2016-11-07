@@ -244,7 +244,7 @@ if (!function_exists("cmpBySort"))
 				 		case "pickup":
 				 			if(isset($_REQUEST['ORDER_PROP_2'])):
 								global $storesFilter;
-								$storesFilter = array('PROPERTY_TYPE_VALUE' => array(2, 3));
+								$storesFilter = array('?PROPERTY_TYPE' => '2 | 3');
 					 			$section = findCityByLocation($_REQUEST['ORDER_PROP_2']);
 					 			if($section):
 						 			$APPLICATION->IncludeComponent("bitrix:news.list", "stores",

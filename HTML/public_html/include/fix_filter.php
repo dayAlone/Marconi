@@ -24,9 +24,14 @@ if($arResult['VARIABLES']['SECTION_CODE'] != 'coming'):
 	$arrFilter[] = array(
         "LOGIC" => "OR",
         array("=PROPERTY_COMING" => false),
+		array("=PROPERTY_VIP" => false),
         array("=PROPERTY_COMING" => "Y", "=PROPERTY_RETAIL" => "Y"),
         array("=PROPERTY_COMING" => "Y", "=PROPERTY_GENERAL" => "Y")
 	);
+endif;
+
+if($arResult['VARIABLES']['SECTION_CODE'] != 'vip' && SITE_ID == 's1'):
+	$arrFilter['PROPERTY_VIP'] = false;
 endif;
 
 if($arResult['VARIABLES']['SECTION_CODE'] != 'promotion'):
