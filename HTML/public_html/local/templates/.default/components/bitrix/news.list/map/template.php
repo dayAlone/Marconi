@@ -5,105 +5,55 @@
       $items = array();
       $section = false;
       $i=0;
-      if (!isset($_REQUEST['ELEMENT_CODE']):
-          foreach ($arResult['ITEMS'] as $key=>$item):
-            if(count(preg_split("/,/", $item['PROPERTIES']['COORDS']['VALUE']))>0 && isset($item['PROPERTIES']['TYPE']['VALUE_XML_ID']))
-              $items[$item['ID']] = array('code'=>$item['CODE'], 'coords' => preg_split("/,/", $item['PROPERTIES']['COORDS']['VALUE']), 'type'=>$item['PROPERTIES']['TYPE']['VALUE_XML_ID']);
-            if($item['CODE'] == $_REQUEST['ELEMENT_CODE'])
-              $active = $item;
-            if($section != $item['IBLOCK_SECTION_ID']):?>
-              <?if($i!=0):?></section>
-              <?endif;?>
-              <section data-id="<?=$item['IBLOCK_SECTION_ID']?>" key="<?=$i?>" class="<?=($item['IBLOCK_SECTION_ID']==47?"active":"")?>">
-              <?
-              $section = $item['IBLOCK_SECTION_ID'];
-            endif;
-            ?>
-            <div class="stores__list-item"><?
-                if(strlen($item['PROPERTIES']['ADDRESS']['VALUE']['TEXT'])>0):?>
-                  <div class="stores__address">
-                    <?=html_entity_decode($item['PROPERTIES']['ADDRESS']['VALUE']['TEXT'])?>
-                  </div>
-                <?endif;?>
-                <?if(strlen($item['PREVIEW_TEXT'])>0):?>
-                  <div class="stores__description">
-                    <?=$item['~PREVIEW_TEXT']?>
-                  </div>
-                <?endif;?>
-                <?if(strlen($item['PROPERTIES']['METRO']['VALUE'])>0):?>
-                  <div class="stores__metro">
-                    <?=svg('metro')?> <?=$item['PROPERTIES']['METRO']['VALUE']?>
-                  </div>
-                <?endif;?>
-                <?if(intval($item['PROPERTIES']['TYPE']['VALUE_XML_ID'])>0):?>
-                  <div class="stores__metro">
-                    <img width="17" src="/layout/images/store-<?=$item['PROPERTIES']['TYPE']['VALUE_XML_ID']?>.png" alt="">
-                    <?switch ($item['PROPERTIES']['TYPE']['VALUE_XML_ID']):
-                      case '1':
-                      ?>Места продаж<?
-                      break;
-                      case '2':
-                      ?>Фирменные магазины<?
-                      break;
-                      case '3':
-                      ?>Фирменные магазины с самовывозом<?
-                      break;
-                    endswitch;?>
-                  </div>
-                <? endif; ?>
-            </div>
+      foreach ($arResult['ITEMS'] as $key=>$item):
+        if(count(preg_split("/,/", $item['PROPERTIES']['COORDS']['VALUE']))>0 && isset($item['PROPERTIES']['TYPE']['VALUE_XML_ID']))
+          $items[$item['ID']] = array('code'=>$item['CODE'], 'coords' => preg_split("/,/", $item['PROPERTIES']['COORDS']['VALUE']), 'type'=>$item['PROPERTIES']['TYPE']['VALUE_XML_ID']);
+        if($item['CODE'] == $_REQUEST['ELEMENT_CODE'])
+          $active = $item;
+        if($section != $item['IBLOCK_SECTION_ID']):?>
+          <?if($i!=0):?></section>
+          <?endif;?>
+          <section data-id="<?=$item['IBLOCK_SECTION_ID']?>" key="<?=$i?>" class="<?=($item['IBLOCK_SECTION_ID']==47?"active":"")?>">
           <?
-            $i++;
-            endforeach;
-      else:
-        $current = false;
-        foreach ($arResult['ITEMS'] as $key=>$item):
-            if ($_REQUEST['ELEMENT_CODE'] === $item['CODE']) $current = $item;
+          $section = $item['IBLOCK_SECTION_ID'];
+        endif;
+        ?>
+        <div class="stores__list-item"><?
+        if(strlen($item['PROPERTIES']['ADDRESS']['VALUE']['TEXT'])>0):?>
+          <div class="stores__address">
+            <?=html_entity_decode($item['PROPERTIES']['ADDRESS']['VALUE']['TEXT'])?>
+          </div>
+        <?endif;?>
+        <?if(strlen($item['PREVIEW_TEXT'])>0):?>
+          <div class="stores__description">
+            <?=$item['~PREVIEW_TEXT']?>
+          </div>
+        <?endif;?>
+        <?if(strlen($item['PROPERTIES']['METRO']['VALUE'])>0):?>
+          <div class="stores__metro">
+            <?=svg('metro')?> <?=$item['PROPERTIES']['METRO']['VALUE']?>
+          </div>
+        <?endif;?>
+        <?if(intval($item['PROPERTIES']['TYPE']['VALUE_XML_ID'])>0):?>
+          <div class="stores__metro">
+            <img width="17" src="/layout/images/store-<?=$item['PROPERTIES']['TYPE']['VALUE_XML_ID']?>.png" alt="">
+            <?switch ($item['PROPERTIES']['TYPE']['VALUE_XML_ID']):
+              case '1':
+              ?>Места продаж<?
+              break;
+              case '2':
+              ?>Фирменные магазины<?
+              break;
+              case '3':
+              ?>Фирменные магазины с самовывозом<?
+              break;
+            endswitch;?>
+          </div>
+        <? endif; ?>
+        </div>
+      <?
+        $i++;
         endforeach;
-        if ($current) {
-            $item = $current;
-            ?>
-            <div class="stores__list-item"><?
-                if(strlen($item['PROPERTIES']['ADDRESS']['VALUE']['TEXT'])>0):?>
-                  <div class="stores__address">
-                    <?=html_entity_decode($item['PROPERTIES']['ADDRESS']['VALUE']['TEXT'])?>
-                  </div>
-                <?endif;?>
-                <?if(strlen($item['PREVIEW_TEXT'])>0):?>
-                  <div class="stores__description">
-                    <?=$item['~PREVIEW_TEXT']?>
-                  </div>
-                <?endif;?>
-                <?if(strlen($item['PROPERTIES']['METRO']['VALUE'])>0):?>
-                  <div class="stores__metro">
-                    <?=svg('metro')?> <?=$item['PROPERTIES']['METRO']['VALUE']?>
-                  </div>
-                <?endif;?>
-                <?if(intval($item['PROPERTIES']['TYPE']['VALUE_XML_ID'])>0):?>
-                  <div class="stores__metro">
-                    <img width="17" src="/layout/images/store-<?=$item['PROPERTIES']['TYPE']['VALUE_XML_ID']?>.png" alt="">
-                    <?switch ($item['PROPERTIES']['TYPE']['VALUE_XML_ID']):
-                      case '1':
-                      ?>Места продаж<?
-                      break;
-                      case '2':
-                      ?>Фирменные магазины<?
-                      break;
-                      case '3':
-                      ?>Фирменные магазины с самовывозом<?
-                      break;
-                    endswitch;?>
-                  </div>
-                <? endif; ?>
-            </div>
-            <div class="contacts">
-                <p>
-                    <a href='/store/'>К полному списку магазинов</a>
-                </p>
-            </div>
-            <?
-        }
-      endif;
     ?>
   </div>
 </div>
