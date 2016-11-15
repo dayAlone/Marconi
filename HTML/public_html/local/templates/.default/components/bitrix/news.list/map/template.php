@@ -9,7 +9,7 @@
       foreach ($arResult['ITEMS'] as $key=>$item):
           if ($_REQUEST['ELEMENT_CODE'] === $item['CODE']) $current = $item;
       endforeach;
-      if ((!isset($_REQUEST['ELEMENT_CODE']) || !$current) || isset($_REQUEST['short'])):
+      ?><div style="<?=($current ? 'display: none' : '')"><?
           foreach ($arResult['ITEMS'] as $key=>$item):
             if(count(preg_split("/,/", $item['PROPERTIES']['COORDS']['VALUE']))>0 && isset($item['PROPERTIES']['TYPE']['VALUE_XML_ID']))
               $items[$item['ID']] = array('code'=>$item['CODE'], 'coords' => preg_split("/,/", $item['PROPERTIES']['COORDS']['VALUE']), 'type'=>$item['PROPERTIES']['TYPE']['VALUE_XML_ID']);
@@ -59,7 +59,8 @@
           <?
             $i++;
             endforeach;
-      else:
+     ?></div><?
+      if (isset($_REQUEST['ELEMENT_CODE'])):
 
         if ($current) {
             $item = $current;
